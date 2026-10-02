@@ -12,7 +12,7 @@
 | 词汇 | `vocabulary/core_words.jsonl` | 3123 | 四/六级核心1500词（tier=core） |
 | 词汇 | `vocabulary/phrases_highfreq.jsonl` | 1406 | 六级高频词组635 + 高频700词 + 必背200词（含近年频次） |
 | 词汇 | `vocabulary/translation_topic_words.jsonl` | 8 | 翻译热点主题词（文化/科技/经济等主题分组） |
-| 真题 | `questions/cet4/*.jsonl` `questions/cet6/*.jsonl` | 5056 | 109 套卷（2015.06–2025.12）逐题拆分，客观题答案填充 788（16%） |
+| 真题 | `questions/cet4/*.jsonl` `questions/cet6/*.jsonl` | 5294 | 108 套卷（2015.06–2025.12）逐题拆分，客观题答案填充 835（16%），178 条选项不完整已标 `needs_fix` |
 | 长语料 | `passages/reading.jsonl` | 431 | 阅读文章/完形（含词库）/长篇阅读（老卷未分段已标注） |
 | 写作 | `writing/model_essays.jsonl` | 177 | 真题写作题目+范文（68 条含范文全文） |
 | 写作 | `writing/templates.jsonl` | 69 | 模板句（按功能分类：开头/论证/建议/结尾…）+ 人读版 md |
@@ -20,7 +20,7 @@
 | 本体 | `ontology/exam_tree.json` `knowledge_nodes.jsonl` | 46 节点 | 考试→模块→题型；知识点含先修关系/CSE 等级 |
 | 考试说明 | `exam_guide/cet_overview.md` | — | 题型结构/分值/时间 |
 
-试卷覆盖：109 套 = docx 拆题 91 套（2015.06–2024.06）+ PDF 拆题 18 套（2024.12 / 2025.06 / 2025.12）。45 套达到完整 25听力+30阅读；其余差异见 `manifest/papers.jsonl` 的 warnings。**2026.6 为扫描件未拆题**（原件路径已登记）。
+试卷覆盖：108 套 = docx 拆题 90 套（2015.06–2024.06，含 11 套只含写作翻译的节选卷）+ PDF 拆题 18 套（2024.12 / 2025.06 / 2025.12）。47 套达到完整 25听力+30阅读；节选卷经 `listening_ref`/`reading_ref` 指向同场次完整卷；其余差异见 `manifest/papers.jsonl` 的 warnings。**2026.6 为扫描件未拆题**（原件路径已登记）。
 
 ## 数据字典
 
@@ -76,4 +76,6 @@ python scripts/build_templates.py --src <资料根> --kb <KB>
 python scripts/build_stats.py --kb <KB>
 ```
 
-> 注：`四级/`、`六级/` 两个空目录为建库前遗留，未使用，可删除。
+> 注：
+> - 本仓库远端：https://github.com/sgrz666/knowledge-map.git（真题文本为个人学习整理，建议仓库保持私有）
+> - 范文/译文覆盖不全系源文件所致：四六级《写作/翻译范文》合集 PDF 仅收录 2015–2023 各 12 月场次及 2024.06、2025.06
