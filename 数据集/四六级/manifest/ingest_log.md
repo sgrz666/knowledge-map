@@ -36,6 +36,13 @@
 - 完形填空部分老卷空格编号丢失：题目保留（词库+文章完整），`stem` 为空。
 - 答案填充率 16%（788/5056），宁可缺失不给错答案；`analysis_status=answer_from_key` 标记已填来源。
 
+## v2 层级标准重构（2026-10-02）
+
+按《应试考证功能设计与技术支撑》§3.2/§3.3/§3.4 重构：
+- `scripts/build_ontology_v2.py`：standards.json(L0 标准+CSE+素养) / ability_nodes.jsonl(28 能力) / knowledge_nodes.jsonl(48 知识点) / edges.jsonl(99 边: supports/sub_ability/exemplifies/prereq_of/anchored_by) / mastery_template.json(L5)
+- `scripts/migrate_v2_schema.py`：全库迁移到标准 schema；题目按题干内容细粒度挂载；资源全部挂图；papers 改 paper_id
+- 重建顺序：build_questions(docx) → build_questions_pdf → fill_answers → migrate_v2_schema → build_stats
+
 ## 复核修正记录（2026-10-02 二次核对）
 
 1. **新增 8 套节选卷**：2022.09（四六级各3套）、2023.03 p2/p3、2020.09 p3、2022.06 p3 等 docx 为"仅写作+翻译"节选卷（听阅与同场次其他套相同），已按 partial paper 解析入库并登记 ref。

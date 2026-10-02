@@ -1,0 +1,21 @@
+{
+ "layer": "L5 用户掌握度",
+ "说明": "掌握度为运行时数据(按 用户×知识点 维度持续更新),不入静态知识库;本模板供学习Agent落库使用",
+ "record_schema": {
+  "user_id": "string",
+  "knowledge_node_id": "cet4.read.infer",
+  "mastery": "0.0-1.0",
+  "status": "未学习|已掌握|待巩固|薄弱",
+  "evidence": [
+   {
+    "question_id": "...",
+    "correct": true,
+    "ts": "ISO8601",
+    "duration_ms": 0
+   }
+  ],
+  "updated_at": "ISO8601",
+  "next_review": "FSRS/SM-2 计划时间"
+ },
+ "update_rule": "每次作答后按 (用户,知识点) 重算; BKT/DKT 可替换简单计数"
+}

@@ -81,10 +81,20 @@ def paper_cn(p):
     return CN_PAPER.get(p, f"第{p}套")
 
 def new_qid(old_id):
-    m = re.match(r"cet[46]\.([lr])\.(\d{4}-\d{2})_p(\d)\.q(\d+)", old_id)
-    lv = m.group(1)
-    slug = "listening" if lv == "l" else "reading"
-    return f"{lv}-{m.group(2)}-p{m.group(3)}-{slug}-{m.group(4)}", m.group(2), int(m.group(3))
+    m = re.match(r"(cet[46])\.([lr])\.(\d{4}-\d{2})_p(\d)\.q(\d+)", old_id)
+    slug = "listening" if m.group(2) == "l" else "reading"
+    return f"{m.group(1)}-{m.group(3)}-p{m.group(4)}-{slug}-{m.group(5)}", m.group(3), int(m.group(4))
+
+def conv_passage_id(pp):
+    """旧 passage_id（点/下划线两种变体）→ 新 resource_id；听力分组置空。"""
+    if not pp:
+        return None
+    m = (re.match(r"(cet[46])\.r\.(\d{4}-\d{2})-p(\d)\.(ca|cb|c\d)$", pp)
+         or re.match(r"(cet[46])\.r\.(\d{4}-\d{2})_p(\d)\.(ca|cb|c\d)$", pp))
+    if not m:
+        return None
+    slug = {"ca": "cloze", "cb": "matching"}.get(m.group(4), m.group(4))
+    return f"{m.group(1)}-{m.group(2)}-p{m.group(3)}-reading-{slug}"
 
 def migrate_questions():
     id_map = {}
@@ -122,7 +132,7 @@ def migrate_questions():
                                  "status": r.get("analysis_status")},
                     "tags": {"来源": "真题", "审核": review.get("status", "auto_parsed"), "版权": "internal-personal-use", "难度": None},
                     "extra": {"number": r.get("number"), "group": r.get("group"),
-                              "passage_id": re.sub(r"_p(\d)", r"-p\1", r.get("passage_id") or "") or None,
+                              "passage_id": conv_passage_id(r.get("passage_id")),
                               "text": r.get("text"), "review": review, "_old_id": old_id},
                     "text": r.get("text"),
                 }
@@ -277,7 +287,8 @@ def migrate_papers(id_map_unused):
         new.pop("id", None)
         for refk in ("listening_ref", "reading_ref"):
             if r.get(refk):
-                new[refk] = re.sub(r"_p(\d)", r"-p\1", r[refk])
+                mm = re.match(r"(cet[46])\.(\d{4}-\d{2})_p(\d)", r[refk])
+                new[refk] = f"{mm.group(1)}-{mm.group(2)}-p{mm.group(3)}" if mm else r[refk]
         out.append(new)
     f.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in out) + "\n", encoding="utf-8")
     print(f"papers: {len(out)}")

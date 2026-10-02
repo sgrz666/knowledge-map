@@ -77,7 +77,7 @@
   "conflicts": []
  },
  "cet4/2016-06_p2.jsonl": {
-  "need": 55,
+  "need": 57,
   "filled": 0,
   "note": "no answer source"
  },
@@ -275,27 +275,27 @@
   "conflicts": []
  },
  "cet4/2024-12_p1.jsonl": {
-  "need": 55,
+  "need": 58,
   "filled": 0,
   "note": "no answer source"
  },
  "cet4/2024-12_p2.jsonl": {
-  "need": 47,
+  "need": 50,
   "filled": 0,
   "note": "no answer source"
  },
  "cet4/2024-12_p3.jsonl": {
-  "need": 30,
+  "need": 31,
   "filled": 0,
   "note": "no answer source"
  },
  "cet4/2025-06_p1.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
  "cet4/2025-06_p2.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
@@ -305,12 +305,12 @@
   "note": "no answer source"
  },
  "cet4/2025-12_p1.jsonl": {
-  "need": 55,
+  "need": 57,
   "filled": 0,
   "note": "no answer source"
  },
  "cet4/2025-12_p2.jsonl": {
-  "need": 53,
+  "need": 55,
   "filled": 0,
   "note": "no answer source"
  },
@@ -330,7 +330,7 @@
   "note": "no answer source"
  },
  "cet6/2015-06_p3.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
@@ -340,7 +340,7 @@
   "note": "no answer source"
  },
  "cet6/2015-12_p2.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
@@ -350,17 +350,17 @@
   "note": "no answer source"
  },
  "cet6/2016-12_p1.jsonl": {
-  "need": 55,
+  "need": 62,
   "filled": 0,
   "note": "no answer source"
  },
  "cet6/2016-12_p2.jsonl": {
-  "need": 55,
+  "need": 63,
   "filled": 0,
   "note": "no answer source"
  },
  "cet6/2016-12_p3.jsonl": {
-  "need": 30,
+  "need": 38,
   "filled": 0,
   "note": "no answer source"
  },
@@ -410,17 +410,17 @@
   "conflicts": []
  },
  "cet6/2018-12_p1.jsonl": {
-  "need": 51,
-  "filled": 4,
+  "need": 56,
+  "filled": 5,
   "conflicts": []
  },
  "cet6/2018-12_p2.jsonl": {
-  "need": 43,
+  "need": 48,
   "filled": 2,
   "conflicts": []
  },
  "cet6/2018-12_p3.jsonl": {
-  "need": 30,
+  "need": 31,
   "filled": 0,
   "note": "no answer source"
  },
@@ -485,12 +485,12 @@
   "conflicts": []
  },
  "cet6/2020-12_p1.jsonl": {
-  "need": 53,
+  "need": 54,
   "filled": 3,
   "conflicts": []
  },
  "cet6/2020-12_p2.jsonl": {
-  "need": 54,
+  "need": 55,
   "filled": 0,
   "note": "no answer source"
  },
@@ -530,8 +530,8 @@
   "conflicts": []
  },
  "cet6/2022-09_p1.jsonl": {
-  "need": 55,
-  "filled": 40,
+  "need": 57,
+  "filled": 42,
   "conflicts": []
  },
  "cet6/2022-12_p1.jsonl": {
@@ -590,7 +590,7 @@
   "conflicts": []
  },
  "cet6/2024-06_p2.jsonl": {
-  "need": 54,
+  "need": 55,
   "filled": 5,
   "conflicts": []
  },
@@ -605,7 +605,7 @@
   "note": "no answer source"
  },
  "cet6/2024-12_p2.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
@@ -615,7 +615,7 @@
   "note": "no answer source"
  },
  "cet6/2025-06_p1.jsonl": {
-  "need": 55,
+  "need": 57,
   "filled": 0,
   "note": "no answer source"
  },
@@ -630,12 +630,12 @@
   "note": "no answer source"
  },
  "cet6/2025-12_p1.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },
  "cet6/2025-12_p2.jsonl": {
-  "need": 55,
+  "need": 56,
   "filled": 0,
   "note": "no answer source"
  },

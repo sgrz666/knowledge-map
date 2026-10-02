@@ -34,7 +34,7 @@ for lv0 in ("cet4", "cet6"):
     for f0 in (KB / "questions" / lv0).glob("*.jsonl"):
         qfile_counts[f"{lv0}.{f0.stem}"] = len([x for x in f0.read_text(encoding="utf-8").splitlines() if x.strip()])
 for pp in papers:
-    n0 = qfile_counts.get(pp["id"])
+    n0 = qfile_counts.get(pp.get("paper_id") or pp.get("id"))
     if n0 is not None:
         cur = pp.get("listening_qs", 0) + pp.get("reading_qs", 0)
         if cur != n0:
@@ -50,16 +50,16 @@ for (exam, ym), ps in by_session.items():
         if p is full:
             continue
         if p.get("listening_qs", 0) < 25 and not p.get("listening_ref") and full.get("listening_qs", 0) >= 25:
-            p["listening_ref"] = full["id"]
+            p["listening_ref"] = full.get("paper_id") or full.get("id")
         if p.get("reading_qs", 0) < 30 and not p.get("reading_ref") and full.get("reading_qs", 0) >= 30:
-            p["reading_ref"] = full["id"]
+            p["reading_ref"] = full.get("paper_id") or full.get("id")
 for (exam, ym), ps in by_session.items():
     src = next((x for x in ps if x.get("listening_qs") == 25), None)
     if src:
         for p in ps:
             if p.get("listening_qs") == 0 and not p.get("listening_ref"):
-                p["listening_ref"] = src["id"]
-                p.setdefault("warnings", []).append(f"listening shared from {src['id']}")
+                p["listening_ref"] = src.get("paper_id") or src.get("id")
+                p.setdefault("warnings", []).append(f"listening shared from {p['listening_ref']}")
 (KB / "manifest" / "papers.jsonl").write_text(
     "\n".join(json.dumps(x, ensure_ascii=False) for x in papers) + "\n", encoding="utf-8")
 
@@ -75,46 +75,49 @@ for lv in ("cet4", "cet6"):
                 recs.append(json.loads(l))
     # 去重：同 id 保留信息最全的一条（有题干和选项者优先）
     def quality(r):
-        return (bool(r.get("stem")), len(r.get("options") or {}), bool(r.get("answer")))
+        c = r.get("content") or {}
+        return (bool(c.get("stem")), len(c.get("options") or {}), bool(c.get("answer")))
     best = {}
     for r in recs:
-        k = r["id"]
+        k = r.get("question_id") or r.get("id")
         if k not in best or quality(r) > quality(best[k]):
             best[k] = r
-    # 质量标记：客观题选项数异常 → needs_fix（保留数据，可过滤）
+    # 质量标记：客观题选项数异常 → needs_fix（保留数据，可过滤）【v2 schema】
     n_needs_fix = 0
     for r in best.values():
         if r.get("question_type") in ("选词填空", "长篇阅读"):
             continue
-        if len(r.get("options") or {}) not in (0, 4):
-            r["review"] = {"status": "needs_fix"}
+        if len((r.get("content") or {}).get("options") or {}) not in (0, 4):
+            r.setdefault("tags", {})["审核"] = "needs_fix"
+            r.setdefault("extra", {}).setdefault("review", {})["status"] = "needs_fix"
             n_needs_fix += 1
     # 按文件写回去重结果（写本文件自己的首条记录，避免跨文件重复）
     for f in sorted(qd.glob("*.jsonl")):
         rows = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
         seen, out = set(), []
         for r in rows:
-            k = r["id"]
+            k = r.get("question_id") or r.get("id")
             if k in seen:
                 continue
             seen.add(k)
             out.append(best.get(k, r))
         f.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n", encoding="utf-8")
     recs = list(best.values())
-    ids = [r["id"] for r in recs]
+    ids = [r.get("question_id") or r.get("id") for r in recs]
     dup = len(ids) - len(set(ids))
     by_level[lv] = {
         "records": len(recs),
-        "with_answer": sum(1 for r in recs if r.get("answer")),
+        "with_answer": sum(1 for r in recs if (r.get("content") or {}).get("answer")),
         "duplicate_ids": dup,
         "by_type": dict(Counter(r["question_type"] for r in recs)),
         "by_module": dict(Counter(r["module"] for r in recs)),
     }
     q_total += len(recs)
-    q_ans += sum(1 for r in recs if r.get("answer"))
+    q_ans += sum(1 for r in recs if (r.get("content") or {}).get("answer"))
 
 full_papers = sum(1 for p in papers if p.get("listening_qs") == 25 and p.get("reading_qs") == 30)
-no_listen = [p["id"] for p in papers if p.get("listening_qs", 0) < 25 and not p.get("listening_ref")]
+no_listen = [p.get("paper_id") or p.get("id") for p in papers if p.get("listening_qs", 0) < 25 and not p.get("listening_ref")]
+full_papers = sum(1 for p in papers if p.get("listening_qs") == 25 and p.get("reading_qs") == 30)
 scan_sessions = sorted({p["year"] for p in papers}) and ["2026-06"]
 
 stats = {

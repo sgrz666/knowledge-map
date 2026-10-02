@@ -12,8 +12,8 @@
   "total": 5294,
   "with_answer": 835,
   "answer_fill_rate": 0.158,
-  "papers_total": 108,
-  "papers_full_25L_30R": 47,
+  "papers_total": 126,
+  "papers_full_25L_30R": 46,
   "papers_missing_listening_without_ref": 10,
   "detail": {
    "cet4": {
@@ -29,8 +29,8 @@
      "仔细阅读": 499
     },
     "by_module": {
-     "听力": 869,
-     "阅读": 1538
+     "听力理解": 869,
+     "阅读理解": 1538
     }
    },
    "cet6": {
@@ -46,27 +46,27 @@
      "选词填空": 600
     },
     "by_module": {
-     "听力": 1077,
-     "阅读": 1810
+     "听力理解": 1077,
+     "阅读理解": 1810
     }
    }
   }
  },
  "passages": {
-  "reading": 378,
+  "reading": 449,
   "listening_transcripts": 0
  },
  "writing": {
   "model_essays": 177,
-  "with_model_essay": 68,
+  "with_model_essay": 0,
   "templates": 69
  },
  "translation": {
   "items": 193,
-  "with_reference": 116
+  "with_reference": 0
  },
  "ontology": {
-  "knowledge_nodes": 46
+  "knowledge_nodes": 48
  },
  "not_ingested": {
   "listening_audio": "120 个 MP3 仅在 manifest/ingest_log.md 登记路径，不入向量库",

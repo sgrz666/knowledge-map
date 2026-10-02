@@ -1,6 +1,6 @@
 # 四六级 RAG 知识库
 
-> 状态：**v1 已构建**（2026-10-02）。设计文档：`_方案_知识库设计与格式.md`；质检统计：`manifest/stats.json`；来源映射：`manifest/ingest_log.md`。
+> 状态：**v2 已按《应试考证功能设计与技术支撑》层级标准重构**（2026-10-02）。层级：L0 标准 → 素养 → L1 能力维度 → L2 知识点(含先修) → L3 题型 → L4 题目/资源 → L5 掌握度(模板)。质检：`manifest/stats.json`；来源映射：`manifest/ingest_log.md`。
 > 来源：《英语四六级资料合集（2026年最新）》→ 本库整理，全部记录可回溯原始文件。
 
 ## 库存总览
@@ -12,32 +12,45 @@
 | 词汇 | `vocabulary/core_words.jsonl` | 3123 | 四/六级核心1500词（tier=core） |
 | 词汇 | `vocabulary/phrases_highfreq.jsonl` | 1406 | 六级高频词组635 + 高频700词 + 必背200词（含近年频次） |
 | 词汇 | `vocabulary/translation_topic_words.jsonl` | 8 | 翻译热点主题词（文化/科技/经济等主题分组） |
-| 真题 | `questions/cet4/*.jsonl` `questions/cet6/*.jsonl` | 5294 | 108 套卷（2015.06–2025.12）逐题拆分，客观题答案填充 835（16%），178 条选项不完整已标 `needs_fix` |
+| 真题 | `questions/cet4/*.jsonl` `questions/cet6/*.jsonl` | 5294 | **126 套卷**（2015.06–2025.12，docx 108 + PDF 18）逐题拆分，答案填充 835（16%），95 条标 `needs_fix`；每题按内容细粒度挂载知识点+能力 |
 | 长语料 | `passages/reading.jsonl` | 431 | 阅读文章/完形（含词库）/长篇阅读（老卷未分段已标注） |
 | 写作 | `writing/model_essays.jsonl` | 177 | 真题写作题目+范文（68 条含范文全文） |
 | 写作 | `writing/templates.jsonl` | 69 | 模板句（按功能分类：开头/论证/建议/结尾…）+ 人读版 md |
 | 翻译 | `translation/items.jsonl` | 193 | 真题中文段落+参考译文（116 条含译文） |
-| 本体 | `ontology/exam_tree.json` `knowledge_nodes.jsonl` | 46 节点 | 考试→模块→题型；知识点含先修关系/CSE 等级 |
+| 本体 | `ontology/standards.json` `ability_nodes.jsonl` `knowledge_nodes.jsonl` `edges.jsonl` `mastery_template.json` | 48 知识点 + 28 能力 + 99 边 | L0 标准/CSE → 素养 → 能力维度 → 知识点(先修关系)；L5 掌握度模板 |
 | 考试说明 | `exam_guide/cet_overview.md` | — | 题型结构/分值/时间 |
 
-试卷覆盖：108 套 = docx 拆题 90 套（2015.06–2024.06，含 11 套只含写作翻译的节选卷）+ PDF 拆题 18 套（2024.12 / 2025.06 / 2025.12）。47 套达到完整 25听力+30阅读；节选卷经 `listening_ref`/`reading_ref` 指向同场次完整卷；其余差异见 `manifest/papers.jsonl` 的 warnings。**2026.6 为扫描件未拆题**（原件路径已登记）。
+试卷覆盖：**126 套** = docx 拆题 108 套（2015.06–2024.06，含 11 套仅写作翻译的节选卷）+ PDF 拆题 18 套（2024.12 / 2025.06 / 2025.12）。节选卷经 `listening_ref`/`reading_ref` 指向同场次完整卷。**2026.6 为扫描件未拆题**（原件路径已登记）。
 
-## 数据字典
+## 数据字典（v2，对齐需求文档 §3.3）
 
-所有库为 JSONL（每行一条 JSON = 一个检索原子/chunk）。通用字段：
+所有库为 JSONL。**题目记录**严格采用文档参考 schema，一行 = 一个检索原子：
 
-| 字段 | 说明 |
-| --- | --- |
-| `id` | 全局唯一，`{exam小写}.{module}.{年月}_p{套}.{序号}`，如 `cet6.r.2022-06_p1.q46` |
-| `exam` | `CET-4` / `CET-6` |
-| `year` / `paper` | 考试年月（`2022-06`）/ 套数 1-3 |
-| `text` | 预渲染检索文本（含元信息前缀），**embedding 直接用此字段** |
-| `source.origin_file` | 原始资料路径，可回溯 |
-| `review.status` | `auto_parsed`（未人工复核）；题目另有 `analysis_status=answer_from_key` 表示答案来自解析册 |
+```json
+{
+  "question_id": "cet4-2022-06-p1-reading-46",
+  "exam": "CET-4",
+  "module": "阅读理解",
+  "question_type": "仔细阅读",
+  "source": {"type": "真题", "year": "2022-06", "paper": "第一套", "verified": false,
+             "origin_file": "<原始资料路径>", "analysis_file": "<解析册路径>"},
+  "knowledge_node_ids": ["cet4.read.locate", "cet4.read.infer"],
+  "ability_ids": ["ab.cet4.read.locate", "ab.cet4.read.infer"],
+  "difficulty": null,
+  "content": {"stem": "...", "options": {"A": "...", "B": "...", "C": "...", "D": "..."}, "answer": "B"},
+  "analysis": {"key_info": null, "option_compare": null, "trace_back": null, "raw": null, "status": "answer_from_key"},
+  "tags": {"来源": "真题", "审核": "auto_parsed|needs_fix|checked", "版权": "internal-personal-use", "难度": null},
+  "extra": {"number": 46, "group": "c1", "passage_id": "cet4-2022-06-p1-reading-p1",
+            "text": "<预渲染RAG检索文本>", "review": {"status": "auto_parsed"}},
+  "text": "<同 extra.text，便于RAG加载器直接使用>"
+}
+```
 
-题目专用：`module`（听力/阅读）、`question_type`（短篇新闻/长对话/听力篇章/讲座讲话/选词填空/长篇阅读/仔细阅读）、`number`(1-55)、`stem/options/answer`、`passage_id`（关联文章）、`knowledge_nodes`（自动挂载的 L3 知识点）、`group`（题组）。词汇专用：`word/phonetic/pos_meaning/tier/cse_level`。
-
-> 第2/3套卷听力常与第1套相同（实考共享），未重复入库：`manifest/papers.jsonl` 用 `listening_ref` 指向同场次含听力的卷。
+- **id 约定**：`{exam}-{年月}-p{套}-{listening|reading|writing|translation}-{题号}`（在文档示例基础上增加 p{套} 段，因四六级一考多卷必须区分）
+- **层级挂载**：`knowledge_node_ids` 按题干内容细分类挂载（仔细阅读分 细节/定位/推断/主旨/态度，听力分 细节/主旨/推断），**每题 ≥1 个知识点**；`ability_ids` 由知识点经图谱边自动获得
+- **资源记录**（文章/范文/翻译/模板/词汇）统一 `resource_id/resource_type/knowledge_node_ids/ability_ids/source/tags/extra`，全部挂载图谱
+- **L5 掌握度**：运行时数据，schema 见 `ontology/mastery_template.json`（用户×知识点，支持 BKT/FSRS 扩展）
+- **9 类标签**：考试=exam、科目=module、题型=question_type、知识点=knowledge_node_ids、能力=ability_ids、难度=difficulty(tags.难度)、来源=source.type、审核=tags.审核、版权=tags.版权
 
 ## 检索约定
 
@@ -52,8 +65,9 @@ import json
 docs = []
 for line in open("questions/cet6/2024-06_p1.jsonl", encoding="utf-8"):
     r = json.loads(line)
-    meta = {k: r[k] for k in ("exam","year","paper","module","question_type","knowledge_nodes") if r.get(k) is not None}
-    docs.append({"id": r["id"], "text": r["text"], "metadata": meta})
+    meta = {"exam": r["exam"], "module": r["module"], "question_type": r["question_type"],
+            "year": r["source"]["year"], "knowledge_nodes": r["knowledge_node_ids"]}
+    docs.append({"id": r["question_id"], "text": r["text"], "metadata": meta})
 # 之后按所用框架写入 FAISS / Milvus / Dify 知识库等
 ```
 
