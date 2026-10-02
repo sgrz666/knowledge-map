@@ -218,5 +218,33 @@
     "total": 700
    }
   }
+ },
+ "graph": {
+  "standard": "L1考试→L2模块→L3知识点(含先修)→L4题目;L5掌握度为运行时数据,按(用户,知识点)更新",
+  "nodes": 14794,
+  "edges": 29849,
+  "by_layer": {
+   "L1": 7,
+   "L2": 38,
+   "L3": 186,
+   "L4": 14500,
+   "S1": 45,
+   "S2": 18
+  },
+  "by_edge_type": {
+   "basis": 45,
+   "belongs_to": 6,
+   "comprises": 30,
+   "contains": 14538,
+   "has_child": 33,
+   "prerequisite": 119,
+   "supports": 23,
+   "tagged": 15055
+  },
+  "files": [
+   "graph/nodes.jsonl",
+   "graph/edges.jsonl"
+  ],
+  "note": "先修关系/素养/能力层为建议稿(verified=false,待教研审核);题目标签沿用 review.tagger"
  }
 }

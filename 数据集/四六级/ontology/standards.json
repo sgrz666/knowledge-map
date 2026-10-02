@@ -1,0 +1,53 @@
+{
+ "standards": [
+  {
+   "id": "std.cet.syllabus",
+   "name": "全国大学英语四、六级考试大纲",
+   "type": "考试大纲",
+   "authority": "教育部教育考试院",
+   "约束": [
+    "L1 考试结构",
+    "L2 模块与题型",
+    "分值与时间"
+   ]
+  },
+  {
+   "id": "std.cse",
+   "name": "中国英语能力等级量表 (CSE)",
+   "type": "国家标准",
+   "authority": "GB/T 41671-2022",
+   "约束": [
+    "能力等级描述",
+    "cse_level 标定"
+   ]
+  },
+  {
+   "id": "std.cet.wordlist",
+   "name": "CET 词汇表",
+   "type": "考试大纲附件",
+   "authority": "教育部教育考试院",
+   "约束": [
+    "词汇库 tier=outline 的范围"
+   ]
+  }
+ ],
+ "素养目标": [
+  {
+   "id": "comp.languse",
+   "name": "语言运用素养",
+   "anchored_by": [
+    "std.cet.syllabus",
+    "std.cse"
+   ],
+   "说明": "在一定语境中运用英语获取、理解、表达信息的能力"
+  },
+  {
+   "id": "comp.learning",
+   "name": "自主学习与备考素养",
+   "anchored_by": [
+    "std.cse"
+   ],
+   "说明": "自我诊断、策略调整与持续改进的能力（支撑个性化路径）"
+  }
+ ]
+}
