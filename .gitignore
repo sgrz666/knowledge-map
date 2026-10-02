@@ -5,3 +5,8 @@ code/
 !数据集/四六级/
 数据集/四六级/scripts/_staging/
 英语四六级资料合集（2026年最新）(1)/
+
+# 安全扫描本地审计产物
+.mimosa/
+code/
+code_staging/
