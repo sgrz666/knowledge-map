@@ -1,0 +1,541 @@
+[
+ {
+  "raw": "教育知识与能力",
+  "level": "zhongxue",
+  "subject": "jiaoyuzhishi",
+  "subject_cn": "教育知识与能力",
+  "count": 28
+ },
+ {
+  "raw": "综合素质",
+  "level": "zhongxue",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 28
+ },
+ {
+  "raw": "中学教育知识与能力",
+  "level": "zhongxue",
+  "subject": "jiaoyuzhishi",
+  "subject_cn": "教育知识与能力",
+  "count": 20
+ },
+ {
+  "raw": "中学综合素质",
+  "level": "zhongxue",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 20
+ },
+ {
+  "raw": "保教知识与能力",
+  "level": "youer",
+  "subject": "baojiao",
+  "subject_cn": "保教知识与能力",
+  "count": 19
+ },
+ {
+  "raw": "中小学结构化面试",
+  "level": "zhongxiaoxue",
+  "subject": "mianshi",
+  "subject_cn": "结构化面试",
+  "count": 18
+ },
+ {
+  "raw": "教育教学知识与能力",
+  "level": "xiaoxue",
+  "subject": "jiaoxue",
+  "subject_cn": "教育教学知识与能力",
+  "count": 17
+ },
+ {
+  "raw": "综合素质",
+  "level": "youer",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 15
+ },
+ {
+  "raw": "综合素质",
+  "level": "xiaoxue",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 13
+ },
+ {
+  "raw": "高中语文",
+  "level": "gaozhong",
+  "subject": "yuwen",
+  "subject_cn": "语文",
+  "count": 13
+ },
+ {
+  "raw": "初中政治",
+  "level": "chuzhong",
+  "subject": "zhengzhi",
+  "subject_cn": "政治(思想品德/思想政治)",
+  "count": 12
+ },
+ {
+  "raw": "初中语文",
+  "level": "chuzhong",
+  "subject": "yuwen",
+  "subject_cn": "语文",
+  "count": 12
+ },
+ {
+  "raw": "初中信息技术",
+  "level": "chuzhong",
+  "subject": "xinxi",
+  "subject_cn": "信息技术",
+  "count": 12
+ },
+ {
+  "raw": "高中生物",
+  "level": "gaozhong",
+  "subject": "shengwu",
+  "subject_cn": "生物",
+  "count": 12
+ },
+ {
+  "raw": "高中英语",
+  "level": "gaozhong",
+  "subject": "yingyu",
+  "subject_cn": "英语",
+  "count": 12
+ },
+ {
+  "raw": "初中数学",
+  "level": "chuzhong",
+  "subject": "shuxue",
+  "subject_cn": "数学",
+  "count": 11
+ },
+ {
+  "raw": "初中美术",
+  "level": "chuzhong",
+  "subject": "meishu",
+  "subject_cn": "美术",
+  "count": 11
+ },
+ {
+  "raw": "初中英语",
+  "level": "chuzhong",
+  "subject": "yingyu",
+  "subject_cn": "英语",
+  "count": 11
+ },
+ {
+  "raw": "英语学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "yingyu",
+  "subject_cn": "英语",
+  "count": 11
+ },
+ {
+  "raw": "初中体育与健康",
+  "level": "chuzhong",
+  "subject": "tiyu",
+  "subject_cn": "体育与健康",
+  "count": 11
+ },
+ {
+  "raw": "高中数学",
+  "level": "gaozhong",
+  "subject": "shuxue",
+  "subject_cn": "数学",
+  "count": 11
+ },
+ {
+  "raw": "高中体育与健康",
+  "level": "gaozhong",
+  "subject": "tiyu",
+  "subject_cn": "体育与健康",
+  "count": 11
+ },
+ {
+  "raw": "高中信息技术",
+  "level": "gaozhong",
+  "subject": "xinxi",
+  "subject_cn": "信息技术",
+  "count": 11
+ },
+ {
+  "raw": "高中地理",
+  "level": "gaozhong",
+  "subject": "dili",
+  "subject_cn": "地理",
+  "count": 11
+ },
+ {
+  "raw": "高中政治",
+  "level": "gaozhong",
+  "subject": "zhengzhi",
+  "subject_cn": "政治(思想品德/思想政治)",
+  "count": 11
+ },
+ {
+  "raw": "幼儿综合素质",
+  "level": "youer",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 10
+ },
+ {
+  "raw": "小学综合素质",
+  "level": "xiaoxue",
+  "subject": "zonghe",
+  "subject_cn": "综合素质",
+  "count": 10
+ },
+ {
+  "raw": "美术学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "meishu",
+  "subject_cn": "美术",
+  "count": 10
+ },
+ {
+  "raw": "语文学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "yuwen",
+  "subject_cn": "语文",
+  "count": 10
+ },
+ {
+  "raw": "初中历史",
+  "level": "chuzhong",
+  "subject": "lishi",
+  "subject_cn": "历史",
+  "count": 10
+ },
+ {
+  "raw": "物理学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "wuli",
+  "subject_cn": "物理",
+  "count": 10
+ },
+ {
+  "raw": "幼儿保教知识与能力",
+  "level": "youer",
+  "subject": "baojiao",
+  "subject_cn": "保教知识与能力",
+  "count": 9
+ },
+ {
+  "raw": "初中地理",
+  "level": "chuzhong",
+  "subject": "dili",
+  "subject_cn": "地理",
+  "count": 9
+ },
+ {
+  "raw": "美术学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "meishu",
+  "subject_cn": "美术",
+  "count": 9
+ },
+ {
+  "raw": "信息技术学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "xinxi",
+  "subject_cn": "信息技术",
+  "count": 9
+ },
+ {
+  "raw": "高中历史",
+  "level": "gaozhong",
+  "subject": "lishi",
+  "subject_cn": "历史",
+  "count": 9
+ },
+ {
+  "raw": "高中美术",
+  "level": "gaozhong",
+  "subject": "meishu",
+  "subject_cn": "美术",
+  "count": 9
+ },
+ {
+  "raw": "信息技术学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "xinxi",
+  "subject_cn": "信息技术",
+  "count": 8
+ },
+ {
+  "raw": "思想品德学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "zhengzhi",
+  "subject_cn": "政治(思想品德/思想政治)",
+  "count": 8
+ },
+ {
+  "raw": "数学学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "shuxue",
+  "subject_cn": "数学",
+  "count": 8
+ },
+ {
+  "raw": "物理学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "wuli",
+  "subject_cn": "物理",
+  "count": 8
+ },
+ {
+  "raw": "生物学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "shengwu",
+  "subject_cn": "生物",
+  "count": 8
+ },
+ {
+  "raw": "中学教育心理学",
+  "level": "zhongxue",
+  "subject": "jiaoyuxinlixue",
+  "subject_cn": "教育心理学",
+  "count": 8
+ },
+ {
+  "raw": "初中化学",
+  "level": "chuzhong",
+  "subject": "huaxue",
+  "subject_cn": "化学",
+  "count": 8
+ },
+ {
+  "raw": "初中物理",
+  "level": "chuzhong",
+  "subject": "wuli",
+  "subject_cn": "物理",
+  "count": 8
+ },
+ {
+  "raw": "化学学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "huaxue",
+  "subject_cn": "化学",
+  "count": 8
+ },
+ {
+  "raw": "历史学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "lishi",
+  "subject_cn": "历史",
+  "count": 8
+ },
+ {
+  "raw": "数学学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "shuxue",
+  "subject_cn": "数学",
+  "count": 8
+ },
+ {
+  "raw": "英语学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "yingyu",
+  "subject_cn": "英语",
+  "count": 8
+ },
+ {
+  "raw": "高中物理",
+  "level": "gaozhong",
+  "subject": "wuli",
+  "subject_cn": "物理",
+  "count": 8
+ },
+ {
+  "raw": "小学教育教学知识与能力",
+  "level": "xiaoxue",
+  "subject": "jiaoxue",
+  "subject_cn": "教育教学知识与能力",
+  "count": 7
+ },
+ {
+  "raw": "地理学科知识与能力",
+  "level": "chuzhong",
+  "subject": "dili",
+  "subject_cn": "地理",
+  "count": 7
+ },
+ {
+  "raw": "初中生物",
+  "level": "chuzhong",
+  "subject": "shengwu",
+  "subject_cn": "生物",
+  "count": 7
+ },
+ {
+  "raw": "初中音乐",
+  "level": "chuzhong",
+  "subject": "yinyue",
+  "subject_cn": "音乐",
+  "count": 7
+ },
+ {
+  "raw": "高中化学",
+  "level": "gaozhong",
+  "subject": "huaxue",
+  "subject_cn": "化学",
+  "count": 7
+ },
+ {
+  "raw": "高中音乐",
+  "level": "gaozhong",
+  "subject": "yinyue",
+  "subject_cn": "音乐",
+  "count": 7
+ },
+ {
+  "raw": "幼儿结构化面试",
+  "level": "youer",
+  "subject": "mianshi",
+  "subject_cn": "结构化面试",
+  "count": 6
+ },
+ {
+  "raw": "化学学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "huaxue",
+  "subject_cn": "化学",
+  "count": 6
+ },
+ {
+  "raw": "历史学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "lishi",
+  "subject_cn": "历史",
+  "count": 6
+ },
+ {
+  "raw": "音乐学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "yinyue",
+  "subject_cn": "音乐",
+  "count": 6
+ },
+ {
+  "raw": "生物学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "shengwu",
+  "subject_cn": "生物",
+  "count": 6
+ },
+ {
+  "raw": "音乐学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "yinyue",
+  "subject_cn": "音乐",
+  "count": 6
+ },
+ {
+  "raw": "语文学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "yuwen",
+  "subject_cn": "语文",
+  "count": 6
+ },
+ {
+  "raw": "地理学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "dili",
+  "subject_cn": "地理",
+  "count": 5
+ },
+ {
+  "raw": "中学教育学",
+  "level": "zhongxue",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 4
+ },
+ {
+  "raw": "思想品德学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "zhengzhi",
+  "subject_cn": "政治(思想品德/思想政治)",
+  "count": 4
+ },
+ {
+  "raw": "思想政治学科知识与教学能力",
+  "level": "gaozhong",
+  "subject": "zhengzhi",
+  "subject_cn": "政治(思想品德/思想政治)",
+  "count": 4
+ },
+ {
+  "raw": "小学教育心理学",
+  "level": "xiaoxue",
+  "subject": "jiaoyuxinlixue",
+  "subject_cn": "教育心理学",
+  "count": 3
+ },
+ {
+  "raw": "小学教育学",
+  "level": "xiaoxue",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 3
+ },
+ {
+  "raw": "地理学科知识与教学能力",
+  "level": "chuzhong",
+  "subject": "dili",
+  "subject_cn": "地理",
+  "count": 2
+ },
+ {
+  "raw": "幼儿园保教知识与能力",
+  "level": "youer",
+  "subject": "baojiao",
+  "subject_cn": "保教知识与能力",
+  "count": 1
+ },
+ {
+  "raw": "教育学(A级)",
+  "level": "xiaoxue",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ },
+ {
+  "raw": "教育学(B级)",
+  "level": "xiaoxue",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ },
+ {
+  "raw": "教育学(A级)",
+  "level": "chuzhong",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ },
+ {
+  "raw": "教育学(B级)",
+  "level": "chuzhong",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ },
+ {
+  "raw": "教育学(A级)",
+  "level": "gaozhong",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ },
+ {
+  "raw": "教育学(B级)",
+  "level": "gaozhong",
+  "subject": "jiaoyuxue",
+  "subject_cn": "教育学",
+  "count": 1
+ }
+]

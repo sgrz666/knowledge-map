@@ -1,0 +1,159 @@
+{
+ "level": "youer",
+ "subject": "baojiao",
+ "subject_cn": "保教知识与能力(幼儿园)",
+ "verified": false,
+ "note": "依据 NTCE 公开考试大纲模块结构整理的种子树,待对照官方大纲原文核对;keywords 供规则打标使用",
+ "nodes": [
+  {
+   "node_id": "ntce.youer.baojiao.m1",
+   "name": "学前教育原理",
+   "parent": null,
+   "keywords": [
+    "学前教育",
+    "幼儿教育",
+    "福禄贝尔",
+    "蒙台梭利",
+    "夸美纽斯",
+    "杜威",
+    "陈鹤琴",
+    "陶行知",
+    "卢梭",
+    "洛克",
+    "教育思想",
+    "教育目的",
+    "教育起源",
+    "教育家"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2",
+   "name": "学前儿童发展",
+   "parent": null,
+   "keywords": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2.k1",
+   "name": "儿童发展理论",
+   "parent": "ntce.youer.baojiao.m2",
+   "keywords": [
+    "皮亚杰",
+    "埃里克森",
+    "行为主义",
+    "精神分析",
+    "成熟势力",
+    "双生子",
+    "最近发展区",
+    "关键期",
+    "遗传",
+    "环境决定",
+    "建构主义"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2.k2",
+   "name": "幼儿身心发展特点",
+   "parent": "ntce.youer.baojiao.m2",
+   "keywords": [
+    "注意",
+    "记忆",
+    "想象",
+    "思维",
+    "情绪",
+    "情感",
+    "气质",
+    "性格",
+    "自我意识",
+    "同伴关系",
+    "语言发展",
+    "动作发展",
+    "感知觉",
+    "依恋"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m3",
+   "name": "幼儿生活指导",
+   "parent": null,
+   "keywords": [
+    "卫生",
+    "保健",
+    "疾病",
+    "营养",
+    "膳食",
+    "安全",
+    "意外",
+    "急救",
+    "溺水",
+    "烫伤",
+    "生活习惯",
+    "常规",
+    "如厕",
+    "睡眠",
+    "肥胖",
+    "龋齿"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m4",
+   "name": "幼儿园环境创设",
+   "parent": null,
+   "keywords": [
+    "环境创设",
+    "活动区",
+    "区角",
+    "角色区",
+    "墙饰",
+    "物质环境",
+    "精神环境",
+    "家园合作",
+    "幼小衔接",
+    "社区资源"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m5",
+   "name": "幼儿园游戏活动指导",
+   "parent": null,
+   "keywords": [
+    "游戏",
+    "角色游戏",
+    "建构游戏",
+    "规则游戏",
+    "表演游戏",
+    "智力游戏",
+    "自主游戏",
+    "玩具",
+    "游戏材料"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m6",
+   "name": "幼儿园教育活动的组织与实施",
+   "parent": null,
+   "keywords": [
+    "教育活动",
+    "活动设计",
+    "教案",
+    "教学目标",
+    "主题活动",
+    "集体教学",
+    "区域活动",
+    "《3-6岁儿童学习与发展指南》",
+    "五大领域"
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m7",
+   "name": "幼儿园教育评价",
+   "parent": null,
+   "keywords": [
+    "教育评价",
+    "发展评价",
+    "观察记录",
+    "评价方法",
+    "档案袋"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "level": "xiaoxue",
+ "subject": "jiaoxue",
+ "subject_cn": "教育教学知识与能力(小学)",
+ "verified": false,
+ "note": "依据 NTCE 公开考试大纲模块结构整理的种子树,待对照官方大纲原文核对;keywords 供规则打标使用",
+ "nodes": [
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m1",
+   "name": "教育基础",
+   "parent": null,
+   "keywords": [
+    "教育学",
+    "孔子",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "裴斯泰洛齐",
+    "教育制度",
+    "学制",
+    "义务教育",
+    "教育目的",
+    "教育研究",
+    "课程",
+    "新课程改革",
+    "教师专业",
+    "教育与社会"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2",
+   "name": "学生指导",
+   "parent": null,
+   "keywords": []
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k1",
+   "name": "小学生身心发展",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "皮亚杰",
+    "埃里克森",
+    "认知发展",
+    "注意",
+    "感知觉",
+    "记忆",
+    "思维",
+    "想象",
+    "情绪",
+    "情感",
+    "个体差异",
+    "因材施教"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k2",
+   "name": "学习理论与学习心理",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "强化",
+    "行为主义",
+    "桑代克",
+    "斯金纳",
+    "巴甫洛夫",
+    "建构主义",
+    "有意义学习",
+    "奥苏贝尔",
+    "学习动机",
+    "学习迁移",
+    "学习策略",
+    "马斯洛",
+    "韦纳",
+    "自我效能"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k3",
+   "name": "德育与品德发展",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "品德",
+    "道德认识",
+    "道德情感",
+    "德育",
+    "科尔伯格",
+    "榜样示范",
+    "陶冶",
+    "说服教育"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k4",
+   "name": "小学生安全与心理健康",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "安全",
+    "卫生",
+    "疾病",
+    "意外事故",
+    "心理健康",
+    "焦虑",
+    "心理辅导"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m3",
+   "name": "班级管理",
+   "parent": null,
+   "keywords": [
+    "班级",
+    "班主任",
+    "班集体",
+    "课堂纪律",
+    "班会",
+    "课外活动"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m4",
+   "name": "小学学科知识",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "学科素养",
+    "教材"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m5",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "导入",
+    "板书",
+    "教案",
+    "设计教学环节"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m6",
+   "name": "教学实施",
+   "parent": null,
+   "keywords": [
+    "教学方法",
+    "讲授法",
+    "谈话法",
+    "演示法",
+    "实验法",
+    "课堂提问",
+    "教学组织",
+    "分层教学"
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m7",
+   "name": "教学评价与反思",
+   "parent": null,
+   "keywords": [
+    "教学评价",
+    "形成性评价",
+    "终结性评价",
+    "教学反思",
+    "测验",
+    "作业"
+   ]
+  }
+ ]
+}

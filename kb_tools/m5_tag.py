@@ -1,0 +1,302 @@
+# -*- coding: utf-8 -*-
+"""M5:大纲骨架种子 + 知识点规则打标(rule-v1 自动初标)
+用法:
+  python m5_tag.py outline   # 依据大纲结构生成 outline/*.json(verified:false)
+  python m5_tag.py tag       # 对 questions JSONL 打标 knowledge_node_ids,同步更新卡片与 MANIFEST
+"""
+import json
+import re
+import sys
+
+from build_kb import OUT, out_file
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+# ---------------------------------------------------------------- 大纲骨架种子
+# 依据 NTCE 公开考试大纲的模块结构整理;verified=false 表示待对照官方大纲原文核对。
+
+ZONGHE_NODES = [
+    ('m1', '职业理念', None, []),
+    ('m1.k1', '教育观', 'm1', ['素质教育', '教育观', '新课程改革', '全面发展', '育人为本', '减负']),
+    ('m1.k2', '学生观(儿童观)', 'm1', ['以人为本', '学生观', '儿童观', '发展中的人', '独特的人', '独立意义']),
+    ('m1.k3', '教师观', 'm1', ['教师观', '教师角色', '专业发展', '引导者', '促进者', '研究者', '课程建设者']),
+    ('m2', '教育法律法规', None, ['教育法', '教师法', '义务教育法', '未成年人保护法', '预防未成年人犯罪法', '宪法', '学生伤害事故']),
+    ('m2.k1', '主要教育法律法规', 'm2', ['《中华人民共和国教育法》', '《中华人民共和国教师法》', '《中华人民共和国义务教育法》', '《中华人民共和国未成年人保护法》']),
+    ('m2.k2', '教师与学生的权利义务', 'm2', ['受教育权', '人身权', '隐私权', '著作权', '合法权利', '权利', '义务', '法律责任']),
+    ('m3', '教师职业道德规范', None, ['爱国守法', '爱岗敬业', '关爱学生', '教书育人', '为人师表', '终身学习', '职业道德', '师德']),
+    ('m4', '文化素养', None, ['文化素养', '文学常识', '历史常识', '科技常识', '艺术常识', '传统文化', '节日', '著作', '诗人', '画家', '战役', '发明', '朝代', '典故']),
+    ('m5', '基本能力', None, []),
+    ('m5.k1', '阅读理解能力', 'm5', ['阅读理解', '文段', '划线', '这段话', '这则材料', '文章']),
+    ('m5.k2', '逻辑思维能力', 'm5', ['逻辑', '找规律', '推理', '类比', '命题', '充分条件', '必要条件', '数列']),
+    ('m5.k3', '信息处理能力', 'm5', ['Word', 'Excel', 'PowerPoint', 'PPT', '计算机', '打印', '文档', '单元格', '幻灯片']),
+    ('m5.k4', '写作能力', 'm5', ['论述文', '作文', '写一篇', '字数不少于']),
+]
+
+BAOJIAO_NODES = [
+    ('m1', '学前教育原理', None, ['学前教育', '幼儿教育', '福禄贝尔', '蒙台梭利', '夸美纽斯', '杜威', '陈鹤琴', '陶行知', '卢梭', '洛克', '教育思想', '教育目的', '教育起源', '教育家']),
+    ('m2', '学前儿童发展', None, []),
+    ('m2.k1', '儿童发展理论', 'm2', ['皮亚杰', '埃里克森', '行为主义', '精神分析', '成熟势力', '双生子', '最近发展区', '关键期', '遗传', '环境决定', '建构主义']),
+    ('m2.k2', '幼儿身心发展特点', 'm2', ['注意', '记忆', '想象', '思维', '情绪', '情感', '气质', '性格', '自我意识', '同伴关系', '语言发展', '动作发展', '感知觉', '依恋']),
+    ('m3', '幼儿生活指导', None, ['卫生', '保健', '疾病', '营养', '膳食', '安全', '意外', '急救', '溺水', '烫伤', '生活习惯', '常规', '如厕', '睡眠', '肥胖', '龋齿']),
+    ('m4', '幼儿园环境创设', None, ['环境创设', '活动区', '区角', '角色区', '墙饰', '物质环境', '精神环境', '家园合作', '幼小衔接', '社区资源']),
+    ('m5', '幼儿园游戏活动指导', None, ['游戏', '角色游戏', '建构游戏', '规则游戏', '表演游戏', '智力游戏', '自主游戏', '玩具', '游戏材料']),
+    ('m6', '幼儿园教育活动的组织与实施', None, ['教育活动', '活动设计', '教案', '教学目标', '主题活动', '集体教学', '区域活动', '《3-6岁儿童学习与发展指南》', '五大领域']),
+    ('m7', '幼儿园教育评价', None, ['教育评价', '发展评价', '观察记录', '评价方法', '档案袋']),
+]
+
+JIAOXUE_NODES = [
+    ('m1', '教育基础', None, ['教育学', '孔子', '夸美纽斯', '赫尔巴特', '杜威', '裴斯泰洛齐', '教育制度', '学制', '义务教育', '教育目的', '教育研究', '课程', '新课程改革', '教师专业', '教育与社会']),
+    ('m2', '学生指导', None, []),
+    ('m2.k1', '小学生身心发展', 'm2', ['皮亚杰', '埃里克森', '认知发展', '注意', '感知觉', '记忆', '思维', '想象', '情绪', '情感', '个体差异', '因材施教']),
+    ('m2.k2', '学习理论与学习心理', 'm2', ['强化', '行为主义', '桑代克', '斯金纳', '巴甫洛夫', '建构主义', '有意义学习', '奥苏贝尔', '学习动机', '学习迁移', '学习策略', '马斯洛', '韦纳', '自我效能']),
+    ('m2.k3', '德育与品德发展', 'm2', ['品德', '道德认识', '道德情感', '德育', '科尔伯格', '榜样示范', '陶冶', '说服教育']),
+    ('m2.k4', '小学生安全与心理健康', 'm2', ['安全', '卫生', '疾病', '意外事故', '心理健康', '焦虑', '心理辅导']),
+    ('m3', '班级管理', None, ['班级', '班主任', '班集体', '课堂纪律', '班会', '课外活动']),
+    ('m4', '小学学科知识', None, ['课程标准', '学科素养', '教材']),
+    ('m5', '教学设计', None, ['教学设计', '教学目标', '导入', '板书', '教案', '设计教学环节']),
+    ('m6', '教学实施', None, ['教学方法', '讲授法', '谈话法', '演示法', '实验法', '课堂提问', '教学组织', '分层教学']),
+    ('m7', '教学评价与反思', None, ['教学评价', '形成性评价', '终结性评价', '教学反思', '测验', '作业']),
+]
+
+JIAOYUZHISHI_NODES = [
+    ('m1', '教育基础知识和基本原理', None, ['孔子', '《学记》', '夸美纽斯', '赫尔巴特', '杜威', '教育起源', '教育目的', '教育制度', '学制', '生产力', '政治经济制度', '遗传', '环境', '个体主观能动性', '教育家', '教育与社会']),
+    ('m2', '中学课程', None, ['课程', '学科课程', '活动课程', '课程设计', '课程目标', '课程评价', '综合课程', '隐性课程', '课程开发']),
+    ('m3', '中学教学', None, ['教学原则', '教学方法', '教学过程', '直观性', '循序渐进', '因材施教', '班级授课制', '讲授']),
+    ('m4', '中学生学习心理', None, ['感觉', '知觉', '注意', '记忆', '遗忘曲线', '艾宾浩斯', '思维', '想象', '问题解决', '创造性', '学习动机', '耶克斯', '学习迁移', '学习策略', '行为主义', '强化', '桑代克', '斯金纳', '巴甫洛夫', '建构主义', '奥苏贝尔', '加涅', '试误']),
+    ('m5', '中学生发展心理', None, ['认知发展', '皮亚杰', '维果茨基', '情绪', '情感', '人格', '气质', '性格', '埃里克森', '弗洛伊德', '自我意识', '青春期', '性心理', '同伴关系']),
+    ('m6', '中学生心理辅导', None, ['心理健康', '心理辅导', '焦虑症', '抑郁症', '强迫症', '网络成瘾', '系统脱敏', '理性情绪', '罗杰斯']),
+    ('m7', '中学德育', None, ['德育', '品德', '道德认识', '道德情感', '道德行为', '德育原则', '疏导', '长善救失', '知行统一', '德育方法', '说服教育', '榜样示范', '情感陶冶']),
+    ('m8', '中学班级管理与教师心理', None, ['班集体', '班主任', '课堂管理', '课堂纪律', '群体', '教师心理', '职业倦怠', '教师成长', '教学效能感']),
+]
+
+MIANSHI_NODES = [
+    ('m1', '综合分析类', None, ['你怎么看', '怎么理解', '谈谈看法', '社会现象']),
+    ('m2', '应急应变类', None, ['突然', '突发', '打架', '争吵', '失控', '你怎么办']),
+    ('m3', '人际关系类', None, ['同事', '家长', '领导', '矛盾', '沟通', '误会']),
+    ('m4', '组织协调类', None, ['组织', '班会', '策划', '安排活动']),
+    ('m5', '职业认知与自我认知类', None, ['为什么当教师', '职业规划', '自我介绍', '教师职业', '你最欣赏']),
+    ('m6', '教育教学实践类', None, ['课堂', '教学', '备课', '作业', '学生问题']),
+]
+
+OUTLINES = {
+    ('youer', 'zonghe'): ('综合素质(幼儿园)', ZONGHE_NODES),
+    ('xiaoxue', 'zonghe'): ('综合素质(小学)', ZONGHE_NODES),
+    ('zhongxue', 'zonghe'): ('综合素质(中学)', ZONGHE_NODES),
+    ('youer', 'baojiao'): ('保教知识与能力(幼儿园)', BAOJIAO_NODES),
+    ('xiaoxue', 'jiaoxue'): ('教育教学知识与能力(小学)', JIAOXUE_NODES),
+    ('zhongxue', 'jiaoyuzhishi'): ('教育知识与能力(中学)', JIAOYUZHISHI_NODES),
+    ('zhongxiaoxue', 'mianshi'): ('中小学结构化面试', MIANSHI_NODES),
+    ('youer', 'mianshi'): ('幼儿结构化面试', MIANSHI_NODES),
+}
+
+# ---------------------------------------------------------------- 学科卷统一骨架
+# 依据《XX学科知识与教学能力》考试大纲的通用模块结构(学科知识/课程与教学理论/教学设计/教学实施与评价);
+# verified=false,待对照分学科官方大纲细化。
+
+SUBJECT_CN = {'yuwen': '语文', 'shuxue': '数学', 'yingyu': '英语', 'zhengzhi': '思想品德/思想政治',
+              'lishi': '历史', 'dili': '地理', 'wuli': '物理', 'huaxue': '化学', 'shengwu': '生物',
+              'meishu': '美术', 'yinyue': '音乐', 'tiyu': '体育与健康', 'xinxi': '信息技术'}
+
+SUBJECT_KWS = {
+    'yuwen': ['文言文', '现代文', '修辞', '比喻', '拟人', '病句', '古诗词', '文学常识', '阅读教学', '写作教学', '散文', '小说'],
+    'shuxue': ['函数', '几何', '方程', '概率', '统计', '导数', '数列', '向量', '三角函数', '不等式', '证明'],
+    'yingyu': ['grammar', '语法', '语音', 'phoneme', '词汇', '阅读理解', '写作', '听说法', '交际法', '教学设计', 'phonetics'],
+    'zhengzhi': ['经济', '政治', '文化', '哲学', '法律', '社会主义核心价值观', '社会主义', '道德', '消费', '民主'],
+    'lishi': ['朝代', '战争', '改革', '革命', '史料', '古代史', '近代史', '辛亥革命', '工业革命', '新航路'],
+    'dili': ['气候', '地形', '洋流', '板块', '人口', '城市化', '农业', '工业', '地图', '河流', '季风'],
+    'wuli': ['力学', '电学', '实验', '牛顿', '电磁', '光学', '能量', '加速度', '电路', '浮力'],
+    'huaxue': ['化学方程式', '实验', '元素周期律', '有机', '摩尔', '离子', '氧化还原', '化学键', '溶液', '酸碱'],
+    'shengwu': ['细胞', '光合', '遗传', '基因', '生态', '实验', '呼吸', '蛋白质', 'DNA', '有丝分裂'],
+    'meishu': ['绘画', '色彩', '构图', '美术史', '书法', '雕塑', '鉴赏', '透视', '版画', '设计'],
+    'yinyue': ['乐理', '节奏', '音阶', '歌唱', '演奏', '欣赏', '音程', '调式', '合唱', '旋律'],
+    'tiyu': ['运球', '投篮', '田径', '体操', '队列', '身体素质', '跑步', '球类', '教学比赛', '动作要领'],
+    'xinxi': ['算法', '程序', 'Python', '数据库', '网络', '多媒体', '信息素养', '编程', '表格', '信息安全'],
+}
+
+
+def subject_nodes(subject):
+    """学科卷统一 4 模块骨架,s1 带学科关键词"""
+    return [
+        ('s1', '学科专业知识', None, SUBJECT_KWS.get(subject, [])),
+        ('s2', '课程与教学理论', None, ['课程标准', '教学理论', '建构主义', '教学理念', '新课程', '教学原则', '教育学', '心理']),
+        ('s3', '教学设计', None, ['教学设计', '教学目标', '教学重难点', '导入', '板书', '教案', '设计意图']),
+        ('s4', '教学实施与评价', None, ['课堂', '教学行为', '评价', '教学反思', '教学环节', '师生', '提问']),
+    ]
+
+
+for _lv in ('chuzhong', 'gaozhong'):
+    for _sj in SUBJECT_CN:
+        OUTLINES[(_lv, _sj)] = ('%s学科知识与教学能力(%s)' % (SUBJECT_CN[_sj], '初级中学' if _lv == 'chuzhong' else '高级中学'),
+                                subject_nodes(_sj))
+
+# ---------------------------------------------------------------- 省考骨架(教育学/教育心理学)
+# 依据教师资格省考(四川/辽宁/江西)教育学、教育心理学的通用章节结构;verified=false。
+
+JIAOYUXUE_NODES = [
+    ('m1', '教育与教育学', None, ['教育学', '教育家', '孔子', '《学记》', '夸美纽斯', '赫尔巴特', '杜威', '教育起源', '教育思想']),
+    ('m2', '教育目的与教育制度', None, ['教育目的', '学制', '义务教育', '素质教育', '教育制度', '终身教育']),
+    ('m3', '教育与人的发展', None, ['身心发展', '遗传', '环境', '个体主观能动性', '关键期', '发展阶段', '个体发展']),
+    ('m4', '课程与教学', None, ['课程', '教学原则', '教学方法', '教学过程', '班级授课制', '教学组织', '直观性', '循序渐进']),
+    ('m5', '德育与班级管理', None, ['德育', '品德', '班主任', '班集体', '班级管理', '课外活动', '德育原则', '德育方法']),
+]
+
+JIAOYUXINLIXUE_NODES = [
+    ('m1', '教育心理学概述', None, ['教育心理学', '桑代克', '西方心理学', '研究对象']),
+    ('m2', '学习心理', None, ['强化', '行为主义', '建构主义', '学习动机', '学习迁移', '学习策略', '记忆', '遗忘', '艾宾浩斯', '皮亚杰', '有意义学习', '奥苏贝尔', '斯金纳', '巴甫洛夫', '试误', '学习理论']),
+    ('m3', '学生心理与个体差异', None, ['认知发展', '人格', '气质', '性格', '埃里克森', '个体差异', '因材施教', '心理健康', '情绪']),
+    ('m4', '教学心理与教师', None, ['教学设计', '教学评价', '教师心理', '课堂管理', '教学效能', '罗森塔尔']),
+]
+
+for _lv in ('youer', 'xiaoxue', 'chuzhong', 'gaozhong', 'zhongxue'):
+    OUTLINES[(_lv, 'jiaoyuxue')] = ('教育学(省考)', JIAOYUXUE_NODES)
+    OUTLINES[(_lv, 'jiaoyuxinlixue')] = ('教育心理学(省考)', JIAOYUXINLIXUE_NODES)
+
+# 学科卷:题型 → 骨架节点的直接映射
+SUBJECT_TYPE_NODE = {'单选': 's1', '简答': 's1', '诊断': 's1', '解答': 's1', '辨析': 's1', '写作': 's1',
+                     '论述': 's2', '材料分析': 's4', '教学设计': 's3', '活动设计': 's3'}
+
+# 题型 → 大纲节点的直接映射(按科目可用时)
+TYPE_NODE = {
+    ('zonghe', '写作'): 'm5.k4',
+    ('jiaoxue', '教学设计'): 'm5',
+    ('jiaoyuzhishi', '教学设计'): 'm3',
+    ('baojiao', '活动设计'): 'm6',
+    ('baojiao', '教学设计'): 'm6',
+}
+
+CHAPTER_NODE = {'综合分析': 'm1', '应急应变': 'm2', '人际关系': 'm3',
+                '职业认知': 'm5', '教育教学': 'm6', '组织': 'm4'}
+
+
+def gen_outline():
+    for (level, subject), (cn, nodes) in OUTLINES.items():
+        doc = {
+            'level': level, 'subject': subject, 'subject_cn': cn,
+            'verified': False,
+            'note': '依据 NTCE 公开考试大纲模块结构整理的种子树,待对照官方大纲原文核对;keywords 供规则打标使用',
+            'nodes': [{'node_id': 'ntce.%s.%s.%s' % (level, subject, nid),
+                       'name': name,
+                       'parent': ('ntce.%s.%s.%s' % (level, subject, parent)) if parent else None,
+                       'keywords': kws}
+                      for nid, name, parent, kws in nodes],
+        }
+        path = out_file('outline', '%s.%s.json' % (level, subject))
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding='utf-8')
+        print('outline/%s.%s.json (%d 节点)' % (level, subject, len(doc['nodes'])))
+
+
+# ---------------------------------------------------------------- 规则打标
+
+def node_score(text, kws):
+    hits = sum(1 for kw in kws if kw in text)
+    if not hits:
+        return 0
+    longest = max(len(kw) for kw in kws if kw in text)
+    return hits + longest * 0.1
+
+
+def pick_nodes(text, nodes, max_n=3):
+    scored = []
+    for n in nodes:
+        s = node_score(text, n['keywords'])
+        if s > 0:
+            scored.append((s, n))
+    scored.sort(key=lambda x: -x[0])
+    picked = []
+    for s, n in scored:
+        # 若某已选节点是当前节点的子孙,跳过当前(保最深)
+        if any(p['node_id'].startswith(n['node_id'] + '.') for _, p in picked):
+            continue
+        picked.append((s, n))
+        if len(picked) >= max_n:
+            break
+    # 移除已选节点的祖先
+    ids = [n['node_id'] for _, n in picked]
+    final = [i for i in ids if not any(o != i and o.startswith(i + '.') for o in ids)]
+    return final
+
+
+def tag_all():
+    outline_cache = {}
+    for (level, subject), (cn, nodes) in OUTLINES.items():
+        outline_cache[(level, subject)] = [
+            {'node_id': 'ntce.%s.%s.%s' % (level, subject, nid), 'name': name, 'keywords': kws}
+            for nid, name, parent, kws in nodes]
+
+    total = tagged = 0
+    cov = {}
+    for qf in sorted(OUT.glob('questions/*/*/*.jsonl')):
+        level = qf.parent.parent.name
+        subject = qf.parent.name
+        recs = [json.loads(l) for l in qf.open(encoding='utf-8')]
+        nodes = outline_cache.get((level, subject))
+        changed = 0
+        for r in recs:
+            total += 1
+            if nodes is None:
+                continue
+            c = r['content']
+            text = c['stem'] + ' ' + ' '.join(o['text'] for o in c['options'])
+            ids = []
+            tnode = TYPE_NODE.get((subject, r['question_type']))
+            if not tnode and subject in SUBJECT_CN:
+                tnode = SUBJECT_TYPE_NODE.get(r['question_type'])
+            if tnode:
+                ids.append('ntce.%s.%s.%s' % (level, subject, tnode))
+            kw_ids = pick_nodes(text, nodes)
+            ids += [i for i in kw_ids if i not in ids]
+            # 面试卷优先按章节(卷名)归类
+            if subject == 'mianshi' and r['source'].get('paper'):
+                for key, nid in CHAPTER_NODE.items():
+                    if key in r['source']['paper']:
+                        cid = 'ntce.%s.%s.%s' % (level, subject, nid)
+                        ids = [cid] + [i for i in ids if i != cid]
+                        break
+            if ids:
+                r['knowledge_node_ids'] = ids[:3]
+                r['review']['tagger'] = 'rule-v1'
+                tagged += 1
+                changed += 1
+            else:
+                r['knowledge_node_ids'] = []
+        key = '%s/%s' % (level, subject)
+        if key not in cov:
+            cov[key] = [0, 0]
+        cov[key][0] += changed
+        cov[key][1] += len(recs)
+        qtext = '\n'.join(json.dumps(r, ensure_ascii=False) for r in recs) + '\n'
+        qf.write_text(qtext, encoding='utf-8')
+        # 同步卡片 frontmatter
+        if nodes is not None:
+            for r in recs:
+                if r['extra'].get('duplicate_of'):
+                    continue
+                card = out_file('cards', level, subject, r['source']['session'],
+                                'q%02d.md' % r['extra']['paper_order'])
+                if not card.exists():
+                    continue
+                txt = card.read_text(encoding='utf-8')
+                ids = ', '.join(r['knowledge_node_ids'])
+                new = re.sub(r'knowledge_nodes: \[\]', 'knowledge_nodes: [%s]' % ids, txt, count=1)
+                if new != txt:
+                    card.write_text(new, encoding='utf-8')
+    print('打标完成:%d/%d 题 (%.1f%%)' % (tagged, total, 100.0 * tagged / max(total, 1)))
+    for k, (c_, t_) in sorted(cov.items()):
+        print('  %-28s %d/%d' % (k, c_, t_))
+    # MANIFEST 补充打标信息
+    mf = out_file('MANIFEST.json')
+    manifest = json.loads(mf.read_text(encoding='utf-8'))
+    manifest['tagging'] = {'tagger': 'rule-v1', 'status': '自动初标(关键词规则,待专家审核)',
+                           'coverage': {k: {'tagged': v[0], 'total': v[1]} for k, v in cov.items()}}
+    mf.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
+if __name__ == '__main__':
+    cmd = sys.argv[1] if len(sys.argv) > 1 else 'tag'
+    if cmd == 'outline':
+        gen_outline()
+    elif cmd == 'tag':
+        tag_all()
+    else:
+        print(__doc__)

@@ -1,0 +1,222 @@
+{
+ "name": "教资真题知识库 v1",
+ "generated": "2026-10-02",
+ "source_dir": "教资/真题",
+ "source_files": 695,
+ "questions": 14500,
+ "materials": 96,
+ "duplicate_questions_marked": 1619,
+ "folder_duplicates_skipped": 72,
+ "by_level": {
+  "youer": 1315,
+  "xiaoxue": 1422,
+  "zhongxiaoxue": 273,
+  "zhongxue": 1617,
+  "chuzhong": 5016,
+  "gaozhong": 4857
+ },
+ "by_level_subject": {
+  "chuzhong/dili": 422,
+  "chuzhong/huaxue": 267,
+  "chuzhong/lishi": 428,
+  "chuzhong/meishu": 648,
+  "chuzhong/shengwu": 420,
+  "chuzhong/shuxue": 269,
+  "chuzhong/tiyu": 225,
+  "chuzhong/wuli": 174,
+  "chuzhong/xinxi": 292,
+  "chuzhong/yingyu": 643,
+  "chuzhong/yinyue": 327,
+  "chuzhong/yuwen": 415,
+  "chuzhong/zhengzhi": 486,
+  "gaozhong/dili": 329,
+  "gaozhong/huaxue": 312,
+  "gaozhong/lishi": 428,
+  "gaozhong/meishu": 553,
+  "gaozhong/shengwu": 509,
+  "gaozhong/shuxue": 282,
+  "gaozhong/tiyu": 267,
+  "gaozhong/wuli": 184,
+  "gaozhong/xinxi": 255,
+  "gaozhong/yingyu": 599,
+  "gaozhong/yinyue": 321,
+  "gaozhong/yuwen": 328,
+  "gaozhong/zhengzhi": 490,
+  "xiaoxue/jiaoxue": 596,
+  "xiaoxue/jiaoyuxinlixue": 36,
+  "xiaoxue/jiaoyuxue": 170,
+  "xiaoxue/zonghe": 620,
+  "youer/baojiao": 429,
+  "youer/mianshi": 153,
+  "youer/zonghe": 733,
+  "zhongxiaoxue/mianshi": 273,
+  "zhongxue/jiaoyuxinlixue": 181,
+  "zhongxue/jiaoyuxue": 72,
+  "zhongxue/jiaoyuzhishi": 664,
+  "zhongxue/zonghe": 700
+ },
+ "known_limitations": [
+  "原库基本无解析:answer_status=letter/reference 占多数,analysis 字段多为空",
+  "结构切分为规则解析,低置信卷与异常题见 qa_report.md",
+  "省考老卷(四川/辽宁)单独标记 exam=省考"
+ ],
+ "field_dict": "见 教资知识库整理方案.md 3.1",
+ "tagging": {
+  "tagger": "rule-v1",
+  "status": "自动初标(关键词规则,待专家审核)",
+  "coverage": {
+   "chuzhong/dili": {
+    "tagged": 399,
+    "total": 422
+   },
+   "chuzhong/huaxue": {
+    "tagged": 267,
+    "total": 267
+   },
+   "chuzhong/lishi": {
+    "tagged": 428,
+    "total": 428
+   },
+   "chuzhong/meishu": {
+    "tagged": 648,
+    "total": 648
+   },
+   "chuzhong/shengwu": {
+    "tagged": 420,
+    "total": 420
+   },
+   "chuzhong/shuxue": {
+    "tagged": 255,
+    "total": 269
+   },
+   "chuzhong/tiyu": {
+    "tagged": 225,
+    "total": 225
+   },
+   "chuzhong/wuli": {
+    "tagged": 174,
+    "total": 174
+   },
+   "chuzhong/xinxi": {
+    "tagged": 292,
+    "total": 292
+   },
+   "chuzhong/yingyu": {
+    "tagged": 643,
+    "total": 643
+   },
+   "chuzhong/yinyue": {
+    "tagged": 327,
+    "total": 327
+   },
+   "chuzhong/yuwen": {
+    "tagged": 388,
+    "total": 415
+   },
+   "chuzhong/zhengzhi": {
+    "tagged": 486,
+    "total": 486
+   },
+   "gaozhong/dili": {
+    "tagged": 329,
+    "total": 329
+   },
+   "gaozhong/huaxue": {
+    "tagged": 273,
+    "total": 312
+   },
+   "gaozhong/lishi": {
+    "tagged": 289,
+    "total": 428
+   },
+   "gaozhong/meishu": {
+    "tagged": 553,
+    "total": 553
+   },
+   "gaozhong/shengwu": {
+    "tagged": 509,
+    "total": 509
+   },
+   "gaozhong/shuxue": {
+    "tagged": 282,
+    "total": 282
+   },
+   "gaozhong/tiyu": {
+    "tagged": 267,
+    "total": 267
+   },
+   "gaozhong/wuli": {
+    "tagged": 184,
+    "total": 184
+   },
+   "gaozhong/xinxi": {
+    "tagged": 255,
+    "total": 255
+   },
+   "gaozhong/yingyu": {
+    "tagged": 599,
+    "total": 599
+   },
+   "gaozhong/yinyue": {
+    "tagged": 321,
+    "total": 321
+   },
+   "gaozhong/yuwen": {
+    "tagged": 328,
+    "total": 328
+   },
+   "gaozhong/zhengzhi": {
+    "tagged": 490,
+    "total": 490
+   },
+   "xiaoxue/jiaoxue": {
+    "tagged": 416,
+    "total": 596
+   },
+   "xiaoxue/jiaoyuxinlixue": {
+    "tagged": 0,
+    "total": 36
+   },
+   "xiaoxue/jiaoyuxue": {
+    "tagged": 0,
+    "total": 170
+   },
+   "xiaoxue/zonghe": {
+    "tagged": 288,
+    "total": 620
+   },
+   "youer/baojiao": {
+    "tagged": 244,
+    "total": 429
+   },
+   "youer/mianshi": {
+    "tagged": 149,
+    "total": 153
+   },
+   "youer/zonghe": {
+    "tagged": 307,
+    "total": 733
+   },
+   "zhongxiaoxue/mianshi": {
+    "tagged": 273,
+    "total": 273
+   },
+   "zhongxue/jiaoyuxinlixue": {
+    "tagged": 0,
+    "total": 181
+   },
+   "zhongxue/jiaoyuxue": {
+    "tagged": 0,
+    "total": 72
+   },
+   "zhongxue/jiaoyuzhishi": {
+    "tagged": 462,
+    "total": 664
+   },
+   "zhongxue/zonghe": {
+    "tagged": 339,
+    "total": 700
+   }
+  }
+ }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mimosa-hook-status/v1",
+  "recordedAt": "2026-10-02T04:30:19.066Z",
+  "sessionId": "sess_40451b58-c55c-4d0e-bfd4-c9e7e3a987f7",
+  "event": "PostToolUse",
+  "toolName": "Write",
+  "file": "llm_batch.py",
+  "outcome": "static_verified",
+  "coverage": "complete",
+  "findingCount": 1,
+  "durationMs": 783,
+  "hostState": "hook_complete",
+  "reportHint": ".mimosa/reports/"
+}

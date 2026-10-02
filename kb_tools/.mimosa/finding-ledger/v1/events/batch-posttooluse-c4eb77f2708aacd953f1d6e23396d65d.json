@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "posttooluse-c4eb77f2708aacd953f1d6e23396d65d",
+  "runId": null,
+  "runStatus": "completed",
+  "coverage": {
+    "status": "complete",
+    "reasons": []
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "PostToolUse"
+  },
+  "revision": null,
+  "diffHash": null,
+  "rulesVersion": null,
+  "sessionHash": "c419bab998f7afd76944f2301ae3ac875ba59767d1b1bff3b26d8d325f2bfd90",
+  "reportRef": null,
+  "events": [
+    {
+      "eventId": "hook-6cf8ebc1fbcc96703e5fe3c056fa561b",
+      "findingId": "mimosa-587a6861e316197ff0509bdd",
+      "type": "static_fix_verified",
+      "at": "2026-10-02T04:30:18.694Z",
+      "identity": {
+        "projectRelativeFile": "llm_batch.py",
+        "ruleId": "security",
+        "codeEvidenceHash": "31f963de0c0bb648a91937877d8dc9aa92d24a6a39013022be036505adcef790",
+        "confidence": "stable"
+      },
+      "scope": "direct",
+      "line": 53,
+      "endLine": 53,
+      "reasonCode": "static_rescan_passed",
+      "reportedToAgent": false,
+      "evidence": {
+        "kind": "static_scan",
+        "boundary": "observed",
+        "producer": "deterministic",
+        "evidenceHash": "31f963de0c0bb648a91937877d8dc9aa92d24a6a39013022be036505adcef790"
+      },
+      "sequence": 0
+    }
+  ],
+  "observedFindingIds": [],
+  "verifiedFiles": [],
+  "recordedAt": "2026-10-02T04:30:19.051Z"
+}

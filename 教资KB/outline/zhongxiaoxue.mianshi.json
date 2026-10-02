@@ -1,0 +1,81 @@
+{
+ "level": "zhongxiaoxue",
+ "subject": "mianshi",
+ "subject_cn": "中小学结构化面试",
+ "verified": false,
+ "note": "依据 NTCE 公开考试大纲模块结构整理的种子树,待对照官方大纲原文核对;keywords 供规则打标使用",
+ "nodes": [
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m1",
+   "name": "综合分析类",
+   "parent": null,
+   "keywords": [
+    "你怎么看",
+    "怎么理解",
+    "谈谈看法",
+    "社会现象"
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m2",
+   "name": "应急应变类",
+   "parent": null,
+   "keywords": [
+    "突然",
+    "突发",
+    "打架",
+    "争吵",
+    "失控",
+    "你怎么办"
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m3",
+   "name": "人际关系类",
+   "parent": null,
+   "keywords": [
+    "同事",
+    "家长",
+    "领导",
+    "矛盾",
+    "沟通",
+    "误会"
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m4",
+   "name": "组织协调类",
+   "parent": null,
+   "keywords": [
+    "组织",
+    "班会",
+    "策划",
+    "安排活动"
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m5",
+   "name": "职业认知与自我认知类",
+   "parent": null,
+   "keywords": [
+    "为什么当教师",
+    "职业规划",
+    "自我介绍",
+    "教师职业",
+    "你最欣赏"
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxiaoxue.mianshi.m6",
+   "name": "教育教学实践类",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学",
+    "备课",
+    "作业",
+    "学生问题"
+   ]
+  }
+ ]
+}
