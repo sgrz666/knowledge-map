@@ -1,0 +1,76 @@
+{
+  "CET-4": {
+    "full_name": "大学英语四级考试",
+    "modules": {
+      "写作": {
+        "ratio": "15%",
+        "time_min": 30,
+        "question_types": [
+          "短文写作"
+        ]
+      },
+      "听力理解": {
+        "ratio": "35%",
+        "time_min": 25,
+        "question_types": [
+          "短篇新闻",
+          "长对话",
+          "听力篇章"
+        ]
+      },
+      "阅读理解": {
+        "ratio": "35%",
+        "time_min": 40,
+        "question_types": [
+          "选词填空",
+          "长篇阅读",
+          "仔细阅读"
+        ]
+      },
+      "翻译": {
+        "ratio": "15%",
+        "time_min": 30,
+        "question_types": [
+          "段落汉译英"
+        ]
+      }
+    }
+  },
+  "CET-6": {
+    "full_name": "大学英语六级考试",
+    "modules": {
+      "写作": {
+        "ratio": "15%",
+        "time_min": 30,
+        "question_types": [
+          "短文写作"
+        ]
+      },
+      "听力理解": {
+        "ratio": "35%",
+        "time_min": 30,
+        "question_types": [
+          "长对话",
+          "听力篇章",
+          "讲座/讲话"
+        ]
+      },
+      "阅读理解": {
+        "ratio": "35%",
+        "time_min": 40,
+        "question_types": [
+          "选词填空",
+          "长篇阅读",
+          "仔细阅读"
+        ]
+      },
+      "翻译": {
+        "ratio": "15%",
+        "time_min": 30,
+        "question_types": [
+          "段落汉译英"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+ "generated": "2026-10-02",
+ "source": "英语四六级资料合集（2026年最新）(1)",
+ "vocabulary": {
+  "words_cet4": 4424,
+  "words_cet6": 5518,
+  "core_words": 3123,
+  "phrases_highfreq": 1406,
+  "translation_topic_words": 8
+ },
+ "questions": {
+  "total": 5294,
+  "with_answer": 835,
+  "answer_fill_rate": 0.158,
+  "papers_total": 108,
+  "papers_full_25L_30R": 47,
+  "papers_missing_listening_without_ref": 10,
+  "detail": {
+   "cet4": {
+    "records": 2407,
+    "with_answer": 632,
+    "duplicate_ids": 0,
+    "by_type": {
+     "短篇新闻": 246,
+     "长对话": 278,
+     "听力篇章": 345,
+     "选词填空": 520,
+     "长篇阅读": 519,
+     "仔细阅读": 499
+    },
+    "by_module": {
+     "听力": 869,
+     "阅读": 1538
+    }
+   },
+   "cet6": {
+    "records": 2887,
+    "with_answer": 203,
+    "duplicate_ids": 0,
+    "by_type": {
+     "长对话": 336,
+     "听力篇章": 306,
+     "讲座/讲话": 435,
+     "长篇阅读": 606,
+     "仔细阅读": 604,
+     "选词填空": 600
+    },
+    "by_module": {
+     "听力": 1077,
+     "阅读": 1810
+    }
+   }
+  }
+ },
+ "passages": {
+  "reading": 378,
+  "listening_transcripts": 0
+ },
+ "writing": {
+  "model_essays": 177,
+  "with_model_essay": 68,
+  "templates": 69
+ },
+ "translation": {
+  "items": 193,
+  "with_reference": 116
+ },
+ "ontology": {
+  "knowledge_nodes": 46
+ },
+ "not_ingested": {
+  "listening_audio": "120 个 MP3 仅在 manifest/ingest_log.md 登记路径，不入向量库",
+  "listening_transcripts": "四级/六级《听力原文合集》PDF 均为扫描件（无文本层），待 OCR 补录",
+  "sessions_2026_06": "2026年6月真题册/解析册为扫描件，仅登记原件路径，待 OCR",
+  "answer_books_corrupt_font": "2016.06-2017.06 部分解析册 PDF 字体映射损坏（文本为乱码），答案待 OCR/人工补录"
+ },
+ "answer_fill_report": "manifest/answers_fill_report.json",
+ "parse_report": "manifest/parse_report.json"
+}

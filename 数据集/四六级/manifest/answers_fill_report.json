@@ -1,0 +1,647 @@
+{
+ "cet4/2015-06_p1.jsonl": {
+  "need": 53,
+  "filled": 48,
+  "conflicts": [
+   [
+    26,
+    {
+     "A": 1,
+     "H": 1
+    }
+   ]
+  ]
+ },
+ "cet4/2015-06_p2.jsonl": {
+  "need": 55,
+  "filled": 42,
+  "conflicts": [
+   [
+    2,
+    {
+     "D": 1,
+     "C": 1
+    }
+   ],
+   [
+    4,
+    {
+     "C": 1,
+     "F": 1
+    }
+   ],
+   [
+    46,
+    {
+     "B": 1,
+     "C": 1
+    }
+   ]
+  ]
+ },
+ "cet4/2015-12_p1.jsonl": {
+  "need": 54,
+  "filled": 45,
+  "conflicts": [
+   [
+    22,
+    {
+     "D": 1,
+     "A": 1
+    }
+   ],
+   [
+    46,
+    {
+     "A": 1,
+     "C": 1
+    }
+   ],
+   [
+    47,
+    {
+     "B": 1,
+     "A": 1
+    }
+   ]
+  ]
+ },
+ "cet4/2015-12_p2.jsonl": {
+  "need": 55,
+  "filled": 50,
+  "conflicts": []
+ },
+ "cet4/2015-12_p3.jsonl": {
+  "need": 55,
+  "filled": 48,
+  "conflicts": []
+ },
+ "cet4/2016-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2016-06_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2016-12_p1.jsonl": {
+  "need": 47,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2016-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2016-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2017-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2017-06_p2.jsonl": {
+  "need": 53,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2017-06_p3.jsonl": {
+  "need": 29,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2017-12_p1.jsonl": {
+  "need": 55,
+  "filled": 45,
+  "conflicts": []
+ },
+ "cet4/2017-12_p3.jsonl": {
+  "need": 30,
+  "filled": 20,
+  "conflicts": []
+ },
+ "cet4/2018-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2018-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2018-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2019-06_p1.jsonl": {
+  "need": 55,
+  "filled": 13,
+  "conflicts": []
+ },
+ "cet4/2019-06_p2.jsonl": {
+  "need": 55,
+  "filled": 23,
+  "conflicts": []
+ },
+ "cet4/2019-06_p3.jsonl": {
+  "need": 30,
+  "filled": 25,
+  "conflicts": []
+ },
+ "cet4/2019-12_p1.jsonl": {
+  "need": 55,
+  "filled": 23,
+  "conflicts": []
+ },
+ "cet4/2019-12_p2.jsonl": {
+  "need": 55,
+  "filled": 16,
+  "conflicts": []
+ },
+ "cet4/2019-12_p3.jsonl": {
+  "need": 30,
+  "filled": 12,
+  "conflicts": []
+ },
+ "cet4/2020-09_p1.jsonl": {
+  "need": 55,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet4/2020-09_p2.jsonl": {
+  "need": 30,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet4/2020-12_p1.jsonl": {
+  "need": 48,
+  "filled": 48,
+  "conflicts": [
+   [
+    2,
+    {
+     "B": 1,
+     "A": 1
+    }
+   ]
+  ]
+ },
+ "cet4/2020-12_p2.jsonl": {
+  "need": 55,
+  "filled": 55,
+  "conflicts": []
+ },
+ "cet4/2020-12_p3.jsonl": {
+  "need": 30,
+  "filled": 30,
+  "conflicts": []
+ },
+ "cet4/2021-06_p1.jsonl": {
+  "need": 41,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2021-06_p2.jsonl": {
+  "need": 49,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet4/2021-06_p3.jsonl": {
+  "need": 30,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet4/2021-12_p3.jsonl": {
+  "need": 55,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet4/2022-06_p1.jsonl": {
+  "need": 55,
+  "filled": 46,
+  "conflicts": []
+ },
+ "cet4/2022-06_p2.jsonl": {
+  "need": 30,
+  "filled": 15,
+  "conflicts": []
+ },
+ "cet4/2022-09_p1.jsonl": {
+  "need": 53,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2022-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2022-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2022-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2023-03_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2023-06_p1.jsonl": {
+  "need": 55,
+  "filled": 7,
+  "conflicts": []
+ },
+ "cet4/2023-06_p2.jsonl": {
+  "need": 55,
+  "filled": 8,
+  "conflicts": []
+ },
+ "cet4/2023-06_p3.jsonl": {
+  "need": 30,
+  "filled": 6,
+  "conflicts": []
+ },
+ "cet4/2024-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2024-12_p2.jsonl": {
+  "need": 47,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2024-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-06_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-12_p2.jsonl": {
+  "need": 53,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet4/2025-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-06_p1.jsonl": {
+  "need": 45,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-06_p3.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-12_p1.jsonl": {
+  "need": 53,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2015-12_p3.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2016-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2016-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2016-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2017-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2017-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2017-06_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2017-12_p1.jsonl": {
+  "need": 51,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2017-12_p2.jsonl": {
+  "need": 55,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2017-12_p3.jsonl": {
+  "need": 30,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2018-06_p1.jsonl": {
+  "need": 45,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet6/2018-06_p2.jsonl": {
+  "need": 55,
+  "filled": 3,
+  "conflicts": []
+ },
+ "cet6/2018-06_p3.jsonl": {
+  "need": 30,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2018-12_p1.jsonl": {
+  "need": 51,
+  "filled": 4,
+  "conflicts": []
+ },
+ "cet6/2018-12_p2.jsonl": {
+  "need": 43,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet6/2018-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2019-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2019-06_p2.jsonl": {
+  "need": 55,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2019-06_p3.jsonl": {
+  "need": 30,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2019-12_p1.jsonl": {
+  "need": 55,
+  "filled": 6,
+  "conflicts": []
+ },
+ "cet6/2019-12_p2.jsonl": {
+  "need": 55,
+  "filled": 5,
+  "conflicts": []
+ },
+ "cet6/2019-12_p3.jsonl": {
+  "need": 20,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2020-07_p1.jsonl": {
+  "need": 55,
+  "filled": 11,
+  "conflicts": []
+ },
+ "cet6/2020-09_p1.jsonl": {
+  "need": 55,
+  "filled": 19,
+  "conflicts": [
+   [
+    36,
+    {
+     "A": 1,
+     "H": 1
+    }
+   ],
+   [
+    38,
+    {
+     "A": 1,
+     "J": 1
+    }
+   ]
+  ]
+ },
+ "cet6/2020-09_p2.jsonl": {
+  "need": 30,
+  "filled": 10,
+  "conflicts": []
+ },
+ "cet6/2020-12_p1.jsonl": {
+  "need": 53,
+  "filled": 3,
+  "conflicts": []
+ },
+ "cet6/2020-12_p2.jsonl": {
+  "need": 54,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2020-12_p3.jsonl": {
+  "need": 30,
+  "filled": 3,
+  "conflicts": []
+ },
+ "cet6/2021-06_p1.jsonl": {
+  "need": 55,
+  "filled": 1,
+  "conflicts": []
+ },
+ "cet6/2021-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2021-06_p3.jsonl": {
+  "need": 30,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet6/2021-12_p3.jsonl": {
+  "need": 51,
+  "filled": 11,
+  "conflicts": []
+ },
+ "cet6/2022-06_p1.jsonl": {
+  "need": 55,
+  "filled": 29,
+  "conflicts": []
+ },
+ "cet6/2022-06_p2.jsonl": {
+  "need": 30,
+  "filled": 11,
+  "conflicts": []
+ },
+ "cet6/2022-09_p1.jsonl": {
+  "need": 55,
+  "filled": 40,
+  "conflicts": []
+ },
+ "cet6/2022-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2022-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2022-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2023-03_p1.jsonl": {
+  "need": 55,
+  "filled": 7,
+  "conflicts": []
+ },
+ "cet6/2023-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2023-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2023-06_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2023-12_p1.jsonl": {
+  "need": 55,
+  "filled": 2,
+  "conflicts": []
+ },
+ "cet6/2023-12_p2.jsonl": {
+  "need": 55,
+  "filled": 7,
+  "conflicts": []
+ },
+ "cet6/2023-12_p3.jsonl": {
+  "need": 30,
+  "filled": 8,
+  "conflicts": []
+ },
+ "cet6/2024-06_p1.jsonl": {
+  "need": 49,
+  "filled": 6,
+  "conflicts": []
+ },
+ "cet6/2024-06_p2.jsonl": {
+  "need": 54,
+  "filled": 5,
+  "conflicts": []
+ },
+ "cet6/2024-06_p3.jsonl": {
+  "need": 23,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2024-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2024-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2024-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-06_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-06_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-06_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-12_p1.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-12_p2.jsonl": {
+  "need": 55,
+  "filled": 0,
+  "note": "no answer source"
+ },
+ "cet6/2025-12_p3.jsonl": {
+  "need": 30,
+  "filled": 0,
+  "note": "no answer source"
+ }
+}

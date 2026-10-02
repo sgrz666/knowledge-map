@@ -1,0 +1,882 @@
+{
+ "CET-4 2015-06 p1": {
+  "listening": 25,
+  "reading": 28,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)",
+   "careful c2 got 3/5"
+  ]
+ },
+ "CET-4 2015-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2015-12 p1": {
+  "listening": 24,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening g7(听力篇章) got 3/4",
+   "cloze bank 0/15",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2015-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)",
+   "reading questions renumbered to 26-55 (source numbering out of range)"
+  ]
+ },
+ "CET-4 2015-12 p3": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "fixed duplicate Part I -> II",
+   "cloze bank 0/15",
+   "cloze blanks unmarked: [26, 27, 28, 29, 31, 32, 33, 34, 35]",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2016-06 p2": {
+  "listening": 27,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2016-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally"
+  ]
+ },
+ "CET-4 2016-12 p1": {
+  "listening": 17,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening g3(短篇新闻) got 1/3",
+   "listening g7(听力篇章) got 1/3",
+   "listening g8(听力篇章) got 0/4"
+  ]
+ },
+ "CET-4 2016-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2016-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "listening shared from cet4.2016-12_p2 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2017-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 11/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2017-06 p2": {
+  "listening": 25,
+  "reading": 28,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 14/15",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)",
+   "careful c1 got 3/5"
+  ]
+ },
+ "CET-4 2017-06 p3": {
+  "listening": 0,
+  "reading": 29,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)",
+   "matching got 9/10",
+   "listening shared from cet4.2017-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2017-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2017-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2017-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2018-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2018-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2018-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2018-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2019-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 14/15"
+  ]
+ },
+ "CET-4 2019-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2019-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2019-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2019-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2019-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2019-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)",
+   "listening shared from cet4.2019-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2020-09 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-4 2020-09 p2": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)",
+   "listening shared from cet4.2020-09_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2020-09 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet4.2020-09_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2020-12 p1": {
+  "listening": 25,
+  "reading": 23,
+  "passages": 4,
+  "warnings": [
+   "matching statements recovered positionally",
+   "careful c1 got 2/5",
+   "careful c2 got 1/5"
+  ]
+ },
+ "CET-4 2020-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2020-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2020-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2021-06 p1": {
+  "listening": 16,
+  "reading": 25,
+  "passages": 3,
+  "warnings": [
+   "listening g3(短篇新闻) got 1/3",
+   "listening g4(讲座/讲话) got 2/4",
+   "listening g6(听力篇章) got 1/3",
+   "cloze bank 14/15",
+   "cloze blanks unmarked: [34]"
+  ]
+ },
+ "CET-4 2021-06 p2": {
+  "listening": 19,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening g5(长对话) got 1/4",
+   "listening g8(听力篇章) got 1/4",
+   "cloze bank 14/15"
+  ]
+ },
+ "CET-4 2021-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2021-12 p3": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2022-06 p1": {
+  "dup_skipped": "2022年6月英语四级真题 第一套.docx"
+ },
+ "CET-4 2022-06 p2": {
+  "dup_skipped": "2022年6月英语四级真题 第二套.docx"
+ },
+ "CET-4 2022-06 p3": {
+  "dup_skipped": "2022年6月英语四级真题 第三套.docx"
+ },
+ "CET-4 2022-09 p1": {
+  "listening": 23,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening g4(长对话) got 2/4",
+   "matching statements recovered positionally"
+  ]
+ },
+ "CET-4 2022-09 p2": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections"
+  ]
+ },
+ "CET-4 2022-09 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections"
+  ]
+ },
+ "CET-4 2022-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2022-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2022-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2022-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2023-03 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2023-03 p2": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet4.2023-03_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2023-03 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet4.2023-03_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-4 2023-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2023-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-4 2023-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet4.2023-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2015-06 p1": {
+  "listening": 25,
+  "reading": 20,
+  "passages": 3,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2015-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2015-06 p3": {
+  "listening": 25,
+  "reading": 31,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2015-12 p1": {
+  "listening": 25,
+  "reading": 28,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)",
+   "matching got 8/10"
+  ]
+ },
+ "CET-6 2015-12 p2": {
+  "listening": 25,
+  "reading": 31,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2015-12 p3": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2016-12 p1": {
+  "listening": 25,
+  "reading": 37,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2016-12 p2": {
+  "listening": 25,
+  "reading": 38,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2016-12 p3": {
+  "listening": 0,
+  "reading": 38,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)",
+   "listening shared from cet6.2016-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2017-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2017-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2017-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2017-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2017-12 p1": {
+  "listening": 21,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2017-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2017-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "matching paragraphs unlettered (old format)",
+   "listening shared from cet6.2017-12_p2 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2018-06 p1": {
+  "listening": 25,
+  "reading": 20,
+  "passages": 2,
+  "warnings": [
+   "Part I header missing; writing taken from document head",
+   "careful c1 passage empty",
+   "careful c1 got 0/5",
+   "careful c2 passage empty",
+   "careful c2 got 0/5"
+  ]
+ },
+ "CET-6 2018-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2018-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 14/15",
+   "listening shared from cet6.2018-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2018-12 p1": {
+  "listening": 21,
+  "reading": 35,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2018-12 p2": {
+  "listening": 21,
+  "reading": 27,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching paragraphs unlettered (old format)",
+   "matching got 2/10"
+  ]
+ },
+ "CET-6 2018-12 p3": {
+  "listening": 0,
+  "reading": 31,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2019-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15"
+  ]
+ },
+ "CET-6 2019-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15"
+  ]
+ },
+ "CET-6 2019-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "listening shared from cet6.2019-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2019-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15"
+  ]
+ },
+ "CET-6 2019-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15"
+  ]
+ },
+ "CET-6 2019-12 p3": {
+  "listening": 0,
+  "reading": 20,
+  "passages": 3,
+  "warnings": [
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)",
+   "listening shared from cet6.2019-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2020-07 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "matching statements recovered positionally",
+   "matching paragraphs unlettered (old format)"
+  ]
+ },
+ "CET-6 2020-09 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15"
+  ]
+ },
+ "CET-6 2020-09 p2": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 0/15",
+   "listening shared from cet6.2020-09_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2020-09 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet6.2020-09_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2020-12 p1": {
+  "listening": 25,
+  "reading": 29,
+  "passages": 4,
+  "warnings": [
+   "listening g6(讲座/讲话) got 3/4",
+   "careful c2 got 4/5"
+  ]
+ },
+ "CET-6 2020-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening g6(讲座/讲话) got 3/4"
+  ]
+ },
+ "CET-6 2020-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2020-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2021-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2021-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2021-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2021-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2021-12 p3": {
+  "listening": 21,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2022-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2022-06 p2": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "cloze bank 14/15",
+   "listening shared from cet6.2022-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2022-06 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet6.2022-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2022-09 p1": {
+  "listening": 27,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2022-09 p2": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "Part I header missing; writing taken from document head",
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections"
+  ]
+ },
+ "CET-6 2022-09 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections"
+  ]
+ },
+ "CET-6 2022-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2022-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2022-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2022-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2023-03 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2023-03 p2": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet6.2023-03_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2023-03 p3": {
+  "listening": 0,
+  "reading": 0,
+  "passages": 0,
+  "warnings": [
+   "partial paper (writing/translation only; shared listening/reading with same-session paper)",
+   "no reading sections",
+   "listening shared from cet6.2023-03_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2023-06 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2023-06 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2023-06 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2023-06_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2023-12 p1": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2023-12 p2": {
+  "listening": 25,
+  "reading": 30,
+  "passages": 4,
+  "warnings": []
+ },
+ "CET-6 2023-12 p3": {
+  "listening": 0,
+  "reading": 30,
+  "passages": 4,
+  "warnings": [
+   "listening shared from cet6.2023-12_p1 (not printed in this paper)"
+  ]
+ },
+ "CET-6 2024-06 p1": {
+  "listening": 20,
+  "reading": 29,
+  "passages": 4,
+  "warnings": [
+   "listening g4(听力篇章) got 2/4",
+   "listening g5(讲座/讲话) got 2/3",
+   "listening g6(讲座/讲话) got 2/3",
+   "listening g7(讲座/讲话) got 3/4",
+   "matching got 9/10"
+  ]
+ },
+ "CET-6 2024-06 p2": {
+  "listening": 26,
+  "reading": 29,
+  "passages": 4,
+  "warnings": [
+   "matching got 9/10"
+  ]
+ },
+ "CET-6 2024-06 p3": {
+  "listening": 0,
+  "reading": 23,
+  "passages": 3,
+  "warnings": [
+   "matching got 8/10"
+  ]
+ }
+}
