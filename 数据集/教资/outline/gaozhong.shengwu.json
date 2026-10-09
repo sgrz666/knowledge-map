@@ -1,0 +1,1081 @@
+{
+ "level": "gaozhong",
+ "subject": "shengwu",
+ "subject_cn": "生物学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "细胞",
+    "光合",
+    "遗传",
+    "基因",
+    "生态",
+    "实验",
+    "呼吸",
+    "蛋白质",
+    "DNA",
+    "有丝分裂"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k01",
+   "name": "细胞组成与结构",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "细胞",
+    "细胞器",
+    "蛋白质",
+    "淀粉",
+    "脂肪",
+    "核酸",
+    "细胞膜",
+    "线粒体",
+    "叶绿体",
+    "分生组织",
+    "保护组织",
+    "薄壁组织",
+    "输导组织"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：细胞组成与结构",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k02",
+   "name": "酶与细胞代谢",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "酶",
+    "ATP",
+    "呼吸",
+    "光合",
+    "代谢",
+    "发酵",
+    "能量"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：酶与细胞代谢",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k03",
+   "name": "细胞增殖分化与生命历程",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "有丝分裂",
+    "减数分裂",
+    "分化",
+    "衰老",
+    "凋亡",
+    "癌变",
+    "细胞周期"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：细胞增殖分化与生命历程",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k04",
+   "name": "遗传规律与变异",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "遗传",
+    "基因",
+    "等位",
+    "染色体",
+    "DNA",
+    "RNA",
+    "孟德尔",
+    "突变",
+    "重组",
+    "基因型",
+    "显性",
+    "隐性"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：遗传规律与变异",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k05",
+   "name": "进化与生物多样性",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "进化",
+    "自然选择",
+    "物种",
+    "多样性",
+    "达尔文",
+    "隔离"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：进化与生物多样性",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k06",
+   "name": "稳态与生命活动调节",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "神经",
+    "激素",
+    "免疫",
+    "稳态",
+    "内环境",
+    "体液",
+    "反射",
+    "反馈",
+    "血液",
+    "左心室",
+    "右心室",
+    "心房",
+    "主动脉",
+    "肺动脉",
+    "体循环",
+    "肺循环"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：稳态与生命活动调节",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k07",
+   "name": "植物生理与发育",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "植物",
+    "生长素",
+    "赤霉素",
+    "种子",
+    "萌发",
+    "蒸腾",
+    "根",
+    "叶",
+    "果实",
+    "子房",
+    "胚珠",
+    "受精卵",
+    "胚"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：植物生理与发育",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k08",
+   "name": "生态系统与种群群落",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "生态",
+    "种群",
+    "群落",
+    "环境容纳量",
+    "食物链",
+    "能量流动",
+    "物质循环",
+    "生产者",
+    "消费者",
+    "生物圈"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：生态系统与种群群落",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k09",
+   "name": "生物技术与工程",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "生物技术",
+    "基因工程",
+    "细胞工程",
+    "胚胎工程",
+    "发酵工程",
+    "克隆",
+    "培养"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [
+      "生物技术"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s1.k10",
+   "name": "生物实验与科学探究",
+   "parent": "ntce.gaozhong.shengwu.s1",
+   "keywords": [
+    "实验",
+    "对照",
+    "探究",
+    "显微镜",
+    "观察",
+    "鉴定",
+    "变量"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：生物实验与科学探究",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.shengwu.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r003",
+    "ntce.outline.408.r012"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r003",
+     "matched_terms": [
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r012",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 14,
+      "line_end": 14,
+      "section": "教学知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 25,
+      "line_end": 25,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.shengwu.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r005",
+    "ntce.outline.408.r007",
+    "ntce.outline.408.r016"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r005",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r007",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r016",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "教学知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "教学知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学设计",
+      "subsection": "选择教学策略和方法"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.shengwu.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.shengwu.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r013",
+    "ntce.outline.408.r014",
+    "ntce.outline.408.r015"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r013",
+     "matched_terms": [
+      "教学重点",
+      "教学难点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r014",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r015",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.shengwu.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.408.r018",
+    "ntce.outline.408.r019",
+    "ntce.outline.408.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.408.r018",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r019",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.408.r020",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 34,
+      "line_end": 34,
+      "section": "教学设计",
+      "subsection": " 设计教学过程"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 35,
+      "line_end": 35,
+      "section": "教学设计",
+      "subsection": " 设计教学过程"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.408",
+     "path": "权威资料/originals/ntce.outline.408.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/326-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.408.txt",
+      "line_start": 36,
+      "line_end": 36,
+      "section": "教学设计",
+      "subsection": " 设计教学过程"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.shengwu.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.shengwu.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.shengwu.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.shengwu.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.shengwu.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.408"
+ ],
+ "source_verified": true
+}

@@ -1,0 +1,1514 @@
+{
+ "level": "zhongxue",
+ "subject": "jiaoyuzhishi",
+ "subject_cn": "教育知识与能力(中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m1",
+   "name": "教育基础知识和基本原理",
+   "parent": null,
+   "keywords": [
+    "孔子",
+    "《学记》",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "教育起源",
+    "教育目的",
+    "教育制度",
+    "学制",
+    "生产力",
+    "政治经济制度",
+    "遗传",
+    "环境",
+    "个体主观能动性",
+    "教育家",
+    "教育与社会"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m2",
+   "name": "中学课程",
+   "parent": null,
+   "keywords": [
+    "课程",
+    "学科课程",
+    "活动课程",
+    "课程设计",
+    "课程目标",
+    "课程评价",
+    "综合课程",
+    "隐性课程",
+    "课程开发"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m3",
+   "name": "中学教学",
+   "parent": null,
+   "keywords": [
+    "教学原则",
+    "教学方法",
+    "教学过程",
+    "直观性",
+    "循序渐进",
+    "因材施教",
+    "班级授课制",
+    "讲授"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m4",
+   "name": "中学生学习心理",
+   "parent": null,
+   "keywords": [
+    "感觉",
+    "知觉",
+    "注意",
+    "记忆",
+    "遗忘曲线",
+    "艾宾浩斯",
+    "思维",
+    "想象",
+    "问题解决",
+    "创造性",
+    "学习动机",
+    "耶克斯",
+    "学习迁移",
+    "学习策略",
+    "行为主义",
+    "强化",
+    "桑代克",
+    "斯金纳",
+    "巴甫洛夫",
+    "建构主义",
+    "奥苏贝尔",
+    "加涅",
+    "试误"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m5",
+   "name": "中学生发展心理",
+   "parent": null,
+   "keywords": [
+    "认知发展",
+    "皮亚杰",
+    "维果茨基",
+    "情绪",
+    "情感",
+    "人格",
+    "气质",
+    "性格",
+    "埃里克森",
+    "弗洛伊德",
+    "自我意识",
+    "青春期",
+    "性心理",
+    "同伴关系"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m6",
+   "name": "中学生心理辅导",
+   "parent": null,
+   "keywords": [
+    "心理健康",
+    "心理辅导",
+    "焦虑症",
+    "抑郁症",
+    "强迫症",
+    "网络成瘾",
+    "系统脱敏",
+    "理性情绪",
+    "罗杰斯"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m7",
+   "name": "中学德育",
+   "parent": null,
+   "keywords": [
+    "德育",
+    "品德",
+    "道德认识",
+    "道德情感",
+    "道德行为",
+    "德育原则",
+    "疏导",
+    "长善救失",
+    "知行统一",
+    "德育方法",
+    "说服教育",
+    "榜样示范",
+    "情感陶冶"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m8",
+   "name": "中学班级管理与教师心理",
+   "parent": null,
+   "keywords": [
+    "班集体",
+    "班主任",
+    "课堂管理",
+    "课堂纪律",
+    "群体",
+    "教师心理",
+    "职业倦怠",
+    "教师成长",
+    "教学效能感"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m1.k01",
+   "name": "教育思想与教育学发展",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m1",
+   "keywords": [
+    "孔子",
+    "学记",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "教育起源",
+    "教育家",
+    "教育思想",
+    "康德",
+    "洛克",
+    "卢梭",
+    "裴斯泰洛齐",
+    "斯宾塞",
+    "保罗朗格朗",
+    "神话起源",
+    "生物起源",
+    "心理起源",
+    "劳动起源",
+    "沛西能",
+    "孟禄",
+    "凯洛夫"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r001",
+     "matched_terms": [
+      "教育家",
+      "教育思想"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "教育基础知识和基本原理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m1.k02",
+   "name": "教育目的与教育制度",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m1",
+   "keywords": [
+    "教育目的",
+    "教育制度",
+    "学制",
+    "素质教育",
+    "全面发展",
+    "美育",
+    "智育",
+    "德育",
+    "体育",
+    "劳动教育",
+    "壬寅学制",
+    "癸卯学制",
+    "壬戌学制",
+    "艺术教育"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r008",
+    "ntce.outline.302.r036"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r008",
+     "matched_terms": [
+      "教育目的",
+      "全面发展",
+      "美育",
+      "智育",
+      "德育",
+      "体育"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r036",
+     "matched_terms": [
+      "德育",
+      "劳动教育"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 14,
+      "line_end": 14,
+      "section": "教育基础知识和基本原理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 48,
+      "line_end": 48,
+      "section": "中学德育",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m1.k03",
+   "name": "教育与社会及个体发展",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m1",
+   "keywords": [
+    "生产力",
+    "政治经济制度",
+    "遗传",
+    "环境",
+    "个体主观能动性",
+    "教育与社会",
+    "顺序性",
+    "阶段性",
+    "不平衡性",
+    "互补性",
+    "个别差异性",
+    "内发论",
+    "外铄论",
+    "关键期",
+    "敏感期",
+    "狼孩"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r004"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r004",
+     "matched_terms": [
+      "生产力",
+      "政治经济制度",
+      "教育与社会"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "教育基础知识和基本原理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m2.k01",
+   "name": "课程类型与课程开发",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m2",
+   "keywords": [
+    "课程",
+    "学科课程",
+    "活动课程",
+    "综合课程",
+    "隐性课程",
+    "课程开发",
+    "课程设计",
+    "课程目标",
+    "课程评价",
+    "泰勒",
+    "布鲁纳",
+    "分科课程",
+    "显性课程",
+    "校本课程",
+    "课程标准",
+    "教科书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r011",
+    "ntce.outline.302.r012",
+    "ntce.outline.302.r010"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r011",
+     "matched_terms": [
+      "课程",
+      "活动课程",
+      "综合课程",
+      "隐性课程",
+      "分科课程",
+      "显性课程",
+      "校本课程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r012",
+     "matched_terms": [
+      "课程",
+      "课程目标",
+      "课程评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r010",
+     "matched_terms": [
+      "课程",
+      "课程开发"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "中学课程",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": "中学课程",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "中学课程",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m3.k01",
+   "name": "教学过程与教学原则",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m3",
+   "keywords": [
+    "教学过程",
+    "教学原则",
+    "直观性",
+    "循序渐进",
+    "因材施教",
+    "间接经验",
+    "直接经验",
+    "教师主导",
+    "学生主体",
+    "启发性",
+    "巩固性",
+    "科学性与思想性",
+    "理论联系实际"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r015",
+    "ntce.outline.302.r014",
+    "ntce.outline.302.r016"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r015",
+     "matched_terms": [
+      "教学过程",
+      "间接经验",
+      "直接经验"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r014",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r016",
+     "matched_terms": [
+      "教学原则"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "中学教学",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "中学教学",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 24,
+      "line_end": 24,
+      "section": "中学教学",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m3.k02",
+   "name": "教学方法与组织形式",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m3",
+   "keywords": [
+    "教学方法",
+    "班级授课制",
+    "讲授",
+    "谈话",
+    "演示",
+    "探究",
+    "讨论法",
+    "练习法",
+    "实验法",
+    "读书指导法",
+    "个别教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r016",
+    "ntce.outline.302.r009"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r016",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r009",
+     "matched_terms": [
+      "实验法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 24,
+      "line_end": 24,
+      "section": "中学教学",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教育基础知识和基本原理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m4.k01",
+   "name": "认知过程与问题解决",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m4",
+   "keywords": [
+    "感觉",
+    "知觉",
+    "注意",
+    "记忆",
+    "遗忘",
+    "艾宾浩斯",
+    "思维",
+    "想象",
+    "问题解决",
+    "创造性",
+    "发散思维",
+    "聚合思维",
+    "定势",
+    "功能固着",
+    "酝酿效应",
+    "复习",
+    "组织复习"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r020",
+     "matched_terms": [
+      "思维",
+      "问题解决",
+      "创造性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "中学生学习心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m4.k02",
+   "name": "学习理论与学习动机",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m4",
+   "keywords": [
+    "动机",
+    "耶克斯",
+    "行为主义",
+    "强化",
+    "桑代克",
+    "斯金纳",
+    "巴甫洛夫",
+    "建构主义",
+    "奥苏贝尔",
+    "加涅",
+    "试误",
+    "负强化",
+    "惩罚",
+    "消退",
+    "班杜拉",
+    "观察学习",
+    "顿悟",
+    "布鲁纳",
+    "先行组织者",
+    "人本主义",
+    "罗杰斯",
+    "需要层次",
+    "马斯洛",
+    "成败归因",
+    "韦纳",
+    "自我效能感",
+    "教学监控",
+    "监控能力"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r024"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r024",
+     "matched_terms": [
+      "行为主义",
+      "建构主义",
+      "人本主义"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 33,
+      "line_end": 33,
+      "section": "中学生学习心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m4.k03",
+   "name": "学习迁移与学习策略",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m4",
+   "keywords": [
+    "学习迁移",
+    "学习策略",
+    "元认知",
+    "认知策略",
+    "资源管理",
+    "正迁移",
+    "负迁移",
+    "顺向迁移",
+    "逆向迁移",
+    "水平迁移",
+    "垂直迁移",
+    "形式训练",
+    "相同要素",
+    "水下击靶",
+    "关系转化",
+    "复述策略",
+    "精细加工",
+    "组织策略"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r023",
+    "ntce.outline.302.r022"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r023",
+     "matched_terms": [
+      "学习策略",
+      "元认知",
+      "认知策略",
+      "资源管理"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r022",
+     "matched_terms": [
+      "学习迁移",
+      "形式训练"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 32,
+      "line_end": 32,
+      "section": "中学生学习心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "中学生学习心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m5.k01",
+   "name": "认知发展阶段与社会文化理论",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m5",
+   "keywords": [
+    "认知发展",
+    "皮亚杰",
+    "维果茨基",
+    "前运算",
+    "具体运算",
+    "形式运算",
+    "最近发展区",
+    "感知运动",
+    "客体永久性",
+    "泛灵论",
+    "自我中心",
+    "不可逆",
+    "守恒",
+    "文化历史学说",
+    "支架式教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r020",
+    "ntce.outline.302.r025",
+    "ntce.outline.302.r035"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r020",
+     "matched_terms": [
+      "认知发展",
+      "皮亚杰"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r025",
+     "matched_terms": [
+      "认知发展"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r035",
+     "matched_terms": [
+      "皮亚杰"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "中学生学习心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 35,
+      "line_end": 35,
+      "section": "中学生发展心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 47,
+      "line_end": 47,
+      "section": "中学德育",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m5.k02",
+   "name": "人格情绪与青春期发展",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m5",
+   "keywords": [
+    "情绪",
+    "情感",
+    "人格",
+    "气质",
+    "性格",
+    "埃里克森",
+    "弗洛伊德",
+    "自我意识",
+    "青春期",
+    "性心理",
+    "同伴关系",
+    "同一性",
+    "勤奋感",
+    "自卑感",
+    "自我评价"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r030",
+    "ntce.outline.302.r006",
+    "ntce.outline.302.r031"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r030",
+     "matched_terms": [
+      "人格",
+      "埃里克森",
+      "弗洛伊德"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r006",
+     "matched_terms": [
+      "青春期"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r031",
+     "matched_terms": [
+      "性心理"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 40,
+      "line_end": 40,
+      "section": "中学生发展心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "教育基础知识和基本原理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 41,
+      "line_end": 41,
+      "section": "中学生发展心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m6.k01",
+   "name": "心理健康问题与辅导方法",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m6",
+   "keywords": [
+    "心理健康",
+    "心理辅导",
+    "焦虑",
+    "抑郁",
+    "强迫",
+    "网络成瘾",
+    "系统脱敏",
+    "理性情绪",
+    "罗杰斯",
+    "恐怖",
+    "认知疗法",
+    "ABC理论",
+    "强化法"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r032",
+    "ntce.outline.302.r033",
+    "ntce.outline.302.r047"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r032",
+     "matched_terms": [
+      "心理健康",
+      "焦虑",
+      "抑郁",
+      "强迫",
+      "网络成瘾",
+      "恐怖"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r033",
+     "matched_terms": [
+      "心理辅导",
+      "系统脱敏",
+      "认知疗法",
+      "强化法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r047",
+     "matched_terms": [
+      "心理健康"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 43,
+      "line_end": 43,
+      "section": "中学生心理辅导",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 44,
+      "line_end": 44,
+      "section": "中学生心理辅导",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 60,
+      "line_end": 60,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m7.k01",
+   "name": "德育过程与德育原则",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m7",
+   "keywords": [
+    "德育",
+    "品德",
+    "道德认识",
+    "道德情感",
+    "道德行为",
+    "疏导",
+    "长善救失",
+    "知行统一",
+    "因材施教",
+    "知情意行",
+    "正面教育",
+    "柯尔伯格",
+    "道德两难",
+    "海因茨偷药",
+    "前习俗",
+    "习俗",
+    "后习俗"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r035"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r035",
+     "matched_terms": [
+      "品德",
+      "柯尔伯格"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 47,
+      "line_end": 47,
+      "section": "中学德育",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m7.k02",
+   "name": "德育方法与实践",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m7",
+   "keywords": [
+    "德育方法",
+    "说服教育",
+    "榜样示范",
+    "情感陶冶",
+    "实际锻炼",
+    "品德评价",
+    "道德修养"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r038"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r038",
+     "matched_terms": [
+      "德育方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 50,
+      "line_end": 50,
+      "section": "中学德育",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m8.k01",
+   "name": "班级管理与班集体建设",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m8",
+   "keywords": [
+    "班集体",
+    "班主任",
+    "课堂管理",
+    "课堂纪律",
+    "群体",
+    "班风",
+    "首要任务",
+    "师生关系",
+    "威信",
+    "教师威信"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r043",
+    "ntce.outline.302.r041",
+    "ntce.outline.302.r042"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r043",
+     "matched_terms": [
+      "班集体",
+      "班主任"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r041",
+     "matched_terms": [
+      "课堂管理"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r042",
+     "matched_terms": [
+      "课堂纪律"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 56,
+      "line_end": 56,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 54,
+      "line_end": 54,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 55,
+      "line_end": 55,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.zhongxue.jiaoyuzhishi.m8.k02",
+   "name": "教师心理与专业成长",
+   "parent": "ntce.zhongxue.jiaoyuzhishi.m8",
+   "keywords": [
+    "教师心理",
+    "职业倦怠",
+    "教师成长",
+    "教学效能感",
+    "教学效能",
+    "皮格马利翁",
+    "罗森塔尔"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.302.r047",
+    "ntce.outline.302.r046"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.302.r047",
+     "matched_terms": [
+      "教师心理",
+      "教师成长"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.302.r046",
+     "matched_terms": [
+      "教师心理"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 60,
+      "line_end": 60,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.302",
+     "path": "权威资料/originals/ntce.outline.302.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/343-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.302.txt",
+      "line_start": 59,
+      "line_end": 59,
+      "section": "中学班级管理与教师心理",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.302"
+ ],
+ "source_verified": true
+}

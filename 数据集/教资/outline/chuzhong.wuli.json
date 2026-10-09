@@ -1,0 +1,983 @@
+{
+ "level": "chuzhong",
+ "subject": "wuli",
+ "subject_cn": "物理学科知识与教学能力(初级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.chuzhong.wuli.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "力学",
+    "电学",
+    "实验",
+    "牛顿",
+    "电磁",
+    "光学",
+    "能量",
+    "加速度",
+    "电路",
+    "浮力"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k01",
+   "name": "运动学",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "速度",
+    "加速度",
+    "位移",
+    "自由落体",
+    "运动",
+    "抛体",
+    "匀速",
+    "匀变速"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k02",
+   "name": "力与牛顿定律",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "牛顿",
+    "力学",
+    "受力",
+    "摩擦",
+    "弹力",
+    "浮力",
+    "重力",
+    "质量",
+    "惯性",
+    "作用力"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k03",
+   "name": "功与能及动量",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "功率",
+    "能量",
+    "动能",
+    "势能",
+    "机械能",
+    "动量",
+    "冲量",
+    "功",
+    "碰撞"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k04",
+   "name": "万有引力与圆周运动",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "万有引力",
+    "天体",
+    "卫星",
+    "圆周",
+    "向心",
+    "开普勒"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k05",
+   "name": "振动与波",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "振动",
+    "波动",
+    "声波",
+    "波长",
+    "频率",
+    "共振",
+    "简谐",
+    "干涉",
+    "衍射"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k06",
+   "name": "热学与气体定律",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "热力学",
+    "理想气体",
+    "温度",
+    "内能",
+    "压强",
+    "分子",
+    "比热",
+    "气体",
+    "等温",
+    "等容",
+    "等压"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k07",
+   "name": "静电场与电容",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "电场",
+    "电势",
+    "静电",
+    "电容",
+    "库仑",
+    "电荷"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k08",
+   "name": "直流电路",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "电路",
+    "电阻",
+    "电流",
+    "欧姆",
+    "电压",
+    "电功率",
+    "伏安",
+    "灯泡"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k09",
+   "name": "磁场与电磁感应",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "磁场",
+    "电磁",
+    "安培",
+    "洛伦兹",
+    "感应",
+    "磁通",
+    "法拉第",
+    "螺线管",
+    "线圈",
+    "楞次定律",
+    "感应电动势"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k10",
+   "name": "光学与成像",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "光学",
+    "折射",
+    "反射",
+    "透镜",
+    "成像",
+    "光线",
+    "光电",
+    "放大镜",
+    "望远镜"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k11",
+   "name": "原子与近代物理",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "原子",
+    "核能",
+    "量子",
+    "相对论",
+    "放射性",
+    "粒子",
+    "半衰期",
+    "能级",
+    "玻尔",
+    "光电效应",
+    "光子"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s1.k12",
+   "name": "物理实验与误差",
+   "parent": "ntce.chuzhong.wuli.s1",
+   "keywords": [
+    "实验",
+    "测量",
+    "误差",
+    "游标卡尺",
+    "螺旋测微",
+    "电表",
+    "滑动变阻器"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.chuzhong.wuli.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r004",
+    "ntce.outline.306.r008",
+    "ntce.outline.306.r011"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r004",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r008",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r011",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": " 物理学科与教学知识",
+      "subsection": " 物理专业知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": " 确定物理教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.chuzhong.wuli.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r005",
+    "ntce.outline.306.r012",
+    "ntce.outline.306.r013"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r005",
+     "matched_terms": [
+      "教学方法",
+      "教学原则"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r012",
+     "matched_terms": [
+      "教学方法",
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r013",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": " 物理学科与教学知识",
+      "subsection": " 物理专业知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.chuzhong.wuli.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.chuzhong.wuli.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r009",
+    "ntce.outline.306.r010",
+    "ntce.outline.306.r011"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r009",
+     "matched_terms": [
+      "教学重点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r010",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r011",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 24,
+      "line_end": 24,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学设计",
+      "subsection": " 确定物理教学目标"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": " 确定物理教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.chuzhong.wuli.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r014",
+    "ntce.outline.306.r019",
+    "ntce.outline.306.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r014",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r019",
+     "matched_terms": [
+      "教学过程",
+      "作业"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r005",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 32,
+      "line_end": 32,
+      "section": "教学设计",
+      "subsection": " 设计物理教学过程"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 40,
+      "line_end": 40,
+      "section": "教学实施",
+      "subsection": "课堂教学组织"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": " 物理学科与教学知识",
+      "subsection": " 物理专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.chuzhong.wuli.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r013",
+    "ntce.outline.306.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r013",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.306.r020",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 41,
+      "line_end": 41,
+      "section": "教学实施",
+      "subsection": "课堂教学组织"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.chuzhong.wuli.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.chuzhong.wuli.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.wuli.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.chuzhong.wuli.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.306.r024"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.306.r024",
+     "matched_terms": [
+      "教学反思",
+      "改进"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.306",
+     "path": "权威资料/originals/ntce.outline.306.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/351-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.306.txt",
+      "line_start": 48,
+      "line_end": 48,
+      "section": " 教学评价",
+      "subsection": " 物理教学评价"
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.306"
+ ],
+ "source_verified": true
+}

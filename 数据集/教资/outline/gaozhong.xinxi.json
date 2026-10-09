@@ -1,0 +1,1279 @@
+{
+ "level": "gaozhong",
+ "subject": "xinxi",
+ "subject_cn": "信息技术学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "算法",
+    "程序",
+    "Python",
+    "数据库",
+    "网络",
+    "多媒体",
+    "信息素养",
+    "编程",
+    "表格",
+    "信息安全"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k01",
+   "name": "信息与数字编码",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "信息",
+    "编码",
+    "二进制",
+    "进制",
+    "字符",
+    "ASCII",
+    "Unicode",
+    "内码",
+    "信息素养",
+    "逻辑表达式",
+    "真值表",
+    "与或非"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：信息与数字编码",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k02",
+   "name": "计算机硬件与系统",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "计算机",
+    "硬件",
+    "CPU",
+    "存储器",
+    "操作系统",
+    "内存",
+    "磁盘",
+    "软件",
+    "GSM",
+    "3G",
+    "4G",
+    "5G",
+    "传输速率",
+    "带宽",
+    "WIFI",
+    "WiFi",
+    "WIFl",
+    "WAP",
+    "通信技术"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：计算机硬件与系统",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k03",
+   "name": "算法与程序设计",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "算法",
+    "程序",
+    "Python",
+    "编程",
+    "循环",
+    "数组",
+    "递归",
+    "排序",
+    "变量",
+    "流程图",
+    "函数",
+    "VB"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：算法与程序设计",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k04",
+   "name": "数据结构与计算",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "数据结构",
+    "栈",
+    "队列",
+    "链表",
+    "树",
+    "复杂度",
+    "查找"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：数据结构与计算",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k05",
+   "name": "数据库与数据管理",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "数据库",
+    "SQL",
+    "数据表",
+    "查询",
+    "关系模型",
+    "主键",
+    "Access",
+    "关系运算",
+    "关系代数",
+    "E-R图",
+    "实体",
+    "联系"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：数据库与数据管理",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k06",
+   "name": "网络与互联网",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "网络",
+    "IP",
+    "域名",
+    "协议",
+    "路由",
+    "互联网",
+    "子网",
+    "HTTP",
+    "TCP",
+    "交换机"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：网络与互联网",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k07",
+   "name": "信息安全与社会责任",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "信息安全",
+    "病毒",
+    "加密",
+    "密码",
+    "隐私",
+    "版权",
+    "黑客",
+    "网络安全",
+    "违法行为",
+    "网络道德",
+    "法律意识"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：信息安全与社会责任",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k08",
+   "name": "多媒体与数字作品",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "多媒体",
+    "音频",
+    "视频",
+    "图像",
+    "动画",
+    "像素",
+    "分辨率",
+    "压缩",
+    "Flash",
+    "Photoshop"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：多媒体与数字作品",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k09",
+   "name": "办公软件与数据处理",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "Word",
+    "Excel",
+    "PowerPoint",
+    "表格",
+    "单元格",
+    "公式",
+    "文档",
+    "幻灯片",
+    "数据处理"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：办公软件与数据处理",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识",
+      "subsection": " 信息技术学科专业知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s1.k10",
+   "name": "信息技术课程与教学",
+   "parent": "ntce.gaozhong.xinxi.s1",
+   "keywords": [
+    "信息技术课",
+    "信息技术教学",
+    "数字化学习",
+    "计算思维",
+    "项目学习"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r006",
+    "ntce.outline.415.r009",
+    "ntce.outline.415.r010"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r006",
+     "matched_terms": [
+      "信息技术课",
+      "信息技术教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r009",
+     "matched_terms": [
+      "信息技术课",
+      "信息技术教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r010",
+     "matched_terms": [
+      "信息技术课",
+      "信息技术教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.xinxi.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r004",
+    "ntce.outline.415.r019",
+    "ntce.outline.415.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r004",
+     "matched_terms": [
+      "课程目标",
+      "课程性质"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r019",
+     "matched_terms": [
+      "课程标准",
+      "课程内容"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r005",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 14,
+      "line_end": 14,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学设计",
+      "subsection": " 确定信息技术教学目标"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.xinxi.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r008",
+    "ntce.outline.415.r020",
+    "ntce.outline.415.r021"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r008",
+     "matched_terms": [
+      "教学原则",
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r020",
+     "matched_terms": [
+      "教学方法",
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r021",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "学科知识",
+      "subsection": "信息技术课程知识"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 33,
+      "line_end": 33,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 34,
+      "line_end": 34,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.xinxi.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r016",
+    "ntce.outline.415.r017"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r016",
+     "matched_terms": [
+      "教材内容"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r017",
+     "matched_terms": [
+      "教材内容"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.xinxi.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r016",
+    "ntce.outline.415.r017",
+    "ntce.outline.415.r018"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r016",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r017",
+     "matched_terms": [
+      "教学重点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r018",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学设计",
+      "subsection": " 确定信息技术教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.xinxi.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r023",
+    "ntce.outline.415.r024",
+    "ntce.outline.415.r025"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r023",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r024",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r025",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 37,
+      "line_end": 37,
+      "section": "教学设计",
+      "subsection": "信息技术教学设计的综合应用"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 38,
+      "line_end": 38,
+      "section": "教学设计",
+      "subsection": "信息技术教学设计的综合应用"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 39,
+      "line_end": 39,
+      "section": "教学设计",
+      "subsection": "信息技术教学设计的综合应用"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.xinxi.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r022",
+    "ntce.outline.415.r032"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r022",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.415.r032",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 35,
+      "line_end": 35,
+      "section": "教学设计",
+      "subsection": " 选择教学策略和方法"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 50,
+      "line_end": 50,
+      "section": "教学实施",
+      "subsection": " 信息技术教学实施的综合应用"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.xinxi.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.xinxi.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.xinxi.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.xinxi.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.415.r036"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.415.r036",
+     "matched_terms": [
+      "教学反思",
+      "改进"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.415",
+     "path": "权威资料/originals/ntce.outline.415.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1106-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.415.txt",
+      "line_start": 57,
+      "line_end": 57,
+      "section": "教学评价",
+      "subsection": " 信息技术教学评价"
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.415"
+ ],
+ "source_verified": true
+}

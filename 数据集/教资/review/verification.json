@@ -1,0 +1,30 @@
+{
+  "questions": 14500,
+  "structural_errors": 0,
+  "errors": [],
+  "module_paths": 38,
+  "pending_questions": 14500,
+  "pending_by_reason": {
+    "expert_content_review_needed": 14500,
+    "source_stem_incomplete": 800,
+    "knowledge_alignment_needed": 1452,
+    "ability_alignment_needed": 1452,
+    "official_requirement_alignment_needed": 4013,
+    "reference_answer_needed": 4509,
+    "question_specific_explanation_needed": 7724,
+    "source_options_or_diagram_needed": 778,
+    "difficulty_calibration_needed": 1780,
+    "answer_option_alignment_needed": 352,
+    "question_specific_scoring_points_needed": 1148,
+    "source_answer_conflict_review_needed": 1040,
+    "cross_question_boundary_review_needed": 850,
+    "source_boundary_alignment_needed": 127
+  },
+  "note": "结构完整不等于语义或内容专家验收通过；全库待补队列保留。",
+  "idempotence": {
+    "files_checked": 13899,
+    "changed_files": [],
+    "passed": true,
+    "snapshot_sha256": "c1d70dc795fdd899052241faa2c77f57b32aa95974323833597389e7fb5f168c"
+  }
+}

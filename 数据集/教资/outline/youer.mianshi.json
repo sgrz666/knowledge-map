@@ -1,0 +1,605 @@
+{
+ "level": "youer",
+ "subject": "mianshi",
+ "subject_cn": "幼儿结构化面试",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.youer.mianshi.m1",
+   "name": "综合分析类",
+   "parent": null,
+   "keywords": [
+    "你怎么看",
+    "怎么理解",
+    "谈谈看法",
+    "社会现象"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "communicate",
+    "evidence"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m2",
+   "name": "应急应变类",
+   "parent": null,
+   "keywords": [
+    "突然",
+    "突发",
+    "打架",
+    "争吵",
+    "失控",
+    "你怎么办"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "manage",
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m3",
+   "name": "人际关系类",
+   "parent": null,
+   "keywords": [
+    "同事",
+    "家长",
+    "领导",
+    "矛盾",
+    "沟通",
+    "误会"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "communicate"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m4",
+   "name": "组织协调类",
+   "parent": null,
+   "keywords": [
+    "组织",
+    "班会",
+    "策划",
+    "安排活动"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "manage",
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m5",
+   "name": "职业认知与自我认知类",
+   "parent": null,
+   "keywords": [
+    "为什么当教师",
+    "职业规划",
+    "自我介绍",
+    "教师职业",
+    "你最欣赏"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "ethics"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m6",
+   "name": "教育教学实践类",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学",
+    "备课",
+    "作业",
+    "学生问题"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory",
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m1.k01",
+   "name": "教育现象分析与观点论证",
+   "parent": "ntce.youer.mianshi.m1",
+   "keywords": [
+    "你怎么看",
+    "怎么理解",
+    "谈谈看法",
+    "社会现象",
+    "综合分析",
+    "教育热点",
+    "教育现象"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "communicate",
+    "evidence"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r009",
+    "ntce.interview.youeryuan.r010",
+    "ntce.interview.youeryuan.r025"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r009",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育现象分析与观点论证",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r010",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育现象分析与观点论证",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r025",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育现象分析与观点论证",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "思维品质",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "思维品质",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+      "table": 1,
+      "row": 10,
+      "column": 5,
+      "section": "五、评分标准"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m2.k01",
+   "name": "突发事件判断与应急处置",
+   "parent": "ntce.youer.mianshi.m2",
+   "keywords": [
+    "突然",
+    "突发",
+    "打架",
+    "争吵",
+    "失控",
+    "你怎么办",
+    "应急应变",
+    "课堂突发",
+    "纪律突发",
+    "安全突发"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage",
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r003",
+    "ntce.interview.youeryuan.r004",
+    "ntce.interview.youeryuan.r009"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：突发事件判断与应急处置",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r004",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：突发事件判断与应急处置",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r009",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：突发事件判断与应急处置",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": "心理素质",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "心理素质",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "思维品质",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m3.k01",
+   "name": "家校同事沟通与矛盾处理",
+   "parent": "ntce.youer.mianshi.m3",
+   "keywords": [
+    "同事",
+    "家长",
+    "领导",
+    "矛盾",
+    "沟通",
+    "误会",
+    "人际关系",
+    "家校矛盾",
+    "同事分歧",
+    "换位思考"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "communicate"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r007",
+    "ntce.interview.youeryuan.r008",
+    "ntce.interview.youeryuan.r023"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r007",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：家校同事沟通与矛盾处理",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r008",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：家校同事沟通与矛盾处理",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r023",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：家校同事沟通与矛盾处理",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 25,
+      "line_end": 25,
+      "section": "交流沟通",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "交流沟通",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+      "table": 1,
+      "row": 8,
+      "column": 5,
+      "section": "五、评分标准"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m4.k01",
+   "name": "教育活动策划与组织协调",
+   "parent": "ntce.youer.mianshi.m4",
+   "keywords": [
+    "组织",
+    "班会",
+    "策划",
+    "安排活动",
+    "组织协调",
+    "主题班会",
+    "家长会",
+    "文体活动"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage",
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r007",
+    "ntce.interview.youeryuan.r008",
+    "ntce.interview.youeryuan.r009"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r007",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育活动策划与组织协调",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r008",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育活动策划与组织协调",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r009",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教育活动策划与组织协调",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 25,
+      "line_end": 25,
+      "section": "交流沟通",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "交流沟通",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "思维品质",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m5.k01",
+   "name": "教师职业认知与自我反思",
+   "parent": "ntce.youer.mianshi.m5",
+   "keywords": [
+    "为什么当教师",
+    "职业规划",
+    "自我介绍",
+    "教师职业",
+    "你最欣赏",
+    "职业认知",
+    "从教动机",
+    "教育情怀",
+    "四有好老师"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "ethics"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r001",
+    "ntce.interview.youeryuan.r002"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教师职业认知与自我反思",
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.interview.youeryuan.r002",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：教师职业认知与自我反思",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "职业认知",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "职业认知",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.mianshi.m6.k01",
+   "name": "教学情境分析与改进",
+   "parent": "ntce.youer.mianshi.m6",
+   "keywords": [
+    "课堂",
+    "教学",
+    "备课",
+    "作业",
+    "学生问题",
+    "教育教学",
+    "课堂互动",
+    "教学改进",
+    "作业设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory",
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.interview.youeryuan.r010"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.interview.youeryuan.r010",
+     "matched_terms": [
+      "教学",
+      "教育教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.interview.youeryuan",
+     "path": "权威资料/originals/ntce.interview.youeryuan.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/381-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.interview.youeryuan.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "思维品质",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.interview.youeryuan"
+ ],
+ "source_verified": true
+}

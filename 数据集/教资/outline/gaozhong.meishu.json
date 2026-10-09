@@ -1,0 +1,1084 @@
+{
+ "level": "gaozhong",
+ "subject": "meishu",
+ "subject_cn": "美术学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.meishu.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "绘画",
+    "色彩",
+    "构图",
+    "美术史",
+    "书法",
+    "雕塑",
+    "鉴赏",
+    "透视",
+    "版画",
+    "设计"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k01",
+   "name": "中国美术史与作品",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "中国",
+    "画家",
+    "国画",
+    "山水",
+    "人物画",
+    "花鸟",
+    "顾恺之",
+    "吴道子",
+    "张择端",
+    "齐白石",
+    "徐悲鸿",
+    "石窟",
+    "青铜",
+    "阎立本",
+    "步辇图",
+    "洛神赋图",
+    "清明上河图",
+    "富春山居图",
+    "敦煌",
+    "兵马俑",
+    "绢本",
+    "设色",
+    "工笔",
+    "写意",
+    "虢国夫人游春图",
+    "泼墨仙人图",
+    "梁楷",
+    "王蜀宫妓图",
+    "唐寅",
+    "仇英",
+    "沈周",
+    "文徵明",
+    "画像石",
+    "画像砖"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k02",
+   "name": "外国美术史与作品",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "外国",
+    "西方",
+    "文艺复兴",
+    "印象",
+    "毕加索",
+    "达芬奇",
+    "梵高",
+    "莫奈",
+    "雕塑",
+    "罗丹",
+    "塞尚",
+    "古埃及",
+    "苏美尔",
+    "巴比伦",
+    "亚述",
+    "金字塔",
+    "神兽",
+    "米开朗基罗",
+    "拉斐尔",
+    "伦勃朗",
+    "马蒂斯",
+    "古希腊",
+    "荷马时期",
+    "古风时期",
+    "古典时期",
+    "希腊化时期",
+    "现实主义",
+    "普桑",
+    "委拉斯贵支",
+    "巴洛克",
+    "洛可可",
+    "新古典主义",
+    "浪漫主义"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r003"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r003",
+     "matched_terms": [
+      "西方",
+      "文艺复兴",
+      "印象",
+      "现实主义",
+      "巴洛克",
+      "浪漫主义"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k03",
+   "name": "绘画造型与透视",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "绘画",
+    "素描",
+    "透视",
+    "构图",
+    "造型",
+    "线条",
+    "形体",
+    "明暗",
+    "焦点透视",
+    "散点透视",
+    "视平线",
+    "三大面",
+    "五大调"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k04",
+   "name": "色彩理论与表现",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "色彩",
+    "色相",
+    "明度",
+    "纯度",
+    "冷暖",
+    "调色",
+    "互补色",
+    "三原色",
+    "对比色",
+    "色调"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k05",
+   "name": "书法篆刻与传统工艺",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "书法",
+    "篆刻",
+    "篆书",
+    "隶书",
+    "楷书",
+    "行书",
+    "草书",
+    "剪纸",
+    "陶瓷",
+    "工艺",
+    "印章",
+    "朱文",
+    "白文",
+    "肖形",
+    "王羲之",
+    "兰亭序",
+    "颜真卿"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k06",
+   "name": "设计与视觉传达",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "设计",
+    "视觉",
+    "字体",
+    "标志",
+    "海报",
+    "建筑",
+    "产品",
+    "环境艺术",
+    "招贴",
+    "LOGO",
+    "包装",
+    "排版"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k07",
+   "name": "摄影数字媒体与综合艺术",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "摄影",
+    "数字",
+    "媒体",
+    "动画",
+    "装置",
+    "综合艺术"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k08",
+   "name": "美术鉴赏与批评",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "鉴赏",
+    "欣赏",
+    "批评",
+    "美术作品",
+    "审美",
+    "美术史",
+    "形式分析",
+    "图像学",
+    "审美体验",
+    "源于生活",
+    "高于生活",
+    "美术创作",
+    "现实主义美术"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r005",
+    "ntce.outline.414.r009",
+    "ntce.outline.414.r004"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r005",
+     "matched_terms": [
+      "鉴赏",
+      "美术创作"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r009",
+     "matched_terms": [
+      "欣赏",
+      "美术作品"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r004",
+     "matched_terms": [
+      "美术创作"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 13,
+      "line_end": 13,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s1.k09",
+   "name": "美术课程学习领域",
+   "parent": "ntce.gaozhong.meishu.s1",
+   "keywords": [
+    "美术课程",
+    "造型表现",
+    "设计应用",
+    "欣赏评述",
+    "综合探索",
+    "美术素养",
+    "评价",
+    "评测",
+    "作业评价",
+    "演示教学",
+    "美术教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r013",
+    "ntce.outline.414.r020",
+    "ntce.outline.414.r032"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r013",
+     "matched_terms": [
+      "美术课程",
+      "评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r020",
+     "matched_terms": [
+      "评价",
+      "美术教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r032",
+     "matched_terms": [
+      "评价",
+      "美术教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 43,
+      "line_end": 43,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.meishu.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r012",
+    "ntce.outline.414.r010",
+    "ntce.outline.414.r013"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r012",
+     "matched_terms": [
+      "课程标准",
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r010",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r013",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.meishu.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r022",
+    "ntce.outline.414.r024",
+    "ntce.outline.414.r026"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r022",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r024",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r026",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 33,
+      "line_end": 33,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 36,
+      "line_end": 36,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.meishu.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.meishu.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r021"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r021",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.meishu.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r023",
+    "ntce.outline.414.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r023",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r020",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 32,
+      "line_end": 32,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.meishu.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r025",
+    "ntce.outline.414.r030"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r025",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.414.r030",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 34,
+      "line_end": 34,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 40,
+      "line_end": 40,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.meishu.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.meishu.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.414.r032"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.414.r032",
+     "matched_terms": [
+      "评价",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.414",
+     "path": "权威资料/originals/ntce.outline.414.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1105-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.414.txt",
+      "line_start": 43,
+      "line_end": 43,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.meishu.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.meishu.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.414"
+ ],
+ "source_verified": true
+}

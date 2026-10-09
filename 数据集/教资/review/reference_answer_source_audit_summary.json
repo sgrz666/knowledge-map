@@ -1,0 +1,229 @@
+{
+  "records": 3339,
+  "by_result": {
+    "source_only_refers_to_missing_analysis": 2602,
+    "source_contains_answer_candidate": 722,
+    "source_number_missing": 5,
+    "source_placeholder_missing_answer": 9,
+    "source_explicit_answer_conflict": 1
+  },
+  "samples_by_level": {
+    "chuzhong": [
+      {
+        "question_id": "ntce.chuzhong.dili.2014a-jx-k2.q26",
+        "level": "chuzhong",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/初中真题答案/2014上半年教师资格证考试《地理学科知识与能力》(初级中学)真题精选（答案）.csv",
+        "source_question_number_candidate": 26,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "绘制中国轮廓简图，并说明运用该简图作为板图进行地理教学的价值。",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 133,
+          "decoded_csv_character_end": 140
+        },
+        "raw_context": "6、B17、C18、B19、A20、D21、D22、参见解析23、参见解析24、A25、D26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析"
+      },
+      {
+        "question_id": "ntce.chuzhong.dili.2014a-jx-k2.q27",
+        "level": "chuzhong",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/初中真题答案/2014上半年教师资格证考试《地理学科知识与能力》(初级中学)真题精选（答案）.csv",
+        "source_question_number_candidate": 27,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "阅读下列材料，回答问题。\n材料一与其他海洋污染相比，塑料制品往往容易被人们忽略，但根据最新统计，全球生产的塑料制品中约有10％最终流入大海．并且日趋严重。\n材料二下图为“太平洋垃圾漩涡”分布的大致位置示意图，其中阴影区域是太平洋上最集中的塑料物品垃圾场，其面积达到3．43×106平方千米，中心最厚达到30米。\n\n问题：",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 140,
+          "decoded_csv_character_end": 147
+        },
+        "raw_context": "18、B19、A20、D21、D22、参见解析23、参见解析24、A25、D26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析"
+      }
+    ],
+    "gaozhong": [
+      {
+        "question_id": "ntce.gaozhong.dili.2014a.q26",
+        "level": "gaozhong",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/高中真题答案/2014上半年教师资格证考试《地理学科知识与教学能力》(高级中学)真题及答案（答案）.csv",
+        "source_question_number_candidate": 26,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "简述对《普通高中地理课程标准(实验)》中“对地理科学方法掌握的评价”这一评价建议的理解。(提示：从对地理科学方法内容和应用程度等方面思考)(12分)",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 91,
+          "decoded_csv_character_end": 98
+        },
+        "raw_context": "B15、B16、C17、D18、D19、B20、D21、D22、B23、B24、A25、D26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析"
+      },
+      {
+        "question_id": "ntce.gaozhong.dili.2014a.q27",
+        "level": "gaozhong",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/高中真题答案/2014上半年教师资格证考试《地理学科知识与教学能力》(高级中学)真题及答案（答案）.csv",
+        "source_question_number_candidate": 27,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "绘制地球的内部圈层示意图，注明圈层名称和界限，并简述其在地理教学中的教学意义。(12分)",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 98,
+          "decoded_csv_character_end": 105
+        },
+        "raw_context": "、C17、D18、D19、B20、D21、D22、B23、B24、A25、D26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析"
+      }
+    ],
+    "xiaoxue": [
+      {
+        "question_id": "ntce.xiaoxue.jiaoxue.2011b.q21",
+        "level": "xiaoxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/小学真题答案/2011年下半年教师资格考试《教育教学知识与能力》（小学）真题（答案）.csv",
+        "source_question_number_candidate": 21,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "小学生品德培养的常用方法有哪些？三、材料分析。根据材料，回答对应的问题。\n（一）请阅读下列材料，并按要求作答。小学新教师杨洋在谈教育感受时，有些无奈地说：“刚走上教育岗位时，我坚信‘没有爱，就没有教育’，”因此，在教育教学中我一直对学生充满着爱心，希望用自己的爱来感化学生，带好班级，促使他们成长。但很快就发现，在管理班",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 71,
+          "decoded_csv_character_end": 78
+        },
+        "raw_context": "C10、B11、A12、A13、C14、D15、B16、A17、C18、C19、B20、A21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析"
+      },
+      {
+        "question_id": "ntce.xiaoxue.jiaoxue.2011b.q22",
+        "level": "xiaoxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/小学真题答案/2011年下半年教师资格考试《教育教学知识与能力》（小学）真题（答案）.csv",
+        "source_question_number_candidate": 22,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "请结合材料回答以下问题：(1)谈谈你对“没有爱，就没有教育”的理解。(2)在小学教育中，教师应该如何处理“爱”与严格管理之间的关系？（二）请阅读下列课堂实录片段，并按要求作答。孙老师在二(1)班上完《小壁虎借尾巴》一课后，设计了两项家庭作业让学生选择完成：(1)把“小壁虎借尾巴”这个故事讲给自己喜欢的人听；(2)你还知",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 78,
+          "decoded_csv_character_end": 85
+        },
+        "raw_context": "、A12、A13、C14、D15、B16、A17、C18、C19、B20、A21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析"
+      }
+    ],
+    "youer": [
+      {
+        "question_id": "ntce.youer.baojiao.2011b.q21",
+        "level": "youer",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/幼儿真题答案/2011年下半年教师资格证考试《保教知识与能力》（幼儿园）真题（答案）.csv",
+        "source_question_number_candidate": 21,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "谈谈你对杜威关于教育本质的理解。",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 71,
+          "decoded_csv_character_end": 78
+        },
+        "raw_context": "C10、B11、C12、A13、A14、B15、C16、A17、C18、B19、C20、C21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析"
+      },
+      {
+        "question_id": "ntce.youer.baojiao.2011b.q22",
+        "level": "youer",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/幼儿真题答案/2011年下半年教师资格证考试《保教知识与能力》（幼儿园）真题（答案）.csv",
+        "source_question_number_candidate": 22,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "幼儿园班级管理的内容包括哪些方面?",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 78,
+          "decoded_csv_character_end": 85
+        },
+        "raw_context": "、C12、A13、A14、B15、C16、A17、C18、B19、C20、C21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析"
+      }
+    ],
+    "zhongxiaoxue": [
+      {
+        "question_id": "ntce.zhongxiaoxue.mianshi.2018-k2.q01",
+        "level": "zhongxiaoxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/小学真题答案/2018年教师资格《中小学结构化面试》第三章教育教学类真题卷（答案）.csv",
+        "source_question_number_candidate": 1,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "作为班主任，你如何做好班级管理?",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 0,
+          "decoded_csv_character_end": 6
+        },
+        "raw_context": "1、参见解析2、参见解析3、参见解析4、参见解析5、参见解析6、参见解析7、参见解析8、参见解析9、参见解析10、参见解析11、参见解析12、参见解析1"
+      },
+      {
+        "question_id": "ntce.zhongxiaoxue.mianshi.2018-k2.q02",
+        "level": "zhongxiaoxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/小学真题答案/2018年教师资格《中小学结构化面试》第三章教育教学类真题卷（答案）.csv",
+        "source_question_number_candidate": 2,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "如果班里有个学生沉迷于网络，经常去网吧玩游戏。作为班主任，你该怎么办?",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 6,
+          "decoded_csv_character_end": 12
+        },
+        "raw_context": "1、参见解析2、参见解析3、参见解析4、参见解析5、参见解析6、参见解析7、参见解析8、参见解析9、参见解析10、参见解析11、参见解析12、参见解析13、参见解析"
+      }
+    ],
+    "zhongxue": [
+      {
+        "question_id": "shengkao.zhongxue.jiaoyuxinlixue.2014m4-a.q21",
+        "level": "zhongxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/初中真题答案/2014年4月四川教师资格《中学教育心理学》(A级)考试试卷（答案）.csv",
+        "source_question_number_candidate": 21,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "布鲁纳认为，儿童认知发展的顺序是从＿＿＿到＿＿＿再到＿＿＿。",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 71,
+          "decoded_csv_character_end": 78
+        },
+        "raw_context": "A10、A11、C12、A13、A14、B15、A16、C17、D18、B19、C20、D21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析"
+      },
+      {
+        "question_id": "shengkao.zhongxue.jiaoyuxinlixue.2014m4-a.q22",
+        "level": "zhongxue",
+        "result": "source_only_refers_to_missing_analysis",
+        "answer_file": "教资/真题/初中真题答案/2014年4月四川教师资格《中学教育心理学》(A级)考试试卷（答案）.csv",
+        "source_question_number_candidate": 22,
+        "number_alignment": "paper_order_unverified",
+        "raw_answer": "参见解析",
+        "parsed_status": "reference",
+        "stem_excerpt": "根据前后学习的难度差异，可以把迁移分为＿＿＿和＿＿＿。\n24技能主要包括＿＿＿和＿＿＿两种形式。",
+        "expert_verified": false,
+        "locator": {
+          "decoded_csv_character_start": 78,
+          "decoded_csv_character_end": 85
+        },
+        "raw_context": "、C12、A13、A14、B15、A16、C17、D18、B19、C20、D21、参见解析22、参见解析23、参见解析24、参见解析25、参见解析26、参见解析27、参见解析28、参见解析29、参见解析30、参见解析31、参见解析32、参见解析"
+      }
+    ]
+  },
+  "note": "题号候选未全部唯一对齐；存在正文的候选仍须确认来源边界，不能直接替换答案。参见解析本身不能恢复不存在的正文。"
+}

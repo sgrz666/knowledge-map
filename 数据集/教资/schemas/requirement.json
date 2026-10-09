@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:authoritative-requirement:1.0",
+  "title": "AuthoritativeRequirement",
+  "description": "官方考纲与国家标准要求条目Schema（对应规范附录A.5）",
+  "type": "object",
+  "required": ["requirement_id", "standard_id", "content", "locator"],
+  "properties": {
+    "requirement_id": {
+      "type": "string",
+      "description": "如 ntce.outline.311.r008 或 cse.gf0018-2024.r001"
+    },
+    "standard_id": {
+      "type": "string",
+      "description": "外键关联 catalog.json 中的来源标准"
+    },
+    "title": {
+      "type": ["string", "null"]
+    },
+    "content": {
+      "type": "string",
+      "description": "官方大纲条款或量表描述语原文"
+    },
+    "locator": {
+      "type": "object",
+      "description": "精确物理定位（text_path + 行号 / table_path + 单元格 / json_pointer）"
+    },
+    "exam_scope": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "subject": {
+      "type": ["string", "null"]
+    },
+    "level": {
+      "type": ["string", "array", "null"]
+    },
+    "mapping_status": {
+      "type": "string",
+      "enum": ["official", "derived_verified", "pending_review", "extracted_clause_pending_review", "official_requirement_unmapped"]
+    }
+  },
+  "additionalProperties": true
+}

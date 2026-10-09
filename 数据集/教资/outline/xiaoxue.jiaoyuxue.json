@@ -1,0 +1,153 @@
+{
+ "level": "xiaoxue",
+ "subject": "jiaoyuxue",
+ "subject_cn": "教育学(省考)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "shengkao.xiaoxue.jiaoyuxue.m1",
+   "name": "教育与教育学",
+   "parent": null,
+   "keywords": [
+    "教育学",
+    "教育家",
+    "孔子",
+    "《学记》",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "教育起源",
+    "教育思想",
+    "卢梭",
+    "洛克",
+    "斯宾塞",
+    "裴斯泰洛齐",
+    "人完全是教育的结果",
+    "教育发展水平",
+    "经济基础"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "shengkao.xiaoxue.jiaoyuxue.m2",
+   "name": "教育目的与教育制度",
+   "parent": null,
+   "keywords": [
+    "教育目的",
+    "学制",
+    "义务教育",
+    "素质教育",
+    "教育制度",
+    "终身教育",
+    "培养目标",
+    "教育方针"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "shengkao.xiaoxue.jiaoyuxue.m3",
+   "name": "教育与人的发展",
+   "parent": null,
+   "keywords": [
+    "身心发展",
+    "遗传",
+    "环境",
+    "个体主观能动性",
+    "关键期",
+    "发展阶段",
+    "个体发展",
+    "顺序性",
+    "阶段性",
+    "不平衡性",
+    "互补性",
+    "个别差异性",
+    "儿童的发展",
+    "生理发展",
+    "心理发展"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "shengkao.xiaoxue.jiaoyuxue.m4",
+   "name": "课程与教学",
+   "parent": null,
+   "keywords": [
+    "课程",
+    "教学原则",
+    "教学方法",
+    "教学过程",
+    "班级授课制",
+    "教学组织",
+    "直观性",
+    "循序渐进",
+    "实践能力",
+    "教法创新能力",
+    "语言表达能力",
+    "教学效果"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "shengkao.xiaoxue.jiaoyuxue.m5",
+   "name": "德育与班级管理",
+   "parent": null,
+   "keywords": [
+    "德育",
+    "品德",
+    "班主任",
+    "班集体",
+    "班级管理",
+    "课外活动",
+    "德育原则",
+    "德育方法",
+    "教师资格",
+    "中国公民",
+    "思想道德品质"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [],
+ "source_verified": false
+}

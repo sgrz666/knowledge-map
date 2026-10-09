@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:knowledge-node:1.0",
+  "title": "KnowledgeNode",
+  "description": "细粒度知识点图谱节点Schema（对应规范附录A.3）",
+  "type": "object",
+  "required": ["node_id", "name", "module", "assessable"],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "description": "如 ntce.chuzhong.zonghe.m1.k2 或 cet4.read.detail_locate"
+    },
+    "name": {
+      "type": "string",
+      "description": "知识点名称"
+    },
+    "exam": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": ["string", "null"]
+    },
+    "parent": {
+      "type": ["string", "null"],
+      "description": "兼容历史父节点标识"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prereq_node_id": { "type": "string" },
+          "status": { "type": "string", "enum": ["verified", "proposed_pending_review", "concept_audited_pending_subject_expert"] },
+          "rationale": { "type": "string" }
+        }
+      }
+    },
+    "ability_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ability_codes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exam_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "assessable": {
+      "type": "boolean",
+      "description": "是否为可直接打标出题的叶子知识点"
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "description": {
+      "type": "string"
+    },
+    "mapping_status": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

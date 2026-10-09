@@ -1,0 +1,420 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "urn:knowledge-map:ntce-question:3.0",
+ "title": "ExamQuestion",
+ "description": "NTCE与四六级结构化试题标准Schema（对应规范附录A.1）",
+ "type": "object",
+ "required": [
+  "question_id",
+  "exam",
+  "school_level",
+  "module",
+  "subject",
+  "question_type",
+  "content",
+  "knowledge_node_ids",
+  "ability_ids",
+  "exam_requirement_ids",
+  "source",
+  "review"
+ ],
+ "properties": {
+  "question_id": {
+   "type": "string",
+   "minLength": 1,
+   "description": "全局唯一ID，如 cet4-2024-06-p1-reading-12 或 ntce.chuzhong.zonghe.2016b.q005"
+  },
+  "exam": {
+   "type": "string",
+   "enum": [
+    "CET-4",
+    "CET-6",
+    "NTCE",
+    "省考"
+   ]
+  },
+  "school_level": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "enum": [
+    "youer",
+    "xiaoxue",
+    "chuzhong",
+    "gaozhong",
+    "zhongxue",
+    "zhongxiaoxue",
+    null
+   ],
+   "description": "教资专属学段标识，四六级为 null"
+  },
+  "level": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "兼容历史学段标识"
+  },
+  "module": {
+   "type": "string",
+   "description": "大模块名，如 阅读理解 / 听力理解 / 综合素质 / 教育教学知识与能力 / 学科知识与教学能力"
+  },
+  "subject": {
+   "type": "string",
+   "description": "规范化学科代码，如 english / zonghe / jiaoxue / baojiao / yuwen / dili"
+  },
+  "section": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "原卷分卷或大题题型节名称，如 单项选择题 / 材料分析题 / 教学设计题"
+  },
+  "question_type": {
+   "type": "string",
+   "description": "归一题型：单选 / 多选 / 选词填空 / 长篇阅读 / 仔细阅读 / 短篇新闻 / 长对话 / 听力篇章 / 讲座/讲话 / 短文写作 / 段落翻译 / 简答 / 辨析 / 材料分析 / 教学设计 / 活动设计 / 论述 / 诊断 / 解答 / 结构化问答 / 试讲"
+  },
+  "material_id": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "长材料或语篇指针，短题为 null"
+  },
+  "score": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "description": "卷面标准分值"
+  },
+  "content": {
+   "type": "object",
+   "required": [
+    "stem",
+    "options",
+    "answer",
+    "answer_status"
+   ],
+   "properties": {
+    "stem": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "题干文本；听力口述题目未恢复时为 null"
+    },
+    "options": {
+     "type": [
+      "array",
+      "object"
+     ],
+     "description": "选项数组 [{'key':'A','text':'...'}] 或字典 {'A': '...'}"
+    },
+    "answer": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "标准答案字母或文本要点；争议题/无答案为 null"
+    },
+    "answer_status": {
+     "type": "string",
+     "enum": [
+      "verified",
+      "letter_only",
+      "reference_only",
+      "missing",
+      "source_conflict"
+     ],
+     "description": "答案可用性五态；抽取形状另存 extra.answer_provenance"
+    },
+    "analysis": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "兼容原始文本解析"
+    }
+   }
+  },
+  "analysis": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "properties": {
+    "key_info": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "题干题眼与关键信息定位"
+    },
+    "option_compare": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "逐项深度对比与干扰项归因/得分点"
+    },
+    "trace_back": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "原文定位句或法条理论依据"
+    },
+    "explanation": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "综合解析正文"
+    },
+    "method": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "official",
+      "expert_written",
+      "llm_generated",
+      "editorial_draft",
+      "content-rule-v2",
+      "ai",
+      "rule_kb_draft",
+      "llm",
+      "harness_llm",
+      "qwen-plus_structured_v1",
+      "qwen-plus_deduced_candidate_v1",
+      "source_grounded_editorial_draft",
+      "published_explanation_text_extraction",
+      null
+     ]
+    },
+    "status": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "解析产出状态；未生成时为 null"
+    },
+    "expert_verified": {
+     "type": "boolean"
+    }
+   }
+  },
+  "knowledge_node_ids": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "minItems": 0,
+   "description": "挂载的具体知识点列表"
+  },
+  "ability_ids": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "minItems": 0,
+   "description": "挂载的能力维度列表"
+  },
+  "exam_requirement_ids": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "对齐的官方考纲或量表条款ID"
+  },
+  "rubric_id": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "description": "主观题绑定的量规ID"
+  },
+  "rubric": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "description": "嵌入式评分量规定义或引用"
+  },
+  "difficulty": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0.0,
+   "maximum": 1.0,
+   "description": "难度值 [0, 1]，数值越大概率越难"
+  },
+  "difficulty_meta": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "properties": {
+    "method": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "heuristic",
+      "irt_calibrated",
+      "heuristic_objective_v1",
+      "heuristic_subjective_v1",
+      "heuristic_linguistic_v1",
+      null
+     ],
+     "description": "难度估计方法；无估计为 null，实测校准前不得标 irt_calibrated"
+    },
+    "sample_size": {
+     "type": "integer"
+    },
+    "description": {
+     "type": "string"
+    },
+    "features": {
+     "type": "object"
+    },
+    "calibration_status": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   }
+  },
+  "source": {
+   "type": "object",
+   "required": [
+    "origin_file",
+    "copyright"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "enum": [
+      "真题",
+      "样卷",
+      "模拟题",
+      "省考"
+     ]
+    },
+    "year": {
+     "type": "string"
+    },
+    "paper": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "origin_file": {
+     "type": "string",
+     "description": "原始文件相对路径"
+    },
+    "verified": {
+     "type": "boolean"
+    },
+    "files": {
+     "type": "array"
+    },
+    "copyright": {
+     "type": "object",
+     "required": [
+      "authorization_status"
+     ],
+     "properties": {
+      "authorization_status": {
+       "type": "string",
+       "enum": [
+        "authorized",
+        "public_domain",
+        "unknown"
+       ]
+      },
+      "use_scope": {
+       "type": "string",
+       "default": "research_non_commercial"
+      },
+      "source_nature": {
+       "type": "string",
+       "enum": [
+        "official_exam",
+        "exam_recall",
+        "compiled_selection",
+        "provincial_exam"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "review": {
+   "type": "object",
+   "required": [
+    "status"
+   ],
+   "properties": {
+    "status": {
+     "type": "string",
+     "enum": [
+      "auto_parsed",
+      "llm_enhanced",
+      "checked",
+      "expert_reviewed",
+      "needs_fix",
+      "quarantined"
+     ]
+    },
+    "content_verified": {
+     "type": "boolean"
+    },
+    "checked_by": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "checked_at": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "evidence": {
+     "type": "array"
+    },
+    "review_priority": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "low_confidence",
+      "flagged_general",
+      "none",
+      "unspecified",
+      null
+     ],
+     "description": "needs_fix 的分级来源：历史严重异常(低置信)或一般瑕疵标记，仅用于复核排序"
+    }
+   }
+  },
+  "tags": {
+   "type": "object",
+   "description": "九类规范分类标签"
+  },
+  "extra": {
+   "type": "object"
+  }
+ },
+ "additionalProperties": true
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:ntce-question:3.0",
+  "title": "教资题目：全量原料、待审核派生数据与八层架构标准模型",
+  "description": "对齐《应试考证功能设计与技术支撑：以教资和四六级为例.md》规范附录A，支持双轨消费与门禁验收",
+  "type": "object",
+  "required": [
+    "question_id", "exam", "level", "subject", "question_type",
+    "content", "knowledge_node_ids", "ability_ids", "exam_requirement_ids",
+    "source", "review", "tags", "extra"
+  ],
+  "properties": {
+    "question_id": {"type": "string", "minLength": 1},
+    "exam": {"enum": ["NTCE", "省考"]},
+    "level": {"type": "string"},
+    "school_level": {"type": ["string", "null"]},
+    "module": {"type": ["string", "null"]},
+    "subject": {"type": "string"},
+    "section": {"type": ["string", "null"]},
+    "question_type": {"type": "string"},
+    "material_id": {"type": ["string", "null"]},
+    "score": {"type": ["number", "null"]},
+    "knowledge_node_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "ability_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "exam_requirement_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "content": {
+      "type": "object",
+      "required": ["stem", "options", "answer", "answer_status", "analysis"],
+      "properties": {
+        "stem": {"type": "string"},
+        "options": {
+          "type": ["array", "object"],
+          "items": {
+            "type": "object",
+            "required": ["key", "text"],
+            "properties": {"key": {"type": "string"}, "text": {"type": "string"}}
+          }
+        },
+        "answer": {"type": ["string", "null"]},
+        "answer_status": {
+          "enum": ["letter", "brief", "reference", "missing", "source_conflict", "derived_reference", "original_reference_draft_pending_expert"]
+        },
+        "analysis": {"type": ["string", "null"]}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "required": ["status", "expert_verified", "explanation"],
+      "properties": {
+        "key_info": {"type": "string"},
+        "option_compare": {"type": "string"},
+        "trace_back": {"type": "string"},
+        "method": {"type": "string"},
+        "explanation": {"type": "string"},
+        "expert_verified": {"type": "boolean"}
+      }
+    },
+    "rubric_id": {"type": ["string", "null"]},
+    "rubric": {
+      "type": "object",
+      "required": ["status", "official_scoring", "question_specific_points"],
+      "properties": {
+        "rubric_id": {"type": ["string", "null"]},
+        "official_scoring": {"type": "boolean"},
+        "question_specific_points": {"type": "array"}
+      }
+    },
+    "difficulty": {"type": ["number", "null"], "minimum": 0.0, "maximum": 1.0},
+    "difficulty_meta": {
+      "type": ["object", "null"],
+      "properties": {
+        "method": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["origin_file", "verified", "files", "raw_file_verification", "content_verification", "copyright"],
+      "properties": {
+        "verified": {"type": "boolean"},
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "role", "locator"],
+            "properties": {
+              "path": {"type": "string"},
+              "role": {"type": "string"},
+              "locator": {"type": ["object", "string", "null"]}
+            }
+          }
+        },
+        "copyright": {
+          "type": "object",
+          "required": ["authorization_status"],
+          "properties": {
+            "authorization_status": {"type": "string"},
+            "use_scope": {"type": "string"},
+            "source_nature": {"type": "string"}
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["status", "content_verified", "requirement_mapping_status", "pending_reasons"],
+      "properties": {
+        "content_verified": {"type": "boolean"},
+        "pending_reasons": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "tags": {
+      "type": "object",
+      "required": ["exam", "subject", "question_type", "knowledge", "ability", "difficulty", "source", "review", "copyright"]
+    },
+    "extra": {"type": "object"}
+  },
+  "additionalProperties": true
+}

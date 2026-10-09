@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:card-frontmatter:1.0",
+  "title": "CardFrontmatter",
+  "description": "RAG自包含Markdown卡片头部YAML Frontmatter元数据Schema（对应规范附录A.8）",
+  "type": "object",
+  "required": [
+    "id", "exam", "level", "subject", "session", "section",
+    "question_type", "knowledge_nodes", "ability_ids", "exam_requirement_ids",
+    "answer_status", "review_status"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "exam": { "type": "string" },
+    "level": { "type": "string" },
+    "school_level": { "type": ["string", "null"] },
+    "subject": { "type": "string" },
+    "session": { "type": ["string", "integer"] },
+    "section": { "type": ["string", "null"] },
+    "question_type": { "type": "string" },
+    "score": { "type": ["number", "null"] },
+    "material_id": { "type": ["string", "null"] },
+    "answer": { "type": ["string", "null"] },
+    "answer_status": { "type": "string" },
+    "knowledge_nodes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ability_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exam_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rubric_id": { "type": ["string", "null"] },
+    "review_status": { "type": "string" },
+    "content_verified": { "type": "boolean" },
+    "copyright_scope": { "type": "string" },
+    "source_nature": { "type": "string" },
+    "duplicate_of": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}

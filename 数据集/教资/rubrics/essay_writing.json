@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.essay_writing.standard_v1",
+  "title": "中小学教师资格考试《综合素质》大作文评分量规",
+  "task_type": "writing",
+  "total_score": 50.0,
+  "rubric_type": "hybrid",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "立意高度与教育结合度",
+      "weight_score": 18.0,
+      "criteria_levels": [
+        {
+          "level_name": "一等 (41-50分档归因)",
+          "score_range": [
+            16.0,
+            18.0
+          ],
+          "descriptor": "立意深刻、准确，紧密结合教育教学实践或教师成长、师德修养，立论积极高远。"
+        },
+        {
+          "level_name": "二等 (31-40分档归因)",
+          "score_range": [
+            13.0,
+            15.9
+          ],
+          "descriptor": "立意准确，切合材料题旨，有一定教育视角，观点明确。"
+        },
+        {
+          "level_name": "三等 (21-30分档归因)",
+          "score_range": [
+            9.0,
+            12.9
+          ],
+          "descriptor": "基本符合题意，但立意较泛，未结合教育，泛泛谈为人处世。"
+        },
+        {
+          "level_name": "四/五等 (0-20分档归因)",
+          "score_range": [
+            0.0,
+            8.9
+          ],
+          "descriptor": "跑题、偏题，或观点消极偏激，严重违背主流价值观。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "论据充实度与典型性",
+      "weight_score": 14.0,
+      "criteria_levels": [
+        {
+          "level_name": "一等",
+          "score_range": [
+            12.6,
+            14.0
+          ],
+          "descriptor": "事例论据丰富典型（结合名师教育案例或古今中外经典），论述充实深刻，说服力强。"
+        },
+        {
+          "level_name": "二等",
+          "score_range": [
+            10.5,
+            12.5
+          ],
+          "descriptor": "论据较为丰富，事实与理论材料能支撑论点。"
+        },
+        {
+          "level_name": "三等",
+          "score_range": [
+            8.4,
+            10.4
+          ],
+          "descriptor": "内容较为空洞，缺少有力例证，多为说教和空话。"
+        },
+        {
+          "level_name": "四/五等",
+          "score_range": [
+            0.0,
+            8.3
+          ],
+          "descriptor": "内容匮乏，东拼西凑，无实质性论证。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "篇章布局与论证递进关系",
+      "weight_score": 10.0,
+      "criteria_levels": [
+        {
+          "level_name": "一等",
+          "score_range": [
+            9.0,
+            10.0
+          ],
+          "descriptor": "结构严谨，层次清晰，首尾呼应，采用标准的五段三分式或层进式结构。"
+        },
+        {
+          "level_name": "二等",
+          "score_range": [
+            7.5,
+            8.9
+          ],
+          "descriptor": "结构完整，层次分明，过渡自然。"
+        },
+        {
+          "level_name": "三等",
+          "score_range": [
+            6.0,
+            7.4
+          ],
+          "descriptor": "结构基本完整，但分论点交叉或层次不清。"
+        },
+        {
+          "level_name": "四/五等",
+          "score_range": [
+            0.0,
+            5.9
+          ],
+          "descriptor": "结构残缺，段落失衡，虎头蛇尾或一段到底。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "文字修辞、错别字与字数要求",
+      "weight_score": 8.0,
+      "criteria_levels": [
+        {
+          "level_name": "一等",
+          "score_range": [
+            7.2,
+            8.0
+          ],
+          "descriptor": "语言流畅优美，富有文采与感染力，字迹工整美观，字数达到要求（小学800字/中学1000字以上）。"
+        },
+        {
+          "level_name": "二等",
+          "score_range": [
+            6.0,
+            7.1
+          ],
+          "descriptor": "语言通畅，基本无病句和错别字，字数达标。"
+        },
+        {
+          "level_name": "三等",
+          "score_range": [
+            4.8,
+            5.9
+          ],
+          "descriptor": "病句与错别字较多（3-5处），字数刚好擦线或稍欠缺。"
+        },
+        {
+          "level_name": "四/五等",
+          "score_range": [
+            0.0,
+            4.7
+          ],
+          "descriptor": "语病极多，字迹潦草难以阅读，字数严重不足（少于600字）。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:shared-material:1.0",
+  "title": "SharedMaterialOrPassage",
+  "description": "NTCE与四六级共享材料与长语料Schema（对应规范附录A.2）",
+  "type": "object",
+  "required": ["material_id", "kind", "text", "source"],
+  "properties": {
+    "material_id": {
+      "type": "string",
+      "description": "如 ntce.chuzhong.zonghe.2016b.m01 或 cet4.r.2024-06_p1.passage1"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["reading_passage", "listening_transcript", "case_material", "lesson_plan_material", "interview_material"]
+    },
+    "title": {
+      "type": ["string", "null"]
+    },
+    "text": {
+      "type": "string",
+      "description": "材料或语篇完整正文"
+    },
+    "word_count": {
+      "type": "integer"
+    },
+    "used_by_questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "引用该材料的所有试题 ID 列表"
+    },
+    "question_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "兼容历史关联题号列表"
+    },
+    "level": {
+      "type": ["string", "null"]
+    },
+    "subject": {
+      "type": ["string", "null"]
+    },
+    "extra": {
+      "type": "object",
+      "properties": {
+        "word_bank": {
+          "type": "object",
+          "description": "选词填空共享备选词库 {'A': 'word1', ...}"
+        },
+        "audio_path": {
+          "type": "string",
+          "description": "听力音频相对路径"
+        }
+      }
+    },
+    "source": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

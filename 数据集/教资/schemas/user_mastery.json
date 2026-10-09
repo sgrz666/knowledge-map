@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:user-mastery:1.0",
+  "title": "UserKnowledgeMastery",
+  "description": "用户知识掌握度时序与FSRS调度实体Schema（对应规范附录A.7）",
+  "type": "object",
+  "required": ["user_id", "node_id", "mastery_score", "last_updated_at"],
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "mastery_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "当前掌握度 [0, 1]，0.4以下薄弱，0.75以上熟练"
+    },
+    "practice_count": {
+      "type": "integer"
+    },
+    "correct_count": {
+      "type": "integer"
+    },
+    "fsrs_state": {
+      "type": "object",
+      "properties": {
+        "stability": { "type": "number" },
+        "difficulty": { "type": "number" },
+        "due_date": { "type": "string" },
+        "state": { "type": "string", "enum": ["learning", "review", "relearning"] }
+      }
+    },
+    "last_updated_at": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.case_analysis.standard_v1",
+  "title": "中小学教师资格考试材料分析题通用评分量规",
+  "task_type": "case_analysis",
+  "total_score": 14.0,
+  "rubric_type": "analytic",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "要点覆盖与知识点准确定位",
+      "weight_score": 4.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            3.6,
+            4.0
+          ],
+          "descriptor": "全面准确定位材料考查的全部核心理论要点（如学生观/教师观/教师职业道德/教学原则），无要点遗漏。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            3.0,
+            3.5
+          ],
+          "descriptor": "准确定位主要理论要点，涵盖大部分核心概念，个别次要要点略有缺失。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            2.4,
+            2.9
+          ],
+          "descriptor": "仅命中部分核心概念，存在理论点混淆或遗漏半数要点。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            2.3
+          ],
+          "descriptor": "未能识别材料对应理论，答非所问或理论完全脱离考点。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "材料分析与理论阐述结合度",
+      "weight_score": 4.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            3.6,
+            4.0
+          ],
+          "descriptor": "理论阐述深刻，能够紧密结合材料中具体师生行为或情节展开论证，分析透彻。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            3.0,
+            3.5
+          ],
+          "descriptor": "结合材料具体内容阐述，有理有据，论证较为充分。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            2.4,
+            2.9
+          ],
+          "descriptor": "空泛罗列理论或简单抄写材料，理论与案例缺乏有效结合。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            2.3
+          ],
+          "descriptor": "纯粹照抄材料无理论，或纯默写概念完全不提案例。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "答题框架层次与总分总逻辑",
+      "weight_score": 2.5,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            2.3,
+            2.5
+          ],
+          "descriptor": "结构清晰，采用总-分-总格式，首句表态明确，分点序号规范，总结恰当。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            1.9,
+            2.2
+          ],
+          "descriptor": "条理清晰，分点明确，逻辑关系较顺畅。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            1.5,
+            1.8
+          ],
+          "descriptor": "条理一般，分点不够明确或段落杂糅。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            1.4
+          ],
+          "descriptor": "逻辑混乱，一段到底，无层次结构。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "专业术语规范与文字流畅度",
+      "weight_score": 2.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            1.8,
+            2.0
+          ],
+          "descriptor": "使用标准教育学/心理学专业术语，表述流畅、严谨、得体。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            1.5,
+            1.7
+          ],
+          "descriptor": "表达通顺，术语使用基本正确。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            1.2,
+            1.4
+          ],
+          "descriptor": "口语化较重，存在少量术语不准或病句。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            1.1
+          ],
+          "descriptor": "语病较多，通篇大白话，无专业性。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "书写卷面与答题格式规范",
+      "weight_score": 1.5,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            1.4,
+            1.5
+          ],
+          "descriptor": "字迹工整，标点符号规范，字数充实适宜。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            1.1,
+            1.3
+          ],
+          "descriptor": "字迹清楚，格式基本规范。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            0.9,
+            1.0
+          ],
+          "descriptor": "字迹较潦草或篇幅略显单薄。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            0.8
+          ],
+          "descriptor": "卷面脏乱难以辨认或字数严重不足。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

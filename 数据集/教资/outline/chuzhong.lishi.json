@@ -1,0 +1,1148 @@
+{
+ "level": "chuzhong",
+ "subject": "lishi",
+ "subject_cn": "历史学科知识与教学能力(初级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.chuzhong.lishi.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "朝代",
+    "战争",
+    "改革",
+    "革命",
+    "史料",
+    "古代史",
+    "近代史",
+    "辛亥革命",
+    "工业革命",
+    "新航路"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k01",
+   "name": "中国古代政治制度",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "中国古代",
+    "秦",
+    "汉",
+    "隋",
+    "唐",
+    "宋",
+    "元",
+    "明",
+    "清",
+    "分封",
+    "宗法",
+    "科举",
+    "郡县",
+    "三省六部",
+    "皇帝",
+    "丞相",
+    "蚩尤",
+    "黄帝",
+    "炎帝",
+    "涿鹿",
+    "禅让",
+    "世袭",
+    "三公九卿",
+    "行省",
+    "军机处",
+    "五帝本纪",
+    "涿鹿之野",
+    "玄武门之变",
+    "安史之乱"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k02",
+   "name": "中国古代经济文化",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "商鞅",
+    "王安石",
+    "儒家",
+    "孔子",
+    "墨子",
+    "老子",
+    "农耕",
+    "丝绸",
+    "经济重心",
+    "佛教",
+    "造纸",
+    "活字",
+    "史记",
+    "司马迁",
+    "资治通鉴",
+    "司马光",
+    "编年体",
+    "纪传体",
+    "通鉴",
+    "纪传",
+    "政书体",
+    "经传体"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k03",
+   "name": "近代中国民族危机与救亡",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "鸦片战争",
+    "太平天国",
+    "洋务",
+    "戊戌",
+    "辛亥",
+    "甲午",
+    "八国联军",
+    "南京条约",
+    "孙中山",
+    "马关条约",
+    "辛丑条约",
+    "中华民国",
+    "武昌起义",
+    "时局图",
+    "瓜分"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k04",
+   "name": "新民主主义革命",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "五四",
+    "中国共产党",
+    "国共",
+    "长征",
+    "抗日",
+    "九一八",
+    "解放战争",
+    "新民主主义",
+    "新文化运动",
+    "陈独秀",
+    "胡适",
+    "李大钊",
+    "遵义会议",
+    "白寿彝",
+    "护国运动"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k05",
+   "name": "现代中国建设与改革",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "中华人民共和国",
+    "社会主义",
+    "改革开放",
+    "新中国",
+    "土地改革",
+    "三大改造",
+    "经济建设",
+    "抗美援朝",
+    "家庭联产承包",
+    "经济特区",
+    "一五计划",
+    "一五",
+    "国民经济"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k06",
+   "name": "世界古代文明",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "希腊",
+    "罗马",
+    "雅典",
+    "埃及",
+    "两河",
+    "古印度",
+    "古代文明",
+    "城邦",
+    "金字塔",
+    "汉谟拉比",
+    "楔形文字"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k07",
+   "name": "世界近代转型与工业革命",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "文艺复兴",
+    "新航路",
+    "宗教改革",
+    "启蒙",
+    "工业革命",
+    "资本主义",
+    "英国革命",
+    "法国大革命",
+    "美国独立",
+    "哥伦布",
+    "麦哲伦",
+    "达芬奇",
+    "莎士比亚",
+    "蒸汽机",
+    "瓦特"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k08",
+   "name": "世界现代史与国际关系",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "世界大战",
+    "俄国",
+    "苏联",
+    "冷战",
+    "联合国",
+    "全球化",
+    "国际关系",
+    "经济危机",
+    "凡尔赛",
+    "十月革命",
+    "罗斯福新政",
+    "斯大林格勒",
+    "雅尔塔",
+    "多极化"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k09",
+   "name": "历史史料与史学方法",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "史料",
+    "文献",
+    "证据",
+    "历史解释",
+    "唯物史观",
+    "史学",
+    "史观",
+    "口述",
+    "历史地图",
+    "图示教学法",
+    "图示"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r002",
+    "ntce.outline.316.r004"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r002",
+     "matched_terms": [
+      "唯物史观",
+      "史观"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r004",
+     "matched_terms": [
+      "唯物史观",
+      "史观"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s1.k10",
+   "name": "历史时空与事件比较",
+   "parent": "ntce.chuzhong.lishi.s1",
+   "keywords": [
+    "年代",
+    "时间",
+    "时期",
+    "历史事件",
+    "改革",
+    "革命",
+    "战争",
+    "比较",
+    "年代尺"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r001",
+     "matched_terms": [
+      "历史事件"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.chuzhong.lishi.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r004",
+    "ntce.outline.316.r006",
+    "ntce.outline.316.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r004",
+     "matched_terms": [
+      "课程标准",
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r006",
+     "matched_terms": [
+      "课程标准",
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r007",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.chuzhong.lishi.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r012",
+    "ntce.outline.310.r008",
+    "ntce.outline.310.r010"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r012",
+     "matched_terms": [
+      "教学方法",
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.310.r008",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.310.r010",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.chuzhong.lishi.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.316.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.316.r007",
+     "matched_terms": [
+      "教材内容"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.chuzhong.lishi.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r006",
+    "ntce.outline.316.r007",
+    "ntce.outline.316.r008"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r006",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r007",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r008",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.chuzhong.lishi.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r009",
+    "ntce.outline.316.r010",
+    "ntce.outline.316.r017"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r009",
+     "matched_terms": [
+      "教学过程",
+      "教学环节"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r010",
+     "matched_terms": [
+      "设计教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r017",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 32,
+      "line_end": 32,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.chuzhong.lishi.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r011",
+    "ntce.outline.310.r017",
+    "ntce.outline.316.r008"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r011",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.310.r017",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.316.r008",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.chuzhong.lishi.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.chuzhong.lishi.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.310.r019"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.310.r019",
+     "matched_terms": [
+      "评价",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.310",
+     "path": "权威资料/originals/ntce.outline.310.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/357-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.310.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.lishi.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.chuzhong.lishi.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.316.r017"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.316.r017",
+     "matched_terms": [
+      "教学反思",
+      "改进"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.316",
+     "path": "权威资料/originals/ntce.outline.316.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/387-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.316.txt",
+      "line_start": 32,
+      "line_end": 32,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.310",
+  "ntce.outline.316"
+ ],
+ "source_verified": true
+}

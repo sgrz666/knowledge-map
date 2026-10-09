@@ -1,0 +1,63 @@
+{
+  "questions": 14500,
+  "eligible_complete_context": 10732,
+  "skipped_context": 3768,
+  "skip_reasons": {
+    "source_stem_incomplete": 800,
+    "source_stem_not_located": 1316,
+    "options_incomplete": 843,
+    "visual_context_not_verified": 1601,
+    "cross_question_risk": 850,
+    "source_boundary_ambiguous": 125,
+    "case_material_boundary_unresolved": 216,
+    "formatted_context_not_verified": 59,
+    "context_exceeds_reviewed_budget": 13
+  },
+  "mapped_without_current_llm_tagger": 10600,
+  "current_llm_mapped": 2339,
+  "saved_llm_results": 2471,
+  "saved_llm_successful_drafts": 2439,
+  "saved_llm_unmatched": 32,
+  "invalidated_context_results": 82,
+  "still_unmapped": 1561,
+  "eligible_still_unmapped": 242,
+  "usage_by_actual_model": {
+    "deepseek-flash": {
+      "calls": 345,
+      "status": {
+        "response_received": 345
+      },
+      "prompt_tokens": 319388,
+      "completion_tokens": 151073,
+      "conservative_cost_cny": 1.84736
+    },
+    "no_response_model": {
+      "calls": 1,
+      "status": {
+        "provider_error": 1
+      },
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "conservative_cost_cny": 0.04019
+    }
+  },
+  "conservative_total_cny": 1.88755,
+  "hard_budget_cny": 5,
+  "analysis_sample": {
+    "questions": 20,
+    "status": {
+      "draft": 20
+    },
+    "current_input_validation_errors": [],
+    "expert_verified": false
+  },
+  "legacy_48_question_pilot": {
+    "calls": 18,
+    "prompt_tokens": 11871,
+    "completion_tokens": 2791,
+    "actual_model": null,
+    "model_status": "not_recorded_in_legacy_pipeline",
+    "cost_cny": null
+  },
+  "note": "资格按当前完整上下文重算；保留的历史模型草稿不等于仍在使用。旧48题未保存实际模型，不能追溯套用价格。"
+}

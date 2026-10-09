@@ -1,0 +1,17 @@
+{
+  "questions": 14500,
+  "knowledge_mapped": 12109,
+  "ability_mapped": 0,
+  "requirement_mapped": 0,
+  "answers_nonempty": 11062,
+  "analysis_nonempty": 71,
+  "structured_analysis_nonempty": 0,
+  "answer_status": {
+    "letter": 10991,
+    "reference": 3339,
+    "missing": 99,
+    "brief": 71
+  },
+  "answer_not_in_options": 23,
+  "choice_options_under_four": 834
+}

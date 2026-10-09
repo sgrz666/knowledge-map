@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.interview_qa.standard_v1",
+  "title": "中小学教师资格考试面试结构化问答评分量规",
+  "task_type": "interview_qa",
+  "total_score": 20.0,
+  "rubric_type": "analytic",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "立德树人与教师职业价值观",
+      "weight_score": 6.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            5.4,
+            6.0
+          ],
+          "descriptor": "政治立场坚定，全面贯彻党的教育方针，热爱教育事业，关爱尊重每一位学生。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            4.5,
+            5.3
+          ],
+          "descriptor": "政治方向正确，具备良好的职业道德与认知。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            3.6,
+            4.4
+          ],
+          "descriptor": "职业认知一般，未能突出教师职业特殊性。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            3.5
+          ],
+          "descriptor": "观点错误，存在违背师德或不尊重学生的言论。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "问题定性、原因剖析与多维思考",
+      "weight_score": 6.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            5.4,
+            6.0
+          ],
+          "descriptor": "定性准确，能从学校、家庭、社会、学生身心规律等多维度深入剖析原因，透过现象看本质。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            4.5,
+            5.3
+          ],
+          "descriptor": "分析较全面，条理清晰，观点有说服力。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            3.6,
+            4.4
+          ],
+          "descriptor": "分析浅显，看待问题单一化或片面化。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            3.5
+          ],
+          "descriptor": "未能理解题意，抓不住核心矛盾。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "应对策略切实可行性与教育智慧",
+      "weight_score": 5.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            4.5,
+            5.0
+          ],
+          "descriptor": "措施具体、分轻重缓急、科学可行，体现关爱与教育机智，具有长效防范机制。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            3.8,
+            4.4
+          ],
+          "descriptor": "解决措施合理，能较好化解矛盾。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            3.0,
+            3.7
+          ],
+          "descriptor": "措施泛泛而谈，可操作性不强。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            2.9
+          ],
+          "descriptor": "对策失当，激化矛盾或违反教育法规。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "教态自然沉着与普通话表达流畅",
+      "weight_score": 3.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            2.7,
+            3.0
+          ],
+          "descriptor": "普通话标准流利，声音洪亮，仪态端庄从容，逻辑层次分明。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            2.3,
+            2.6
+          ],
+          "descriptor": "表达流畅，举止得体，态度沉着。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            1.8,
+            2.2
+          ],
+          "descriptor": "略显紧张，偶有口误或卡顿。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            1.7
+          ],
+          "descriptor": "过度紧张，表达语无伦次或长时间沉默。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

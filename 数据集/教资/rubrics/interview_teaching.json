@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.interview_teaching.standard_v1",
+  "title": "中小学教师资格考试面试试讲（无生教学模拟）评分量规",
+  "task_type": "interview_teaching",
+  "total_score": 50.0,
+  "rubric_type": "analytic",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "核心概念讲授清晰度与重难点突破",
+      "weight_score": 15.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            13.5,
+            15.0
+          ],
+          "descriptor": "目标明确并在试讲过程中完整达成，重点突出，难点通过生动情境与巧妙问题顺利化解。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            11.3,
+            13.4
+          ],
+          "descriptor": "重难点清楚，讲授清晰准确，目标基本达成。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            9.0,
+            11.2
+          ],
+          "descriptor": "重点不突出，难点避而不谈或讲授欠清晰。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            8.9
+          ],
+          "descriptor": "出现知识性科学错误，或严重偏离教材课题。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "模拟无生教学中的师生双边互动",
+      "weight_score": 15.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            13.5,
+            15.0
+          ],
+          "descriptor": "虽无真实学生，但通过眼神、停顿、假想提问、针对性个性评价等生动再现真实课堂，互动自然传神。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            11.3,
+            13.4
+          ],
+          "descriptor": "有提问和评价环节，能体现学生主体性。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            9.0,
+            11.2
+          ],
+          "descriptor": "互动形式机械单一，自问自答痕迹生硬。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            8.9
+          ],
+          "descriptor": "通篇背诵讲稿，完全无互动意识，犹如宣读论文。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "板书规范美观与提纲性",
+      "weight_score": 10.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            9.0,
+            10.0
+          ],
+          "descriptor": "板书字迹工整清晰、布局合理美观，边讲边写时机得当，重点内容形成完整认知网络。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            7.5,
+            8.9
+          ],
+          "descriptor": "板书要点清楚，书写基本规范。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            6.0,
+            7.4
+          ],
+          "descriptor": "板书杂乱或只有寥寥数语，缺乏结构性。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            5.9
+          ],
+          "descriptor": "全程无板书或板书错别字严重。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "教师仪态得体度与试讲节奏（10分钟）",
+      "weight_score": 10.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀",
+          "score_range": [
+            9.0,
+            10.0
+          ],
+          "descriptor": "教态亲切自然，站姿得体，眼神自信注视考场，时间控制在 8-10 分钟之间，节奏掌控极佳。"
+        },
+        {
+          "level_name": "良好",
+          "score_range": [
+            7.5,
+            8.9
+          ],
+          "descriptor": "教态端庄，声音清楚，时间基本适度（7-10分钟）。"
+        },
+        {
+          "level_name": "及格",
+          "score_range": [
+            6.0,
+            7.4
+          ],
+          "descriptor": "教态有些拘谨或小动作较多，超时或少于6分钟。"
+        },
+        {
+          "level_name": "不及格",
+          "score_range": [
+            0.0,
+            5.9
+          ],
+          "descriptor": "严重超时被考官叫停，或三五分钟草草结束。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

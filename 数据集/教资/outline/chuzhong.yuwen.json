@@ -1,0 +1,1217 @@
+{
+ "level": "chuzhong",
+ "subject": "yuwen",
+ "subject_cn": "语文学科知识与教学能力(初级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "文言文",
+    "现代文",
+    "修辞",
+    "比喻",
+    "拟人",
+    "病句",
+    "古诗词",
+    "文学常识",
+    "阅读教学",
+    "写作教学",
+    "散文",
+    "小说"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k01",
+   "name": "汉字字音字形",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "字音",
+    "读音",
+    "拼音",
+    "汉字",
+    "字形",
+    "错别字",
+    "声母",
+    "韵母"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：汉字字音字形",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k02",
+   "name": "词语成语运用",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "成语",
+    "词语",
+    "熟语",
+    "词义",
+    "近义",
+    "反义",
+    "实词",
+    "虚词"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：词语成语运用",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k03",
+   "name": "现代汉语语法与病句",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "病句",
+    "语病",
+    "句法",
+    "语法",
+    "句子",
+    "主谓",
+    "宾语",
+    "标点",
+    "词性",
+    "复句"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：现代汉语语法与病句",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k04",
+   "name": "修辞方法与表达效果",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "修辞",
+    "比喻",
+    "拟人",
+    "排比",
+    "夸张",
+    "反问",
+    "设问",
+    "对偶",
+    "借代",
+    "双关"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：修辞方法与表达效果",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k05",
+   "name": "古代文学与文化常识",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "古代",
+    "文学常识",
+    "作家",
+    "作品",
+    "唐代",
+    "宋代",
+    "明清",
+    "先秦",
+    "诗人",
+    "诗经",
+    "楚辞",
+    "论语",
+    "李白",
+    "杜甫",
+    "苏轼"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：古代文学与文化常识",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k06",
+   "name": "古诗词阅读与鉴赏",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "古诗",
+    "诗词",
+    "诗歌",
+    "意象",
+    "意境",
+    "律诗",
+    "绝句",
+    "词牌",
+    "诗句",
+    "抒情",
+    "借景抒情",
+    "托物言志",
+    "虚实结合"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：古诗词阅读与鉴赏",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k07",
+   "name": "文言文阅读与翻译",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "文言",
+    "古文",
+    "翻译",
+    "通假",
+    "词类活用",
+    "古今异义",
+    "断句",
+    "实词",
+    "虚词",
+    "使动用法",
+    "意动用法",
+    "宾语前置",
+    "判断句",
+    "被动句"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：文言文阅读与翻译",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k08",
+   "name": "现代文阅读与鉴赏",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "现代文",
+    "散文",
+    "小说",
+    "戏剧",
+    "人物形象",
+    "叙述",
+    "阅读",
+    "文章",
+    "段落",
+    "鲁迅",
+    "老舍",
+    "巴金"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：现代文阅读与鉴赏",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k09",
+   "name": "写作与表达",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "作文",
+    "写作",
+    "议论文",
+    "记叙文",
+    "说明文",
+    "表达方式",
+    "论证",
+    "中心论点"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r003"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r003",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：写作与表达",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s1.k10",
+   "name": "语文课程与学习任务",
+   "parent": "ntce.chuzhong.yuwen.s1",
+   "keywords": [
+    "语文课程",
+    "工具性",
+    "人文性",
+    "语文素养",
+    "语言文字",
+    "识字",
+    "口语交际",
+    "综合性学习",
+    "学习任务群",
+    "群文阅读"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r007",
+    "ntce.outline.303.r017",
+    "ntce.outline.303.r027"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r007",
+     "matched_terms": [
+      "识字",
+      "口语交际",
+      "综合性学习"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r017",
+     "matched_terms": [
+      "识字",
+      "口语交际",
+      "综合性学习"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r027",
+     "matched_terms": [
+      "识字",
+      "口语交际",
+      "综合性学习"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 38,
+      "line_end": 38,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.chuzhong.yuwen.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r005",
+    "ntce.outline.303.r013",
+    "ntce.outline.303.r026"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r005",
+     "matched_terms": [
+      "课程标准",
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r013",
+     "matched_terms": [
+      "课程标准",
+      "课程目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r026",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 13,
+      "line_end": 13,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 37,
+      "line_end": 37,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.chuzhong.yuwen.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r014",
+    "ntce.outline.303.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r014",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r020",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.chuzhong.yuwen.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.chuzhong.yuwen.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r013",
+    "ntce.outline.303.r014"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r013",
+     "matched_terms": [
+      "教学目标",
+      "教学重点",
+      "教学难点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r014",
+     "matched_terms": [
+      "教学重点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.chuzhong.yuwen.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r014",
+    "ntce.outline.303.r017",
+    "ntce.outline.303.r021"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r014",
+     "matched_terms": [
+      "教学环节"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r017",
+     "matched_terms": [
+      "教学环节"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r021",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.chuzhong.yuwen.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r015",
+    "ntce.outline.303.r021",
+    "ntce.outline.303.r024"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r015",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r021",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.303.r024",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 24,
+      "line_end": 24,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 34,
+      "line_end": 34,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.chuzhong.yuwen.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.chuzhong.yuwen.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.303.r025"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.303.r025",
+     "matched_terms": [
+      "评价",
+      "形成性",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.303",
+     "path": "权威资料/originals/ntce.outline.303.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/345-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.303.txt",
+      "line_start": 36,
+      "line_end": 36,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yuwen.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.chuzhong.yuwen.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.303"
+ ],
+ "source_verified": true
+}

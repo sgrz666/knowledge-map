@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:scoring-rubric:2.0",
+  "title": "ScoringRubric",
+  "description": "附录A.6 可计算多维评分量规实体（数据集/教资/rubrics/*.json）。一个维度只允许一套名称、一套档位、一个分值权重；题内练习框架请用 practice_framework.json，二者不得混用。",
+  "type": "object",
+  "required": ["rubric_id", "task_type", "total_score", "rubric_type", "official_scoring", "dimensions", "expert_verified", "review"],
+  "properties": {
+    "rubric_id": {
+      "type": "string",
+      "description": "如 rubric.ntce.lesson_plan.standard_v1"
+    },
+    "title": { "type": "string" },
+    "task_type": {
+      "type": "string",
+      "enum": ["writing", "translation", "case_analysis", "lesson_plan", "interview_qa", "interview_teaching", "short_answer", "essay", "activity_plan"]
+    },
+    "total_score": {
+      "type": ["number", "null"],
+      "description": "各维度 weight_score 之和，单位分"
+    },
+    "rubric_type": {
+      "type": "string",
+      "enum": ["holistic", "analytic", "hybrid"]
+    },
+    "status": { "type": "string" },
+    "official_scoring": {
+      "type": "boolean",
+      "description": "是否为官方公布的评分细则本身；教研自建的加权量规必须为 false"
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["dimension_name", "weight_score", "criteria_levels"],
+        "properties": {
+          "dimension_name": {
+            "type": "string",
+            "description": "维度名，全实体唯一真相；旧的 name/levels/max_level 三件套已废除"
+          },
+          "weight_score": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "本维度满分，属教研待核定内容"
+          },
+          "criteria_levels": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": ["level_name", "score_range", "descriptor"],
+              "properties": {
+                "level_name": { "type": "string" },
+                "score_range": {
+                  "type": "array",
+                  "prefixItems": [
+                    { "type": "number", "minimum": 0 },
+                    { "type": "number", "minimum": 0 }
+                  ],
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "description": "本档位分值区间 [下界, 上界]，上界不得超过 weight_score"
+                },
+                "descriptor": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "question_specific_points": {
+      "type": "array",
+      "items": { "type": ["object", "string"] }
+    },
+    "exam_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expert_verified": {
+      "type": "boolean"
+    },
+    "review": {
+      "type": "object",
+      "required": ["status", "checked_by", "checked_at", "pending_reasons"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["draft", "needs_fix", "auto_parsed", "expert_reviewed", "quarantined", "deprecated"]
+        },
+        "checked_by": { "type": ["string", "null"] },
+        "checked_at": { "type": ["string", "null"] },
+        "pending_reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "expert_verified": { "const": true } } },
+      "then": { "properties": { "review": { "properties": { "checked_by": { "type": "string" } } } } },
+      "description": "expert_verified=true 必须有具名审核人，自动化不得声称专家已核"
+    },
+    {
+      "if": { "properties": { "official_scoring": { "const": true } } },
+      "then": { "required": ["source_locator"] },
+      "description": "自称官方评分细则必须给出权威资料定位"
+    }
+  ],
+  "additionalProperties": true
+}

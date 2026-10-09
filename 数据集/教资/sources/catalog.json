@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "source_id": "aku.education.20230520",
+      "name": "安康学院教育知识与能力学习资料",
+      "source_url": "https://dfl.aku.edu.cn/info/1641/6717.htm",
+      "published_at": "2023-05-20",
+      "files": [
+        {
+          "path": "数据集/教资/sources/aku_education_reference.txt",
+          "sha256": "804d42b7870776854ae67b11811b21ec42bd2f6c72652840fa1fbfbe5738302a"
+        },
+        {
+          "path": "数据集/教资/sources/aku_education_reference.html",
+          "sha256": "e65d219f0e98f6c97c71b9fa7bb4b6266d2004545228aaa15f5f42e2dfb3f306"
+        }
+      ],
+      "scope": "supplementary_learning_reference; not_official_exam_answer",
+      "copyright": {
+        "authorization_status": "unknown"
+      },
+      "expert_verified": false
+    }
+  ]
+}

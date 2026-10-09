@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:practice-framework:1.0",
+  "title": "PracticeRubricFramework",
+  "description": "题目内嵌的练习评价框架（q['rubric']），只描述反馈维度，不含分值权重，因此不可用于判分。官方加权量规实体请用 rubric.json；两套形状不得混用，权重的唯一真相在 rubrics/*.json。",
+  "type": "object",
+  "required": ["rubric_id", "status", "official_scoring", "expert_verified", "dimensions", "question_specific_points", "exam_requirement_ids"],
+  "properties": {
+    "rubric_id": {
+      "type": "string",
+      "description": "形如 rubric.<question_id>，与题目顶层 rubric_id 同值，图谱 has_rubric 边据此建立"
+    },
+    "status": {
+      "const": "practice_framework_pending_subject_expert",
+      "description": "教研签署前不得改成已核；权重化量规须另建 rubrics/*.json 实体"
+    },
+    "official_scoring": {
+      "const": false
+    },
+    "expert_verified": {
+      "const": false,
+      "description": "自动化生成物永不声称专家已核；人工核定请写 checked_by 并另立实体"
+    },
+    "checked_by": { "type": ["string", "null"] },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "levels", "max_level"],
+        "properties": {
+          "name": { "type": "string" },
+          "levels": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string" }
+          },
+          "max_level": { "type": "integer", "minimum": 1 }
+        },
+        "additionalProperties": false,
+        "description": "刻意不接受 weight_score/criteria_levels：出现即说明把可计算量规误写进了题内框架"
+      }
+    },
+    "question_specific_points": {
+      "type": "array",
+      "items": { "type": ["object", "string"] }
+    },
+    "question_specific_points_meta": { "type": "object" },
+    "exam_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "official_exam_criteria_reference": { "type": "array" },
+    "official_rubric_file": { "type": "string" },
+    "scope_note": { "type": "string" },
+    "score_note": { "type": "string" }
+  },
+  "additionalProperties": true
+}

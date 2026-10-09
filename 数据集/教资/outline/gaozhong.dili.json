@@ -1,0 +1,1479 @@
+{
+ "level": "gaozhong",
+ "subject": "dili",
+ "subject_cn": "地理学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.dili.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "气候",
+    "地形",
+    "洋流",
+    "板块",
+    "人口",
+    "城市化",
+    "农业",
+    "工业",
+    "地图",
+    "河流",
+    "季风"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k01",
+   "name": "地球与地图",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "经纬",
+    "经线",
+    "纬线",
+    "地图",
+    "比例尺",
+    "等高线",
+    "地球仪",
+    "经度",
+    "纬度",
+    "投影",
+    "经纬网",
+    "半球",
+    "大洲",
+    "大洋",
+    "比例"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r005",
+     "matched_terms": [
+      "地球仪",
+      "投影"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k02",
+   "name": "地球运动与时间计算",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "自转",
+    "公转",
+    "黄赤交角",
+    "地方时",
+    "北京时间",
+    "日界线",
+    "昼夜",
+    "太阳高度",
+    "晨昏",
+    "春分",
+    "夏至",
+    "冬至",
+    "秋分"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：地球运动与时间计算",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k03",
+   "name": "大气垂直分层与成分",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "大气层",
+    "电离层",
+    "对流层",
+    "平流层",
+    "臭氧",
+    "反射无线电波",
+    "大气垂直"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：大气垂直分层与成分",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k04",
+   "name": "大气环流与气候",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "气候",
+    "季风",
+    "气压",
+    "锋面",
+    "天气",
+    "降水",
+    "气温",
+    "信风",
+    "气旋",
+    "温度带",
+    "热带",
+    "温带",
+    "气流",
+    "季风气候",
+    "温带季风",
+    "寒潮",
+    "台风",
+    "降水量"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：大气环流与气候",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k05",
+   "name": "地貌与地壳运动",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "地貌",
+    "地形",
+    "喀斯特",
+    "板块",
+    "地壳",
+    "断层",
+    "褶皱",
+    "岩石",
+    "火山",
+    "地震",
+    "外力",
+    "内力",
+    "山地",
+    "岩层",
+    "地层",
+    "喷出岩",
+    "侵入岩",
+    "沉积岩",
+    "变质岩",
+    "岩浆",
+    "背斜",
+    "向斜",
+    "地堑",
+    "地垒",
+    "坪",
+    "谷地",
+    "盆地",
+    "测量岩层"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：地貌与地壳运动",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k06",
+   "name": "水循环与海洋",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "水循环",
+    "洋流",
+    "河流",
+    "湖泊",
+    "水文",
+    "海水",
+    "海洋",
+    "潮汐",
+    "盐度",
+    "黄河",
+    "长江",
+    "径流",
+    "地下水",
+    "积雪",
+    "融水",
+    "冰川",
+    "补给",
+    "水系",
+    "水库",
+    "季节性积雪",
+    "积雪融水"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：水循环与海洋",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k07",
+   "name": "自然地理整体性与差异性",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "自然带",
+    "整体性",
+    "地域分异",
+    "垂直地带",
+    "纬度地带",
+    "土壤",
+    "植被",
+    "湿地",
+    "荒漠"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：自然地理整体性与差异性",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k08",
+   "name": "人口与城镇化",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "人口",
+    "城市化",
+    "城镇化",
+    "迁移",
+    "聚落",
+    "老龄化",
+    "出生率",
+    "人口容量"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：人口与城镇化",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k09",
+   "name": "农业与工业区位",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "农业",
+    "工业",
+    "区位",
+    "乳畜业",
+    "种植业",
+    "钢铁",
+    "产业",
+    "企业",
+    "农作物",
+    "粮食",
+    "生产厂",
+    "跨国公司",
+    "大豆",
+    "消费市场",
+    "劳动力",
+    "土地",
+    "资本",
+    "主导要素",
+    "要素构成"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：农业与工业区位",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k10",
+   "name": "交通与区域经济",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "交通",
+    "铁路",
+    "运输",
+    "港口",
+    "商业",
+    "零售",
+    "消费者",
+    "区域经济",
+    "旅游"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：交通与区域经济",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k11",
+   "name": "中国与世界区域地理",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "省份",
+    "中国",
+    "南极",
+    "北极",
+    "疆域",
+    "欧洲",
+    "非洲",
+    "南美",
+    "北美",
+    "澳大利亚",
+    "德国",
+    "新疆",
+    "钓鱼岛",
+    "大洲",
+    "国家",
+    "青藏",
+    "西北",
+    "北方",
+    "南方",
+    "黄土高原",
+    "云贵高原",
+    "东北平原",
+    "华北平原",
+    "长江三角洲",
+    "珠江三角洲",
+    "四川盆地",
+    "塔里木",
+    "准噶尔",
+    "横断山脉",
+    "秦岭",
+    "淮河",
+    "台湾",
+    "海南",
+    "青藏地区",
+    "北方地区",
+    "南方地区",
+    "西北地区"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：中国与世界区域地理",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k12",
+   "name": "资源环境与可持续发展",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "资源",
+    "环境污染",
+    "生态",
+    "可持续",
+    "水土流失",
+    "荒漠化",
+    "灾害",
+    "洪水",
+    "防洪",
+    "保护",
+    "能源",
+    "泥石流",
+    "滑坡",
+    "全球变暖",
+    "风沙",
+    "沙尘",
+    "沙漠化",
+    "沙化",
+    "防风固沙",
+    "水土保持",
+    "风沙移动",
+    "跃移",
+    "悬移",
+    "蠕移"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：资源环境与可持续发展",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k13",
+   "name": "地理信息技术与空间数据",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "地理信息",
+    "遥感",
+    "全球定位",
+    "卫星导航",
+    "GIS",
+    "GPS",
+    "数字地球",
+    "空间数据",
+    "栅格",
+    "矢量",
+    "空间分析",
+    "遥感影像",
+    "图层",
+    "属性数据",
+    "栅格数据",
+    "矢量数据",
+    "数据结构"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：地理信息技术与空间数据",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k14",
+   "name": "地质与矿物观察",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "地质",
+    "矿物",
+    "解理",
+    "条痕",
+    "节理",
+    "光泽",
+    "走向",
+    "倾角"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：地质与矿物观察",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s1.k15",
+   "name": "旅游景观与文化地理",
+   "parent": "ntce.gaozhong.dili.s1",
+   "keywords": [
+    "景观",
+    "旅游",
+    "观赏",
+    "文化圈",
+    "文化地理",
+    "雾凇",
+    "政治地理",
+    "政治扩散",
+    "政治地理过程",
+    "政治斗争"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：旅游景观与文化地理",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "地理科学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.dili.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r008"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r008",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.dili.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r005",
+    "ntce.outline.411.r006",
+    "ntce.outline.411.r013"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r005",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r006",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r013",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 33,
+      "line_end": 33,
+      "section": "教学设计",
+      "subsection": "选择教学方法和教学媒体"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.dili.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r007",
+     "matched_terms": [
+      "学习基础"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.dili.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r006",
+    "ntce.outline.411.r011",
+    "ntce.outline.411.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r006",
+     "matched_terms": [
+      "教学目标",
+      "目标设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r011",
+     "matched_terms": [
+      "教学目标",
+      "教学重点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r007",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 23,
+      "line_end": 23,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学设计",
+      "subsection": "确定教学目标"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.dili.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r016",
+    "ntce.outline.411.r017",
+    "ntce.outline.411.r018"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r016",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r017",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.411.r018",
+     "matched_terms": [
+      "设计教学",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 37,
+      "line_end": 37,
+      "section": "教学设计",
+      "subsection": "设计教学过程"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 38,
+      "line_end": 38,
+      "section": "教学设计",
+      "subsection": "设计教学过程"
+     }
+    },
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 39,
+      "line_end": 39,
+      "section": "教学设计",
+      "subsection": "设计教学过程"
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.dili.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r005",
+     "matched_terms": [
+      "多媒体"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.dili.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.dili.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.411.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.411.r005",
+     "matched_terms": [
+      "评价",
+      "形成性",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.411",
+     "path": "权威资料/originals/ntce.outline.411.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/320-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.411.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学知识与运用",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.dili.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.dili.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.411"
+ ],
+ "source_verified": true
+}

@@ -1,0 +1,1150 @@
+{
+ "level": "chuzhong",
+ "subject": "yingyu",
+ "subject_cn": "英语学科知识与教学能力(初级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "grammar",
+    "语法",
+    "语音",
+    "phoneme",
+    "词汇",
+    "阅读理解",
+    "写作",
+    "听说法",
+    "交际法",
+    "教学设计",
+    "phonetics"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k01",
+   "name": "语音与音系",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "phoneme",
+    "phonetic",
+    "phonology",
+    "stress",
+    "intonation",
+    "pronunciation",
+    "consonant",
+    "vowel",
+    "音素",
+    "语音",
+    "liaison",
+    "assimilation",
+    "elision",
+    "linking",
+    "pitch",
+    "syllable"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：语音与音系",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k02",
+   "name": "词法与词汇",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "morpheme",
+    "morphology",
+    "lexical",
+    "vocabulary",
+    "word formation",
+    "词汇",
+    "构词",
+    "root",
+    "affix",
+    "prefix",
+    "suffix",
+    "compounding",
+    "conversion",
+    "derivation",
+    "collocation",
+    "synonym",
+    "antonym"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：词法与词汇",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k03",
+   "name": "英语语法与句法",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "grammar",
+    "syntax",
+    "clause",
+    "tense",
+    "participle",
+    "gerund",
+    "agreement",
+    "passive",
+    "subjunctive",
+    "定语从句",
+    "语法",
+    "inversion",
+    "cleft",
+    "ellipsis",
+    "conditional",
+    "non-finite",
+    "infinitive"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：英语语法与句法",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k04",
+   "name": "语义语用与语言学",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "semantics",
+    "pragmatics",
+    "speech act",
+    "presupposition",
+    "implicature",
+    "linguistic",
+    "discourse",
+    "语用",
+    "cooperative principle",
+    "grice",
+    "maxims",
+    "entailment"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：语义语用与语言学",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k05",
+   "name": "英语阅读理解",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "passage",
+    "author",
+    "infer",
+    "according to the",
+    "main idea",
+    "reading comprehension",
+    "阅读理解",
+    "skimming",
+    "scanning",
+    "predicting"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：英语阅读理解",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k06",
+   "name": "英语写作与篇章",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "writing",
+    "essay",
+    "cohesion",
+    "coherence",
+    "composition",
+    "写作"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：英语写作与篇章",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k07",
+   "name": "英语国家文化与文学",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "literature",
+    "shakespeare",
+    "britain",
+    "american",
+    "novel",
+    "poet",
+    "英美",
+    "文学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：英语国家文化与文学",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k08",
+   "name": "二语习得与学习策略",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "acquisition",
+    "interlanguage",
+    "transfer",
+    "motivation",
+    "learning strateg",
+    "二语",
+    "语言习得"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：二语习得与学习策略",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k09",
+   "name": "听说与交际教学",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "listening",
+    "speaking",
+    "communicative",
+    "audio-lingual",
+    "oral",
+    "role play",
+    "听说",
+    "交际",
+    "dialogue",
+    "presentation"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：听说与交际教学",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s1.k10",
+   "name": "语言技能综合教学",
+   "parent": "ntce.chuzhong.yingyu.s1",
+   "keywords": [
+    "reading lesson",
+    "writing lesson",
+    "pre-reading",
+    "post-reading",
+    "skimming",
+    "scanning",
+    "语言技能",
+    "PPP",
+    "TBLT",
+    "task-based",
+    "CLT"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r005",
+    "ntce.outline.305.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r005",
+     "matched_terms": [
+      "语言技能"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r007",
+     "matched_terms": [
+      "语言技能"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "语言教学知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "语言教学知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.chuzhong.yingyu.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r005",
+    "ntce.outline.305.r010"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r005",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r010",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "语言教学知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.chuzhong.yingyu.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r007",
+     "matched_terms": [
+      "教学原则"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "语言教学知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.chuzhong.yingyu.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.chuzhong.yingyu.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r011",
+    "ntce.outline.305.r012",
+    "ntce.outline.305.r018"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r011",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r012",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r018",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 35,
+      "line_end": 35,
+      "section": "教学实施与评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.chuzhong.yingyu.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r005",
+    "ntce.outline.305.r012",
+    "ntce.outline.305.r013"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r005",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r012",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.305.r013",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 20,
+      "line_end": 20,
+      "section": "语言教学知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.chuzhong.yingyu.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r002"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r002",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "语言知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.chuzhong.yingyu.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.chuzhong.yingyu.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r019"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r019",
+     "matched_terms": [
+      "评价",
+      "形成性",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 36,
+      "line_end": 36,
+      "section": "教学实施与评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.chuzhong.yingyu.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.chuzhong.yingyu.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.305.r021"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.305.r021",
+     "matched_terms": [
+      "教学反思",
+      "改进"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.305",
+     "path": "权威资料/originals/ntce.outline.305.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/349-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.305.txt",
+      "line_start": 38,
+      "line_end": 38,
+      "section": "教学实施与评价",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.305"
+ ],
+ "source_verified": true
+}

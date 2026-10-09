@@ -1,0 +1,932 @@
+{
+ "level": "youer",
+ "subject": "baojiao",
+ "subject_cn": "保教知识与能力(幼儿园)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.youer.baojiao.m1",
+   "name": "学前教育原理",
+   "parent": null,
+   "keywords": [
+    "学前教育",
+    "幼儿教育",
+    "福禄贝尔",
+    "蒙台梭利",
+    "夸美纽斯",
+    "杜威",
+    "陈鹤琴",
+    "陶行知",
+    "卢梭",
+    "洛克",
+    "教育思想",
+    "教育目的",
+    "教育起源",
+    "教育家"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2",
+   "name": "学前儿童发展",
+   "parent": null,
+   "keywords": [],
+   "assessable": false,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2.k1",
+   "name": "儿童发展理论",
+   "parent": "ntce.youer.baojiao.m2",
+   "keywords": [
+    "皮亚杰",
+    "埃里克森",
+    "行为主义",
+    "精神分析",
+    "成熟势力",
+    "双生子",
+    "最近发展区",
+    "关键期",
+    "遗传",
+    "环境决定",
+    "建构主义"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m2.k2",
+   "name": "幼儿身心发展特点",
+   "parent": "ntce.youer.baojiao.m2",
+   "keywords": [
+    "注意",
+    "记忆",
+    "想象",
+    "思维",
+    "情绪",
+    "情感",
+    "气质",
+    "性格",
+    "自我意识",
+    "同伴关系",
+    "语言发展",
+    "动作发展",
+    "感知觉",
+    "依恋"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r006"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r006",
+     "matched_terms": [
+      "动作发展"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "学前儿童发展",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m3",
+   "name": "幼儿生活指导",
+   "parent": null,
+   "keywords": [
+    "卫生",
+    "保健",
+    "疾病",
+    "营养",
+    "膳食",
+    "安全",
+    "意外",
+    "急救",
+    "溺水",
+    "烫伤",
+    "生活习惯",
+    "常规",
+    "如厕",
+    "睡眠",
+    "肥胖",
+    "龋齿"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m4",
+   "name": "幼儿园环境创设",
+   "parent": null,
+   "keywords": [
+    "环境创设",
+    "活动区",
+    "区角",
+    "角色区",
+    "墙饰",
+    "物质环境",
+    "精神环境",
+    "家园合作",
+    "幼小衔接",
+    "社区资源"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m5",
+   "name": "幼儿园游戏活动指导",
+   "parent": null,
+   "keywords": [
+    "游戏",
+    "角色游戏",
+    "建构游戏",
+    "规则游戏",
+    "表演游戏",
+    "智力游戏",
+    "自主游戏",
+    "玩具",
+    "游戏材料"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m6",
+   "name": "幼儿园教育活动的组织与实施",
+   "parent": null,
+   "keywords": [
+    "教育活动",
+    "活动设计",
+    "教案",
+    "教学目标",
+    "主题活动",
+    "集体教学",
+    "区域活动",
+    "《3-6岁儿童学习与发展指南》",
+    "五大领域"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m7",
+   "name": "幼儿园教育评价",
+   "parent": null,
+   "keywords": [
+    "教育评价",
+    "发展评价",
+    "观察记录",
+    "评价方法",
+    "档案袋"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m1.k01",
+   "name": "学前教育思想与教育家",
+   "parent": "ntce.youer.baojiao.m1",
+   "keywords": [
+    "福禄贝尔",
+    "蒙台梭利",
+    "夸美纽斯",
+    "杜威",
+    "陈鹤琴",
+    "陶行知",
+    "卢梭",
+    "洛克",
+    "教育家",
+    "教育思想",
+    "活教育",
+    "生活教育",
+    "张雪门",
+    "行为课程",
+    "恩物",
+    "感官教育"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r016"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r016",
+     "matched_terms": [
+      "教育家",
+      "教育思想"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 27,
+      "line_end": 27,
+      "section": "学前教育原理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m1.k02",
+   "name": "幼儿园教育目标与原则",
+   "parent": "ntce.youer.baojiao.m1",
+   "keywords": [
+    "学前教育",
+    "幼儿教育",
+    "教育目的",
+    "教育原则",
+    "保教结合",
+    "保育教育",
+    "全面发展",
+    "以游戏为基本活动",
+    "小学化",
+    "适合幼儿发展",
+    "全面发展教育"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r018",
+    "ntce.outline.102.r001",
+    "ntce.outline.102.r015"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r018",
+     "matched_terms": [
+      "以游戏为基本活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "学前教育"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r015",
+     "matched_terms": [
+      "幼儿教育"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "学前教育原理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "学前教育原理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m3.k01",
+   "name": "幼儿营养卫生与疾病预防",
+   "parent": "ntce.youer.baojiao.m3",
+   "keywords": [
+    "卫生",
+    "保健",
+    "疾病",
+    "营养",
+    "膳食",
+    "肥胖",
+    "龋齿",
+    "传染",
+    "饮食",
+    "贫血",
+    "佝偻病",
+    "弱视",
+    "斜视"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m3.k02",
+   "name": "幼儿生活常规与习惯",
+   "parent": "ntce.youer.baojiao.m3",
+   "keywords": [
+    "生活习惯",
+    "常规",
+    "如厕",
+    "睡眠",
+    "午睡",
+    "进餐",
+    "生活指导",
+    "自理能力",
+    "入园",
+    "离园",
+    "师生比"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "生活指导"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m3.k03",
+   "name": "幼儿安全与意外急救",
+   "parent": "ntce.youer.baojiao.m3",
+   "keywords": [
+    "安全",
+    "意外",
+    "急救",
+    "溺水",
+    "烫伤",
+    "骨折",
+    "窒息",
+    "海姆立克",
+    "脱臼",
+    "惊厥",
+    "鼻出血"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m4.k01",
+   "name": "物质与心理环境创设",
+   "parent": "ntce.youer.baojiao.m4",
+   "keywords": [
+    "环境创设",
+    "活动区",
+    "区角",
+    "角色区",
+    "墙饰",
+    "物质环境",
+    "精神环境",
+    "幼儿园环境",
+    "美工区",
+    "建构区",
+    "自然角"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r019",
+    "ntce.outline.102.r027",
+    "ntce.outline.102.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r019",
+     "matched_terms": [
+      "环境创设",
+      "幼儿园环境"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r027",
+     "matched_terms": [
+      "环境创设",
+      "幼儿园环境"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "环境创设"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "学前教育原理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 40,
+      "line_end": 40,
+      "section": " 环境创设",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m4.k02",
+   "name": "家园合作与幼小衔接",
+   "parent": "ntce.youer.baojiao.m4",
+   "keywords": [
+    "家园合作",
+    "家长",
+    "幼小衔接",
+    "社区资源",
+    "家庭教育",
+    "家长会",
+    "家访",
+    "身心准备"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m5.k01",
+   "name": "幼儿游戏类型与价值",
+   "parent": "ntce.youer.baojiao.m5",
+   "keywords": [
+    "游戏",
+    "角色游戏",
+    "建构游戏",
+    "规则游戏",
+    "表演游戏",
+    "智力游戏",
+    "感觉运动",
+    "象征性",
+    "平行游戏",
+    "联合游戏",
+    "合作游戏"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m5.k02",
+   "name": "游戏材料与教师指导",
+   "parent": "ntce.youer.baojiao.m5",
+   "keywords": [
+    "玩具",
+    "游戏材料",
+    "自主游戏",
+    "游戏指导",
+    "游戏活动",
+    "游戏介入",
+    "观察指导"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "游戏活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m6.k01",
+   "name": "幼儿教育活动目标与设计",
+   "parent": "ntce.youer.baojiao.m6",
+   "keywords": [
+    "教育活动",
+    "活动设计",
+    "教案",
+    "教学目标",
+    "主题活动",
+    "集体教学",
+    "区域活动",
+    "活动准备",
+    "活动过程",
+    "幼儿园教学",
+    "教学基本方法",
+    "演示法",
+    "范例法"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r001",
+    "ntce.outline.102.r006",
+    "ntce.outline.102.r007"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "教育活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r006",
+     "matched_terms": [
+      "教育活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r007",
+     "matched_terms": [
+      "教育活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "学前儿童发展",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "学前儿童发展",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m6.k02",
+   "name": "五大领域活动实施",
+   "parent": "ntce.youer.baojiao.m6",
+   "keywords": [
+    "健康",
+    "语言",
+    "社会",
+    "科学",
+    "艺术",
+    "五大领域",
+    "指南",
+    "积木",
+    "数学能力",
+    "科学探究",
+    "感受与欣赏"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.youer.baojiao.m7.k01",
+   "name": "幼儿发展观察与评价",
+   "parent": "ntce.youer.baojiao.m7",
+   "keywords": [
+    "教育评价",
+    "发展评价",
+    "观察记录",
+    "评价方法",
+    "档案袋",
+    "幼儿评价",
+    "成长记录袋",
+    "作品分析"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.102.r001",
+    "ntce.outline.102.r011",
+    "ntce.outline.102.r038"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.102.r001",
+     "matched_terms": [
+      "教育评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r011",
+     "matched_terms": [
+      "作品分析"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.102.r038",
+     "matched_terms": [
+      "教育评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "考试要求",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "学前儿童发展",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.102",
+     "path": "权威资料/originals/ntce.outline.102.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/330-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.102.txt",
+      "line_start": 55,
+      "line_end": 55,
+      "section": "教育评价",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.102"
+ ],
+ "source_verified": true
+}

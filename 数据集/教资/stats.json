@@ -1,0 +1,690 @@
+{
+  "questions": 14500,
+  "knowledge_mapped": 13169,
+  "ability_mapped": 13169,
+  "requirement_mapped": 10572,
+  "answers_nonempty": 9991,
+  "analysis_nonempty": 6776,
+  "structured_analysis_nonempty": 14494,
+  "answer_status": {
+    "letter_only": 9972,
+    "reference_only": 3339,
+    "source_conflict": 1040,
+    "missing": 149
+  },
+  "answer_not_in_options": 0,
+  "choice_options_under_four": 591,
+  "knowledge_nodes": 818,
+  "assessable_knowledge_nodes": 665,
+  "cards": 12881,
+  "materials": 586,
+  "pending_questions": 14500,
+  "pending_by_reason": {
+    "expert_content_review_needed": 14500,
+    "source_stem_incomplete": 800,
+    "knowledge_alignment_needed": 1331,
+    "ability_alignment_needed": 1331,
+    "official_requirement_alignment_needed": 3928,
+    "reference_answer_needed": 4509,
+    "question_specific_explanation_needed": 7724,
+    "source_options_or_diagram_needed": 778,
+    "difficulty_calibration_needed": 1780,
+    "answer_option_alignment_needed": 352,
+    "question_specific_scoring_points_needed": 1148,
+    "source_answer_conflict_review_needed": 1040,
+    "cross_question_boundary_review_needed": 850,
+    "source_boundary_alignment_needed": 127
+  },
+  "source_option_repairs_total": 1280,
+  "source_answer_repairs_total": 2,
+  "cross_question_risk_records": 850,
+  "cross_question_risk_by_type": {
+    "complete_choice_sequence_in_option": 295,
+    "multiple_complete_choice_sequences": 564,
+    "embedded_numbered_question_candidate": 227,
+    "case_reference_without_attached_material": 175,
+    "complete_choice_sequence_in_stem": 280,
+    "next_case_section_after_current_task": 45,
+    "case_entity_mismatch_in_source": 1
+  },
+  "expert_verified_questions": 0,
+  "source_type_repairs_total": 152,
+  "nonobjective_letter_quarantined_total": 446,
+  "material_links_recovered_total": 490,
+  "trailing_cases_detached_total": 195,
+  "by_subject": {
+    "chuzhong/dili": {
+      "questions": 422,
+      "knowledge_mapped": 333,
+      "ability_mapped": 333,
+      "requirement_mapped": 332,
+      "answers_nonempty": 262,
+      "analysis_nonempty": 187,
+      "structured_analysis_nonempty": 420,
+      "answer_status": {
+        "letter_only": 262,
+        "reference_only": 96,
+        "source_conflict": 61,
+        "missing": 3
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 59
+    },
+    "chuzhong/huaxue": {
+      "questions": 267,
+      "knowledge_mapped": 229,
+      "ability_mapped": 229,
+      "requirement_mapped": 216,
+      "answers_nonempty": 196,
+      "analysis_nonempty": 152,
+      "structured_analysis_nonempty": 267,
+      "answer_status": {
+        "letter_only": 196,
+        "reference_only": 51,
+        "source_conflict": 16,
+        "missing": 4
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 17
+    },
+    "chuzhong/lishi": {
+      "questions": 428,
+      "knowledge_mapped": 384,
+      "ability_mapped": 384,
+      "requirement_mapped": 196,
+      "answers_nonempty": 313,
+      "analysis_nonempty": 235,
+      "structured_analysis_nonempty": 428,
+      "answer_status": {
+        "letter_only": 313,
+        "source_conflict": 21,
+        "reference_only": 86,
+        "missing": 8
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 6
+    },
+    "chuzhong/meishu": {
+      "questions": 648,
+      "knowledge_mapped": 600,
+      "ability_mapped": 600,
+      "requirement_mapped": 412,
+      "answers_nonempty": 513,
+      "analysis_nonempty": 393,
+      "structured_analysis_nonempty": 648,
+      "answer_status": {
+        "letter_only": 513,
+        "reference_only": 130,
+        "source_conflict": 3,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 5
+    },
+    "chuzhong/shengwu": {
+      "questions": 420,
+      "knowledge_mapped": 395,
+      "ability_mapped": 395,
+      "requirement_mapped": 384,
+      "answers_nonempty": 329,
+      "analysis_nonempty": 259,
+      "structured_analysis_nonempty": 420,
+      "answer_status": {
+        "letter_only": 329,
+        "source_conflict": 17,
+        "reference_only": 73,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 13
+    },
+    "chuzhong/shuxue": {
+      "questions": 269,
+      "knowledge_mapped": 231,
+      "ability_mapped": 231,
+      "requirement_mapped": 136,
+      "answers_nonempty": 73,
+      "analysis_nonempty": 56,
+      "structured_analysis_nonempty": 269,
+      "answer_status": {
+        "letter_only": 73,
+        "source_conflict": 51,
+        "reference_only": 142,
+        "missing": 3
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 16
+    },
+    "chuzhong/tiyu": {
+      "questions": 225,
+      "knowledge_mapped": 200,
+      "ability_mapped": 200,
+      "requirement_mapped": 199,
+      "answers_nonempty": 172,
+      "analysis_nonempty": 133,
+      "structured_analysis_nonempty": 225,
+      "answer_status": {
+        "letter_only": 172,
+        "source_conflict": 16,
+        "reference_only": 36,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 16
+    },
+    "chuzhong/wuli": {
+      "questions": 174,
+      "knowledge_mapped": 149,
+      "ability_mapped": 149,
+      "requirement_mapped": 59,
+      "answers_nonempty": 84,
+      "analysis_nonempty": 56,
+      "structured_analysis_nonempty": 174,
+      "answer_status": {
+        "source_conflict": 24,
+        "letter_only": 84,
+        "reference_only": 57,
+        "missing": 9
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 14
+    },
+    "chuzhong/xinxi": {
+      "questions": 292,
+      "knowledge_mapped": 261,
+      "ability_mapped": 261,
+      "requirement_mapped": 259,
+      "answers_nonempty": 151,
+      "analysis_nonempty": 122,
+      "structured_analysis_nonempty": 291,
+      "answer_status": {
+        "letter_only": 151,
+        "source_conflict": 50,
+        "reference_only": 86,
+        "missing": 5
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 23
+    },
+    "chuzhong/yingyu": {
+      "questions": 643,
+      "knowledge_mapped": 610,
+      "ability_mapped": 610,
+      "requirement_mapped": 581,
+      "answers_nonempty": 575,
+      "analysis_nonempty": 197,
+      "structured_analysis_nonempty": 643,
+      "answer_status": {
+        "letter_only": 575,
+        "reference_only": 57,
+        "source_conflict": 10,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 8
+    },
+    "chuzhong/yinyue": {
+      "questions": 327,
+      "knowledge_mapped": 300,
+      "ability_mapped": 300,
+      "requirement_mapped": 291,
+      "answers_nonempty": 264,
+      "analysis_nonempty": 230,
+      "structured_analysis_nonempty": 327,
+      "answer_status": {
+        "letter_only": 264,
+        "source_conflict": 12,
+        "reference_only": 49,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 44
+    },
+    "chuzhong/yuwen": {
+      "questions": 415,
+      "knowledge_mapped": 356,
+      "ability_mapped": 356,
+      "requirement_mapped": 352,
+      "answers_nonempty": 278,
+      "analysis_nonempty": 243,
+      "structured_analysis_nonempty": 415,
+      "answer_status": {
+        "letter_only": 278,
+        "reference_only": 116,
+        "missing": 5,
+        "source_conflict": 16
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 11
+    },
+    "chuzhong/zhengzhi": {
+      "questions": 486,
+      "knowledge_mapped": 479,
+      "ability_mapped": 479,
+      "requirement_mapped": 477,
+      "answers_nonempty": 401,
+      "analysis_nonempty": 277,
+      "structured_analysis_nonempty": 486,
+      "answer_status": {
+        "letter_only": 401,
+        "reference_only": 67,
+        "source_conflict": 17,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 5
+    },
+    "gaozhong/dili": {
+      "questions": 329,
+      "knowledge_mapped": 235,
+      "ability_mapped": 235,
+      "requirement_mapped": 233,
+      "answers_nonempty": 185,
+      "analysis_nonempty": 96,
+      "structured_analysis_nonempty": 328,
+      "answer_status": {
+        "letter_only": 185,
+        "source_conflict": 80,
+        "reference_only": 63,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 57
+    },
+    "gaozhong/huaxue": {
+      "questions": 312,
+      "knowledge_mapped": 263,
+      "ability_mapped": 263,
+      "requirement_mapped": 251,
+      "answers_nonempty": 211,
+      "analysis_nonempty": 175,
+      "structured_analysis_nonempty": 312,
+      "answer_status": {
+        "source_conflict": 38,
+        "letter_only": 211,
+        "reference_only": 57,
+        "missing": 6
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 12
+    },
+    "gaozhong/lishi": {
+      "questions": 428,
+      "knowledge_mapped": 382,
+      "ability_mapped": 382,
+      "requirement_mapped": 164,
+      "answers_nonempty": 162,
+      "analysis_nonempty": 125,
+      "structured_analysis_nonempty": 428,
+      "answer_status": {
+        "source_conflict": 173,
+        "reference_only": 91,
+        "letter_only": 162,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 3
+    },
+    "gaozhong/meishu": {
+      "questions": 553,
+      "knowledge_mapped": 503,
+      "ability_mapped": 503,
+      "requirement_mapped": 364,
+      "answers_nonempty": 418,
+      "analysis_nonempty": 395,
+      "structured_analysis_nonempty": 553,
+      "answer_status": {
+        "letter_only": 418,
+        "source_conflict": 5,
+        "reference_only": 128,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 10
+    },
+    "gaozhong/shengwu": {
+      "questions": 509,
+      "knowledge_mapped": 451,
+      "ability_mapped": 451,
+      "requirement_mapped": 437,
+      "answers_nonempty": 407,
+      "analysis_nonempty": 300,
+      "structured_analysis_nonempty": 509,
+      "answer_status": {
+        "letter_only": 407,
+        "source_conflict": 12,
+        "reference_only": 84,
+        "missing": 6
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 30
+    },
+    "gaozhong/shuxue": {
+      "questions": 282,
+      "knowledge_mapped": 240,
+      "ability_mapped": 240,
+      "requirement_mapped": 125,
+      "answers_nonempty": 98,
+      "analysis_nonempty": 73,
+      "structured_analysis_nonempty": 282,
+      "answer_status": {
+        "letter_only": 98,
+        "source_conflict": 32,
+        "reference_only": 149,
+        "missing": 3
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 22
+    },
+    "gaozhong/tiyu": {
+      "questions": 267,
+      "knowledge_mapped": 250,
+      "ability_mapped": 250,
+      "requirement_mapped": 248,
+      "answers_nonempty": 204,
+      "analysis_nonempty": 173,
+      "structured_analysis_nonempty": 267,
+      "answer_status": {
+        "letter_only": 204,
+        "source_conflict": 19,
+        "reference_only": 43,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 7
+    },
+    "gaozhong/wuli": {
+      "questions": 184,
+      "knowledge_mapped": 160,
+      "ability_mapped": 160,
+      "requirement_mapped": 55,
+      "answers_nonempty": 99,
+      "analysis_nonempty": 50,
+      "structured_analysis_nonempty": 184,
+      "answer_status": {
+        "letter_only": 99,
+        "reference_only": 64,
+        "source_conflict": 20,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 42
+    },
+    "gaozhong/xinxi": {
+      "questions": 255,
+      "knowledge_mapped": 218,
+      "ability_mapped": 218,
+      "requirement_mapped": 216,
+      "answers_nonempty": 117,
+      "analysis_nonempty": 40,
+      "structured_analysis_nonempty": 253,
+      "answer_status": {
+        "letter_only": 117,
+        "source_conflict": 56,
+        "reference_only": 73,
+        "missing": 9
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 26
+    },
+    "gaozhong/yingyu": {
+      "questions": 599,
+      "knowledge_mapped": 567,
+      "ability_mapped": 567,
+      "requirement_mapped": 537,
+      "answers_nonempty": 540,
+      "analysis_nonempty": 235,
+      "structured_analysis_nonempty": 599,
+      "answer_status": {
+        "letter_only": 540,
+        "source_conflict": 7,
+        "reference_only": 52
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "gaozhong/yinyue": {
+      "questions": 321,
+      "knowledge_mapped": 297,
+      "ability_mapped": 297,
+      "requirement_mapped": 294,
+      "answers_nonempty": 251,
+      "analysis_nonempty": 191,
+      "structured_analysis_nonempty": 321,
+      "answer_status": {
+        "letter_only": 251,
+        "source_conflict": 25,
+        "reference_only": 44,
+        "missing": 1
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 36
+    },
+    "gaozhong/yuwen": {
+      "questions": 328,
+      "knowledge_mapped": 297,
+      "ability_mapped": 297,
+      "requirement_mapped": 292,
+      "answers_nonempty": 222,
+      "analysis_nonempty": 38,
+      "structured_analysis_nonempty": 328,
+      "answer_status": {
+        "letter_only": 222,
+        "reference_only": 96,
+        "source_conflict": 7,
+        "missing": 3
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 27
+    },
+    "gaozhong/zhengzhi": {
+      "questions": 490,
+      "knowledge_mapped": 478,
+      "ability_mapped": 478,
+      "requirement_mapped": 477,
+      "answers_nonempty": 400,
+      "analysis_nonempty": 206,
+      "structured_analysis_nonempty": 490,
+      "answer_status": {
+        "letter_only": 400,
+        "source_conflict": 15,
+        "reference_only": 73,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 1
+    },
+    "xiaoxue/jiaoxue": {
+      "questions": 596,
+      "knowledge_mapped": 539,
+      "ability_mapped": 539,
+      "requirement_mapped": 527,
+      "answers_nonempty": 387,
+      "analysis_nonempty": 341,
+      "structured_analysis_nonempty": 596,
+      "answer_status": {
+        "letter_only": 387,
+        "reference_only": 199,
+        "source_conflict": 10
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 4
+    },
+    "xiaoxue/jiaoyuxinlixue": {
+      "questions": 36,
+      "knowledge_mapped": 27,
+      "ability_mapped": 27,
+      "requirement_mapped": 0,
+      "answers_nonempty": 2,
+      "analysis_nonempty": 2,
+      "structured_analysis_nonempty": 36,
+      "answer_status": {
+        "source_conflict": 34,
+        "letter_only": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "xiaoxue/jiaoyuxue": {
+      "questions": 170,
+      "knowledge_mapped": 128,
+      "ability_mapped": 128,
+      "requirement_mapped": 0,
+      "answers_nonempty": 91,
+      "analysis_nonempty": 49,
+      "structured_analysis_nonempty": 170,
+      "answer_status": {
+        "letter_only": 91,
+        "reference_only": 32,
+        "source_conflict": 29,
+        "missing": 18
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 14
+    },
+    "xiaoxue/zonghe": {
+      "questions": 620,
+      "knowledge_mapped": 594,
+      "ability_mapped": 594,
+      "requirement_mapped": 325,
+      "answers_nonempty": 494,
+      "analysis_nonempty": 356,
+      "structured_analysis_nonempty": 620,
+      "answer_status": {
+        "letter_only": 494,
+        "reference_only": 74,
+        "source_conflict": 48,
+        "missing": 4
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 14
+    },
+    "youer/baojiao": {
+      "questions": 429,
+      "knowledge_mapped": 386,
+      "ability_mapped": 386,
+      "requirement_mapped": 275,
+      "answers_nonempty": 280,
+      "analysis_nonempty": 38,
+      "structured_analysis_nonempty": 429,
+      "answer_status": {
+        "letter_only": 264,
+        "source_conflict": 19,
+        "reference_only": 144,
+        "missing": 2
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 8
+    },
+    "youer/mianshi": {
+      "questions": 153,
+      "knowledge_mapped": 151,
+      "ability_mapped": 151,
+      "requirement_mapped": 151,
+      "answers_nonempty": 0,
+      "analysis_nonempty": 0,
+      "structured_analysis_nonempty": 153,
+      "answer_status": {
+        "reference_only": 153
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "youer/zonghe": {
+      "questions": 733,
+      "knowledge_mapped": 701,
+      "ability_mapped": 701,
+      "requirement_mapped": 387,
+      "answers_nonempty": 627,
+      "analysis_nonempty": 446,
+      "structured_analysis_nonempty": 733,
+      "answer_status": {
+        "letter_only": 627,
+        "reference_only": 86,
+        "source_conflict": 20
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 7
+    },
+    "zhongxiaoxue/mianshi": {
+      "questions": 273,
+      "knowledge_mapped": 267,
+      "ability_mapped": 267,
+      "requirement_mapped": 244,
+      "answers_nonempty": 0,
+      "analysis_nonempty": 0,
+      "structured_analysis_nonempty": 273,
+      "answer_status": {
+        "reference_only": 273
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "zhongxue/jiaoyuxinlixue": {
+      "questions": 181,
+      "knowledge_mapped": 152,
+      "ability_mapped": 152,
+      "requirement_mapped": 0,
+      "answers_nonempty": 135,
+      "analysis_nonempty": 114,
+      "structured_analysis_nonempty": 181,
+      "answer_status": {
+        "letter_only": 135,
+        "reference_only": 20,
+        "source_conflict": 5,
+        "missing": 21
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 29
+    },
+    "zhongxue/jiaoyuxue": {
+      "questions": 72,
+      "knowledge_mapped": 58,
+      "ability_mapped": 58,
+      "requirement_mapped": 0,
+      "answers_nonempty": 30,
+      "analysis_nonempty": 25,
+      "structured_analysis_nonempty": 72,
+      "answer_status": {
+        "letter_only": 30,
+        "source_conflict": 27,
+        "missing": 15
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "zhongxue/jiaoyuzhishi": {
+      "questions": 664,
+      "knowledge_mapped": 630,
+      "ability_mapped": 630,
+      "requirement_mapped": 630,
+      "answers_nonempty": 439,
+      "analysis_nonempty": 374,
+      "structured_analysis_nonempty": 664,
+      "answer_status": {
+        "source_conflict": 14,
+        "letter_only": 436,
+        "reference_only": 207,
+        "missing": 7
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 0
+    },
+    "zhongxue/zonghe": {
+      "questions": 700,
+      "knowledge_mapped": 668,
+      "ability_mapped": 668,
+      "requirement_mapped": 446,
+      "answers_nonempty": 581,
+      "analysis_nonempty": 394,
+      "structured_analysis_nonempty": 700,
+      "answer_status": {
+        "letter_only": 581,
+        "reference_only": 88,
+        "source_conflict": 31
+      },
+      "answer_not_in_options": 0,
+      "choice_options_under_four": 5
+    }
+  }
+}

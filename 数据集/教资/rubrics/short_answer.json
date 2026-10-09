@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.short_answer.standard_v1",
+  "title": "中小学教师资格考试简答题通用评分量规",
+  "task_type": "short_answer",
+  "total_score": 10.0,
+  "rubric_type": "analytic",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "核心得分要点覆盖率",
+      "weight_score": 5.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            4.5,
+            5.0
+          ],
+          "descriptor": "全面命中官方或教研标准答案的全部关键踩分点，无核心遗漏。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            3.8,
+            4.4
+          ],
+          "descriptor": "命中75%以上得分要点，核心概念无重大遗漏。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            3.0,
+            3.7
+          ],
+          "descriptor": "仅命中约一半要点，存在明显遗漏。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            2.9
+          ],
+          "descriptor": "要点完全不符或仅命中个别零星词汇。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "各要点内涵解释与理论展开",
+      "weight_score": 3.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            2.7,
+            3.0
+          ],
+          "descriptor": "不仅列出条目名称，而且对条目含义有准确、简练的阐述深化。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            2.3,
+            2.6
+          ],
+          "descriptor": "要点有一定解释，理解基本准确。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            1.8,
+            2.2
+          ],
+          "descriptor": "仅列出小标题，无任何展开阐述。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            1.7
+          ],
+          "descriptor": "解释存在原则性科学错误或概念张冠李戴。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "分点序号与专业表达",
+      "weight_score": 2.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            1.8,
+            2.0
+          ],
+          "descriptor": "条目序号层次清晰（如1. 2. 3.），术语精准，书写工整。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            1.5,
+            1.7
+          ],
+          "descriptor": "分点清楚，表达通畅。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            1.2,
+            1.4
+          ],
+          "descriptor": "未采用分点，大段叙述但要点尚可辨认。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            1.1
+          ],
+          "descriptor": "表达混乱，字迹潦草难以识别。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

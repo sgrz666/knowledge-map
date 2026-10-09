@@ -1,0 +1,1305 @@
+{
+ "level": "gaozhong",
+ "subject": "tiyu",
+ "subject_cn": "体育与健康学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "运球",
+    "投篮",
+    "田径",
+    "体操",
+    "队列",
+    "身体素质",
+    "跑步",
+    "球类",
+    "教学比赛",
+    "动作要领"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k01",
+   "name": "运动解剖与生理",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "肌肉",
+    "骨骼",
+    "关节",
+    "神经",
+    "心率",
+    "呼吸",
+    "生理",
+    "解剖",
+    "血液",
+    "能量代谢",
+    "心肺功能",
+    "肺活量"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r003"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r003",
+     "matched_terms": [
+      "神经",
+      "能量代谢"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k02",
+   "name": "运动训练与身体素质",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "身体素质",
+    "力量",
+    "耐力",
+    "速度",
+    "灵敏",
+    "柔韧",
+    "训练",
+    "负荷",
+    "体能"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005",
+    "ntce.outline.413.r012",
+    "ntce.outline.413.r026"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [
+      "身体素质"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r012",
+     "matched_terms": [
+      "身体素质"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r026",
+     "matched_terms": [
+      "身体素质"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 24,
+      "line_end": 24,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k03",
+   "name": "运动损伤预防与健康",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "损伤",
+    "扭伤",
+    "骨折",
+    "急救",
+    "疲劳",
+    "健康",
+    "安全",
+    "卫生",
+    "恢复"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：运动损伤预防与健康",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k04",
+   "name": "田径技术与规则",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "田径",
+    "跑步",
+    "跳远",
+    "跳高",
+    "短跑",
+    "长跑",
+    "接力",
+    "铅球",
+    "跨栏"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：田径技术与规则",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k05",
+   "name": "体操队列与技巧",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "体操",
+    "队列",
+    "技巧",
+    "翻滚",
+    "单杠",
+    "双杠",
+    "支撑",
+    "跳箱"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：体操队列与技巧",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k06",
+   "name": "篮球技术与规则",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "篮球",
+    "运球",
+    "投篮",
+    "上篮",
+    "篮板",
+    "掩护"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：篮球技术与规则",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k07",
+   "name": "足球技术与规则",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "足球",
+    "射门",
+    "越位",
+    "踢球",
+    "传球",
+    "守门"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：足球技术与规则",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k08",
+   "name": "排球技术与规则",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "排球",
+    "垫球",
+    "扣球",
+    "拦网",
+    "发球"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r005"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r005",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：排球技术与规则",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k09",
+   "name": "武术与民族传统体育",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "武术",
+    "太极",
+    "拳",
+    "民族传统",
+    "散打"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r001",
+     "matched_terms": [
+      "民族传统"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k10",
+   "name": "其他运动技术与规则",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "乒乓",
+    "羽毛球",
+    "游泳",
+    "网球",
+    "健美操",
+    "体育舞蹈"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r012",
+    "ntce.outline.413.r015"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r012",
+     "matched_terms": [
+      "健美操"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r015",
+     "matched_terms": [
+      "健美操"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s1.k11",
+   "name": "体育课程与教学组织",
+   "parent": "ntce.gaozhong.tiyu.s1",
+   "keywords": [
+    "体育课程",
+    "体育教学",
+    "运动技能",
+    "动作要领",
+    "教学比赛",
+    "体育与健康",
+    "体育课",
+    "体育活动",
+    "时间安排",
+    "国家体委",
+    "奥委会",
+    "增强人民体质"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r030",
+    "ntce.outline.413.r008",
+    "ntce.outline.413.r011"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r030",
+     "matched_terms": [
+      "运动技能",
+      "体育与健康"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r008",
+     "matched_terms": [
+      "体育课程",
+      "体育课"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r011",
+     "matched_terms": [
+      "体育与健康"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "教学评价",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.tiyu.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r011"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r011",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.tiyu.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r012",
+    "ntce.outline.413.r018",
+    "ntce.outline.413.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r012",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r018",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r020",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 12,
+      "line_end": 12,
+      "section": "学科知识与能力",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.tiyu.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.tiyu.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r018",
+    "ntce.outline.413.r019",
+    "ntce.outline.413.r023"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r018",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r019",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r023",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.tiyu.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r019",
+    "ntce.outline.413.r027",
+    "ntce.outline.413.r018"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r019",
+     "matched_terms": [
+      "教案",
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r027",
+     "matched_terms": [
+      "教学环节",
+      "练习"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r018",
+     "matched_terms": [
+      "设计教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 25,
+      "line_end": 25,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.tiyu.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r021",
+    "ntce.outline.413.r028"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r021",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.413.r028",
+     "matched_terms": [
+      "教学资源"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 18,
+      "line_end": 18,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.tiyu.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.tiyu.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r031"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r031",
+     "matched_terms": [
+      "评价",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.tiyu.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.tiyu.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.413.r032"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.413.r032",
+     "matched_terms": [
+      "教学反思",
+      "改进"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.413",
+     "path": "权威资料/originals/ntce.outline.413.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1104-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.413.txt",
+      "line_start": 31,
+      "line_end": 31,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.413"
+ ],
+ "source_verified": true
+}

@@ -1,0 +1,1040 @@
+{
+ "level": "xiaoxue",
+ "subject": "jiaoxue",
+ "subject_cn": "教育教学知识与能力(小学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m1",
+   "name": "教育基础",
+   "parent": null,
+   "keywords": [
+    "教育学",
+    "孔子",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "裴斯泰洛齐",
+    "教育制度",
+    "学制",
+    "义务教育",
+    "教育目的",
+    "教育研究",
+    "课程",
+    "新课程改革",
+    "教师专业",
+    "教育与社会",
+    "《学记》",
+    "学记",
+    "陶行知",
+    "生活教育",
+    "教育起源",
+    "沛西能",
+    "教师劳动",
+    "示范性",
+    "长期性",
+    "个人本位",
+    "社会本位",
+    "美育"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2",
+   "name": "学生指导",
+   "parent": null,
+   "keywords": [],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k1",
+   "name": "小学生身心发展",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "皮亚杰",
+    "埃里克森",
+    "认知发展",
+    "注意",
+    "感知觉",
+    "记忆",
+    "思维",
+    "想象",
+    "情绪",
+    "情感",
+    "个体差异",
+    "因材施教",
+    "知觉",
+    "遗忘",
+    "艾宾浩斯",
+    "遗忘曲线",
+    "狼孩",
+    "关键期",
+    "敏感期",
+    "遗传素质"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r017"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r017",
+     "matched_terms": [
+      "个体差异"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 29,
+      "line_end": 29,
+      "section": "学生指导",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k2",
+   "name": "学习理论与学习心理",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "强化",
+    "行为主义",
+    "桑代克",
+    "斯金纳",
+    "巴甫洛夫",
+    "建构主义",
+    "有意义学习",
+    "奥苏贝尔",
+    "学习动机",
+    "学习迁移",
+    "学习策略",
+    "马斯洛",
+    "韦纳",
+    "自我效能",
+    "认知内驱力",
+    "成就动机"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r039"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r039",
+     "matched_terms": [
+      "学习动机"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 55,
+      "line_end": 55,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k3",
+   "name": "德育与品德发展",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "品德",
+    "道德认识",
+    "道德情感",
+    "德育",
+    "科尔伯格",
+    "榜样示范",
+    "陶冶",
+    "说服教育"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m2.k4",
+   "name": "小学生安全与心理健康",
+   "parent": "ntce.xiaoxue.jiaoxue.m2",
+   "keywords": [
+    "安全",
+    "卫生",
+    "疾病",
+    "意外事故",
+    "心理健康",
+    "焦虑",
+    "心理辅导"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "care"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r016",
+    "ntce.outline.202.r018"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r016",
+     "matched_terms": [
+      "心理辅导"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r018",
+     "matched_terms": [
+      "心理辅导"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 28,
+      "line_end": 28,
+      "section": "学生指导",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 30,
+      "line_end": 30,
+      "section": "学生指导",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m3",
+   "name": "班级管理",
+   "parent": null,
+   "keywords": [
+    "班级",
+    "班主任",
+    "班集体",
+    "课堂纪律",
+    "班会",
+    "课外活动"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m4",
+   "name": "小学学科知识",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "学科素养",
+    "教材"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m5",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "导入",
+    "板书",
+    "教案",
+    "设计教学环节"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m6",
+   "name": "教学实施",
+   "parent": null,
+   "keywords": [
+    "教学方法",
+    "讲授法",
+    "谈话法",
+    "演示法",
+    "实验法",
+    "课堂提问",
+    "教学组织",
+    "分层教学"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m7",
+   "name": "教学评价与反思",
+   "parent": null,
+   "keywords": [
+    "教学评价",
+    "形成性评价",
+    "终结性评价",
+    "教学反思",
+    "测验",
+    "作业",
+    "档案袋评价",
+    "质性评价",
+    "量化评价"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m1.k01",
+   "name": "教育思想与教育制度",
+   "parent": "ntce.xiaoxue.jiaoxue.m1",
+   "keywords": [
+    "孔子",
+    "夸美纽斯",
+    "赫尔巴特",
+    "杜威",
+    "裴斯泰洛齐",
+    "教育制度",
+    "学制",
+    "义务教育",
+    "教育目的",
+    "教育学",
+    "康德",
+    "洛克",
+    "白板说",
+    "卢梭",
+    "爱弥儿",
+    "要素教育",
+    "斯宾塞",
+    "终身教育",
+    "全面发展",
+    "人完全是教育的结果",
+    "教育发展水平",
+    "经济基础",
+    "《学记》",
+    "学记",
+    "论语",
+    "陶行知",
+    "生活教育",
+    "教学做合一",
+    "教育起源",
+    "沛西能",
+    "神话起源",
+    "生物起源",
+    "心理起源",
+    "教育功能",
+    "文化功能",
+    "政治功能",
+    "经济功能",
+    "个人本位",
+    "社会本位",
+    "教师劳动",
+    "示范性",
+    "长期性",
+    "美育",
+    "小学美育",
+    "四有好老师",
+    "其身正",
+    "建国君民",
+    "化民成俗"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r006"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r006",
+     "matched_terms": [
+      "教育学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "教育基础",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m1.k02",
+   "name": "小学课程与教育研究",
+   "parent": "ntce.xiaoxue.jiaoxue.m1",
+   "keywords": [
+    "课程",
+    "新课程改革",
+    "教育研究",
+    "教师专业",
+    "教育与社会",
+    "行动研究",
+    "调查法",
+    "核心素养",
+    "课程标准",
+    "访谈法",
+    "问卷",
+    "调查问卷",
+    "教育实验",
+    "实验法"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r028",
+    "ntce.outline.202.r029",
+    "ntce.outline.202.r037"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r028",
+     "matched_terms": [
+      "课程",
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r029",
+     "matched_terms": [
+      "课程",
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r037",
+     "matched_terms": [
+      "课程",
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 42,
+      "line_end": 42,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 43,
+      "line_end": 43,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 52,
+      "line_end": 52,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m3.k01",
+   "name": "班集体建设与班主任工作",
+   "parent": "ntce.xiaoxue.jiaoxue.m3",
+   "keywords": [
+    "班级",
+    "班主任",
+    "班集体",
+    "课堂纪律",
+    "班会",
+    "课外活动",
+    "班风",
+    "威信",
+    "教师威信",
+    "少先队"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r022",
+    "ntce.outline.202.r020"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r022",
+     "matched_terms": [
+      "课外活动"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r020",
+     "matched_terms": [
+      "班主任"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 35,
+      "line_end": 35,
+      "section": "班级管理",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 33,
+      "line_end": 33,
+      "section": "班级管理",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m4.k01",
+   "name": "小学学科内容与课程标准",
+   "parent": "ntce.xiaoxue.jiaoxue.m4",
+   "keywords": [
+    "课程标准",
+    "学科素养",
+    "教材",
+    "语文",
+    "数学",
+    "英语",
+    "科学",
+    "体育",
+    "美术",
+    "音乐",
+    "教科书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r037",
+    "ntce.outline.202.r028",
+    "ntce.outline.202.r029"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r037",
+     "matched_terms": [
+      "课程标准",
+      "教材"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r028",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r029",
+     "matched_terms": [
+      "课程标准"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 52,
+      "line_end": 52,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 42,
+      "line_end": 42,
+      "section": "学科知识",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 43,
+      "line_end": 43,
+      "section": "学科知识",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m5.k01",
+   "name": "教学目标与学情分析",
+   "parent": "ntce.xiaoxue.jiaoxue.m5",
+   "keywords": [
+    "教学目标",
+    "学情",
+    "重难点",
+    "教材分析",
+    "学生基础",
+    "三维目标"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r037"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r037",
+     "matched_terms": [
+      "教学目标"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 52,
+      "line_end": 52,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m5.k02",
+   "name": "教学过程与资源设计",
+   "parent": "ntce.xiaoxue.jiaoxue.m5",
+   "keywords": [
+    "教学设计",
+    "导入",
+    "板书",
+    "教案",
+    "设计教学环节",
+    "设计理由",
+    "教学过程",
+    "新授",
+    "巩固",
+    "小结",
+    "作业"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r001",
+    "ntce.outline.202.r031",
+    "ntce.outline.202.r046"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r001",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r031",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r046",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "考试要求",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 46,
+      "line_end": 46,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 63,
+      "line_end": 63,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m6.k01",
+   "name": "教学方法与课堂组织",
+   "parent": "ntce.xiaoxue.jiaoxue.m6",
+   "keywords": [
+    "教学方法",
+    "讲授法",
+    "谈话法",
+    "演示法",
+    "实验法",
+    "课堂提问",
+    "教学组织",
+    "分层教学",
+    "合作",
+    "探究",
+    "讨论法",
+    "练习法",
+    "读书指导法",
+    "班级授课制",
+    "教学素质",
+    "实践能力",
+    "教法创新"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r040"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r040",
+     "matched_terms": [
+      "教学组织"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 56,
+      "line_end": 56,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.xiaoxue.jiaoxue.m7.k01",
+   "name": "学习评价与教学反思",
+   "parent": "ntce.xiaoxue.jiaoxue.m7",
+   "keywords": [
+    "教学评价",
+    "形成性评价",
+    "终结性评价",
+    "教学反思",
+    "测验",
+    "作业",
+    "诊断性评价",
+    "教学评析",
+    "档案袋评价",
+    "档案袋",
+    "质性评价",
+    "量化评价"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.202.r001",
+    "ntce.outline.202.r044",
+    "ntce.outline.202.r045"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.202.r001",
+     "matched_terms": [
+      "教学评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r044",
+     "matched_terms": [
+      "教学评价"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.202.r045",
+     "matched_terms": [
+      "教学反思"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 11,
+      "line_end": 11,
+      "section": "考试要求",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 61,
+      "line_end": 61,
+      "section": "教学评价",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.202",
+     "path": "权威资料/originals/ntce.outline.202.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1508/339-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.202.txt",
+      "line_start": 62,
+      "line_end": 62,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.202"
+ ],
+ "source_verified": true
+}

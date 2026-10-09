@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "rubric_id": "rubric.ntce.lesson_plan.standard_v1",
+  "title": "中小学教师资格考试教学设计题通用评分量规",
+  "task_type": "lesson_plan",
+  "total_score": 40.0,
+  "rubric_type": "analytic",
+  "official_scoring": false,
+  "expert_verified": false,
+  "dimensions": [
+    {
+      "dimension_name": "核心素养三维教学目标制定",
+      "weight_score": 10.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            9.0,
+            10.0
+          ],
+          "descriptor": "紧扣新课标核心素养与教材内容，三维目标（知识与技能/过程与方法/情感态度与价值观）表述明确、主语统一为学生、行为动词可测量、层次分明。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            7.5,
+            8.9
+          ],
+          "descriptor": "目标完整，体现学科素养，行为动词较明确，基本符合学情。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            6.0,
+            7.4
+          ],
+          "descriptor": "目标不全或行为动词模糊，主语混淆为教师。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            5.9
+          ],
+          "descriptor": "目标严重偏离教材主题或完全未写三维素养目标。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "教学重点与难点分析及突破策略",
+      "weight_score": 6.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            5.4,
+            6.0
+          ],
+          "descriptor": "重点把握准确，难点切合学生认知障碍，重难点区分合理且在后续活动中有明确突破方法。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            4.5,
+            5.3
+          ],
+          "descriptor": "重难点准确，基本切合课标与学情。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            3.6,
+            4.4
+          ],
+          "descriptor": "重难点混淆或定位略有偏差。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            3.5
+          ],
+          "descriptor": "未明确列出重难点或定位完全错误。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "导入、新授、巩固、小结、作业各环节实施",
+      "weight_score": 16.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            14.4,
+            16.0
+          ],
+          "descriptor": "环节完整（激趣导入、合作探究新授、梯级巩固练习、升华总结、开放分层作业），以生为本，师生双边互动充分，设计意图深刻明确。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            12.0,
+            14.3
+          ],
+          "descriptor": "环节完整，逻辑清晰，活动安排合理，体现启发式教学原则。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            9.6,
+            11.9
+          ],
+          "descriptor": "环节欠完整或以教师讲授为主，学生活动单一，缺乏深度互动。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            9.5
+          ],
+          "descriptor": "过程残缺、满堂灌输或活动完全脱离教学目标。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "板书提纲挈领与多媒体辅助有效性",
+      "weight_score": 4.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            3.6,
+            4.0
+          ],
+          "descriptor": "板书构图科学美观，重点突出，结构脉络一目了然，与新课讲授高度契合。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            3.0,
+            3.5
+          ],
+          "descriptor": "板书布局合理，要点清晰。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            2.4,
+            2.9
+          ],
+          "descriptor": "板书较随意或仅简单罗列几个词语。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            2.3
+          ],
+          "descriptor": "缺少板书设计或板书杂乱无章。"
+        }
+      ]
+    },
+    {
+      "dimension_name": "现代教学理念与设计意图理论支撑",
+      "weight_score": 4.0,
+      "criteria_levels": [
+        {
+          "level_name": "优秀 (90-100%)",
+          "score_range": [
+            3.6,
+            4.0
+          ],
+          "descriptor": "设计意图紧扣建构主义/情境教学/核心素养理念，术语专业，反思深入。"
+        },
+        {
+          "level_name": "良好 (75-89%)",
+          "score_range": [
+            3.0,
+            3.5
+          ],
+          "descriptor": "能结合教育理论说明设计理由，表述规范。"
+        },
+        {
+          "level_name": "及格 (60-74%)",
+          "score_range": [
+            2.4,
+            2.9
+          ],
+          "descriptor": "设计意图口语化，理论支撑薄弱。"
+        },
+        {
+          "level_name": "不及格 (0-59%)",
+          "score_range": [
+            0.0,
+            2.3
+          ],
+          "descriptor": "未写设计意图或完全违背现代教育理念。"
+        }
+      ]
+    }
+  ],
+  "question_specific_points": [],
+  "review": {
+    "status": "needs_fix",
+    "checked_by": null,
+    "checked_at": null,
+    "pending_reasons": [
+      "rubric_dimension_weights_pending_subject_expert",
+      "rubric_descriptor_wording_pending_subject_expert"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "heuristic-v1",
+  "total": 14500,
+  "filled_total": 12720,
+  "new_this_run": 0,
+  "kept_null": 1780,
+  "null_reasons": {
+    "source_stem_incomplete": 800,
+    "source_conflict": 1040
+  },
+  "objective_n": 9706,
+  "subjective_n": 3014,
+  "method_legend": {
+    "heuristic_objective_v1": "客观题(letter/单选/多选) 基于题干长度/选项数/选项长度方差/最长选项/知识点数的百分位秩加权",
+    "heuristic_subjective_v1": "主观题 按题型固有复杂度基准 + 题干长度微调",
+    "heuristic_subjective_unlabeled_v1": "题型未识别的主观题 按中等估值"
+  },
+  "note": "全部为分层启发式估算，非 IRT 校准（无作答数据）。下游应以 tags.difficulty.method/calibration 区分估算与真实校准。tags.difficulty.status=provided 表示已有估值，不代表专家校准。"
+}

@@ -1,0 +1,1045 @@
+{
+ "level": "gaozhong",
+ "subject": "yinyue",
+ "subject_cn": "音乐学科知识与教学能力(高级中学)",
+ "verified": false,
+ "note": "官方原文自动词项对齐与学科细点拆解；所有映射待教研审核。分组节点assessable=false不参与题级打标。",
+ "nodes": [
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1",
+   "name": "学科专业知识",
+   "parent": null,
+   "keywords": [
+    "乐理",
+    "节奏",
+    "音阶",
+    "歌唱",
+    "演奏",
+    "欣赏",
+    "音程",
+    "调式",
+    "合唱",
+    "旋律"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s2",
+   "name": "课程与教学理论",
+   "parent": null,
+   "keywords": [
+    "课程标准",
+    "教学理论",
+    "建构主义",
+    "教学理念",
+    "新课程",
+    "教学原则",
+    "教育学",
+    "心理"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s3",
+   "name": "教学设计",
+   "parent": null,
+   "keywords": [
+    "教学设计",
+    "教学目标",
+    "教学重难点",
+    "导入",
+    "板书",
+    "教案",
+    "设计意图"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s4",
+   "name": "教学实施与评价",
+   "parent": null,
+   "keywords": [
+    "课堂",
+    "教学行为",
+    "评价",
+    "教学反思",
+    "教学环节",
+    "师生",
+    "提问"
+   ],
+   "assessable": false,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "grouping_only",
+   "verified": false
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k01",
+   "name": "基本乐理与记谱",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "乐理",
+    "记谱",
+    "音符",
+    "谱例",
+    "五线谱",
+    "简谱",
+    "拍号",
+    "节拍",
+    "节奏",
+    "休止符"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：基本乐理与记谱",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k02",
+   "name": "音程调式与和声",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "音程",
+    "音阶",
+    "调式",
+    "和声",
+    "和弦",
+    "调性",
+    "宫",
+    "商",
+    "角",
+    "徵",
+    "羽"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：音程调式与和声",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k03",
+   "name": "旋律曲式与作品分析",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "旋律",
+    "曲式",
+    "乐句",
+    "乐段",
+    "主题",
+    "奏鸣曲",
+    "回旋",
+    "变奏"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：旋律曲式与作品分析",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k04",
+   "name": "中国音乐史与民族音乐",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "中国",
+    "民族音乐",
+    "民歌",
+    "戏曲",
+    "京剧",
+    "昆曲",
+    "民族乐器",
+    "古琴",
+    "琵琶",
+    "笛子",
+    "黄自",
+    "冼星海",
+    "古曲",
+    "梅花三弄",
+    "阳关三叠",
+    "说唱",
+    "大鼓",
+    "曲艺",
+    "骆玉笙",
+    "越剧",
+    "黄梅戏"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：中国音乐史与民族音乐",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k05",
+   "name": "西方音乐史与作品",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "西方",
+    "巴洛克",
+    "古典",
+    "浪漫",
+    "中世纪",
+    "文艺复兴",
+    "贝多芬",
+    "莫扎特",
+    "巴赫",
+    "肖邦",
+    "舒伯特",
+    "舞剧",
+    "红色娘子军",
+    "鱼美人",
+    "天鹅湖",
+    "歌剧"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：西方音乐史与作品",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k06",
+   "name": "歌唱合唱与声乐",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "歌唱",
+    "合唱",
+    "声乐",
+    "唱歌",
+    "发声",
+    "音域",
+    "歌剧"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：歌唱合唱与声乐",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k07",
+   "name": "器乐演奏与配器",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "演奏",
+    "器乐",
+    "配器",
+    "乐器",
+    "钢琴",
+    "小提琴",
+    "管弦"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "derived_from_official_scope_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [],
+     "method": "domain_requirement_operationalization",
+     "rationale": "将官方能力/知识范围拆解为可评估任务：器乐演奏与配器",
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k08",
+   "name": "音乐欣赏与审美",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "欣赏",
+    "音乐鉴赏",
+    "审美",
+    "聆听",
+    "音乐作品"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r002"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r002",
+     "matched_terms": [
+      "音乐鉴赏"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 10,
+      "line_end": 10,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s1.k09",
+   "name": "音乐教育体系与活动",
+   "parent": "ntce.gaozhong.yinyue.s1",
+   "keywords": [
+    "柯达伊",
+    "奥尔夫",
+    "达尔克罗兹",
+    "音乐课程",
+    "音乐教学",
+    "音乐活动"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "subject"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r006",
+    "ntce.outline.412.r007",
+    "ntce.outline.412.r001"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r006",
+     "matched_terms": [
+      "音乐课程",
+      "音乐教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r007",
+     "matched_terms": [
+      "音乐课程",
+      "音乐教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r001",
+     "matched_terms": [
+      "音乐教学"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 9,
+      "line_end": 9,
+      "section": "学科知识与技能",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s2.k01",
+   "name": "课程目标与课程内容标准",
+   "parent": "ntce.gaozhong.yinyue.s2",
+   "keywords": [
+    "课程标准",
+    "课程目标",
+    "课程内容",
+    "核心素养",
+    "课标",
+    "课程性质",
+    "课程理念",
+    "立德树人",
+    "学习任务群"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r005"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r005",
+     "matched_terms": [
+      "课程标准",
+      "课程目标",
+      "课程性质",
+      "课程理念"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 14,
+      "line_end": 14,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s2.k02",
+   "name": "学科教学方法与学习理论",
+   "parent": "ntce.gaozhong.yinyue.s2",
+   "keywords": [
+    "教学方法",
+    "教学理论",
+    "教学原则",
+    "建构主义",
+    "讲授法",
+    "探究教学",
+    "合作学习",
+    "教学策略",
+    "演示教学",
+    "演示",
+    "直观教学"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "theory"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r009",
+    "ntce.outline.412.r012"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r009",
+     "matched_terms": [
+      "教学方法"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r012",
+     "matched_terms": [
+      "教学策略"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 19,
+      "line_end": 19,
+      "section": "教学实施",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 22,
+      "line_end": 22,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s3.k01",
+   "name": "学情分析与教材分析",
+   "parent": "ntce.gaozhong.yinyue.s3",
+   "keywords": [
+    "学情",
+    "教材分析",
+    "教材内容",
+    "学生基础",
+    "学习基础",
+    "教材片段"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s3.k02",
+   "name": "教学目标与重难点设计",
+   "parent": "ntce.gaozhong.yinyue.s3",
+   "keywords": [
+    "教学目标",
+    "教学重点",
+    "教学难点",
+    "重难点",
+    "目标设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r007",
+    "ntce.outline.412.r006"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r007",
+     "matched_terms": [
+      "教学目标",
+      "目标设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r006",
+     "matched_terms": [
+      "重难点"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 16,
+      "line_end": 16,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s3.k03",
+   "name": "教学活动与问题链设计",
+   "parent": "ntce.gaozhong.yinyue.s3",
+   "keywords": [
+    "教学设计",
+    "教案",
+    "活动设计",
+    "设计教学",
+    "设计本课",
+    "问题串",
+    "教学过程",
+    "教学环节",
+    "设计理由",
+    "设计意图",
+    "导入",
+    "新课",
+    "新授",
+    "练习",
+    "巩固",
+    "小结",
+    "作业",
+    "板书"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r008",
+    "ntce.outline.412.r006",
+    "ntce.outline.412.r011"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r008",
+     "matched_terms": [
+      "教学过程",
+      "教学环节"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r006",
+     "matched_terms": [
+      "教学设计"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    },
+    {
+     "requirement_id": "ntce.outline.412.r011",
+     "matched_terms": [
+      "教学过程"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 17,
+      "line_end": 17,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 15,
+      "line_end": 15,
+      "section": "教学设计",
+      "subsection": null
+     }
+    },
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 21,
+      "line_end": 21,
+      "section": "教学实施",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s3.k04",
+   "name": "教学资源与板书设计",
+   "parent": "ntce.gaozhong.yinyue.s3",
+   "keywords": [
+    "板书",
+    "导入",
+    "教学资源",
+    "多媒体",
+    "课件",
+    "教具",
+    "实验设计"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "design"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s4.k01",
+   "name": "课堂提问与互动组织",
+   "parent": "ntce.gaozhong.yinyue.s4",
+   "keywords": [
+    "课堂提问",
+    "提问",
+    "师生",
+    "师：",
+    "教师：",
+    "学生：",
+    "课堂互动",
+    "讨论",
+    "小组"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s4.k02",
+   "name": "学习评价方法与证据",
+   "parent": "ntce.gaozhong.yinyue.s4",
+   "keywords": [
+    "评价",
+    "测验",
+    "测试",
+    "作业",
+    "形成性",
+    "终结性",
+    "评分",
+    "学习任务单"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [
+    "ntce.outline.412.r015"
+   ],
+   "mapping_status": "automatic_alignment_pending_review",
+   "verified": false,
+   "alignment_evidence": [
+    {
+     "requirement_id": "ntce.outline.412.r015",
+     "matched_terms": [
+      "评价",
+      "形成性",
+      "终结性"
+     ],
+     "method": "official_text_terms",
+     "rationale": null,
+     "expert_verified": false
+    }
+   ],
+   "sources": [
+    {
+     "standard_id": "ntce.outline.412",
+     "path": "权威资料/originals/ntce.outline.412.doc",
+     "source_url": "https://ntce.neea.edu.cn/xhtml1/report/1507/1103-1.htm",
+     "locator": {
+      "text_path": "权威资料/text/ntce.outline.412.txt",
+      "line_start": 26,
+      "line_end": 26,
+      "section": "教学评价",
+      "subsection": null
+     }
+    }
+   ]
+  },
+  {
+   "node_id": "ntce.gaozhong.yinyue.s4.k03",
+   "name": "教学诊断与反思改进",
+   "parent": "ntce.gaozhong.yinyue.s4",
+   "keywords": [
+    "教学反思",
+    "教学行为",
+    "不足",
+    "改进",
+    "诊断",
+    "错误",
+    "评析",
+    "教学片段",
+    "教学步骤",
+    "说课",
+    "评课"
+   ],
+   "assessable": true,
+   "ability_codes": [
+    "evaluate",
+    "manage"
+   ],
+   "exam_requirement_ids": [],
+   "mapping_status": "pending_official_alignment",
+   "verified": false,
+   "alignment_evidence": [],
+   "sources": []
+  }
+ ],
+ "official_standard_ids": [
+  "ntce.outline.412"
+ ],
+ "source_verified": true
+}
