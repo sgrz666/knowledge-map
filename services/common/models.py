@@ -189,3 +189,262 @@ class ReviewBundle(BaseModel):
     retrievability: float = Field(..., ge=0.0, le=1.0, description="Predicted retrievability R")
     next_review_interval_days: float
     followup_plan: str
+
+
+# ---------------------------------------------------------------------------
+# Diagnostic Agent Models (F3)
+# ---------------------------------------------------------------------------
+
+class AnswerSubmission(BaseModel):
+    """Individual item answering submission for diagnostic evaluation."""
+    question_id: str
+    user_answer: str
+    is_correct: bool
+    time_spent_seconds: float
+    node_id: str
+    module_id: str
+    difficulty: float = 0.5
+    option_flips: int = 0
+
+
+class ModuleAbility(BaseModel):
+    """Performance evaluation per syllabus module in radar chart."""
+    module_id: str
+    module_name: str
+    mastery_rate: float = Field(..., ge=0.0, le=1.0)
+    question_count: int
+    correct_count: int
+
+
+class DiagnosticRequest(BaseModel):
+    """Request for running cold-start or adaptive diagnostic test."""
+    user_id: str
+    exam_type: Literal["CET-4", "CET-6", "NTCE"]
+    stage: Literal["cold_start", "adaptive_cat"] = "cold_start"
+    submissions: Optional[List[AnswerSubmission]] = None
+
+
+class DiagnosticReport(BaseModel):
+    """Comprehensive diagnostic report with dual-track score conversion."""
+    user_id: str
+    exam_type: Literal["CET-4", "CET-6", "NTCE"]
+    raw_score: float
+    max_raw_score: float
+    point_estimate: float
+    predicted_score_interval: List[float] = Field(..., min_length=2, max_length=2)
+    pass_probability: float = Field(..., ge=0.0, le=1.0)
+    radar_chart: List[ModuleAbility]
+    weak_points_top5: List[str]
+    recommended_actions: List[str]
+    disclaimer: str = "本预测基于知识图谱与当前作答表现测算，仅供考前备考参考，不代表官方正式考试结果。"
+
+
+# ---------------------------------------------------------------------------
+# Curriculum Planner Agent Models (F4)
+# ---------------------------------------------------------------------------
+
+class DailyTaskItem(BaseModel):
+    """Single actionable study task item in a daily calendar."""
+    task_type: Literal["fsrs_review", "new_node_learning", "mock_sprint", "weakness_drill"]
+    node_id: Optional[str] = None
+    title: str
+    estimated_minutes: int
+    target_question_count: int
+
+
+class DailyPlan(BaseModel):
+    """Study schedule for a single calendar day."""
+    day_index: int
+    date_str: str
+    focus_module: str
+    tasks: List[DailyTaskItem]
+    total_minutes: int
+
+
+class PlanRequest(BaseModel):
+    """Request payload for generating adaptive calendar."""
+    user_id: str
+    exam_type: Literal["CET-4", "CET-6", "NTCE"]
+    target_score: float = 70.0
+    days_until_exam: int = Field(default=30, ge=1, le=180)
+    daily_available_minutes: int = Field(default=60, ge=15, le=360)
+    current_mastery: Optional[List[UserMasteryRecord]] = None
+
+
+class CurriculumPlanResponse(BaseModel):
+    """Adaptive study path response."""
+    user_id: str
+    exam_type: Literal["CET-4", "CET-6", "NTCE"]
+    total_days: int
+    daily_plans: List[DailyPlan]
+    milestones: List[str]
+
+
+# ---------------------------------------------------------------------------
+# Practice Engine Agent Models (F7)
+# ---------------------------------------------------------------------------
+
+class PracticeMode(str, Enum):
+    POINT_FOCUS = "point_focus"                    # 考点专练
+    WEAKNESS_BREAKTHROUGH = "weakness_breakthrough" # 薄弱突击
+    ERROR_ELIMINATION = "error_elimination"        # 错题消灭
+    DAILY_PRACTICE = "daily_practice"              # 每日一练
+    HIGH_FREQUENCY = "high_frequency"              # 高频冲刺
+    TIMED_SPRINT = "timed_sprint"                  # 限时快练
+    MOCK_EXAM = "mock_exam"                        # 真题模考
+
+
+class ExamStageState(BaseModel):
+    """CET-4/6 Strict 3-Stage Timed State Machine status."""
+    stage: Literal["writing", "listening", "reading_translation", "completed"]
+    stage_time_limit_minutes: int
+    time_remaining_seconds: int
+    input_locked: bool
+    sheet_collected: bool
+    can_switch_modules: bool = False
+
+
+class AssemblePaperRequest(BaseModel):
+    """Request to assemble dynamic practice or mock exam."""
+    user_id: str
+    exam_type: Literal["CET-4", "CET-6", "NTCE"]
+    practice_mode: PracticeMode
+    target_module: Optional[str] = None
+    target_node: Optional[str] = None
+    item_count: int = 10
+
+
+class PracticePaperResponse(BaseModel):
+    """Structured assembled test paper entity."""
+    paper_id: str
+    title: str
+    exam_type: str
+    practice_mode: PracticeMode
+    questions: List[dict]
+    total_items: int
+    time_limit_minutes: int
+    stage_state: Optional[ExamStageState] = None
+
+
+# ---------------------------------------------------------------------------
+# Tutor QA Agent Models (F5)
+# ---------------------------------------------------------------------------
+
+class QARequest(BaseModel):
+    """Input query for evidence-based tutor QA."""
+    user_id: str
+    question_id: str
+    user_selected_option: Optional[str] = None
+    user_query: Optional[str] = None
+    mode: Literal["sparks_three_chain", "socratic_hint"] = "sparks_three_chain"
+    hint_turn: int = 1
+
+
+class SparksThreeChainResponse(BaseModel):
+    """Sparks 3-Chain Explanation (题眼定位, 选项对比, 考点溯源)."""
+    question_id: str
+    key_clue_localization: str
+    option_discrimination: dict
+    knowledge_provenance: dict
+    explanation_summary: str
+
+
+class SocraticHintResponse(BaseModel):
+    """Socratic multi-turn progressive guidance response."""
+    question_id: str
+    hint_turn: int
+    guiding_question: str
+    scaffold_prompt: str
+    is_final_reveal: bool = False
+    revealed_answer: Optional[str] = None
+
+
+# ---------------------------------------------------------------------------
+# Interview Coach Agent Models (F7 Interview)
+# ---------------------------------------------------------------------------
+
+class SpeechAnalysisRequest(BaseModel):
+    """Input audio metrics / transcript for trial teaching evaluation."""
+    transcript_text: str
+    audio_duration_seconds: float = Field(..., gt=0.0)
+    audio_pauses: Optional[List[float]] = None
+    lesson_title: Optional[str] = "小学语文《春》"
+
+
+class TeachingPhaseMatch(BaseModel):
+    """Match status for five essential instructional phases."""
+    phase_name: Literal["导入", "新授", "巩固", "小结", "作业"]
+    covered: bool
+    evidence_snippet: str
+
+
+class SpeechAnalysisResponse(BaseModel):
+    """Diagnostic report for 10-minute trial teaching speech."""
+    words_per_minute: float
+    speed_evaluation: Literal["too_fast", "optimal", "too_slow"]
+    filler_words_count: dict
+    hesitation_pause_count: int
+    teaching_phases: List[TeachingPhaseMatch]
+    phase_coverage_rate: float
+    overall_score: float = Field(..., ge=0.0, le=100.0)
+    coaching_feedback: str
+
+
+class LessonPlanReviewRequest(BaseModel):
+    """20-minute timed lesson plan drafting evaluation."""
+    subject: str = "教育教学知识与能力"
+    grade_level: str = "小学"
+    topic: str
+    plan_text: str
+
+
+class LessonPlanReviewResponse(BaseModel):
+    """Lesson plan rubric scoring evaluation."""
+    total_score: float = Field(..., ge=0.0, le=40.0)
+    dimensions: List[dict]
+    missed_elements: List[str]
+    improvement_suggestions: str
+
+
+# ---------------------------------------------------------------------------
+# Tutor Master Agent Models (L1 Gateway / Orchestrator)
+# ---------------------------------------------------------------------------
+
+class UserIntent(str, Enum):
+    DIAGNOSTIC = "diagnostic"
+    PLAN = "plan"
+    PRACTICE = "practice"
+    SUBMIT_SUBJECTIVE = "submit_subjective"
+    ERROR_REVIEW = "error_review"
+    QA_ASK = "qa_ask"
+    INTERVIEW_PRACTICE = "interview_practice"
+    GENERAL_CHAT = "general_chat"
+
+
+class MasterInteractionRequest(BaseModel):
+    """Top-level chat message or UI click dispatching request."""
+    user_id: str
+    message: str
+    session_id: Optional[str] = None
+    exam_type: Literal["CET-4", "CET-6", "NTCE"] = "NTCE"
+    action_payload: Optional[dict] = None
+
+
+class MasterInteractionResponse(BaseModel):
+    """Card-rendered unified conversational response."""
+    session_id: str
+    detected_intent: UserIntent
+    reply_text: str
+    card_type: Literal[
+        "diagnostic_card",
+        "plan_card",
+        "practice_card",
+        "grading_card",
+        "review_card",
+        "qa_card",
+        "interview_card",
+        "text_message"
+    ]
+    card_data: dict
+    suggested_quick_replies: List[str]
+
