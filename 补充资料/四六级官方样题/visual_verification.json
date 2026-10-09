@@ -1,0 +1,397 @@
+{
+  "source_pdf_sha256": "9166d3c03b7bc43abd9d9df91bd2ef8085b4419286f1e5ca100dea68f3cfd1f1",
+  "inspection_status": "agent_visual_checks_completed",
+  "verification_scope": "All 62 original page layouts checked in rendered page/contact sheets; English glyph/space reconstruction, complete choice columns, cross-page options/passages, answer-key rows and score boundaries checked. Original raster task pictures/cards preserved; representative caption/card text visually transcribed. Not independent word-by-word expert proofreading.",
+  "expert_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "checks": [
+    "150/202 original writing image and caption",
+    "151 two-column A/C B/D order and hyphen/apostrophe glyphs",
+    "153-154 question 23 options and decimal 7.5",
+    "154-155/175-176 complete cloze passage and 15 choices",
+    "155-158/177-180 full matching text across pages",
+    "158-161/180-183 full detailed reading across pages",
+    "162-167/184-190 complete listening transcript boundaries and 25 questions per exam",
+    "168/190-191 all 55 answer-key values per exam plus reference translations",
+    "169-171/192-193 complete oral originals including raster picture/cards",
+    "194-201 answer cards preserved as raster originals, not represented as fully extracted text",
+    "202-211 14/11/8/5/2 scoring responses and cross-page continuations; language errors retained"
+  ],
+  "pages": {
+    "150": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.150.png",
+      "image_sha256": "a302cc4d18002eb478e9fef6b0d555af44236b90a25efd36428bbf298cf80961",
+      "reconstructed_text_sha256": "d75ba97c98edbc5fdaf9eff61dfdbc7eef55d9bc4b57baf79b5d72b918280e8c"
+    },
+    "151": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.151.png",
+      "image_sha256": "0bdfedd3b9c34b4d0abd57a73061b5dabda267b4f2771cda1cd6d010c4b6ca24",
+      "reconstructed_text_sha256": "ee6a448dba0842d2f8787a80c3332325f1aa82ad99f8a5acf238b7b4aaf4bb02"
+    },
+    "152": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.152.png",
+      "image_sha256": "5db9051c68e5be0f6325326c02cd3ec0a260207ec73f8d3ff88b7f3c20d9b8c4",
+      "reconstructed_text_sha256": "66efc29d4a1533a9337b22e24c8a62502269f8bac63e91b91a264e74b78d0b14"
+    },
+    "153": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.153.png",
+      "image_sha256": "fe789c701902b4431610b34e80ba9f01d26b9a3c6257c3af972ddee6e8d0b180",
+      "reconstructed_text_sha256": "ffe2ab614a20ada79da544d629e35c3ba76eee6674840049d2db8634ba3c54e7"
+    },
+    "154": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.154.png",
+      "image_sha256": "0ae357f8f5b6d63bb39cf2515e6599ba3d29c821b583bb12db8803bf0826a3e5",
+      "reconstructed_text_sha256": "702a55df1728ea2166aef06c51eae0ed5ef93557094c8fa4e1fd2a8cc01e068c"
+    },
+    "155": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.155.png",
+      "image_sha256": "f770ea6d99da9c05c78e495623330d3c753866827f9986467b7735d7e2bbcd9c",
+      "reconstructed_text_sha256": "855f490cd9493cbe82e5209445ccfe66d64d91b692c6a8e3f64b6e0b7881334f"
+    },
+    "156": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.156.png",
+      "image_sha256": "fa22c58d9e97db2a1f8503e7daec96effe90620585162628a944cefaf4fcd357",
+      "reconstructed_text_sha256": "82946b2a072f5f4c2d27e854569fca9e3603b57813f80589534306d67f264a99"
+    },
+    "157": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.157.png",
+      "image_sha256": "525a99b39a996b9a8d6cbfb7a2d7701aa0addcbdbfe1ebeba9b6e8c34ff580a9",
+      "reconstructed_text_sha256": "83a0ec97e218ff49babbe2462aa301cf489c5a49f34bc32c8154cf4f7ccf4a1c"
+    },
+    "158": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.158.png",
+      "image_sha256": "16a365300379f89b6bc40a714085d9d133f27a6d1128e476ffdb972938cf97d4",
+      "reconstructed_text_sha256": "55226d40f4180c997b684a70d4111b0c6e6b3536afc7c2fc784b034cbb7f4746"
+    },
+    "159": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.159.png",
+      "image_sha256": "1cbdb0244c38e964ca2429092145028eafda67c7873267715f5aa7524e117ee4",
+      "reconstructed_text_sha256": "7b89114f398b40121a63b704646508fa1d3a618846796a00cce780389f5298ad"
+    },
+    "160": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.160.png",
+      "image_sha256": "8d946dd0ded3e7ce9cb18002031c7577c5dabd044e56221f3eef112889e46fc9",
+      "reconstructed_text_sha256": "4284800e6b858b9d83f2517064fb5b56be0ebb6cd62a5bd9d5c0d2fcf3b08ebc"
+    },
+    "161": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.161.png",
+      "image_sha256": "feec1fb9538894c511feda20c502d242858076c2d5145ac9dc71bd3834f17059",
+      "reconstructed_text_sha256": "674b7013d492a3f9c4ea236ce58e2031f5e13f886d9d0a67b85ba18613657106"
+    },
+    "162": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.162.png",
+      "image_sha256": "857b96fc934e4f31dd4e05a4eff181ba4a94fbfa968738adde61a5c4e8695603",
+      "reconstructed_text_sha256": "41d4382ba3dd51ba622dd6ff80b72193f12fc76be280efa9f9552b5c1d6acc3b"
+    },
+    "163": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.163.png",
+      "image_sha256": "5afcda4ea24b02498decc62ba18d928a738eb7cd3f2db3eeeb81e273e75b5b26",
+      "reconstructed_text_sha256": "56f93431c07db0181d3aefca37baddc55d2b565df600fffb09bf37d9ddcc85c2"
+    },
+    "164": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.164.png",
+      "image_sha256": "57d567ca4a0c768f02907fbe40b7645ee18b6048aab46da75ac6e2c26cceecf6",
+      "reconstructed_text_sha256": "24dda2c8626811c2b6b38fde91e597034a7f70063494747f4a7c2dd6de3271a0"
+    },
+    "165": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.165.png",
+      "image_sha256": "2254e382c20fbde2e3d671978f0a653d132a44d64dcb6871484a290fe8e2100f",
+      "reconstructed_text_sha256": "2667183a76ad412fcaab380e2f214abd95bb66cc6076adf46f93b6b6799190f6"
+    },
+    "166": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.166.png",
+      "image_sha256": "5bd319adbd8bdc4b310ae7077a2bca557713a96b5105ad66293df1115c250cf6",
+      "reconstructed_text_sha256": "13c56de57696518982b24e6c4a40ff57ab198263c90494c8c51152438477431c"
+    },
+    "167": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.167.png",
+      "image_sha256": "93c734bbb2415926553edd46072a8ca34883e17b915fe0975553e0d13a960836",
+      "reconstructed_text_sha256": "054723349a3636ef6f02ab12e064e94d7bfcfb3871e95352ad9c9b245b426ef5"
+    },
+    "168": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.168.png",
+      "image_sha256": "e0628ff377896fd32c36aabe11c61a854b78034053017f4d84a1625c2c5ffcb0",
+      "reconstructed_text_sha256": "c43d02111ef13f0cacdb5bd3e674c64afbda7bb5c4ec49429a94b777292c1902"
+    },
+    "169": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.169.png",
+      "image_sha256": "b6f78eab340200cf55eb55f802f343b0da2738b8c6e4958476fe2f90ca6b6719",
+      "reconstructed_text_sha256": "bf4249ae1e805b7f5b5ee7c9455952907b81c163d2611bb289ff1358e81fdbc2"
+    },
+    "170": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.170.png",
+      "image_sha256": "d5592876b234f2560ec39f8aa031fbda7090a60a2bbdba9c25dc224ad821d83b",
+      "reconstructed_text_sha256": "b19fb4362ac68139546b15bfd489a4e0d1702db9fc046582a10280a8a1476c58"
+    },
+    "171": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.171.png",
+      "image_sha256": "a0bfce126b196126489c1d812d37e5ca32dd188c3d18722283101f165eb0b88d",
+      "reconstructed_text_sha256": "8f928a3392372bbfb09f972e8486ebb88e34e7142ca72af630a78c0d26db4034"
+    },
+    "172": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.172.png",
+      "image_sha256": "6d03384ebe8f1ae922b6e90de2c927c2a9e91324419f164e4b1c95a4012f4574",
+      "reconstructed_text_sha256": "7be3c51080cb80ff2a670a6b6ae92f02a28f399b32d65b83ff585c0b304d70c3"
+    },
+    "173": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.173.png",
+      "image_sha256": "17e42a2cd6689c32a74905f2526fae293638696756f231463cd51b7f77ae1af5",
+      "reconstructed_text_sha256": "ef6601e0467e86d3e059e30e8b8cc0b98a867d917db637dc8677a5f73c431fd8"
+    },
+    "174": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.174.png",
+      "image_sha256": "aa3dab74fd6b94932f42d217cfea4656baf24cea0c44bce4f057325c64df076c",
+      "reconstructed_text_sha256": "3234a5709611d0c3eabd5f9fe8d97baf32594ad4aef46b695941d35e85a64dfd"
+    },
+    "175": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.175.png",
+      "image_sha256": "26d085e747322de0d86f848d923bac059d52e5923a1a7f9c9fa89a4968f9b3da",
+      "reconstructed_text_sha256": "2849aaca1a9865eb1e1a0dedab1c27b0e66b1ad30196337989d4425b9c5c8225"
+    },
+    "176": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.176.png",
+      "image_sha256": "742526afd8870cab73456fcbe969e27548d9331a99b3f362d7f5209ac275863f",
+      "reconstructed_text_sha256": "c241c6824216cb577493111f8734ec2886b9c98fdce0e39c9f285297207b47f7"
+    },
+    "177": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.177.png",
+      "image_sha256": "60b7ef69376569a5c20b63c9c5850ce18a90a834824689d11af371b9ba9df6a3",
+      "reconstructed_text_sha256": "80b256b7d832643e4bf411e0d95b3bd6d217934a2f55255d5df7df200bec988a"
+    },
+    "178": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.178.png",
+      "image_sha256": "ce0db54fb128cbc262ef982ff99022aeae39f4e509ea7da0d665bbd51bb825ef",
+      "reconstructed_text_sha256": "f129f8af9a2e9ac9b360eb34aabe4a556cac408978354d1c11e286f29c09a480"
+    },
+    "179": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.179.png",
+      "image_sha256": "176511561b6d8b183c46d7cf8cdc82142ca7474d24e907ea0d75390578e76b56",
+      "reconstructed_text_sha256": "78c3eeea3756ede38b5f178acfb06d4fa6b6ab76a29af3e2be5364a652c52b2a"
+    },
+    "180": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.180.png",
+      "image_sha256": "c3049ef9f070ffffa86e8ab81a38cd507e7c12f0058a03c05da85a1a69eabd5d",
+      "reconstructed_text_sha256": "7d9759760b2e4be58229a12605cdc951a4a62a3b897d0a9cdefb90018e450cb0"
+    },
+    "181": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.181.png",
+      "image_sha256": "1c6826b499089d4abb629d6eaf703eb67e2a17d34dc8014c8d764f16105860f7",
+      "reconstructed_text_sha256": "7037ad1c0a6f91cf7e38f356b5ef214795a0055ebdd1db2da8d39532de514f58"
+    },
+    "182": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.182.png",
+      "image_sha256": "61822fd1c049302f5002f10e6e027432365ee610f4b7bb1357b70f5cd9aebcc6",
+      "reconstructed_text_sha256": "aaf2339c88b5e708ef43dd846018cdf81c003879bd48e54f4bd7aec58f8cb610"
+    },
+    "183": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.183.png",
+      "image_sha256": "95dbe8952160bfafd2d6140a9a362b7de3b8bc18749ce6b99f07ef5debe2a823",
+      "reconstructed_text_sha256": "c3d69031b54e0aa49e0b63d54bb84c5cc8e0216774bbb6251926c510ddbf6d44"
+    },
+    "184": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.184.png",
+      "image_sha256": "8734dc3a5a60fb83af75efba60d6cbc3ca6d28f3bb1045736bb988a2108017f9",
+      "reconstructed_text_sha256": "a556874d52a4fe3082b194ecaa07f7bd48974e8de42752422bda3c6bf4e112d1"
+    },
+    "185": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.185.png",
+      "image_sha256": "686dc5b83ce4538a821549e20d2c2531574a93d50121f286f95e9c7776a0f0e3",
+      "reconstructed_text_sha256": "1cb463179346ce3d543ebc3ee2138087d25acbd1e82230d9c1f259e51c07a950"
+    },
+    "186": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.186.png",
+      "image_sha256": "607439f9beb8c2527eb879047667902033856daaee155ed2d8a48428065aa60c",
+      "reconstructed_text_sha256": "26fcf01f3d5cbae2fa572f230a861ed5a443e7fedc9f823b09f34b0494629ab3"
+    },
+    "187": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.187.png",
+      "image_sha256": "bd5e199e99efe186daad9e40c1d89b9eafcfb40d2fe5f13302b6e2c4ad220716",
+      "reconstructed_text_sha256": "7100fd1497d192f127cbe27969dea8bbe95c63e60d6bff8538cca5e7e8e0a3e5"
+    },
+    "188": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.188.png",
+      "image_sha256": "ea5f82083d2434b977edd47130b9818f3c0495c4a41f893f0785ff5e7bb33c98",
+      "reconstructed_text_sha256": "a37033743224ac0dfddf70390cff2ce6963be7ffa506eddaecf2143f1f0a5d9b"
+    },
+    "189": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.189.png",
+      "image_sha256": "f13a4aff67bdb2dd10002d73e6457db12368d626bbde0b7dca13175a65f2cdfe",
+      "reconstructed_text_sha256": "25eb9dfb758a4d86d5ded406dca759eb3734779768e1298cccea7ff34681e753"
+    },
+    "190": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.190.png",
+      "image_sha256": "81a4a3588752e682783f93240a6238ac45fd9d87843c1d5657bd42533a21b0d8",
+      "reconstructed_text_sha256": "6809e69ad25eb22ba38c6f7f244b15dce441cf2787fd342efb445b742799f994"
+    },
+    "191": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.191.png",
+      "image_sha256": "5e927430b41d0d339b15128b9e01a991abe73c82d23423225d0cf2c50d1ba6a4",
+      "reconstructed_text_sha256": "d122eb8b410cd15e1b249d64db868eb96770d8bcff9e37f753c0ac392f3dbc3b"
+    },
+    "192": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.192.png",
+      "image_sha256": "0734bb0af5d81890fce3adfbe780c41dff39fa01116b30ad66aa00ee9f7fb1f8",
+      "reconstructed_text_sha256": "1c73ccd111528730510840be5ccda25149ae415a38c1b349a52777da207ea91b"
+    },
+    "193": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.193.png",
+      "image_sha256": "b430387d82b6cbecef494a77fe3a92cac56592208303a2a2f694c3670e0c7855",
+      "reconstructed_text_sha256": "f487bc5c0232b992cd8f1fa94cecf55834b057d3a2861807ea62931cdbcf1e9d"
+    },
+    "194": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.194.png",
+      "image_sha256": "09ffc492794b4be7cac8f7f0a2365f7c2fd9b5618f04f2986ac51322b6543975",
+      "reconstructed_text_sha256": "ac100ae4afda185d099232f04331e958687d020cac05c76bcb52fb6498018900"
+    },
+    "195": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.195.png",
+      "image_sha256": "85750b020e31d3ea59495bb2bd89032f75ca6ad6728d35a38ae84a4eeab1aaf0",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "196": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.196.png",
+      "image_sha256": "cddf7382e7fc97ce4a45bf0793ff42683ad437aed0b2bcb0398f502b79ee7198",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "197": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.197.png",
+      "image_sha256": "cb215b9b14c0b943549a49a0dc9ca7cc7f79fa27f5fb61ff4ce57355e1b14c9b",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "198": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.198.png",
+      "image_sha256": "f79ba0307ca7499e14685aea7c21c205a570d39995442ef929d968f44e856067",
+      "reconstructed_text_sha256": "257fe0d4139cad376789ca4b5d83e660b3187a53f616fb4e04a69f7e08b1e85e"
+    },
+    "199": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.199.png",
+      "image_sha256": "321a7549cead79bf81ad386034b53e5bbc21f24f5443aee53fee4b07c1eed14e",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "200": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.200.png",
+      "image_sha256": "28f8b7e50f710fd30d5526d7c92fe3c9fc972845367b4f8260f96829671168ec",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "201": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.201.png",
+      "image_sha256": "a4fa00159d512c3fb619bb65ec77c79b7ca60503a5802217a73cf204ee4bb06f",
+      "reconstructed_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "202": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.202.png",
+      "image_sha256": "f9665b52265fd694860820c4961d369b390139cfaf6c4eca7296eea78125bb75",
+      "reconstructed_text_sha256": "946fe979fda31f0875f5a7310b3d9b78b61b969f830d2b67b496d5a3ef1ebff4"
+    },
+    "203": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.203.png",
+      "image_sha256": "f70ba6efc6e71b99d73727d4a4adc431ff22ef348ba88bdc0ae45a07152a4936",
+      "reconstructed_text_sha256": "9f76b0052e1d26526e2c753a1d88fc1007ace7b80f578c53c9f08ba039035683"
+    },
+    "204": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.204.png",
+      "image_sha256": "5379dda466c0f584dd805e9b6bb610dcf3b08bf5ddac9b492d8397cbb5757415",
+      "reconstructed_text_sha256": "54dd924af4cf02b990697947250fad5543811a367353421d0be3da9d9991ba90"
+    },
+    "205": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.205.png",
+      "image_sha256": "90ea1c4ea972dbaedb8f72fa9e3434d3b3044013442f682914eeaf0f4ec5fdab",
+      "reconstructed_text_sha256": "a1c82813fc7175121fe49d078b1d9935f854904f10583ffd7ea28c9879a282b2"
+    },
+    "206": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.206.png",
+      "image_sha256": "b2f0cf058653c6cc8862f3c19479c541d9f5e38848815fb5706fb42ec466a213",
+      "reconstructed_text_sha256": "59ef5308d73677a4a71f9d1de0a185b2c2c09a15c7691c140570bb470b23287a"
+    },
+    "207": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.207.png",
+      "image_sha256": "8c8af35bd7fc1aea5bb3ac8e38bdfcdb231c1d633cc67c7d23d918fae6fc8355",
+      "reconstructed_text_sha256": "e0305022795c41f697391d7b6d82b1898b208ce701e8b9d8c874135f6c06edf8"
+    },
+    "208": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.208.png",
+      "image_sha256": "db91b2e891401f6a7bef0046c340826b67ad459f4687dc107c71f6809a9ed81a",
+      "reconstructed_text_sha256": "06d5829107c1dd30ceab4775944aac66fcb897f2e0c69d456951236b33320b01"
+    },
+    "209": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.209.png",
+      "image_sha256": "8f127c187c8f9e5a3a081d09db0edcfb038ff1050d6988c37faf5d36e361fe46",
+      "reconstructed_text_sha256": "a5fd2a53ec7670165177894cade4a8201139ac41ae89622a50f267a567ed03cc"
+    },
+    "210": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.210.png",
+      "image_sha256": "764dfaf3e0a65b01b79c2fda19dc4f31cfce4d1871e53b76f91f3293d2288e90",
+      "reconstructed_text_sha256": "859c089e2953ec3e2d849348e7ea7671bf4abcd3f8f4c68a38df701035952b30"
+    },
+    "211": {
+      "visual_check": "checked",
+      "image_path": "补充资料/四六级官方样题/page.211.png",
+      "image_sha256": "3561e1480873b702875ccab9712ccd2d42efc2da836c91bf4a79e4aef05e2536",
+      "reconstructed_text_sha256": "85244b2e22fecff00030288ad2ca6b598106861c1b12e1fb43f3c48e8639aedf"
+    }
+  },
+  "whitespace_normalization": "NFKC, source coordinate word spacing and canonical punctuation whitespace; decimals, digit grouping and English abbreviations retained. No spelling/grammar corrections."
+}

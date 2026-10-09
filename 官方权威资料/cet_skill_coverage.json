@@ -1,0 +1,652 @@
+{
+  "standard_id": "cet.syllabus.2016",
+  "scope": "第1章1.1.2至1.5.2的完整编号技能清单；能力映射仍需教研复核。",
+  "modules": {
+    "听力": {
+      "expected_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09"
+      ],
+      "actual_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09"
+      ],
+      "complete": true,
+      "skills": [
+        {
+          "skill_code": "01",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r079",
+          "content": "０１ 理解主旨大意",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 139,
+            "line_end": 139,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "02",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r005",
+          "content": "０２ 听懂重要信息或特定的细节",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 140,
+            "line_end": 140,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "03",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r006",
+          "content": "０３ 理解说话人明确表达的观点、态度等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 141,
+            "line_end": 141,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "04",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r080",
+          "content": "０４ 推论隐含的意义",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 143,
+            "line_end": 143,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "05",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r081",
+          "content": "０５ 判断话语的交际功能",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 144,
+            "line_end": 144,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "06",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r007",
+          "content": "０６ 推断说话人的观点、态度等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 145,
+            "line_end": 145,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "07",
+          "skill_group": "C.运用语言特征理解听力材料",
+          "requirement_id": "cet.syllabus.2016.r009",
+          "content": "０７ 辨别语音特征(如从连续的话语中辨别语音、理解重音和语调等)",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 147,
+            "line_end": 147,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "08",
+          "skill_group": "C.运用语言特征理解听力材料",
+          "requirement_id": "cet.syllabus.2016.r010",
+          "content": "０８ 理解句间关系(如因果、比较、条件等)",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 148,
+            "line_end": 148,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        },
+        {
+          "skill_code": "09",
+          "skill_group": "D.运用听力策略",
+          "requirement_id": "cet.syllabus.2016.r011",
+          "content": "０９ 运用合适的听力策略帮助理解",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 150,
+            "line_end": 150,
+            "pdf_page": 7,
+            "section": "1.1.2"
+          }
+        }
+      ]
+    },
+    "阅读": {
+      "expected_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "actual_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "complete": true,
+      "skills": [
+        {
+          "skill_code": "01",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r082",
+          "content": "０１ 理解主旨大意",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 163,
+            "line_end": 163,
+            "pdf_page": 7,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "02",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r083",
+          "content": "０２ 理解细节信息",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 164,
+            "line_end": 164,
+            "pdf_page": 7,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "03",
+          "skill_group": "A.理解明示的信息",
+          "requirement_id": "cet.syllabus.2016.r015",
+          "content": "０３ 理解作者明确表达的观点、态度等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 165,
+            "line_end": 165,
+            "pdf_page": 7,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "04",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r084",
+          "content": "０４ 概括主旨大意",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 175,
+            "line_end": 175,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "05",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r085",
+          "content": "０５ 推论隐含的意义",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 176,
+            "line_end": 176,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "06",
+          "skill_group": "B.理解隐含的信息",
+          "requirement_id": "cet.syllabus.2016.r016",
+          "content": "０６ 判断作者的观点、态度等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 177,
+            "line_end": 177,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "07",
+          "skill_group": "C.运用语言特征理解文章",
+          "requirement_id": "cet.syllabus.2016.r017",
+          "content": "０７ 根据上下文猜测词和短语的意思",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 179,
+            "line_end": 179,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "08",
+          "skill_group": "C.运用语言特征理解文章",
+          "requirement_id": "cet.syllabus.2016.r018",
+          "content": "０８ 理解句间关系(如因果、比较、条件等)",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 180,
+            "line_end": 180,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "09",
+          "skill_group": "C.运用语言特征理解文章",
+          "requirement_id": "cet.syllabus.2016.r019",
+          "content": "０９ 运用词汇及语法衔接手段理解篇章各部分之间的关系",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 181,
+            "line_end": 181,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        },
+        {
+          "skill_code": "10",
+          "skill_group": "D.运用阅读策略",
+          "requirement_id": "cet.syllabus.2016.r020",
+          "content": "１０ 运用合适的阅读策略帮助理解",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 183,
+            "line_end": 183,
+            "pdf_page": 8,
+            "section": "1.2.2"
+          }
+        }
+      ]
+    },
+    "写作": {
+      "expected_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "actual_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "complete": true,
+      "skills": [
+        {
+          "skill_code": "01",
+          "skill_group": "A.思想表达",
+          "requirement_id": "cet.syllabus.2016.r086",
+          "content": "０１ 表达中心思想",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 198,
+            "line_end": 198,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "02",
+          "skill_group": "A.思想表达",
+          "requirement_id": "cet.syllabus.2016.r024",
+          "content": "０２ 表达重要或特定的信息",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 199,
+            "line_end": 199,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "03",
+          "skill_group": "A.思想表达",
+          "requirement_id": "cet.syllabus.2016.r087",
+          "content": "０３ 表达观点、态度等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 200,
+            "line_end": 200,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "04",
+          "skill_group": "B.篇章组织",
+          "requirement_id": "cet.syllabus.2016.r025",
+          "content": "０４ 围绕所给的题目叙述、议论或描述,重点突出",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 202,
+            "line_end": 202,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "05",
+          "skill_group": "B.篇章组织",
+          "requirement_id": "cet.syllabus.2016.r026",
+          "content": "０５ 连贯地组句成段,组段成篇",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 203,
+            "line_end": 203,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "06",
+          "skill_group": "C.语言运用",
+          "requirement_id": "cet.syllabus.2016.r088",
+          "content": "０６ 运用恰当的词汇",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 205,
+            "line_end": 205,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "07",
+          "skill_group": "C.语言运用",
+          "requirement_id": "cet.syllabus.2016.r089",
+          "content": "０７ 运用正确的语法",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 206,
+            "line_end": 206,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "08",
+          "skill_group": "C.语言运用",
+          "requirement_id": "cet.syllabus.2016.r090",
+          "content": "０８ 运用合适的句子结构",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 207,
+            "line_end": 207,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "09",
+          "skill_group": "C.语言运用",
+          "requirement_id": "cet.syllabus.2016.r091",
+          "content": "０９ 使用正确的标点符号",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 208,
+            "line_end": 208,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "10",
+          "skill_group": "C.语言运用",
+          "requirement_id": "cet.syllabus.2016.r027",
+          "content": "１０ 运用衔接手段表达句间关系(如对比、原因、结果、程度、目的等)",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 209,
+            "line_end": 209,
+            "pdf_page": 8,
+            "section": "1.3.2"
+          }
+        },
+        {
+          "skill_code": "11",
+          "skill_group": "D.运用写作策略",
+          "requirement_id": "cet.syllabus.2016.r029",
+          "content": "１１ 运用合适的写作策略帮助表达",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 214,
+            "line_end": 214,
+            "pdf_page": 9,
+            "section": "1.3.2"
+          }
+        }
+      ]
+    },
+    "翻译": {
+      "expected_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "actual_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "complete": true,
+      "skills": [
+        {
+          "skill_code": "01",
+          "skill_group": "A.将句子层面的汉语信息转换成英语",
+          "requirement_id": "cet.syllabus.2016.r034",
+          "content": "０１ 用合适的英语词汇准确表达汉语词汇的意思",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 229,
+            "line_end": 229,
+            "pdf_page": 9,
+            "section": "1.4.2"
+          }
+        },
+        {
+          "skill_code": "02",
+          "skill_group": "A.将句子层面的汉语信息转换成英语",
+          "requirement_id": "cet.syllabus.2016.r035",
+          "content": "０２ 用符合英语规范和表达习惯的句型准确表达汉语句子的含义",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 230,
+            "line_end": 230,
+            "pdf_page": 9,
+            "section": "1.4.2"
+          }
+        },
+        {
+          "skill_code": "03",
+          "skill_group": "B.将语篇层面的汉语信息转换成英语",
+          "requirement_id": "cet.syllabus.2016.r037",
+          "content": "０３ 用英语准确、完整地表达汉语段落的信息",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 232,
+            "line_end": 232,
+            "pdf_page": 9,
+            "section": "1.4.2"
+          }
+        },
+        {
+          "skill_code": "04",
+          "skill_group": "B.将语篇层面的汉语信息转换成英语",
+          "requirement_id": "cet.syllabus.2016.r038",
+          "content": "０４ 译文结构清晰,语篇连贯,语言通顺",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 233,
+            "line_end": 233,
+            "pdf_page": 9,
+            "section": "1.4.2"
+          }
+        },
+        {
+          "skill_code": "05",
+          "skill_group": "C.运用翻译策略",
+          "requirement_id": "cet.syllabus.2016.r039",
+          "content": "０５ 运用合适的翻译策略帮助表达",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 235,
+            "line_end": 235,
+            "pdf_page": 9,
+            "section": "1.4.2"
+          }
+        }
+      ]
+    },
+    "口语": {
+      "expected_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "actual_codes": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "complete": true,
+      "skills": [
+        {
+          "skill_code": "01",
+          "skill_group": "A.口头阐述",
+          "requirement_id": "cet.syllabus.2016.r043",
+          "content": "０１ 陈述事实、理由、观点等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 257,
+            "line_end": 257,
+            "pdf_page": 10,
+            "section": "1.5.2"
+          }
+        },
+        {
+          "skill_code": "02",
+          "skill_group": "A.口头阐述",
+          "requirement_id": "cet.syllabus.2016.r044",
+          "content": "０２ 描述人物、事件、现象等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 258,
+            "line_end": 258,
+            "pdf_page": 10,
+            "section": "1.5.2"
+          }
+        },
+        {
+          "skill_code": "03",
+          "skill_group": "B.口头互动",
+          "requirement_id": "cet.syllabus.2016.r045",
+          "content": "０３ 交换意见、交流情感和观点等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 260,
+            "line_end": 260,
+            "pdf_page": 10,
+            "section": "1.5.2"
+          }
+        },
+        {
+          "skill_code": "04",
+          "skill_group": "B.口头互动",
+          "requirement_id": "cet.syllabus.2016.r046",
+          "content": "０４ 争辩、解释、比较、论证等",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 261,
+            "line_end": 261,
+            "pdf_page": 10,
+            "section": "1.5.2"
+          }
+        },
+        {
+          "skill_code": "05",
+          "skill_group": "C.运用口头交际策略",
+          "requirement_id": "cet.syllabus.2016.r092",
+          "content": "０５ 运用合适的口头表达与交流的策略帮助表达",
+          "locator": {
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "line_start": 263,
+            "line_end": 263,
+            "pdf_page": 10,
+            "section": "1.5.2"
+          }
+        }
+      ]
+    }
+  },
+  "complete": true
+}

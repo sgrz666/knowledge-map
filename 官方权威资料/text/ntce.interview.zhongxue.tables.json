@@ -1,0 +1,372 @@
+[
+    {
+        "table":  1,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "序号"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "测试\r项目"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "权重"
+                      },
+                      {
+                          "row":  1,
+                          "column":  4,
+                          "text":  "分值"
+                      },
+                      {
+                          "row":  1,
+                          "column":  5,
+                          "text":  "评分标准"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "一"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "职业\r认知"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "5"
+                      },
+                      {
+                          "row":  2,
+                          "column":  4,
+                          "text":  "2"
+                      },
+                      {
+                          "row":  2,
+                          "column":  5,
+                          "text":  "较强的从教愿望，对教师职业有高度的认同，对教师工作的基本内容和职责有清楚了解"
+                      },
+                      {
+                          "row":  3,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  3,
+                          "column":  5,
+                          "text":  "关爱学生，尊重学生、平等对待学生，关注每个学生的成长"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "二"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "心理\r素质"
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  "5"
+                      },
+                      {
+                          "row":  4,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  4,
+                          "column":  5,
+                          "text":  "活泼、开朗，有自信心"
+                      },
+                      {
+                          "row":  5,
+                          "column":  4,
+                          "text":  "2"
+                      },
+                      {
+                          "row":  5,
+                          "column":  5,
+                          "text":  "有较强的情绪调节能力"
+                      },
+                      {
+                          "row":  6,
+                          "column":  1,
+                          "text":  "三"
+                      },
+                      {
+                          "row":  6,
+                          "column":  2,
+                          "text":  "仪表仪态"
+                      },
+                      {
+                          "row":  6,
+                          "column":  3,
+                          "text":  "5"
+                      },
+                      {
+                          "row":  6,
+                          "column":  4,
+                          "text":  "2"
+                      },
+                      {
+                          "row":  6,
+                          "column":  5,
+                          "text":  "衣着整洁，仪表得体，符合教师职业特点"
+                      },
+                      {
+                          "row":  7,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  7,
+                          "column":  5,
+                          "text":  "行为举止稳重端庄大方，教态自然，肢体表达得当"
+                      },
+                      {
+                          "row":  8,
+                          "column":  1,
+                          "text":  "四"
+                      },
+                      {
+                          "row":  8,
+                          "column":  2,
+                          "text":  "言语表达"
+                      },
+                      {
+                          "row":  8,
+                          "column":  3,
+                          "text":  "15"
+                      },
+                      {
+                          "row":  8,
+                          "column":  4,
+                          "text":  "8"
+                      },
+                      {
+                          "row":  8,
+                          "column":  5,
+                          "text":  "语言清晰，表达准确，语速适宜"
+                      },
+                      {
+                          "row":  9,
+                          "column":  4,
+                          "text":  "7"
+                      },
+                      {
+                          "row":  9,
+                          "column":  5,
+                          "text":  "善于倾听、交流，有亲和力"
+                      },
+                      {
+                          "row":  10,
+                          "column":  1,
+                          "text":  "五"
+                      },
+                      {
+                          "row":  10,
+                          "column":  2,
+                          "text":  "思维品质"
+                      },
+                      {
+                          "row":  10,
+                          "column":  3,
+                          "text":  "15"
+                      },
+                      {
+                          "row":  10,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  10,
+                          "column":  5,
+                          "text":  "思维缜密，富有条理"
+                      },
+                      {
+                          "row":  11,
+                          "column":  4,
+                          "text":  "4"
+                      },
+                      {
+                          "row":  11,
+                          "column":  5,
+                          "text":  "迅速地抓住核心要素，准确地理解和分析问题"
+                      },
+                      {
+                          "row":  12,
+                          "column":  4,
+                          "text":  "4"
+                      },
+                      {
+                          "row":  12,
+                          "column":  5,
+                          "text":  "看待问题全面，思维灵活"
+                      },
+                      {
+                          "row":  13,
+                          "column":  4,
+                          "text":  "4"
+                      },
+                      {
+                          "row":  13,
+                          "column":  5,
+                          "text":  "具有创新性的解决问题的思路和方法"
+                      },
+                      {
+                          "row":  14,
+                          "column":  1,
+                          "text":  "六"
+                      },
+                      {
+                          "row":  14,
+                          "column":  2,
+                          "text":  "教学设计"
+                      },
+                      {
+                          "row":  14,
+                          "column":  3,
+                          "text":  "10"
+                      },
+                      {
+                          "row":  14,
+                          "column":  4,
+                          "text":  "4"
+                      },
+                      {
+                          "row":  14,
+                          "column":  5,
+                          "text":  "了解课程的目标与要求、准确把握教学内容"
+                      },
+                      {
+                          "row":  15,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  15,
+                          "column":  5,
+                          "text":  "能根据学科的特点，确定具体的教学目标、教学重点和难点"
+                      },
+                      {
+                          "row":  16,
+                          "column":  4,
+                          "text":  "3"
+                      },
+                      {
+                          "row":  16,
+                          "column":  5,
+                          "text":  "教学设计体现学生的主体性"
+                      },
+                      {
+                          "row":  17,
+                          "column":  1,
+                          "text":  "七"
+                      },
+                      {
+                          "row":  17,
+                          "column":  2,
+                          "text":  "教学实施"
+                      },
+                      {
+                          "row":  17,
+                          "column":  3,
+                          "text":  "35"
+                      },
+                      {
+                          "row":  17,
+                          "column":  4,
+                          "text":  "6"
+                      },
+                      {
+                          "row":  17,
+                          "column":  5,
+                          "text":  "情境创设合理，关注学习动机的激发"
+                      },
+                      {
+                          "row":  18,
+                          "column":  4,
+                          "text":  "10"
+                      },
+                      {
+                          "row":  18,
+                          "column":  5,
+                          "text":  "教学内容表述和呈现清楚、准确"
+                      },
+                      {
+                          "row":  19,
+                          "column":  4,
+                          "text":  "4"
+                      },
+                      {
+                          "row":  19,
+                          "column":  5,
+                          "text":  "有与学生交流的意识，提出的问题富有启发性"
+                      },
+                      {
+                          "row":  20,
+                          "column":  4,
+                          "text":  "8"
+                      },
+                      {
+                          "row":  20,
+                          "column":  5,
+                          "text":  "板书设计突出主题，层次分明；板书工整、美观、适量"
+                      },
+                      {
+                          "row":  21,
+                          "column":  4,
+                          "text":  "7"
+                      },
+                      {
+                          "row":  21,
+                          "column":  5,
+                          "text":  "教学环节安排合理；时间节奏控制恰当；教学方法和手段运用有效"
+                      },
+                      {
+                          "row":  22,
+                          "column":  1,
+                          "text":  "八"
+                      },
+                      {
+                          "row":  22,
+                          "column":  2,
+                          "text":  "教学评价"
+                      },
+                      {
+                          "row":  22,
+                          "column":  3,
+                          "text":  "10"
+                      },
+                      {
+                          "row":  22,
+                          "column":  4,
+                          "text":  "5"
+                      },
+                      {
+                          "row":  22,
+                          "column":  5,
+                          "text":  "能对学生进行过程性评价"
+                      },
+                      {
+                          "row":  23,
+                          "column":  4,
+                          "text":  "5"
+                      },
+                      {
+                          "row":  23,
+                          "column":  5,
+                          "text":  "能客观地评价教学效果"
+                      }
+                  ]
+    }
+]

@@ -1,0 +1,95 @@
+{
+  "source_id": "cet.syllabus.2016",
+  "source_url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+  "pdf_path": "权威资料/originals/cet.syllabus.2016.pdf",
+  "source_pdf_sha256": "9166d3c03b7bc43abd9d9df91bd2ef8085b4419286f1e5ca100dea68f3cfd1f1",
+  "source_boundaries": {
+    "cet4_written": [
+      150,
+      161
+    ],
+    "cet4_listening_script": [
+      162,
+      167
+    ],
+    "cet4_answer_key": [
+      168,
+      168
+    ],
+    "cet4_oral": [
+      169,
+      171
+    ],
+    "cet6_written": [
+      172,
+      183
+    ],
+    "cet6_listening_script": [
+      184,
+      190
+    ],
+    "cet6_answer_key": [
+      190,
+      191
+    ],
+    "cet6_oral": [
+      192,
+      193
+    ],
+    "cet4_answer_cards": [
+      194,
+      197
+    ],
+    "cet6_answer_cards": [
+      198,
+      201
+    ],
+    "cet4_writing_scoring": [
+      202,
+      204
+    ],
+    "cet6_writing_scoring": [
+      205,
+      207
+    ],
+    "cet4_translation_scoring": [
+      208,
+      209
+    ],
+    "cet6_translation_scoring": [
+      210,
+      211
+    ]
+  },
+  "source_sample_pages": 62,
+  "standard_questions": 114,
+  "official_objective_answers": 110,
+  "written_tasks": 4,
+  "official_reference_translations": 2,
+  "unique_writing_answers": 0,
+  "passages": 23,
+  "oral_sample_sets": 2,
+  "scoring_sample_tasks": 4,
+  "official_scored_responses": 20,
+  "main_questions_checked": 5340,
+  "match_status_counts": {
+    "no_exact_match": 110
+  },
+  "exact_content_candidates": 0,
+  "true_answer_recoveries": 0,
+  "main_corpus_modified": false,
+  "text_quality_counts": {
+    "visually_verified": 118
+  },
+  "visual_verification_path": "补充资料/四六级官方样题/visual_verification.json",
+  "missing_fields": [
+    "source listening audio and timestamps",
+    "official individual answer explanations",
+    "unique writing answer",
+    "expert review and difficulty calibration",
+    "specific oral ontology/ability alignment",
+    "word-by-word text proofreading beyond saved visual checks"
+  ],
+  "text_method": "embedded original Latin font glyph metrics + neighboring character origin spacing; raw glyph stream, coordinates and all source page images preserved",
+  "copyright_scope": "official publicly released syllabus samples; no commercial third-party analyses copied"
+}

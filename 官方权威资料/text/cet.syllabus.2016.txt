@@ -1,0 +1,8604 @@
+[[PDF_PAGE 1]]
+[[PDF_PAGE 2]]
+前　　言
+全国大学英语四、六级 考 试 (以 下 简 称 四、六 级 考 试)系 教 育 部 主 办、教
+育部考试中心主持和实施的一项大规模标准化考试.自１９８７年开始实施以
+来,四、六级考试已走过近三十年的 历 程,其 间 经 历 了 多 次 改 革,顺 应 了 我 国
+高等教育不断发展的新形势,推动了大学英语教学改革.
+近年来,全国大 学 英 语 四、六 级 考 试 委 员 会 (以 下 简 称 考 试 委 员 会 )对
+四、六级考试内容和题型作了进一步 调 整,并 将 口 语 能 力 的 考 核 方 式 从 面 试
+型转为计算机化考试,同时开发了大 学 英 语 四 级 口 语 考 试,此 前 实 施 的 大 学
+英语口语考试转为大学英语六级口语考试.
+四、六级考试 (笔 试 )大 纲 历 来 分 级 成 册,口 试 大 纲 单 独 成 册. 现 行 的
+四、六级考试大纲为２００６年的修订版,共有三个单行本:«大学英语四级考试
+大纲»、«大学英语 六 级 考 试 大 纲»和 «大 学 英 语 口 语 考 试 大 纲».«全 国 大 学
+英语四、六级考试大纲(２０１６ 年 修 订 版)»在 总 体 设 计 上 更 好 地 体 现 了 四、六
+级考试体系的完整性,内容涵盖四 级 笔 试、四 级 口 试、六 级 笔 试 和 六 级 口 试,
+并新增了四、六级考试词表.
+公布«全国大学英语四、六 级 考 试 大 纲 (２０１６ 年 修 订 版)»的 目 的 是 使 广
+大师生和用人单位了解调整后的四、六 级 考 试 系 列 及 各 项 考 试 的 试 卷 结 构、
+考试形式和考试内 容. 考 试 委 员 会 将 对 调 整 后 的 四、六 级 考 试 的 效 度 和 信
+度在实施过程中作进 一 步 验 证,不 断 完 善 考 试,使 四、六 级 考 试 不 仅 体 现 中
+国特色,而且符合国际语言测试的发 展 趋 势,使 考 试 适 应 我 国 大 学 英 语 教 学
+和测试的现状,更好地服务于我国大学英语教学的改革与发展.
+本书所配听 力 音 频 和 口 试 视 频 文 件 可 在 大 学 英 语 四、六 级 考 试 官 网
+(www．cet．edu．cn)下载.
+著 者
+[[PDF_PAGE 3]]
+[[PDF_PAGE 4]]
+１
+目　　录
+考试系列介绍 １􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．考核的语言技能及要求 １􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　１．１ 听力理解 １􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．１．１ 考核的要求 １􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．１．２ 考核的技能 ２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　１．２ 阅读理解 ２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．２．１ 考核的要求 ２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．２．２ 考核的技能 ２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　１．３ 写作 ３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．３．１ 考核的要求 ３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．３．２ 考核的技能 ３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　１．４ 翻译 ４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．４．１ 考核的要求 ４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．４．２ 考核的技能 ４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　１．５ 口头表达 ４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．５．１ 考核的要求 ４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．５．２ 考核的技能 ５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．全国大学英语四级考试 ５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　２．１ 四级笔试 ５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．１．１ 试卷构成 ５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．１．２ 试卷分解 ５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　２．２ 四级口试 ６􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．２．１ 考试形式 ６􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．２．２ 考试过程 ６􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．全国大学英语六级考试 ７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　３．１ 六级笔试 ７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．１．１ 试卷构成 ７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．１．２ 试卷分解 ８􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　３．２ 六级口试 ９􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．２．１ 考试形式 ９􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．２．２ 考试过程 ９􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+[[PDF_PAGE 5]]
+２
+４．主观题评分 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　４．１ 作文评分 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．１．１ 评分方法 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．１．２ 评分标准 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　４．２ 翻译评分 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．２．１ 评分方法 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．２．２ 评分标准 １０􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　４．３ 口语考试评分 １１􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．３．１ 评分方法 １１􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．３．２ 评分标准 １１􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．分数解释及成绩报道 １２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　５．１ 笔试 １２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．１．１ 分数解释 １２􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．１．２ 成绩报道 １３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+　５．２ 口语考试 １３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．２．１ 能力等级描述 １３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．２．２ 成绩报道 １４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+词表 １５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+样卷 １４５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１．全国大学英语四级考试(笔试)样卷 １４５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+２．全国大学英语四级考试(口试)样卷 １６４􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+３．全国大学英语六级考试(笔试)样卷 １６７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+４．全国大学英语六级考试(口试)样卷 １８７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+５．全国大学英语四级考试答题卡 １８９􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+６．全国大学英语六级考试答题卡 １９３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+７．全国大学英语四级考试作文评分样卷 １９７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+８．全国大学英语六级考试作文评分样卷 ２００􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+９．全国大学英语四级考试翻译评分样卷 ２０３􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１０．全国大学英语六级考试翻译评分样卷 ２０５􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１１．全国大学英语四级考试成绩报告单样张 ２０７􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+１２．全国大学英语六级考试成绩报告单样张 ２０９􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺􀆺
+[[PDF_PAGE 6]]
+１
+考
+试
+系
+列
+介
+绍
+考试系列介绍
+四、六级考试对象是修完大学英语相应阶段课程的在校大学生.考试目的是参照«大学
+英语教学指南»(教育部高等学校大学外语教学指导委员会２０１５年制定)设定的教学目标对
+我国大学生英语综合运用能力进 行 科 学 的 测 量,同 时 也 为 用 人 单 位 了 解 我 国 大 学 生 英 语 水
+平提供参照依据.
+四、六级考试系列分为大学英语四级考试(简称四级考试)和大学英语六级考试(简称六
+级考试).四级考 试 包 括 四 级 笔 试 (CollegeEnglishTestBand４,简 称 CETＧ４)和 四 级 口 试
+(CETＧSpokenEnglish TestBand４,简 称 CETＧSET４);六 级 考 试 包 括 六 级 笔 试 (College
+EnglishTestBand６,简称 CETＧ６)和六级口试(CETＧSpokenEnglishTestBand６,简称 CETＧ
+SET６).笔试和口试每年各举行两次.
+四、六级考试的命题语料(除主 观 题 外)均 选 自 英 文 原 版 材 料,包 括 日 常 生 活 对 话、广 播
+电视节目、讲座、报纸杂志、书籍、学术期刊等.选材原则包括:
+内容健康,题材广泛,涵盖人文学科、社会科学、自然科学等领域,但所涉及的背 景 知
+识为考生所了解或已在语料中提供;
+体裁多样,包括记叙性、说明性、议论性文本等;
+词汇范围参照本大纲所附的四、六级考试词表.超出该范围的词汇,如影响理解或答
+题,则标注汉语释义.
+１．考核的语言技能及要求
+四、六级考试考核学生的英语 综 合 运 用 能 力,包 括 听 力 理 解、阅 读 理 解、写 作、翻 译 和 口
+头表达能力.各项语言技能的考核要求参照«大 学 英 语 教 学 指 南»中 的“基 础 目 标”和“提 高
+目标”所设定的教学要求.
+１．１ 听力理解
+１．１．１ 考核的要求
+四级考试:要求考生能听懂语 速 较 慢 的 短 篇 英 语 广 播;能 听 懂 就 熟 悉 话 题 展 开 的 多
+话轮简单英语会话;能听懂语速较慢、题材熟悉、篇幅较长的讲话和报道;能运用基本的听力
+策略帮助理解.听力材料的语速为每分钟１２０－１４０词.
+六级考试:要求考生能听懂就熟悉话题展开的多话轮英语会话;能听懂语速中等、题
+材熟悉、篇幅较长的英语广播;能听懂语速中等、题材熟悉的讲话、报道和内容浅显的学术讲
+座;能较好地运用听力策略帮助理解.听力材料的语速为每分钟１４０－１６０词.
+[[PDF_PAGE 7]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２
+１．１．２ 考核的技能
+听力理解部分考核学生获取口 头 信 息 的 能 力,包 括 理 解 主 旨 大 意、重 要 事 实 和 细 节、隐
+含意义,判断话语的交际功能、说话人的观点、态度等.听力理解部分考核的技能如下:
+A．理解明示的信息
+０１ 理解主旨大意
+０２ 听懂重要信息或特定的细节
+０３ 理解说话人明确表达的观点、态度等
+B．理解隐含的信息
+０４ 推论隐含的意义
+０５ 判断话语的交际功能
+０６ 推断说话人的观点、态度等
+C．运用语言特征理解听力材料
+０７ 辨别语音特征(如从连续的话语中辨别语音、理解重音和语调等)
+０８ 理解句间关系(如因果、比较、条件等)
+D．运用听力策略
+０９ 运用合适的听力策略帮助理解
+１．２ 阅读理解
+１．２．１ 考核的要求
+四级考试:要求考生能读懂题 材 熟 悉、语 言 难 度 较 低 的 英 语 报 刊 文 章 和 其 他 英 语 材
+料;能读懂工作、生活中常见的应 用 文 体 的 英 语 材 料;能 运 用 基 本 的 阅 读 策 略 帮 助 理 解. 仔
+细阅读速度达到每分钟７０词,快速阅读速度达到每分钟１００词.
+六级考试:要求考生能读懂一 般 性 题 材 的 英 语 报 刊 文 章 和 其 他 英 语 材 料;能 阅 读 题
+材较熟悉的学术文章;能较好地 运 用 阅 读 策 略 帮 助 理 解.仔 细 阅 读 速 度 达 到 每 分 钟 ９０ 词,
+快速阅读速度达到每分钟１２０词.
+１．２．２ 考核的技能
+阅读理解部分考核学生通过阅读获取书面信息的能力,包括理解主旨大意、重要事实和
+细节、隐含意义,判断作者的观点、态度等.阅读部分考核的技能如下:
+A．理解明示的信息
+０１ 理解主旨大意
+０２ 理解细节信息
+０３ 理解作者明确表达的观点、态度等
+[[PDF_PAGE 8]]
+３
+考
+试
+系
+列
+介
+绍
+　　B．理解隐含的信息
+０４ 概括主旨大意
+０５ 推论隐含的意义
+０６ 判断作者的观点、态度等
+C．运用语言特征理解文章
+０７ 根据上下文猜测词和短语的意思
+０８ 理解句间关系(如因果、比较、条件等)
+０９ 运用词汇及语法衔接手段理解篇章各部分之间的关系
+D．运用阅读策略
+１０ 运用合适的阅读策略帮助理解
+１．３ 写作
+１．３．１ 考核的要求
+四级考试:要求考生能用英语 描 述 个 人 经 历、观 感、情 感 和 发 生 的 事 件 等;能 描 述 简
+单的图表和图画;能就熟悉的主题发表个人观点;能写常见的应用文;能根据提纲、图表或图
+画等提示信息作简短的讨论、解释和说明.中心思想明确,结构基本完整,用词较为恰当,语
+句通顺,语意连贯,能运用基本的写作策略.能在半小时内写出不少于１２０词的短文.
+六级考试:要求考生能用英语就一般性的主题发表个人观点;能描述图表和图画;能
+根据提纲、图表或图画等提示信 息 作 较 为 深 入 的 讨 论、解 释 和 说 明.观 点 明 确,结 构 清 晰 完
+整,用词贴切,语言表达流畅,语意连贯,能较好地运用写作策略.能在半小时内写出不少于
+１５０词的短文.
+１．３．２ 考核的技能
+写作部分考核学生就熟悉的话 题 和 情 景 用 英 语 进 行 书 面 表 达 的 能 力,要 求 考 生 在 规 定
+的时间内根据所给提示用英语写出一篇短文.写作部分考核的技能如下:
+A．思想表达
+０１ 表达中心思想
+０２ 表达重要或特定的信息
+０３ 表达观点、态度等
+B．篇章组织
+０４ 围绕所给的题目叙述、议论或描述,重点突出
+０５ 连贯地组句成段,组段成篇
+C．语言运用
+０６ 运用恰当的词汇
+０７ 运用正确的语法
+０８ 运用合适的句子结构
+０９ 使用正确的标点符号
+１０ 运用衔接手段表达句间关系(如对比、原因、结果、程度、目的等)
+[[PDF_PAGE 9]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４
+D．运用写作策略
+１１ 运用合适的写作策略帮助表达
+１．４ 翻译
+１．４．１ 考核的要求
+四级考试:要求考生能将题 材 熟 悉、语 言 难 度 较 低 的 汉 语 段 落 译 成 英 语. 段 落 的 内
+容涉及中国的文化、历史及社会 发 展.译 文 基 本 准 确 地 表 达 原 文 的 意 思,语 句 通 顺,句 式 和
+用词较为恰当.能运用基本的 翻 译 策 略.能 在 半 小 时 内 将 长 度 为 １４０－１６０ 个 汉 字 的 段 落
+译成英语.
+六级考试:要求考生能将题 材 熟 悉、语 言 难 度 中 等 的 汉 语 段 落 译 成 英 语. 段 落 的 内
+容涉及中国的文化、历史及社会 发 展.译 文 基 本 准 确 地 表 达 原 文 的 意 思,语 言 流 畅,句 式 运
+用恰当,用词贴切.能较好地运用翻译策略.能在半小时内将长度为１８０－２００个汉字的段
+落译成英语.
+１．４．２ 考核的技能
+翻译部分考核学生运用恰当的翻译策略和语言知识将主题熟悉、内容浅显、意思完整的
+汉语段落用英语表达出来的能力.翻译部分考核的技能如下:
+A．将句子层面的汉语信息转换成英语
+０１ 用合适的英语词汇准确表达汉语词汇的意思
+０２ 用符合英语规范和表达习惯的句型准确表达汉语句子的含义
+B．将语篇层面的汉语信息转换成英语
+０３ 用英语准确、完整地表达汉语段落的信息
+０４ 译文结构清晰,语篇连贯,语言通顺
+C．运用翻译策略
+０５ 运用合适的翻译策略帮助表达
+１．５ 口头表达
+１．５．１ 考核的要求
+四级考试:要求考生能用英语 就 熟 悉 的 话 题 进 行 简 短 但 多 话 轮 的 交 谈;能 对 一 般 性
+事件和现象进行简单的叙述或 描 述;经 准 备 后 能 就 熟 悉 的 话 题 作 简 短 发 言.语 言 表 达 较 清
+楚,语音、语调和语法基本正确.能运用基本的口头表达与交流的策略.
+六级考试:要求考生能 用 英 语 就 一 般 性 话 题 进 行 比 较 深 入 的 多 话 轮 交 谈;能 陈 述 事
+实、理由和描述事件、现象等;能表达个人意见、情感、观点等;能在对话中进行争辩、解释、比
+较、论证等.语言表达结构清晰,观点明确,语音、语调和语法正确.能较好地运用口头表达
+与交流的策略.
+[[PDF_PAGE 10]]
+５
+考
+试
+系
+列
+介
+绍
+１．５．２ 考核的技能
+口语部分考核学生就熟悉的话题用英语进行口头表达与交流的能力.口语部分考核的
+技能如下:
+A．口头阐述
+０１ 陈述事实、理由、观点等
+０２ 描述人物、事件、现象等
+B．口头互动
+０３ 交换意见、交流情感和观点等
+０４ 争辩、解释、比较、论证等
+C．运用口头交际策略
+０５ 运用合适的口头表达与交流的策略帮助表达
+２．全国大学英语四级考试
+２．１ 四级笔试
+２．１．１ 试卷构成
+大学英语四级试卷由四个部分构成,依次为:１)写作;２)听力理解;３)阅读理解;４)翻译.
+各部分测试内容、题型和所占分值比例等如下表所示:
+试卷结构 测试内容 测试题型 题目数量 分值比例 考试时间
+写作 写作 短文写作 １ １５％ ３０分钟
+听力理解
+短篇新闻 选择题(单选题) ７ ７％
+长对话 选择题(单选题) ８ ８％
+听力篇章 选择题(单选题) １０ ２０％
+２５分钟
+阅读理解
+词汇理解 选词填空 １０ ５％
+长篇阅读 匹配 １０ １０％
+仔细阅读 选择题(单选题) １０ ２０％
+４０分钟
+翻译 汉译英 段落翻译 １ １５％ ３０分钟
+总计 ５７ １００％ １２５分钟
+２．１．２ 试卷分解
+１)写作
+作文题的提示形式包括提纲、情 景、图 画 或 图 表 等,每 次 考 试 采 用 其 中 的 一 种 形 式. 要
+求考生根据所规定的题目及所 给 出 的 提 示 写 出 一 篇 短 文,长 度 不 少 于 １２０ 词. 写 作 部 分 的
+分值比例为１５％.考试时间３０分钟.
+[[PDF_PAGE 11]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６
+２)听力理解
+听力理解部分由短篇 新 闻、长 对 话 和 听 力 篇 章 构 成. 试 题 采 用 选 择 题 (单 选 题)题 型.
+录音材料用标准的英式或美式英语朗读,语速约为每分钟１２０－１４０词.所有录音材料均播
+放一遍,每个问题后留有１５秒答题时间.听力理 解 部 分 的 分 值 比 例 为 ３５％,其 中 短 篇 新 闻
+占７％,长对话占８％,听力篇章占２０％.考试时间约２５分钟.
+短篇新闻:３篇,总共４５０－５００词,每篇２－３题,共７题.
+长对话:２篇,每篇２４０－２８０词,每篇４题,共８题.
+听力篇章:３篇,每篇２２０－２４０词,每篇３－４题,共１０题.
+３)阅读理解
+阅读理解部分由词汇理解(１篇)、长篇阅读(１篇)和仔细阅 读(２ 篇)构 成.词 汇 理 解 的
+篇章长度为２００－２５０词;长篇阅读的篇章长度约１０００词;仔细阅读的每篇长度为３００－３５０
+词.阅读理解部分的分值比例为３５％,其中 词 汇 理 解 占 ５％,长 篇 阅 读 占 １０％,仔 细 阅 读 占
+２０％.考试时间４０分钟.
+词汇理解:采用选词填空题型,考核学生对篇章语境中词汇的理解和运用能力.篇章
+中删去了１０个词汇,并在篇章后 提 供 １５ 个 词 汇 选 项.要 求 考 生 在 对 篇 章 理 解 的 基 础 上 从
+所给的词汇选项中选择正确的词汇填空,使篇章复原.
+长篇阅读理解:采用段落匹配题型,考核学生运用略读和查读的技能从篇章中获取信
+息的能力.略读要求学生通过快 速 阅 读 获 取 文 章 主 旨 大 意 或 中 心 思 想;查 读 要 求 学 生 快 速
+查找篇章中的特定信息.篇章后附有１０个句子,每句１题.每句所含的信息出自篇章中的
+某一段落,要求考生找出与每句所含信息相匹配的段落.有的段落可能对应两题,有的段落
+可能不对应任何一题.
+仔细阅读理解:采用选择题(单 选 题)题 型,考 核 学 生 在 不 同 层 面 上 的 阅 读 理 解 能 力,
+包括理解主旨大意和重要细节、综合分析、推测判断以及根据上下文推测词义等.每个篇章
+后有５个问题,要求考生根据对篇章的理解从每题的四个选项中选择最佳答案.
+４)翻译
+试题所呈现的是一个或几个 汉 语 段 落,不 含 生 僻 的 专 业 词 汇 或 习 语. 要 求 考 生 在 规 定
+的时间内将汉语段落译成英语.翻译部分的分值比例为１５％.考试时间３０分钟.
+２．２ 四级口试
+２．２．１ 考试形式
+四级口试采用计算机化考试 形 式.模 拟 考 官 及 试 题 呈 现 在 计 算 机 屏 幕 上,试 题 材 料 采
+用文字或画面提示(图画、图表、照片等).考生由计算机系统随机编排为两人一组.考生在
+计算机上进行考生与模拟考官、考生与考生之间的互动.考试包含四个任务,考试总时间约
+１５分钟.
+２．２．２ 考试过程
+考试按以下步骤进行:
+[[PDF_PAGE 12]]
+７
+考
+试
+系
+列
+介
+绍
+任务 任务名称 考 试 过 程 答题时间
+热身 自我介绍
+根据考 官 指 令,每 位 考 生 作 一 个 简 短 的 自 我 介
+绍.考试时间约１分钟.
+每位 考 生 ２０ 秒 (两 位
+考生依次进行)
+任务 １ 短文朗读
+考生准备４５ 秒 后 朗 读 一 篇 １２０ 词 左 右 的 短 文.
+考试时间约２分钟.
+每 位 考 生 朗 读 １ 分 钟
+(两位考生同步进行)
+任务 ２ 简短回答
+考生回答 ２ 个 与 短 文 有 关 的 问 题. 考 试 时 间 约
+１分钟.
+每位 考 生 ４０ 秒 (两 位
+考生同步进行)
+任务 ３ 个人陈述
+考生准备 ４５ 秒 后,根 据 所 给 提 示 作 陈 述. 考 试
+时间约２分钟.
+每位考生１分钟(两 位
+考生同步进行)
+任务 ４ 双人互动
+考生准备１分钟后,根 据 设 定 的 情 景 和 任 务 进 行
+交谈.考试时间约４分钟.
+两位考生互动３分钟
+考生开始正式答题前先作一 个 简 短 的 自 我 介 绍,以 进 入 良 好 的 应 考 状 态. 正 式 考 试 开
+始后,考生按下列顺序完成各项任务:
+任务１:要求考生在经过一定准备 后 朗 读 一 篇 １２０ 词 左 右 的 短 文. 考 生 的 准 备 时 间
+为４５秒,答题时间为１分钟.
+任务２:要求考生回答模 拟 考 官 提 出 的 ２ 个 问 题,第 １ 个 问 题 与 朗 读 短 文 的 内 容 相
+关,第２个问题与朗读短文的主题相关.每题的答题时间为２０秒.
+任务３:要求考生经过准备后根据 所 给 提 示 发 言. 考 生 的 准 备 时 间 为 ４５ 秒,答 题 时
+间为１分钟.
+任务４:要求两位考生根据所给的情景和任务进行互动.考生的准备时间为１分钟,
+双人互动时间为３分钟.
+３．全国大学英语六级考试
+３．１ 六级笔试
+３．１．１ 试卷构成
+大学英语六级试卷由四个部分构成,依次为:１)写作;２)听力理解;３)阅读理解;４)翻译.
+各部分测试内容、题型和所占分值比例等如下表所示:
+试卷结构 测试内容 测试题型 题目数量 分值比例 考试时间
+写作 写作 短文写作 １ １５％ ３０分钟
+听力理解
+长对话 选择题(单选题) ８ ８％
+听力篇章 选择题(单选题) ７ ７％
+讲话/报道/讲座 选择题(单选题) １０ ２０％
+３０分钟
+[[PDF_PAGE 13]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８
+(续表)
+试卷结构 测试内容 测试题型 题目数量 分值比例 考试时间
+阅读理解
+词汇理解 选词填空 １０ ５％
+长篇阅读 匹配 １０ １０％
+仔细阅读 选择题(单选题) １０ ２０％
+４０分钟
+翻译 汉译英 段落翻译 １ １５％ ３０分钟
+总计 ５７ １００％ １３０分钟
+３．１．２ 试卷分解
+１)写作
+作文题的提示形式包括提纲、情 景、图 画 或 图 表 等,每 次 考 试 采 用 其 中 的 一 种 形 式. 要
+求考生根据所规定的题目及所 给 出 的 提 示 写 出 一 篇 短 文,长 度 不 少 于 １５０ 词. 写 作 部 分 的
+分值比例为１５％.考试时间３０分钟.
+２)听力理解
+听力理解部分由长对话、听 力 篇 章 和 讲 话/报 道/讲 座 构 成. 试 题 采 用 选 择 题 (单 选 题)
+题型.录音材料用标准的英式或美式英语朗读,语速约为每分钟１４０－１６０词.所有录音材
+料均播放一遍,每个问题后留有１３秒答题时间.听 力 理 解 部 分 的 分 值 比 例 为 ３５％,其 中 长
+对话占８％,听力篇章占７％,讲话/报道/讲座占２０％.考试时间约３０分钟.
+长对话:２篇,每篇２８０－３２０词,每篇４题,共８题.
+听力篇章:２篇,每篇２４０－２６０词,每篇３－４题,共７题.
+讲话/报道/讲座:３篇,总共约１２００词,每篇３－４题,共１０题.
+３)阅读理解
+阅读理解部分由词汇理解(１篇)、长篇阅读(１篇)和仔细阅 读(２ 篇)构 成.词 汇 理 解 的
+篇章长度为２５０－３００词;长篇阅读的篇章长度约１２００词;仔细阅读的每篇长度为４００－４５０
+词.阅读理解部分的分值比例为３５％,其中 词 汇 理 解 占 ５％,长 篇 阅 读 占 １０％,仔 细 阅 读 占
+２０％.考试时间４０分钟.
+词汇理解:采用选词填空题型,考核学生对篇章语境中词汇的理解和运用能力.篇章
+中删去了１０个词汇,并在篇章后 提 供 １５ 个 词 汇 选 项.要 求 考 生 在 对 篇 章 理 解 的 基 础 上 从
+所给的词汇选项中选择正确的词汇答题,使篇章复原.
+长篇阅读理解:采用段落匹配题型,考核考生运用略读和查读的技能从篇章中获取信
+息的能力.略读要求学生通过快 速 阅 读 获 取 文 章 主 旨 大 意 或 中 心 思 想;查 读 要 求 学 生 快 速
+查找篇章中的特定信息.篇章后附有１０个句子,每句１题.每句所含的信息出自篇章中的
+某一段落,要求考生找出与每句所含信息相匹配的段落.有的段落可能对应两题,有的段落
+可能不对应任何一题.
+仔细阅读理解:采用选择题(单 选 题)题 型,考 核 学 生 在 不 同 层 面 上 的 阅 读 理 解 能 力,
+包括理解主旨大意和重要细节、综合分析、推测判断以及根据上下文推测词义等.每个篇章
+后有５个问题,要求考生根据对篇章的理解从每题的四个选项中选择最佳答案.
+[[PDF_PAGE 14]]
+９
+考
+试
+系
+列
+介
+绍
+４)翻译
+试题所呈现的是一个或几个 汉 语 段 落,不 含 生 僻 的 专 业 词 汇 或 习 语. 试 题 内 容 的 难 度
+略高于四 级. 要 求 考 生 在 规 定 的 时 间 内 将 汉 语 段 落 译 成 英 语. 翻 译 部 分 的 分 值 比 例 为
+１５％.考试时间３０分钟.
+３．２ 六级口试
+３．２．１ 考试形式
+六级口试采用计算机化考试 形 式.模 拟 考 官 及 试 题 呈 现 在 计 算 机 屏 幕 上,试 题 材 料 采
+用文字或画面提示(图画、图表、照片等).考生由计算机系统随机编排为两人一组.考生在
+计算机上进行考生与模拟考官、考生与考生之间的互动.考试分为三个部分,考试总时间约
+１８分钟.
+３．２．２ 考试过程
+考试按以下步骤进行:
+部分 内容 考 试 过 程 答题时间
+第一部分
+自 我 介 绍 和
+问答
+先由考 生 自 我 介 绍,然 后 回 答 考 官 提
+问.考试时间约２分钟.
+自我介绍:每 位 考 生 ２０ 秒(两 位
+考生依次进行)
+回答问题:每 位 考 生 ３０ 秒(两 位
+考生同步进行)
+第二部分 陈述和讨论
+考 生 准 备 １ 分 钟 后,根 据 所 给 提 示 作
+个人陈 述;两 位 考 生 就 指 定 的 话 题 讨
+论.考试时间约８分钟.
+个人 陈 述:每 位 考 生 １ 分 ３０ 秒
+(两位考生依次进行)
+两人讨论:３分钟
+第三部分 问答
+考生回答考官的一个 问 题. 考 试 时 间
+约１分钟.
+每位考 生 ４５ 秒 (两 位 考 生 同 步
+进行)
+第一部分:根据考 官 指 令,两 位 考 生 分 别 作 一 个 简 短 的 自 我 介 绍,每 位 考 生 答 题 ２０
+秒;然后每位考生回答一个问题,答题时间３０秒.这部分主要用于“热身”目的,使考生进入
+良好的应考状态.
+第二部分:根据考官指令和屏幕显示的文字或画面提示,考生准备 １ 分钟,然后就所
+给提示依次作个人陈述,每位考生答题１分３０秒;此后两位考生就指定的话题展开讨论,讨
+论时间３分钟.这部分是考试的重点内容,检测考生用英语进行连贯的口头表达的能力,以
+及传达信息、发表意见、参与讨论和进行辩论等口头交际能力.
+第三部分:考生再次各自回答一个问题,每位考生答题 ４５ 秒.这部分给考生进 一 步
+展示自己口头交际能力的机会.
+[[PDF_PAGE 15]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１０
+４．主观题评分
+４．１ 作文评分
+４．１．１ 评分方法
+四级和六级的作文评分均采 用 总 体 印 象 评 分 方 式.作 文 满 分 为 １５ 分,分 为 五 个 档 次:
+１４分档(１３－１５分)、１１分档(１０－１２分)、８分档(７－９分)、５分档(４－６分)和２分档(１－３
+分).四级和六级采用相同的档次描述.每次阅卷时,参照档次描述分别确定当次考试四级
+和六级各档次的评分样卷.阅卷员经过培训后参照评分样卷对考生的作文答卷进行评分.
+４．１．２ 评分标准
+四级和六级的写作测试难度 不 同,考 核 要 求 不 同.相 同 档 次 的 四 级 评 分 样 卷 和 六 级 评
+分样卷具有级别上的差异.各档次描述如下:
+档次 档 次 描 述
+１４分档 切题.表达思想清楚,文字通顺、连贯,基本上无语言错误,仅有个别小错.
+１１分档 切题.表达思想清楚,文字连贯,但有少量语言错误.
+８分档
+基本切题.有些地方表达思想不够清楚,文 字 勉 强 连 贯,语 言 错 误 相 当 多,其 中 有 一 些 是
+严重错误.
+５分档 基本切题.表达思想不清楚,连贯性差,有较多的严重语言错误.
+２分档 条理不清,思路紊乱,语言支离破碎或大部分句子均有错误,且多数为严重错误.
+４．２ 翻译评分
+４．２．１ 评分方法
+四级和六级的翻译评分均采 用 总 体 印 象 评 分 方 式.翻 译 满 分 为 １５ 分,分 为 五 个 档 次:
+１４分档(１３－１５分)、１１分档(１０－１２分)、８分档(７－９分)、５分档(４－６分)和２分档(１－３
+分).四级和六级采用相同的档次描述.每次阅卷时,参照档次描述分别确定当次考试四级
+和六级各档次的评分样卷.阅卷员经过培训后参照评分样卷对考生的翻译答卷进行评分.
+４．２．２ 评分标准
+四级和六级的翻译测试难度 不 同,考 核 要 求 不 同.相 同 档 次 的 四 级 评 分 样 卷 和 六 级 评
+分样卷具有级别上的差异.各档次描述如下:
+档次 档 次 描 述
+１４分档
+译文准确表达了原文的意思.译文流畅,结构清晰,用词贴切,基本无语言 错 误,仅 有 个 别
+小错.
+１１分档 译文基本表达了原文的意思.结构较清晰,语言通顺,但有少量语言错误.
+[[PDF_PAGE 16]]
+１１
+考
+试
+系
+列
+介
+绍
+(续表)
+档次 档 次 描 述
+８分档 译文勉强表达了原文的意思.译文勉强连贯,语言错误相当多,其中有一些是严重错误.
+５分档 译文仅表达了小部分原文的意思.译文连贯性差,有相当多的严重语言错误.
+２分档 除个别词语或句子,译文基本没有表达原文的意思.
+４．３ 口语考试评分
+４．３．１ 评分方法
+四级口语考试的评分 分 为 人 工 评 分 部 分 和 计 算 机 自 动 评 分 部 分.人 工 评 分 总 分 为 １５
+分;计算机自动评分(朗读部分)总 分 为 ５ 分.人 工 评 分 的 分 值 和 计 算 机 评 分 的 分 值 合 成 后
+的考试总分为２０分,成绩报道时转换为 A、B、C 和 D 四个等级.
+六级口语考试全部采用 人 工 评 分,总 分 为 １５ 分,成 绩 报 道 时 转 换 为 A、B、C 和 D 四 个
+等级.
+４．３．２ 评分标准
+１)人工评分
+四级人工评分和六级评分采 用 相 同 的 评 分 标 准.每 次 评 分 时,参 照 各 项 评 分 标 准 描 述
+分别确定当次四级和六级口试各等级的标准样本.评分员经过培训后参照标准样本对考生
+的答题表现进行评分.评分基于以下三项标准,每个单项满分为５分.评分标准描述如下:
+准确性和范围:“准确性”指考 生 的 语 音、语 调 以 及 所 使 用 的 语 法 和 词 汇 的 准 确 程 度;
+“范围”指考生使用的词汇和语法结构的复杂度和丰富度.
+话语长短和连贯性:“话 语 长 短”指 考 生 对 整 个 考 试 中 的 交 际 所 作 的 贡 献、讲 话 的 多
+少;“连贯性”指考生能进行较长时间的、语言连贯的发言.
+灵活性和适切性:“灵活性”指考生应付不同场景和话题的能力;“适切性”指考生根据
+不同场合选用适当确切的语言的能力.
+准确性和范围 话语长短和连贯性 灵活性和适切性
+５
+分
+• 语法和词汇基本正确
+• 表 达 过 程 中 词 汇 丰 富、语 法
+结构较为复杂
+• 发 音 较 好,但 允 许 有 一 些 不
+影响理解的母语口音
+• 能 进 行 较 长 时 间 的 发 言,语
+言连贯,组织思想和 搜 寻 词 语 时
+偶尔出现停顿,但不影响交际
+• 能自如地应对不同场景 和
+话题
+• 能积极地参与讨论
+• 语言的使用总体上能与 语
+境、功能和目的相适应
+４
+分
+• 语 法 和 词 汇 有 一 些 错 误,但
+未严重影响交际
+• 表达过程中词汇较丰富
+• 发音尚可
+• 能 进 行 较 连 贯 的 发 言,但 多
+数发言较简短
+• 组织思想 和 搜 寻 词 语 时 频 繁
+出现停顿,有时会影响交际
+• 能较自如地应对不同场 景
+和话题
+• 能较积极地参与讨论
+• 语言的使用基本上能与 语
+境、功能和目的相适应
+[[PDF_PAGE 17]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２
+(续表)
+准确性和范围 话语长短和连贯性 灵活性和适切性
+３
+分
+• 语 法 和 词 汇 有 错 误,且 有 时
+会影响交际
+• 表 达 过 程 中 词 汇 不 丰 富,语
+法结构较简单
+• 发音有缺陷,有时会影响交际
+• 发言简短
+• 组织思想 和 搜 寻 词 语 时 频 繁
+出现较 长 时 间 且 影 响 交 际 的 停
+顿,但能基本完成交际任务
+• 不能积极参与讨论
+• 有时不能适应话题或内 容
+的转换
+２
+分
+• 语 法 和 词 汇 有 相 当 多 的 错
+误,以致交际时常中断
+• 表达过程 中 因 缺 乏 词 汇 和 语
+法结构而严重影响交际
+• 发音较差
+• 发 言 简 短 且 毫 无 连 贯 性,基
+本不能进行交际 • 不能参与讨论
+１分 不描述 不描述 不描述
+２)计算机自动评分
+四级朗 读 任 务 采 用 计 算 机 自 动 评 分,基 于 准 确 性、流 利 度 和 完 整 性 三 项 标 准,满 分 为 ５
+分.评分标准描述如下:
+分数 标 准 描 述
+５分
+• 意群停顿恰当,语音、语调正确
+• 朗读流利,基本没有重复、自我更正
+• 内容完整
+４分
+• 有少量的意群停顿错误,语音、语调有一些错误,但未严重影响听者的理解
+• 朗读较流利,有少量重复、自我更正
+• 内容基本完整
+３分
+• 有较多意群停顿错误,语音、语调也有较多错误,且有时会影响听者的理解
+• 朗读不够流利,有较多停顿、重复、自我更正
+• 内容不够完整
+２分
+• 意群停顿完全混乱,语音、语调有大量错误,严重影响听者的理解
+• 朗读有大量停顿、重复、自我更正
+• 内容支离破碎
+１分 不描述
+５．分数解释及成绩报道
+５．１ 笔试
+５．１．１ 分数解释
+四、六级笔试是“标准相关―常模参照”的标准化考试.标准相关体现在试卷各部分的设
+[[PDF_PAGE 18]]
+１３
+考
+试
+系
+列
+介
+绍
+计和命题参照了«大学英语教学指南»规定的技能和要求.常模参照体现在考后各部分的原始
+分转换成报道分时分别参照各部分的常模.因此,考试既是标准相关又具有常模参照的性质.
+四、六级笔试的原始总分经过等值处理后参照总分常模转换成常模正态分,均值为５００、
+标准差为７０,报道总分在２２０分至７１０分之间.各部分报道分的相加之和等于报道总分.
+四、六级笔试成绩由三个单项分 和 总 分 构 成.单 项 分 依 次 为:听 力、阅 读、写 作 和 翻 译.
+考生的四级笔试成绩达到４２５分及以上,表明其语言能力已达到«大学英语教学指南»中“基
+础目标”所设定的教学要求;考 生 的 六 级 笔 试 成 绩 达 到 ４２５ 分 及 以 上,表 明 其 语 言 能 力 已 达
+到«大学英语教 学 指 南»中 “提 高 目 标”所 设 定 的 教 学 要 求. 考 试 委 员 会 在 其 官 网 (http://
+www．cet．edu．cn)公布了总分和各单项分的百分位对照表,每位考生均 可 在 其 所 考 级 别 的 常
+模中找到其成绩的百分位位置,即 在 其 所 考 级 别 的 常 模 群 体 中 所 处 的 相 对 位 置. 这 也 为 考
+试成绩使用者了解考生的相对能力水平提供了依据.
+５．１．２ 成绩报道
+四、六级笔试成绩总分达到２２０分及以上的考生将获得由教育部考试中心颁发的“全国
+大学英语四、六级考试成绩报告单”.
+考试委员会每次考试后向实施 考 试 的 各 个 院 校 提 供 该 校 考 生 的 成 绩(总 分 和 各 部 分 单
+项分)和有关该校的各种统计数据,以利于各院校的大学英语教学.
+５．２ 口语考试
+５．２．１ 能力等级描述
+四级和六级的口语考试难度不同,考核要求不同.两个级别的能力等级描述见下表.
+四级口试能力等级描述
+等级 等 级 描 述
+A
+能用英语就熟悉的话题进行交谈,基本没有困难.
+能就熟悉的话题连贯地发表意见和看法.
+能清晰、流利地叙述或描述一般性事件和现象.
+B
+能用英语就熟悉的话题进行交谈,虽有些困难,但不影响交际.
+能就熟悉的话题作较连贯的发言.
+能较清晰、流利地叙述或描述一般性事件和现象.
+C
+能用英语就熟悉的话题进行简单的交谈.
+能就熟悉的话题作简短的发言.
+能简单地叙述或描述一般性事件和现象.
+D 尚不具备英语口头交际能力.
+[[PDF_PAGE 19]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４
+六级口试能力等级描述
+等级 等 级 描 述
+A
+能用英语就一般性话题进行深入的交谈.
+能清晰、流利地表达个人意见、情感、观点等.
+能详细地陈述事实、理由和描述事件、现象等.
+B
+能用英语就一般性话题进行较深入的交谈.
+能较清晰、较连贯地表达个人意见、情感、观点等.
+能较详细地陈述事实、理由和描述事件、现象等.
+C
+能用英语就一般性话题进行简单的交谈.
+能基本表达个人意见、情感、观点等.
+能简单地陈述事实、理由和描述事件、现象等.
+D 尚不具备基本的英语口头交际能力.
+５．２．２ 成绩报道
+参加四级口语考试的考生将获 得 同 时 含 有 笔 试 成 绩 和 口 试 等 级 的“全 国 大 学 英 语 四 级
+考试成绩报告单”;参加六级口语 考 试 的 考 生 将 获 得 同 时 含 有 笔 试 成 绩 和 口 试 等 级 的“全 国
+大学英语六级考试成绩报告单”.
+[[PDF_PAGE 20]]
+１５
+词
+表
+词　　表􀪋
+􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋 􀪋
+说明
+本词表专为大学英语四、六级考试所 制 定.词 目 的 选 择 遵 循“以 定 量 分
+析为主,定性分析为 辅”的 原 则,参 考 了 «大 学 英 语 教 学 大 纲»(«大 学 英 语 教
+学大纲»修订工作组,１９９９)以及«大学英语课程教学要 求»(教 育 部 高 等 教 育
+司,２００７)所 附 词 表;还 参 照 了 CollinsCobuild,BYU CorpusofAmerican
+English 等词典及词库的词频统计,以及 AdvancedLearners􀆳Dictionaryof
+CurrentEnglish,LongmanDictionaryofContemporaryEnglish 等常用
+的学习型词典列出的词汇.
+随着社会的发展,近年来出现了大 量 新 生 词 汇.因 此,本 词 表 还 收 录 了
+少量出现频率较高的新词,如swipe,smartphone,podcast等.本词表还收录
+了１９８７年以来四、六级考试考核频率较高但未列入以前教学词表的词汇.
+本词 表 共 收 录 词 目 ５４１８ 个. 分 四 级 和 六 级 两 个 级 别,其 中 六 级 词 用
+★号标出.本词表只列词形,不列词性,不给释义,不注读音.
+词表中的同形异音异义词分列,如 minute,resume,lead,invalid等;同
+形异义词一般也予以分列,如just,mine,bound,patient等.
+有两种拼法的词并列,如adviser/advisor;既有英 式 又 有 美 式 拼 法 的 词
+原则上以 美 式 拼 法 为 主,如 labo(u)r,skeptical/sceptical,judg(e)ment,
+connection/connexion,special(i)ty.
+派生 词 原 则 上 不 单 列 (特 别 常 用 的 除 外). 如 列 了 serious,则 不 另 列
+seriously,seriousness.如果形式上是派生词,而实际上已不被看成派生词,则
+单独列出,如interesting,remarkable,really,advanced,proceedings等.
+[[PDF_PAGE 21]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６
+a/an
+abandon
+★ abbreviation
+★ abide
+able ability
+★ abnormal
+aboard
+abolish abolition
+★ abort abortion
+about
+above
+★ abreast
+abroad
+★ abrupt
+absent absence
+absolute
+absorb absorption
+abstract
+★ absurd absurdity
+abundant abundance
+abuse abusive
+academy academic academician
+accelerate acceleration
+accent
+accept acceptance acceptable
+access accessible
+★ accessory
+accident accidental
+★ acclaim
+accommodate accommodation
+accompany
+accomplish accomplishment
+accord
+accordance
+accordingto
+accordingly
+account accounting accountant accountancy
+accountable accountability
+accumulate accumulation accumulative
+accurate accuracy
+accuse accusation
+accustom accustomed
+[[PDF_PAGE 22]]
+１７
+词
+表
+ace
+ache
+achieve achievement
+acid acidity
+acknowledge acknowledgement
+acquaint acquaintance
+acquire acquisition
+acre
+across
+act action acting
+★ activate
+active activity activist
+actor actress
+actual actually
+★ acupuncture
+acute
+adapt adaptation adaptive
+add addition additional
+addict addiction addictive
+address
+adequate adequacy adequately
+★ adhere adherence
+★ adjacent
+adjective
+adjust adjustment
+administer/administrate administration administrative
+admire admiration admirable
+admit admission admittance admittedly
+★ adolescent adolescence
+adopt adoption
+★ adore adorable
+adult adulthood
+advance advancement advanced
+advantage advantageous
+★ advent
+adventure adventurer adventurous
+adverb
+★ adversary
+★ adverse adversity
+advertise advertisement/ad advertising
+advice
+advise advisor/Ｇer advisory advisable
+[[PDF_PAGE 23]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８
+advocate advocacy
+aerial
+★ aesthetic aesthetics
+affair
+affect
+affection affectionate
+★ affiliate affiliation
+★ affirm affirmation affirmative
+★ affix affixation
+affluent affluence
+afford affordable affordability
+★ afloat
+afraid
+after
+★ aftermath
+afternoon
+afterward(s)
+again
+against
+age aged ag(e)ing
+agenda
+agent agency
+★ aggravate aggravation
+★ aggregate
+aggressive aggression
+★ agitate agitation
+ago
+★ agony
+agree agreement agreeable
+agriculture agricultural
+ahead
+aid
+★ aide
+AIDS
+★ ail ailment
+aim
+air
+★ airborne
+airＧconditioning airＧconditioner
+aircraft
+airline
+airplane/aeroplane
+[[PDF_PAGE 24]]
+１９
+词
+表
+airport
+aisle
+★ akin
+alarm
+album
+alcohol alcoholic
+★ ale
+alert
+algebra
+★ alien alienate alienation
+★ align alignment
+alike
+alive
+all
+allege allegation alleged allegedly
+★ allergic allergy
+★ alleviate alleviation
+alley
+★ allocate allocation
+★ allot allotment
+allow
+allowance
+★ alloy
+★ allude allusion
+★ allure allurement
+ally alliance
+★ almighty
+almost
+★ aloft
+alone
+along
+alongside
+aloud
+alphabet alphabetic(al)
+already
+also
+alter alteration
+★ alternate alternation alternately
+alternative
+although
+altitude
+altogether
+[[PDF_PAGE 25]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２０
+alumin(i)um
+always
+am
+★ amass
+amateur
+amaze amazing amazement
+ambassador
+★ ambiguous ambiguity
+ambition ambitious
+ambulance
+★ amend amendment
+★ amiable
+amid(st)
+★ ammunition
+among(st)
+amount
+ample
+★ amplify amplification
+amuse amusing amusement
+★ analogue analogous
+★ analogy
+analyze/Ｇyse analysis analytic(al) analyst
+ancestor ancestry
+anchor anchorage
+ancient
+and
+★ anecdote anecdotal
+anew
+angel
+angle
+angry anger
+★ anguish
+animal
+★ animate animated animation
+ankle
+★ annex annexation
+anniversary
+announce announcement
+annoy annoyance
+annual
+★ anonymous anonymity
+another
+[[PDF_PAGE 26]]
+２１
+词
+表
+answer
+ant
+★ antagonism antagonist antagonistic antagonistically
+★ antenna
+★ antibiotic
+anticipate anticipation
+antique
+★ antonym
+anxious anxiety
+any
+anybody/anyone
+anyhow
+anything
+anyway
+anywhere
+apart
+apartment/apt．
+★ ape
+apology apologize/Ｇise apologetic
+app
+★ appal(l) appalling
+apparatus
+apparent apparently
+appeal appealing
+appear appearance
+★ appease appeasement
+★ appendix
+appetite
+applaud applause
+apple
+appliance
+apply application applicant applicable
+appoint appointment
+★ appraise appraisal
+appreciate appreciation appreciative
+★ apprentice
+approach
+appropriate
+１
+★ appropriate
+２
+appropriation
+approve approval
+approximate approximately approximation
+April
+[[PDF_PAGE 27]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２２
+★ apron
+★ apt aptly
+aptitude
+arbitrary arbitrarily
+★ arbitrate arbitration
+★ arc
+★ arch
+architect
+architecture
+★ archive
+★ ardent
+area
+★ arena
+argue argument argumentation argumentative arguable
+arise
+★ aristocrat aristocratic aristocracy
+arithmetic
+arm armament
+★ armo(u)r
+army
+around
+arouse arousal
+arrange arrangement
+★ array
+arrest
+arrive arrival
+★ arrogant arrogance
+arrow
+art artist artistic artistically
+★ artery
+article
+★ articulate articulation
+★ artifact
+artificial
+★ artillery
+as
+★ ascend ascendance
+★ ascertain
+★ ascribe
+ash
+ashamed
+ashore
+[[PDF_PAGE 28]]
+２３
+词
+表
+aside
+ask
+asleep
+aspect
+★ aspire aspiration
+ass
+★ assassinate assassination assassin
+★ assault
+assemble assembly
+★ assert assertion assertive
+assess assessment
+asset
+assign assignment
+★ assimilate assimilation
+assist assistance assistant
+associate association
+★ assorted
+★ assortment
+assume assumption
+assure assurance
+astonish astonishment
+★ astray
+astronaut
+astronomy astronomer astronomical
+★ asylum
+at
+athlete athletic
+★ atlas
+atmosphere atmospheric
+atom atomic
+atop
+★ atrocity atrocious
+attach attachment
+attack
+attain attainment
+attempt
+attend attendance attendant
+attention attentive
+attic
+attitude
+attorney
+attract attraction attractive
+[[PDF_PAGE 29]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２４
+attribute attributable attributive
+★ auction auctioneer
+audience
+audio
+★ audit auditing auditor
+auditorium
+★ augment augmentation
+August
+aunt auntie
+authentic authenticity
+author
+authority authoritative
+authorize/Ｇise authorization/Ｇsation
+auto(mobile)
+★ autobiography autobiographic(al)
+automate automation automatic automatically
+★ autonomous autonomy
+autumn
+★ auxiliary
+★ avail
+available availability
+★ avenge
+avenue
+average
+★ avert aversion
+aviation
+avoid avoidance
+await
+awake
+award
+aware awareness
+away
+awe
+awesome
+awful
+awkward
+ax(e)
+axis
+baby
+babyboom babyboomer
+bachelor
+back
+[[PDF_PAGE 30]]
+２５
+词
+表
+background
+backup
+backward backwards
+backyard
+bacon
+bacteria
+bad
+badge
+badly
+badminton
+★ baffle
+bag
+baggage
+bail
+bait
+bake bakery
+balance
+balcony
+★ bald
+ball
+ballet
+balloon
+ballot
+bamboo
+ban
+banana
+band
+bandage
+bang
+bank
+１
+banking banker
+bank
+２
+banknote
+bankrupt bankruptcy
+banner
+banquet
+bar
+barbecue/BBQ
+barber
+bare barely
+bargain
+★ barge
+bark
+[[PDF_PAGE 31]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２６
+★ barn
+★ barometer
+★ barracks
+barrel
+★ barren
+barrier
+base
+baseball
+basement
+basic basically
+basin
+basis
+basket
+basketball
+★ bass
+bat
+batch
+bath
+bathe
+bathroom
+battalion
+★ batter
+battery
+battle
+bay
+be
+beach
+★ bead
+★ beak
+beam
+bean
+bear
+beard
+bearing
+beast
+beat
+beauty beautiful beautify
+because
+★ beckon
+become
+bed bedding
+bee
+[[PDF_PAGE 32]]
+２７
+词
+表
+beef
+beer
+★ beetle
+before
+beforehand
+beg beggar
+begin beginning
+behalf
+behave behavio(u)r behavio(u)ral
+behind
+being
+belief
+believe
+bell
+belly
+belong belongings
+beloved
+below
+belt
+bench
+bend
+beneath
+benefit beneficial beneficiary
+★ benevolent benevolence
+★ benign
+berry
+★ beset
+beside
+besides
+★ besiege
+best
+bestＧseller bestＧselling
+bet
+betray betrayal
+better
+between
+beverage
+★ beware
+★ bewilder bewilderment
+beyond
+bias
+Bible Biblical/biblical
+[[PDF_PAGE 33]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２８
+★ bibliography
+bicycle/bike
+bid
+big
+★ bilateral
+bill
+billion billionaire
+bin
+bind
+★ binoculars
+biochemistry biochemical biochemist
+biography biographical biographer
+biology biological biologist
+biotechnology
+bird
+birth
+birthday
+biscuit
+★ bishop
+bit
+bitch
+bite
+bitter
+★ bizarre
+black
+blackboard
+★ blackmail
+blade
+blame
+blank
+blanket
+blast
+★ blaze
+★ bleach
+★ bleak
+bleed
+blend
+bless blessing
+blind
+★ blink
+★ bloc
+block
+[[PDF_PAGE 34]]
+２９
+词
+表
+blog
+blond(e)
+blood bloody
+bloom
+blossom
+blouse
+blow
+blue
+blueprint
+★ bluff
+★ blunder
+★ blunt
+blur
+★ blush
+board
+boast boastful
+boat
+body bodily
+boil boiler
+bold
+★ bolster
+bolt
+bomb
+bond bondage
+bone bony
+bonus
+book
+boom
+boost
+boot
+booth
+border
+bore
+１
+boring
+bore
+２
+born
+borrow
+boss
+★ botany botanical
+both
+bother
+bottle
+bottom
+[[PDF_PAGE 35]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+３０
+bounce
+bound
+１
+bound
+２
+bound
+３
+boundary
+★ bouquet
+★ bout
+bow
+１
+bow
+２
+bowel
+bowl
+box
+１
+box
+２
+boxing
+boy
+★ boycott
+★ brace
+bracket
+brag
+brain
+brake
+branch
+brand
+brandＧnew
+brandy
+brass
+brave bravery
+★ breach
+bread
+break
+breakdown
+breakfast
+breakthrough
+breast
+breath
+breathe
+breed
+breeze
+★ brew brewery
+bribe bribery
+brick
+bride
+[[PDF_PAGE 36]]
+３１
+词
+表
+bridegroom
+bridge
+brief briefing
+briefcase
+★ brigade
+bright brighten
+brilliant brilliance
+bring
+★ brink
+★ brisk
+broad broaden breadth
+broadcast
+brochure
+broke
+broker
+★ bronze
+★ brood
+broom
+brother
+brow
+brown
+browse browser
+★ bruise
+brunch
+brush
+brutal brutality
+bubble
+buck
+bucket
+buckle
+bud
+buddy
+★ Buddhism Buddhist
+budget budgetary
+★ buffalo
+★ buffer
+buffet
+bug
+build building
+bulb
+bulk bulky
+bull
+[[PDF_PAGE 37]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+３２
+bullet
+bulletin
+bully
+bump
+bumper
+bunch
+bundle
+burden
+bureau
+★ bureaucrat bureaucratic bureaucracy
+★ burglar burglary
+burn
+burst
+bury burial
+bus
+bush bushy
+business
+businessman
+★ bust
+busy
+but
+butcher
+★ butt
+butter
+butterfly
+button
+buy buyer
+★ buzz
+by
+bypass
+bystander
+cab
+cabbage
+cabin
+cabinet
+cable
+cafe
+cafeteria
+cage
+cake
+★ calcium
+calculate calculation calculator calculating
+[[PDF_PAGE 38]]
+３３
+词
+表
+calendar
+calf
+call
+calling
+calm
+calorie
+camel
+camera
+camp
+campaign
+campus
+can
+１
+can
+２
+canal
+cancel cancellation
+cancer
+candidate candidacy
+candle
+candy
+cane
+★ cannon
+★ canoe
+canteen
+★ canvas
+cap
+capable capability
+capacity
+★ cape
+capital capitalist capitalism
+★ capsule
+captain
+★ caption
+★ captive
+capture
+car
+★ caravan
+★ carbohydrate
+carbon
+card
+cardboard
+★ cardinal
+care careful careless
+[[PDF_PAGE 39]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+３４
+career
+cargo
+carpenter
+carpet
+carriage
+carrier
+carrot
+carry
+cart
+★ carton
+cartoon cartoonist
+★ carve carving
+case
+cash
+cashier
+★ casino
+cast
+castle
+casual
+★ casualty
+cat
+catalog(ue)
+★ catastrophe catastrophic
+catch
+category
+cater
+★ cathedral
+★ Catholic
+cattle
+★ cauliflower
+cause
+caution cautious
+cave
+★ cavity
+cease
+ceiling
+celebrate celebration
+★ celebrity
+cell
+cellar
+cellＧphone
+Celsius/Ｇcius
+[[PDF_PAGE 40]]
+３５
+词
+表
+cement
+★ cemetery
+★ censor censorship
+★ census
+cent
+center/Ｇtre central centralize/Ｇise
+centigrade
+centimeter/Ｇtre
+century
+★ ceramic
+cereal
+ceremony ceremonial
+certain certainly certainty
+certificate
+★ certify certification
+chain
+chair
+chairman/chairperson
+chalk
+challenge challenging
+★ chamber
+champagne
+champion championship
+chance
+★ chancellor
+change
+channel
+★ chant
+chaos chaotic
+★ chapel
+chapter
+character characteristic characterize/Ｇise
+charge
+charity charitable
+charm charming
+chart
+charter
+chase
+chat
+cheap
+cheat
+check
+１
+[[PDF_PAGE 41]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+３６
+check
+２/cheque
+cheek
+cheer cheerful
+cheese
+chef
+chemistry chemical chemist
+cherish
+chess
+chest
+chew
+chicken
+chief
+child childish
+chill chilly
+chimney
+chin
+china
+chip
+chocolate
+choice
+★ choir
+choke
+cholesterol
+choose choosy
+chop
+chopstick
+★ chord
+chore
+chorus
+Christ Christmas Christian Christianity
+★ chronic chronically
+★ chronicle
+★ chunk
+church
+cigar
+cigaret(te)
+cinema
+circle circular
+circuit
+circulate circulation
+circumstance
+circus
+[[PDF_PAGE 42]]
+３７
+词
+表
+cite citation
+citizen citizenship
+city
+★ civic
+civil civilize/Ｇise civilization/Ｇsation
+civilian
+claim
+★ clamp
+★ clan
+clap
+clarity clarify clarification
+clash
+★ clasp
+class
+classic classical
+classify classification classified
+classmate
+classroom
+clause
+claw
+clay
+clean
+★ cleanse
+clear clearly
+★ clearance
+clearＧcut
+★ clearing
+★ clench
+★ clergy
+clerk clerical
+clever
+★ cliché
+click
+client
+cliff
+climate climatic
+climax
+climb
+cling
+clinic clinical
+clip
+★ cloak
+[[PDF_PAGE 43]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+３８
+clock
+clockwise
+★ clog
+clone
+close
+★ closet
+cloth
+clothe clothing
+clothes
+cloud cloudy
+clown
+club
+clue
+clumsy
+★ cluster
+★ clutch
+coach
+coal
+★ coalition
+coarse
+coast coastal
+coat
+★ cocaine
+cock
+★ cockpit
+★ cocktail
+★ coconut
+code
+★ coexist coexistence
+coffee
+★ cognitive cognition
+coherent coherence
+cohesion cohesive
+coil
+coin coinage
+★ coincide coincidence
+cold
+collaborate collaboration collaborative
+collapse
+collar
+colleague
+collect collection
+[[PDF_PAGE 44]]
+３９
+词
+表
+collective
+college
+★ collide collision
+colon semiＧcolon
+★ colonel
+colony colonial colonialism colonize/Ｇise
+colo(u)r colo(u)rful
+column columnist
+comb
+combat combative
+combine combination
+come
+comedy
+★ comet
+comfort comfortable
+★ comic
+comma
+command commander
+★ commemorate commemoration
+commence commencement
+★ commend commendation
+comment commentary commentator
+commerce commercial commercialize/Ｇise
+commission
+commit commitment
+committee
+commodity
+common
+commonplace
+★ commonwealth
+communicate communication communicative
+commune communist communism
+community
+commute commuter
+compact
+companion companionship
+company
+compare comparison comparative comparable
+★ compartment
+compass
+★ compassion compassionate
+compatible compatibility
+[[PDF_PAGE 45]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４０
+compel compelling
+compensate compensation compensatory
+compete competition competitive competitor
+competent competence
+★ compile compilation
+★ complacent complacency
+complain complaint
+★ complement complementary
+complete completion
+complex complexity
+★ complexion
+complicate complicated complication
+★ compliment complimentary
+comply compliance
+component
+compose composition composer
+★ composite
+compound
+１
+compound
+２
+comprehend comprehension
+comprehensive
+★ compress compression
+comprise
+compromise
+compulsory
+compute computer computerize/Ｇise computation
+comrade
+conceal concealment
+★ concede concession
+★ conceit conceited
+★ conceive conception
+concentrate concentration
+concept conceptual
+concern concerned concerning
+concert concerted
+★ concise
+conclude conclusion conclusive
+concrete
+★ concurrent
+condemn condemnation
+condense condensation
+condition conditional conditioner
+[[PDF_PAGE 46]]
+４１
+词
+表
+★ condolence
+★ conducive
+conduct conductor
+★ confederation confederate
+★ confer
+conference
+confess confession
+★ confide
+confidence confident confidential
+★ configuration
+confine confinement
+confirm confirmation
+conflict
+conform conformity
+confront confrontation
+Confucian Confucianism
+confuse confusion
+congratulate congratulation congratulatory
+★ congregate congregation
+congress congressional
+conjunction
+connect connection/Ｇxion
+★ connotation
+conquer conqueror conquest
+conscience
+conscientious
+conscious consciousness
+★ consecutive
+consensus
+consent
+consequence consequent consequently
+conservative
+★ conserve conservation
+consider consideration considering
+considerable
+considerate
+consist
+consistent consistency
+★ console consolation
+consolidate consolidation
+★ conspicuous
+★ conspire conspiracy
+[[PDF_PAGE 47]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４２
+constant
+★ constituent constituency
+constitute
+constitution constitutional
+★ constrain constraint
+construct construction
+★ consulate consul
+consult consultation consultative consultant
+consume consumer consumption
+contact
+★ contagious
+contain container containment
+contaminate contamination
+★ contemplate contemplation contemplative
+contemporary
+contempt contemptible
+contend contention contentious
+content
+１
+content
+２
+contented
+contest contestant
+context contextual
+continent continental
+★ contingent
+continue continuation continual continuous continuity
+contract
+１
+contractor
+contract
+２
+contraction
+contradict contradiction contradictory
+contrary
+contrast
+contribute contribution contributor
+★ contrive
+control
+controversy controversial
+★ convene
+convenient convenience
+convention conventional
+★ converge convergence
+converse
+１
+conversation
+★ converse
+２
+convert conversion convertible
+convey conveyance
+★ convict conviction
+[[PDF_PAGE 48]]
+４３
+词
+表
+convince convincing
+★ convoy
+cook cooker
+cookie
+cool
+cooperate cooperation cooperative
+coordinate coordination coordinator
+cop
+cope
+copper
+copy
+copyright
+★ coral
+cord
+★ cordial cordiality
+core
+★ cork
+corn
+corner
+cornerstone
+★ corporal
+corporation corporate
+corps
+★ corpse
+correct correction corrective
+★ correlate correlation correlative
+correspond correspondence correspondent corresponding
+corridor
+★ corrode corrosion
+corrupt corruption
+★ cosmetic
+★ cosmopolitan
+cosmos cosmic
+cost costly
+costume
+cottage
+cotton
+couch
+cough
+could
+council council(l)or
+counsel counsel(l)or
+[[PDF_PAGE 49]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４４
+count
+countdown
+counter
+★ counteract counteraction
+★ counterfeit
+counterpart
+country
+countryside
+county
+★ coup (d􀆳état)
+couple
+coupon
+courage courageous
+course
+court
+１
+court
+２
+★ courtesy
+courtyard
+cousin
+cover coverage
+cow
+coward cowardly cowardice
+cowboy
+★ cozy/Ｇsy
+crab
+crack
+★ crackdown
+cracker
+★ cradle
+craft
+★ cram
+crane
+crash
+★ crate
+★ crave
+crawl
+crazy craze
+cream creamy
+create creation creative creator
+creature
+★ credential
+★ credible credibility
+[[PDF_PAGE 50]]
+４５
+词
+表
+credit creditable
+creep
+crew
+★ cricket
+crime criminal
+★ cripple
+crisis
+★ crisp
+criterion
+criticize/Ｇise criticism critic critical
+crocodile
+crop
+cross crossing
+★ crouch
+★ crow
+crowd crowded
+crown
+crucial
+★ crude
+cruel cruelty
+cruise cruiser
+★ crumble
+★ crunch
+crush
+★ crust
+cry
+crystal
+★ cub
+cube cubic
+cucumber
+cue
+★ cuisine
+★ culminate culmination
+★ cult
+cultivate cultivation
+culture cultural
+★ cumulative
+★ cunning
+cup
+cupboard
+curb
+cure curable
+[[PDF_PAGE 51]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４６
+★ curfew
+curious curiosity
+curl
+currency
+current currently
+curriculum
+curse
+★ curtail
+curtain
+curve
+cushion
+★ custody
+custom customary
+customer
+customs
+cut
+cute
+cyberspace
+cycle cycling cyclist
+★ cylinder
+★ cynical cynicism
+dad(dy)
+daily
+dairy
+dam
+damage
+damn
+damp dampen
+dance
+danger dangerous
+dare daring
+dark darkness darken
+darling
+★ dart
+dash
+data datum
+database
+date
+１
+dating
+date
+２
+daughter
+dawn
+day daily
+[[PDF_PAGE 52]]
+４７
+词
+表
+daylight
+★ dazzle
+dead
+deadline
+★ deadlock
+deadly
+deaf
+deal
+１
+dealer dealing
+deal
+２
+dean
+dear
+death
+debate
+★ debris
+debt debtor
+★ debut
+decade
+decay
+deceive deceit deception deceptive
+December
+decent
+decide decision decisive
+★ decimal
+deck
+declare declaration declarative
+decline
+decorate decoration decorative
+decrease
+★ decree
+★ dedicate dedication
+★ deduce deducible
+★ deduct deduction deductive deductible
+deed
+deem
+deep deeply depth
+deer
+★ default
+defeat
+defect
+１
+defective
+defect
+２
+defection
+defend defense/Ｇce defensive defendant
+★ defer
+[[PDF_PAGE 53]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+４８
+deficient deficiency
+deficit
+define definition
+definite definitely
+defy defiance defiant
+★ degenerate degeneration
+★ degrade degradation
+degree
+delay
+delegate delegation
+delete deletion
+deliberate deliberation
+★ delicacy
+delicate
+delicious
+delight delightful
+deliver delivery
+★ delude delusion
+demand demanding
+democracy democratic democrat
+★ demographic
+demonstrate demonstration/demo demonstrative
+★ denote denotation
+★ denounce denunciation
+dense density
+dent
+dental
+dentist
+deny denial
+depart departure
+department
+depend dependent dependence dependable
+★ depict depiction
+★ deplete depletion
+★ deplore
+★ deploy deployment
+★ deport deportation
+deposit
+★ depot
+★ depreciate depreciation
+depress depression
+deprive deprivation
+[[PDF_PAGE 54]]
+４９
+词
+表
+depth
+deputy
+★ derail derailment
+★ deregulate deregulation
+derive derivative derivation
+descend descent descendant
+describe description descriptive
+desert
+１
+desert
+２
+desertion
+deserve
+design designer
+★ designate designation
+desire desirable desirability desirous
+desk
+desktop
+★ desolate
+despair desperate
+despatch
+★ despise
+despite
+dessert
+destination
+★ destiny destined
+destroy destruction destructive
+★ detach detached detachment
+detail detailed
+★ detain detention
+detect detection detective
+★ deter deterrent
+★ detergent
+deteriorate deterioration
+determine determination determined
+★ detriment detrimental
+★ devastate devastating devastation
+develop development developmental developer
+★ deviate deviation
+device
+devil
+devise
+devote devotion
+★ devour
+dew
+[[PDF_PAGE 55]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+５０
+diabetes
+diagnose diagnosis
+diagram
+dial
+dialect
+dialog(ue)
+diameter
+diamond
+diary
+dictate dictation dictator
+dictionary
+die dying
+★ diesel
+diet dietary
+differ difference different
+★ differentiate differentiation
+difficult difficulty
+★ diffuse diffusion
+dig
+digest digestion digestive
+digit digital
+dignity dignify
+dilemma
+diligent diligence
+★ dilute dilution
+dim
+dime
+dimension dimensional
+★ diminish
+dine diner
+dinner
+★ dinosaur
+dioxide
+dip
+diploma
+diplomat diplomatic diplomacy
+direct direction director
+★ directory
+dirt dirty
+disable disabled disability
+disagree disagreement
+disappear disappearance
+[[PDF_PAGE 56]]
+５１
+词
+表
+disappoint disappointment disappointing
+disapprove disapproval
+★ disarm disarmament
+disaster disastrous
+discard
+★ discern
+discharge
+discipline disciplined disciplinary
+★ disclose disclosure
+disco
+★ discord
+discount
+discourage
+★ discourse
+discover discovery
+★ discreet
+★ discrepancy
+discriminate discrimination discriminatory
+discuss discussion
+disease
+disguise
+disgust disgusting
+dish
+disintegrate disintegration
+disk/disc
+dislike
+★ dismantle
+★ dismay
+dismiss dismissal
+disorder
+★ dispatch/despatch
+★ dispense
+★ disperse
+★ displace displacement
+display
+dispose disposal
+★ disposition
+dispute disputable
+★ disregard
+disrupt disruptive disruption
+★ dissent
+★ dissertation
+[[PDF_PAGE 57]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+５２
+★ dissident
+dissolve
+distance distant
+★ distil(l)
+distinct distinction distinctive
+distinguish distinguishable
+★ distort distortion
+distract distraction
+distress distressful
+distribute distribution distributive
+district
+disturb disturbance
+ditch
+dive
+diverse diversify diversity
+★ divert diversion
+divide division divisive
+★ dividend
+★ divine
+divorce
+dizzy
+do
+dock
+doctor doctorate doctoral
+★ doctrine
+document documentary
+★ dodge
+dog
+★ dogma
+★ dole
+doll
+dollar
+dolphin
+★ domain
+★ dome
+domestic
+dominate domination dominance dominant
+donate donation donor
+donkey
+doom
+door
+dormitory/dorm
+[[PDF_PAGE 58]]
+５３
+词
+表
+dose dosage
+dot
+double
+doubt doubtful doubtless
+★ dough
+dove
+down
+★ downgrade
+download
+downstairs
+downtown
+downward downwards
+★ doze
+dozen
+draft
+drag
+dragon
+drain drainage
+drama dramatic dramatically
+drastic drastically
+draw drawing
+★ drawback
+drawer
+★ dread dreadful
+dream dreamy
+dress
+★ dressing
+drift
+drill
+drink
+drip
+drive driver
+drop
+dropout
+drought
+drown
+drug
+drum
+drunk drunken drunkard
+dry dryer
+dual
+★ dub
+[[PDF_PAGE 59]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+５４
+★ dubious
+duck
+due duly
+dull
+dumb
+dump
+★ duplicate duplication
+durable durability
+duration
+during
+dusk
+dust dusty
+duty
+★ dwarf
+★ dwell dweller dwelling
+dye
+dynamic dynamics
+dynasty
+each
+eager
+eagle
+ear
+early
+earn earnings
+earnest
+earth
+earthquake
+ease
+east eastern
+★ Easter
+easy easily
+easyＧgoing
+eat
+★ eccentric
+echo
+★ eclipse
+ecology ecological
+economics economist
+economy economic economical
+★ ecosystem
+edge
+★ edible
+[[PDF_PAGE 60]]
+５５
+词
+表
+edit editor edition
+editorial
+educate education educational educator
+effect effective
+efficient efficiency
+effort
+egg
+eggplant
+★ ego egoism egoist
+eight
+eighteen
+eighth
+eighty
+either
+★ eject ejection
+★ elaborate elaboration
+★ elapse
+★ elastic elasticity
+elbow
+elder elderly
+elect election elective
+★ electoral electorate
+electricity electric(al) electrician
+electron electronic electronically electronics
+elegant elegance
+element
+elementary
+elephant
+elevate elevation elevator
+eleven
+★ elicit
+★ eligible eligibility
+eliminate elimination
+elite
+★ eloquent eloquence
+else
+elsewhere
+email
+★ emancipate emancipation
+★ embargo
+★ embark
+embarrass embarrassment
+[[PDF_PAGE 61]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+５６
+embassy
+★ embed
+★ embody embodiment
+embrace
+★ embroidery
+emerge emergence
+emergency
+★ emigrate emigration emigrant
+★ eminent eminence
+emit emission
+emotion emotional
+emperor empress
+emphasis emphasize/Ｇise emphatic
+empire
+★ empirical
+employ employment employer employee
+empty emptiness
+★ emulate emulation
+enable
+★ enact enactment
+★ enclose enclosure
+encounter
+encourage encouragement encouraging
+★ encyclop(a)edia
+end ending endless
+endanger
+★ endeavo(u)r
+★ endorse endorsement
+★ endow endowment
+endure endurance
+enemy
+energy energetic energetically
+enforce enforcement
+engage engagement
+engine
+engineer engineering
+enhance enhancement
+enjoy enjoyable enjoyment
+enlarge
+enlighten enlightenment enlightening
+★ enlist
+enormous
+[[PDF_PAGE 62]]
+５７
+词
+表
+enough
+enquire enquiry
+enrich
+enrol(l) enrol(l)ment
+★ ensue
+ensure
+★ entail
+enter entrance entry
+enterprise enterprising
+entertain entertainment entertaining
+enthusiasm enthusiastic enthusiastically enthusiast
+entire entirety
+entitle
+★ entity
+entrepreneur entrepreneurial
+★ entrust
+★ envelop
+envelope
+environment environmental environmentalist
+★ envisage
+★ envoy
+envy envious
+★ epic
+★ epidemic
+episode
+★ epoch
+equal equally equality
+★ equate equation
+★ equator
+equip equipment
+★ equity equitable
+equivalent equivalence
+era
+★ eradicate eradication
+erase eraser
+★ erect erection
+★ erode erosion erosive
+err error erroneous
+★ errand
+★ erupt eruption
+★ escalate escalation escalator
+escape
+[[PDF_PAGE 63]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+５８
+★ escort
+especially
+essay essayist
+essence essential
+establish establishment
+estate
+★ esteem
+★ esthetic/aesthetic esthetics/aesthetics
+estimate estimation
+eternal eternity
+ethic ethics
+ethnic
+★ etiquette
+euro
+★ evacuate evacuation
+★ evade evasive evasion
+evaluate evaluation
+★ evaporate evaporation
+eve
+even evenly
+evening
+event eventful
+eventually eventual eventuality
+ever
+every
+everybody
+everyday
+everyone
+everything
+everywhere
+evident evidence
+evil
+★ evoke
+evolve evolution evolutionary
+exact
+exaggerate exaggeration
+examine exam(ination) examiner examinee
+example exemplary exemplify
+exceed exceedingly
+excel
+excellent excellence
+except
+[[PDF_PAGE 64]]
+５９
+词
+表
+exception exceptional
+★ excerpt
+excess excessive
+exchange
+excite exciting excitement
+exclaim exclamation exclamatory
+exclude exclusion exclusive
+excursion
+excuse
+execute execution executive
+★ exempt exemption
+exercise
+exert exertion
+exhaust exhaustion exhaustive
+exhibit exhibition
+exile
+exist existence existent existing
+exit
+★ exotic
+expand expansion expansive
+expect expectation expectancy
+★ expedition
+expel
+expend expenditure
+expense expensive
+experience experienced
+experiment experimental
+expert
+expertise
+★ expire expiration
+explain explanation explanatory
+explicit
+explode explosion explosive
+exploit exploitation
+explore exploration
+★ exponent
+export exportation
+expose exposure
+★ exposition
+express expression expressive
+expressway
+★ exquisite
+[[PDF_PAGE 65]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６０
+extend extension extensive extended
+extent
+exterior
+external
+★ extinct extinction
+extinguish
+extra
+★ extract extraction
+extraordinary
+★ extravagant extravagance
+extreme extremity
+eye
+eyebrow
+eyesight
+fable
+fabric
+★ fabricate fabrication
+★ fabulous
+face facial
+★ facet
+facility facilitate facilitation
+fact factual
+★ faction
+factor
+factory
+faculty
+fade
+fail failure
+faint
+fair
+１
+fairly
+fair
+２
+fairy
+faith faithful
+fake
+fall
+１
+fall
+２
+false falsehood
+fame famous
+familiar familiarity familiarize/Ｇise
+family
+famine
+fan
+[[PDF_PAGE 66]]
+６１
+词
+表
+fancy
+fantasy fantastic
+far
+fare
+farewell
+farm farmer farming
+farther
+fascinate fascinating fascination
+★ fascist fascism
+fashion fashionable
+fast
+fasten
+fat
+fatal fatality
+fate
+father fatherly
+fatigue
+fault faulty
+favo(u)r favo(u)rable favo(u)rite
+fax
+fear fearful
+feasible feasibility
+★ feast
+★ feat
+feather
+feature
+February
+federal
+federation
+fee
+★ feeble
+feed
+feedback
+feel feeling
+fellow fellowship
+female
+★ feminine feminism feminist
+fence
+ferry
+fertile fertility fertilizer/Ｇiser
+festival
+fetch
+[[PDF_PAGE 67]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６２
+fever feverish
+few
+fiber/Ｇbre
+fiction fictional
+field
+fierce
+fifteen
+fifth
+fifty
+fight
+figure figurative
+file
+fill filling
+film
+filter
+final finally finalize/Ｇise
+finance financial
+find finding
+fine
+１
+fine
+２
+finger
+fingerprint
+finish
+★ finite
+fire
+fireman
+fireplace
+fireworks
+firm
+１
+firm
+２
+first firstly
+★ fiscal
+fish fishing fisherman
+fist
+fit
+five
+fix fixed fixture fixation
+flag
+flame
+★ flank
+★ flap
+★ flare
+[[PDF_PAGE 68]]
+６３
+词
+表
+flash
+flat
+１
+flat
+２
+★ flatter flattery
+flavo(u)r
+flaw flawless
+flee
+fleet
+flesh
+flexible flexibility
+★ fling
+★ flip
+★ flirt flirtation
+float
+flock
+flood
+floor
+flour
+flourish
+flow
+flower
+fluctuate fluctuation
+fluent fluency
+fluid
+★ flush
+★ flutter
+fly
+１
+flight
+fly
+２
+★ foam
+focus
+★ foe
+fog foggy
+★ foil
+fold
+folk
+★ folklore
+follow following
+fond
+food
+fool foolish
+foot
+football
+[[PDF_PAGE 69]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６４
+footprint
+for
+forbid
+force forceful
+forecast
+forehead
+foreign foreigner
+foremost
+foresee foreseeable
+foresight
+forest forestry
+★ foretell
+forever
+★ forfeit
+forge forgery
+forget forgetful forgettable
+forgive forgiving
+fork
+form formation
+formal formality
+format
+former
+★ formidable
+formula
+formulate formulation
+★ fort
+forth
+forthcoming
+★ fortify fortification
+★ fortnight
+fortune fortunate
+forty
+forum
+forward
+fossil
+★ foster
+★ foul
+found founding founder
+foundation
+fountain
+four
+fourteen
+[[PDF_PAGE 70]]
+６５
+词
+表
+fox
+fraction
+★ fracture
+★ fragile fragility
+fragment fragmentation fragmentary
+★ fragrant fragrance
+frame
+framework
+★ franchise
+frank
+★ frantic frantically
+★ fraud fraudulent
+free freedom
+freeway
+freeze
+freight
+frequent frequency
+fresh
+freshman
+★ friction
+Friday
+friend friendly friendship
+fright frighten
+★ fringe
+frog
+from
+front
+frontier
+frost frosty
+★ frown
+fruit fruitful
+frustrate frustration frustrating
+fry
+fuck
+fuel
+fulfil(l) fulfil(l)ment
+full
+fun funny
+function functional
+fund funding
+fundamental
+funeral
+[[PDF_PAGE 71]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６６
+fur
+furnace
+furnish
+furniture
+further
+furthermore
+★ fury furious
+★ fuse
+★ fusion
+fuss
+★ futile futility
+future
+gadget gadgetry
+gain
+★ galaxy
+gallery
+gallon
+gamble
+game
+gang gangster
+gaol
+gap
+garage
+garbage
+garden gardener gardening
+★ garlic
+garment
+gas
+gasoline/petrol
+★ gasp
+gate
+gather gathering
+★ gauge
+gay
+gaze
+gear
+gender
+gene genetic genetically
+general generally generalize/Ｇise
+generate generator
+generation
+generous generosity
+[[PDF_PAGE 72]]
+６７
+词
+表
+genius
+★ genre
+gentle
+gentleman
+genuine
+geography geographic geographically
+geology geological geologically
+geometry geometric geometrically
+germ
+gesture
+get
+ghost
+giant gigantic
+gift gifted
+★ giggle
+girl
+give
+given
+★ glacier
+glad
+★ glamo(u)r glamo(u)rous
+glance
+★ gland
+★ glare
+glass
+★ gleam
+★ glide glider
+glimpse
+★ glitter
+globe global globalize/Ｇise
+gloom gloomy
+glory glorious
+★ glossary
+glove
+glow
+glue
+go
+goal
+goat
+god
+gold golden
+golf
+[[PDF_PAGE 73]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+６８
+good
+goodbye
+goodness
+goods
+goose
+★ gorge
+gorgeous
+★ gospel
+gossip
+govern government governor
+gown
+grab
+grace graceful gracious
+grade
+gradual gradually
+graduate graduation
+grain
+gram(me)
+grammar grammatical
+grand
+grandchild grandchildren grandson granddaughter
+grandparent grandfather grandmother
+grant granted
+grape
+graph graphic graphically
+grasp
+grass grassy
+grateful
+gratitude
+grave
+gravitation
+gravity
+gray/grey
+★ graze
+★ grease greasy
+great
+★ greed greedy
+green
+greenhouse
+greet greeting
+★ grid
+grief grieve grievous
+[[PDF_PAGE 74]]
+６９
+词
+表
+★ grill
+★ grim
+grin
+grind
+grip
+★ groan
+grocer grocery
+★ groove
+★ grope
+gross
+ground
+group
+grow growth
+guarantee
+guard guardian
+guess
+guest
+guide guidance
+guideline
+guilt guilty
+guitar guitarist
+gulf
+gum
+gun
+gut
+guy
+gym(nasium)
+habit habitual
+habitat
+hack
+１
+hacker
+hack
+２
+hail
+１
+hail
+２
+hair hairy
+half
+halfway
+hall
+halt
+ham
+hamburger/burger
+hammer
+★ hamper
+[[PDF_PAGE 75]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+７０
+hand handful
+handbook
+handicap handicapped
+★ handicraft
+handle
+handsome
+handwriting
+handy
+hang
+happen
+happy happiness happily
+★ harass harassment
+harbo(u)r
+hard harden
+hardly
+hardship
+hardware
+★ hardy
+harm harmful harmless
+harmony harmonious
+harness
+harsh
+harvest
+haste hasty hasten
+hat
+hatch
+hate hatred hateful
+haul
+haunt
+have
+★ haven
+★ havoc
+★ hawk
+hay
+hazard hazardous
+haze hazy
+he
+head
+headache
+heading
+headline
+headmaster headmistress
+[[PDF_PAGE 76]]
+７１
+词
+表
+headquarters
+heal
+health healthy healthful
+heap
+hear hearing
+heart hearty
+heartfelt
+heat heated heating
+★ heave
+heaven
+heavy
+hectare
+★ hectic
+hedge
+heel
+height heighten
+heir heiress
+helicopter
+hell
+hello
+★ helmet
+help helpful helpless helplessly
+★ hemisphere
+hen
+hence
+★ henceforth
+her
+★ herald
+★ herb herbal
+herd
+here
+hereby
+heritage
+hero/heroine heroic heroism
+★ heroin
+hers
+herself
+hesitate hesitation hesitant
+hi
+★ hibernate hibernation
+hide hiding
+★ hierarchy hierarchical
+[[PDF_PAGE 77]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+７２
+high highly
+highlight
+highＧtech
+highway
+hijack
+★ hike
+hill hilly
+him
+himself
+hinder hindrance
+★ hinge
+hint
+hip
+hire
+his
+history historic historical historian
+hit
+★ hitherto
+★ hive
+hobby
+★ hockey
+★ hoist
+hold
+hole
+holiday
+hollow
+holy holiness
+home homeless homely
+homeland
+homework
+★ homogeneous
+homosexual/homo
+honest honesty
+honey
+honeymoon
+hono(u)r hono(u)rable hono(u)rary
+hook
+★ hop
+hope hopeful hopeless
+horizon horizontal
+horn
+horror horrible horrify
+[[PDF_PAGE 78]]
+７３
+词
+表
+horse
+horsepower
+★ hose
+hospital hospitalize
+hospitable hospitality
+host
+１
+hostess
+host
+２
+★ hostage
+hostile hostility
+hot
+hotdog
+hotel
+★ hound
+hour hourly
+house housing
+household
+housewife
+housework
+★ hover
+how
+however
+★ howl
+★ huddle
+hug
+huge
+★ hum
+human humanity
+★ humane humanism humanist humanitarian
+humble humbly
+★ humid humidity
+★ humiliate humiliation
+humo(u)r humo(u)rous
+hundred
+hunger hungry
+hunt hunting hunter
+★ hurdle
+★ hurl
+★ hurricane
+hurry hurriedly
+hurt hurtful
+husband
+hut
+[[PDF_PAGE 79]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+７４
+★ hybrid
+hydrogen
+★ hygiene hygienic
+hyphen
+★ hypocrisy hypocritical hypocrite
+★ hypothesis hypothetical
+★ hysterical hysteria
+I
+ice icy
+★iceberg
+iceＧcream
+★icon
+idea
+ideal idealistic idealism
+identify identification
+identity identical
+★ideology ideological
+idiom idiomatic
+★idiot idiotic
+idle idly
+★idol
+if
+★ignite ignition
+ignorant ignorance
+ignore
+ill illness
+illegal
+★illicit
+★illiterate illiteracy
+★illuminate illumination
+illusion illusory
+illustrate illustration illustrative
+image imaging
+imagine imagination imaginative imaginary
+imitate imitation imitative
+immediate immediately
+immense immensely immensity
+★immerse immersion
+immigrate immigration immigrant
+★imminent
+immune immunity immunize/Ｇise
+impact
+[[PDF_PAGE 80]]
+７５
+词
+表
+★impair
+★impart
+impatient impatience
+★imperative
+imperial imperialism imperialist
+★impetus
+implement
+１
+implementation
+implement
+２
+implicit
+imply implication
+import importation
+important importance
+impose imposition imposing
+impossible impossibility
+impress impression impressive
+★imprison imprisonment
+★impromptu
+improve improvement
+impulse impulsive
+in
+★inaugurate inauguration
+★inborn
+incentive
+inch
+incidence
+incident incidental incidentally
+incline inclined inclination
+include inclusion inclusive including
+income
+★incorporate incorporation
+increase increasingly
+incredible incredibly
+★incumbent
+★incur
+★indebted
+indeed
+★indefinite
+independent independence
+index
+indicate indication indicative indicator
+★indict indictment
+indifferent indifference
+[[PDF_PAGE 81]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+７６
+★indigenous
+★indignant indignation
+indispensable
+individual individualism
+indoor indoors
+induce inducement
+★indulge indulgence indulgent
+industry industrial industrialize/Ｇise industrious
+★inertia
+inevitable
+infant
+infect infection infectious
+infer inference
+inferior inferiority
+infinite infinity infinitive
+inflate inflation
+★inflict infliction
+influence influential
+influenza/flu
+inform information informative informant
+infrastructure
+★infringe infringement
+★ingenious ingenuity
+ingredient
+inhabit inhabitant
+★inherent
+inherit inheritance
+★inhibit inhibition
+initial initially
+initiate initiation initiative
+★inject injection
+injure injury injurious
+ink
+inland
+★inmate
+inn
+inner
+innocent innocence
+innovate innovation innovative
+★innumerable
+input
+inquire/enquire inquiry/enquiry inquisitive
+[[PDF_PAGE 82]]
+７７
+词
+表
+insane insanity
+insect
+insert insertion
+inside insider
+insight insightful
+insist insistence insistent
+inspect inspection inspector
+inspire inspiration inspirational
+instal(l) instal(l)ation
+instal(l)ment
+instance
+instant instantaneous
+instead
+instinct instinctive
+institute
+institution institutional
+instruct instruction instructor instructive
+instrument instrumental
+★insulate insulation insulator
+insult
+insure/ensure insurance
+intact
+intake
+intangible
+★integral
+integrate integration
+integrity
+★intellect
+intellectual
+intelligent intelligence
+★intelligible
+intend intention intent intentional
+intense intensity intensify
+intensive
+interact interaction interactive
+★intercourse
+interest interesting interested
+interfere interference
+★interim
+interior
+intermediate intermediary
+★intermittent
+[[PDF_PAGE 83]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+７８
+internal
+international
+Internet/internet
+interpret interpretation interpreter
+★interrogate interrogation
+interrupt interruption
+interval
+★intervene intervention
+interview interviewer interviewee
+intimate intimacy
+★intimidate intimidation
+into
+★intricate intricacy
+★intrigue
+★intrinsic intrinsically
+introduce introduction introductory
+intrude intrusion intruder
+★intuition intuitive
+invade invasion invader invasive
+★invalid
+１
+invalid
+２
+invaluable
+invariably
+invent invention inventor
+★inventory
+★invert inversion
+invest investment investor
+investigate investigation investigator
+invisible
+invite invitation inviting
+involve involvement involved
+inward
+iron
+irony ironic(al) ironically
+irrational
+irregular
+★irrespective
+irrigate irrigation
+★irritate irritation irritating irritable
+island
+★isle
+isolate isolation
+[[PDF_PAGE 84]]
+７９
+词
+表
+issue
+it
+item
+its
+itself
+★ivory
+★jack
+jacket
+jail/gaol
+jam
+１
+jam
+２
+January
+jar
+１
+jar
+２
+★jargon
+jaw
+jazz
+jealous jealousy
+jeans
+jeep
+★jelly
+★jeopardize/Ｇise jeopardy
+★jerk
+jet
+jetlag
+jewel jewel(l)ery
+job
+★jockey
+jog
+join
+joint
+joke
+★jolly
+journal
+journalism journalist
+journey
+joy joyous joyful
+judge judg(e)ment
+★judicial
+★judiciary
+juice juicy
+July
+[[PDF_PAGE 85]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８０
+jump
+★junction
+June
+jungle
+junior
+junk
+★jurisdiction
+jury juror
+just
+１
+just
+２
+justice
+justify justification
+★juvenile
+keen
+keep
+kettle
+key
+keyboard
+kick
+kid
+★ kidnap
+★ kidney
+kill
+kilogram(me)/kilo
+kilometer/Ｇtre
+kin
+kind kindness
+kindergarten
+king
+kingdom
+kiss
+kit
+kitchen
+kite
+knee
+kneel
+knife
+★ knight
+knit
+★ knob
+knock
+knot knotty
+[[PDF_PAGE 86]]
+８１
+词
+表
+know knowledge knowledgeable
+knowhow
+label
+labo(u)r laborious
+laboratory/lab
+lace
+lack
+★lad
+ladder
+lady
+lag
+lake
+lamb
+lame
+lamp
+land landing
+landlord/landlady
+★landmark
+landscape
+lane
+language
+lap
+laptop
+large largely
+laser
+★lash
+lass
+last lastly
+late later
+lately
+★latitude
+latter
+laugh laughter
+launch
+laundry
+lavatory
+★lavish
+law lawful
+lawn
+★lawsuit
+lawyer
+lay
+[[PDF_PAGE 87]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８２
+layer
+★layman
+layoff
+layout
+lazy laziness
+lead
+１
+leader leadership leading
+lead
+２
+leaf
+★leaflet
+league
+leak
+lean
+leap
+learn learned learning learner
+lease
+least
+leather
+leave
+lecture lecturer
+left leftist
+leg
+★legacy
+legal legalize/Ｇise
+legend legendary
+legislate legislation legislative legislator
+★legitimate legitimacy
+leisure leisurely
+lemon lemonade
+lend
+★lenient leniency
+lens
+★lesbian
+less
+lesson
+lest
+let
+letter
+level
+★lever leverage
+★levy
+liable liability
+liberal
+[[PDF_PAGE 88]]
+８３
+词
+表
+liberate liberation
+liberty
+library librarian
+license/Ｇce
+lick
+lid
+lie
+１
+liar
+lie
+２
+★lieutenant
+life
+lift
+light
+１
+lighting
+light
+２
+lightning
+like
+１
+like
+２
+likely likelihood
+likewise
+lily
+limb
+★lime
+★limelight
+limit limitation limited
+★limp
+line linear
+★linen
+★liner
+★linger
+★linguistic linguistics
+link linkage
+lion lioness
+lip
+★lipstick
+liquid
+liquor
+list
+listen listener
+liter/Ｇtre
+literal literally
+literary literature literate literacy
+litter
+little
+live
+１
+living
+[[PDF_PAGE 89]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８４
+live
+２
+livelihood
+lively
+liver
+★livestock
+livingＧroom
+load
+loaf
+loan
+lobby lobbyist
+local locality
+locate location
+lock locker
+★locomotive
+lodge lodging
+★lofty
+log
+logic logical
+★logistics logistic(al)
+logo
+lonely loneliness
+long
+１
+length lengthy
+long
+２
+★longevity
+★longitude longitudinal
+look
+★loom
+★loop
+loophole
+loose loosen
+★loot
+lord
+lorry
+lose loss
+lot
+★lotion
+★lottery
+loud loudly
+★lounge
+love lovely lover
+low lower
+loyal loyalty
+[[PDF_PAGE 90]]
+８５
+词
+表
+★lubricate lubrication
+luck lucky
+★lucrative
+luggage
+★luminous
+lump
+lunar
+lunch luncheon
+lung
+★lure
+luxury luxurious
+★lyric lyrical
+machine machinery
+mad madden
+madam
+magazine
+magic magical
+★ magistrate
+magnet magnetic
+magnificent magnificence
+★ magnify
+★ magnitude
+maid
+maiden
+mail
+main
+mainland
+mainstream
+maintain maintenance
+★ majesty majestic
+major majority
+make
+makeup
+male
+★ malice malicious
+★ malignant
+mall
+★ malpractice
+mammal
+man manly manhood
+manage management manager managerial
+★ mandate mandatory
+[[PDF_PAGE 91]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８６
+★ maneuver/manoeuvre
+★ manifest manifestation
+manipulate manipulation manipulative
+mankind
+manner
+★ mansion
+manual
+manufacture manufacturer
+★ manuscript
+many
+map
+★ mar
+marathon
+★ marble
+March
+march
+margin marginal
+marine
+★ maritime
+mark
+market marketing
+marry marriage marital
+marsh
+marshal
+★ martyr martyrdom
+marvel marvel(l)ous
+Marxism Marxist
+★ masculine masculinity
+mask
+mass massive
+★ massacre
+massage
+master mastery
+masterpiece
+mat
+match
+mate
+material materialism materialist materialize/Ｇise
+★ maternal maternity
+math(ematics)/maths mathematical
+matter
+mature maturity
+[[PDF_PAGE 92]]
+８７
+词
+表
+maximum maximize/Ｇise maximal
+May
+may
+maybe
+mayor
+me
+★ meadow
+meal
+mean
+１
+meaning meaningful
+mean
+２
+mean
+３
+means
+meantime
+meanwhile
+measure measurement measurable
+meat meaty
+mechanic mechanical mechanics mechanism
+mechanize/Ｇise mechanization/Ｇsation
+medal
+★ mediate mediation mediator
+medical
+Medicare
+★ medication
+medicine medicinal
+★ medieval
+medium media
+meet
+meeting
+★ melody melodious
+melon
+melt
+member membership
+memorandum/memo
+memorial
+memory memorize/Ｇise
+★ menace
+mend
+mental mentality
+mention
+★ mentor
+menu
+★ merchandise
+[[PDF_PAGE 93]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+８８
+merchant
+★ mercury
+mercy merciful
+mere merely
+★ merge merger
+merit meritorious
+merry merriment
+mess messy
+message messenger
+★ metabolism metabolic
+metal metallic
+★ metaphor metaphorical
+meter/Ｇtre metric
+method methodical methodology
+★ meticulous
+metro
+★ metropolitan
+microphone
+microscope microscopic
+microwave microwavable
+midday
+middle
+middleＧclass
+midnight
+★ midst
+★ midwife
+might mighty
+migrate migration migrant
+mild
+mile mileage
+★ milestone
+★ militant militancy
+military
+★ militia
+milk milky
+mill
+millimeter/Ｇtre
+million millionaire
+mind
+★ mindset
+mine
+１
+mine
+２
+mineral mining
+[[PDF_PAGE 94]]
+８９
+词
+表
+mine
+３
+★ mingle
+★ miniature
+minimum minimal minimize/Ｇise
+minister ministry ministerial
+minor minority
+★ mint
+minus
+minute
+１
+minute
+２
+miracle miraculous
+mirror
+miserable misery
+misfortune
+mislead misleading
+miss
+１
+miss
+２
+missile
+missing
+mission
+★ missionary
+mist misty
+mistake mistaken
+mister
+mistress
+misunderstand misunderstanding
+mix mixture mixer
+★ moan
+mobile
+★ mobilize/Ｇise
+★ mock
+mode
+model
+moderate moderation moderator
+modern modernize/Ｇise modernization/Ｇsation
+modest modesty
+modify modification modifier
+moist moisture
+mo(u)ld mo(u)ldy
+★ molecule molecular
+mom(my)
+moment momentary momentarily
+[[PDF_PAGE 95]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+９０
+★ momentum momentous
+★ monarchy monarch
+Monday
+money monetary
+monitor
+monkey
+★ monopoly monopolize/Ｇise
+★ monotony monotonous
+monster monstrous
+month monthly
+monument monumental
+mood moody
+moon
+mop
+moral morality
+★ morale
+more
+moreover
+morning
+★ mortal mortality
+mortgage
+★ mosquito
+most mostly
+motel
+mother motherly
+motion
+motivate motivation
+motive
+motor
+motorway
+mount
+１
+mounting
+mount
+２
+mountain mountainous
+★ mourn mourning
+mouse
+mouth mouthful
+move movement
+movie
+★ mow
+much
+mud muddy
+mug
+[[PDF_PAGE 96]]
+９１
+词
+表
+mule
+★ multilateral
+multiple multiply multiplication
+★ multitude
+municipal municipality
+murder murderous
+★ murmur
+muscle muscular
+museum
+mushroom
+music musical musician
+must
+★ mute
+★ mutter
+mutual
+my
+myself
+mystery mysterious
+myth mythical mythology
+nail
+★ naive naivety
+naked
+name
+namely
+nap
+napkin
+narrate narration narrative narrator
+narrow narrowly
+nasty
+nation national nationality nationalist nationalism
+nationwide
+native
+nature natural naturally
+naughty
+★ navigate navigation
+navy naval
+near nearly
+nearby
+neat
+necessary necessarily
+necessity necessitate
+neck
+[[PDF_PAGE 97]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+９２
+necklace
+need needy
+needle
+negate negation negative
+neglect neglectful
+★ negligent negligence
+★ negligible
+negotiate negotiation negotiable
+neighbo(u)r neighbo(u)rhood
+neither
+nephew
+nerve nervous
+nest
+net
+network networking
+neutral neutrality neutralize/Ｇise
+never
+nevertheless
+new
+news
+newspaper
+next
+nice nicety
+nickel
+★ nickname
+niece
+night nightly
+nightmare
+★ nil
+nine
+nineteen
+ninety
+ninth
+★ nitrogen
+no
+noble nobility
+nobody
+nod
+noise noisy
+★ nominal
+★ nominate nomination nominee
+none
+[[PDF_PAGE 98]]
+９３
+词
+表
+★ nonetheless
+nonsense
+noodle
+noon
+nor
+norm
+normal normally normalize/Ｇise normalization/Ｇsation
+north northern
+northeast northeastern
+northwest northwestern
+nose nosy
+not
+note notation notable
+notebook
+★ noteworthy
+nothing
+notice noticeable
+notify notification
+notion notional
+★ notorious notoriety
+★ notwithstanding
+noun
+nourish nourishment
+novel
+１
+novelist
+novel
+２
+novelty
+November
+now
+nowadays
+nowhere
+nuclear nucleus
+nude nudity
+nuisance
+★ numb
+number
+★ numerical
+numerous
+nurse
+nursery
+★ nurture
+nut
+nutrition nutrient
+★ oak
+[[PDF_PAGE 99]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+９４
+★ oar
+★ oath
+obese obesity
+obey obedient obedience
+object
+１
+object
+２
+objection
+objective
+oblige obligation obliged obligatory
+★ obscene obscenity
+★ obscure obscurity
+★ observatory
+observe observation observer observant
+★ obsess obsession obsessive
+obstacle
+★ obstruct obstruction
+obtain obtainment
+obvious obviously
+occasion occasional occasionally
+occupation occupational
+occupy occupancy occupant
+occur occurrence
+ocean oceanic
+o􀆳clock
+October
+odd oddity
+odds
+odo(u)r odorous
+of
+off
+offend offense/Ｇce offensive offender
+offer offering
+office
+officer
+official
+★ offset
+★ offspring
+often/oftentimes
+oil oily
+okay
+old
+oldＧfashioned
+★ olive
+[[PDF_PAGE 100]]
+９５
+词
+表
+Olympic Olympics Olympiad
+omit omission
+on
+once
+one
+oneself
+ongoing
+onion
+online
+only
+★ onset
+onto
+onward
+★ opaque
+open opener opening openly
+opera
+operate operation operational operator
+★ operative
+opinion
+opportunity
+oppose opposition opponent
+opposite
+★ oppress oppression oppressive
+opt option optional
+★ optic optical
+optimism optimistic optimist
+★ optimum optimal
+or
+oral
+orange
+orbit orbital
+orchestra
+★ ordeal
+order orderly
+ordinary
+ore
+organ
+organic
+organism
+organize/Ｇise organization/Ｇsation organizational/Ｇsational
+orient
+１
+orientation
+orient
+２
+oriental
+[[PDF_PAGE 101]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+９６
+origin original originality originate
+ornament ornamental
+orphan orphanage
+★ orthodox
+other
+otherwise
+oughtto
+ounce
+our
+ours
+ourselves
+out
+outbreak
+outcome
+outdated
+outdoor outdoors
+outer
+★ outfit
+outgoing
+outing
+★ outlaw
+outlet
+outline
+outlook
+output
+★ outrage outrageous
+outset
+outside outsider
+outskirts
+outstanding
+outward outwards
+oval
+oven
+over
+overall
+overcoat
+overcome
+overdue
+★ overflow
+★ overhaul
+overhead
+overhear
+[[PDF_PAGE 102]]
+９７
+词
+表
+★ overlap
+overlook
+overnight
+★ override
+overseas
+oversee
+oversight
+★ overstate
+★ overt
+overtake
+overthrow
+overtime
+★ overturn
+overwhelm overwhelming overwhelmingly
+owe owingto
+★ owl
+own owner ownership
+ox
+★ oxide
+oxygen
+ozone
+pace
+pack
+package
+packet
+★ pact
+pad
+paddy
+page
+pain painful
+paint painting painter
+pair
+palace
+pale
+palm
+★ pamphlet
+pan
+panda
+panel
+panic
+★ panorama panoramic
+★ pant
+[[PDF_PAGE 103]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+９８
+pants
+paper
+paperback
+★ parachute
+parade
+★ paradigm
+★ paradise
+paradox paradoxical
+paragraph
+parallel
+★ paralyze/Ｇyse paralysis
+★ parameter
+★ parasite
+parcel
+pardon
+parent parental parenting
+★ parish
+park
+１
+park
+２
+parking
+parliament parliamentary
+★ parole
+★ parrot
+part partial partially
+participate participation participant
+particle
+particular particularly
+★ partisan
+★ partition
+partly
+partner partnership
+party
+pass
+passage
+passenger
+★ passerby
+passion passionate
+passive
+passport
+password
+past
+★ pasta
+paste
+[[PDF_PAGE 104]]
+９９
+词
+表
+pastime
+★ pastry
+★ pasture
+pat
+patch
+patent
+path
+★ pathetic
+patient
+１
+patience
+patient
+２
+★ patriot patriotic patriotism
+★ patrol
+★ patron patronize/Ｇise patronage
+pattern
+pause
+pave pavement
+paw
+pay payment
+payroll
+pea
+peace peaceful
+peach
+peak
+peanut
+pear
+pearl
+peasant
+★ peck
+peculiar peculiarity
+★ pedal
+★ peddle
+pedestrian
+★ peel
+★ peep
+peer
+★ peg
+pen
+penalty penalize/Ｇise
+pencil
+★ pending
+★ pendulum
+penetrate penetration
+[[PDF_PAGE 105]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１００
+★ penguin
+★ peninsula
+penny
+pension pensioner
+people
+pepper
+per
+perceive perception perceptive
+percent percentage
+★ perch
+perfect perfection
+perform performance performer
+★ perfume
+perhaps
+peril perilous
+period periodic periodical
+★ perish
+permanent permanence
+★ permeate permeation
+permit permission permissible permissive
+★ perpetual perpetuate
+★ perplex perplexity
+★ persecute persecution
+persevere perseverance
+persist persistent persistence
+person personal personally personality
+personnel
+perspective
+persuade persuasion persuasive
+pessimism pessimistic pessimist
+★ pest
+★ pesticide
+pet
+★ petition petitioner
+★ petrochemical
+petrol
+petroleum
+petty
+★ pharmacy pharmaceutical
+phase
+phenomenon
+philosophy philosophical philosopher
+[[PDF_PAGE 106]]
+１０１
+词
+表
+photo(graph) photographic photographer photography
+phrase phrasal
+physical
+physician
+physics physicist
+★ physiological
+piano pianist
+pick picky
+picnic
+picture picturesque
+pie
+piece
+pierce
+pig
+pigeon
+pile
+★ pilgrim pilgrimage
+pill
+pillar
+pillow
+pilot
+pin
+pinch
+pine
+pink
+pint
+pioneer
+pipe
+pirate piracy
+pistol
+pit
+pitch
+pity
+pizza
+place placement
+plague
+plain
+★ plaintiff
+plan planning planner
+plane
+planet planetary
+plant plantation
+[[PDF_PAGE 107]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１０２
+plastic
+plate
+★ plateau
+platform
+★ plausible
+play player
+playground
+★ plaza
+★ plea
+★ plead
+please pleasure pleasant pleasing
+pledge
+plenty plentiful
+★ plight
+plot
+plough/plow
+plug
+★ plumber
+★ plumbing
+plunge
+plural
+plus
+pocket
+podcast
+poem poetry
+poet poetic
+point pointless
+★ poise poised
+poison poisonous
+★ poke
+pole polar
+police policeman
+policy
+polish
+polite politeness
+politics political politician
+poll pollster
+pollute pollution pollutant
+★ polytechnic
+pond
+★ ponder
+pool
+[[PDF_PAGE 108]]
+１０３
+词
+表
+poor poverty
+pop
+popular popularity
+population populous populate
+★ porcelain
+★ porch
+pork
+★ porridge
+port portable porter
+★ portfolio
+portion
+★ portray portrayal portrait
+pose posture
+position
+positive
+possess possession possessive
+possible possibility possibly
+post
+１
+postage postman
+post
+２
+postcard
+poster
+postpone postponement
+pot
+potato
+★ potent
+potential potentiality
+★ pottery
+★ poultry
+pound
+１
+pound
+２
+pour
+powder
+power powerful
+practise/Ｇice practicable
+practical practicality
+★ practitioner
+praise
+pray prayer
+１
+prayer
+２
+preach preacher
+precaution precautionary
+★ precede preceding precedent
+precious
+[[PDF_PAGE 109]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１０４
+precise precision precisely
+★ predator predatory
+★ predecessor
+predict prediction predictable
+★ predominate predominance predominant
+preface
+prefer preferable preference preferential
+pregnant pregnancy
+prejudice
+preliminary
+★ premature
+premier
+★ premise
+★ premium
+★ preoccupy preoccupied
+prepare preparation preparatory
+preposition
+★ prerequisite
+prescribe prescription
+present
+１
+presence
+present
+２
+presentation
+present
+３
+presently
+preserve preservation preservative
+★ preside
+president presidency presidential
+press
+１
+press
+２
+pressure pressing
+★ prestige prestigious
+★ presume presumption presumably
+pretend pretense/Ｇce
+★ pretext
+pretty
+prevail prevalence prevalent
+prevent prevention preventive
+preview
+previous
+★ prey
+price priceless
+pride proud
+priest
+primary primarily
+prime
+[[PDF_PAGE 110]]
+１０５
+词
+表
+primitive
+prince/princess
+principal
+principle
+print printer printing
+prior priority
+prison prisoner
+private privacy privatize/Ｇise privatization/Ｇsation
+privilege privileged
+prize
+probable probability probably
+★ probe
+problem problematic
+procedure
+proceed proceedings
+process processor
+procession
+proclaim proclamation
+produce production productive productivity
+product
+profession professional
+professor
+proficient proficiency
+★ profile
+profit profitable
+profound
+program(me)
+progress progressive progression
+prohibit prohibition prohibitive
+project
+１
+project
+２
+projector projection
+★ prolong
+prominent prominence
+promise promising
+promote promotion
+prompt
+★ prone
+pronoun
+pronounce pronunciation
+proof
+★ proofread
+★ prop
+[[PDF_PAGE 111]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１０６
+★ propaganda
+★ propagate propagation
+★ propel propeller
+proper
+property
+proportion proportional
+propose proposal proposition
+prose
+★ prosecute prosecution
+prospect prospective
+★ prosper prosperity prosperous
+protect protection protective
+protein
+protest
+★ protocol
+★ prototype
+prove
+proverb proverbial
+provide provision
+provided
+province provincial
+provoke provocation provocative
+★ proximate proximity
+★ psychiatry psychiatric psychiatrist
+psychology psychological psychologist
+pub
+public publicize/Ｇise publicity publicly
+publish publication
+★ pudding
+pull
+pulse
+pump
+★ pumpkin
+punch
+punctual punctuality
+punish punishment
+pupil
+purchase
+pure purity purify
+purple
+purpose purposeful
+purse
+[[PDF_PAGE 112]]
+１０７
+词
+表
+pursue pursuit
+push pushy
+put
+puzzle puzzlement
+★ pyramid
+quake
+qualify qualification
+quality qualitative
+quantify quantification
+quantity quantitative
+quarrel quarrelsome
+★ quart
+quarter quarterly
+queen
+★ query
+★ quest
+question questionnaire
+queue
+quick
+quiet
+quit
+quite
+★ quiver
+quiz
+quota
+quote quotation
+rabbit
+race
+１
+racial racism racist
+race
+２
+rack
+radar
+★ radiate radiation radiator radiant
+radical
+radio
+★ radioactive radioactivity
+rag ragged raggedly
+rage raging
+raid
+rail
+railway/railroad
+rain rainy
+rainbow
+[[PDF_PAGE 113]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１０８
+raincoat
+raise
+rally
+★ ranch
+★ random
+range
+rank
+★ rap
+★ rape
+rapid rapidity
+rare rarely rarity
+★ rash
+rat
+rate rating
+rather
+★ ratify ratification
+ratio
+★ ration
+rational
+★ rattle
+raw
+ray
+reach
+react reaction reactionary
+read reading reader
+ready readily
+real really reality
+realistic realism
+realize/Ｇise realization/Ｇsation
+realm
+reap
+rear
+reason reasonable
+★ reassure reassurance
+rebel rebellion rebellious
+recall
+★ recede
+receive receipt recipient receptive receiver
+recent recently
+reception receptionist
+recession
+★ recipe
+[[PDF_PAGE 114]]
+１０９
+词
+表
+★ reciprocal
+recite recitation
+★ reckless
+reckon
+recognize/Ｇise recognition
+recommend recommendation
+★ reconcile reconciliation reconciliatory
+record recorder recording
+recover recovery
+recreation recreational
+recruit recruitment
+★ rectify rectification
+★ recur recurrence
+recycle recyclable
+red
+reduce reduction
+★ redundant redundancy
+★ reel
+refer reference
+★ referee
+★ referendum
+refine refinery refinement
+reflect reflection reflective
+reform reformation reformist
+refrain
+refresh
+refreshment
+refrigerator/fridge refrigeration
+★ refuge refugee
+★ refund
+refuse refusal
+★ refute refutation
+regard
+regarding
+regardless
+★ regime
+★ regiment regimental
+region regional
+register registration registrar
+regret regrettable regretful
+regular regularity
+regulate regulation regulatory regulator
+[[PDF_PAGE 115]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１１０
+★ rehabilitate rehabilitation
+★ rehearse rehearsal
+★ reign
+★ rein
+reinforce reinforcement
+reject rejection
+★ rejoice rejoicing
+relate relation relationship
+relative relativity
+relax relaxation
+relay
+release
+★ relentless
+relevant relevance
+★ relic
+relieve relief
+religion religious
+★ relish
+reluctant reluctance
+rely reliance reliable
+remain remainder
+remark remarkable
+remedy remedial
+remember remembrance
+remind reminder
+★ reminiscent reminiscence
+★ remnant
+remote
+remove removal
+★ renaissance
+render rendering
+renew renewal renewable
+renovate renovation
+★ renown renowned
+rent rental
+repair reparable
+repay repayment
+repeat repetition repetitive repeatedly
+★ repel
+★ repertoire
+replace replacement
+reply
+[[PDF_PAGE 116]]
+１１１
+词
+表
+report reporter
+represent representation representative
+★ repress repression repressive
+★ reproach
+reproduce reproduction reproductive
+republic republican
+reputation
+★ repute reputable
+request
+require requirement
+rescue
+research researcher
+resemble resemblance
+resent resentment
+reserve reservation reserved
+★ reservoir
+★ reshuffle
+reside residence resident residential
+resign resignation
+resist resistance resistant
+resolve resolution resolute
+resort
+１
+resort
+２
+resource resourceful
+respect respectable respectful
+respective respectively
+respond response responsive respondent
+responsible responsibility
+rest
+１
+rest
+２
+restaurant
+★ restless
+restore restoration
+restrain restraint
+restrict restriction restrictive
+result resultant
+resume resumption
+résumé
+retail retailer
+retain retention
+★ retaliate retaliation
+★ retarded
+[[PDF_PAGE 117]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１１２
+retell retelling
+retire retirement retired
+★ retort
+retreat
+★ retrieve retrieval
+★ retrospect retrospective
+return
+reunite reunification reunion
+reveal revelation
+★ revenge revengeful
+revenue
+reverse reversal reversible
+review reviewer
+revise revision
+★ revive revival
+★ revolt
+revolution revolutionary
+revolve
+reward rewarding
+★ rhetoric rhetorical
+rhythm rhythmic
+rib
+ribbon
+rice
+rich
+rid
+riddle
+ride rider
+★ ridge
+ridicule ridiculous
+rifle
+★ rig
+right
+★ rigid rigidity
+★ rigo(u)r rigorous
+★ rim
+ring
+riot riotous
+rip
+ripe ripen
+rise
+risk risky
+[[PDF_PAGE 118]]
+１１３
+词
+表
+★ ritual
+rival rivalry
+river
+road
+roar
+roast
+rob robbery
+robot robotic
+★ robust
+rock rocky
+rocket
+rod
+role
+roll roller
+romance romantic
+roof
+room
+root
+rope
+rose rosy
+★ rot rotten
+★ rotate rotation
+rough roughly
+round
+rouse
+route
+routine
+row
+１
+row
+２
+royal royalty
+rub
+rubber
+rubbish
+rude
+rug
+ruin ruinous
+rule ruler ruling
+rumo(u)r
+run runner running
+runway
+rural
+rush
+[[PDF_PAGE 119]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１１４
+★ rust rusty
+★ ruthless
+sack
+★ sacred
+sacrifice sacrificial
+sad sadness sadden
+★ saddle
+safe safety
+★ safeguard
+sail sailing sailor
+saint
+sake
+salad
+salary
+sale
+salesman
+★ salmon
+★ salon
+salt salty
+★ salute salutation
+★ salvage
+★ salvation
+same
+sample
+★ sanction
+★ sanctuary
+sand
+sandwich
+★ sanitation sanitary
+★ sarcasm sarcastic
+satellite
+★ satire satirical satirist
+satisfy satisfaction satisfactory
+★ saturate saturation
+Saturday
+sauce
+sausage
+★ savage
+save saving
+say saying
+scale
+scan scanner
+[[PDF_PAGE 120]]
+１１５
+词
+表
+scandal scandalous
+scar
+scarce scarcity scarcely
+scare scary
+scatter
+★ scenario
+scene scenery scenic
+scent
+schedule
+scheme
+scholar scholarly scholarship scholastic
+school schooling
+science scientific scientist
+scissors
+scold
+scope
+score
+★ scorn scornful
+scout
+★ scramble
+★ scrap
+★ scrape
+scratch
+scream
+screen
+screw
+script scripture
+★ scrub
+★ scrutiny scrutinize/Ｇise
+★ sculpture
+sea
+seal
+search
+season seasonal
+seat
+second
+１
+second
+２
+secondary
+secondＧhand
+secret secrecy secretive
+secretary secretarial
+section
+[[PDF_PAGE 121]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１１６
+sector
+★ secular
+secure security
+★ seduce seduction seductive
+see
+seed seedling
+seek
+seem seeming seemingly
+segment segmental
+★ segregate segregation
+seize seizure
+seldom
+select selection selective
+self selfish selfless
+sell
+semester
+seminar
+senate senator
+send
+senior seniority
+★ sensation sensational
+sense sensible sensor
+sensitive sensitivity
+sentence
+★ sentiment sentimental
+separate separation separatist
+September
+sequence sequential
+★ sergeant
+★ serial
+series
+serious
+servant
+serve service serving
+session
+set
+setback
+setting
+settle settlement
+seven
+seventeen
+seventy
+[[PDF_PAGE 122]]
+１１７
+词
+表
+several
+severe severity
+sew
+sex sexy sexual
+★ shabby
+shade shady
+shadow
+★ shaft
+shake shaky
+shall
+shallow
+shame shameful shameless
+shape
+share
+★ shark
+sharp sharpen
+★ shatter
+shave shaver
+she
+shed
+sheep
+sheer
+sheet
+shelf
+shell
+shelter
+★ shepherd
+★ shield
+shift
+shine shiny
+ship shipping shipment
+★ shipyard
+shirt
+shit
+shiver
+shock
+shoe
+shoot
+shop shopping
+shore
+short shortage shorts
+shortcoming
+[[PDF_PAGE 123]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１１８
+★ shorthand
+shortly
+shot
+should
+shoulder
+shout
+★ shove
+show showy
+★ showcase
+shower
+★ shred
+★ shrewd
+shrimp
+shrink
+★ shrub shrubbery
+shrug
+shut
+shuttle
+shy shyness shyly
+sick sicken
+side
+sideways
+siege
+sigh
+sight
+sightseeing
+sign signature
+signal
+significant significance
+★ signify
+silent silence
+silicon
+silk silky
+silver silvery
+similar similarity
+simple simplicity simplify simply
+★ simulate simulation
+★ simultaneous
+sin
+since
+sincere sincerity
+sing singer
+[[PDF_PAGE 124]]
+１１９
+词
+表
+single
+singular singularity
+★ sinister
+sink
+sip
+sir
+sister
+sit sitting
+site
+situation
+situate
+six
+sixteen
+sixty
+size sizable
+skate skating
+skeleton
+★ skeptical/sceptical skeptic/sceptic skepticism/scepticism
+sketch sketchy
+ski skiing
+skill skil(l)ful skilled
+★ skim
+skin skinny
+skip
+skirt
+★ skull
+sky
+skyline
+skyscraper
+★ slack
+★ slam
+slap
+★ slash
+★ slaughter
+slave slavery
+sleep sleepy sleepiness
+sleeve
+slender
+slice
+slide
+slight slightly
+slim
+[[PDF_PAGE 125]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２０
+slip slippery slipper
+slogan
+slope
+★ slot
+slow
+★ slum
+★ slump
+small
+smart
+smartphone
+smash
+smell smelly
+smile
+smog smoggy
+smoke smoky
+smooth
+★ smuggle smuggling smuggler
+snack
+★ snail
+snake
+★ snap
+★ snatch
+★ sneak
+★ sniff
+★ snob snobbish
+snow snowy
+so
+soak
+soap
+soar
+★ sob
+★ sober/Ｇre
+soＧcalled
+soccer
+society social socialize/Ｇise sociable
+socialism socialist
+sociology sociologist
+sock
+★ socket
+soda
+★ sodium
+sofa
+[[PDF_PAGE 126]]
+１２１
+词
+表
+soft soften
+software
+soil
+solar
+soldier
+sole solely
+solemn solemnity
+★ solicit solicitor
+solid solidity solidify
+★ solidarity
+★ solitary solitude
+★ solo
+solve solution solvent soluble
+some
+somebody
+somehow
+someone
+something
+sometime
+sometimes
+somewhat
+somewhere
+son
+song
+soon
+★ soothe
+sophisticated sophistication
+sore
+sorrow sorrowful
+sorry
+sort
+soul
+sound
+１
+sound
+２
+soup
+sour
+source
+south southern
+southeast southeastern
+southwest southwestern
+souvenir
+★ sovereign sovereignty
+[[PDF_PAGE 127]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２２
+sow
+space spacious spatial
+spaceship/spacecraft
+spade
+★ spaghetti
+span
+spare sparingly
+spark
+sparkle
+speak speaker
+★ spear
+special specialize/Ｇise specialization/Ｇsation specialist
+★ specialty/speciality
+species
+specific specifically
+specify specification
+specimen
+★ spectacle spectacular
+★ spectator
+★ spectrum
+speculate speculation speculative
+speech speechless
+speed speedy speeding
+spell spelling
+spend spending
+sphere spherical
+★ spice spicy
+★ spider
+spill
+spin
+★ spine spinal
+★ spiral
+spirit spiritual
+spit
+spite
+splash
+splendid splendo(u)r
+split
+spoil
+spokesman/spokeswoman spokesperson
+★ sponge spongy
+sponsor sponsorship
+[[PDF_PAGE 128]]
+１２３
+词
+表
+spontaneous spontaneity
+spoon spoonful
+sport
+sportsman/sportswoman
+spot
+★ spotlight
+spouse
+★ sprawl
+spray
+spread
+spring
+★ sprinkle
+spur
+spy
+★ squad
+square
+squeeze
+★ stab
+stable stability stabilize/Ｇise
+stack
+stadium
+staff
+stage
+★ stagger
+★ stagnate stagnation stagnant
+stain stainless
+stair
+staircase
+stake
+stale
+★ stalk
+★ stall
+★ stammer
+stamp
+１
+stamp
+２
+★ stance
+stand
+standard standardize/Ｇise standardization/Ｇsation
+★ standby
+standpoint
+staple
+１
+★ staple
+２
+stapler
+[[PDF_PAGE 129]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２４
+star starry
+stare
+★ stark
+start starter
+startle
+starve starvation
+state statement
+statesman
+★ static
+station stationary
+★ stationery
+statistic statistical
+statue
+status
+★ statute statutory
+stay
+steady steadily
+steak
+steal
+steam steamy steamer
+steel
+steep
+steer
+stem
+１
+stem
+２
+step
+★ stereotype
+★ stern
+★ steward(ess)
+stick
+１
+stick
+２
+sticky
+stiff stiffen
+★ stifle
+★ stigma
+still
+１
+still
+２
+stimulate stimulation stimulus stimulant
+sting
+★ stipulate stipulation
+stir
+★ stitch
+stock
+[[PDF_PAGE 130]]
+１２５
+词
+表
+stocking
+stomach
+stone stony
+stool
+★ stoop
+stop stoppage
+store
+１
+store
+２
+storage
+storm stormy
+story
+１
+stor(e)y
+２
+★ stout
+stove
+straight straighten
+straightforward
+strain
+１
+strain
+２
+★ strait
+★ strand
+strange stranger
+★ strangle
+strap
+strategy strategic
+straw
+★ stray
+★ streak
+stream
+★ streamline
+street
+stress stressful
+stretch
+strict
+stride
+strike striking
+string
+strip
+stripe
+strive
+stroke
+１
+stroke
+２
+★ stroll
+strong strength strengthen
+[[PDF_PAGE 131]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２６
+structure structural
+struggle
+★ stubborn
+student
+studio
+study
+stuff stuffy stuffing
+★ stumble
+★ stump
+★ stun stunning
+stupid stupidity
+★ sturdy
+style stylish
+subject
+１
+subject
+２
+subjective
+★ submarine
+★ submerge
+submit submission submissive
+★ subordinate subordination
+★ subscribe subscription subscriber
+subsequent
+★ subsidy subsidize/Ｇise
+★ subsistence
+substance substantial
+substitute substitution
+★ subtle subtlety
+subtract subtraction
+suburb suburban
+subway
+succeed successor succession successive
+success successful
+such
+suck
+sudden suddenly
+★ sue
+suffer suffering
+★ suffice
+sufficient
+sugar
+suggest suggestion suggestive
+★ suicide suicidal
+[[PDF_PAGE 132]]
+１２７
+词
+表
+suit
+１
+suitable
+suit
+２
+suitcase
+★ suite
+★ sulfur/sulphur
+sum
+summary summarize/Ｇise
+summer
+summit
+★ summon
+sun sunny
+Sunday
+sunlight
+sunrise
+sunset
+sunshine
+super
+superb
+superficial
+★ superintendent
+superior superiority
+supermarket
+★ superstition superstitious
+supervise supervision supervisor
+supper
+supplement supplementary
+supply supplier
+support supportive supporter
+suppose supposition supposedly
+★ suppress suppression suppressive
+supreme supremacy
+sure
+surf surfing
+surface
+surge
+surgery surgical surgeon
+surname
+★ surpass
+surplus
+surprise
+surrender
+surround surroundings
+[[PDF_PAGE 133]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１２８
+★ surveillance
+survey
+survive survival survivor
+★ susceptible
+suspect
+suspend suspension suspense
+suspicion suspicious
+sustain sustainable sustainability
+swallow
+１
+swallow
+２
+★ swamp
+★ swap
+sway
+swear
+sweat sweater
+sweep
+sweet
+swell
+swift
+swim swimming swimmer
+swing
+swipe
+switch
+sword
+symbol symbolic(al)
+★ symmetry symmetric(al)
+sympathy sympathetic sympathize/Ｇise
+★ symphony
+★ symposium
+symptom
+★ syndicate
+★ syndrome
+★ synonym
+★ synthesis synthetic synthesize/Ｇise
+system systematic systematically
+table
+tablet
+★ taboo
+★ tack
+tackle
+★ tact tactful
+★ tactic
+[[PDF_PAGE 134]]
+１２９
+词
+表
+tag
+tail
+tailor
+take
+takeoff
+tale
+talent talented
+talk talkative
+tall
+tame
+★ tan
+tangible
+★ tangle
+tank
+★ tanker
+tap
+tape
+target
+★ tariff
+task
+taste tasty
+tax taxation
+taxi
+tea
+teach teacher teaching
+team
+tear
+１
+tear
+２
+★ tease
+technical technician
+technique
+technology/tech technological
+tedious
+teen
+teenager
+telecommunications
+telephone/phone
+telescope telescopic
+television/TV
+tell telling
+teller
+temper
+[[PDF_PAGE 135]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１３０
+★ temperament
+temperature
+temple
+★ tempo
+★ temporal
+temporary temporarily
+★ tempt temptation
+ten
+★ tenant
+tend tendency
+tender
+tennis
+tense
+１
+tension
+tense
+２
+tent
+★ tentative
+★ tenure
+term
+terminal
+★ terminate termination
+★ terrace
+★ terrain
+terrible terribly
+terrific
+territory territorial
+terror terrify terrorism terrorist
+★ tertiary
+test
+★ testify
+★ testimony
+text
+textbook
+textile
+★ texture
+than
+thank thankful
+Thanksgiving
+that
+the
+theater/Ｇtre theatrical
+theft
+their
+[[PDF_PAGE 136]]
+１３１
+词
+表
+theirs
+them
+theme
+themselves
+then
+theory theoretical
+therapy therapist therapeutic(al)
+there
+thereby
+therefore
+★ thermal
+thermometer
+these
+thesis
+they
+thick
+thief
+★ thigh
+thin
+thing
+think thinking
+third
+thirst thirsty
+thirteen
+thirty
+this
+★ thorn thorny
+thorough
+those
+though
+thought thoughtful
+thousand
+thread
+threat threaten
+three
+★ threshold
+★ thrift thrifty
+★ thrill thriller
+thrive
+throat
+★ throne
+through
+[[PDF_PAGE 137]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１３２
+throughout
+throw
+thrust
+thumb
+thunder thunderous
+Thursday
+thus
+tick
+ticket
+★ tickle
+tide tidal
+tidy
+tie
+tiger tigress
+tight tighten
+★ tile
+till
+★ tilt
+timber
+time timely timing
+★ timid
+tin
+tiny
+tip
+tire tired tiring tireless tiresome
+tissue
+title
+to
+toast
+tobacco
+today
+toe
+together
+★ toil
+toilet
+token
+tolerate tolerance tolerant tolerable
+toll
+tomato
+tomorrow
+ton tonnage
+tone
+[[PDF_PAGE 138]]
+１３３
+词
+表
+tongue
+tonight
+too
+tool
+tooth
+top
+topic topical
+★ topple
+torch
+★ tornado
+torture
+toss
+total
+touch
+tough
+tour tourism tourist
+★ tournament
+★ tow
+toward(s)
+towel
+tower
+town township
+★ toxic
+toy
+trace
+track
+★ tract
+tractor
+trade
+trademark
+tradition traditional
+traffic trafficking
+tragedy tragic tragically
+trail trailer
+train trainer trainee training
+★ trait
+tram
+★ tranquil tranquility
+transaction
+★ transcend
+transcript
+transfer transference
+[[PDF_PAGE 139]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１３４
+transform transformation
+★ transient
+★ transistor
+transit
+★ transition transitional
+translate translation translator
+transmit transmission transmitter
+transparent transparency
+transplant transplantation
+transport transportation
+trap
+trash
+★ trauma traumatic
+travel
+tray
+★ tread
+treasure
+★ treasury treasurer
+treat treatment
+treaty
+tree
+★ trek
+tremble
+tremendous
+★ trench
+trend
+trial
+triangle triangular
+★ tribe tribal
+★ tribune
+★ tribute
+trick tricky
+★ trickle
+trifle
+trigger
+★ trillion
+★ trim
+trip
+triple
+triumph triumphant
+★ trivial
+trolley
+[[PDF_PAGE 140]]
+１３５
+词
+表
+troop
+★ trophy
+★ tropic tropical
+trouble troublesome
+trousers
+truck
+true truly
+★ trumpet
+trunk
+trust trustee
+truth truthful
+try trial trying
+★ tub
+tube
+★ tuck
+Tuesday
+★ tug
+tuition
+★ tumble
+tumo(u)r
+tune
+tunnel
+★ turbulent turbulence
+turkey
+★ turmoil
+turn
+★ turnout
+★ turnover
+★ turtle
+tutor tutorial
+twelve twelfth
+twenty twentieth
+twice
+twin
+twist
+two
+type typist
+typewriter
+typical
+tyre/tire
+ugly ugliness
+ultimate ultimately
+[[PDF_PAGE 141]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１３６
+★ ultra
+umbrella
+★ unanimous
+uncertain uncertainty
+uncle
+uncover
+under
+underdeveloped
+underestimate
+undergo
+undergraduate
+underground
+★ underlie underlying
+underline
+undermine
+underneath
+understand understanding
+undertake undertaking
+underwear
+undo
+undoubtedly
+uneasy
+unemployed unemployment
+★ unfold
+uniform uniformity
+★ unify unification
+★ unilateral
+union
+unique
+unit
+unite unity
+universe universal
+university
+★ unleash
+unless
+★ unprecedented
+until
+★ unveil
+up
+update
+upgrade
+★ uphold
+[[PDF_PAGE 142]]
+１３７
+词
+表
+upload
+upon
+upper
+upright
+★ uprising
+upset
+upstairs
+upＧtoＧdate
+upward upwards
+★ uranium
+urban urbanize/Ｇise urbanization/Ｇsation
+urge
+urgent urgency
+★ urine urinate
+us
+usage
+use user useful useless
+used
+usual usually
+utility
+utilize/Ｇise utilization/Ｇsation
+utmost
+utter
+１
+utter
+２
+utterly
+vacant vacancy
+vacation
+★ vaccine vaccinate vaccination
+vacuum
+vague
+vain vanity
+valid validate validity
+valley
+value valuable
+★ valve
+van
+vanish
+vapo(u)r
+various variety
+vary variation variable variant
+vast
+vegetable vegetarian
+★ vegetation
+[[PDF_PAGE 143]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１３８
+vehicle
+veil
+★ vein
+★ velocity
+★ velvet
+vendor
+★ vent
+★ ventilate ventilation
+venture
+★ venue
+verb verbal
+★ verdict
+★ verge
+verify verification
+★ versatile
+★ verse
+version
+versus
+vertical
+very
+vessel
+★ vest
+veteran
+veto
+via
+★ viable
+★ vibrate vibration
+★ vice
+★ vicinity
+★ vicious
+victim victimize
+victory victorious
+video
+view
+viewpoint
+vigor vigorous
+village villager
+vinegar
+violate violation
+violent violence
+violin violinist
+★ virgin virginity
+[[PDF_PAGE 144]]
+１３９
+词
+表
+virtual virtually
+virtue virtuous
+virus
+visa
+visible visibility
+vision visionary
+visit visitor
+visual visualize/Ｇise
+vital vitality
+vitamin
+vivid
+vocabulary
+★ vocal
+vocation vocational
+★ vogue
+voice
+★ void
+★ volatile volatility
+volcano volcanic
+volleyball
+volt voltage
+volume voluminous
+volunteer voluntary
+vote voter
+★ voucher
+★ vow
+voyage
+★ vulgar
+vulnerable vulnerability
+wage
+wag(g)on
+waist
+wait waiter/waitress
+★ waive waiver
+wake waken
+walk
+wall
+wallet
+wander
+want
+war
+ward
+[[PDF_PAGE 145]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４０
+★ wardrobe
+ware
+warehouse
+warfare
+warm warmth
+warn warning
+★ warrant
+★ warranty
+warrior
+wary
+wash washing
+waste wasteful
+watch watchful
+water
+waterproof
+watertight
+★ watt
+wave wavy
+wax
+way
+we
+weak weaken weakness
+wealth wealthy
+weapon
+wear
+★ weary weariness
+weather
+weave
+web
+webcast
+website
+wed wedding
+★ wedge
+Wednesday
+weed
+week weekly
+weekday
+weekend
+weep
+weigh weight
+weird
+welcome
+[[PDF_PAGE 146]]
+１４１
+词
+表
+welfare
+well
+１
+well
+２
+wellＧbeing
+wellＧknown
+wellＧoff
+west western westerner
+wet
+whale
+★ wharf
+what whatever whatsoever
+wheat
+wheel
+when whenever
+where wherever
+★ whereabouts
+whereas
+★ whereby
+whether
+which whichever
+while/whilst
+whip
+★ whirl
+whisky
+whisper
+whistle
+white
+who whoever
+whole wholly
+★ wholesale
+★ wholesome
+whom
+whose
+why
+★ wicked
+wide width widen
+widespread
+widow widower
+★ wield
+wife
+wild
+wilderness
+[[PDF_PAGE 147]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４２
+wildlife
+will willing willingness
+willpower
+win winner
+wind
+１
+windy
+wind
+２
+window
+wine winery
+wing
+★ wink
+winter
+wipe
+wire wireless
+wise wisdom
+wish
+wit witty
+★ witch
+with
+withdraw withdrawal
+★ wither
+★ withhold
+within
+without
+withstand
+witness
+wolf
+woman
+wonder wonderful
+wood wooden
+wool wool(l)en
+word wording
+work worker
+workforce
+workout
+workshop
+world
+worldwide
+worm
+worry worried
+worse
+worship
+worst
+[[PDF_PAGE 148]]
+１４３
+词
+表
+worth worthless
+worthwhile
+worthy worthiness
+would
+wound
+wrap wrapping
+wreck wreckage
+★ wrench
+★ wrestle wrestling
+★ wretched
+wrinkle
+wrist
+write writer writing
+wrong
+xＧray
+★ yacht
+yard
+★ yawn
+year yearly
+★ yearn yearning
+yell
+yellow
+yes yeah
+yesterday
+yet
+yield
+yoga
+yoghurt
+you
+young
+youngster
+your
+yours
+yourself yourselves
+youth youthful
+★ zeal zealous
+zero
+★ zigzag
+★ zip zipper
+zone
+zoo
+zoology zoological
+[[PDF_PAGE 149]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４４
+★ zoom
+５４１８ ２５５１
+[[PDF_PAGE 150]]
+１４５
+样
+卷
+样　　卷
+１．全国大学英语四级考试(笔试)样卷
+PartI　　　　　 Writing　　　 (３０minutes)
+Directions:Forthispart,youareallowed３０ minutestowriteanessaybasedonthe
+picturebelow．Youshouldstartyouressaywithabriefdescriptionofthepictureand
+commentonthekid􀆳sunderstandingofgoingtoschool．Youshould writeatleast１２０
+wordsbutnomorethan１８０words．WriteyouressayonAnswerSheet１．
+PartII　　　　　 ListeningComprehension　　　 (２５minutes)
+SectionA
+Directions:Inthissection,you willhearthreenewsreports．Attheendofeachnews
+report,youwillheartwoorthreequestions．Boththenewsreportandthequestions
+[[PDF_PAGE 151]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４６
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+Questions１and２arebasedonthenewsreportyouhavejustheard．
+１．A)ChristmasＧtimeattacksmadebySomalirebels．
+B)AnexplosionatabusstationincentralNairobi．
+C)Thekillingofmorethan７０UgandansinKampala．
+D)BlastssetoffbyaSomaligroupinUganda􀆳scapital．
+２．A)OnChristmasEve．　　　　　　　C)Duringasecuritycheck．
+B)Justbeforemidnight． D)Inthesmallhoursofthemorning．
+Questions３and４arebasedonthenewsreportyouhavejustheard．
+３．A)Itislikelytoclosemanyofitsstores．
+B)Itisknownforthequalityofitsgoods．
+C)Itremainscompetitiveintherecession．
+D)Itwillexpanditsonlineretailbusiness．
+４．A)Expanditsbusinessbeyondgroceries．
+B)Fire２５,０００ofitscurrentemployees．
+C)CutitsDVDpublishingbusiness．
+D)Sellthebusinessforonepound．
+Questions５to７arebasedonthenewsreportyouhavejustheard．
+５．A)Alltaxisbegantousemeters．
+B)Alltaxisgotairconditioning．
+C)Advertisementswereallowedontaxis．
+D)Oldtaxiswerereplacedwithnewcabs．
+６．A)Alowinterestloanscheme． C)Taxipassengers􀆳complaints．
+B)Environmentalists􀆳protests． D)Permissionforcaradvertising．
+７．A)Therearenomoreirregularpractices．
+B)AllnewcabsprovideairＧconditioning．
+C)Newcabsareallequippedwithmeters．
+D)Newlegislationprotectsconsumerrights．
+[[PDF_PAGE 152]]
+１４７
+样
+卷
+SectionB
+Directions:Inthissection,you willheartwolongconversations．Attheendofeach
+conversation,you willhearfourquestions．Boththeconversation andthequestions
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+Questions８to１１arebasedontheconversationyouhavejustheard．
+８．A)IthasapartnershipwithLCP． C)Itspecializesinsafetyfromleaks．
+B)ItisheadquarteredinLondon． D)Ithasachemicalprocessingplant．
+９．A)Heisachemist． C)Heisasafetyinspector．
+B)Heisasalesman． D)HeisMr．Grand􀆳sfriend．
+１０．A)Thepublicrelationsofficer． C)Directorofthesafetydepartment．
+B)Mr．Grand􀆳spersonalassistant． D)Headofthepersonneldepartment．
+１１．A)WaitforMr．Grandtocallback．
+B)LeaveamessageforMr．Grand．
+C)Providedetailsoftheirproductsandservices．
+D)Sendacomprehensivedescriptionoftheirwork．
+Questions１２to１５arebasedontheconversationyouhavejustheard．
+１２．A)Teacher．　　 　B)Journalist． C)Editor．　　　　D)Typist．
+１３．A)Somenewlydiscoveredscenicspot．
+B)BigchangesintheAmazonvalley．
+C)Anewrailwayunderconstruction．
+D)ThebeautifulAmazonrainforests．
+１４．A)Innewsweeklies． C)Innewspapers􀆳Sundayeditions．
+B)Inalocaleveningpaper． D)InoverseaseditionsofU．S．magazines．
+１５．A)Tobecomeaprofessionalwriter．C)Togetherlifestorypublishedsoon．
+B)Tobeemployedbyanewspaper．D)Tosellherarticlestoanewsservice．
+SectionC
+Directions:Inthissection,you willhearthreepassages．Attheendofeachpassage,
+you willhearthreeorfourquestions．Boththepassageandthequestionswillbespoken
+[[PDF_PAGE 153]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１４８
+onlyonce．Afteryouhearaquestion,you mustchoosethebestanswerfrom thefour
+choicesmarkedA),B),C)and D)．Then markthecorrespondingletteron Answer
+Sheet１withasinglelinethroughthecentre．
+Questions１６to１８arebasedonthepassageyouhavejustheard．
+１６．A)Sheisbothapopularandahighlyrespectedauthor．
+B)Sheisthefirstwritertofocusonthefateofslaves．
+C)SheisthemostlovedAfricannovelistofalltimes．
+D)Sheisthemostinfluentialauthorsincethe１９３０􀆳s．
+１７．A)TheBookCriticsCircleAward． C)ThePulitzerPrizeforfiction．
+B)TheNobelPrizeforliterature． D)TheNationalBookAward．
+１８．A)SheisarelativeofMorrison􀆳s． C)Sheisaskilledstoryteller．
+B)Sheisaslavefrom Africa． D)Sheisablackwoman．
+Questions１９to２１arebasedonthepassageyouhavejustheard．
+１９．A)Theyareverygenerousingivinggifts．
+B)Theyrefusegiftswhendoingbusiness．
+C)Theyregardgiftsasatokenoffriendship．
+D)Theygivegiftsonlyonspecialoccasions．
+２０．A)Theyenjoygivinggiftstootherpeople．
+B)Theyspendalotoftimechoosinggifts．
+C)Theyhavetofollow manyspecificrules．
+D)Theypayattentiontothequalityofgifts．
+２１．A)GiftＧgivingplaysanimportantroleinhumanrelationships．
+B)Wemustbeawareofculturaldifferencesingivinggifts．
+C)Wemustlearnhowtogivegiftsbeforegoingabroad．
+D)ReadingextensivelycanmakeoneabettergiftＧgiver．
+Questions２２to２５arebasedonthepassageyouhavejustheard．
+２２．A)Shetenderlylookedafterhersickmother．
+B)Shedevelopedastronginterestinfinance．
+C)Shelearnedtowriteforfinancialnewspapers．
+D)Sheinvestedinstocksandshareson WallStreet．
+２３．A)Sheinheritedabigfortunefromherfather．
+[[PDF_PAGE 154]]
+１４９
+样
+卷
+B)Shesoldherrestaurantwithasubstantialprofit．
+C)Shegot７．５milliondollarsfromherexＧhusband．
+D)Shemadeawiseinvestmentinrealestate．
+２４．A)Shewasdishonestinbusinessdealings．
+B)ShefrequentlyillＧtreatedheremployees．
+C)Sheabusedanimalsincludingherpetdog．
+D)Shewasextremelymeanwithhermoney．
+２５．A)Shecarriedonherfamily􀆳stradition．
+B)Shemadehugedonationstocharities．
+C)Shebuiltahospitalwithhermother􀆳smoney．
+D)Shemadeabigfortunefrom wiseinvestments．
+PartIII　　　　 ReadingComprehension　　　　 (４０minutes)
+SectionA
+Directions:Inthissection,thereisapassagewithtenblanks．Youarerequiredtoselect
+onewordforeachblankfrom alistofchoicesgivenin a wordbankfollowingthe
+passage．Readthepassagethroughcarefullybeforemakingyourchoices．Eachchoicein
+thebankisidentifiedbyaletter．Pleasemarkthecorrespondingletterforeachitemon
+AnswerSheet２withasinglelinethroughthecentre．You maynotuseanyofthewords
+inthebank morethanonce．
+TheU．S．DepartmentofEducationismakingeffortstoensurethatallstudentshave
+equalaccesstoaqualityeducation．Todayitis　２６　thelaunchoftheExcellentEducators
+forAllInitiative．Theinitiativewillhelpstatesandschooldistrictssupportgreateducators
+forthestudentswhoneedthem most．
+“Allchildrenare　２７　toahighＧqualityeducationregardlessoftheirrace,zipcodeor
+familyincome．Itis 　２８ 　importantthatweprovideteachersandprincipalsthesupport
+theyneedtohelpstudentsreachtheirfull 　２９　,”U．S．SecretaryofEducation Arne
+Duncansaid．“Despitetheexcellentworkanddeep 　３０　 ofournation􀆳steachersand
+principals,studentsinhighＧpoverty,highＧminorityschoolsareunfairlytreatedacrossour
+country．Wehavetodobetter．Localleadersandeducatorswill　３１　 theirowncreative
+solutions,butwemustworktogetherto 　３２　 ourfocusonhowtobetterrecruit,support
+and 　３３　 effectiveteachersandprincipalsforallstudents,especiallythekidswhoneed
+them most．”
+Today􀆳sannouncementisanotherimportantstepforwardinimproving accesstoa
+[[PDF_PAGE 155]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１５０
+qualityeducation,a 　３４　 ofPresidentObama􀆳syearofaction．Latertoday,Secretary
+Duncanwillleadaroundtablediscussionwithprincipalsandschoolteachersfromacrossthe
+countryaboutthe 　３５　 of workingin highＧneedschoolsandhow toadoptpromising
+practicesforsupportinggreateducatorsintheseschools．
+A)announcing　　　　I)distributing
+B)beneficial　 J)enhance
+C)challenges　 K)entitled
+D)commitment　 L)potential
+E)component　 M)properly
+F)contests　 N)qualified
+G)critically　 O)retain
+H)develop
+SectionB
+Directions:Inthissection,youaregoingtoreadapassagewithtenstatementsattached
+toit．Eachstatementcontainsinformationgiveninoneoftheparagraphs．Identifythe
+paragraphfrom whichtheinformationisderived．You maychooseaparagraph more
+thanonce．Eachparagraphismarkedwithaletter．Answerthequestionsby marking
+thecorrespondingletteronAnswerSheet２．
+TheChangesFacingFastFood
+A)　FastＧfoodfirmshavetobeathickＧskinnedbunch．Healthexpertsregularlycriticise
+them severely for selling food that makes people fat．Critics even complain that
+McDonald􀆳s,whoselogosymbolisescalorie excess,should nothave been allowedto
+sponsortheWorldCup．ThesearethingsfastＧfoodfirmshavelearnttocopewith．Butnot
+perhapsformuchlonger．Theburgerbusinessfacesmorepressurefromregulatorsata
+timewhenitisalreadyadaptingstrategiesinresponsetoshiftsintheglobaleconomy．
+B)　 Fastfood wasoncethoughtto be recessionＧproof．When consumers needto cut
+spending,thelogicgoes,cheap mealslikeBig Macsand Whoppersbecomeeven more
+attractive．Such “tradingdown”provedtrueformuchofthelatestrecession,whenfastＧ
+foodcompanies picked up customers who could no longer afford to eat at casual
+restaurants．TrafficwasboostedinAmerica,thehomeoffastfood,withdiscountsand
+promotions,suchas＄１menusandcheapcombinationmeals．
+C)　Asaresult,fastＧfoodchainshave weatheredtherecessionbetterthantheir more
+expensivecompetitors．In２００９salesatfullＧservicerestaurantsinAmericafellby more
+[[PDF_PAGE 156]]
+１５１
+样
+卷
+than６％,buttotalsalesremainedaboutthesameatfastＧfoodchains．Insomemarkets,
+suchasJapan,FranceandBritain,totalspendingonfastfoodincreased．SameＧstoresales
+in America at McDonald􀆳s,the world􀆳slargestfastＧfood company,did not decline
+throughoutthedownturn．PaneraBread,anAmericanfastＧfoodchainknownforitsfresh
+ingredients,performed well,too,becauseitoffershigherＧqualityfoodatlowerprices
+thanrestaurants．
+D)　ButnotallfastＧfoodcompanieshavebeenasfortunate．Many,suchasBurgerKing,
+haveseensalesfall．Inasevererecession,whilesomepeopletradedowntofastfood,
+manyotherseatathome morefrequentlytosave money．DavidPalmer,ananalystat
+UBS,abank,sayssmallerfastＧfoodchainsinAmerica,suchasJackintheBoxandCarl􀆳s
+Jr．,havebeenhitparticularlyhardinthisdownturnbecausetheyarecompetingwiththe
+globalgiantMcDonald􀆳s,whichincreasedspendingonadvertisingby morethan７％ last
+yearasotherscutback．
+E)　SomefastＧfoodcompaniesalsosacrificedtheirownprofitsbytryingtogivecustomers
+bettervalue．Duringtherecessioncompaniessetpriceslow,hopingthatoncetheyhad
+temptedcustomersthroughthedoorthey wouldbepersuadedtoorder moreexpensive
+items．Butinmanycasesthatstrategydidnotwork．LastyearBurgerKingfranchisees
+(特 许 经 营 人 )sued (起 诉 )thecompany overitsdoubleＧcheeseburgerpromotion,
+claimingitwasunfairforthemtoberequiredtosellthesefor＄１whentheycost＄１．１０
+tomake．InMayajudgeruledinfavourofBurgerKing．Nevertheless,thecompanymay
+stillbecursingitsdecisiontopromotecheapchoicesovermoreexpensiveonesbecause
+itemsonits “value menu”nowaccountforaround２０％ ofallsales,upfrom１２％ last
+October．
+F)　AnalystsexpectthefastＧfoodindustrytogrow modestlythisyear．Butthedownturnis
+makingcompaniesrethinktheirstrategies．ManyarenowintroducinghigherＧpriceditems
+toentice (引 诱)consumersawayfrom ＄１specials．KFC,adivisionofYum! Brands,
+whichalsoownsTacoBellandPizzaHut,haslaunchedachickensandwichthatcosts
+around ＄５．AndinMayBurgerKingintroducedbarbecueporkribsat＄７foreight．
+G)　Companiesarealsotryingtogetcustomerstobuynew and moreitems,including
+drinks．McDonald􀆳sstartedsellingbettercoffeeasachallengetoStarbucks．Its“McCafé”
+linenowaccountsforanestimated６％ ofsalesinAmerica．Starbuckshassoldrightstoits
+Seattle􀆳sBestcoffeebrandtoBurgerKing,whichwillstartsellingitlaterthisyear．
+H)　AsfastＧfoodcompaniesshiftfrom “supersize”to “morebuys”,theyneedtokeep
+customertraffichighthroughouttheday．Manyseebreakfastasabigopportunity,and
+notjustforfattyfood．McDonald􀆳swillstartsellingporridge (粥)inAmericanextyear．
+Breakfasthasthepotentialtobeveryprofitable,saysSaraSenatoreofBernstein,a
+researchfirm,becausethe marginscanbehigh．FastＧfoodcompaniesarealsoadding
+middayandlateＧnightsnacks,suchasblendeddrinksand wraps．Theideaisthatby
+havingagreaterrangeofthingsonthemenu,“wecanselltoconsumersproductsthey
+[[PDF_PAGE 157]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１５２
+wantallday,”saysRickCarucci,thechieffinancialofficerofYum! Brands．
+I)　Butwhataboutthosegrowingwaistlines? Sofar,fastＧfoodfirmshavecleverlyavoided
+government regulation．By providing healthy options,like salads and lowＧcalorie
+sandwiches,theyhaveatleastgiventheimpressionofdoingsomethingabouthelpingto
+fightobesity．Theseofferingsarenotnecessarilylossleaders,astheybroadentheappeal
+ofoutletstogroupsofdinersthatincludesomepeoplewhodon􀆳twanttoeataburger．But
+customerscannotbeforcedtoordersaladsinsteadoffries．
+J)　Inthefuture,simply offeringahealthy option may notbe goodenough．“Every
+packagedＧfoodandrestaurantcompanyIknowisconcernedaboutregulationrightnow,”
+saysMr．PalmerofUBS．America􀆳shealthreformbill,whichCongresspassedthisyear,
+requiresrestaurantchainswith２０ormoreoutletstoputthecaloriecontentofitemsthey
+serveonthemenu．AstudybytheNationalBureauofEconomicResearch,whichtracked
+theeffectsonStarbucksofasimilarcalorieＧpostinglawinNewYorkCityin２００７,found
+thattheaveragecaloriecountpertransactionfell６％ andrevenueincreased３％ at
+StarbucksstoreswhereaDunkinDonutsoutletwasnearby—asign,itissaid,thatmenu
+labellingcouldfavourchainsthathavemorehealthyofferings．
+K)　InordertoavoidotherlegislationinAmericaandelsewhere,fastＧfoodcompanieswill
+havetocontinueinnovating．WaltRikerofMcDonald􀆳sclaimsthechangeithasmadeinits
+menumeansitoffersmorehealthyitemsthanitdidafewyearsago．“Weprobablysell
+morevegetables,more milk,moresalads,moreapplesthananyrestaurantbusinessin
+theworld,”hesays．ButtherecentproposalbyacountyinCaliforniatoban McDonald􀆳s
+fromincludingtoysinitshighＧcalorie “Happy Meals”,becauselegislatorsbelieveit
+attractschildrentounhealthyfood,suggeststhereisalotmorelefttodo．
+３６．Somepeopleproposelawsbe madetostop McDonald􀆳sfrom attachingtoystoitsfood
+specialsforchildren．
+３７．FastＧfoodfirmsmaynotbeabletocopewithpressuresfromfoodregulationinthenear
+future．
+３８．BurgerKingwillstarttosellSeattle􀆳sBestcoffeetoincreasesales．
+３９．SomefastＧfoodfirmsprovidehealthyfoodtogivetheimpressiontheyarehelpingto
+tackletheobesityproblem．
+４０．Duringtherecession,manycustomersturnedtofastfoodtosavemoney．
+４１．Manypeopleeatoutlessoftentosavemoneyintimesofrecession．
+[[PDF_PAGE 158]]
+１５３
+样
+卷
+４２．Duringtherecession,BurgerKing􀆳spromotionalstrategyofofferinglowＧpriceditems
+oftenprovedineffective．
+４３．FastＧfoodrestaurantscanmakealotofmoneybysellingbreakfast．
+４４．ManyfastＧfoodcompaniesnowexpecttoincreasetheirrevenuebyintroducinghigherＧ
+priceditems．
+４５．AnewlyＧpassedlawrequiresbigfastＧfoodchainsspecifythecaloriecountofwhatthey
+serveonthemenu．
+SectionC
+Directions:Thereare２ passagesin thissection．Each passageisfollowed bysome
+questionsorunfinishedstatements．ForeachofthemtherearefourchoicesmarkedA),
+B),C)andD)．Youshoulddecideonthebestchoiceandmarkthecorrespondingletter
+onAnswerSheet２withasinglelinethroughthecentre．
+PassageOne
+Questions４６to５０arebasedonthefollowingpassage．
+IfyouthinkahighＧfactorsunscreen (防晒霜)keepsyousafefromharmfulrays,you
+maybe wrong．Researchinthis week􀆳s Nature showsthatwhilefactor５０reducesthe
+numberof melanomas (黑 瘤 )and delaystheir occurrence,it can􀆳t preventthem．
+Melanomasarethemostaggressiveskincancers．Youhaveahigherriskifyouhaveredor
+blondhair,fairskin,blueorgreeneyes,orsunburneasily,orifacloserelativehashad
+one．Melanomasaremorecommonifyouhaveperiodicintenseexposuretothesun．Other
+skincancersareincreasinglylikelywithlongＧtermexposure．
+Thereiscontinuingdebateastohoweffectivesunscreenisinreducing melanomas —
+theevidenceisweakerthanitisforpreventingothertypesofskincancer．A２０１１Australian
+studyof１,６２１peoplefoundthatpeoplerandomlyselectedtoapplysunscreendailyhadhalf
+therateofmelanomasofpeoplewhousedcreamasneeded．Asecondstudy,comparing１,
+１６７peoplewithmelanomasto１,１０１whodidn􀆳thavethecancer,foundthatusingsunscreen
+routinely,alongsideotherprotectionsuchashats,longsleevesorstayingintheshade,did
+givesomeprotection．Thisstudysaidotherformsofsunprotection — notsunscreen —
+seemedmostbeneficial．Thestudyreliedonpeoplerememberingwhattheyhaddoneover
+eachdecadeoftheirlives,soit􀆳snotentirelyreliable．Butitseemsreasonabletothink
+sunscreengivespeopleafalsesenseofsecurityinthesun．
+Manypeoplealsodon􀆳tusesunscreenproperly — applyinginsufficientamounts,failing
+toreapplyafteracoupleofhoursandstayinginthesuntoolong．Itissunburnthatismost
+worrying — recentresearchshowsfiveepisodesofsunburnintheteenageyearsincreases
+[[PDF_PAGE 159]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１５４
+theriskofallskincancers．
+Thegoodnewsisthatacombinationofsunscreenandcoveringupcanreducemelanoma
+rates,asshownbyAustralianfiguresfromtheirslipＧslopＧslapcampaign．Soifthereisaheat
+wavethissummer,itwouldbebestforus,too,tosliponashirt,slopon (抹上)sunscreen
+andslaponahat．
+４６．Whatispeople􀆳scommonexpectationofahighＧfactorsunscreen?
+A)Itwilldelaytheoccurrenceofskincancer．
+B)Itwillprotectthemfromsunburn．
+C)Itwillkeeptheirskinsmoothandfair．
+D)Itwillprotectpeopleofanyskincolor．
+４７．WhatdoestheresearchinNaturesayaboutahighＧfactorsunscreen?
+A)Itisineffectiveinpreventingmelanomas．
+B)Itisineffectiveincaseofintensesunlight．
+C)ItisineffectivewithlongＧtermexposure．
+D)Itisineffectiveforpeoplewithfairskin．
+４８．Whatdowelearnfromthe２０１１Australianstudyof１,６２１people?
+A)Sunscreenshouldbeappliedalongsideotherprotectionmeasures．
+B)HighＧriskpeoplebenefitthemostfromtheapplicationofsunscreen．
+C)Irregularapplicationofsunscreendoeswomenmoreharmthangood．
+D)Dailyapplicationofsunscreenhelpsreducetheincidenceofmelanomas．
+４９．WhatdoestheauthorsayaboutthesecondAustralianstudy?
+A)Itmisleadspeopletorelyonsunscreenforprotection．
+B)Ithelpspeopletoselectthemosteffectivesunscreen．
+C)Itisnotbasedondirectobservationofthesubjects．
+D)ItconfirmstheresultsofthefirstAustralianstudy．
+５０．Whatdoestheauthorsuggesttoreducemelanomarates?
+A)Usingbothcoveringupandsunscreen．
+B)Stayingintheshadewheneverpossible．
+C)Usingcoveringupinsteadofsunscreen．
+D)Applyingtherightamountofsunscreen．
+PassageTwo
+Questions５１to５５arebasedonthefollowingpassage．
+Acrosstherich world,wellＧeducatedpeopleincreasingly worklongerthanthelessＧ
+[[PDF_PAGE 160]]
+１５５
+样
+卷
+skilled．Some６５％ ofAmerican men aged６２Ｇ７４ withaprofessionaldegreeareinthe
+workforce,comparedwith３２％ ofmenwithonlyahighＧschoolcertificate．Thisgapispart
+ofadeepening dividebetweenthe wellＧeducated wellＧoffandthe unskilled poor．Rapid
+technologicaladvancehasraisedtheincomesofthehighlyskilledwhilesqueezingthoseof
+theunskilled．Theconsequences,forindividualsandsociety,areprofound．
+Theworldisfacinganastonishingriseinthenumberofoldpeople,andtheywilllive
+longerthaneverbefore．Overthenext２０yearstheglobalpopulationofthoseaged６５or
+morewillalmostdouble,from６００millionto１．１billion．Theexperienceofthe２０thcentury,
+whengreaterlongevity (长 寿)translatedinto moreyearsinretirementratherthan more
+yearsatwork,haspersuaded manyobserversthatthisshiftwillleadtoslowereconomic
+growth,whiletheswellingranksofpensionerswillcreategovernmentbudgetproblems．
+Butthenotionofasharpdivisionbetweentheworkingyoungandtheidleoldmissesa
+newtrend,thegrowinggapbetweentheskilledandtheunskilled．Employmentratesare
+fallingamongyoungerunskilledpeople,whereasolderskilledfolkareworkinglonger．The
+divideis mostextremein America,where wellＧeducated babyＧboomersare putting off
+retirementwhilemanylessＧskilledyoungerpeoplehavedroppedoutoftheworkforce．
+Policyispartlyresponsible．ManyEuropeangovernmentshaveabandonedpoliciesthat
+usedto encourage people to retire early．Rising life expectancy,combined with the
+replacement of generous definedＧbenefit pension plans with less generous definedＧ
+contributionones,meansthateventhebetterＧoffmustworklongertohaveacomfortable
+retirement．Butthechangingnatureofworkalsoplaysabigrole．Payhasrisensharplyfor
+thehighlyeducated,andthosepeoplecontinuetoreaprichrewardsintooldagebecause
+these days the educated elderly are more productive than the preceding generation．
+Technologicalchangemaywellreinforcethatshift:theskillsthatcomplementcomputers,
+from managementknowhowtocreativity,donotnecessarilydeclinewithage．
+５１．Whatishappeningintheworkforceinrichcountries?
+A)Youngerpeoplearereplacingtheelderly．
+B)WellＧeducatedpeopletendtoworklonger．
+C)Unemploymentratesarerisingyearafteryear．
+D)Peoplewithnocollegedegreedonoteasilyfindwork．
+５２．WhathashelpeddeepenthedividebetweenthewellＧoffandthepoor?
+A)Longerlifeexpectancies． C)Profoundchangesintheworkforce．
+B)Arapidtechnologicaladvance． D)AgrowingnumberofthewellＧeducated．
+５３．Whatdomanyobserverspredictinviewoftheexperienceofthe２０thcentury?
+A)Economicgrowthwillslowdown．
+B)Governmentbudgetswillincrease．
+[[PDF_PAGE 161]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１５６
+C)Morepeoplewilltrytopursuehighereducation．
+D)Therewillbemorecompetitioninthejobmarket．
+５４．WhatistheresultofpolicychangesinEuropeancountries?
+A)Unskilledworkersmaychoosetoretireearly．
+B)MorepeoplehavetoreceiveinＧservicetraining．
+C)Evenwealthypeoplemustworklongertolivecomfortablyinretirement．
+D)PeoplemaybeabletoenjoygenerousdefinedＧbenefitsfrompensionplans．
+５５．Whatischaracteristicofworkinthe２１stcentury?
+A)Computerswilldomorecomplicatedwork．
+B)Morewillbetakenbytheeducatedyoung．
+C)Mostjobstobedonewillbecreativeones．
+D)Skillsarehighlyvaluedregardlessofage．
+PartIV　　　　　　 Translation　　　 (３０minutes)
+Directions:Forthispart,you areallowed３０ minutestotranslatea passagefrom
+ChineseintoEnglish．YoushouldwriteyouransweronAnswerSheet２．
+据报道,今年中国快递服务(courierservices)将递送大约１２０亿件包裹.这将使中国有
+可能超越美国成为世界上最大的快递市场.大多数包裹里装着网上订购的物品.中国给数
+百万在线零售商以极具竞争力 的 价 格 销 售 商 品 的 机 会.仅 在 １１ 月 １１ 日,中 国 消 费 者 就 从
+国内最大的购物平台购买了价值９０亿美元的商品.中国有不少这样的特殊购物日.因此,
+快递业在中国扩展就不足为奇了.
+[[PDF_PAGE 162]]
+１５７
+样
+卷
+【听力文字稿】
+SectionA
+Directions:Inthissection,you willhearthreenewsreports．Attheendofeachnews
+report,youwillheartwoorthreequestions．Boththenewsreportandthequestions
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+NewsReportOne
+Kenyanpolicesayonepersonwaskilledand２６injuredinanexplosionatabusstation
+incentralNairobi．TheblasthitabusabouttosetofffortheUgandancapitalKampala．Last
+July,theSomaligroupalＧShababsaiditwasbehindtheblastsintheUgandancapitalwhich
+killedmorethan７０people．WillRossreportsfromtheKenyancapital．
+Theexplosionhappenedbesideabuswhichwasabouttosetoffforanovernightjourney
+from NairobitotheUgandancapitalKampala．Someeyewitnessesreportthatabagwasabout
+tobeloadedonboard,butitexplodedduringasecuritycheck．Windowsoftheredbuswere
+leftsmashed,andbloodcouldbeseenonthegroundbesidethevehicle．Justhoursearlier,
+Uganda􀆳spolicechiefhadwarnedofpossibleChristmasＧtimeattacksbySomalirebels．
+Questions１and２arebasedonthenewsreportyouhavejustheard．
+１．Whatisthenewsreportmainlyabout?
+２．Whendidtheincidentoccur?
+NewsReportTwo
+WoolworthsisoneofthebestknownnamesontheBritish HighStreet．It􀆳sbeenin
+businessfornearlyacentury．Many ofits８００storesarelikelytoclosefollowingthe
+company􀆳sdecisiontocallinadministratorsafteranattempttosellthebusinessforatoken
+￡１failed．
+Thecompanyhashugedebts．TheimmediatecauseforthecollapsehasbeenBritain􀆳s
+slidetowardrecession,whichhascutintoconsumerspending．However,thebusinesshad
+beenintroubleforyears．
+Known for lowＧpriced general goods, Woolworths has struggled in the face of
+competitionfromsupermarketsexpandingbeyondgroceriesandanewgenerationofinternet
+retailers．
+Manyofthe store group􀆳s２５,０００ employeesarelikely tolosetheirjobs．Some
+profitableareassuchastheDVDpublishingbusinesswillsurvive．
+[[PDF_PAGE 163]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１５８
+Questions３and４arebasedonthenewsreportyouhavejustheard．
+３．WhatdowelearnaboutWoolworthsfromthenewsreport?
+４．WhatdidWoolworthsattempttodorecently?
+NewsReportThree
+Cairoisknownnotonlyforitsovercrowdedroads,irregulardrivingpracticesandshaky
+oldvehicles,butalsoforitsairpollution．Inrecentmonths,though,environmentalstudies
+indicatetherehavebeensignsofimprovement．That􀆳sdueinparttotheremovalofmanyof
+thecapital􀆳soldＧfashionedblackandwhitetaxis．Mostofthesedatedbacktothe１９６０sand
+７０sandwereinapoorstateofrepair．
+Afternew legislation demandedtheirremovalfrom theroads,alow interestloan
+scheme was set up with three Egyptian banks so drivers could buy new cars．The
+governmentpaysabout ＄９００foroldonestobediscardedandadvertising onthe new
+vehicleshelpscoverrepayments．
+Theideahasprovedpopularwithcustomers— theycannowtravelinairＧconditioned
+comfortandbecausethenewcabsaremetered,theydon􀆳thavetoargueoverfares．Banks
+andcarmanufacturersaregladfortheextrabusinessintougheconomictimes．Asforthe
+taxidrivers,mostaredelightedtobebehindthewheelofnewcars,althoughtherehave
+beenafewcomplaintsaboutswitchingfromblackandwhitetoaplainwhitecolour．
+Questions５to７arebasedonthenewsreportyouhavejustheard．
+５．WhatchangetookplaceinCairorecently?
+６．Whathelpedbringaboutthechange?
+７．Whydocustomersnolongerarguewithnewcabdrivers?
+SectionB
+Directions:Inthissection,you willheartwolongconversations．Attheendofeach
+conversation,you willhearfourquestions．Boththeconversation andthequestions
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+ConversationOne
+W:Morning,thisisTGC．
+M:Goodmorning．WalterBarryhere,callingfrom London．CouldIspeakto Mr．Grand,
+please?
+W:Who􀆳scalling,please?
+M:WalterBarry,fromLondon．
+W:Whatisitabout,please?
+[[PDF_PAGE 164]]
+１５９
+样
+卷
+M:Well,I understand that your company has a chemicalprocessing plant．My own
+company,LCP,LiquidControlProducts,isaleaderinsafetyfromleaksinthefieldof
+chemicalprocessing．Iwouldliketospeakto Mr．Grandtodiscusswaysin which we
+couldhelpTGCprotectitselffromsuchproblemsandsavemoneyatthesametime．
+W:Yes,Isee．Well,Mr．Grandisnotavailableatthemoment．
+M:CanyoutellmewhenIcouldreachhim?
+W:He􀆳sverybusyforthenextfewdays—thenhe􀆳llbeawayinNewYork．Soit􀆳sdifficult
+togiveyouatime．
+M:CouldIspeaktosomeoneelse,perhaps?
+W:Whoinparticular?
+M:Acolleagueforexample?
+W:You􀆳respeakingtohispersonalassistant．IcandealwithcallsforMr．Grand．
+M:Yes,well,couldIringhimtomorrow?
+W:No,I􀆳msorryhewon􀆳tbefreetomorrow．Listen,letmesuggestsomething．Yousend
+usdetailsofyourproductsandservices,togetherwithreferencesfromothercompanies
+andthenwe􀆳llcontactyou．
+M:Yes,that􀆳sverykindofyou．Ihaveyouraddress．
+W:Verygood,Mr．．．．
+M:Barry．WalterBarryfromLCPinLondon．
+W:Right,Mr．Barry．Welookforwardtohearingfromyou．
+M:Thankyou．Goodbye．
+W:Bye．
+Questions８to１１arebasedontheconversationyouhavejustheard．
+８．Whatdowelearnaboutthewoman􀆳scompany?
+９．Whatdowelearnabouttheman?
+１０．Whatisthewoman􀆳spositioninhercompany?
+１１．Whatdoesthewomansuggestthemando?
+ConversationTwo
+M:You􀆳regoingtowearoutthecomputer􀆳skeyboard!
+W:Oh,hi．
+M:Doyouhaveanyideawhattimeitis?
+W:AbouttenortenＧthirty?
+M:It􀆳snearlymidnight．
+W:Really?Ididn􀆳tknowitwassolate．
+M:Don􀆳tyouhaveanearlyclasstoteachtomorrow morning?
+W:Yes,atseveno􀆳clock．Mycommuterclass,thestudentswhogotoworkrightaftertheir
+lesson．
+[[PDF_PAGE 165]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６０
+M:Thenyououghttogotobed．Whatareyouwriting,anyway?
+W:AnarticleIhopeIcansell．
+M:Oh,anotherofyournewspaperpieces? What􀆳sthisoneabout?
+W:DoyourememberthetripItooklastmonth?
+M:TheoneuptotheAmazon?
+W:Well,that􀆳swhatI􀆳m writingabout—thenewhighwayandthechangesit􀆳smakingin
+theAmazonvalley．
+M:Itshouldbeinteresting．
+W:Itis．Iguessthat􀆳swhyIforgotallaboutthetime．
+M:How manyarticleshaveyousoldnow?
+W:Aboutadozensofar．
+M:Whatkindofnewspapersbuythem?
+W:Thepapersthatcarryalotofforeignnews．TheyusuallyappearinthebigSunday
+editionswheretheyneedalotofbackgroundstoriestohelpfillupthespacebetween
+theads．
+M:Isthereanyfutureinit?
+W:Ihopeso．There􀆳sachanceImaysellthisarticletoanewsservice．
+M:Thenyourstorywouldbepublishedinseveralpapers,wouldn􀆳tit?
+W:That􀆳stheidea．AndImightevenbeabletodootherstoriesonaregularbasis．
+M:Thatwouldbegreat．
+Questions１２to１５arebasedontheconversationyouhavejustheard．
+１２．Whatisthewoman􀆳soccupation?
+１３．Whatisthewomanwritingabout?
+１４．Wheredothewoman􀆳sarticlesusuallyappear?
+１５．Whatdoesthewomanexpect?
+SectionC
+Directions:Inthissection,you willhearthreepassages．Attheendofeachpassage,
+you willhearthreeorfourquestions．Boththepassageandthequestionswillbespoken
+onlyonce．Afteryouhearaquestion,you mustchoosethebestanswerfrom thefour
+choicesmarkedA),B),C)and D)．Then markthecorrespondingletteron Answer
+Sheet１withasinglelinethroughthecentre．
+PassageOne
+Intoday􀆳sclass,we􀆳lldiscussToniMorrison􀆳snovelBeloved．AsI􀆳msureyouallknow,
+Morrisonisbothapopularandahighlyrespectedauthor,andit􀆳snoteasytobeboth．Born
+in１９３１,Morrison has writtensomeofthe mosttouchingandintelligent worksonthe
+AfricanＧAmericanexperienceever written by anyone,and yettocallheran “AfricanＧ
+[[PDF_PAGE 166]]
+１６１
+样
+卷
+Americanwriter”doesn􀆳tseemtodoherjustice．In manyways,she􀆳ssimplyanAmerican
+writer—andcertainlyoneofourbest．
+Beloved isatruly remarkable work．It wasrecommendedfor nearly every major
+literaryprize,includingthe NationalBook Awardandthe NationalBook Critics Circle
+Award,anditinfact won the Pulitzer Prizeforfictionin １９８８．Morrison herselfis
+distinguishedforhavingwontheNobelPrizeforliteraturein１９９３．
+WhatmakesBeloveduniqueistheskillful,surewayinwhichMorrisonblendsintensely
+personalstorytelling and American history,racial themes and gender themes,the
+experienceofBlackswiththeexperienceofallpeopleeverywhere,thedownＧtoＧearthreality
+ofslaverywithasenseofmysteriousspirituality．
+We􀆳llbe paying specialattention to these themes as we discuss this work．I􀆳m
+particularlyinterestedinyourviewsontherelativeimportanceofraceandgenderinthis
+book．IsitmoreimportantthatSethe,themaincharacter,isblackorthatshe􀆳sawoman?
+Whichcontributesmoretoherbeing? WhatdoesMorrisontellusaboutboth?
+Questions１６to１８arebasedonthepassageyouhavejustheard．
+１６．WhatdowelearnaboutToniMorrison?
+１７．WhathonordidToniMorrisonreceivein１９９３?
+１８．WhatdoesthespeakertellusaboutSethe,the maincharacterin Morrison􀆳snovel
+Beloved?
+PassageTwo
+ThetopicofmytalktodayisgiftＧgiving．Everybodylikestoreceivegifts,right? Soyou
+maythinkthatgiftＧgivingisauniversalcustom．Butactually,therulesofgiftＧgivingvary
+quitealot,andnotknowingthemcanresultingreatembarrassment．InNorthAmerica,the
+rulesarefairlysimple．Ifyou􀆳reinvitedtosomeone􀆳shomefordinner,bringwineorflowers
+orasmallitem from yourcountry．Amongfriends,family,andbusinessassociates,we
+generallydon􀆳tgivegiftsonotheroccasionsexceptonsomeone􀆳sbirthdayandChristmas．
+TheJapanese,ontheotherhand,givegiftsquitefrequently,oftentothanksomeonefor
+theirkindness．ThetraditionofgiftＧgivinginJapanisveryancient．Therearemanydetailed
+rulesfor everything from the color ofthe wrapping paper to the time ofthe gift
+presentation．AndwhileEuropeansdon􀆳tgenerallyexchangebusinessgifts,theydofollow
+someformalcustomswhenvisitinghomes,suchasbringingflowers．Thetypeandcolorof
+flowers,however,cancarryspecialmeaning．
+TodaywehaveseensomebroaddifferencesingiftＧgiving．Icouldgoonwithadditional
+examples．Butlet􀆳snotmissthe mainpointhere:Ifwearenotawareofandsensitiveto
+culturaldifferences,the possibilitiesfor miscommunication and conflictare enormous．
+Whetherwelearnaboutthesedifferencesbyreadingabookorbylivingabroad,ourgoal
+mustbetorespectdifferencesamongpeopleinordertogetalongsuccessfully withour
+[[PDF_PAGE 167]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６２
+globalneighbors．
+Questions１９to２１arebasedonthepassageyouhavejustheard．
+１９．WhatdoesthespeakersayaboutgiftＧgivingofNorthAmericans?
+２０．WhatdowelearnabouttheJapaneseconcerninggiftＧgiving?
+２１．Whatpointdoesthespeakermakeattheendofthetalk?
+PassageThree
+HettyGreen wasaveryspoilt,onlychild．She wasbornin Massachusetts,USA,in
+１８３５．Herfatherwasamillionairebusinessman．Hermotherwasoftenill,andsofromthe
+ageoftwoherfathertookherwithhimtoworkandtaughtheraboutstocksandshares．At
+theageofsixshestartedreadingthedailyfinancialnewspapersandopenedherownbank
+account．
+Herfatherdiedwhenshewas２１andsheinherited＄７．５million．ShewenttoNewYork
+andinvestedonWallStreet．Hettysavedeverypenny,eatinginthecheapestrestaurantsfor
+１５cents．Shebecameoneoftherichestand mosthated womeninthe world．At３３she
+marriedEdwardGreen,amultiＧmillionaire,andhadtwochildren,NedandSylvia．
+Hetty􀆳smeannesswaswellknown．Shealwaysarguedaboutpricesinshops．Shewalked
+tothelocalgrocerystoretobuybrokenbiscuitswhichweremuchcheaper,andtogetafree
+boneforhermuchloveddog．OnceshelostatwoＧcentstampandspentthenightlookingfor
+it．Sheneverboughtclothesandalwaysworethesamelong,raggedblackskirt．Worstof
+all,whenhersonNedfellandinjuredhisknee,sherefusedtopayforadoctorandspent
+hourslookingforfreemedicalhelp．IntheendNedlosthisleg．
+Whenshediedin１９１６sheleftherchildren ＄１００million．Herdaughterbuiltahospital
+withhermoney．
+Questions２２to２５arebasedonthepassageyouhavejustheard．
+２２．WhatdowelearnaboutHettyGreenasachild?
+２３．HowdidHettyGreenbecomerichovernight?
+２４．WhywasHettyGreenmuchhated?
+２５．WhatdowelearnaboutHettyGreen􀆳sdaughter?
+[[PDF_PAGE 168]]
+１６３
+样
+卷
+【参考答案】
+PartII　ListeningComprehension
+SectionA
+１．B　　　２．C　　　３．A　　　４．D　　　５．D
+６．A　　　７．C
+SectionB
+８．D ９．B １０．B １１．C １２．A
+１３．B １４．C １５．D
+SectionC
+１６．A １７．B １８．D １９．D ２０．C
+２１．B ２２．B ２３．A ２４．D ２５．C
+PartIII　ReadingComprehension
+SectionA
+２６．A ２７．K ２８．G ２９．L ３０．D
+３１．H ３２．J ３３．O ３４．E ３５．C
+SectionB
+３６．K ３７．A ３８．G ３９．I ４０．B
+４１．D ４２．E ４３．H ４４．F ４５．J
+SectionC
+４６．B ４７．A ４８．D ４９．C ５０．A
+５１．B ５２．B ５３．A ５４．C ５５．D
+PartIV　Translation
+ItisreportedthatChinesecourierserviceswilldeliverabout１２billionparcelsthisyear．
+ThiswillenableChinatoovertaketheUSandbecometheworld􀆳sbiggestdeliverymarket．
+Themajorityofcourierpackagescontainitemsorderedonline．Chinagivesmillionsofonline
+retailerstheopportunitytosellgoodsathighlycompetitiveprices．On１１Novemberalone,
+Chineseconsumersbought ＄９billion worthofproductsonthecountry􀆳sbiggestshopping
+platform．Chinahasmanyspecialshoppingholidayslikethis．So,it􀆳snosurprisethecourier
+industryisexpandinginChina．
+[[PDF_PAGE 169]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６４
+２．全国大学英语四级考试(口试)样卷
+Topicarea:DailyLife
+Topic:Travel
+Hello,welcometotheCETSpokenEnglishTest— BandFour．Wewishyoubothgood
+lucktoday．Nowlet􀆳sstartbyintroducingyourselves．
+CandidateA,wouldyoupleasegofirst? (时间２０秒)
+Thankyou．CandidateB,nowit􀆳syourturn．(时间２０秒)
+Thankyou．OK,nowthatweknoweachother,let􀆳smoveon．
+Task１　ReadAloud
+Inthistask,youwillreadaloudashortpassage．Youwillhave４５secondstogooverthe
+passageandoneminutetoreaditaloud．Hereisthepassage．
+(屏幕显示以下文字)
+ManypeoplewouldlistSanFranciscoasoneofthemostdelightfulcitiesintheworld．
+SittingonthePacificcoast,itgivesyouafeelingofthesea．Theseabreezeswakeyouup
+andmakeyoueatwellandsleepwell．Thecitywasplannedwithstraightroads,andthese
+roadscrosseachotheratrightangles,makingsquaresastheydoin manyAmericancities．
+Veryoftenyoucanfindyourselfontopofahillinthecity,lookingdownoneofthese
+straightroadsasitrisesandfallsonitsjourneythroughthetown．Agoodwaytotravelthese
+roadsisbycablecar．Thesearebusesthatrunonrailsinthegroundupanddownthesteep
+hills．
+(考生准备时间４５秒)
+Whenyouhearthebeep,pleasestarttoread．
+(考生 A 和 B 同时回答,时间１分钟)
+Task２　QuestionandAnswer
+Inthistask,you willanswertwo questions．Foreach question,you willhave２０
+secondstorespond．Whenyouhearthebeep,pleasestarttospeak．
+(问题文字不显示在屏幕上)
+Question１:
+WhatwouldmanypeoplethinkofSanFranciscoaccordingtothepassage?
+(考生 A 和 B 同时回答,时间２０秒)
+[[PDF_PAGE 170]]
+１６５
+样
+卷
+Question２:
+WhichcoastalcityinChinadoyoulikemost? Andwhy?
+(考生 A 和 B 同时回答,时间２０秒)
+Task３　IndividualPresentation
+Inthistask,youwilltalkaboutthepicturedisplayedonthescreen．Youwillhave４５
+secondstoprepareandoneminutetotalkaboutit．Nowhereisthepicture．
+(考生准备时间４５秒)
+Whenyouhearthebeep,pleasestarttospeak．
+(考生 A 和 B 同时回答,时间１分钟)
+Task４　PairWork
+Inthistask,youwilltalkwithyourpartneraboutaplanoftravel．Supposeyouhave
+threedaystogosightseeingtogether．Talkwitheachotherand makeaplanforyourtrip．
+Yourplanmayinclude:
+— place(s)tovisit
+— schedule
+— meansoftransportation
+Youwillhaveoneminutetoprepareandthreeminutestotalk．Remember,thisisapair
+activityandyouneedtointeractwitheachother．Yourperformancewillbejudgedaccording
+toyourcontributiontothepairwork．Nowpleasestarttoprepare．
+[[PDF_PAGE 171]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６６
+(屏幕上显示以下文字)
+Yourplanmayinclude:
+— place(s)tovisit
+— schedule
+— meansoftransportation
+(考生准备时间１分钟)
+Whenyouhearthebeep,pleasestarttospeak．
+(考生 A 和 B 讨论,时间３分钟)
+Thankyou．Thatistheendofthetest．
+[[PDF_PAGE 172]]
+１６７
+样
+卷
+３．全国大学英语六级考试(笔试)样卷
+PartI　　　　　　　 Writing　　　　　　 (３０minutes)
+Directions:Forthispart,youareallowed３０minutestowriteanessaycommentingon
+thesaying “Ifyoucannotdogreatthings,dosmallthingsinagreatway．”Youcan
+citeexamplestoillustrateyourpointofview．Youshouldwriteatleast１５０wordsbut
+nomorethan２００words．WriteyouressayonAnswerSheet１．
+PartII　　　 ListeningComprehension　　　 (３０minutes)
+SectionA
+Directions:Inthissection,you willheartwolongconversations．Attheendofeach
+conversation,you willhearfourquestions．Boththeconversation andthequestions
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+Questions１to４arebasedontheconversationyouhavejustheard．
+１．A)Heinventedtherefrigerator．
+B)Hepatentedhisfirstinvention．
+C)Hewasadmittedtoauniversity．
+D)HegotadegreeinMathematics．
+２．A)Hestartedtoworkonrefrigeration．
+B)HebecameaprofessorofMathematics．
+C)HefellinlovewithNatashaWilloughby．
+D)Hedistinguishedhimselfinlowtemperaturephysics．
+３．A)Discoveringthetruenatureofsubatomicparticles．
+B)Theirexplanationofthelawsofcauseandeffect．
+C)Theirworkonveryhighfrequencyradiowaves．
+D)Layingthefoundationsofmodernmathematics．
+４．A)TohaveathreeＧweekholiday．　　　　　　C)Topatenthisinventions．
+B)Tospendhisremainingyears． D)Toteachatauniversity．
+[[PDF_PAGE 173]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１６８
+Questions５to８arebasedontheconversationyouhavejustheard．
+５．A)Theinjuryofsomestudents．
+B)Aschoolbuscrashontheway．
+C)Thecollapseofaschoolbuilding．
+D)Afirethatbrokeoutonaschoolcampus．
+６．A)Teaching．　　　　　　　　　　　　 C)Havinglunch．
+B)Onvacation． D)Holdingameeting．
+７．A)A malfunctioningstove． C)Violationoftrafficrules．
+B)Cigarettesbuttsleftbyworkers． D)Negligenceinschoolmaintenance．
+８．A)Sentastorytothelocalnewspaper．
+B)ThrewasmallThanksgivingparty．
+C)Bakedsomecookiesasapresent．
+D)Wroteapersonalletterofthanks．
+SectionB
+Directions:Inthissection,youwillheartwopassages．Attheendofeachpassage,you
+willhearthreeorfourquestions．Boththepassageandthequestionswillbespokenonly
+once．Afteryouhearaquestion,you mustchoosethebestanswerfromthefourchoices
+markedA),B),C)andD)．Then markthecorrespondingletteron AnswerSheet１
+withasinglelinethroughthecentre．
+Questions９to１１arebasedonthepassageyouhavejustheard．
+９．A)Itisatraitofagenerouscharacter．
+B)ItisareflectionofselfＧesteem．
+C)Itisanindicatorofhighintelligence．
+D)Itisasignofhappinessandconfidence．
+１０．A)ItwasselfＧdefeating． C)Itwastheessenceofcomedy．
+B)Itwasaggressive． D)Itwassomethingadmirable．
+１１．A)ItisadoubleＧedgedsword． C)Itisauniquegiftofhumanbeings．
+B)Itisafeatureofagivenculture． D)Itisaresultofbothnatureandnurture．
+Questions１２to１５arebasedonthepassageyouhavejustheard．
+１２．A)Sheisatouristguide． C)Sheisadomesticservant．
+B)Sheisaninterpreter． D)Sheisfromtheroyalfamily．
+[[PDF_PAGE 174]]
+１６９
+样
+卷
+１３．A)Itissituatedatthefootofabeautifulmountain．
+B)Itwasusedbythefamilytoholddinnerparties．
+C)Itwasfrequentlyvisitedbyheadsofstate．
+D)Itisfurnishedlikeoneinaroyalpalace．
+１４．A)Itiselaboratelydecorated．
+B)Ithassurvivedsome２,０００years．
+C)Itisverybig,withonlysixslimlegs．
+D)ItisshapedlikeanancientSpanishboat．
+１５．A)Theyareinterestingtolookat．
+B)Theyhavelostsomeoftheirlegs．
+C)Theydonotmatchtheovaltableatall．
+D)Theyareuncomfortabletositinforlong．
+SectionC
+Directions:Inthissection,you willhearthreerecordingsoflecturesortalksfollowed
+bythreeorfourquestions．Therecordingswillbeplayedonlyonce．Afteryouheara
+question,you mustchoosethebestanswerfromthefourchoices markedA),B),C)
+andD)．Then markthecorrespondingletteron AnswerSheet１ with asingleline
+throughthecentre．
+Questions１６to１９arebasedontherecordingyouhavejustheard．
+１６．A)TheyinvestigatetheretirementhomesinAmerica．
+B)TheyareonissuesfacingseniorcitizensinAmerica．
+C)Theydescribethegreatpleasuresofthegoldenyears．
+D)Theyarefilledwithfondmemoriesofhisgrandparents．
+１７．A)Thelossoftheabilitytotakecareofhimself．
+B)Thefeelingofnotbeingimportantanymore．
+C)Beingunabletofindagoodretirementhome．
+D)Leavingthehomehehadlivedinfor６０years．
+１８．A)ThelossofidentityandselfＧworth．
+B)Fearofbeingreplacedordiscarded．
+C)Freedomfrompressureandworldlycares．
+D)Thepossessionofwealthandhighrespect．
+１９．A)Theurgencyofpensionreform．
+[[PDF_PAGE 175]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１７０
+B)Medicalcareforseniorcitizens．
+C)Findingmeaningfulrolesfortheelderlyinsociety．
+D)Thedevelopmentofpublicfacilitiesforseniorcitizens．
+Questions２０to２２arebasedontherecordingyouhavejustheard．
+２０．A)Itseriouslyimpactstheirphysicalandmentaldevelopment．
+B)Ithasbecomeaproblemaffectingglobaleconomicgrowth．
+C)Itisacommonproblemfoundinunderdevelopedcountries．
+D)Itisanissueoftenoverlookedbyparentsinmanycountries．
+２１．A)Theywilllivelonger． C)Theygetalongwellwithpeople．
+B)Theygetbetterpay． D)TheydevelopmuchhigherIQs．
+２２．A)AppropriatedfundstopromoteresearchofnutrientＧrichfoods．
+B)Encouragedbreastfeedingforthefirstsixmonthsofachild􀆳slife．
+C)Recruitedvolunteerstoteachruralpeopleabouthealthandnutrition．
+D)TargetedhungerＧreliefprogramsatpregnantwomenandyoungchildren．
+Questions２３to２５arebasedontherecordingyouhavejustheard．
+２３．A)Theguaranteedqualityofitsgoods．
+B)Thehugevolumeofitsannualsales．
+C)Theserviceitprovidesforitscustomers．
+D)ThehighvalueＧtoＧweightratioofitsgoods．
+２４．A)Thosehavingatasteorsmellcomponent．
+B)Productspotentiallyembarrassingtobuy．
+C)Thosethatrequireverycarefulhandling．
+D)Servicesinvolvingapersonalelement．
+２５．A)Thosewholiveinthevirtualworld．
+B)Thosewhohavetoworklonghours．
+C)Thosewhoareusedtoonlinetransactions．
+D)Thosewhodon􀆳tmindpayingalittlemore．
+PartIII　　　　 ReadingComprehension　　　　 (４０minutes)
+SectionA
+Directions:Inthissection,thereisapassagewithtenblanks．Youarerequiredtoselect
+[[PDF_PAGE 176]]
+１７１
+样
+卷
+onewordforeachblankfrom alistofchoicesgivenin a wordbankfollowingthe
+passage．Readthepassagethroughcarefullybeforemakingyourchoices．Eachchoicein
+thebankisidentifiedbyaletter．Pleasemarkthecorrespondingletterforeachitemon
+AnswerSheet２withasinglelinethroughthecentre．You maynotuseanyofthewords
+inthebank morethanonce．
+Travelwebsiteshavebeenaroundsincethe１９９０s,when Expedia,Travelocity,and
+otherholidaybookingsiteswerelaunched,allowingtravelerstocompareflightandhotel
+priceswiththeclickofa mouse．Withinformationnolonger 　２６　 bytravelagentsor
+hiddeninbusinessnetworks,thetravelindustrywasrevolutionized,asgreatertransparency
+helped 　２７　 prices．
+Today,theindustryisgoingthroughanewrevolution—thistimetransformingservice
+quality．Onlineratingplatforms— 　２８　inhotels,restaurants,apartments,andtaxis —
+allowtravelerstoexchangereviewsandexperiencesforalltosee．
+Hospitality businesses are now ranked,analyzed,and compared not by industry
+　２９　,butbytheverypeopleforwhomtheserviceisintended — thecustomer．Thishas
+　３０　 anewrelationshipbetweenbuyerandseller．Customershavealwaysvotedwiththeir
+feet;theycannowexplaintheirdecisiontoanyonewhoisinterested．Asaresult,businesses
+aremuch more 　３１　,ofteninveryspecific ways,whichcreatespowerful 　３２　 to
+improveservice．
+Althoughsomereadersmightnotcareforgossipyreportsofunfriendlybellboys (行李
+员)in Berlin or malfunctioning hotelhairdryersin Houston,thetrue powerofonline
+reviewsliesnotjustintheindividualstories,butinthewebsites􀆳 　３３　 toaggregatea
+largevolumeofratings．
+Theimpactcannotbe 　３４　．Businessesthatattracttopratingscan enjoyrapid
+growth,asnew customersareattractedbygoodreviewsand 　３５　 provideyet more
+positivefeedback．Sogreatistheinfluenceofonlineratingsthatmanycompaniesnowhire
+digitalreputationmanagerstoensureafavorableonlineidentity．
+A)accountable　　　　　　I)persisting
+B)capacity 　　　　　　 J)pessimistic
+C)controlled　　　　　　 　K)professionals
+D)entail　　　　　　　　　　L)slash
+E)forged　　　　　　　　　M)specializing
+F)incentives　　　　　　　N)spectators
+G)occasionally　　　　　　　O)subsequently
+H)overstated
+[[PDF_PAGE 177]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１７２
+SectionB
+Directions:Inthissection,youaregoingtoreadapassagewithtenstatementsattached
+toit．Eachstatementcontainsinformationgiveninoneoftheparagraphs．Identifythe
+paragraphfrom whichtheinformationisderived．You maychooseaparagraph more
+thanonce．Eachparagraphismarkedwithaletter．Answerthequestionsby marking
+thecorrespondingletteronAnswerSheet２．
+PlasticSurgery
+Abettercreditcardisthesolutiontoeverlargerhackattacks
+A)　 A thin magnetic stripe (magstripe)is allthatstands between your creditＧcard
+informationandthebadguys．Andthey􀆳vebeen workinghardtobreakin．That􀆳swhy
+２０１４isshaping up asa majorshowdown:banks,law enforcementandtechnology
+companiesarealltryingtostopanetworkofhackers whoaresucceedinginstealing
+accountnumbers,names,emailaddressesandothercrucialdatausedinidentitytheft．
+Morethan１００ millionaccountsatTarget,Neiman Marcusand Michaelsstores were
+affectedinsomewayduringthemostrecentattacks,startinglastNovember．
+B)　Swipeistheoperative word:cardsareincreasinglyvulnerabletoattackswhenyou
+makepurchasesinastore．Inseveralrecentincidents,hackershavebeenabletoobtain
+massiveinformationofcreditＧ,debitＧ(借记)orprepaidＧcardnumbersusingmalware,i．
+e．malicioussoftware,inserted secretlyintotheretailers􀆳pointＧofＧsale system—the
+checkoutregisters．Hackersthensoldthedatatoasecondgroupofcriminalsoperatingin
+shadowycornersoftheweb．Notlongafter,thestolendatawasshowinguponfakecards
+andbeingusedforonlinepurchases．
+C)　Thesolutioncouldcostaslittleas＄２extraforeverypieceofplasticissued．Thefixis
+asecuritytechnologyusedheavilyoutsidetheU．S．WhileAmericancreditcardsusethe
+４０ＧyearＧoldmagstripetechnologytoprocesstransactions,muchoftherestoftheworld
+usessmartercardswithatechnologycalledEMV (shortforEuropay,MasterCard,Visa)
+thatemploysachipembeddedinthecardplusacustomerPIN (personalidentification
+number)toauthenticate (验 证)everytransactiononthespot．Ifapurchaserfailsto
+punchin the correct PIN atthe checkout,the transaction gets rejected．(Online
+purchasescanbemadebysettingupaseparatetransactioncode．)
+D)　Whyhaven􀆳tbigbanksadoptedthemoresecuretechnology? Whenitcomestomailing
+outnewcreditcards,it􀆳sallaboutrelativecosts,saysDavidRobertson,whorunsthe
+NilsonReport,anindustrynewsletter:“Thecostofthecard,puttingthestickeronit,
+codingthe account number and expiration date,embossing (凸 印 )it,the small
+envelope—allputtogether,you􀆳reinthedollarrange．”AchipＧandＧPINcardcurrently
+costscloserto ＄３,saysRobertson,becauseofthepriceofchips．(Oncelargeissuers
+converttogether,thechipcostsshoulddrop．)
+[[PDF_PAGE 178]]
+１７３
+样
+卷
+E)　Multiply ＄３bythemorethan５billionmagstripecreditandprepaidcardsincirculation
+intheU．S．Thenconsiderthatthere􀆳sanestimated＄１２．４billionincardfraudonaglobal
+basis,saysRobertson．With４４％ ofthatintheU．S．,AmericancreditＧcardfraudamounts
+toabout ＄５．５billionannually．Cardissuershavesofarcalculatedthatabsorbingthe
+liabilityforevenbighackslikethe Targetoneisstillcheaperthanreplacingallthat
+plastic．
+F)　 Thatleaves American retailers pretty much alonethe world overin relying on
+magstripetechnology to charge purchases—and leaves consumers vulnerable．Each
+magstripehasthreetracksofinformation,explainspaymentssecurityexpertJeremy
+Gumbley,thechieftechnologyofficerofCreditCall,anelectronicpaymentscompany．
+Thefirstandthirdareusedbythebankorcardissuer．Yourvitalaccountinformation
+livesonthesecondtrack,whichhackerstrytocapture．“Malwareisscanningthrough
+thememoryinrealtimeandlookingfordata,”hesays．“Itcreatesatextfilethatgets
+stolen．”
+G)　ChipＧandＧPINcards,bycontrast,makefakecardsorskimmingimpossiblebecausethe
+informationthatgetsscannedisencrypted (加 密)．ThehistoricalreasontheU．S．has
+stuckwithmagstripe,ironicallyenough,isoncesuperiortechnology．Ourcheap,ultraＧ
+reliablewirednetworks madecreditＧcardauthenticationoverthephonefrictionless．In
+France,cardcompaniescreated EMVinpartbecausethetelephone monopoly wasso
+maddeninglyinefficientandexpensive．The EMV solution allowedtransactionstobe
+verifiedlocallyandsecurely．
+H)　Somebigbanks,likeWellsFargo,arenowofferingtoconvertyourmagstripecardtoa
+chipＧandＧPIN model．(It􀆳sactuallyahybridthatwillstillhaveamagstripe,sincemostU．
+S．merchantsdon􀆳thaveEMVterminals．)Shouldyoutakethem uponit? Ifyoutravel
+internationally,theanswerisyes．
+I)　Keepinmind,too,thatcreditcardstypicallyhavebetterliabilityprotectionthandebit
+cards．Ifsomeoneusesyourcreditcardfraudulently,it􀆳stheissueror merchant,not
+you,thattakesthehit．Debitcardshavedifferentliabilitylimitsdependingonthebank
+andtheeventssurroundinganyfraud．“Ifit􀆳savailable,thelogicalthingistogetachipＧ
+andＧPINcardfromyourbank,”saysEricAdamowsky,acoＧfounderofCreditCardInsider．
+com．“Iwouldusecreditcardsoverdebitcardsbecauseofliabilityissues．”Cashstill
+worksprettywelltoo．
+J)　RetailersandbanksstandtobenefitfromthelowerfraudlevelsofchipＧandＧPINcards
+buthavebeenreluctantforyearstoinvestinthenewinfrastructureneededforthe
+technology,especiallyifconsumers don􀆳t have accesstoit．It􀆳s a chickenＧandＧegg
+problem:noonewantstospendthe moneyonupgradedpointＧofＧsalesystemsthatcan
+readthe chip cards if shoppers aren􀆳t carrying them—yet there􀆳s little pointin
+consumers􀆳carryingthefancyplasticifstoresaren􀆳tequippedtousethem．(Anearlier
+effortbyTargettomovetochipandPINnevergainedprogress．)AccordingtoGumbley,
+[[PDF_PAGE 179]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１７４
+there􀆳sa“youＧfirstmentality．Thelogjam (僵局)hastobebroken．”
+K)　JPMorganChaseCEOJamieDimonrecentlyexpressedhiswillingnesstodoso,noting
+thatbanksandmerchantshavespentthepastdecadesuingeachotheroverinterchange
+fees—thepercentage ofthetransaction pricethey keep—ratherthan deal withthe
+growinghacking problem．ChaseoffersachipＧenabledcard underitsown brandand
+severalothersfortravelＧrelatedcompaniessuchasBritishAirwaysandRitzＧCarlton．
+L)　TheTargetandNeimanhackshavealsochangedthecostcalculation:althoughretailers
+havebeenreluctanttospendthe＄６．７５billionthatCapgeminiconsultantsestimateitwill
+taketoconvertalltheirregisterstobechipＧandＧPINＧcompatible,thepotentialliability
+theynowfaceisdramaticallygreater．Targethasbeenhitwithclassactionsfromhacked
+consumers．“It􀆳stheultimatenightmare,”aretailexecutivefrom a wellＧknownchain
+admittedtoTIME．
+M)　ThecardＧpaymentcompanies MasterCardandVisaarepushinghardforchange．The
+twofirmshavewarnedallpartiesinthetransactionchain—merchant,network,bank—
+thatifthey don􀆳tbecome EMVＧcompliantby October２０１５,the partythatisleast
+compliantwillbearthefraudrisk．
+N)　Inthemeantime,appＧequippedsmartphonesanddigitalwallets—allofwhichcanuse
+EMVtechnology—arebeginningtomakeinroads (侵袭)oncardsandcash．PayPal,for
+instance,istestinganappthatletsyouuseyourmobilephonetopayontheflyatlocal
+merchants—withoutsurrenderinganycardinformationtothem．Andfurtherdownthe
+roadisbiometricauthentication,whichcouldbeencryptedwith,say,afingerprint．
+O)　Creditanddebitcards,though,aregoingtobewithusfortheforeseeablefuture,and
+soarehackers,ifwestick with magstripetechnology．“Itseemscrazyto me,”says
+Gumbley,whoisEnglish,“thatacuttingＧedgeＧtechnologycountryisdependingona４０Ｇ
+yearＧoldtechnology．”That􀆳swhyitmaybeuptoconsumerstomovetheneedleonchip
+andPIN．SaysRobertson:“Whenyougettheconsumerintoapositionofworryand
+inconvenience,that􀆳swheretherubberhitstheroad．”
+３６．ItisbesttouseanEMVcardforinternationaltravel．
+３７．Personalinformationoncreditanddebitcardsisincreasinglyvulnerabletohacking．
+３８．The French card companies adopted EMV technology partly because ofinefficient
+telephoneservice．
+３９．While manycountriesusethesmarter EMV cards,the U．S．stillclingstoitsold
+magstripetechnology．
+４０．Attemptsarebeingmadetopreventhackersfromcarryingoutidentitytheft．
+[[PDF_PAGE 180]]
+１７５
+样
+卷
+４１．Creditcardsaremuchsafertousethandebitcards．
+４２．Bigbankshavebeenreluctanttoswitchtomoresecuretechnologybecauseofthehigher
+costsinvolved．
+４３．Thepotentialliabilityforretailersusing magstripeisfar morecostlythanupgrading
+theirregisters．
+４４．TheuseofmagstripecardsbyAmericanretailersleavesconsumersexposedtotherisks
+oflosingaccountinformation．
+４５．Consumers willbe a drivingforce behindthe conversion from magstripeto EMV
+technology．
+SectionC
+Directions:Thereare２ passagesin thissection．Each passageisfollowed bysome
+questionsorunfinishedstatements．ForeachofthemtherearefourchoicesmarkedA),
+B),C)andD)．Youshoulddecideonthebestchoiceandmarkthecorrespondingletter
+onAnswerSheet２withasinglelinethroughthecentre．
+PassageOne
+I􀆳lladmitI􀆳veneverquiteunderstoodtheobsessionsurroundinggenetically modified
+(GM)crops．Toenvironmentalistopponents,GMfoodsaresimplyevil,anunderstudied,
+possiblyharmfultoolusedbybigagriculturalbusinessestocontrolglobalseedmarketsand
+crushlocalfarmers．TheyarguethatGM foodshaveneverdeliveredontheirsupposed
+promise,thatmoneyspentonGMcropswouldbebetterchanneledtoorganicfarmingand
+thatconsumersshould be protected with warninglabels on any productsthatcontain
+geneticallymodifiedingredients．Tosupporters,GM cropsareakeypartoftheeffortto
+sustainablyprovidefoodtomeetagrowingglobalpopulation．Butmorethanthat,supporters
+seetheGMoppositionofmanyenvironmentalistsasfundamentallyantiＧscience,nodifferent
+thanthosewhoquestionthebasicsofmanＧmadeclimatechange．
+Forbothsides,GMfoodsseemtoactasasymbol:you􀆳reproＧagriculturalbusinessor
+antiＧscience．ButscienceisexactlywhatweneedmoreofwhenitcomestoGMfoods,which
+iswhyI washappytosee Nature devoteaspecialseriesofarticlestothe GM food
+controversy．Theconclusion:whileGMcropshaven􀆳tyetrealizedtheirinitialpromiseand
+havebeendominatedbyagriculturalbusinesses,thereisreasontocontinuetouseand
+developthemtohelpmeettheenormouschallengeofsustainablyfeedingagrowingplanet．
+Thatdoesn􀆳t mean GM crops are perfect,or a oneＧsizeＧfitsＧallsolution to global
+[[PDF_PAGE 181]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１７６
+agricultureproblems．Butanythingthatcanincreasefarming efficiency—theamountof
+cropswecanproduceperacreofland—willbeextremelyuseful．GMcropscanandalmost
+certainlywillbepartofthatsuiteoftools,butsowilltraditionalplantbreeding,improved
+soilandcropmanagement—andperhapsmostimportantofall,betterstorageandtransport
+infrastructure,especiallyinthedevelopingworld．(Itdoesn􀆳tdomuchgoodforfarmersin
+placeslike subＧSaharan Africa to produce more food ifthey can􀆳t getit to hungry
+consumers．)I􀆳dliketoseemorenonＧindustryresearchdoneonGMcrops—notjustbecause
+we􀆳dworrylessaboutbias,butalsobecauseseedcompanieslike MonsantoandPioneer
+shouldn􀆳tbetheonlyentitiesworkingtoharnessgenetic modification．I􀆳dliketoseeGM
+researchonlesscommercialcrops,likecorn．Idon􀆳tthinkit􀆳svitaltolabelGMingredients
+infood,butIalso wouldn􀆳tbeagainstit—andindustry wouldbesmarttogoalong with
+labeling,justasawayofremovingfearsaboutthetechnology．
+Mostofall,though,Iwishatenthoftheenergythat􀆳sspentendlesslydebatingGM
+cropswasfocusedonthosemorepressingchallengesforglobalagriculture．Therearemuch
+biggerbattlestofight．
+４６．Howdoenvironmentalistopponentsview GMfoodsaccordingtothepassage?
+A)Theywilleventuallyruinagricultureandtheenvironment．
+B)Theyareusedbybigbusinessestomonopolizeagriculture．
+C)Theyhaveprovedpotentiallyharmfultoconsumers􀆳health．
+D)Theyposeatremendousthreattocurrentfarmingpractice．
+４７．Whatdoestheauthorsayisvitaltosolvingthecontroversybetweenthetwosidesofthe
+debate?
+A)BreakingtheGMfoodmonopoly．
+B)Morefriendlyexchangeofideas．
+C)RegulatingGMfoodproduction．
+D)MorescientificresearchonGMcrops．
+４８．WhatisthemainpointoftheNaturearticles?
+A)FeedingthegrowingpopulationmakesitimperativetodevelopGMcrops．
+B)PopularizingGMtechnologywillhelpittoliveuptoitsinitialpromises．
+C)MeasuresshouldbetakentoensurethesafetyofGMfoods．
+D)Bothsupportersandopponentsshouldmakecompromises．
+４９．Whatistheauthor􀆳sviewonthesolutiontoagriculturalproblems?
+A)IthastodependmoreandmoreonGMtechnology．
+B)Itisvitaltothesustainabledevelopmentofhumansociety．
+C)GMcropsshouldbealloweduntilbetteralternativesarefound．
+[[PDF_PAGE 182]]
+１７７
+样
+卷
+D)Whateverisusefultoboostfarmingefficiencyshouldbeencouraged．
+５０．WhatdoestheauthorthinkoftheongoingdebatearoundGMcrops?
+A)Itarisesoutofignoranceofandprejudiceagainstnewscience．
+B)Itdistractsthepublicattentionfromotherkeyissuesoftheworld．
+C)Effortsspentonitshouldbeturnedtomoreurgentissuesofagriculture．
+D)Neithersideislikelytogiveinuntilmoreconvincingevidenceisfound．
+PassageTwo
+Whentherightpersonisholdingtherightjobattheright moment,thatperson􀆳s
+influenceisgreatlyexpanded．ThatisthepositioninwhichJanetYellen,whoisexpectedto
+beconfirmedasthenextchairoftheFederalReserveBank (Fed)inJanuary,nowfinds
+herself．Ifyoubelieve,asmanydo,thatunemploymentisthe majoreconomicandsocial
+concernofourday,thenitisnostretchtothinkYellenisthemostpowerfulpersoninthe
+worldrightnow．
+Throughoutthe２００８financialcrisisandtherecessionandrecoverythatfollowed,
+centralbankshavetakenontheroleofstimulatorsoflastresort,holdinguptheglobal
+economywithvastamountsofmoneyintheformofassetbuying．Yellen,previouslyaFed
+vicechair,wasoneoftheprincipalarchitectsoftheFed􀆳s＄３．８trillionmoneydump．Astar
+economistknownforhergroundbreaking workonlabor markets,Yellen wasakindof
+prophetessearly onin the crisisfor her warningsaboutthe subprime (次 级 债 的 )
+meltdown．NowitwillbeherjobtogettheFedandthemarketsoutofthebiggestandmost
+unconventionalmonetaryprograminhistorywithoutderailingthefragilerecovery．
+ThegoodnewsisthatYellen,６７,isparticularlywellsuitedtomeetthesechallenges．
+Shehasakeenunderstandingoffinancialmarkets,anappreciationfortheirimperfections
+andastrongbeliefthathumansufferingismorerelatedtounemploymentthananythingelse．
+SomeexpertsworrythatYellenwillbeinclinedtochaseunemploymenttotheneglectof
+inflation．Butwithwagesstillrelativelyflatandtheeconomyincreasinglydividedbetween
+the wellＧoff and the longＧterm unemployed, more people worry about the opposite,
+deflation (通货紧缩)thatwouldaggravatetheeconomy􀆳sproblems．
+Eitherway,theincomingFedchiefwillhavetowalkafinelineinslowlyendingthe
+stimulus．Itmustbesteadyenoughtodeflatebubbles (去 泡 沫 )andbring marketsback
+downtoearthbutnotsoquickthatitcreatesanothercreditcrisis．
+UnlikemanypastFedleaders,Yellenisnotonetobuyintothefinanceindustry􀆳s
+argumentthatitshouldbeleftalonetoregulateitself．SheknowsallalongtheFedhasbeen
+tooslackonregulationoffinance．
+Yellenislikelytoaddresstheissuerightaftershepushesunemploymentbelow６％,
+stabilizes marketsand makessurethatthe recoveryis moreinclusive and robust．As
+PrincetonProfessorAlanBlindersays,“She􀆳ssmartasawhip,deeplylogical,willingto
+[[PDF_PAGE 183]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１７８
+arguebutalsoagoodlistener．Shecanpersuadewithoutcreatinghostility．”Allthosetraits
+willbe usefulasthe globaleconomy􀆳s new power playertakes onits mostannoying
+problems．
+５１．WhatdomanypeoplethinkisthebiggestproblemfacingJanetYellen?
+A)Lackofmoney．　　　　　　　　　　　C)Unemployment．
+B)Subprimecrisis． D)Socialinstability．
+５２．WhatdidYellenhelptheFeddototacklethe２００８financialcrisis?
+A)Takeeffectivemeasurestocurbinflation．
+B)DeflatethebubblesintheAmericaneconomy．
+C)Formulatepoliciestohelpfinancialinstitutions．
+D)Pourmoneyintothemarketthroughassetbuying．
+５３．Whatisagreaterconcernofthegeneralpublic?
+A)Recession． C)Inequality．
+B)Deflation． D)Income．
+５４．WhatisYellenlikelytodoinherpositionastheFedchief?
+A)Reformthecreditsystem． C)Tightenfinancialregulation．
+B)Restorepublicconfidence． D)Developanew monetaryprogram．
+５５．HowdoesAlanBlinderportrayYellen?
+A)Shepossessesstrongpersuasivepower．
+B)Shehasconfidenceinwhatsheisdoing．
+C)Sheisoneoftheworld􀆳sgreatesteconomists．
+D)SheisthemostpowerfulFedchiefinhistory．
+PartIV　　　　　　　 Translation　　　 (３０minutes)
+Directions:Forthispart,you areallowed３０ minutestotranslatea passagefrom
+ChineseintoEnglish．YoushouldwriteyouransweronAnswerSheet２．
+中国传统的待客之道要求饭 菜 丰 富 多 样,让 客 人 吃 不 完.中 国 宴 席 上 典 型 的 菜 单 包 括
+开席的一套凉菜及其后的热菜,例如肉类、鸡鸭、蔬菜等.大多数宴席上,全鱼被认为是必不
+可少的,除非已经上过各 式 海 鲜. 如 今,中 国 人 喜 欢 把 西 方 特 色 菜 与 传 统 中 式 菜 肴 融 于 一
+席,因此牛排上桌也不少见.沙拉也已流行起来,尽管传统上中国人一般不吃任何未经烹饪
+的菜肴.宴席通常至少有一道汤,可以最先或最后上桌.甜点和水果通常标志宴席的结束.
+[[PDF_PAGE 184]]
+１７９
+样
+卷
+【听力文字稿】
+SectionA
+Directions:Inthissection,you willheartwolongconversations．Attheendofeach
+conversation,you willhearfourquestions．Boththeconversation andthequestions
+willbespokenonlyonce．Afteryouhearaquestion,you mustchoosethebestanswer
+fromthefourchoicesmarkedA),B),C)andD)．Then markthecorrespondingletter
+onAnswerSheet１withasinglelinethroughthecentre．
+ConversationOne
+W:Hello．
+M:Hello,isthatthereferencelibrary?
+W:Yes．CanIhelpyou?
+M:Ihopeso．Irangearlierandaskedforsomeinformationabout Denys Hawtin,the
+scientist．Youaskedmetoringback．
+W:Oh,yes．Ihavefoundsomething．
+M:Good．I􀆳vegotapencilandpaper．Perhapsyoucouldreadoutwhatitsays．
+W:Certainly．Hawtin,Denys．Born:Darlington１８３６;diedNewYork１９２０．
+M:Yes．Gotthat．
+W:Inventorandphysicist．Thesonofafarm worker,hewasadmittedtotheUniversityof
+Londonattheageoffifteen．
+M:Yes．
+W:Hegraduatedatseventeen withafirstclassdegreein Physicsand Mathematics．All
+right?
+M:Yes,allright．
+W:He made hisfirstnotableachievementattheageofeighteen．It wasa methodof
+refrigeration which arose from his work in low temperature physics．He became
+professorof Mathematicsatthe Universityof ManchesterattwentyＧfour,wherehe
+remainedfortwelveyears．Duringthattimehe marriedoneofhisstudents,Natasha
+Willoughby．
+M:Yes．Goon．
+W:Later,workingtogetherin London,theylaidthefoundationof modern Physicsby
+showingthatnormallawsofcauseandeffectdonotapplyatthelevelofsubatomic
+particles．ForthisheandhiswifereceivedtheNobelPrizeforPhysicsin１９１０,anddid
+soagainin１９１２fortheir workonveryhighfrequencyradio waves．Inhislifetime
+Hawtinpatented２４４inventions．Doyouwantanymore?
+M:Yes．WhendidhegotoAmerica?
+W:Letmesee．In１９２０hewenttoteachinNew York,anddiedtheresuddenlyafteronly
+threeweeks．Still,hewasagoodage．
+[[PDF_PAGE 185]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８０
+M:Yes．Isupposeso．Well,thanks．
+Questions１to４arebasedontheconversationyouhavejustheard．
+１．WhatdowelearnaboutDenysHawtinwhenhewas１５?
+２．WhatdidDenysHawtindoattheageof２４?
+３．ForwhatwereDenysHawtinandhiswifeawardedtheNobelPrizeasecondtime?
+４．WhydidDenysHawtingotoNewYork?
+ConversationTwo
+W:ThisisLisa Meyerinthe WBZnewsroom,talking with MikeBassichis,whoisthe
+directorofthe GiffordSchool,aboutthecleanupfromlastweek􀆳sfireand whatthe
+possiblecauseofthatblazemayhavebeen．
+M:We􀆳re getting ready for our entire staffto return early from vacation tomorrow
+whereuponwearegoingto moveintotemporaryclassrooms．Andtheotherbuildings
+thatdidnotburnarebeingdeＧsmoked．Astothecauseofthefire,allweknowisthatwe
+werehavingtroublewiththepilotlightssinceweboughtthestoveinJulyandithad
+beenservicedthreetimes．Well,asamatteroffact,wethinkitwasamalfunctioning
+stovethatmayhavecausedthefire．Nothingdefiniteyethasbeendetermined．
+W:Haveyouheardfromotherschoolsorotherinstitutionalusersofthisstovethathavehad
+thesameproblem?
+M:No．Iwouldn􀆳tknowanything moreaboutthestoveitself．AllIknowisthatthisfire
+wentupsoquicklythatthere􀆳sbeenasuspicionaboutwhyitwentupsoquickly．Andit
+maybethattherewasagasblast．But,again,thishasnotbeendeterminedofficiallyby
+anybody．
+W:Igotyou．Whendokidscomebacktoschool?
+M:NextMonday,andwewillbereadyforthem．MondayJanuary４．We􀆳rejustextremely
+thrilledthatnoonewashurtandthat􀆳sbecauseofthefirefightersthatwerehere,nine
+ofthem．They􀆳rewonderful．
+W:AndI􀆳msureyousendyourthanksouttothem,uh?
+M:Well,we􀆳resendingoutthankstotheminaletterorinanyotherwaywecan．Ihearda
+storytodaywhereoneofourkidsactuallybakedsomecookiesandistakingittothefire
+department,togiveittothem．
+Questions５to８arebasedontheconversationyouhavejustheard．
+５．Whatwerethespeakerstalkingabout?
+６．Whatweretheschoolstaffdoingatthetimeoftheaccident?
+７．Whatwassupposedtobethecauseoftheaccident?
+８．Whatdidoneofthekidsdotoshowgratitude?
+[[PDF_PAGE 186]]
+１８１
+样
+卷
+SectionB
+Directions:Inthissection,youwillheartwopassages．Attheendofeachpassage,you
+willhearthreeorfourquestions．Boththepassageandthequestionswillbespokenonly
+once．Afteryouhearaquestion,you mustchoosethebestanswerfromthefourchoices
+markedA),B),C)andD)．Then markthecorrespondingletteron AnswerSheet１
+withasinglelinethroughthecentre．
+PassageOne
+Intoday􀆳spersonalitystakes,nothingismorehighlyvaluedthanasenseofhumor．We
+seekitoutinothersandareproudtoclaimitinourselves,perhapseven morethangood
+looksorintelligence．Ifsomeonehasagreatsenseofhumor,wereason,itmeansthatthey
+arehappy,sociallyconfidentandhaveahealthyperspectiveonlife．
+Thisattitude would havesurprisedtheancient Greeks,whobelieved humortobe
+essentiallyaggressive．Andinfact,ouradmirationforthecomicallygiftedisrelativelynew,
+andnotvery wellＧfounded,saysRod Martin,apsychologistattheUniversityof Western
+Ontario．Beingfunnyisn􀆳tnecessarilyanindicatorofgoodsocialskillsandwellＧbeing,his
+researchhasshown．Itmayjustaslikelybeasignofpersonalityflaws．
+HehasfoundthathumorisadoubleＧedgedsword．Itcanforgebetterrelationshipsand
+helpyoucope withlife,oritcanbecorrosive,eatingawayatselfＧesteem andirritating
+others．“It􀆳saform ofcommunication,likespeech,and wealluseitdifferently,”says
+Martin．Weusebondinghumortoenhanceoursocialconnections,butwealsomayemployit
+asawayofexcludingorrejectinganoutsider．
+Thoughhumorisessentiallysocial,howyouuseitsaysalotaboutyoursenseofself．
+ThosewhouseselfＧdefeatinghumor,makingfunofthemselvesfortheenjoymentofothers,
+tendtomaintainthathostilitytowardthemselvesevenwhenalone．Similarly,thosewhoare
+abletoview the world withamusedtoleranceareoften equallyforgiving oftheirown
+shortcomings．
+Questions９to１１arebasedonthepassageyouhavejustheard．
+９．Howdopeopletodayviewhumoraccordingtothespeaker?
+１０．WhatdidtheancientGreeksthinkofhumor?
+１１．WhathaspsychologistRodMartinfoundabouthumor?
+PassageTwo
+Andnow,ifyou􀆳llwalkthisway,ladiesandgentlemen,thenextroom we􀆳regoingto
+seeistheroom in whichthefamily usedto holdtheirformaldinnerpartiesandeven
+occasionallyentertainheadsofstateandroyalty．However,theymanagedtokeepthisroom
+friendlyandintimateandIthinkyou􀆳llagreeithasaveryinformalatmosphere,quiteunlike
+somegrandhousesyouvisit．Thecurtainswereneverdrawn,evenatnight,soguestsgota
+[[PDF_PAGE 187]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８２
+viewofthelakeandfountainsoutside,whichwerelitupatnight．Averyattractivesight．
+Asyoucansee,ladiesandgentlemen,theguestswereseatedveryinformallyaround
+thisovaltable,which wouldaddtotherelaxedatmosphere．Thetable datesfrom the
+eighteenthcenturyandis madeofSpanishoak．It􀆳sratherremarkableforthefactthat
+althoughitisextremelybig,it􀆳ssupportedbyjustsixratherslimlegs．However,itseemsto
+havesurvivedlikethatfortwohundredyears,soit􀆳sprobablygoingtolastabitlonger．The
+chairswhichgowiththetablearenotacompleteset—there wereoriginallysixofthem．
+Theyareinterestingforthefactthattheyareveryplainandundecoratedforthetime,with
+onlyone plain centralpanelatthe back and no armＧrests．I myselffindthem rather
+uncomfortabletositinforverylong,butpeoplewereusedtomorediscomfortinthepast．
+Andnow,ladiesandgentlemen,ifyou􀆳dliketofollow meintotheGreatHall．．．
+Questions１２to１５arebasedonthepassageyouhavejustheard．
+１２．Whatdowelearnaboutthespeaker?
+１３．Whatdoesthespeakersayabouttheroomtheyarevisiting?
+１４．Whatissaidabouttheovaltableintheroom?
+１５．Whatdoesthespeakersayaboutthechairs?
+SectionC
+Directions:Inthissection,you willhearthreerecordingsoflecturesortalksfollowed
+bythreeorfourquestions．Therecordingswillbeplayedonlyonce．Afteryouheara
+question,you mustchoosethebestanswerfromthefourchoices markedA),B),C)
+andD)．Then markthecorrespondingletteron AnswerSheet１ with asingleline
+throughthecentre．
+RecordingOne
+Moderator:
+HelloLadiesand Gentleman,itgives me greatpleasuretointroduce our keynote
+speakerfortoday􀆳ssession,Dr．Howard Miller．Dr．Miller,ProfessorofSociology at
+WashingtonUniversity,haswrittennumerousarticlesandbooksontheissuesfacingolder
+Americansinourgrayingsocietyforthepast１５years．Dr．Miller:
+Dr．Miller:
+Thankyouforthatintroduction．Today,I􀆳dliketopreface myremarkswithastory
+from myownlifewhichIfeelhighlightsthecommonconcernsthatbringusheretogether．
+Severalyearsagowhenmygrandparentswerewellintotheireighties,theywerefacedwith
+therealityofnolongerbeingabletoadequatelycareforthemselves．Mygrandfatherspoke
+ofhisgreatestfear,thatofleavingtheonlyhometheyhadknownforthepast６０years．
+Fightingbackthetears,hespokeproudlyofthefactthathehadbuilttheirhomefromthe
+[[PDF_PAGE 188]]
+１８３
+样
+卷
+groundup,andthathehadpoundedeverynailandlaideverybrickintheprocess．The
+prospectofhavingtoselltheirhomeandgiveuptheirindependence,and moveintoa
+retirementhomewasanextremelypainfulexperienceforthem．Itwas,inmygrandfather􀆳s
+ownwords,likehavingalimbcutoff．Heexclaimedinaforcefulmannerthathefelthe
+wasn􀆳timportantanymore．
+ForthemandsomeolderAmericans,theirsoＧcalled “goldenyears”areattimesnotso
+pleasant,forthisperiodcanmeanthedeclineofnotonlyone􀆳shealthbutthelossofidentity
+andselfＧworth．Inmanysocieties,thisselfＧidentityiscloselyrelatedwithoursocialstatus,
+occupation,materialpossessions,orindependence．Furthermore,weoftenliveinsocieties
+thatvaluewhatis“new”orinfashion,andourownusageofwordsintheEnglishlanguage
+isoftenasignofbadnewsforolderAmericans．Imeanhow wouldyourfamilyreactifyou
+camehometonightexclaiming,“Hey,cometothelivingroomandseetheOLDblackand
+whiteTVIbrought!”Unfortunately,theword “old”callsto mindimagesoftheneedto
+replaceordiscard．
+Now,manyofthelecturesgivenatthisconferencehavefocusedontheissuesof
+pensionreform,medicalcare,andthedevelopmentofpublicfacilitiesforseniorcitizens．
+Andwhilethesearevitalissuesthatmustbeaddressed,I􀆳dliketofocusmycommentsonan
+importantissuethatwillaffecttheoverallsuccessoftheotherprogramsmentioned．Thishas
+todowithchangingourperspectivesonwhatitmeanstobeapartofthisgroup,andfinding
+meaningfulrolestheelderlycanplayandshouldplayinoursocieties．
+Firstofall,I􀆳dliketotalkabout．．．
+Questions１６to１９arebasedontherecordingyouhavejustheard．
+１６．WhatdoestheintroductionsayaboutDr．HowardMiller􀆳sarticlesandbooks?
+１７．WhatisthegreatestfearofDr．Miller􀆳sgrandfather?
+１８．WhatdoesDr．Millersaythe “goldenyears”canoftenmean?
+１９．WhatisthefocusofDr．Miller􀆳sspeech?
+RecordingTwo
+The２０１０ GlobalHungerIndexreportwasreleasedtodaybytheInternationalFood
+PolicyResearchInstitute (IFPRI)．Itnotesthat,inrecentyears,expertshavecometothe
+conclusionthatundernourishmentbetweenconceptionandachild􀆳ssecondbirthdaycanhave
+seriousandlongＧlastingimpacts．
+Undernourishmentduringthisapproximately１,０００Ｇdaywindowcanseriouslycheckthe
+growthanddevelopmentofchildrenandrenderthem morelikelytogetsickanddiethan
+wellＧfedchildren．Preventinghungerallowschildrentodevelopbothphysicallyandmentally．
+SaysIFPRI􀆳sMarieRuel,“They willbe morelikelytoperform wellinschool．They
+willstayinschoollonger．Andtheninadulthood,IFPRIhasactuallydemonstratedthat
+childrenwhowerebetternourishedhavehigherwages,byaprettylarge margin,by４６
+[[PDF_PAGE 189]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８４
+percent．”
+Ruelsaysthatmeanstheproductivityofanation􀆳sfuturegenerationsdependsinalarge
+partonthefirst１,０００daysoflife．
+“Thisiswhywe􀆳reallonboardinfocusingonthosethousanddaystoimprovenutrition．
+Afterthat,thedamageisdoneandishighlyirreversible．”
+Thedataonnutritionandchildhooddevelopmenthasbeenslowlycomingtogetherfor
+decades．ButRuelsaysscientificconsensusalonewillnotsolvetheproblem．
+“It􀆳snotenoughthatnutritionistsknowyouhavetointervenethen,ifwedon􀆳thave
+thepoliticiansonboard,andalsothe．．．peoplethatimplementprogramsinthefield．”
+Ruelsaysthereareencouragingsignsthatpoliticiansandimplementersarebeginningto
+geton board．Many major donors and the United Nations are targeting hungerＧrelief
+programsatpregnantwomenandyoungchildren．Theyfocusonimprovingdietsorproviding
+microＧfoodsupplements．TheyimproveaccesstopreＧbirthcareandencourageexclusive
+breastfeedingforthefirstsixmonthsofachild􀆳slife．
+Ruelsaysinthe１９８０sThailandwasabletoreducechildundernourishmentbyrecruiting
+alargenumberofvolunteerstotravelthecountrysideteachingabouthealthandnutrition．
+“Theyreallydidveryactivepromotionofdiversityinthedietandgoodeatinghabits．So
+theywereprovidingmorefoodtopeople,butalsoeducatingpeopleonhowtousethem,and
+alsoeducatingpeopleonhowtofeedtheiryoungchildren．”
+Ruelsayscountriesmaytakedifferentapproachestoreducingchildundernutrition．But
+shesaysnationswillnotmakeprogressfightinghungerandpovertyuntiltheybegintofocus
+onthosecriticalfirstthousanddays．
+Questions２０to２２arebasedontherecordingyouhavejustheard．
+２０．Whatistheexperts􀆳conclusionregardingchildren􀆳sundernourishmentintheirearliest
+daysoflife?
+２１．WhatdoesIFPRI􀆳sMarieRuelsayaboutwellＧfedchildrenintheiradultlife?
+２２．WhatdidThailanddotoreducechildundernourishmentinthe１９８０s?
+RecordingThree
+I􀆳dliketolookatavitalaspectofeＧcommerce,andthatisthenatureoftheproductor
+service．Therearecertainproductsandservicesthatareverysuitableforsellingonline,and
+othersthatsimplydon􀆳twork．
+SuitableproductsgenerallyhaveahighvalueＧtoＧweightratio．ItemssuchasCDsand
+DVDsareobviousexamples．Books,althoughheavierandso moreexpensivetopost,still
+haveahighenoughvalueＧtoＧweightratio,asthesuccessofAmazon,whichstartedoff
+sellingonlybooks,shows．Laptopcomputersareanothergoodproductforsellingonline．
+Digitalproducts,suchassoftware,filmsand music,canbesoldinapurelyvirtual
+environment．Thegoodsarepaidforbyonlinetransactions,andthendownloadedontothe
+[[PDF_PAGE 190]]
+１８５
+样
+卷
+buyer􀆳scomputer．Therearenopostageordeliverycosts,sopricescanbekeptlow．
+Many successful virtual companies provide digital services, such as financial
+transactions,inthecaseofPaypal,ormeansofcommunication,asSkypedoes．Thekeyto
+successhereisprovidinganeasyＧtoＧuse,reliableservice．Dothisandyoucaneasilybecome
+themarketleader,asSkypehasproved．
+Products which are potentially embarrassing to buy also do wellin the virtual
+environment．Someofthe mostprofitableeＧcommercecompaniesarethosesellingsexＧ
+relatedproductsorservices．Forasimilarreason,onlinegamblingishighlypopular．
+Productswhichareusuallyconsideredunsuitableforsellingonlineincludethosethat
+haveatasteorsmellcomponent．Food,especiallyfreshfood,fallsintothiscategory,along
+withperfume．Clothesandotheritemsthatneedtobetriedonsuchasdiamondringsand
+goldnecklacesaregenerallynotsuitedtovirtualretailing,and,ofcourse,itemswithalow
+valueＧtoＧweightratio．
+Thereareexceptions,though．Onlinegroceryshoppinghasreallytakenoff,withmost
+majorsupermarketsofferingtheservice．Theinconvenienceofnotbeingabletoseethefood
+youare buyingisoutweighed bythetimesaved andconvenience ofhavingthe goods
+delivered．Typicalusersofonlinesupermarketsincludetheelderly,peoplewhoworklong
+hoursandthosewithouttheirowntransport．
+Questions２３to２５arebasedontherecordingyouhavejustheard．
+２３．Whatisimportanttothesuccessofanonlinestore?
+２４．Whatproductsareunsuitableforsellingonline?
+２５．Whoaremorelikelytobuygroceriesonline?
+【参考答案】
+PartII　ListeningComprehension
+SectionA
+１．C　　　２．B　　　３．C　　　４．D　　　５．D
+６．B　　　７．A　　　８．C
+SectionB
+９．D　　 １０．B　　 １１．A　　 １２．A　　 １３．B
+１４．C　 １５．D
+SectionC
+１６．B　　 １７．D　　 １８．A　　 １９．C　　 ２０．A
+２１．B　　 ２２．C　　 ２３．D　　 ２４．A　　 ２５．B
+[[PDF_PAGE 191]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８６
+PartIII　ReadingComprehension
+SectionA
+２６．C　　 ２７．L　　 ２８．M　　２９．K　　 ３０．E
+３１．A　　 ３２．F　　 ３３．B　　 ３４．H　　 ３５．O
+SectionB
+３６．H　　 ３７．B　　 ３８．G　　 ３９．C　　 ４０．A
+４１．I　　 ４２．D　　 ４３．L　　 ４４．F　　 ４５．O
+SectionC
+４６．B　　 ４７．D　　 ４８．A　　 ４９．D　　 ５０．C
+５１．C　　 ５２．D　　 ５３．B　　 ５４．C　　 ５５．A
+PartIV　Translation
+TraditionalChinesehospitalityrequiresthatguestsbeofferedarichvarietyofdishes
+whicharemorethantheycouldpossiblyfinish．TypicalmenusinaChinesebanquetincludea
+setofcolddishestobeginwith,followedbyhotdishes,suchasmeats,chicken,duck,and
+vegetables．A wholefishisconsideredessentialformostbanquetsunlessvariousseafoods
+havealready been served．Nowadaysthe Chineseliketo mix Western specialties with
+traditionalChinesedishes,soit􀆳snotunusualtoseebeefsteaksserved．Saladshavealso
+comeintofashioneventhoughtraditionallyChinesetendtorefuseanythinguncooked．A
+banquetusuallyincludesatleastonesoup,whichislikelytobeservedasthefirstorthelast
+course．Dessertsandfruitsgenerallysignaltheendofabanquet．
+[[PDF_PAGE 192]]
+１８７
+样
+卷
+４．全国大学英语六级考试(口试)样卷
+TopicArea:SocialIssues
+Topic:Stress
+Hello,welcometotheCETSpokenEnglishTest—BandSix．Nowlet􀆳sstartbyintroducing
+yourselves．CandidateA,wouldyoupleasegofirst? (倒计时２０秒)
+Thankyou．CandidateB,nowit􀆳syourturn．(倒计时２０秒)
+Thankyou．OK,nowthatweknoweachother,let􀆳smoveon．First,I􀆳dliketoaskyoua
+question．
+Q:Doyouthinkcollegelifeischallenging? Whydoyousayso?
+(两位考生同步回答问题,倒计时３０秒)
+Nowlet􀆳smoveontosomethingmorespecific．Thetopicforourdiscussiontodayis“Stress”．
+Eachofyouwillseeacardwithinstructionsforyourpresentation．You􀆳llhaveoneminuteto
+prepare,andeachofyouwillhaveoneandahalfminutestogiveyourpresentation．Now
+lookatyourcard．(考生屏幕上只显示各人自己的卡片,倒计时６０秒)
+NowCandidateA,pleasebegin．(倒计时１分３０秒)
+CandidateB,nowit􀆳syourturn．(倒计时１分３０秒)
+两位考生依次根据图片或卡片作陈述
+Right．Nowthatwe􀆳vetalkedbrieflyaboutstress,I􀆳dlikeyoutodevelopthistopicfurther
+andhaveadiscussionforaboutthreeminutes．Duringthediscussionyoumayargueandask
+eachotherquestions．Ourdiscussionisaboutthebestwaytomanagestress．(屏幕上显示 The
+bestwaytomanagestress)
+[[PDF_PAGE 193]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１８８
+Remember,thisisapairactivityandyouneedtointeractwitheachother．Sodon􀆳tkeep
+talkingwithoutgivingtheotherachance．Nowlet􀆳sbegin．(倒计时３分)
+Allright,that􀆳stheendofthediscussion．
+NowI􀆳dliketoaskyoujustonelastquestiononthetopicof“Stress”．
+Q:Whenareyoumostlikelytoexperiencestress? Pleasesaysomethingaboutit．
+(两位考生同步回答问题,倒计时４５秒)
+OK,that􀆳stheendofthetest．Thankyou．
+[[PDF_PAGE 194]]
+１８９
+样
+卷
+５．全国大学英语四级考试答题卡
+[[PDF_PAGE 195]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１９０
+[[PDF_PAGE 196]]
+１９１
+样
+卷
+[[PDF_PAGE 197]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１９２
+[[PDF_PAGE 198]]
+１９３
+样
+卷
+６．全国大学英语六级考试答题卡
+[[PDF_PAGE 199]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１９４
+[[PDF_PAGE 200]]
+１９５
+样
+卷
+[[PDF_PAGE 201]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１９６
+[[PDF_PAGE 202]]
+１９７
+样
+卷
+７．全国大学英语四级考试作文评分样卷
+Directions:Forthispart,youareallowed３０ minutestowriteanessaybasedonthe
+picturebelow．Youshouldstartyouressaywithabriefdescriptionofthepictureand
+commentonthekid􀆳sunderstandingofgoingtoschool．Youshould writeatleast１２０
+wordsbutnomorethan１８０words．WriteyouressayonAnswerSheet１．
+１４points
+Asisdemonstratedinthepicture,despitehismother􀆳sangryface,thekidisunwilling
+togotoschool,arguingthatsincehecangeteverythinghe wantstoknowthroughhis
+phone,there􀆳snoneedgoingtoschoolandacquiringtheminclass．It􀆳snotuncommonto
+hearsuchargumentamongyoungstudentsnowadays．
+However,thiskid􀆳sunderstandingofgoingtoschoolcanbepotentiallyharmfulfor
+followingreasons．First,morethanmerelyacquiringknowledge,goingtoschoolisalsoan
+acttogetinvolvedinsociety．We􀆳lllearnhowtobuildfriendshipanddevelopinterpersonal
+skills,whichisvaluableexperienceinourlifethatcannotbelearntfromphones．Besides,
+schoolalsoteachesushowtothink,howtopursueknowledgeactively,whichcannotbe
+replacedbycellphonesbecausewecanonlygainknowledgepassivelyfromcellphones．
+Forreasonsabove,it􀆳shightimethatyoungstudentsrealizedthevalueofschool．Put
+downtheirphonesandinteractwithothers,andabiggerworldiswaitingforustoexplore．
+１１points
+Thispicturedescribesaconversationbetweenachildandhismother．Thechildthinksit
+[[PDF_PAGE 203]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+１９８
+isnotnecessarytoattendschoolbecausealmostallinformationcanbeobtainedfrom cell
+phone withInternet．Thatseems makesense,whereas,in my perspective,itisstill
+essentialforustogotoschool．
+Weliveinaninformationagewhenbooksandarticlesareavailabletoeveryoneonthe
+Internet．Knowledgebecomespublic．Ifwewanttolearnsomethingsuchasmathematics,
+wecan easily find some related books online．However,knowledge onlineisn􀆳t your
+knowledge．Youwillneedtolearnitandturnittoyourownknowledge．Schools,ormaybe
+teachers,canconductyouhowtolearnwell．Actually,theydevelopyourstudyhabitsand
+tellyousomemethodswhendealingwithnewdifficultproblems．Howtolearnisabsolutely
+moreimportantthanwhattolearn．Althoughtherearehugeamountsofknowledgeonline,
+westillneedtoknowhowtomasterit．That􀆳swhywegotoschool．
+８points
+Thecartonrevealsayoungboywhotakesaphoneandshowhisdoubting,andaman
+withadogislisteninghisquestion,“WhyamIgoingtoschoolifmyphonealreadyknows
+everything?”Nowaday,agreatamountofstudentsuseelectronicslike mobilephone．It
+seemswecanacknowledgeallinformationthroughinternet,butsomethingweignored．
+Firstofall,ifwehavealreadygotaphoneanddon􀆳tneedtogotoschool,sohowabout
+improveourcommunicationskills? Thereisnoplatformforstudentstoknoweachother．
+Secondly,how tocreateateam work? We only know ourselves,and don􀆳tknow
+sharing,don􀆳tknowhelpothers,don􀆳tknow１＋１morethan２．
+Lastbutnotleast,wecanlearnnotonlyknowledge,butalso music,computer,and
+language．
+Allreasonsshow why weshould gotoschool．Althoughitisconvenientforusto
+acknowledgeinformationthroughphone,butlosthappinessoflearningandexploringwith
+otherswhichisthemostimportant．
+５points
+Inourdailylife,moreand more morden methodcanstart．Justlikethepicturesaid
+“whyamIgoingtoschoolifmyphonealreadyknowseverything?”Asweknowns,wecan
+startfromourphones．ButIthinkthereisamisunderstandingsaidaboutthis．Thereasons
+areaboveof．
+Goingtoschool,wecanstartallsubjects,example,Chinese,Math,Musicandsoon．
+Whenwenotunderstand,wecanaskforteachers．Wecanreceiveallkindsofknowledge
+fromtheschool．　Goingtoschool,wehavecommunicatewithteacherandclassmate,these
+canhelpusimprovingourcommunicateskills,whichcanhelpwewhenwegotosociate．If
+youhavethiscommunicaterelationship,wewillhavegoodjob．
+[[PDF_PAGE 204]]
+１９９
+样
+卷
+Inall,learningfromthephonecannotsteadyoflearningfromschool．Inourlife,the
+phoneknowledgeislimit．Inourlimitededucationcondition,goingtoschoolwilllearnmore
+knowledge．Itcantakeusallknowledge,communicationskills,people􀆳srelationship．
+２points
+WhyIgoingtoschoolif myphonealreadyknowseverything? Butyouphonecan􀆳t
+teacheryouhowleaning．
+Forsomereason,inweareachild,wemustgoingtoschool,tostudy,toleaning,to
+player．ButifthisITtime,thisBigdatetime,myphonecanknowseverything．Hecan
+teacheryou,caneasycalleverone,cangivingyouhappyingfromsomethinggame．
+Because,theschoolcangive more．First,letyougoingtoschool,isingovernment
+idea,inverylongtimeisawayinthey．Two,youfatherandmother,hewanttoyougoing
+toschool,because,inhim wearechild,inhim webegoingtoschool．So,whereyouphone
+canalreadyknowseverything．Butthisisjustphonehecan􀆳tchang weareschool．For
+somethingreason,schoolawayisschool,wheverITtime,Bigdatetime,schoolisnobody
+caneasychang．Because,thisisschool,bylearn,byfuning,givingyoufriendtheschool．
+[[PDF_PAGE 205]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２００
+８．全国大学英语六级考试作文评分样卷
+Directions:Forthispart,youareallowed３０minutestowriteanessaycommentingon
+thesaying “Ifyoucannotdogreatthings,dosmallthingsinagreatway．”Youcan
+citeexamplestoillustrateyourpointofview．Youshouldwriteatleast１５０wordsbut
+nomorethan２００words．WriteyouressayonAnswerSheet１．
+１４points
+WeallrememberatimewhenwespokeproudlyaboutbecomingthenextBillGates,or
+StephenHawking,andit􀆳snever wrongtodream big．Astimepassesby,wegradually
+realizethat mostofusareboundtostayordinary．Yetthere􀆳sstilla wayofachieving
+excellency．Asthesaying goes, “Ifyou cannotdo greatthings,dosmallthingsin a
+greatway．”
+Aperfectlifedoesn􀆳thavetobesogloriousorsparklingasgrandplaysperformedin
+theatres．Thetrue valueliesin our attitude towardstiny dailyissues,of which the
+repairmanworkinginourcommunityisanidealexample．BicycleＧrepairingiscertainlynot
+thebrightestorbestＧpaidprofessiontomany,butthismanputshisheartandsoulintoitand
+viewsitashiswayofservingforpeopleinthecommunity,whichiswhyheearnshigh
+reputation．
+Asagenerationabouttostepintothefiercelycompetitivesociety,wearehauntedby
+thefeelingofworryandhelplessness．Ifwestriveforaccomplishingremarkablesuccessand
+becomingworldＧrenowned,we􀆳llprobablyfeelfrustratedanddisappointed．Onlybyrealizing
+“Excellencyderivesfromsmallmatters”canwesurviveandthrive．
+１１points
+“Ifyoucannotdogreatthings,dosmallthingsinagreatway”isthegreatestsaying
+I􀆳veeverheard．Iadmiremanypeople．Someofthemareheroeswhodogreatthings,but
+someofthemareordinarypeople．Theydosmallthingswhichseemssimpleandboring．
+Toillustrateit,Ishowanexamplefirst．MyChineseteacher,MissChen,isanordinary
+seniorhighschoolteacher．Sheteacheseveryday．However,in myeyes,she􀆳sagreat
+teacher．Shereallylovesherstudentsandhercoursesare wonderful．She willspendher
+sparetimetoprepareagoodclass．She􀆳salwayswillingtohelpstudents．Asaresult,she􀆳sa
+verypopularteacherinourschool．
+MissChendoesn􀆳tdogreatthings,butshetriesto makeherjobgreat．Whenyoudo
+thingswholeheartedly,youaregreatperson．Obviously,noteveryonehasthechancetobea
+hero,butwhenwedooursmallthingsingreatway,wesucceed．
+Thisisanamazingquality．Soweshouldn􀆳tcomplainthatwecan􀆳tdogreatthings．Let􀆳s
+[[PDF_PAGE 206]]
+２０１
+样
+卷
+dosmallthingsinagreatwaytobeourownhero．
+８points
+Asuccessfulgreatmansaid:“asoldierwhodon􀆳twanttobeageneralisnotagood
+soldier”．Wecanfindthatmostofmenwanttobecomegreatman,anddogreatthings! But
+anarmyhasonlyonegeneral,mostofsoldierscanonlybeanormalsoldier．Soshouldthe
+soldiersallgobackhome,justbecausetheycan􀆳tbecomeageneral? Ofcoursenot!
+Everyonehashisvalueinhisposition．Anarmycan􀆳twinbattleifhasonlyageneralbut
+nosoldiers．Ifyouareasoldier,justdoyourbest,stayinyourpositionandeveryonewill
+respectyouincludethegeneral．Asmyfather,althoughhe􀆳sworkinginthegovernmentasa
+normalpublicservantnotanofficer,buthedidhisbestinwork．Hesolvedlotsofquestions
+forhisdepartment,andservedforhundredsofpeopleaweektohelpthem,hefeelsthat
+he􀆳ssuccessfulbecausehisleaderandallthepeopleheservedsaidtohim:“youareagreat
+man”．
+Sowejustdoourbestinourwork,domorefortheothers! Weareallthegreatman!
+５points
+Asshowinthissaying,Recentally manypeople,especiallyyoungperson,thinkitis
+certainlydogoodtodogreatthings,ratherthansmallthings．Moreover,theyoftenthinkdo
+smallthingshasnovalueandboring．
+Thesayingabovetriestocriticizethephenomenonthat mostpeople wantdogreat
+thingsratherthansmallthings．It􀆳sreallyawrongviews．Aftercarefullyconsideration,I
+havestatethatthesayingismorebiased．Itgivenfollowingreasons．Firstly,Therenotonly
+greatthingsbutalsosmallthingsineveryproject．Besides,thesmallthingscandovery
+excellenttoo,ifyoucanmakeyourmindstodoit．Further,Ifyoucan􀆳tdoasmallthings
+well,neithergreatthings．
+From whatdiscussedabove,weconcludethatquestionquitedependsonchoice．Inmy
+owneyes,nomatterwhatabilitywehave,howexcellentweare．Becauseifyouwantwalk
+thousandsmiles,youhavetodoeverystepinyoufoot．Onlyifdosmallthingswell,dogreat
+thingsinthesametime．
+２points
+Nowadays,everybodywantdogreatthings,suchasstudentwewouldrathertoelect
+thehotofsauceratherthanstudytheusefulteknologe．But,asshowintheeassythatit
+saying “Ifyoucannotdogreatthings,dosmallthingsinagreatway”．
+Therearesomereasons weshoulddosomesmallthings．Tobegin with,nothingis
+[[PDF_PAGE 207]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２０２
+distinguishbygreatthingsandsmallthings．Tosum upthesmallthing．Itisalsoagreat
+thing．Andthegreatthingisowntopeople􀆳sopinion．Then,ifwanttobesuccess,thesmall
+thingswillhelptoyou．Furthermore,themostofallfamouspeopleisgrowninsmallthings．
+Finally,thethingsmustsaidtoyourself．Ifyouunabletodo,youshouldgiveupquickly．
+Inshort,itistimetodosomethingsnomatterhowgreatthingsorsmallthings．When
+wegrowingup,wearegetbenefitedfromthosesmallthings．Everyisimportant．Every
+thingsisbenefittoyourfuture．Onlybythiswaywecansuccessfulandmorehappy．
+[[PDF_PAGE 208]]
+２０３
+样
+卷
+９．全国大学英语四级考试翻译评分样卷
+据报道,今年中国快递服务(courierservices)将递送大约１２０亿件包裹.这将使中国有
+可能超越美国成为世界上最大的快递市场.大多数包裹里装着网上订购的物品.中国给数
+百万在线零售商以极具竞争力 的 价 格 销 售 商 品 的 机 会.仅 在 １１ 月 １１ 日,中 国 消 费 者 就 从
+国内最大的购物平台购买了价值９０亿美元的商品.中国有不少这样的特殊购物日.因此,
+快递业在中国扩展就不足为奇了.
+【参考译文】
+ItisreportedthatChinesecourierserviceswilldeliverabout１２billionparcelsthisyear．
+ThiswillenableChinatoovertaketheUSandbecometheworld􀆳sbiggestdeliverymarket．
+Themajorityofcourierpackagescontainitemsorderedonline．Chinagivesmillionsofonline
+retailerstheopportunitytosellgoodsathighlycompetitiveprices．On１１Novemberalone,
+Chineseconsumersbought ＄９billion worthofproductsonthecountry􀆳sbiggestshopping
+platform．Chinahasmanyspecialshoppingholidayslikethis．So,it􀆳snosurprisethecourier
+industryisexpandinginChina．
+１４points
+ItisreportedthatthecourierservicesinChinawilldeliverabout１２billionpiecesof
+package,whichindicatesthatChinamaysurpasstheU．S．tobecomethelargestmarketfor
+courierservices．Mostpackagescontain productsorderedfrom theInternet．China has
+providedmillionsofonlineretailerswithopportunitiestoselltheirproductsatanextremely
+competitiveprice．OnNovember１１
+th
+alone,Chineseconsumershavepurchasedproductsthat
+valuedupto９billiondollarsfromthelargestshoppingplatforminthecountry．Sincethere
+arequiteafew specialshoppingfestivalsin China,itisnotparticularlysurprisingthat
+courierserviceshaveexpandedrapidlyinChina．
+１１points
+ItisreportedthatChinesecourierserviceswillsendabout１２billionpackagesthisyear,
+whichmay make Chinabecomethebiggestcourier marketinthe worldintheplaceof
+America．MostofthepackagescarrytheitemsboughtontheInternet．Chinagivesmillions
+ofretailersonlinetheopportunitiestosellproductsinextremelycompetitiveprices．Onlyon
+November１１
+th,Chineseconsumersboughtproductsvalued９billiondollarsfromthebiggest
+shoppingplatforminChina．TherearemanyspecialshoppingdaysinChina．Therefore,itis
+notstrangethatcourierserviceshavebeendevelopingfastinChina．
+[[PDF_PAGE 209]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２０４
+８points
+ItisreportedthatthecourierservicesinChinawilldeliverabout１２billionpackages
+thisyearwhichmayshowthatChinawouldbeattheUSAtobethebiggestcouriermarketin
+theworld．Mostpackagescoverstheproducts whichareboughtonＧline,forChinagives
+millionsofcompaniesonlineopportunitiestosellproductsincompetitiveprices．Justin
+November１１
+th,thecosumersinChinaboughtmorethan９billionpricesproductsfromthe
+largestbusinessfloor．Chinahasmanyotheruniquecosumingdaylikethis,therefore,it􀆳s
+notsurprisingthecourierservicesexpandinChina．
+５points
+Accordingtothereport,thisyearcourierservicesinChinawillsendabout１２billion
+packets．ItwillmakeChinaoverAmericatobecomethebiggestcouriermarketintheworld．
+MostofpacketsarethethingswhichbuyfromtheInternet．Chinagivestheopportunitiesto
+themillionsofsalesmentousethecompetivepricesellingthings．JustonNov．１１
+th,Chinese
+comastersbought９billiondollarsthingsfromthebiggestshoppingmarkets．Chinahasmany
+specialshoppingdayslikethis．Soitisnotsurprisethatthecourierservicescanextend
+quicklyinChina．
+２points
+Fromthereport,Chinacourierserviceswilldeliveyabout１２０millionpackagesinthis
+year．China willbeyond Americabecome mostbiggestcourieralloverthe world．Most
+packagesaregoodsofonlineshop．Chinaofferforbillionsofdetialshopsthatpriceof
+competitivesalethegoodsforachance．On November１１st,theChinesecomsumerwho
+bought９０ million dollars goods on biggest China shop platform．China have many
+extraordinaryshoppingday．Eventhough,couriesserviceswillexpandthatnotextrordinary
+inChina．
+[[PDF_PAGE 210]]
+２０５
+样
+卷
+１０．全国大学英语六级考试翻译评分样卷
+中国传统的待客之道要求饭 菜 丰 富 多 样,让 客 人 吃 不 完.中 国 宴 席 上 典 型 的 菜 单 包 括
+开席的一套凉菜及其后的热菜,例如肉类、鸡鸭、蔬菜等.大多数宴席上,全鱼被认为是必不
+可少的,除非已经上过各 式 海 鲜. 如 今,中 国 人 喜 欢 把 西 方 特 色 菜 与 传 统 中 式 菜 肴 融 于 一
+席,因此牛排上桌也不少见.沙拉也已流行起来,尽管传统上中国人一般不吃任何未经烹饪
+的菜肴.宴席通常至少有一道汤,可以最先或最后上桌.甜点和水果通常标志宴席的结束.
+【参考译文】
+TraditionalChinesehospitalityrequiresthatguestsbeofferedarichvarietyofdishes
+whicharemorethantheycouldpossiblyfinish．TypicalmenusinaChinesebanquetincludea
+setofcolddishestobeginwith,followedbyhotdishes,suchasmeats,chicken,duck,and
+vegetables．A wholefishisconsideredessentialformostbanquetsunlessvariousseafoods
+havealready been served．Nowadaysthe Chineseliketo mix Western specialties with
+traditionalChinesedishes,soit􀆳snotunusualtoseebeefsteaksserved．Saladshavealso
+comeintofashioneventhoughtraditionallyChinesetendtorefuseanythinguncooked．A
+banquetusuallyincludesatleastonesoup,whichislikelytobeservedasthefirstorthelast
+course．Dessertsandfruitsgenerallysignaltheendofabanquet．
+１４points
+ThetraditionalChinesewayoftreatingguestsrequireshoststoprepareabundantand
+variousdishes,and maketheguestsunabletofinishthem all．Thetypical menufora
+Chinesefeastconsistsofasetofcolddishes,whichareservedatthebeginningandsomehot
+dishesafterthat,suchasmeat,chicken,ducksandvegetables．Inmostfeasts,acomplete
+fishisconsiderednecessaryunlessvariouskindsofseafoodhavebeenserved．Nowadays,
+Chinesepeopleliketo mixwesternspecialdisheswithtraditionalChinesecuisine,soitis
+notraretofindsteakonthetable．Inaddition,saladhasgaineditspopularityconstantly,
+eventhough Chinese peopleare notlikelytoeatdishesthathave notbeen cookedin
+tradition．Thereisgenerallyasoupinafeast,whichcanbeservedatthebeginningorthe
+endofthemeal．Besides,dessertsandfruitsoftenmarktheendofafeast．
+１１points
+ThetraditionalChinesewaytotreatguestsdemandsavarietyoffoodwhichwon􀆳tbe
+eatenup．AtypicalmenuofChinesedinnercontainsaseriesofcolddishesatthebeginning
+andcookedfoodlater,suchasmeat,chicken,duckandvegetables．Fishisthoughttobe
+necessaryin mostformal dinners unless different kinds of seafood has been served．
+[[PDF_PAGE 211]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２０６
+Nowadays,Chinese peoplelike to combine specialfood from Western countries with
+traditionalChinesefood．Asaresult,beefisnotrareatChinesedinner．Saladhasbeenmore
+andmorepopular,althoughChinesedon􀆳teatanyuncookedfoodtraditionally．Therewillbe
+atleastonesoupatdinner,whichcanbeservedatfirstoratlast．Dessertsandfruitsare
+usuallyasignoftheendofdinner．
+８points
+TheChinesetraditionalwayoftreatingguestsrequiresthatthefoodinadinnershould
+bevariousand morethan whatguestscouldeatup．A typicallistofa Chinesedinner
+includingasetofcolddishesatthebeginning,followedbyhotdishessuchasmeat,chicken,
+vegetablesandsoon．Inmostdinners,itisthoughtthatanentirefishisunlackableexcept
+thatallkindsofseafoodhavebeenprovided．Nowadays,Chinesepeopleprefertocombine
+westerntypicalfoodwithtraditionalChinesefoodinadinner．Soit􀆳snotraretoseesteak
+being provided．Saladisbeginningto become popularas well,eventhoughtraditional
+Chinesepeopledon􀆳teatanythinguncooked．Thereshouldusuallybeakindofsoupatleast,
+whichcanbeservedatthebeginningorattheendofadinner．Desertsandfruitsusually
+marktheendofdinner．
+５points
+ThetraditionofChinesetreatmenttoguestsisthatthefoodmustbemuchenoughtolet
+guestsbeunabletofinish．ThetraditionalfoodinChinaincludesthebeginningcoolfoodand
+hotfoodnext,suchasmeat,chicken,vegetablesandetc．Inmostparties,fishisconsidered
+tobeimportant,exceptthattheseafoodhasbeengiven．Nowadays,Chineseliketo mix
+WesternfoodandtraditionalChinesefoodtogether,thusthepearlcanbeseenfrequentlyon
+thetable．Salahasalsogaineditspopularity,eventhoughtraditionally,Chinesepeopledon􀆳t
+eatanyfoodwithoutbeingfired．There􀆳satleastonekindofsouponthetable．Itcanbe
+takenintothetablefirstlyorlastly．Dessertsandfruitsoftenmarktheendingoftheparty．
+２points
+InthewayofChinesetraditionaltreat,thefoodshouldbemanyandtoomuchtoeat．
+ClassicalChinesetreatincludessomecolddishesinthebeginning,andthansomehotdishes,
+likemeat,vegetableandchiken．Often,thefishismustprovided,expecttherearemanysea
+foods,now,ChineselikemixsomewestdishesinaChinesetraditionaltreat．So,beefisa
+oftendish．Saladalsostarttobepopular．AlthoughChinesedon􀆳teatanyfoodnotbecooked．
+Usually,thereisatleastasoup,inthestartorthelast．Dessertorfruitusuallysymblesthat
+treatwillbeover．
+[[PDF_PAGE 212]]
+２０７
+样
+卷
+１１．全国大学英语四级考试成绩报告单样张
+[[PDF_PAGE 213]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２０８
+[[PDF_PAGE 214]]
+２０９
+样
+卷
+１２．全国大学英语六级考试成绩报告单样张
+[[PDF_PAGE 215]]
+　 全 国 大 学 英 语 四 、六 级 考 试 大 纲(２０１６年 修 订 版)
+２１０

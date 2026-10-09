@@ -1,0 +1,297 @@
+[
+    {
+        "table":  1,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "模  块"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "比  例"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "题  型"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "学科知识与能力"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "51%"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "单项选择题\r简  答  题\r材料分析题"
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "教学设计"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  "21%"
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  "简  答  题\r教学设计题"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "教学实施"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "17%"
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  "简  答  题\r材料分析题"
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "教学评价"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  "11%"
+                      },
+                      {
+                          "row":  5,
+                          "column":  3,
+                          "text":  "材料分析题"
+                      },
+                      {
+                          "row":  6,
+                          "column":  1,
+                          "text":  "合  计"
+                      },
+                      {
+                          "row":  6,
+                          "column":  2,
+                          "text":  "100%"
+                      },
+                      {
+                          "row":  6,
+                          "column":  3,
+                          "text":  "单 项 选 择 题 ：约33%\r非 选  择  题 ：约67%"
+                      }
+                  ]
+    },
+    {
+        "table":  2,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "教学环节与内容"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "课堂活动"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "所用时间"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "复习旧课，导入新课"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "提问，陈述"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "2′"
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "美国的领土扩张"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  "动画演示"
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  "1′20〞"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "美国的西进运动"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "图片展示，引导提问"
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  "3′20〞"
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "美国内战的原因"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  "小组讨论，陈述与总结"
+                      },
+                      {
+                          "row":  5,
+                          "column":  3,
+                          "text":  "12′30〞"
+                      },
+                      {
+                          "row":  6,
+                          "column":  1,
+                          "text":  "内战前的南北比较，北强南弱"
+                      },
+                      {
+                          "row":  6,
+                          "column":  2,
+                          "text":  "提问与播放录像"
+                      },
+                      {
+                          "row":  6,
+                          "column":  3,
+                          "text":  "4′15〞"
+                      },
+                      {
+                          "row":  7,
+                          "column":  1,
+                          "text":  "初期南胜北败的原因"
+                      },
+                      {
+                          "row":  7,
+                          "column":  2,
+                          "text":  "提问，分析"
+                      },
+                      {
+                          "row":  7,
+                          "column":  3,
+                          "text":  "1＇54〞"
+                      },
+                      {
+                          "row":  8,
+                          "column":  1,
+                          "text":  "《宅地法》、《解放黑人奴隶宣言》"
+                      },
+                      {
+                          "row":  8,
+                          "column":  2,
+                          "text":  "内容展示"
+                      },
+                      {
+                          "row":  8,
+                          "column":  3,
+                          "text":  "36〞"
+                      },
+                      {
+                          "row":  9,
+                          "column":  1,
+                          "text":  "美国内战的胜利"
+                      },
+                      {
+                          "row":  9,
+                          "column":  2,
+                          "text":  "图片展示"
+                      },
+                      {
+                          "row":  9,
+                          "column":  3,
+                          "text":  "2＇30〞"
+                      },
+                      {
+                          "row":  10,
+                          "column":  1,
+                          "text":  "独立战争与南北内战的比较"
+                      },
+                      {
+                          "row":  10,
+                          "column":  2,
+                          "text":  "小组讨论"
+                      },
+                      {
+                          "row":  10,
+                          "column":  3,
+                          "text":  "5＇02〞"
+                      },
+                      {
+                          "row":  11,
+                          "column":  1,
+                          "text":  "美国两次战争在背景、性质、作用和结果等方面的异同点"
+                      },
+                      {
+                          "row":  11,
+                          "column":  2,
+                          "text":  "教师提问，总结"
+                      },
+                      {
+                          "row":  11,
+                          "column":  3,
+                          "text":  "3＇"
+                      },
+                      {
+                          "row":  12,
+                          "column":  1,
+                          "text":  "学习本课的体会和启示"
+                      },
+                      {
+                          "row":  12,
+                          "column":  2,
+                          "text":  "小组讨论与回答"
+                      },
+                      {
+                          "row":  12,
+                          "column":  3,
+                          "text":  "4＇10〞"
+                      },
+                      {
+                          "row":  13,
+                          "column":  1,
+                          "text":  "思考题：我国的台湾问题该如何解决？"
+                      },
+                      {
+                          "row":  13,
+                          "column":  2,
+                          "text":  "在《回家》的音乐声中下课"
+                      },
+                      {
+                          "row":  13,
+                          "column":  3,
+                          "text":  "40〞"
+                      }
+                  ]
+    }
+]

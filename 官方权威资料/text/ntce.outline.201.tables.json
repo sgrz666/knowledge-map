@@ -1,0 +1,97 @@
+[
+    {
+        "table":  1,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "模  块"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "比  例"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "题  型"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "职业理念"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "15%"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "单项选择题\r材料分析题"
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "教育法律法规"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  "10%"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "教师职业道德规范"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "15%"
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "文化素养"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  "12%"
+                      },
+                      {
+                          "row":  6,
+                          "column":  1,
+                          "text":  "基本能力"
+                      },
+                      {
+                          "row":  6,
+                          "column":  2,
+                          "text":  "48%"
+                      },
+                      {
+                          "row":  6,
+                          "column":  3,
+                          "text":  "单项选择题\r材料分析题\r写  作  题"
+                      },
+                      {
+                          "row":  7,
+                          "column":  1,
+                          "text":  "合  计"
+                      },
+                      {
+                          "row":  7,
+                          "column":  2,
+                          "text":  "100%"
+                      },
+                      {
+                          "row":  7,
+                          "column":  3,
+                          "text":  "单 项 选 择 题 ： 约39%\r非 选  择  题 ： 约61%"
+                      }
+                  ]
+    }
+]

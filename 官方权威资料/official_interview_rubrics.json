@@ -1,0 +1,1042 @@
+{
+  "official": true,
+  "criteria": [
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "职业认知",
+      "weight": 5,
+      "score": 3,
+      "criterion": "热爱教育事业，有正确的职业认知和价值取向",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 2,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r024"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "职业认知",
+      "weight": 5,
+      "score": 2,
+      "criterion": "具备从事教师职业应有的责任心和爱心",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 3,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r025"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "心理素质",
+      "weight": 10,
+      "score": 3,
+      "criterion": "积极上进，有自信心",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 4,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r026"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "心理素质",
+      "weight": 10,
+      "score": 3,
+      "criterion": "具有一定的情绪调控能力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 5,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r027"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "心理素质",
+      "weight": 10,
+      "score": 4,
+      "criterion": "具有较强的应变能力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 6,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r028"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "仪表仪态",
+      "weight": 10,
+      "score": 5,
+      "criterion": "行为举止自然大方，有亲和力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 7,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r029"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "仪表仪态",
+      "weight": 10,
+      "score": 5,
+      "criterion": "衣饰得体，符合教师的职业特点",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 8,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r030"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "言语表达",
+      "weight": 15,
+      "score": 4,
+      "criterion": "教学语言规范，口齿清楚，语速适宜",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 9,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r031"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "言语表达",
+      "weight": 15,
+      "score": 6,
+      "criterion": "表达准确、简洁、流畅，语言具有感染力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 10,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r032"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "言语表达",
+      "weight": 15,
+      "score": 5,
+      "criterion": "善于倾听，并能做出恰当的回应",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 11,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r033"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 6,
+      "criterion": "思维严密，条理清晰，逻辑性强",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 12,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r034"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 5,
+      "criterion": "能正确地理解和分析问题，抓住要点，并作出及时反应",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 13,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r035"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 4,
+      "criterion": "具有一定的创新意识",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 14,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r036"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 4,
+      "criterion": "教学材料处理恰当，教学目标明确，重、难点突出",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 15,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r037"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 3,
+      "criterion": "能够基于小学生的知识基础和生活经验合理设计教师活动",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 16,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r038"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 3,
+      "criterion": "学生活动设计有效，能引导学生通过自主参与、合作探究的方式达成学习目标",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 17,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r039"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学实施",
+      "weight": 25,
+      "score": 8,
+      "criterion": "教学结构合理，条理清晰，能较好地控制教学节奏",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 18,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r040"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学实施",
+      "weight": 25,
+      "score": 6,
+      "criterion": "知识讲授准确，能基本完成教学任务",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 19,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r041"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学实施",
+      "weight": 25,
+      "score": 6,
+      "criterion": "能够根据学生认知特点和学科教学规律，选择恰当的教学方法",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 20,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r042"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学实施",
+      "weight": 25,
+      "score": 2,
+      "criterion": "能够根据教学需要运用教具、学具和现代教育技术辅助教学",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 21,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r043"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学实施",
+      "weight": 25,
+      "score": 3,
+      "criterion": "板书工整规范、布局合理",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 22,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r044"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学评价",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能够采用恰当的评价方式对学生的学习活动作出反馈",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 23,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r045"
+    },
+    {
+      "standard_id": "ntce.interview.xiaoxue",
+      "level": "小学",
+      "project": "教学评价",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能够对自己的教学过程进行反思，做出比较客观的评价",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.xiaoxue.tables.json",
+        "table": 1,
+        "row": 24,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.xiaoxue.r046"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "职业认知",
+      "weight": 10,
+      "score": 5,
+      "criterion": "爱幼儿，尊重幼儿",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 2,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r017"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "职业认知",
+      "weight": 10,
+      "score": 5,
+      "criterion": "有热情、有责任心",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 3,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r018"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "心理素质",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能较好地调控情绪与情感",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 4,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r019"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "心理素质",
+      "weight": 10,
+      "score": 5,
+      "criterion": "开朗、乐观、善良",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 5,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r020"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "仪表仪态",
+      "weight": 10,
+      "score": 6,
+      "criterion": "五官端正，行为举止自然大方，有礼貌",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 6,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r021"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "仪表仪态",
+      "weight": 10,
+      "score": 4,
+      "criterion": "服饰得体，符合幼儿教师职业特点",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 7,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r022"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "交流沟通",
+      "weight": 15,
+      "score": 8,
+      "criterion": "有较好的言语表达能力。普通话标准，口齿清楚，表达流畅，语速适当，有感染力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 8,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r023"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "交流沟通",
+      "weight": 15,
+      "score": 7,
+      "criterion": "善于倾听、交流，有亲和力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 9,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r024"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 8,
+      "criterion": "能条理清晰地分析思考问题",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 10,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r025"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 7,
+      "criterion": "有一定的应变能力，在活动设计与实施、环境创设上表现出一定新意",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 11,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r026"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "了解幼儿",
+      "weight": 10,
+      "score": 5,
+      "criterion": "有了解幼儿兴趣、需要、已有经验和个体差异的意识",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 12,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r027"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "了解幼儿",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能通过观察来了解幼儿",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 13,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r028"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "技能技巧",
+      "weight": 20,
+      "score": 10,
+      "criterion": "熟悉一些幼儿喜欢的游戏和故事。",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 14,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r029"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "技能技巧",
+      "weight": 20,
+      "score": 10,
+      "criterion": "具有弹、唱、画、跳、讲故事、手工制作等基本技能。",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 15,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r030"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "评价与反思",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能对教育活动和教育行为进行较客观的评价。",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 16,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r031"
+    },
+    {
+      "standard_id": "ntce.interview.youeryuan",
+      "level": "幼儿园",
+      "project": "评价与反思",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能根据评价结果提出改进意见。",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.youeryuan.tables.json",
+        "table": 1,
+        "row": 17,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.youeryuan.r032"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "职业\r认知",
+      "weight": 5,
+      "score": 2,
+      "criterion": "较强的从教愿望，对教师职业有高度的认同，对教师工作的基本内容和职责有清楚了解",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 2,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r026"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "职业\r认知",
+      "weight": 5,
+      "score": 3,
+      "criterion": "关爱学生，尊重学生、平等对待学生，关注每个学生的成长",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 3,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r027"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "心理\r素质",
+      "weight": 5,
+      "score": 3,
+      "criterion": "活泼、开朗，有自信心",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 4,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r028"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "心理\r素质",
+      "weight": 5,
+      "score": 2,
+      "criterion": "有较强的情绪调节能力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 5,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r029"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "仪表仪态",
+      "weight": 5,
+      "score": 2,
+      "criterion": "衣着整洁，仪表得体，符合教师职业特点",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 6,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r030"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "仪表仪态",
+      "weight": 5,
+      "score": 3,
+      "criterion": "行为举止稳重端庄大方，教态自然，肢体表达得当",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 7,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r031"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "言语表达",
+      "weight": 15,
+      "score": 8,
+      "criterion": "语言清晰，表达准确，语速适宜",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 8,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r032"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "言语表达",
+      "weight": 15,
+      "score": 7,
+      "criterion": "善于倾听、交流，有亲和力",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 9,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r033"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 3,
+      "criterion": "思维缜密，富有条理",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 10,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r034"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 4,
+      "criterion": "迅速地抓住核心要素，准确地理解和分析问题",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 11,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r035"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 4,
+      "criterion": "看待问题全面，思维灵活",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 12,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r036"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "思维品质",
+      "weight": 15,
+      "score": 4,
+      "criterion": "具有创新性的解决问题的思路和方法",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 13,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r037"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 4,
+      "criterion": "了解课程的目标与要求、准确把握教学内容",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 14,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r038"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 3,
+      "criterion": "能根据学科的特点，确定具体的教学目标、教学重点和难点",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 15,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r039"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学设计",
+      "weight": 10,
+      "score": 3,
+      "criterion": "教学设计体现学生的主体性",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 16,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r040"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学实施",
+      "weight": 35,
+      "score": 6,
+      "criterion": "情境创设合理，关注学习动机的激发",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 17,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r041"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学实施",
+      "weight": 35,
+      "score": 10,
+      "criterion": "教学内容表述和呈现清楚、准确",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 18,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r042"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学实施",
+      "weight": 35,
+      "score": 4,
+      "criterion": "有与学生交流的意识，提出的问题富有启发性",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 19,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r043"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学实施",
+      "weight": 35,
+      "score": 8,
+      "criterion": "板书设计突出主题，层次分明；板书工整、美观、适量",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 20,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r044"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学实施",
+      "weight": 35,
+      "score": 7,
+      "criterion": "教学环节安排合理；时间节奏控制恰当；教学方法和手段运用有效",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 21,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r045"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学评价",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能对学生进行过程性评价",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 22,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r046"
+    },
+    {
+      "standard_id": "ntce.interview.zhongxue",
+      "level": "中学",
+      "project": "教学评价",
+      "weight": 10,
+      "score": 5,
+      "criterion": "能客观地评价教学效果",
+      "locator": {
+        "table_path": "权威资料/text/ntce.interview.zhongxue.tables.json",
+        "table": 1,
+        "row": 23,
+        "column": 5,
+        "section": "五、评分标准"
+      },
+      "official": true,
+      "requirement_id": "ntce.interview.zhongxue.r047"
+    }
+  ]
+}

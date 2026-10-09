@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "official": false,
+  "status": "local_practice_suggestion_needs_subject_expert_review",
+  "notice": "以下维度和分档是本地练习建议，不是教育部教育考试院公布的正式评分细则；不得换算为NTCE卷面分或CET报道分。",
+  "scale": {
+    "0": "没有可评价内容，或关键内容错误",
+    "1": "部分涉及要求，但存在明显遗漏或错误",
+    "2": "基本回应要求，关键依据或步骤仍不充分",
+    "3": "回应完整、依据正确，存在少量可改进之处",
+    "4": "准确、完整、清晰，有充分依据并符合任务条件"
+  },
+  "rubrics": [
+    {
+      "rubric_id": "practice.ntce.material_analysis.v1",
+      "task_type": "材料分析",
+      "official": false,
+      "total": 20,
+      "dimensions": ["问题与情境识别", "理论或法条选择及准确性", "原材料证据与理论之间的分析", "建议的针对性和可实施性", "条理、表述与规范性"],
+      "use": "逐维给0–4级反馈，先核定题目要求与适用法律版本，必须引用材料证据。正式阅卷点数需另取得该题授权评分参考。"
+    },
+    {
+      "rubric_id": "practice.ntce.teaching_design.v1",
+      "task_type": "教学设计",
+      "official": false,
+      "total": 20,
+      "dimensions": ["教材内容与学生基础分析", "教学目标及重难点的一致性", "活动步骤和教学方法的可实施性", "学生参与及学习支持", "评价方式与目标的一致性"],
+      "use": "逐维给0–4级反馈，根据具体学段、学科大纲和题干条件评价。公开笔试大纲提供能力要求及题型示例，未取得通用逐题正式评分细则。"
+    },
+    {
+      "rubric_id": "practice.cet.writing_feedback.v1",
+      "task_type": "写作练习反馈",
+      "official": false,
+      "total": 20,
+      "dimensions": ["任务完成与切题", "思想表达清晰度", "段落组织与连贯", "语法和词汇准确性", "表达及文体适切性"],
+      "official_basis": ["cet.syllabus.2016.r066", "cet.syllabus.2016.r067"],
+      "use": "该分维量表仅用于诊断反馈；正式大纲写作采用15分总体印象评分，分维结果不得自动替代官方档次。"
+    },
+    {
+      "rubric_id": "practice.cet.translation_feedback.v1",
+      "task_type": "翻译练习反馈",
+      "official": false,
+      "total": 20,
+      "dimensions": ["原文信息完整性", "意思准确性", "句法和搭配规范", "语篇结构及连贯", "用词与表达适切性"],
+      "official_basis": ["cet.syllabus.2016.r068", "cet.syllabus.2016.r069", "cet.syllabus.2016.r070"],
+      "use": "该分维量表仅用于诊断反馈；正式大纲翻译采用15分总体印象评分，分维结果不得自动替代官方档次。"
+    }
+  ]
+}

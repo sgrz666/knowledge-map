@@ -1,0 +1,82 @@
+[
+    {
+        "table":  1,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "模  块"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "比  例"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "题  型"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "科学知识与教学知识"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "40﹪"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "单项选择题\r简  答 题"
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "教学设计"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  "25﹪"
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  "教学设计题"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "教学实施与教学评价"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "35﹪"
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  "教学案例分析题\r简答题"
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "合计"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  "100﹪"
+                      },
+                      {
+                          "row":  5,
+                          "column":  3,
+                          "text":  "单项选择题：约27﹪\r非 选 择题：约73﹪"
+                      }
+                  ]
+    }
+]

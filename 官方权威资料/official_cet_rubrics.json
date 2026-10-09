@@ -1,0 +1,119 @@
+{
+  "official": true,
+  "note": "四级和六级采用相同档次描述，但测试难度、考核要求和评分样卷有级别差异；原始15分档次不等于710分报道分。",
+  "rubrics": [
+    {
+      "task_type": "写作",
+      "official": true,
+      "max_raw_score": 15,
+      "scoring_method": "总体印象评分",
+      "requirement_ids": [
+        "cet.syllabus.2016.r067"
+      ],
+      "bands": [
+        {
+          "band": 14,
+          "raw_score_range": [
+            13,
+            15
+          ],
+          "descriptor": "切题.表达思想清楚,文字通顺、连贯,基本上无语言错误,仅有个别小错.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 11,
+          "raw_score_range": [
+            10,
+            12
+          ],
+          "descriptor": "切题.表达思想清楚,文字连贯,但有少量语言错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 8,
+          "raw_score_range": [
+            7,
+            9
+          ],
+          "descriptor": "基本切题.有些地方表达思想不够清楚,文 字 勉 强 连 贯,语 言 错 误 相 当 多,其 中 有 一 些 是\n严重错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 5,
+          "raw_score_range": [
+            4,
+            6
+          ],
+          "descriptor": "基本切题.表达思想不清楚,连贯性差,有较多的严重语言错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 2,
+          "raw_score_range": [
+            1,
+            3
+          ],
+          "descriptor": "条理不清,思路紊乱,语言支离破碎或大部分句子均有错误,且多数为严重错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        }
+      ]
+    },
+    {
+      "task_type": "翻译",
+      "official": true,
+      "max_raw_score": 15,
+      "scoring_method": "总体印象评分",
+      "requirement_ids": [
+        "cet.syllabus.2016.r069",
+        "cet.syllabus.2016.r070"
+      ],
+      "bands": [
+        {
+          "band": 14,
+          "raw_score_range": [
+            13,
+            15
+          ],
+          "descriptor": "译文准确表达了原文的意思.译文流畅,结构清晰,用词贴切,基本无语言 错 误,仅 有 个 别\n小错.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 11,
+          "raw_score_range": [
+            10,
+            12
+          ],
+          "descriptor": "译文基本表达了原文的意思.结构较清晰,语言通顺,但有少量语言错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 8,
+          "raw_score_range": [
+            7,
+            9
+          ],
+          "descriptor": "译文勉强表达了原文的意思.译文勉强连贯,语言错误相当多,其中有一些是严重错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 5,
+          "raw_score_range": [
+            4,
+            6
+          ],
+          "descriptor": "译文仅表达了小部分原文的意思.译文连贯性差,有相当多的严重语言错误.",
+          "content_type": "NFKC-normalized official extracted text"
+        },
+        {
+          "band": 2,
+          "raw_score_range": [
+            1,
+            3
+          ],
+          "descriptor": "除个别词语或句子,译文基本没有表达原文的意思.",
+          "content_type": "NFKC-normalized official extracted text"
+        }
+      ]
+    }
+  ]
+}

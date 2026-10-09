@@ -1,0 +1,195 @@
+{
+  "standard_id": "cet.syllabus.2016",
+  "reason": "补齐短技能句与多列编号技能，废弃纯版心/章节模板，正确旧ID保持不变。",
+  "added": [
+    {
+      "requirement_id": "cet.syllabus.2016.r079",
+      "module": "听力",
+      "skill_code": "01",
+      "content": "０１ 理解主旨大意",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 139,
+        "line_end": 139,
+        "pdf_page": 7,
+        "section": "1.1.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r080",
+      "module": "听力",
+      "skill_code": "04",
+      "content": "０４ 推论隐含的意义",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 143,
+        "line_end": 143,
+        "pdf_page": 7,
+        "section": "1.1.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r081",
+      "module": "听力",
+      "skill_code": "05",
+      "content": "０５ 判断话语的交际功能",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 144,
+        "line_end": 144,
+        "pdf_page": 7,
+        "section": "1.1.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r082",
+      "module": "阅读",
+      "skill_code": "01",
+      "content": "０１ 理解主旨大意",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 163,
+        "line_end": 163,
+        "pdf_page": 7,
+        "section": "1.2.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r083",
+      "module": "阅读",
+      "skill_code": "02",
+      "content": "０２ 理解细节信息",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 164,
+        "line_end": 164,
+        "pdf_page": 7,
+        "section": "1.2.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r084",
+      "module": "阅读",
+      "skill_code": "04",
+      "content": "０４ 概括主旨大意",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 175,
+        "line_end": 175,
+        "pdf_page": 8,
+        "section": "1.2.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r085",
+      "module": "阅读",
+      "skill_code": "05",
+      "content": "０５ 推论隐含的意义",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 176,
+        "line_end": 176,
+        "pdf_page": 8,
+        "section": "1.2.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r086",
+      "module": "写作",
+      "skill_code": "01",
+      "content": "０１ 表达中心思想",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 198,
+        "line_end": 198,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r087",
+      "module": "写作",
+      "skill_code": "03",
+      "content": "０３ 表达观点、态度等",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 200,
+        "line_end": 200,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r088",
+      "module": "写作",
+      "skill_code": "06",
+      "content": "０６ 运用恰当的词汇",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 205,
+        "line_end": 205,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r089",
+      "module": "写作",
+      "skill_code": "07",
+      "content": "０７ 运用正确的语法",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 206,
+        "line_end": 206,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r090",
+      "module": "写作",
+      "skill_code": "08",
+      "content": "０８ 运用合适的句子结构",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 207,
+        "line_end": 207,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r091",
+      "module": "写作",
+      "skill_code": "09",
+      "content": "０９ 使用正确的标点符号",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 208,
+        "line_end": 208,
+        "pdf_page": 8,
+        "section": "1.3.2"
+      }
+    },
+    {
+      "requirement_id": "cet.syllabus.2016.r092",
+      "module": "口语",
+      "skill_code": "05",
+      "content": "０５ 运用合适的口头表达与交流的策略帮助表达",
+      "locator": {
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "line_start": 263,
+        "line_end": 263,
+        "pdf_page": 10,
+        "section": "1.5.2"
+      }
+    }
+  ],
+  "retired": [
+    "cet.syllabus.2016.r003",
+    "cet.syllabus.2016.r028",
+    "cet.syllabus.2016.r050",
+    "cet.syllabus.2016.r055",
+    "cet.syllabus.2016.r065"
+  ]
+}

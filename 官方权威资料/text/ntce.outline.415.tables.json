@@ -1,0 +1,287 @@
+[
+    {
+        "table":  1,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "模  块"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "比  例"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "题  型"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "学科知识"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  "43%"
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  "单项选择题\r简  答  题"
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "教学设计"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  "23%"
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  "简  答  题\r教学设计题"
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "教学实施"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  "21%"
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  "简  答  题\r案例分析题"
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "教学评价"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  "13%"
+                      },
+                      {
+                          "row":  5,
+                          "column":  3,
+                          "text":  "案例分析题"
+                      },
+                      {
+                          "row":  6,
+                          "column":  1,
+                          "text":  "合  计"
+                      },
+                      {
+                          "row":  6,
+                          "column":  2,
+                          "text":  "100%"
+                      },
+                      {
+                          "row":  6,
+                          "column":  3,
+                          "text":  "单 项 选 择 题 ：约 30%\r非 选  择  题 ：约70%"
+                      }
+                  ]
+    },
+    {
+        "table":  2,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "评价内容"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "自评"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "互评"
+                      },
+                      {
+                          "row":  1,
+                          "column":  4,
+                          "text":  "教师评"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  "作品主题"
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  2,
+                          "column":  4,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  "作品内容"
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  4,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  "技术水平"
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  4,
+                          "text":  ""
+                      },
+                      {
+                          "row":  5,
+                          "column":  1,
+                          "text":  "界面设计"
+                      },
+                      {
+                          "row":  5,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  5,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  5,
+                          "column":  4,
+                          "text":  ""
+                      }
+                  ]
+    },
+    {
+        "table":  3,
+        "cells":  [
+                      {
+                          "row":  1,
+                          "column":  1,
+                          "text":  "秦俑级别名称"
+                      },
+                      {
+                          "row":  1,
+                          "column":  2,
+                          "text":  "对应秦俑图片"
+                      },
+                      {
+                          "row":  1,
+                          "column":  3,
+                          "text":  "判别依据"
+                      },
+                      {
+                          "row":  1,
+                          "column":  4,
+                          "text":  "来源（网站名称）"
+                      },
+                      {
+                          "row":  2,
+                          "column":  1,
+                          "text":  ""
+                      },
+                      {
+                          "row":  2,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  2,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  2,
+                          "column":  4,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  1,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  3,
+                          "column":  4,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  1,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  2,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  3,
+                          "text":  ""
+                      },
+                      {
+                          "row":  4,
+                          "column":  4,
+                          "text":  ""
+                      }
+                  ]
+    }
+]

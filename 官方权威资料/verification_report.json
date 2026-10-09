@@ -1,0 +1,23 @@
+{
+  "source_count": 67,
+  "verified_source_count": 67,
+  "requirement_count": 6255,
+  "written_outline_boundary_count": 35,
+  "retired_requirement_count": 170,
+  "cet_numbered_skill_counts": {
+    "听力": 9,
+    "阅读": 10,
+    "写作": 11,
+    "翻译": 5,
+    "口语": 5
+  },
+  "official_interview_criterion_count": 61,
+  "official_cet_band_count": 10,
+  "interview_totals": {
+    "ntce.interview.xiaoxue": 100,
+    "ntce.interview.youeryuan": 100,
+    "ntce.interview.zhongxue": 100
+  },
+  "error_count": 0,
+  "errors": []
+}

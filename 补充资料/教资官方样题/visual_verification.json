@@ -1,0 +1,59 @@
+{
+  "source_id": "ntce.outline.317",
+  "original_path": "权威资料/originals/ntce.outline.317.doc",
+  "original_sha256": "0454e6943897c35c704b5ef19f97d7994cd2fbcf294735782c7e2fbb0aad10fa",
+  "exported_pdf_path": "补充资料/教资官方样题/ntce.outline.317.pdf",
+  "exported_pdf_sha256": "43da5ea5c0c7c9b93cecd9667b2da9e57f7bc61a75aa44e1e91d5a6a3503238b",
+  "page_count": 7,
+  "export_method": "Hidden Microsoft Word COM; AutomationSecurity=3; read-only Documents.Open; ExportAsFixedFormat PDF; no original modification",
+  "original_object_counts": {
+    "inline_shapes": 15,
+    "floating_shapes": 3
+  },
+  "verification_status": "visually_inspected_original_export",
+  "expert_verified": false,
+  "pages": [
+    {
+      "page": 4,
+      "image_path": "补充资料/教资官方样题/ntce.outline.317.page.04.png",
+      "image_sha256": "f93d7c8bcd441836bc524742060180af5272c0ebeed5e5793ad4f659ede76c4f",
+      "status": "visually_inspected_and_readable"
+    },
+    {
+      "page": 5,
+      "image_path": "补充资料/教资官方样题/ntce.outline.317.page.05.png",
+      "image_sha256": "627a45a5795bffa197379e604694b1a1724ad59b1c4b94349865d8228a1e0600",
+      "status": "visually_inspected_and_readable"
+    },
+    {
+      "page": 6,
+      "image_path": "补充资料/教资官方样题/ntce.outline.317.page.06.png",
+      "image_sha256": "7b5f88e9e61295d20645fd291ef6c3817db1745561459dd1f60b56e9e6ae1759",
+      "status": "visually_inspected_and_readable"
+    },
+    {
+      "page": 7,
+      "image_path": "补充资料/教资官方样题/ntce.outline.317.page.07.png",
+      "image_sha256": "0984c79ce19c1a531d75b2f4e882eeb974c130e3bd1fec68b3efc7b82b81911d",
+      "status": "visually_inspected_and_readable"
+    }
+  ],
+  "question_pages": {
+    "1": 4,
+    "2": 4,
+    "3": 4,
+    "4": 4,
+    "5": 4,
+    "6": 4,
+    "7": 5
+  },
+  "answer_pages": {
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6,
+    "6": 6,
+    "7": 7
+  }
+}
