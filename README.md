@@ -14,6 +14,7 @@
 - **kb_tools/**：教资数据处理与知识图谱构建工具链（含 `ntce_contract.py` 状态契约迁移、`build_graph.py` 图谱导出）
 - **审查/**：全库质量与门禁工具（`validate_kb.py` 结构与引用门禁、`状态词表检查.py` 状态枚举门禁、`build_review_queue.py` 生成教研待复核清单、`知识库形式审查.py` 形式审查与验收报告）
 - **tests/**：自动化测试套件（回归测试与数据契约断言，含 `test_graph_direction_contract.py` 两库图谱方向/层级契约、`test_status_vocabulary.py` 两库状态词表契约、`test_rubric_contract.py` 题内练习框架与 A.6 加权量规的双轨契约、`test_workspace_aliases.py` 工作区别名前置条件）
+- **services/**：主观题评分与记忆复习服务（`grader/` 教资解析式与四六级整体式评分、`memory/` FSRS 调度与归因、`app.py` FastAPI 入口）
 - **docs/**：项目实施计划与文档
 
 ## 工作区别名（必须在本地建立，且不入库）
@@ -27,7 +28,23 @@
 
 - **为什么不能改脚本了事**：别名已经写进数据本身——`权威资料/requirements.jsonl` 里 6,255 条条款的 `locator.text_path` 全部以 `权威资料/` 开头，教资 14,500 道题的 `source.files[].path` 全部以 `教资/真题/` 开头。把脚本里的路径换成真实目录名，只会让已入库的定位信息与原文件断开；要彻底去掉别名，必须同时迁移两库的 locator 与 source 记录，那是一次数据迁移而不是清理。
 - **缺失时的表现**：链接不存在时 `tests/` 会有 22 个用例直接报错（读不到 catalog 与原文），`审查/validate_kb.py` 会把来源判成 `Q_SOURCE_UNRESOLVED`。`tests/test_workspace_aliases.py` 先断言别名存在并给出上面的建立命令。
-- **不入库的理由**：真实目录是原始考纲/真题原件（合计 GB 级），按 `.gitignore` 规则不随版本库走；链接本身只是本机路径映射，跨机器无意义。
+- **不入库的理由**：别名只是本机路径映射，跨机器无意义；而且 git 会顺着链接把同一批文件按两条路径各存一份。真实目录本身已按下面的口径入库（原件除外），克隆后只需按上表重建链接。
+
+## 数据与版本化口径
+
+两库的交付数据已随脚本一起入库（此前只有脚本与设计文档随库，克隆出来无法复现任一剑读数）。**入库内容**（约 470MB / 20,935 个文件，2026-10-10 起）：
+
+| 路径 | 体积 | 内容 |
+| --- | --- | --- |
+| `数据集/教资/` | 230MB · 13,944 文件 | questions 142MB、cards 69MB、review 26MB、graph 20MB、materials 2.8MB、outline、schemas、rubrics、sources、resources、paper_specs、MANIFEST |
+| `数据集/四六级/` | 77MB · 5,403 文件 | vocabulary 44MB、cards 41MB、questions 33MB、graph 17MB、ontology 16MB、manifest、listening、passages、writing、translation、official_examples |
+| `数据集/计算机类/`、`数据集/教育学类/` | 179MB · 8 文件 | 课程目录抓取结果（最大单文件 90.5MB，在 GitHub 100MB 硬限内，未走 LFS） |
+| `官方权威资料/` | 7.7MB · 135 文件 | `text/` 抽取文本、`requirements.jsonl` 与条款索引、抓取与核验脚本 |
+| `教资原始资料/` | 6.8MB · 1,400 文件 | 1,390 份原始真题/答案 csv |
+| `补充资料/` | 43.9MB · 29 文件 | 样题抽取结果（含 39MB `source_pages.json`）与教研参考解答 |
+| `services/` | 12 个 py | 主观题评分与记忆复习服务（FastAPI + FSRS） |
+
+**不入库**（可由脚本重建、或属原始二进制件）：`英语四六级资料合集（2026年最新）(1)/`（9.8GB 原始 PDF/MP3/Word）、`官方权威资料/originals/`（抓回的官方页面 html 与 doc/docx/pdf 原件）、`补充资料/` 的样题扫描件 png/jpg 与 PDF/Word 原件、`数据集/四六级/scripts/_staging/`（734MB OCR 中间件）、`归档/`（281MB 历史快照，仅作本机回退）、`_contract_snapshot/`（141MB 契约迁移前快照）、`审查/` 的运行产物（约 120MB）、`数据集/*/manifest/*.log`、根级别名 `权威资料/` 与 `教资/`。原始二进制件不进库不等于放弃溯源：每条题目与条款的 `source_locator`/`locator` 仍指向本机原件路径，重建时按上表恢复。
 
 ## 核心规范文档
 - [应试考证功能设计与技术支撑：以教资和四六级为例.md](应试考证功能设计与技术支撑：以教资和四六级为例.md)：系统顶层功能设计与技术规范（含附录 A 完整 Schema 字典）。
