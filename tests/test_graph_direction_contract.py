@@ -5,10 +5,12 @@
 本测试同时跑两库，把方向与层级字段钉成同一个不变式。
 """
 import json
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "kb_tools"))
 LIBS = {"ntce": ROOT / "数据集" / "教资", "cet": ROOT / "数据集" / "四六级"}
 LAYERS = ("L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7")
 
@@ -87,6 +89,24 @@ class GraphContractTests(unittest.TestCase):
                     self.assertIn((ability_id, qid), supports, f"{dataset}: 缺 {ability_id} -> {qid} 的 supports_ability 边")
                 for requirement_id in question.get("exam_requirement_ids") or []:
                     self.assertIn((requirement_id, qid), aligned, f"{dataset}: 缺 {requirement_id} -> {qid} 的 aligned_to_requirement 边")
+
+    def test_l0_contains_every_live_authoritative_clause(self):
+        """L0 是全量条款层，不是"被题目引用到的条款"层：只按引用裁剪会把未被命题覆盖的条款静默丢掉。"""
+        from kb_scope import select as scope_select
+        catalog = json.loads((ROOT / "权威资料" / "catalog.json").read_text("utf-8"))
+        live_rows = rows(ROOT / "权威资料" / "requirements.jsonl")
+        retired = {row.get("requirement_id") for row in rows(ROOT / "权威资料" / "retired_requirement_records.jsonl")}
+        graphed_total = 0
+        for dataset, root in LIBS.items():
+            with self.subTest(dataset=dataset):
+                _, requirements = scope_select(catalog.get("sources", []), live_rows, dataset)
+                graphed = {node["id"] for node in rows(root / "graph" / "nodes.jsonl")
+                           if node.get("type") == "exam_requirement"}
+                graphed_total += len(graphed)
+                self.assertEqual([], sorted(set(requirements) - graphed),
+                                 f"{dataset}: 有有效条款未进 L0 图层")
+                self.assertEqual(set(), graphed & retired, f"{dataset}: 退休条款不应出现在图层")
+        self.assertEqual(6255, graphed_total, "两库 L0 条款节点总数应与 catalog 有效条款数一致")
 
 
 if __name__ == "__main__":

@@ -603,6 +603,8 @@ def inspect_question(record, context):
         add("Q_ANSWER_STATE_INVALID", f"答案状态“{content.get('answer_status')}”不在附录 A.1 五态枚举内", "error")
     if "answer_status" in extra:
         add("Q_ANSWER_PROVENANCE_KEY_STALE", "extra.answer_status 是已废弃键，抽取形状应存 extra.answer_provenance", "error")
+    if content.get("answer_status") == "source_conflict" and review and review.get("status") != "quarantined":
+        add("Q_QUARANTINE_STATE_MISSING", "来源答案冲突题必须记为 quarantined，停留在瑕疵态会被当成可判分题目", "error")
     expert = (extra.get("content_review") or {}).get("expert_review") or {}
     human_review = review.get("status") in REVIEWED and review.get("checked_by") and (review.get("checked_at") or review.get("evidence"))
     nested_review = expert.get("status") in REVIEWED | {"approved", "passed"} and expert.get("reviewer") and (expert.get("reviewed_at") or expert.get("evidence"))

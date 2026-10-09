@@ -62,7 +62,9 @@ for lib, name in (('数据集/教资', 'NTCE'), ('数据集/四六级', 'CET')):
 
 # 权威条款覆盖
 auth_ids, referenced = set(), set()
+retired_ids = 0
 for f in glob.glob('权威资料/**/*.jsonl', recursive=True):
+    archived = pathlib.Path(f).name.startswith('retired_')
     for line in io.open(f, encoding='utf-8'):
         if not line.strip():
             continue
@@ -71,8 +73,13 @@ for f in glob.glob('权威资料/**/*.jsonl', recursive=True):
         except Exception:
             continue
         rid = r.get('requirement_id') or r.get('id')
-        if rid:
-            auth_ids.add(rid)
+        if not rid:
+            continue
+        if archived or r.get('retirement_reason'):
+            # 退休条目按官方权威资料 README 只供抽取留痕，不入图也不作覆盖分母。
+            retired_ids += 1
+            continue
+        auth_ids.add(rid)
 graph_nodes = set()
 for f in glob.glob('数据集/*/graph/nodes.jsonl'):
     for line in io.open(f, encoding='utf-8'):
@@ -121,8 +128,9 @@ for name in ('NTCE', 'CET'):
     L.append('')
 
 L.append('\n## 2. 官方权威条款未被题目引用\n')
-L.append('权威资料共 %d 条条款，图谱 L0 节点仅 %d 条，被 `aligned_to_requirement` 引用的有 %d 条，**未引用 %d 条**。\n'
-         % (len(auth_ids), len(in_nodes), len(referenced & auth_ids), len(unref)))
+L.append('有效条款 %d 条（退休条目 %d 条另存 `权威资料/retired_requirement_records.jsonl`，不入图也不计作分母），'
+         '图谱 L0 条款节点 %d 条，被 `aligned_to_requirement` 引用的有 %d 条，**未引用 %d 条**。\n'
+         % (len(auth_ids), retired_ids, len(in_nodes), len(referenced & auth_ids), len(unref)))
 L.append('| 条款前缀 | 未引用条数 |')
 L.append('| --- | --- |')
 for k, v in prefix.most_common():

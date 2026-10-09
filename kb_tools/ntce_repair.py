@@ -637,6 +637,9 @@ def repair(skip_outline=False):
         elif not q['review']['content_verified'] and q['review']['status'] == 'auto_parsed':
             q['review']['status'] = 'needs_fix'
             q['review']['review_priority'] = 'flagged_general'
+        # 来源答案冲突题不进判分与学习路径：隔离态优先于瑕疵态，答案原值留在 extra.answer_candidate 待教研裁决。
+        if q['content']['answer_status'] == 'source_conflict':
+            q['review']['status'] = 'quarantined'
         refresh_tags(q)
     for path, records in batches:
         write_rows(path, records)

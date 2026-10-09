@@ -2,6 +2,7 @@
 import json
 from collections import Counter
 from build_kb import OUT, ROOT
+from kb_scope import select as scope_select
 from ntce_io import atomic_write
 from ntce_ontology import ABILITY_NAMES
 
@@ -68,13 +69,15 @@ def build():
 
     catalog_path = ROOT / '权威资料/catalog.json'
     catalog = json.loads(catalog_path.read_text(encoding='utf-8')) if catalog_path.exists() else {}
-    sources = {s['standard_id']: s for s in catalog.get('sources', []) if s.get('standard_id', '').startswith('ntce.')}
     requirements_path = ROOT / '权威资料/requirements.jsonl'
-    requirements = {r['requirement_id']: r for r in rows(requirements_path) if r.get('standard_id') in sources} if requirements_path.exists() else {}
+    requirement_rows = rows(requirements_path) if requirements_path.exists() else []
+    # L0 全量入图：按 exam_scope 取 NTCE 侧标准（大纲/法规/师德/规章），不再按 id 前缀硬筛，
+    # 否则 CSE 与法规条款在图上根本不存在，aligned_to_requirement 也无从对齐。
+    sources, requirements = scope_select(catalog.get('sources', []), requirement_rows, 'ntce')
     for sid, source in sorted(sources.items()):
-        node(sid, 'L0', 'standard', source.get('title') or source.get('name') or sid, source_url=source.get('source_url'), local_path=source.get('local_path'), verified=source.get('verified', False), verification_scope='official_source_acquisition')
+        node(sid, 'L0', 'standard', source.get('title') or source.get('name') or sid, source_url=source.get('source_url'), local_path=source.get('local_path'), exam_scope=source.get('exam_scope', []), verified=source.get('verified', False), verification_scope='official_source_acquisition')
     for rid, requirement in sorted(requirements.items()):
-        node(rid, 'L0', 'exam_requirement', requirement.get('title') or requirement.get('content'), standard_id=requirement['standard_id'], locator=requirement.get('locator'), content=requirement.get('content'), verified=False, verification_scope='extracted_clause_pending_review')
+        node(rid, 'L0', 'exam_requirement', requirement.get('title') or requirement.get('content'), standard_id=requirement['standard_id'], locator=requirement.get('locator'), content=requirement.get('content'), exam_scope=requirement.get('exam_scope', []), verified=False, verification_scope='extracted_clause_pending_review')
         edge(requirement['standard_id'], rid, 'specifies')
     for (level, subject), module in sorted(modules.items()):
         eid, mid = module['exam_id'], module['module_id']
