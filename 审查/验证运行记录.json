@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-10-04T11:12:37.871108+08:00",
+  "python": "C:\\Users\\sg\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "cwd": "D:\\codeplus\\knowledge_map",
+  "note": "单元测试和结构检查通过不代表内容完整；全量验收的实际退出码原样保存。",
+  "runs": [
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "started_at": "2026-10-04T11:12:37.871232+08:00",
+      "finished_at": "2026-10-04T11:12:58.159424+08:00",
+      "exit_code": 0,
+      "log": "审查/验证日志/20261004-111237/01.log",
+      "log_sha256": "a5f87f1e492d1cdc9a881dc639d37be8e5daa9ef8e75a21f6c06dca7b355ee3d",
+      "test_count": 188
+    },
+    {
+      "command": "python -m unittest discover -s 权威资料 -p test_source_index.py -v",
+      "started_at": "2026-10-04T11:12:58.160659+08:00",
+      "finished_at": "2026-10-04T11:12:58.664196+08:00",
+      "exit_code": 0,
+      "log": "审查/验证日志/20261004-111237/02.log",
+      "log_sha256": "cb079d06d811decf4b8573eef6e6beb44c3fd7299efb8c08e0da76833e571a4f",
+      "test_count": 5
+    },
+    {
+      "command": "python 权威资料/verify_sources.py",
+      "started_at": "2026-10-04T11:12:58.665237+08:00",
+      "finished_at": "2026-10-04T11:12:59.429700+08:00",
+      "exit_code": 0,
+      "log": "审查/验证日志/20261004-111237/03.log",
+      "log_sha256": "08cdfb0e7aeb1395ff5dbf01636416fb00b3f90c9f2af42d314f68406facf2b7"
+    },
+    {
+      "command": "python 审查/知识库形式审查.py",
+      "started_at": "2026-10-04T11:12:59.430828+08:00",
+      "finished_at": "2026-10-04T11:13:16.642798+08:00",
+      "exit_code": 0,
+      "log": "审查/验证日志/20261004-111237/04.log",
+      "log_sha256": "04fb2f57b4d9c0262788789a755e9a0b1e9db5feaaa344ce5e082bc7633a591a"
+    },
+    {
+      "command": "python 审查/validate_kb.py",
+      "started_at": "2026-10-04T11:13:16.643682+08:00",
+      "finished_at": "2026-10-04T11:13:40.045642+08:00",
+      "exit_code": 1,
+      "log": "审查/验证日志/20261004-111237/05.log",
+      "log_sha256": "8e0e3cafdf80632e0ba166bd1cdca89e6177de6bbed4ff813ef89d6e3b0dec92"
+    }
+  ],
+  "finished_at": "2026-10-04T11:13:40.046448+08:00"
+}

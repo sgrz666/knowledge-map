@@ -1,79 +1,252 @@
 {
- "generated": "2026-10-02",
- "source": "英语四六级资料合集（2026年最新）(1)",
- "vocabulary": {
-  "words_cet4": 4424,
-  "words_cet6": 5518,
-  "core_words": 3123,
-  "phrases_highfreq": 1406,
-  "translation_topic_words": 8
- },
- "questions": {
-  "total": 5294,
-  "with_answer": 835,
-  "answer_fill_rate": 0.158,
-  "papers_total": 126,
-  "papers_full_25L_30R": 46,
-  "papers_missing_listening_without_ref": 10,
-  "detail": {
-   "cet4": {
-    "records": 2407,
-    "with_answer": 632,
-    "duplicate_ids": 0,
-    "by_type": {
-     "短篇新闻": 246,
-     "长对话": 278,
-     "听力篇章": 345,
-     "选词填空": 520,
-     "长篇阅读": 519,
-     "仔细阅读": 499
+  "generated": "2026-10-09",
+  "source": "英语四六级资料合集（2026年最新）(1)",
+  "counting_rules": "One questions JSONL row is one objective question; tasks/resources counted separately, no whitelist exclusion.",
+  "questions": {
+    "total": 5632,
+    "with_answer": 1577,
+    "with_analysis": 652,
+    "answer_fill_rate": 0.28,
+    "active_source_question_records": 5628,
+    "inactive_parser_artifact_records": 4,
+    "new_records_pending_expert_confirmation": 334,
+    "new_records_confirmed_by_expert": 0,
+    "with_quarantined_analysis_history": 189,
+    "quarantined_original_explanation_entries": 189,
+    "by_analysis_status": {
+      "source_extracted_pending_expert_review": 652
     },
-    "by_module": {
-     "听力理解": 869,
-     "阅读理解": 1538
+    "with_explicit_source_supported_answer_pending_review": 0,
+    "legacy_answer_without_current_explicit_key": 1577,
+    "with_full_structured_analysis": 292,
+    "papers_total": 126,
+    "papers_full_25L_30R": 65,
+    "with_knowledge_nodes": 5632,
+    "with_abilities": 5632,
+    "with_exam_requirements": 5632,
+    "with_audio": 1648,
+    "detail": {
+      "cet4": {
+        "records": 2591,
+        "with_answer": 1020,
+        "with_analysis": 367,
+        "duplicate_ids": 0,
+        "by_type": {
+          "短篇新闻": 250,
+          "长对话": 285,
+          "听力篇章": 357,
+          "选词填空": 520,
+          "长篇阅读": 519,
+          "仔细阅读": 514,
+          "段落翻译": 73,
+          "短文写作": 73
+        },
+        "by_module": {
+          "听力理解": 892,
+          "阅读理解": 1553,
+          "翻译": 73,
+          "写作": 73
+        }
+      },
+      "cet6": {
+        "records": 3041,
+        "with_answer": 557,
+        "with_analysis": 285,
+        "duplicate_ids": 0,
+        "by_type": {
+          "长对话": 336,
+          "听力篇章": 306,
+          "讲座/讲话": 435,
+          "长篇阅读": 614,
+          "仔细阅读": 604,
+          "选词填空": 600,
+          "段落翻译": 73,
+          "短文写作": 73
+        },
+        "by_module": {
+          "听力理解": 1077,
+          "阅读理解": 1818,
+          "翻译": 73,
+          "写作": 73
+        }
+      }
     }
-   },
-   "cet6": {
-    "records": 2887,
-    "with_answer": 203,
-    "duplicate_ids": 0,
-    "by_type": {
-     "长对话": 336,
-     "听力篇章": 306,
-     "讲座/讲话": 435,
-     "长篇阅读": 606,
-     "仔细阅读": 604,
-     "选词填空": 600
+  },
+  "change_from_review_baseline": {
+    "question_count_baseline": 5294,
+    "answers_baseline": 835,
+    "answers_net_change": 742,
+    "retained_new_records": 338,
+    "new_records_by_discovery_status": {
+      "source_number_and_content_recovered_pending_subject_expert": 20,
+      "parser_artifact_outside_CET_number_range": 4,
+      "new_source_boundary_pending_verification": 314
     },
-    "by_module": {
-     "听力理解": 1077,
-     "阅读理解": 1810
+    "previously_blank_answers_filled": 769,
+    "baseline_answers_quarantined": 27,
+    "baseline_answers_changed": 11,
+    "baseline_question_ids_missing": 0,
+    "analyses_baseline": 0,
+    "analyses_added": 652
+  },
+  "resources": {
+    "vocabulary/core_words.jsonl": {
+      "records": 3123,
+      "unique_ids": 3123,
+      "with_original_text": 3123,
+      "copyright_unknown_records": 3123,
+      "unresolved_source_records": 0
+    },
+    "vocabulary/phrases_highfreq.jsonl": {
+      "records": 1405,
+      "unique_ids": 1405,
+      "with_original_text": 1405,
+      "copyright_unknown_records": 1405,
+      "unresolved_source_records": 0
+    },
+    "vocabulary/translation_topic_words.jsonl": {
+      "records": 8,
+      "unique_ids": 8,
+      "with_original_text": 8,
+      "copyright_unknown_records": 8,
+      "unresolved_source_records": 0
+    },
+    "vocabulary/words_cet4.jsonl": {
+      "records": 4424,
+      "unique_ids": 4424,
+      "with_original_text": 4424,
+      "copyright_unknown_records": 4424,
+      "unresolved_source_records": 0
+    },
+    "vocabulary/words_cet6.jsonl": {
+      "records": 5518,
+      "unique_ids": 5518,
+      "with_original_text": 5518,
+      "copyright_unknown_records": 5518,
+      "unresolved_source_records": 0
+    },
+    "passages/reading.jsonl": {
+      "records": 449,
+      "unique_ids": 449,
+      "with_original_text": 449,
+      "copyright_unknown_records": 449,
+      "unresolved_source_records": 0
+    },
+    "writing/model_essays.jsonl": {
+      "records": 146,
+      "unique_ids": 146,
+      "with_original_text": 146,
+      "copyright_unknown_records": 146,
+      "unresolved_source_records": 0
+    },
+    "writing/templates.jsonl": {
+      "records": 69,
+      "unique_ids": 69,
+      "with_original_text": 69,
+      "copyright_unknown_records": 69,
+      "unresolved_source_records": 0
+    },
+    "translation/items.jsonl": {
+      "records": 146,
+      "unique_ids": 146,
+      "with_original_text": 146,
+      "copyright_unknown_records": 146,
+      "unresolved_source_records": 0
+    },
+    "listening/transcripts.jsonl": {
+      "records": 648,
+      "unique_ids": 648,
+      "with_original_text": 648,
+      "copyright_unknown_records": 648,
+      "unresolved_source_records": 0
     }
-   }
-  }
- },
- "passages": {
-  "reading": 449,
-  "listening_transcripts": 0
- },
- "writing": {
-  "model_essays": 177,
-  "with_model_essay": 0,
-  "templates": 69
- },
- "translation": {
-  "items": 193,
-  "with_reference": 0
- },
- "ontology": {
-  "knowledge_nodes": 48
- },
- "not_ingested": {
-  "listening_audio": "120 个 MP3 仅在 manifest/ingest_log.md 登记路径，不入向量库",
-  "listening_transcripts": "四级/六级《听力原文合集》PDF 均为扫描件（无文本层），待 OCR 补录",
-  "sessions_2026_06": "2026年6月真题册/解析册为扫描件，仅登记原件路径，待 OCR",
-  "answer_books_corrupt_font": "2016.06-2017.06 部分解析册 PDF 字体映射损坏（文本为乱码），答案待 OCR/人工补录"
- },
- "answer_fill_report": "manifest/answers_fill_report.json",
- "parse_report": "manifest/parse_report.json"
+  },
+  "vocabulary": {
+    "core_words": 3123,
+    "phrases_highfreq": 1405,
+    "translation_topic_words": 8,
+    "words_cet4": 4424,
+    "words_cet6": 5518
+  },
+  "passages": {
+    "reading": 449,
+    "reference_repair": {
+      "original_structure_errors": 23,
+      "source_identity_verified": 31,
+      "restored_original_error_backlinks_verified": 19,
+      "complete_articles_restored_with_history": 6,
+      "inactive_parser_artifact_links_cleared": 4,
+      "unproven_active_links_quarantined": 9
+    },
+    "reference_repair_report": "manifest/passage_reference_repair_report.json"
+  },
+  "listening": {
+    "transcript_resources": 648,
+    "current_transcript_resources": 616,
+    "superseded_transcripts_retained_for_audit": 32,
+    "with_bound_spoken_question": 20,
+    "with_bound_group_transcript": 20,
+    "audit_report": "manifest/source_transcript_audit.jsonl",
+    "recovery_report": "manifest/listening_recovery_report.json"
+  },
+  "writing": {
+    "model_essays": 146,
+    "with_model_essay": 146,
+    "with_prompt": 146,
+    "templates": 69
+  },
+  "translation": {
+    "items": 146,
+    "with_reference": 146,
+    "with_source_text": 146
+  },
+  "ontology": {
+    "knowledge_nodes": 48,
+    "ability_nodes": 28,
+    "active_prerequisite_edges": 0,
+    "pending_prerequisite_candidates": 64,
+    "scoring_rubrics": 2
+  },
+  "remaining_gaps": {
+    "missing_full_structured_analysis": 5340,
+    "missing_exact_paper_audio": 321,
+    "pending_expert_review": 5632,
+    "records_with_quarantined_answer_history": 479,
+    "records_with_quarantined_analysis_history": 189,
+    "questions_rights_unknown": 5632,
+    "listening_missing_printed_or_transcribed_question_prompt": 1949,
+    "listening_prompt_unavailable": 311,
+    "historical_exam_design_pending_authentication": 597,
+    "difficulty_pending_calibration": 4014,
+    "missing_answer": 4055,
+    "missing_analysis": 4980,
+    "objective_incomplete_options": 462,
+    "reading_missing_task_prompt": 836,
+    "missing_careful_reading_question": 52,
+    "reading_unlinked_active_passage": 9,
+    "inactive_parser_artifacts": 4,
+    "missing_matching_statement": 784,
+    "cloze_incomplete_word_bank": 140,
+    "missing_matching_paragraph_labels": 8,
+    "resources_rights_unknown": 15936
+  },
+  "quality": {
+    "by_review_status": {
+      "auto_parsed": 5062,
+      "quarantined": 101,
+      "needs_fix": 177,
+      "unknown": 292
+    },
+    "resources_unique_ids": 15936,
+    "resource_duplicate_ids": 0
+  },
+  "not_ingested": {
+    "2026_06": "原始试卷/解析册扫描件需OCR；目录年份不代表题库已收录。",
+    "cet4_2024_06_objective": "原题PDF有文本层，但旧生成器遗漏该场次；列排版、题号与选项边界尚未完整校正，未把不完整抽取伪装为完整题组。写译任务已独立抽取并引用原题。",
+    "listening_transcripts": "全源PDF/DOCX审计已执行；已恢复的稿和问题见listening/transcripts及题目绑定，扫描件/损坏字体是extraction_failure，不能视为来源不存在；原MP3题组时间区间待校对。",
+    "difficulty": "未取得作答样本和专家校准，不生成虚假difficulty。",
+    "cse_alignment": "CET与CSE官方等级对接待核验，保留CSE历史/现行原文而不使用考试数字代替等级。"
+  },
+  "answer_fill_report": "manifest/answers_fill_report.json",
+  "repair_report": "manifest/repair_report.json"
 }

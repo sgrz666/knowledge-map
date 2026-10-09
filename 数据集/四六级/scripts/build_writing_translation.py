@@ -1,181 +1,201 @@
-# -*- coding: utf-8 -*-
-"""P4 写作/翻译库：真题合集 PDF + 范文合集 PDF + 真题册拆出的 prompts/translation 三源合并。
-用法: python build_writing_translation.py --src <资料根目录> --kb <知识库根目录>
-产出: writing/model_essays.jsonl  translation/items.jsonl
-"""
+"""Recover complete source-bounded writing/translation tasks and references."""
 import argparse, json, re, sys
+from collections import defaultdict
 from pathlib import Path
-import fitz
+import pymupdf as fitz
+from cet_common import load_jsonl, merge_jsonl, jsonl_dumps, canonical_id
 
-sys.stdout.reconfigure(encoding="utf-8")
-ap = argparse.ArgumentParser()
-ap.add_argument("--src", required=True)
-ap.add_argument("--kb", required=True)
-A = ap.parse_args()
-SRC = Path(A.src).resolve()
-KB = Path(A.kb).resolve()
-for p in (SRC, KB):
-    if "knowledge_map" not in p.parts:
-        raise ValueError(f"path outside allowed root: {p}")
+RE_HDR=re.compile(r'(\d(?:\s*\d){3})\s*年\s*(\d(?:\s*\d)?)\s*月\s*(?:大学\s*)?英语\s*(四级|六级)\s*(写作|作文|翻译)\s*(真题答案|真题|参考范文|范文|参考译文|答案)?\s*[（(]?\s*(?:第|全(?=\s*[一1]\s*套))\s*([一二三\d])\s*套',re.I)
+CN={'一':1,'二':2,'三':3}
+RE_FOOTER=re.compile(r'\s*英语[四六]级(?:写作|翻译)(?:真题|参考译文|范文)?(?:专项)?\s*$')
 
-RE_HDR = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*大学?英语?\s*(四级|六级)\s*(写作|翻译)\s*(真题|范文|参考译文|答案)?\s*第\s*([一二三\d])\s*套", re.I)
-CN = {"一": 1, "二": 2, "三": 3}
-NOISE = re.compile(r"淘宝店|叮当助考|微信号|公众号|第\s*\d+\s*页|版权|侵权|https?://\S+")
+def clean_body(text):
+    lines=[]
+    for line in text.split('\n'):
+        if re.search(r'淘宝店|叮当助考|微信号|公众号|https?://|(?:写作|翻译).{0,15}第\s*\d+\s*页',line): continue
+        if RE_FOOTER.fullmatch(line) or re.fullmatch(r'\s*(?:第|页|\d{1,3})\s*',line): continue
+        lines.append(line)
+    return '\n'.join(lines).strip()
 
 def split_by_header(text):
-    """按条目标题切分 → {(exam,ym,paper): body}"""
-    out = {}
-    hdrs = list(RE_HDR.finditer(text))
-    for i, m in enumerate(hdrs):
-        lv = "cet4" if "四级" in m.group(3) else "cet6"
-        paper = int(CN.get(m.group(6), m.group(6)))
-        ym = f"{m.group(1)}-{int(m.group(2)):02d}"
-        start = m.end()
-        end = hdrs[i + 1].start() if i + 1 < len(hdrs) else len(text)
-        body = NOISE.sub("", text[start:end]).strip()
-        out[(lv, ym, paper)] = body
+    out={};headers=list(RE_HDR.finditer(text))
+    for i,m in enumerate(headers):
+        key=('cet4' if m[3]=='四级' else 'cet6',f"{re.sub(r'\s','',m[1])}-{int(re.sub(r'\s','',m[2])):02d}",CN.get(m[6],int(m[6]) if m[6].isdigit() else 0))
+        end=headers[i+1].start() if i+1<len(headers) else len(text)
+        out[key]=clean_body(text[m.end():end])
     return out
 
-def pdf_text_all(path: Path) -> str:
-    doc = fitz.open(path)
-    t = "\n".join(doc[i].get_text() for i in range(len(doc)))
-    doc.close()
-    return t
+def clean_pdf_en(text):
+    text=re.sub(r'(\w)-\s*\n\s*(\w)',r'\1\2',text)
+    return re.sub(r'\s+',' ',text.replace('Y ou','You').replace('W hat','What').replace('T he ','The ')).strip()
 
-def clean_pdf_en(s: str) -> str:
-    s = re.sub(r"(\w)-\s*\n\s*(\w)", r"\1\2", s)   # 行尾连字
-    s = re.sub(r"([a-z])([A-Z])", r"\1 \2", s)      # Y ou → 分词修复由下方词典处理
-    s = s.replace("Y ou", "You").replace("W hat", "What").replace("T he ", "The ")
-    s = re.sub(r"[ \t]*\n[ \t]*", " ", s)
-    s = re.sub(r"\s{2,}", " ", s)
-    return s.strip()
+def source_segments(path,root):
+    with fitz.open(path) as doc:
+        texts=[p.get_text() for p in doc]
+    text='\n'.join(texts);headers=list(RE_HDR.finditer(text));offsets=[];pos=0
+    for i,t in enumerate(texts): offsets.append((pos,pos+len(t),i+1));pos+=len(t)+1
+    for i,m in enumerate(headers):
+        end=headers[i+1].start() if i+1<len(headers) else len(text)
+        key=('cet4' if m[3]=='四级' else 'cet6',f"{re.sub(r'\s','',m[1])}-{int(re.sub(r'\s','',m[2])):02d}",CN.get(m[6],int(m[6]) if m[6].isdigit() else 0))
+        ref={'path':path.relative_to(root).as_posix(),'role':'task_reference','locator':{'pages':[n for a,b,n in offsets if b>=m.start() and a<=end],'text_offset':[m.start(),end],'header':m[0]}}
+        ref['locator']['header_content_label']=m[5]
+        yield key,clean_body(text[m.end():end]),ref
 
-def main():
-    S = SRC / "【2】四六级专项题汇总（听力、阅读、翻译、作文）"
-    writing_src = {
-        ("cet6", "prompt"): S / "六级专项题/【4】六级写作真题专项（2015-2025.12）/六级写作真题（2015-2025年6月）.pdf",
-        ("cet6", "essay"): S / "六级专项题/【4】六级写作真题专项（2015-2025.12）/六级写作范文（2015-2025年6月）.pdf",
-        ("cet4", "prompt"): S / "四级专项题/【4】四级写作真题专项（2015-2025.12）/四级写作真题（2015-2025年6月）.pdf",
-        ("cet4", "essay"): S / "四级专项题/【4】四级写作真题专项（2015-2025.12）/四级写作范文（2015-2025年6月） .pdf",
-    }
-    trans_src = {
-        ("cet6", "zh"): S / "六级专项题/【3】六级翻译真题专项（2015-2025.12）/六级翻译真题（2015-2025年6月）.pdf",
-        ("cet6", "en"): S / "六级专项题/【3】六级翻译真题专项（2015-2025.12）/六级翻译范文（2015-2025年6月）.pdf",
-        ("cet4", "zh"): S / "四级专项题/【3】四级翻译真题专项（2015-2025.12）/四级翻译真题（2015-2025年6月）.pdf",
-        ("cet4", "en"): S / "四级专项题/【3】四级翻译真题专项（2015-2025.12）/四级翻译译文（2015-2025年6月）.pdf",
-    }
-    # 额外文件（2025.12/2026.6 带答案的合集）
-    for extra in SRC.rglob("*.pdf"):
-        n = extra.name
-        if "专项" in str(extra):
-            if re.search(r"作文真题及答案", n):
-                lv = "cet4" if "四级" in n else "cet6"
-                writing_src[(lv, "prompt+essay")] = extra
-            if re.search(r"翻译真题及答案", n):
-                lv = "cet4" if "四级" in n else "cet6"
-                trans_src[(lv, "zh+en")] = extra
+def normalized(text): return re.sub(r'[^a-z0-9\u4e00-\u9fff]','',(text or '').lower())
 
-    # ---- 写作 ----
-    wprompts, lessays = {}, {}
-    for key, path in writing_src.items():
-        if not Path(path).exists():
-            print("MISSING", path)
-            continue
-        segs = split_by_header(pdf_text_all(path))
-        for (lv, ym, paper), body in segs.items():
-            if "prompt" in key[1]:
-                wprompts[(lv, ym, paper)] = (clean_pdf_en(body), path.name)
-            if "essay" in key[1]:
-                lessays[(lv, ym, paper)] = (clean_pdf_en(body), path.name)
-    # 真题册 prompts（docx/pdf 拆题产物）
-    prompts_papers = {}
-    pf = KB / "writing" / "_prompts.jsonl"
-    if pf.exists():
-        for l in pf.read_text(encoding="utf-8").splitlines():
-            if l.strip():
-                r = json.loads(l)
-                lv = "cet4" if r["exam"] == "CET-4" else "cet6"
-                prompts_papers[(lv, r["year"], r["paper"])] = (r["topic_prompt"], r["source"]["origin_file"])
+def apply_task_bindings(data,bindings):
+    """Apply source-locator corrections supported by separately saved evidence."""
+    applied=[]
+    for binding in bindings:
+        source_key=tuple(binding['from_task']);target_key=tuple(binding['to_task']);field=binding['field']
+        evidence=binding['binding_evidence'];anchor=normalized(binding['text_anchor'])
+        if len(anchor)<20 or not evidence.get('exam_answer_path') or not evidence.get('pages'): continue
+        for candidate in list(data[source_key][field]):
+            ref=candidate['source'];expected=binding['source']
+            if ref['path']!=expected['path'] or ref['locator'].get('text_offset')!=expected['locator'].get('text_offset'): continue
+            if not normalized(candidate['value']).startswith(anchor): continue
+            data[source_key][field].remove(candidate)
+            corrected=dict(candidate,source=dict(ref,binding_evidence=evidence,source_header_warning='misprinted task number; independently saved answer-page identity and reference text support correction'),review_status='source_binding_corrected_pending_expert')
+            data[target_key][field].append(corrected);applied.append(binding)
+    return applied
 
-    w_out = []
-    for lv in ("cet4", "cet6"):
-        keys = sorted(set(list(wprompts) + list(lessays) + [k for k in prompts_papers if k[0] == lv]),
-                      key=lambda k: (k[1], k[2]))
-        for k in keys:
-            lv2, ym, paper = k
-            prompt, essay = None, None
-            srcfiles = []
-            if k in wprompts:
-                prompt, sf = wprompts[k]; srcfiles.append(sf)
-            if k in prompts_papers and not prompt:
-                prompt, sf = prompts_papers[k]; srcfiles.append(sf)
-            elif k in prompts_papers:
-                srcfiles.append(prompts_papers[k][1])
-            if k in lessays:
-                essay, sf = lessays[k]; srcfiles.append(sf)
-            if not prompt and not essay:
+def main(argv=None):
+    ap=argparse.ArgumentParser();ap.add_argument('--src',required=True);ap.add_argument('--kb',required=True);args=ap.parse_args(argv)
+    src,kb=Path(args.src).resolve(),Path(args.kb).resolve();root=kb.parents[1]
+    fitz.TOOLS.mupdf_display_errors(False)
+    profiles=[]
+    for path in sorted(src.rglob('*.pdf')):
+        name=path.name
+        if '专项' not in str(path): continue
+        lv='cet4' if '四级' in name else ('cet6' if '六级' in name else None)
+        if not lv: continue
+        field=None
+        if re.search(r'写作范文',name): field='model_essay'
+        elif re.search(r'写作真题',name) and '答案' not in name: field='topic_prompt'
+        elif re.search(r'翻译(?:译文|范文)',name): field='reference'
+        elif '翻译真题' in name and '答案' not in name: field='source_text'
+        elif re.search(r'(?:作文|写作)真题.*(?:答案|范文)',name): field='combined_writing'
+        elif '翻译真题' in name and '答案' in name: field='combined_translation'
+        if field: profiles.append((lv,field,path))
+    data=defaultdict(lambda:defaultdict(list));bad=defaultdict(list);diagnostics=[]
+    for lv,field,path in profiles:
+        segs=list(source_segments(path,root))
+        diagnostics.append({'path':path.relative_to(root).as_posix(),'field':field,'segments':len(segs),'status':'source_headers_extracted' if segs else 'no_complete_headers_pending_ocr'})
+        for key,body,ref in segs:
+            target_field=field
+            if field.startswith('combined_'):
+                label=ref['locator']['header_content_label'] or ''
+                is_reference='答案' in label or '范文' in label or '译文' in label
+                target_field=('model_essay' if is_reference else 'topic_prompt') if field=='combined_writing' else ('reference' if is_reference else 'source_text')
+            active_field=target_field
+            value=clean_pdf_en(body) if active_field in ('model_essay','reference','topic_prompt') else re.sub(r'\s+',' ',body).strip()
+            if not value: continue
+            ref['role']='reference_answer' if active_field in ('model_essay','reference') else 'task_prompt'
+            if key[0]!=lv:
+                bad[(key,active_field)].append((value,ref))
+                diagnostics.append({'path':ref['path'],'header':ref['locator']['header'],'status':'header_level_conflicts_with_source_volume','body_preserved':value,'locator':ref['locator']})
                 continue
-            exam = "CET-4" if lv2 == "cet4" else "CET-6"
-            wc = len(essay.split()) if essay else None
-            text = f"【{ym.replace('-','年')}月{exam}写作真题·第{paper}套】题目：{prompt or ''}\n范文：{essay or '（本库暂未收录范文）'}"
-            w_out.append({"id": f"{lv2}.w.{ym}_p{paper}", "exam": exam, "year": ym, "paper": paper,
-                          "task_type": None, "topic_prompt": prompt, "model_essay": essay,
-                          "outline": None, "good_expressions": [], "word_count": wc,
-                          "source": {"origin_file": "; ".join(dict.fromkeys(srcfiles))},
-                          "review": {"status": "auto_parsed"}, "text": text})
+            data[key][active_field].append({'value':value,'source':ref,'review_status':'source_extracted_pending_expert_review'})
+    saved_bindings=load_jsonl(kb/'manifest/task_source_bindings.jsonl')
+    for b in saved_bindings:
+        if not (root/b['binding_evidence']['exam_answer_path']).is_file(): raise ValueError('Missing independent task-binding evidence')
+    explicit_bindings=apply_task_bindings(data,saved_bindings)
+    for folder,name,field in [('writing','_prompts.jsonl','topic_prompt'),('translation','_from_papers.jsonl','source_text')]:
+        for row in load_jsonl(kb/folder/name):
+            key=('cet4' if row['exam']=='CET-4' else 'cet6',row['year'],int(row['paper']))
+            value=row.get(field)
+            if not value: continue
+            origin=row.get('source',{}).get('origin_file');path=next((base/origin for base in (root,src,kb/'scripts') if origin and (base/origin).is_file()),None)
+            ref={'path':path.relative_to(root).as_posix(),'role':'task_prompt','locator':{'year':row['year'],'paper':row['paper'],'text_anchor':value[:160]}} if path else {'legacy_origin_file':origin,'role':'task_prompt'}
+            data[key][field].append({'value':value,'source':ref,'review_status':'source_extracted_pending_expert_review'})
+    rebound=[]
+    # The paired prompt volume plus an exact match in the independently saved
+    # examination paper can resolve a misprinted level, while keeping the warning.
+    from fill_answers import read_source,file_meta
+    paper_text_cache={}
+    for (bad_key,field),items in bad.items():
+        if field!='reference': continue
+        for value,ref in items:
+            source_name=Path(ref['path']).name
+            lv='cet4' if '四级' in source_name else 'cet6'
+            key=(lv,bad_key[1],bad_key[2]);prompts=data[key]['source_text']
+            if not prompts: continue
+            prompt=prompts[0];core=normalized(prompt['value'])
+            paper=kb/'questions'/lv/f'{key[1]}_p{key[2]}.jsonl'
+            files={f['path'] for q in load_jsonl(paper) for f in q.get('source',{}).get('files',[]) if f.get('role')=='original_content' and f.get('path','').lower().endswith('.docx')}
+            if not files:
+                files={p.relative_to(root).as_posix() for p in src.rglob('*.pdf') if file_meta(p)==('CET-4' if lv=='cet4' else 'CET-6',key[1],key[2]) and '原题' in str(p) and '扫描版' not in str(p)}
+            matched=None
+            for path in sorted(files):
+                if path not in paper_text_cache: paper_text_cache[path]=normalized(read_source(root/path)[0])
+                chinese_core=re.sub(r'[^\u4e00-\u9fff]','',core)
+                chinese_paper=re.sub(r'[^\u4e00-\u9fff]','',paper_text_cache[path])
+                if len(core)>100 and (core in paper_text_cache[path] or len(chinese_core)>100 and chinese_core in chinese_paper): matched=path;break
+            if not matched: continue
+            bound_ref=dict(ref,source_header_warning='source header names another level; exact prompt match supplies independent binding evidence',
+                           binding_evidence={'method':'exact_complete_Chinese_characters_match_in_paired_prompt_volume_and_independent_exam_paper; English gloss/punctuation omitted for identity check','exam_paper_path':matched,'prompt_source':prompt['source'],'year':key[1],'paper':key[2],'review_status':'pending_subject_expert'})
+            data[key]['reference'].append({'value':value,'source':bound_ref,'review_status':'source_header_rebound_by_exact_prompt_pending_expert'})
+            rebound.append({'task':list(key),'source':bound_ref})
+    report={'source_diagnostics':diagnostics,'exact_prompt_rebound_references':rebound,'independent_answer_page_bindings':explicit_bindings,'quarantined_reference_count':0,'quarantined_cross_task_content_count':0,'tasks':{}}
+    for folder,prompt_field,ref_field,slug in [('writing','topic_prompt','model_essay','w'),('translation','source_text','reference','t')]:
+        outfile=kb/folder/('model_essays.jsonl' if folder=='writing' else 'items.jsonl');old=load_jsonl(outfile)
+        for row in old:
+            rid=row.get('resource_id') or canonical_id(row);m=re.fullmatch(r'(cet[46])-(\d{4}-\d{2})-p(\d+)-(?:writing|translation)-1',rid)
+            if not m: continue
+            key=(m[1],m[2],int(m[3]));extra=row.get('extra',row)
+            for field in (prompt_field,ref_field):
+                value=extra.get(field)
+                if value and RE_FOOTER.search(value):
+                    entry={'field':field,'value':value,'reason':'volume_footer_included_in_old_task_content','status':'quarantined'}
+                    history=extra.setdefault('reference_history',[])
+                    if entry not in history: history.append(entry)
+                    if extra.get('content_review',{}).get('expert_review',{}).get('status')!='approved':
+                        extra[field]=None
+                        if isinstance(row.get('content'),dict): row['content']['prompt' if field==prompt_field else 'reference_answer']=None
+                        extra.setdefault('_legacy_text',row.get('text'));row['text']=None
+                        report['quarantined_cross_task_content_count']+=1
+                    value=extra.get(field)
+                if value and RE_HDR.search(value):
+                    entry={'field':field,'value':value,'reason':'old_header_parser_merged_following_task','status':'quarantined'}
+                    history=extra.setdefault('reference_history',[])
+                    if entry not in history: history.append(entry)
+                    if extra.get('content_review',{}).get('expert_review',{}).get('status')!='approved':
+                        extra[field]=None
+                        if isinstance(row.get('content'),dict): row['content']['prompt' if field==prompt_field else 'reference_answer']=None
+                        extra.setdefault('_legacy_text',row.get('text'));row['text']=None
+                        report['quarantined_cross_task_content_count']+=1
+            value=extra.get(ref_field)
+            for bad_value,bad_ref in bad.get((key,ref_field),[]):
+                core=normalized(bad_value)
+                if value and len(core)>100 and core in normalized(value):
+                    entry={'value':value,'reason':'reference_header_level_conflicts_with_source_volume','source':bad_ref,'status':'quarantined'}
+                    history=extra.setdefault('reference_history',[])
+                    if entry not in history: history.append(entry)
+                    if extra.get('content_review',{}).get('expert_review',{}).get('status')!='approved':
+                        extra[ref_field]=None
+                        if isinstance(row.get('content'),dict): row['content']['reference_answer']=None
+                        extra.setdefault('_legacy_text',row.get('text'));row['text']=None
+                        report['quarantined_reference_count']+=1
+        outfile.write_text('\n'.join(jsonl_dumps(r) for r in old)+'\n',encoding='utf-8')
+        fresh=[]
+        for (lv,ym,paper),fields in sorted(data.items()):
+            if prompt_field not in fields and ref_field not in fields: continue
+            prompt=fields[prompt_field][0]['value'] if fields[prompt_field] else None
+            reference=fields[ref_field][0]['value'] if fields[ref_field] else None
+            candidates=[dict(c,field=f) for f in (prompt_field,ref_field) for c in fields[f]]
+            files=list({json.dumps(c['source'],sort_keys=True):c['source'] for c in candidates if c['source'].get('path')}.values())
+            source={'files':files,'origin_file':'; '.join(dict.fromkeys(f['path'] for f in files))}
+            exam='CET-4' if lv=='cet4' else 'CET-6'
+            r={'id':f'{lv}.{slug}.{ym}_p{paper}','exam':exam,'year':ym,'paper':paper,prompt_field:prompt,ref_field:reference,'reference_candidates':candidates,'source':source,'review':{'status':'auto_parsed'},
+               'text':f"【{ym} {exam} 第{paper}套】题目：{prompt or ''}\n参考：{reference or '（尚无来源参考）'}"}
+            if folder=='writing': r.update({'word_count':len(reference.split()) if reference else None,'outline':None,'good_expressions':[]})
+            else: r.update({'theme':None,'key_phrases':[],'notes':None})
+            fresh.append(r)
+        rows=merge_jsonl(outfile,fresh)
+        report['tasks'][folder]={'records':len(rows),'with_prompt':sum(bool(r.get('extra',r).get(prompt_field)) for r in rows),'with_reference':sum(bool(r.get('extra',r).get(ref_field)) for r in rows)}
+    (kb/'manifest/writing_translation_extract_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps({'tasks':report['tasks'],'quarantined_reference_count':report['quarantined_reference_count'],'quarantined_cross_task_content_count':report['quarantined_cross_task_content_count']},ensure_ascii=False))
 
-    # ---- 翻译 ----
-    tzh, ten = {}, {}
-    for key, path in trans_src.items():
-        if not Path(path).exists():
-            print("MISSING", path)
-            continue
-        segs = split_by_header(pdf_text_all(path))
-        for (lv, ym, paper), body in segs.items():
-            if "zh" in key[1]:
-                tzh[(lv, ym, paper)] = (re.sub(r"\s+", " ", body).strip(), path.name)
-            if "en" in key[1]:
-                ten[(lv, ym, paper)] = (clean_pdf_en(body), path.name)
-    papers_trans = {}
-    tf = KB / "translation" / "_from_papers.jsonl"
-    if tf.exists():
-        for l in tf.read_text(encoding="utf-8").splitlines():
-            if l.strip():
-                r = json.loads(l)
-                lv = "cet4" if r["exam"] == "CET-4" else "cet6"
-                papers_trans[(lv, r["year"], r["paper"])] = (r["source_text"], r["source"]["origin_file"])
-
-    t_out = []
-    for lv in ("cet4", "cet6"):
-        keys = sorted(set(list(tzh) + list(ten) + [k for k in papers_trans if k[0] == lv]),
-                      key=lambda k: (k[1], k[2]))
-        for k in keys:
-            lv2, ym, paper = k
-            zh, en = None, None
-            srcfiles = []
-            if k in tzh:
-                zh, sf = tzh[k]; srcfiles.append(sf)
-            if k in papers_trans and not zh:
-                zh, sf = papers_trans[k]; srcfiles.append(sf)
-            elif k in papers_trans:
-                srcfiles.append(papers_trans[k][1])
-            if k in ten:
-                en, sf = ten[k]; srcfiles.append(sf)
-            if not zh and not en:
-                continue
-            exam = "CET-4" if lv2 == "cet4" else "CET-6"
-            text = f"【{ym.replace('-','年')}月{exam}翻译真题·第{paper}套】中文：{zh or ''}\n参考译文：{en or '（本库暂未收录译文）'}"
-            t_out.append({"id": f"{lv2}.t.{ym}_p{paper}", "exam": exam, "year": ym, "paper": paper,
-                          "theme": None, "source_text": zh, "reference": en, "key_phrases": [],
-                          "notes": None, "source": {"origin_file": "; ".join(dict.fromkeys(srcfiles))},
-                          "review": {"status": "auto_parsed"}, "text": text})
-
-    (KB / "writing" / "model_essays.jsonl").write_text(
-        "\n".join(json.dumps(x, ensure_ascii=False) for x in w_out) + "\n", encoding="utf-8")
-    (KB / "translation" / "items.jsonl").write_text(
-        "\n".join(json.dumps(x, ensure_ascii=False) for x in t_out) + "\n", encoding="utf-8")
-    print(f"model_essays: {len(w_out)} (with essay: {sum(1 for x in w_out if x['model_essay'])})")
-    print(f"translation items: {len(t_out)} (with reference: {sum(1 for x in t_out if x['reference'])})")
-
-if __name__ == "__main__":
+if __name__=='__main__':
+    if hasattr(sys.stdout,'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
     main()

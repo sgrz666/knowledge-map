@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "knowledge-base-conformance",
+      "title": "两套知识库均部分符合设计要求",
+      "queries": [
+        {
+          "id": "static-library-audit",
+          "source": {
+            "label": "知识库静态数据全量检查",
+            "files": [
+              {
+                "label": "知识库形式审查.ipynb"
+              },
+              {
+                "label": "知识库形式审查结果.json"
+              },
+              {
+                "label": "应试考证功能设计与技术支撑：以教资和四六级为例.md"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "字段覆盖",
+                "definition": "以主 questions JSONL 一行一道题计数；答案、解析和难度按字段正文是否非空计数。"
+              }
+            ],
+            "filters": [
+              "四六级 questions 主记录",
+              "教资 questions 主记录，包含标记重复题和459道旧省考题"
+            ],
+            "caveats": [
+              "答案非空不代表答案正确；已清洗不代表专家审核。",
+              "教资能力字段为空，现有图谱可直接关联能力的题目有927道。静态检查没有运行学习应用。"
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "知识点语义挂载",
+                "detail": "四六级2245道选词填空和长篇阅读题仅挂阅读、听力根节点，能力为空；教资2391题知识点为空。"
+              },
+              {
+                "kind": "validation",
+                "title": "图谱链条",
+                "detail": "教资边文件有0条模块到知识点边；34份大纲种子未核验，45个标准节点均无原文文件或URL。"
+              }
+            ]
+          },
+          "columns": [
+            {
+              "field": "library",
+              "label": "知识库"
+            },
+            {
+              "field": "questions",
+              "label": "题目数"
+            },
+            {
+              "field": "knowledge",
+              "label": "有知识点ID"
+            },
+            {
+              "field": "ability_field",
+              "label": "有能力ID字段"
+            },
+            {
+              "field": "answer",
+              "label": "有答案"
+            },
+            {
+              "field": "analysis",
+              "label": "有解析正文"
+            },
+            {
+              "field": "difficulty",
+              "label": "有难度值"
+            }
+          ],
+          "rows": [
+            {
+              "library": "四六级",
+              "questions": 5294,
+              "knowledge": 5294,
+              "ability_field": 3049,
+              "answer": 835,
+              "analysis": 0,
+              "difficulty": 0
+            },
+            {
+              "library": "教资",
+              "questions": 14500,
+              "knowledge": 12109,
+              "ability_field": 0,
+              "answer": 11062,
+              "analysis": 71,
+              "difficulty": 0
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "四六级答案覆盖率 = 835 / 5294 × 100 = 15.77%\n教资知识点覆盖率 = 12109 / 14500 × 100 = 83.51%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cse-standard-reference",
+      "title": "CSE标准编号引用错误",
+      "queries": [
+        {
+          "id": "official-standard-reference",
+          "source": {
+            "label": "教育部与全国标准信息公共服务平台",
+            "files": [
+              {
+                "label": "四六级 ontology/standards.json"
+              },
+              {
+                "label": "应试考证功能设计与技术支撑：以教资和四六级为例.md"
+              }
+            ],
+            "links": [
+              {
+                "label": "中国英语能力等级量表（GF 0018—2018）",
+                "href": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201807/t20180725_343689.html"
+              },
+              {
+                "label": "GB/T 41671-2022 化学纤维 溶剂残留量的测定"
+              }
+            ],
+            "caveats": [
+              "本次指出引用错误，未修改设计文档或知识库。"
+            ]
+          },
+          "summary": "设计文档及四六级标准对象把CSE编号写为GB/T 41671-2022；教育部公布的量表编号为GF 0018—2018，而该GB/T编号属于化学纤维标准。"
+        }
+      ]
+    }
+  ]
+}

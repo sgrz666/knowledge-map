@@ -1,53 +1,142 @@
 {
- "standards": [
-  {
-   "id": "std.cet.syllabus",
-   "name": "全国大学英语四、六级考试大纲",
-   "type": "考试大纲",
-   "authority": "教育部教育考试院",
-   "约束": [
-    "L1 考试结构",
-    "L2 模块与题型",
-    "分值与时间"
-   ]
-  },
-  {
-   "id": "std.cse",
-   "name": "中国英语能力等级量表 (CSE)",
-   "type": "国家标准",
-   "authority": "GB/T 41671-2022",
-   "约束": [
-    "能力等级描述",
-    "cse_level 标定"
-   ]
-  },
-  {
-   "id": "std.cet.wordlist",
-   "name": "CET 词汇表",
-   "type": "考试大纲附件",
-   "authority": "教育部教育考试院",
-   "约束": [
-    "词汇库 tier=outline 的范围"
-   ]
-  }
- ],
- "素养目标": [
-  {
-   "id": "comp.languse",
-   "name": "语言运用素养",
-   "anchored_by": [
-    "std.cet.syllabus",
-    "std.cse"
-   ],
-   "说明": "在一定语境中运用英语获取、理解、表达信息的能力"
-  },
-  {
-   "id": "comp.learning",
-   "name": "自主学习与备考素养",
-   "anchored_by": [
-    "std.cse"
-   ],
-   "说明": "自我诊断、策略调整与持续改进的能力（支撑个性化路径）"
-  }
- ]
+  "standards": [
+    {
+      "id": "std.cet.syllabus",
+      "name": "全国大学英语四、六级考试大纲",
+      "type": "考试大纲",
+      "authority": "教育部教育考试院",
+      "约束": [
+        "L1 考试结构",
+        "L2 模块与题型",
+        "分值与时间"
+      ],
+      "official_source": {
+        "standard_id": "cet.syllabus.2016",
+        "name": "全国大学英语四、六级考试大纲（2016年修订版）",
+        "authority": "教育部考试中心",
+        "source_url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+        "version": "2016年修订版",
+        "effective_date": null,
+        "exam_scope": [
+          "CET-4",
+          "CET-6",
+          "CET-SET4",
+          "CET-SET6"
+        ],
+        "kind": "exam_syllabus",
+        "local_path": "权威资料/originals/cet.syllabus.2016.pdf",
+        "sha256": "9166d3c03b7bc43abd9d9df91bd2ef8085b4419286f1e5ca100dea68f3cfd1f1",
+        "retrieved_at": "2026-10-02T16:50:52.239731+00:00",
+        "resolved_url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+        "published_date": null,
+        "verification_method": "Official publisher domain; bytes archived and SHA-256 recorded; extracted text cross-checked with source heading",
+        "verified": true,
+        "text_path": "权威资料/text/cet.syllabus.2016.txt",
+        "text_sha256": "023c4d3b5a627f1ccd7f95fb6d336a22a1e393ea80d0775ef6556cfbdde04b9e",
+        "page_count": 215
+      }
+    },
+    {
+      "id": "std.cse",
+      "name": "中国英语能力等级量表 (CSE)",
+      "type": "国家标准",
+      "authority": "教育部、国家语言文字工作委员会",
+      "约束": [
+        "能力等级描述",
+        "cse_level 标定"
+      ],
+      "code": "GF0018-2024",
+      "standard_ids": [
+        "cse.gf0018-2018",
+        "cse.gf0018-2024"
+      ],
+      "historical_code": "GF0018-2018",
+      "versions": [
+        {
+          "standard_id": "cse.gf0018-2018",
+          "name": "中国英语能力等级量表（GF 0018—2018）",
+          "authority": "教育部、国家语言文字工作委员会",
+          "source_url": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201807/W020180725662475781772.pdf",
+          "version": "GF 0018—2018",
+          "effective_date": "2018-06-01",
+          "published_date": "2018-02-12",
+          "exam_scope": [
+            "英语能力评价，尚未核验CET分数/等级对接"
+          ],
+          "kind": "language_standard",
+          "local_path": "权威资料/originals/cse.gf0018-2018.pdf",
+          "sha256": "ecde81f00cf71848efbe4443a750c9cf826e2be2397708e15d4df7f82aff6db6",
+          "retrieved_at": "2026-10-02T16:50:52.239731+00:00",
+          "resolved_url": "http://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201807/W020180725662475781772.pdf",
+          "verification_method": "Official publisher domain; bytes archived and SHA-256 recorded; extracted text cross-checked with source heading",
+          "verified": true,
+          "text_path": "权威资料/text/cse.gf0018-2018.txt",
+          "text_sha256": "11ed7bf8e35fa1ff936539206c929f5f5ea1308bddd412a2f2a8b6b1ba81e416",
+          "page_count": 110,
+          "current_status": "superseded",
+          "superseded_by": "cse.gf0018-2024",
+          "valid_until": "2025-02-28"
+        },
+        {
+          "standard_id": "cse.gf0018-2024",
+          "name": "中国英语能力等级量表（GF 0018—2024）官方描述语数据集",
+          "authority": "教育部、国家语言文字工作委员会（教育部教育考试院官方搜索工具发布）",
+          "source_url": "https://www.neea.edu.cn/api/dict/ability.json",
+          "version": "GF 0018—2024",
+          "effective_date": "2025-03-01",
+          "exam_scope": [
+            "英语能力测评，未核验CET分数对接"
+          ],
+          "kind": "language_standard_descriptor_dataset",
+          "landing_url": "https://www.neea.edu.cn/html1/folder/2503/1-1.htm",
+          "published_date": "2024-11-26",
+          "full_publication_acquired": false,
+          "descriptor_dataset_acquired": true,
+          "verification_method": "Official CSE 2024 search page identifies version and dates; its public JavaScript calls /api/dict/ability.json; archived JSON preserves official descriptor IDs.",
+          "local_path": "权威资料/originals/cse.gf0018-2024.json",
+          "sha256": "290d507765a9ae2767eaf6a871f896139ededea56843fe622d293c0b17f1bc95",
+          "retrieved_at": "2026-10-02T17:03:22.610855+00:00",
+          "resolved_url": "https://www.neea.edu.cn/api/dict/ability.json",
+          "verified": true,
+          "landing_path": "权威资料/originals/cse.gf0018-2024.landing.html",
+          "landing_sha256": "f1e38d72301e10d0fed1ab0131ba5bdb5e91ddbea26b14338a21c915345ada48",
+          "landing_resolved_url": "https://www.neea.edu.cn/html1/folder/2503/1-1.htm",
+          "text_path": "权威资料/text/cse.gf0018-2024.txt",
+          "text_sha256": "7984cdf954bbef324746f34e92bda605826c051dbcad8a84ec10f9e53ab9bd9f",
+          "current_status": "current_by_official_revision_notice",
+          "supersedes": "cse.gf0018-2018"
+        }
+      ],
+      "cet_cse_alignment_status": "pending_official_linking_evidence"
+    },
+    {
+      "id": "std.cet.wordlist",
+      "name": "CET 词汇表",
+      "type": "考试大纲附件",
+      "authority": "教育部教育考试院",
+      "约束": [
+        "词汇库 tier=outline 的范围"
+      ],
+      "verification_status": "local_vocabulary_resource_not_authenticated_official_wordlist"
+    }
+  ],
+  "素养目标": [
+    {
+      "id": "comp.languse",
+      "name": "语言运用素养",
+      "anchored_by": [
+        "std.cet.syllabus",
+        "std.cse"
+      ],
+      "说明": "在一定语境中运用英语获取、理解、表达信息的能力"
+    },
+    {
+      "id": "comp.learning",
+      "name": "自主学习与备考素养",
+      "anchored_by": [
+        "std.cse"
+      ],
+      "说明": "自我诊断、策略调整与持续改进的能力（支撑个性化路径）"
+    }
+  ]
 }

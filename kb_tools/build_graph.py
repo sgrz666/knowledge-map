@@ -1,217 +1,223 @@
-# -*- coding: utf-8 -*-
-"""按《应试考证功能设计与技术支撑》3.2/3.4 的层级标准构建知识图谱导出层。
-
-L1 考试(exam) → L2 模块(module) → L3 知识点(knowledge_node,含先修关系)
-  → L4 题目(question) → L5 掌握度(运行时按 用户×知识点 更新,不在静态库内)。
-另含 3.4 图谱模型的支撑层:国家标准/考试大纲 → 素养目标 → 能力维度 → 知识点。
-
-输出:
-  教资KB/graph/nodes.jsonl  全部图节点(L1/L2/L3/L4 + 标准/素养/能力支撑层)
-  教资KB/graph/edges.jsonl  全部图边(contains/has_child/prerequisite/supports/basis/tagged)
-
-所有由本脚本生成的语义(先修顺序、能力映射、素养划分)均为建议稿,
-verified=false,待教研审核;题目标签沿用 questions 内的 review.tagger。
-"""
+"""可遍历的考试→模块→细知识点→题目；层级标签与边命名对齐规范 §3.2/§3.4，先修候选须专家审核后激活。"""
 import json
-import sys
-from collections import Counter, defaultdict
+from collections import Counter
+from build_kb import OUT, ROOT
+from ntce_io import atomic_write
+from ntce_ontology import ABILITY_NAMES
 
-from build_kb import OUT, out_file
+LEVEL_CN = {'youer': '幼儿园', 'xiaoxue': '小学', 'chuzhong': '初级中学', 'gaozhong': '高级中学', 'zhongxue': '中学', 'zhongxiaoxue': '中小学'}
+SUBJECT_CN = {'zonghe': '综合素质', 'baojiao': '保教知识与能力', 'jiaoxue': '教育教学知识与能力', 'jiaoyuzhishi': '教育知识与能力', 'mianshi': '结构化面试', 'jiaoyuxue': '教育学(省考)', 'jiaoyuxinlixue': '教育心理学(省考)', 'yuwen': '语文', 'shuxue': '数学', 'yingyu': '英语', 'zhengzhi': '思想品德/思想政治', 'lishi': '历史', 'dili': '地理', 'wuli': '物理', 'huaxue': '化学', 'shengwu': '生物', 'meishu': '美术', 'yinyue': '音乐', 'tiyu': '体育与健康', 'xinxi': '信息技术'}
 
-sys.stdout.reconfigure(encoding='utf-8')
-
-SUBJECT_CN = {'zonghe': '综合素质', 'baojiao': '保教知识与能力', 'jiaoxue': '教育教学知识与能力',
-              'jiaoyuzhishi': '教育知识与能力', 'mianshi': '结构化面试',
-              'jiaoyuxue': '教育学(省考)', 'jiaoyuxinlixue': '教育心理学(省考)',
-              'yuwen': '语文', 'shuxue': '数学', 'yingyu': '英语', 'zhengzhi': '思想品德/思想政治',
-              'lishi': '历史', 'dili': '地理', 'wuli': '物理', 'huaxue': '化学', 'shengwu': '生物',
-              'meishu': '美术', 'yinyue': '音乐', 'tiyu': '体育与健康', 'xinxi': '信息技术'}
-
-LEVEL_CN = {'youer': '幼儿园', 'xiaoxue': '小学', 'chuzhong': '初级中学', 'gaozhong': '高级中学',
-            'zhongxue': '中学', 'zhongxiaoxue': '中小学'}
-
-# 素养/能力层(建议稿,verified=false):依据文档 3.4 教资示例
-ABILITY_MAP = [
-    ('a1', '教育理论理解能力', ['教育基础', '学前教育原理', '教育心理学概述', '学习心理', '学生指导', '发展与教育']),
-    ('a2', '教学设计能力', ['教学设计', '活动设计', '教育活动的组织与实施', '学科专业知识']),
-    ('a3', '课堂组织与管理能力', ['班级管理', '游戏', '教学实施', '环境创设', '课堂']),
-    ('a4', '学习评价能力', ['评价', '教学评价与反思', '教育评价', '诊断']),
-    ('a5', '教育反思与职业道德能力', ['职业道德', '师德', '教学反思', '职业理念', '德育']),
-]
-
-WRITTEN_SUBJECTS = ('zonghe', 'baojiao', 'jiaoxue', 'jiaoyuzhishi')
-
-_MODULE_KW_CACHE = {}
+# §3.4 核心边；方向即语义，消费方不得反查。
+EDGE_ASSESSMENT = 'assesses'                        # knowledge_node -> question
+EDGE_ABILITY = 'supports_ability'                  # ability -> knowledge_node|question
+EDGE_REQUIREMENT = 'aligned_to_requirement'        # requirement -> knowledge_node|question|rubric|resource
+EDGE_PREREQ = 'prerequisite_of'                    # knowledge_node -> knowledge_node
+EDGE_MATERIAL = 'refers_to_material'                # question -> material
+EDGE_RUBRIC = 'has_rubric'                         # question -> rubric
+PREREQ_VERIFIED = 'verified'
+PREREQ_PENDING = 'proposed_pending_review'
 
 
-def _module_keywords(level, subject):
-    """取该模块 L3 节点名称(用于能力映射),缓存"""
-    key = (level, subject)
-    if key in _MODULE_KW_CACHE:
-        return _MODULE_KW_CACHE[key]
-    kws = []
-    p = out_file('outline', '%s.%s.json' % (level, subject))
-    if p.exists():
-        doc = json.loads(p.read_text(encoding='utf-8'))
-        kws = [n['name'] for n in doc['nodes']]
-    _MODULE_KW_CACHE[key] = kws
-    return kws
+def rows(path):
+    return [json.loads(line) for line in path.open(encoding='utf-8') if line.strip()]
 
 
 def scan_modules():
-    """从 questions 目录扫描 (level, subject) → 模块表与题量"""
+    counts, systems = Counter(), {}
+    for path in sorted((OUT / 'questions').glob('*/*/*.jsonl')):
+        key = path.parent.parent.name, path.parent.name
+        records = rows(path)
+        counts[key] += len(records)
+        if records:
+            systems[key] = records[0]['exam']
     modules = {}
-    q_count = Counter()
-    for qf in OUT.glob('questions/*/*/*.jsonl'):
-        level, subject = qf.parent.parent.name, qf.parent.name
-        n = 0
-        exam_sys = 'NTCE'
-        for line in qf.open(encoding='utf-8'):
-            r = json.loads(line)
-            n += 1
-            if n == 1:
-                exam_sys = r['exam']
-        q_count[(level, subject)] = n
-        if subject in ('jiaoyuxue', 'jiaoyuxinlixue') or exam_sys == '省考':
-            exam_id = 'shengkao'
-            exam_name = '教师资格省考(四川/辽宁/江西)'
-            prefix = 'shengkao'
-        else:
-            exam_id = 'ntce.' + level
-            exam_name = 'NTCE-' + LEVEL_CN.get(level, level)
-            prefix = 'ntce'
-        modules[(level, subject)] = {
-            'module_id': '%s.%s.%s' % (prefix, level, subject),
-            'exam_id': exam_id, 'exam_name': exam_name,
-            'name': SUBJECT_CN.get(subject, subject),
-            'count': n,
-        }
-    return modules, q_count
+    for (level, subject), count in sorted(counts.items()):
+        province = systems[(level, subject)] == '省考'
+        prefix = 'shengkao' if province else 'ntce'
+        eid = 'shengkao' if province else 'ntce.' + level
+        modules[(level, subject)] = {'module_id': prefix + '.' + level + '.' + subject,
+            'exam_id': eid, 'exam_name': '教师资格省考' if province else 'NTCE-' + LEVEL_CN[level],
+            'name': SUBJECT_CN.get(subject, subject), 'count': count}
+    return modules, counts
+
+
+DEPENDENCIES = {
+ 'shuxue': [('s1.k07', 's1.k06', '导数由函数差商的极限定义，需要先理解极限。'), ('s1.k03', 's1.k06', '导数描述函数局部变化率，需要函数及其定义域概念。'), ('s1.k06', 's1.k08', '原函数由求导关系定义；不定积分学习依赖导数。')],
+ 'wuli': [('s1.k01', 's1.k02', '牛顿第二定律使用加速度；需先理解运动学中的加速度。'), ('s1.k07', 's1.k08', '电压是电势差，电路分析需使用电势差概念。')],
+ 'huaxue': [('s1.k01', 's1.k02', '价电子和电子结构用于解释化学键形成。'), ('s1.k03', 's1.k06', '酸碱平衡计算需要物质的量与溶液浓度。')],
+ 'shengwu': [('s1.k01', 's1.k02', '细胞代谢过程发生于具体细胞结构和细胞器。')],
+ 'xinxi': [('s1.k03', 's1.k04', '栈队列等数据结构的操作通常用算法表达。')],
+}
 
 
 def build():
-    modules, q_count = scan_modules()
-    nodes, edges = [], []
-    node_ids = set()
+    modules, counts = scan_modules()
+    nodes, edges, edge_keys = {}, [], set()
 
-    def node(nid, layer, ntype, name, **extra):
-        if nid in node_ids:
-            return
-        node_ids.add(nid)
-        n = {'id': nid, 'layer': layer, 'type': ntype, 'name': name}
-        n.update(extra)
-        nodes.append(n)
+    def node(nid, layer, kind, name, **values):
+        if nid not in nodes:
+            nodes[nid] = {'id': nid, 'layer': layer, 'type': kind, 'name': name, **values}
 
-    def edge(src, dst, etype, **extra):
-        e = {'src': src, 'dst': dst, 'type': etype}
-        e.update(extra)
-        edges.append(e)
+    def edge(src, dst, kind, **values):
+        """§3.4 方向约定：src 是支撑方、dst 是被支撑方，与四六级导出层同向。"""
+        key = src, dst, kind
+        if key not in edge_keys:
+            edge_keys.add(key)
+            edges.append({'src': src, 'dst': dst, 'type': kind, **values})
 
-    # ---- L1 考试 + 国家标准层 ----
-    exams = {}
-    for (level, subject), m in modules.items():
-        exams.setdefault(m['exam_id'], m['exam_name'])
-    for eid, name in sorted(exams.items()):
-        node(eid, 'L1', 'exam', name, verified=True)
-        if eid.startswith('ntce'):
-            node('standard.' + eid, 'S1', 'standard', '《中小学教师资格考试标准(试行)》与相应学段各科考试大纲',
-                 verified=False, note='国家层依据文件占位,待挂接官方原文')
-        else:
-            node('standard.' + eid, 'S1', 'standard', '省级教师资格考试实施方案(四川/辽宁/江西)', verified=False)
-        edge('standard.' + eid, eid, 'basis')
-
-    # ---- L2 模块 + L3 知识点(来自 outline/*.json,含先修链)----
-    prereq_total = 0
-    for (level, subject), m in sorted(modules.items()):
-        mid = m['module_id']
-        node(mid, 'L2', 'module', m['name'], exam=m['exam_id'], question_count=m['count'])
-        edge(m['exam_id'], mid, 'contains')
-        node('standard.%s' % mid, 'S1', 'standard', '《%s》考试大纲' % m['name'], verified=False)
-        edge('standard.%s' % mid, mid, 'basis')
-        outline_path = out_file('outline', '%s.%s.json' % (level, subject))
-        tops = []
-        if outline_path.exists():
-            doc = json.loads(outline_path.read_text(encoding='utf-8'))
-            for n in doc['nodes']:
-                node(n['node_id'], 'L3', 'knowledge_node', n['name'],
-                     module=mid, keywords=n.get('keywords', []), verified=False)
-                if n.get('parent'):
-                    edge(n['parent'], n['node_id'], 'has_child')
-                else:
-                    tops.append(n['node_id'])
-            # 先修关系(建议稿):顶层知识点按大纲顺序成链
-            for a, b in zip(tops, tops[1:]):
-                edge(a, b, 'prerequisite', note='按大纲顺序建议的学习先后,待教研审核', verified=False)
-                prereq_total += 1
-
-    # ---- 素养/能力层(仅 NTCE 笔试科目,建议稿)----
-    ab_total = 0
-    for (level, subject), m in sorted(modules.items()):
-        if m['exam_id'] == 'shengkao' or subject not in WRITTEN_SUBJECTS:
+    catalog_path = ROOT / '权威资料/catalog.json'
+    catalog = json.loads(catalog_path.read_text(encoding='utf-8')) if catalog_path.exists() else {}
+    sources = {s['standard_id']: s for s in catalog.get('sources', []) if s.get('standard_id', '').startswith('ntce.')}
+    requirements_path = ROOT / '权威资料/requirements.jsonl'
+    requirements = {r['requirement_id']: r for r in rows(requirements_path) if r.get('standard_id') in sources} if requirements_path.exists() else {}
+    for sid, source in sorted(sources.items()):
+        node(sid, 'L0', 'standard', source.get('title') or source.get('name') or sid, source_url=source.get('source_url'), local_path=source.get('local_path'), verified=source.get('verified', False), verification_scope='official_source_acquisition')
+    for rid, requirement in sorted(requirements.items()):
+        node(rid, 'L0', 'exam_requirement', requirement.get('title') or requirement.get('content'), standard_id=requirement['standard_id'], locator=requirement.get('locator'), content=requirement.get('content'), verified=False, verification_scope='extracted_clause_pending_review')
+        edge(requirement['standard_id'], rid, 'specifies')
+    for (level, subject), module in sorted(modules.items()):
+        eid, mid = module['exam_id'], module['module_id']
+        node(eid, 'L1', 'exam', module['exam_name'])
+        node(mid, 'L2', 'module', module['name'], exam=eid, question_count=counts[(level, subject)])
+        edge(eid, mid, 'contains')
+        path = OUT / 'outline' / (level + '.' + subject + '.json')
+        if not path.exists():
             continue
-        lit = 'ntce.%s.literacy.s1' % level
-        node(lit, 'S2', 'literacy', '教师专业素养', exam='ntce.%s' % level, verified=False,
-             note='依据文档 3.4 教资示例,待教研审核')
-        edge(lit, 'ntce.%s' % level, 'belongs_to')
-        mod_kw = _module_keywords(level, subject)
-        mod_nodes = [n for n in nodes if n.get('module') == m['module_id']]
-        for aid, aname, hints in ABILITY_MAP:
-            abid = 'ntce.%s.ability.%s' % (level, aid)
-            node(abid, 'S2', 'ability', aname, exam='ntce.%s' % level, verified=False)
-            edge(lit, abid, 'comprises')
-            # 能力 → 其支撑的知识点(按知识点名称关键词匹配)
-            for n in mod_nodes:
-                if n['type'] == 'knowledge_node' and any(h in n['name'] for h in hints):
-                    edge(abid, n['id'], 'supports', verified=False)
-                    ab_total += 1
-
-    # ---- L4 题目 + 挂载边 ----
-    q_total = tag_total = 0
-    for qf in sorted(OUT.glob('questions/*/*/*.jsonl')):
-        level, subject = qf.parent.parent.name, qf.parent.name
-        m = modules[(level, subject)]
-        for line in qf.open(encoding='utf-8'):
-            r = json.loads(line)
-            qid = r['question_id']
-            node(qid, 'L4', 'question', None,
-                 module=m['module_id'], question_type=r['question_type'],
-                 session=r['source']['session'], exam=r['exam'],
-                 answer_status=r['content']['answer_status'],
-                 review=r['review']['status'],
-                 difficulty=r.get('difficulty'))
-            edge(m['module_id'], qid, 'contains')
-            q_total += 1
-            for nid in r['knowledge_node_ids']:
-                edge(nid, qid, 'tagged', tagger=r['review']['tagger'],
-                     verified=(r['review']['tagger'] == 'expert'))
-                tag_total += 1
-
-    # ---- 落盘 ----
-    out_file('graph').mkdir(exist_ok=True)
-    ntext = '\n'.join(json.dumps(n, ensure_ascii=False) for n in nodes) + '\n'
-    out_file('graph', 'nodes.jsonl').write_text(ntext, encoding='utf-8')
-    etext = '\n'.join(json.dumps(e, ensure_ascii=False) for e in edges) + '\n'
-    out_file('graph', 'edges.jsonl').write_text(etext, encoding='utf-8')
-
-    stat = Counter(n['layer'] for n in nodes)
-    etype = Counter(e['type'] for e in edges)
-    print('节点 %d:%s' % (len(nodes), dict(sorted(stat.items()))))
-    print('边 %d:%s' % (len(edges), dict(sorted(etype.items()))))
-    print('其中先修边 %d,能力支撑边 %d,题目挂载边 %d' % (prereq_total, ab_total, tag_total))
-
-    # MANIFEST 更新
-    mf = out_file('MANIFEST.json')
-    manifest = json.loads(mf.read_text(encoding='utf-8'))
-    manifest['graph'] = {
-        'standard': 'L1考试→L2模块→L3知识点(含先修)→L4题目;L5掌握度为运行时数据,按(用户,知识点)更新',
-        'nodes': len(nodes), 'edges': len(edges),
-        'by_layer': dict(sorted(stat.items())),
-        'by_edge_type': dict(sorted(etype.items())),
-        'files': ['graph/nodes.jsonl', 'graph/edges.jsonl'],
-        'note': '先修关系/素养/能力层为建议稿(verified=false,待教研审核);题目标签沿用 review.tagger',
+        doc = json.loads(path.read_text(encoding='utf-8'))
+        for sid in doc.get('official_standard_ids', []):
+            if sid in nodes:
+                edge(sid, mid, 'basis', verified=False, mapping_status='scope_match_pending_review')
+        literacy = eid + '.literacy.teacher'
+        node(literacy, 'L3', 'literacy', '教师专业素养', exam=eid, verified=False)
+        edge(eid, literacy, 'targets')
+        for n in doc['nodes']:
+            nid = n['node_id']
+            node(nid, 'L4', 'knowledge_node', n['name'], module=mid, assessable=n.get('assessable', False), keywords=n.get('keywords', []), exam_requirement_ids=n.get('exam_requirement_ids', []), mapping_status=n.get('mapping_status'), verified=False)
+            edge(n.get('parent') or mid, nid, 'has_child' if n.get('parent') else 'contains')
+            for rid in n.get('exam_requirement_ids', []):
+                if rid in nodes:
+                    edge(rid, nid, EDGE_REQUIREMENT, verified=False, mapping_status='automatic_pending_review')
+            for code in n.get('ability_codes', []):
+                aid = ('shengkao' if eid == 'shengkao' else 'ntce') + '.' + level + '.ability.' + code
+                node(aid, 'L3', 'ability', ABILITY_NAMES[code], exam=eid, verified=False, inheritance='none; explicit supports_ability edges and question ability_ids only')
+                edge(literacy, aid, 'comprises')
+                if n.get('assessable'):
+                    edge(aid, nid, EDGE_ABILITY, verified=False, mapping_status='automatic_pending_review')
+        for source, target, rationale in DEPENDENCIES.get(subject, []):
+            source, target = mid + '.' + source, mid + '.' + target
+            if source in nodes and target in nodes:
+                edge(source, target, EDGE_PREREQ, status=PREREQ_PENDING, rationale=rationale, reviewed_by=None, active_for_learning_path=False)
+    # L5: 共享材料节点
+    for mpath in sorted((OUT / 'materials').glob('*/*/*.jsonl')):
+        for m in rows(mpath):
+            mid_mat = m['material_id']
+            node(mid_mat, 'L5', 'material', m.get('title') or mid_mat, word_count=len(m.get('text', '')), used_by_questions=m.get('question_ids', []), level=m.get('level'), subject=m.get('subject'))
+    # L6: 量规节点（评分量规是可被多题复用的图谱实体，供 §3.4 has_rubric 遍历）
+    for rpath in sorted((OUT / 'rubrics').glob('*.json')):
+        if rpath.name == 'README.md':
+            continue
+        data = json.loads(rpath.read_text(encoding='utf-8'))
+        if rpath.name == 'official_interview.json':
+            # 官方 61 项面试细则：逐项建可定位到原表的量规节点，尚未核定题项映射，只作参照。
+            for index, criterion in enumerate(data.get('criteria', []), start=1):
+                rid = 'rubric.ntce.interview.' + str(criterion.get('standard_id')) + '.' + str(criterion.get('project')) + '.' + str(index)
+                node(rid, 'L6', 'rubric', criterion.get('criterion'), task_type='interview_teaching', weight_score=criterion.get('weight'), total_score=criterion.get('score'), official=True, review_status='question_task_mapping_pending_review', source='official_interview.json')
+                req_id = criterion.get('requirement_id')
+                if req_id in nodes:
+                    edge(req_id, rid, EDGE_REQUIREMENT, verified=False, mapping_status='official_criterion_locator')
+            continue
+        rid = data.get('rubric_id')
+        if rid:
+            node(rid, 'L6', 'rubric', data.get('title') or rid, task_type=data.get('task_type'), total_score=data.get('total_score'), dimension_count=len(data.get('dimensions', [])), official=bool(data.get('official_scoring')), expert_verified=bool(data.get('expert_verified')), review_status=data.get('status'), source=rpath.name)
+    # L6: 题目节点
+    for path in sorted((OUT / 'questions').glob('*/*/*.jsonl')):
+        for q in rows(path):
+            module = modules[(q['level'], q['subject'])]
+            qid = q['question_id']
+            node(qid, 'L6', 'question', None, module=module['module_id'], question_type=q['question_type'], session=q['source']['session'], answer_status=q['content']['answer_status'], review=q['review']['status'], difficulty=q.get('difficulty'))
+            edge(module['module_id'], qid, 'contains')
+            if q.get('material_id') and q['material_id'] in nodes:
+                edge(qid, q['material_id'], EDGE_MATERIAL)
+            inline = q.get('rubric')
+            if isinstance(inline, dict) and inline.get('rubric_id'):
+                brid = inline['rubric_id']
+                node(brid, 'L6', 'rubric', brid, task_type=q['question_type'], dimension_count=len(inline.get('dimensions', [])), point_count=len(inline.get('question_specific_points', [])), official=bool(inline.get('official_scoring')), expert_verified=bool(inline.get('expert_verified')), review_status=inline.get('status'), question_id=qid)
+                for rid in inline.get('exam_requirement_ids', []):
+                    if rid in nodes:
+                        edge(rid, brid, EDGE_REQUIREMENT, verified=False, mapping_status='rubric_framework_pending_subject_expert')
+            if q.get('rubric_id') and q['rubric_id'] in nodes:
+                edge(qid, q['rubric_id'], EDGE_RUBRIC)
+            for nid in q.get('knowledge_node_ids', []):
+                if nid not in nodes:
+                    raise ValueError('Missing knowledge node: ' + nid)
+                edge(nid, qid, EDGE_ASSESSMENT, tagger=q['review']['tagger'], verified=q['review']['tagger'] == 'expert')
+            for aid in q.get('ability_ids', []):
+                if aid not in nodes:
+                    raise ValueError('Missing ability node: ' + aid)
+                edge(aid, qid, EDGE_ABILITY, verified=False)
+            for rid in q.get('exam_requirement_ids', []):
+                if rid not in nodes:
+                    raise ValueError('Missing official requirement: ' + rid)
+                edge(rid, qid, EDGE_REQUIREMENT, verified=False)
+    # L7: 学习资源节点
+    for rpath in sorted((OUT / 'resources').glob('*.jsonl')):
+        for res in rows(rpath):
+            rid_res = res['resource_id']
+            node(rid_res, 'L7', 'resource', res.get('title') or rid_res, res_type=res.get('type'), exam=res.get('exam'))
+            for kn in res.get('knowledge_node_ids', []):
+                if kn in nodes:
+                    edge(kn, rid_res, 'supplements_resource')
+            for aid in res.get('ability_ids', []):
+                if aid in nodes:
+                    edge(aid, rid_res, 'supports_resource')
+            for rid in res.get('exam_requirement_ids', []):
+                if rid in nodes:
+                    edge(rid, rid_res, EDGE_REQUIREMENT)
+    # 人工核定的边（先修/易混/迷思概念）来自可版本化的策展源文件，不由脚本推断生成。
+    curated_path = OUT / 'graph' / 'edges_curated.jsonl'
+    if curated_path.exists():
+        for e in rows(curated_path):
+            kind = e.get('type')
+            if kind not in {EDGE_PREREQ, 'confused_with', 'misconception_lead_to'}:
+                raise ValueError('Unsupported curated edge type: ' + str(kind))
+            for endpoint in (e['src'], e['dst']):
+                if endpoint not in nodes:
+                    raise ValueError('Curated edge endpoint missing: ' + endpoint)
+            unsigned_claim = str(e.get('status') or e.get('review_status') or '') in {PREREQ_VERIFIED, 'approved', 'expert_reviewed'}
+            if kind == EDGE_PREREQ and unsigned_claim and not (e.get('reviewed_by') or e.get('checked_by') or e.get('reviewer')):
+                # 无审核人的 verified 不得进入正式学习路径：降级为候选、关闭生效标记，原始声明只留审计痕迹。
+                merged = {**e, 'status': PREREQ_PENDING, 'review_status': PREREQ_PENDING,
+                          'declared_status': e.get('status') or e.get('review_status'),
+                          'claimed_rel': e.get('claimed_rel') or e.get('rel'),
+                          'active': False, 'active_for_learning_path': False}
+            else:
+                merged = {**e}
+            edge(merged['src'], merged['dst'], kind, **{k: v for k, v in merged.items() if k not in ('src', 'dst', 'type')})
+    dangling = [e for e in edges if e['src'] not in nodes or e['dst'] not in nodes]
+    if dangling:
+        raise ValueError('Dangling graph endpoints: ' + str(dangling[:2]))
+    for filename, records in [('nodes.jsonl', sorted(nodes.values(), key=lambda n: n['id'])), ('edges.jsonl', sorted(edges, key=lambda e: (e['src'], e['dst'], e['type'])))]:
+        path = OUT / 'graph' / filename
+        path.parent.mkdir(exist_ok=True)
+        atomic_write(path, ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in records))
+    eight_layers = {
+        'L0_standard_requirement': sum(1 for n in nodes.values() if n['layer'] == 'L0'),
+        'L1_exam': sum(1 for n in nodes.values() if n['layer'] == 'L1'),
+        'L2_module': sum(1 for n in nodes.values() if n['layer'] == 'L2'),
+        'L3_competency_ability': sum(1 for n in nodes.values() if n['layer'] == 'L3'),
+        'L4_knowledge_node': sum(1 for n in nodes.values() if n['layer'] == 'L4'),
+        'L5_shared_material': sum(1 for n in nodes.values() if n['layer'] == 'L5'),
+        'L6_question_rubric': sum(1 for n in nodes.values() if n['layer'] == 'L6'),
+        'L7_learning_resource': sum(1 for n in nodes.values() if n['layer'] == 'L7'),
     }
-    mf.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
-    print('MANIFEST.graph 已更新')
+    stats = {'nodes': len(nodes), 'edges': len(edges), 'by_layer': dict(Counter(n['layer'] for n in nodes.values())), 'by_type': dict(Counter(n['type'] for n in nodes.values())), 'eight_layer_hierarchy': eight_layers, 'by_edge_type': dict(Counter(e['type'] for e in edges)), 'files': ['graph/nodes.jsonl', 'graph/edges.jsonl', 'graph/edges_curated.jsonl'], 'note': 'layer 取值即规范 §3.2 的 L0-L7，无第二套编号；能力不隐式继承；先修候选未专家审核，不用于正式路径。'}
+    manifest_path = OUT / 'MANIFEST.json'
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+    manifest['graph'] = stats
+    manifest['eight_layer_hierarchy'] = eight_layers
+    atomic_write(manifest_path, json.dumps(manifest, ensure_ascii=False, indent=1))
+    print(json.dumps(stats, ensure_ascii=False))
 
 
 if __name__ == '__main__':

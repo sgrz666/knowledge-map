@@ -6,17 +6,19 @@ L0 国家标准/考试大纲 → L0.5 素养目标 → L1 能力维度 → L2 �
 """
 import json, sys
 from pathlib import Path
+from cet_common import merge_jsonl, fill_missing
 
 sys.stdout.reconfigure(encoding="utf-8")
-KB = Path(r"D:\codeplus\knowledge_map\数据集\四六级")
+KB = Path(__file__).resolve().parents[1]
 ONT = KB / "ontology"
 
 def dump_jsonl(recs, name):
-    (ONT / name).write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in recs) + "\n", encoding="utf-8")
+    merge_jsonl(ONT / name,recs)
     print(f"{name}: {len(recs)}")
 
 def dump_json(obj, name):
-    (ONT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
+    old=json.loads((ONT/name).read_text('utf-8')) if (ONT/name).exists() else {}
+    (ONT / name).write_text(json.dumps(fill_missing(old,obj), ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{name}: ok")
 
 # ---------- L0 国家标准 / 考试大纲 ----------
@@ -25,7 +27,7 @@ standards = {
         {"id": "std.cet.syllabus", "name": "全国大学英语四、六级考试大纲", "type": "考试大纲",
          "authority": "教育部教育考试院", "约束": ["L1 考试结构", "L2 模块与题型", "分值与时间"]},
         {"id": "std.cse", "name": "中国英语能力等级量表 (CSE)", "type": "国家标准",
-         "authority": "GB/T 41671-2022", "约束": ["能力等级描述", "cse_level 标定"]},
+         "authority": "教育部、国家语言文字工作委员会", "historical_code": "GF0018-2018", "约束": ["能力等级描述", "CET/CSE 对接须单独核验"]},
         {"id": "std.cet.wordlist", "name": "CET 词汇表", "type": "考试大纲附件",
          "authority": "教育部教育考试院", "约束": ["词汇库 tier=outline 的范围"]},
     ],
@@ -43,7 +45,7 @@ dump_json(standards, "standards.json")
 AB = []
 def ab(id_, name, module, parent, supports, desc, cse):
     AB.append({"id": id_, "name": name, "module": module, "parent": parent,
-               "supports": supports, "knowledge_node_ids": [], "cse_level": cse, "description": desc})
+               "supports": supports, "knowledge_node_ids": [], "cse_level": None, "description": desc})
 
 for lv in ("cet4", "cet6"):
     e = "CET-4" if lv == "cet4" else "CET-6"
@@ -72,7 +74,7 @@ for lv in ("cet4", "cet6"):
 KN = []
 def kn(id_, name, exam, module, parent, prereq, cse, desc, qtypes, abilities):
     KN.append({"id": id_, "name": name, "exam": exam, "module": module, "parent": parent,
-               "prereq": prereq, "cse_level": cse, "description": desc, "question_types": qtypes,
+               "prereq": [], "candidate_prereq":prereq,"prerequisite_review":{"status":"proposed_pending_subject_expert","active":False,"method":"curriculum_concept_dependency_proposal"}, "cse_level": None, "description": desc, "question_types": qtypes,
                "ability_ids": abilities,
                "text": f"【{exam}{module}知识点】{name}：{desc}"})
 
@@ -125,8 +127,8 @@ for a in AB:
 for k in KN:
     for abid in k["ability_ids"]:
         edges.append({"src": k["id"], "dst": abid, "rel": "exemplifies", "说明": "知识点体现能力"})
-    for pre in k["prereq"]:
-        edges.append({"src": pre, "dst": k["id"], "rel": "prereq_of", "说明": "先修关系"})
+    for pre in k["candidate_prereq"]:
+        edges.append({"src": pre, "dst": k["id"], "rel": "prerequisite_candidate", "proposed_rel":"prereq_of","active":False,"review_status":"proposed_pending_subject_expert","说明": "待专家核定的先修候选"})
 for c in standards["素养目标"]:
     for sid in c["anchored_by"]:
         edges.append({"src": c["id"], "dst": sid, "rel": "anchored_by", "说明": "素养由标准约束"})

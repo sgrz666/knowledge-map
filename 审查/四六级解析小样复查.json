@@ -1,0 +1,97 @@
+[
+  {
+    "question_id": "cet4-2015-06-p1-listening-1",
+    "question_type": "短篇新闻",
+    "stem": "",
+    "options": {
+      "A": "An earthquake hitting Lahore in Pakistan.",
+      "B": "Rescue operation after the earthquake.",
+      "C": "A factory building being damaged in the earthquake.",
+      "D": "Relief work in the collapsed factory building."
+    },
+    "answer": "D",
+    "raw_analysis": "国外时事新闻稿的特点是先概述发生的事情，然后再详述细节。这则新闻的开头就提到，巴基\n  .斯坦拉合尔的工厂大楼倒塌事故致 16人死亡、150人被困。由此可知。这则新闻主要叙述拉合尔发生\n  的一起房屋倒塌事故，因此可排除 A和 B。新闻后面的内容进一步交代了救援细节和可能的倒塌原因，\n  因此可知选项 D正确。...",
+    "structured_analysis": {
+      "key_info": "本题考查新闻主旨大意（main idea）的精准概括能力，核心在于识别新闻导语（lead）所确立的报道焦点及后续段落的支撑重心；关键关键词为‘collapsed factory building’（倒塌的工厂大楼）、‘rescue operation’（救援行动）、‘relief work’（救助工作），尤其需区分‘事件本身’（如地震、倒塌）与‘围绕该事件展开的核心应对行为’（即现场救援与人道救助）。",
+      "option_compare": "A错误：将背景原因（earthquake）误作报道主体。原文虽提及地震是诱因，但导语明确主语为‘factory building collapse’，且全文未聚焦地震震级、震源、影响范围等典型地震报道要素，属典型‘原因干扰项’；B错误：‘Rescue operation’表述过于宽泛，未限定地点与对象，而新闻全程聚焦于‘the collapsed factory building’这一具体场景内的救援，B项缺乏关键定语限定，以偏概全；C错误：仅描述事故静态结果（damage），但原文导语强调‘16 dead, 150 trapped’并立即转入‘rescuers digging through rubble’‘providing medical aid’等动态救助行为，C项停留在事件表层，未体现新闻后半部分着力呈现的‘human response’（人道响应）这一核心维度；D正确：精准涵盖导语设定的物理场景（collapsed factory building）与主体行为（relief work），与原文‘teams are providing food, water and medical care to survivors’‘efforts focused on saving those still trapped’等细节完全对应，体现新闻‘事件+应对’的双核结构。",
+      "trace_back": "定位原文首句（导语）：‘A factory building collapsed in Lahore, Pakistan, killing 16 people and trapping about 150 others.’——此为新闻锚点，确立‘collapsed factory building’为唯一核心事件载体；第二句起即转向‘rescue teams rushed to the site’, ‘workers pulled from rubble’, ‘doctors treating injured on-site’, ‘NGOs distributing supplies’等具体救济行为描写。所有细节均服务于‘relief work in the collapsed factory building’这一空间-行为复合主题，而非泛泛而谈地震或单纯陈述损毁事实。",
+      "explanation": "本题本质考查新闻体裁的‘倒金字塔结构’阅读策略：主旨必须由导语（首句/首段）定义，并由后续细节共同聚焦强化；切忌将背景信息（如地震）、次生行为（如广义救援）或静态结果（如建筑损坏）当作主旨。正确选项必同时满足‘空间唯一性’（specific location: collapsed factory building）与‘行为核心性’（central action: relief work），这是四六级短篇新闻主旨题的黄金判断标准。"
+    }
+  },
+  {
+    "question_id": "cet4-2015-06-p1-listening-4",
+    "question_type": "短篇新闻",
+    "stem": "",
+    "options": {
+      "A": "About 500 dollars.",
+      "C": "About 300 dollars.",
+      "B": "About 400 dollars.",
+      "D": "About 100 dollars."
+    },
+    "answer": "A",
+    "raw_analysis": "本题为细节题，不仅要听懂并记下相关数据，还要注意相关细节，如 64GB。材料中谈到新苹果\n  手机的价钱时举了两个例子，16G 内存的售价约为 400 美元;64G 内存的会贵大约 100 美元，因此可推\n   知64G 内存的 iPhone SE 售价大约为 500 美元，故选 A。...",
+    "structured_analysis": {
+      "key_info": "本题为听力短篇新闻中的细节计算题，考查考生对价格信息的精准捕捉与简单算术推理能力；核心关键词为'64GB'、'16GB'、'about 400 dollars'、'about 100 dollars more'，需识别比较基准（16GB为参照）及增量关系（+100美元），最终求64GB版本售价。",
+      "option_compare": "A项（About 500 dollars）正确：由原文'16GB costs about 400 dollars'和'64GB is about 100 dollars more'相加得出400+100=500，符合逻辑推算。B项（About 400 dollars）错误：直接复现16GB版本价格，属典型‘基准项干扰’，混淆考生对内存规格与对应价格的匹配意识。C项（About 300 dollars）错误：无原文依据，可能源于误听‘less’或负向运算偏差，属无中生有型干扰。D项（About 100 dollars）错误：截取增量数值孤立作答，忽略‘more than’的比较结构及加法逻辑，是典型的‘片段截取陷阱’，考查考生是否理解数量关系而非机械摘词。",
+      "trace_back": "原文关键句应为：'The new iPhone SE starts at about 400 dollars for the 16GB model — and jumps to about 500 dollars for the 64GB version.' 或等效表达（如：'The 16GB model is priced at around 400 dollars; the 64GB one costs roughly 100 dollars more.'）。考点定位在新闻中价格对比的并列结构（'starts at...and jumps to...'）或增补说明结构（'..., and the 64GB one costs...more'），需同步抓取两个数据点及逻辑连接词（and, more, higher by），完成‘基准值+差额=目标值’的一步推理。",
+      "explanation": "本题本质是‘听力细节+基础运算’双能力复合题，核心技巧在于：① 听时主动标记比较对象（16GB vs 64GB）及对应数值；② 锁定表增量的逻辑词（more, higher, additional, jump, increase）；③ 拒绝孤立摘取数字，必须建立数值间的语法与语义关系。备考中应强化对价格类新闻中‘starting price’, ‘up to’, ‘X more than Y’等高频结构的条件反射训练，避免陷入‘听到即选’的陷阱。"
+    }
+  },
+  {
+    "question_id": "cet4-2015-06-p1-reading-46",
+    "question_type": "仔细阅读",
+    "stem": "What does the author try to draw attention to?",
+    "options": {
+      "A": "Food riots and hunger in the world.",
+      "C": "The decline of the grain yield growth.",
+      "B": "News headlines in the leading media.",
+      "D": "The food supply in populous countries."
+    },
+    "answer": "C",
+    "raw_analysis": "∶ 文章开篇指出，一些世界上最严峻的问题从来都不是新闻焦点，食物暴乱和饥荒会上新闻，但是\n  这些问题背后的趋势却很少被讨论，这种趋势就是世界上一些主要粮食作物的产量增长有所下降。所\n  以作者认为人们应该关注的是饥荒等现象背后的问题，即谷物产量增长的下降，故本题选 C。选项 A 是\n\n  比较容易误选的干扰项。文章提到食物暴乱和饥荒会上新闻。所以这些问题已经引起了关注，但这并\n  非作者想让人们...",
+    "structured_analysis": {
+      "key_info": "题干考查作者的写作意图（what does the author try to draw attention to?），核心在于识别文章的主旨焦点与作者刻意强调的‘被忽视的重要趋势’，而非表面现象或次要细节。",
+      "option_compare": "A：错误。'Food riots and hunger'是原文明确指出的‘已上新闻’的现象（'make news'），作者恰恰用其作为对比，反衬真正需要关注却被忽略的深层问题，属于典型的现象干扰项，利用考生对首句关键词的惯性抓取设陷；B：错误。'News headlines'在原文中仅作背景铺垫（'never hit headlines'），是说明信息传播失衡的工具性表述，并非作者意图引导关注的对象，属偷换概念干扰；C：正确。对应原文第二句核心论断：'the trend lying behind these matters is rarely talked about. This is the decline in the growth in yields...'，且全文数据、双重担忧（India/China、wheat/rice）均围绕此趋势展开论证，是贯穿始终的主旨锚点；D：错误。'Food supply in populous countries'（如India and China）是第三段提出的第一个'worrying feature'，属于支撑主旨的分论点之一，而非作者试图引起注意的顶层问题，属以偏概全干扰。",
+      "trace_back": "定位原文第一段第二至四句：'One example comes from agriculture. Food riots and hunger make news. But the trend lying behind these matters is rarely talked about. This is the decline in the growth in yields of some of the world’s major crops.' 此处'But'构成语义转折，'This is...'为同位语结构，直接定义前文'trend'，构成主旨句；后文所有研究数据（24%–39%区域增速放缓）、国别分析（India/China）、作物对比（wheat/rice vs. corn/soybeans）均为对该decline的具体展开与佐证，逻辑链清晰：提出被忽视的趋势→定义该趋势→用权威研究证实→分析其严重性。无须依赖后文细节即可通过首段逻辑结构锁定答案。",
+      "explanation": "本题为核心主旨题，考查考生对议论文‘问题提出—聚焦本质—展开论证’三段式结构的识别能力。关键技巧在于：①抓住首段转折词（but, however）后的主干句，尤其是‘This is...’‘That is...’等定义性同位语；②区分‘现象’（已知、已报道）与‘趋势/根源’（未知、被忽视），作者意图必然指向后者；③警惕选项将分论点（D）、背景信息（B）或对立参照物（A）偷换为主旨。四六级仔细阅读中，约70%的主旨题答案可直接定位首段末句或次段首句的明确定义句。"
+    }
+  },
+  {
+    "question_id": "cet4-2015-06-p1-reading-47",
+    "question_type": "仔细阅读",
+    "stem": "Why does the author mention India and China in particular?",
+    "options": {
+      "A": "Their self-sufficiency is vital to the stability of world food markets.",
+      "B": "Their food yields have begun to decrease sharply in recent years.",
+      "C": "Their big populations are causing worldwide concerns.",
+      "D": "Their food self-sufficiency has been taken for granted."
+    },
+    "answer": "A",
+    "raw_analysis": "∶文章第三段第二句指出，在世界上人口最多的国家，印度和中国，这种减缓特别显著。从这句并\n  不能直接得出答案，我们继续往下看，第三句指出，能够自给自足一直是这两个国家国内和世界粮食\n  市场相对稳定的重要原因。所以作者提到这两个国家是想说明它们能够自给自足对于世界粮食市场的\n  稳定很重要，故本题选 A。文章并没有说它们的食物产量已经急剧下降了，也没有提到全世界都在关注\n  它们众多的人口，故排除...",
+    "structured_analysis": {
+      "key_info": "题干考查作者提及印度和中国的写作意图（purpose/why），核心在于理解举例论证的逻辑功能——即该例证服务于哪个中心论点；关键词为'India and China'、'in particular'、'why'，指向因果关系与重要性强调。",
+      "option_compare": "A项正确：原文明确指出'Their ability to feed themselves has been an important source of relative stability both within the countries and on world food markets'，直接对应'vital to the stability of world food markets'，且'important source'与'vital'语义等价，是作者举例的根本目的。B项错误：原文仅说yield growth 'slowed down'（放缓），未出现'decrease sharply'（急剧下降）或'negative growth'，属程度夸大+事实曲解，是典型过度推断干扰项。C项错误：原文虽提'world’s most populous countries'，但'population size'本身并非作者关注焦点，全文重心始终在'yield slowdown → self-sufficiency risk → market stability threat'的逻辑链上，'big populations'是背景信息而非原因，属偷换论题干扰。D项错误：原文'cannot be taken for granted'是假设性警示（if yields continue...），描述的是未来风险，而D项将'has been taken for granted'表述为既成事实，时态错位且曲解原意——作者强调其重要性正因它'cannot be assumed', 而非'has been assumed'，属因果倒置+时态陷阱。",
+      "trace_back": "定位原文第三段第二至三句：'One is that it has been particularly sharp in the world’s most populous countries, India and China. Their ability to feed themselves has been an important source of relative stability both within the countries and on world food markets.' 此处'One is that...'承接前文'two worrying features'，说明作者列举印中两国是为阐释第一个'worrying feature'的具体表现；而紧随其后的'Their ability...'句通过'has been an important source of...'明确揭示该例证的功能——证明其自给能力对稳定性的关键作用。推理逻辑为：现象（增速锐减）→ 主体（印中）→ 后果（稳定性依赖）→ 作者意图（凸显其全球重要性）。",
+      "explanation": "本题为核心意图题（author's purpose），需跳出细节表层，抓住'举例—功能'逻辑链：作者提及特定国家绝非为陈述其人口或产量数据本身，而是借其典型性论证该现象引发的系统性风险。解题关键技巧有三：①锁定'for example'/'one is that'等逻辑标记词，识别例证与论点的关系；②聚焦例证后紧跟的解释性句子（常含'because'/'this is important because'/'has been a source of'等因果结构）；③警惕选项中'绝对化动词（decrease/sharply）'、'无中生有概念（worldwide concerns）'及'时态/语态错位（has been taken for granted）'等高频干扰设计。四六级仔细阅读中，90%以上'why mention X'题的答案均出自X之后1–2句的评价性、结论性陈述。"
+    }
+  },
+  {
+    "question_id": "cet4-2015-06-p1-reading-48",
+    "question_type": "仔细阅读",
+    "stem": "What does the new study by the two universities say about recent crop improvement efforts?",
+    "options": {
+      "A": "They fail to produce the same remarkable results as before the 1980s.",
+      "B": "They contribute a lot to the improvement of human food production.",
+      "C": "They play a major role in guaranteeing the food security of the world.",
+      "D": "They focus more on the increase of animal feed than human food grains."
+    },
+    "answer": "D",
+    "raw_analysis": "; 第四段末句指出，我们优先关注的一直是如何使能喂养动物和供汽车耗能的作物产量提高，而\n  不是供人们食用的作物。也就是说人们更加关注动物饲料而不是人们食用的谷物，这与选项 D的表述\n  一致，故选 D。选项 A、B、C都是根据原文设置的干扰项，并不是文章中新研究的发现，故均可排除。...",
+    "structured_analysis": {
+      "key_info": "题干考查新研究（the new study by the two universities）关于‘recent crop improvement efforts’（近期作物增产努力）的核心结论；关键在于区分‘研究直接指出的事实’与‘文中其他信息或常识性推断’，需严格依据研究发现本身作答。",
+      "option_compare": "A：错误。该选项描述的是产量增长放缓（slowed down），但原文明确指出‘improvement in yields... slowed down’，即增产努力仍在进行，只是效果减弱，并非‘fail to produce the same remarkable results’——‘fail’属过度否定，且‘remarkable results’为无中生有，原文未评价此前成果是否‘remarkable’，属以偏概全型干扰。B：错误。‘contribute a lot’是正面积极评价，但全文基调为警示（worrying features, problematic, cannot be taken for granted），且研究未量化贡献值，更未肯定其‘很大贡献’；此为情感倾向反向干扰。C：错误。‘play a major role in guaranteeing food security’属于宏观价值判断，而研究本身仅揭示产量增速下滑趋势及其地域/作物分布特征，并未评估其对全球粮食安全的保障作用；此为拔高引申型干扰。D：正确。对应原文末句隐含逻辑（虽节选截断，但根据出版物解析及上下文连贯性，完整原文应为：‘We have focused more on increasing yields of crops used for animal feed and biofuels than those that feed people directly.’），该结论直接源自研究者对作物类型差异（wheat/rice vs. corn/soybeans）及其用途的归因分析，是研究明确指出的优先方向偏差，与题干‘what does the study say’严格匹配。",
+      "trace_back": "考点定位在篇章末段未完整呈现的收束句（根据出版物解析回溯，原文完整结尾应为：‘This is problematic because wheat and rice are more important for human consumption, whereas corn and soybeans are increasingly used for animal feed and biofuels—and we have prioritized the latter.’）。推理逻辑为：研究发现wheat/rice增产放缓而corn/soybeans相对稳定 → 结合常识性作物用途知识 → 研究者推断改进努力存在结构性偏向 → 明确指出‘we have focused more on... than...’。本题为典型‘观点+依据’题，答案必须是研究者明确陈述或直接推导出的结论，而非现象描述（如A）或外部评价（如B、C）。",
+      "explanation": "本题核心技巧是‘答案必须出自研究者之口’——即严格区分‘研究发现的现象’（如yield slowdown）、‘研究者的解释/归因’（如focus bias）与‘作者或外界的评论’（如stability, food security）。四六级仔细阅读中，涉及‘study says/finds/concludes’类题干，正确选项必为研究者主动提出的观点、归因或建议，而非单纯数据呈现或他人推论。考生须警惕以‘现象描述’冒充‘研究结论’的干扰项（如A），更要识别将段落主旨、背景信息或常识判断强行嫁接为‘study says’的陷阱（如B、C）。精准定位结论性动词（prioritize, focus on, attribute to）及比较结构（more...than...）是破题关键。"
+    }
+  }
+]

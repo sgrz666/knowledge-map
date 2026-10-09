@@ -6,6 +6,7 @@ import argparse, json, re, sys
 from pathlib import Path
 from docx import Document
 import fitz
+from cet_common import merge_jsonl
 
 sys.stdout.reconfigure(encoding="utf-8")
 ap = argparse.ArgumentParser()
@@ -123,7 +124,7 @@ ALLOWED = {"templates.jsonl"}
 target = KB / "writing" / "templates.jsonl"
 assert target.parent.resolve() == (KB / "writing").resolve()
 content = "\n".join(json.dumps(x, ensure_ascii=False) for x in out) + "\n"
-target.write_text(content, encoding="utf-8")
+merge_jsonl(target,out)
 (KB / "writing" / "md").mkdir(exist_ok=True)
 (KB / "writing" / "md" / "templates.md").write_text("\n".join(md_parts), encoding="utf-8")
 print(f"templates: {len(out)} (docx {n_doc})")

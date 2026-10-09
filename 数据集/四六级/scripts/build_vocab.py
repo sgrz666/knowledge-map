@@ -7,6 +7,7 @@ from pathlib import Path
 import pandas as pd
 import fitz
 from docx import Document
+from cet_common import merge_jsonl, dedupe_resources
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -29,7 +30,8 @@ def dump(recs, name):
     if OUT not in target.parents:
         raise ValueError(f"output escape: {target}")
     lines = "\n".join(json.dumps(r, ensure_ascii=False) for r in recs) + "\n"
-    target.write_text(lines, encoding="utf-8")
+    merged = merge_jsonl(target, recs)
+    target.write_text("\n".join(json.dumps(r,ensure_ascii=False) for r in dedupe_resources(merged))+"\n",encoding="utf-8")
     print(f"{name}: {len(recs)} records")
 
 def rec(**kw):
@@ -61,16 +63,16 @@ out4 = []
 for w, x in words["CET-4"].items():
     lvl = "CET-4/6" if w in shared46 else "CET-4"
     out4.append(rec(id=f"cet4.w.{w}", word=x["w"], phonetic=x["phon"], level=lvl, tier="outline",
-                    pos_meaning=x["mean"], cse_level=4,
-                    source={"origin_file": "【4】四六级大纲词及核心词/.../01.大学英语四级词汇完整带音标-正序版.xls"},
+                    pos_meaning=x["mean"], cse_level=None,
+                    source={"origin_file": XLS["CET-4"].relative_to(SRC).as_posix()},
                     text=f"{x['w']} {x['phon']} 【{lvl}大纲词汇】{x['mean']}"))
 out6 = []
 for w, x in words["CET-6"].items():
     lvl = "CET-4/6" if w in shared46 else "CET-6"
     cse = 4 if w in shared46 else 5
     out6.append(rec(id=f"cet6.w.{w}", word=x["w"], phonetic=x["phon"], level=lvl, tier="outline",
-                    pos_meaning=x["mean"], cse_level=cse,
-                    source={"origin_file": "【4】四六级大纲词及核心词/.../大学英语六级词汇完整带音标-正序版.xls"},
+                    pos_meaning=x["mean"], cse_level=None,
+                    source={"origin_file": XLS["CET-6"].relative_to(SRC).as_posix()},
                     text=f"{x['w']} {x['phon']} 【{lvl}大纲词汇】{x['mean']}"))
 dump(out4, "words_cet4.jsonl")
 dump(out6, "words_cet6.jsonl")
@@ -107,7 +109,7 @@ for level in ("CET-4", "CET-6"):
         seen[level].add(k)
         phon = x["phon"] or ""
         core_out.append(rec(id=f"{slug}.core.{k}", word=x["w"], phonetic=phon, level=level, tier="core",
-                            pos_meaning=x["mean"], cse_level=4 if level == "CET-4" else 5,
+                            pos_meaning=x["mean"], cse_level=None,
                             source={"origin_file": CORE[level].name},
                             text=f"{x['w']} {phon} 【{level}核心1500词】{x['mean']}"))
 dump(core_out, "core_words.jsonl")

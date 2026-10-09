@@ -1,0 +1,1199 @@
+{
+  "captured_at": "2026-10-09T20:47:36.463639+08:00",
+  "scope": "四六级和教资主 JSONL、静态本体和图谱全量；不核定每题答案正确性，不运行产品功能",
+  "cet": {
+    "questions": {
+      "counts": {
+        "total": 5632,
+        "with_knowledge": 5632,
+        "with_ability_field": 5632,
+        "with_answer": 1577,
+        "with_difficulty": 1618,
+        "with_analysis_content": 944,
+        "with_structured_analysis": 292,
+        "source_verified_true": 0,
+        "source_file_exists": 5632,
+        "with_tags": 5340,
+        "marked_duplicate": 0,
+        "with_material": 0,
+        "blank_stem": 3312,
+        "with_audio_field": 1969,
+        "with_exam_requirement_id": 5632,
+        "coarse_read_listen_fallback": 0,
+        "review:auto_parsed": 5354,
+        "tagger:None": 5632,
+        "type:短篇新闻": 250,
+        "answer_status:letter_only": 1285,
+        "exam:CET-4": 2591,
+        "type:长对话": 621,
+        "type:听力篇章": 663,
+        "review:quarantined": 101,
+        "answer_status:source_conflict": 101,
+        "type:选词填空": 1120,
+        "type:长篇阅读": 1133,
+        "type:仔细阅读": 1118,
+        "review:needs_fix": 177,
+        "answer_status:missing": 3954,
+        "type:段落翻译": 146,
+        "answer_status:reference_only": 292,
+        "type:短文写作": 146,
+        "exam:CET-6": 3041,
+        "type:讲座/讲话": 435,
+        "duplicate_id_rows": 0
+      },
+      "rates": {
+        "with_knowledge": 100.0,
+        "with_ability_field": 100.0,
+        "with_answer": 28.0,
+        "with_difficulty": 28.73,
+        "with_analysis_content": 16.76,
+        "with_structured_analysis": 5.18,
+        "with_tags": 94.82,
+        "with_material": 0.0,
+        "with_audio_field": 34.96,
+        "with_exam_requirement_id": 100.0
+      },
+      "segments": {
+        "CET-4": {
+          "total": 2591,
+          "with_knowledge": 2591,
+          "with_answer": 1020,
+          "with_analysis_content": 513,
+          "marked_duplicate": 0
+        },
+        "CET-6": {
+          "total": 3041,
+          "with_knowledge": 3041,
+          "with_answer": 557,
+          "with_analysis_content": 431,
+          "marked_duplicate": 0
+        }
+      },
+      "samples": {}
+    },
+    "resources": {
+      "passages\\reading.jsonl": {
+        "total": 449,
+        "with_knowledge": 449,
+        "with_ability": 449,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 449,
+        "with_exam": 449,
+        "with_exam_requirement_id": 449,
+        "duplicate_ids": 0
+      },
+      "writing\\model_essays.jsonl": {
+        "total": 146,
+        "with_knowledge": 146,
+        "with_ability": 146,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 146,
+        "with_reference_translation": 0,
+        "source_file_exists": 146,
+        "with_exam": 146,
+        "with_exam_requirement_id": 146,
+        "duplicate_ids": 0
+      },
+      "writing\\templates.jsonl": {
+        "total": 69,
+        "with_knowledge": 69,
+        "with_ability": 69,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 69,
+        "with_exam": 0,
+        "with_exam_requirement_id": 69,
+        "duplicate_ids": 0
+      },
+      "translation\\items.jsonl": {
+        "total": 146,
+        "with_knowledge": 146,
+        "with_ability": 146,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 146,
+        "source_file_exists": 146,
+        "with_exam": 146,
+        "with_exam_requirement_id": 146,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\core_words.jsonl": {
+        "total": 3123,
+        "with_knowledge": 3123,
+        "with_ability": 3123,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 3123,
+        "with_exam": 0,
+        "with_exam_requirement_id": 3123,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\phrases_highfreq.jsonl": {
+        "total": 1405,
+        "with_knowledge": 1405,
+        "with_ability": 1405,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 1405,
+        "with_exam": 0,
+        "with_exam_requirement_id": 1405,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\translation_topic_words.jsonl": {
+        "total": 8,
+        "with_knowledge": 8,
+        "with_ability": 8,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 8,
+        "with_exam": 0,
+        "with_exam_requirement_id": 8,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\words_cet4.jsonl": {
+        "total": 4424,
+        "with_knowledge": 4424,
+        "with_ability": 4424,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 4424,
+        "with_exam": 0,
+        "with_exam_requirement_id": 4424,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\words_cet6.jsonl": {
+        "total": 5518,
+        "with_knowledge": 5518,
+        "with_ability": 5518,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 5518,
+        "with_exam": 0,
+        "with_exam_requirement_id": 5518,
+        "duplicate_ids": 0
+      },
+      "listening\\transcripts.jsonl": {
+        "total": 648,
+        "with_knowledge": 648,
+        "with_ability": 648,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 648,
+        "with_exam": 648,
+        "with_exam_requirement_id": 648,
+        "duplicate_ids": 0
+      }
+    },
+    "passage_links": {
+      "question_with_passage_id": 3358,
+      "passage_question_links": 3405,
+      "dangling_passage_question_id": 0
+    },
+    "passage_link_samples": [],
+    "ontology": {
+      "knowledge_nodes": 48,
+      "ability_nodes": 28,
+      "edges": 147,
+      "edge_types": {
+        "supports": 26,
+        "sub_ability": 2,
+        "exemplifies": 38,
+        "prerequisite_candidate": 64,
+        "anchored_by": 3,
+        "confused_with": 10,
+        "misconception_lead_to": 4
+      },
+      "dangling_edges": [],
+      "dangling_edges_count": 0,
+      "prerequisite_dag": {
+        "nodes": 0,
+        "acyclic": true
+      },
+      "standards": [
+        {
+          "id": "std.cet.syllabus",
+          "name": "全国大学英语四、六级考试大纲",
+          "type": "考试大纲",
+          "authority": "教育部教育考试院",
+          "约束": [
+            "L1 考试结构",
+            "L2 模块与题型",
+            "分值与时间"
+          ],
+          "official_source": {
+            "standard_id": "cet.syllabus.2016",
+            "name": "全国大学英语四、六级考试大纲（2016年修订版）",
+            "authority": "教育部考试中心",
+            "source_url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+            "version": "2016年修订版",
+            "effective_date": null,
+            "exam_scope": [
+              "CET-4",
+              "CET-6",
+              "CET-SET4",
+              "CET-SET6"
+            ],
+            "kind": "exam_syllabus",
+            "local_path": "权威资料/originals/cet.syllabus.2016.pdf",
+            "sha256": "9166d3c03b7bc43abd9d9df91bd2ef8085b4419286f1e5ca100dea68f3cfd1f1",
+            "retrieved_at": "2026-10-02T16:50:52.239731+00:00",
+            "resolved_url": "https://cet.neea.edu.cn/res/Home/1704/55b02330ac17274664f06d9d3db8249d.pdf",
+            "published_date": null,
+            "verification_method": "Official publisher domain; bytes archived and SHA-256 recorded; extracted text cross-checked with source heading",
+            "verified": true,
+            "text_path": "权威资料/text/cet.syllabus.2016.txt",
+            "text_sha256": "023c4d3b5a627f1ccd7f95fb6d336a22a1e393ea80d0775ef6556cfbdde04b9e",
+            "page_count": 215
+          }
+        },
+        {
+          "id": "std.cse",
+          "name": "中国英语能力等级量表 (CSE)",
+          "type": "国家标准",
+          "authority": "教育部、国家语言文字工作委员会",
+          "约束": [
+            "能力等级描述",
+            "cse_level 标定"
+          ],
+          "code": "GF0018-2024",
+          "standard_ids": [
+            "cse.gf0018-2018",
+            "cse.gf0018-2024"
+          ],
+          "historical_code": "GF0018-2018",
+          "versions": [
+            {
+              "standard_id": "cse.gf0018-2018",
+              "name": "中国英语能力等级量表（GF 0018—2018）",
+              "authority": "教育部、国家语言文字工作委员会",
+              "source_url": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201807/W020180725662475781772.pdf",
+              "version": "GF 0018—2018",
+              "effective_date": "2018-06-01",
+              "published_date": "2018-02-12",
+              "exam_scope": [
+                "英语能力评价，尚未核验CET分数/等级对接"
+              ],
+              "kind": "language_standard",
+              "local_path": "权威资料/originals/cse.gf0018-2018.pdf",
+              "sha256": "ecde81f00cf71848efbe4443a750c9cf826e2be2397708e15d4df7f82aff6db6",
+              "retrieved_at": "2026-10-02T16:50:52.239731+00:00",
+              "resolved_url": "http://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201807/W020180725662475781772.pdf",
+              "verification_method": "Official publisher domain; bytes archived and SHA-256 recorded; extracted text cross-checked with source heading",
+              "verified": true,
+              "text_path": "权威资料/text/cse.gf0018-2018.txt",
+              "text_sha256": "11ed7bf8e35fa1ff936539206c929f5f5ea1308bddd412a2f2a8b6b1ba81e416",
+              "page_count": 110,
+              "current_status": "superseded",
+              "superseded_by": "cse.gf0018-2024",
+              "valid_until": "2025-02-28"
+            },
+            {
+              "standard_id": "cse.gf0018-2024",
+              "name": "中国英语能力等级量表（GF 0018—2024）官方描述语数据集",
+              "authority": "教育部、国家语言文字工作委员会（教育部教育考试院官方搜索工具发布）",
+              "source_url": "https://www.neea.edu.cn/api/dict/ability.json",
+              "version": "GF 0018—2024",
+              "effective_date": "2025-03-01",
+              "exam_scope": [
+                "英语能力测评，未核验CET分数对接"
+              ],
+              "kind": "language_standard_descriptor_dataset",
+              "landing_url": "https://www.neea.edu.cn/html1/folder/2503/1-1.htm",
+              "published_date": "2024-11-26",
+              "full_publication_acquired": false,
+              "descriptor_dataset_acquired": true,
+              "verification_method": "Official CSE 2024 search page identifies version and dates; its public JavaScript calls /api/dict/ability.json; archived JSON preserves official descriptor IDs.",
+              "local_path": "权威资料/originals/cse.gf0018-2024.json",
+              "sha256": "290d507765a9ae2767eaf6a871f896139ededea56843fe622d293c0b17f1bc95",
+              "retrieved_at": "2026-10-02T17:03:22.610855+00:00",
+              "resolved_url": "https://www.neea.edu.cn/api/dict/ability.json",
+              "verified": true,
+              "landing_path": "权威资料/originals/cse.gf0018-2024.landing.html",
+              "landing_sha256": "f1e38d72301e10d0fed1ab0131ba5bdb5e91ddbea26b14338a21c915345ada48",
+              "landing_resolved_url": "https://www.neea.edu.cn/html1/folder/2503/1-1.htm",
+              "text_path": "权威资料/text/cse.gf0018-2024.txt",
+              "text_sha256": "7984cdf954bbef324746f34e92bda605826c051dbcad8a84ec10f9e53ab9bd9f",
+              "current_status": "current_by_official_revision_notice",
+              "supersedes": "cse.gf0018-2018"
+            }
+          ],
+          "cet_cse_alignment_status": "pending_official_linking_evidence"
+        },
+        {
+          "id": "std.cet.wordlist",
+          "name": "CET 词汇表",
+          "type": "考试大纲附件",
+          "authority": "教育部教育考试院",
+          "约束": [
+            "词汇库 tier=outline 的范围"
+          ],
+          "verification_status": "local_vocabulary_resource_not_authenticated_official_wordlist"
+        }
+      ],
+      "knowledge_with_authority_fields": 0,
+      "knowledge_without_ability": 10
+    },
+    "manifest_stats": {
+      "generated": "2026-10-09",
+      "source": "英语四六级资料合集（2026年最新）(1)",
+      "counting_rules": "One questions JSONL row is one objective question; tasks/resources counted separately, no whitelist exclusion.",
+      "questions": {
+        "total": 5632,
+        "with_answer": 1577,
+        "with_analysis": 652,
+        "answer_fill_rate": 0.28,
+        "active_source_question_records": 5628,
+        "inactive_parser_artifact_records": 4,
+        "new_records_pending_expert_confirmation": 334,
+        "new_records_confirmed_by_expert": 0,
+        "with_quarantined_analysis_history": 189,
+        "quarantined_original_explanation_entries": 189,
+        "by_analysis_status": {
+          "source_extracted_pending_expert_review": 652
+        },
+        "with_explicit_source_supported_answer_pending_review": 0,
+        "legacy_answer_without_current_explicit_key": 1577,
+        "with_full_structured_analysis": 292,
+        "papers_total": 126,
+        "papers_full_25L_30R": 65,
+        "with_knowledge_nodes": 5632,
+        "with_abilities": 5632,
+        "with_exam_requirements": 5632,
+        "with_audio": 1648,
+        "detail": {
+          "cet4": {
+            "records": 2591,
+            "with_answer": 1020,
+            "with_analysis": 367,
+            "duplicate_ids": 0,
+            "by_type": {
+              "短篇新闻": 250,
+              "长对话": 285,
+              "听力篇章": 357,
+              "选词填空": 520,
+              "长篇阅读": 519,
+              "仔细阅读": 514,
+              "段落翻译": 73,
+              "短文写作": 73
+            },
+            "by_module": {
+              "听力理解": 892,
+              "阅读理解": 1553,
+              "翻译": 73,
+              "写作": 73
+            }
+          },
+          "cet6": {
+            "records": 3041,
+            "with_answer": 557,
+            "with_analysis": 285,
+            "duplicate_ids": 0,
+            "by_type": {
+              "长对话": 336,
+              "听力篇章": 306,
+              "讲座/讲话": 435,
+              "长篇阅读": 614,
+              "仔细阅读": 604,
+              "选词填空": 600,
+              "段落翻译": 73,
+              "短文写作": 73
+            },
+            "by_module": {
+              "听力理解": 1077,
+              "阅读理解": 1818,
+              "翻译": 73,
+              "写作": 73
+            }
+          }
+        }
+      },
+      "change_from_review_baseline": {
+        "question_count_baseline": 5294,
+        "answers_baseline": 835,
+        "answers_net_change": 742,
+        "retained_new_records": 338,
+        "new_records_by_discovery_status": {
+          "source_number_and_content_recovered_pending_subject_expert": 20,
+          "parser_artifact_outside_CET_number_range": 4,
+          "new_source_boundary_pending_verification": 314
+        },
+        "previously_blank_answers_filled": 769,
+        "baseline_answers_quarantined": 27,
+        "baseline_answers_changed": 11,
+        "baseline_question_ids_missing": 0,
+        "analyses_baseline": 0,
+        "analyses_added": 652
+      },
+      "resources": {
+        "vocabulary/core_words.jsonl": {
+          "records": 3123,
+          "unique_ids": 3123,
+          "with_original_text": 3123,
+          "copyright_unknown_records": 3123,
+          "unresolved_source_records": 0
+        },
+        "vocabulary/phrases_highfreq.jsonl": {
+          "records": 1405,
+          "unique_ids": 1405,
+          "with_original_text": 1405,
+          "copyright_unknown_records": 1405,
+          "unresolved_source_records": 0
+        },
+        "vocabulary/translation_topic_words.jsonl": {
+          "records": 8,
+          "unique_ids": 8,
+          "with_original_text": 8,
+          "copyright_unknown_records": 8,
+          "unresolved_source_records": 0
+        },
+        "vocabulary/words_cet4.jsonl": {
+          "records": 4424,
+          "unique_ids": 4424,
+          "with_original_text": 4424,
+          "copyright_unknown_records": 4424,
+          "unresolved_source_records": 0
+        },
+        "vocabulary/words_cet6.jsonl": {
+          "records": 5518,
+          "unique_ids": 5518,
+          "with_original_text": 5518,
+          "copyright_unknown_records": 5518,
+          "unresolved_source_records": 0
+        },
+        "passages/reading.jsonl": {
+          "records": 449,
+          "unique_ids": 449,
+          "with_original_text": 449,
+          "copyright_unknown_records": 449,
+          "unresolved_source_records": 0
+        },
+        "writing/model_essays.jsonl": {
+          "records": 146,
+          "unique_ids": 146,
+          "with_original_text": 146,
+          "copyright_unknown_records": 146,
+          "unresolved_source_records": 0
+        },
+        "writing/templates.jsonl": {
+          "records": 69,
+          "unique_ids": 69,
+          "with_original_text": 69,
+          "copyright_unknown_records": 69,
+          "unresolved_source_records": 0
+        },
+        "translation/items.jsonl": {
+          "records": 146,
+          "unique_ids": 146,
+          "with_original_text": 146,
+          "copyright_unknown_records": 146,
+          "unresolved_source_records": 0
+        },
+        "listening/transcripts.jsonl": {
+          "records": 648,
+          "unique_ids": 648,
+          "with_original_text": 648,
+          "copyright_unknown_records": 648,
+          "unresolved_source_records": 0
+        }
+      },
+      "vocabulary": {
+        "core_words": 3123,
+        "phrases_highfreq": 1405,
+        "translation_topic_words": 8,
+        "words_cet4": 4424,
+        "words_cet6": 5518
+      },
+      "passages": {
+        "reading": 449,
+        "reference_repair": {
+          "original_structure_errors": 23,
+          "source_identity_verified": 31,
+          "restored_original_error_backlinks_verified": 19,
+          "complete_articles_restored_with_history": 6,
+          "inactive_parser_artifact_links_cleared": 4,
+          "unproven_active_links_quarantined": 9
+        },
+        "reference_repair_report": "manifest/passage_reference_repair_report.json"
+      },
+      "listening": {
+        "transcript_resources": 648,
+        "current_transcript_resources": 616,
+        "superseded_transcripts_retained_for_audit": 32,
+        "with_bound_spoken_question": 20,
+        "with_bound_group_transcript": 20,
+        "audit_report": "manifest/source_transcript_audit.jsonl",
+        "recovery_report": "manifest/listening_recovery_report.json"
+      },
+      "writing": {
+        "model_essays": 146,
+        "with_model_essay": 146,
+        "with_prompt": 146,
+        "templates": 69
+      },
+      "translation": {
+        "items": 146,
+        "with_reference": 146,
+        "with_source_text": 146
+      },
+      "ontology": {
+        "knowledge_nodes": 48,
+        "ability_nodes": 28,
+        "active_prerequisite_edges": 0,
+        "pending_prerequisite_candidates": 64,
+        "scoring_rubrics": 2
+      },
+      "remaining_gaps": {
+        "missing_full_structured_analysis": 5340,
+        "missing_exact_paper_audio": 321,
+        "pending_expert_review": 5632,
+        "records_with_quarantined_answer_history": 479,
+        "records_with_quarantined_analysis_history": 189,
+        "questions_rights_unknown": 5632,
+        "listening_missing_printed_or_transcribed_question_prompt": 1949,
+        "listening_prompt_unavailable": 311,
+        "historical_exam_design_pending_authentication": 597,
+        "difficulty_pending_calibration": 4014,
+        "missing_answer": 4055,
+        "missing_analysis": 4980,
+        "objective_incomplete_options": 462,
+        "reading_missing_task_prompt": 836,
+        "missing_careful_reading_question": 52,
+        "reading_unlinked_active_passage": 9,
+        "inactive_parser_artifacts": 4,
+        "missing_matching_statement": 784,
+        "cloze_incomplete_word_bank": 140,
+        "missing_matching_paragraph_labels": 8,
+        "resources_rights_unknown": 15936
+      },
+      "quality": {
+        "by_review_status": {
+          "auto_parsed": 5062,
+          "quarantined": 101,
+          "needs_fix": 177,
+          "unknown": 292
+        },
+        "resources_unique_ids": 15936,
+        "resource_duplicate_ids": 0
+      },
+      "not_ingested": {
+        "2026_06": "原始试卷/解析册扫描件需OCR；目录年份不代表题库已收录。",
+        "cet4_2024_06_objective": "原题PDF有文本层，但旧生成器遗漏该场次；列排版、题号与选项边界尚未完整校正，未把不完整抽取伪装为完整题组。写译任务已独立抽取并引用原题。",
+        "listening_transcripts": "全源PDF/DOCX审计已执行；已恢复的稿和问题见listening/transcripts及题目绑定，扫描件/损坏字体是extraction_failure，不能视为来源不存在；原MP3题组时间区间待校对。",
+        "difficulty": "未取得作答样本和专家校准，不生成虚假difficulty。",
+        "cse_alignment": "CET与CSE官方等级对接待核验，保留CSE历史/现行原文而不使用考试数字代替等级。"
+      },
+      "answer_fill_report": "manifest/answers_fill_report.json",
+      "repair_report": "manifest/repair_report.json"
+    }
+  },
+  "ntce": {
+    "questions": {
+      "counts": {
+        "total": 14500,
+        "with_knowledge": 13048,
+        "with_ability_field": 13048,
+        "with_answer": 9991,
+        "with_difficulty": 12720,
+        "with_analysis_content": 14494,
+        "with_structured_analysis": 9665,
+        "source_verified_true": 0,
+        "source_file_exists": 14500,
+        "with_tags": 14500,
+        "marked_duplicate": 1619,
+        "with_material": 586,
+        "blank_stem": 50,
+        "with_audio_field": 0,
+        "with_exam_requirement_id": 10487,
+        "coarse_read_listen_fallback": 0,
+        "review:needs_fix": 13460,
+        "tagger:content-rule-v2": 10519,
+        "type:单选": 10655,
+        "answer_status:letter_only": 9972,
+        "exam:NTCE": 14041,
+        "tagger:None": 1452,
+        "answer_status:reference_only": 3339,
+        "untagged": 1452,
+        "tagger:llm-v2": 2339,
+        "type:简答": 1075,
+        "type:材料分析": 992,
+        "type:教学设计": 515,
+        "type:未标注": 523,
+        "review:quarantined": 1040,
+        "answer_status:source_conflict": 1040,
+        "answer_status:missing": 149,
+        "type:诊断": 10,
+        "type:解答": 33,
+        "type:论述": 432,
+        "type:活动设计": 33,
+        "exam:省考": 459,
+        "type:多选": 109,
+        "type:写作": 40,
+        "tagger:chapter-task-rule-v2": 190,
+        "type:辨析": 83,
+        "duplicate_id_rows": 0
+      },
+      "rates": {
+        "with_knowledge": 89.99,
+        "with_ability_field": 89.99,
+        "with_answer": 68.9,
+        "with_difficulty": 87.72,
+        "with_analysis_content": 99.96,
+        "with_structured_analysis": 66.66,
+        "with_tags": 100.0,
+        "with_material": 4.04,
+        "with_audio_field": 0.0,
+        "with_exam_requirement_id": 72.32
+      },
+      "segments": {
+        "chuzhong/dili": {
+          "total": 422,
+          "with_knowledge": 331,
+          "with_answer": 262,
+          "with_analysis_content": 420,
+          "marked_duplicate": 97
+        },
+        "chuzhong/huaxue": {
+          "total": 267,
+          "with_knowledge": 229,
+          "with_answer": 196,
+          "with_analysis_content": 267,
+          "marked_duplicate": 37
+        },
+        "chuzhong/lishi": {
+          "total": 428,
+          "with_knowledge": 379,
+          "with_answer": 313,
+          "with_analysis_content": 428,
+          "marked_duplicate": 42
+        },
+        "chuzhong/meishu": {
+          "total": 648,
+          "with_knowledge": 594,
+          "with_answer": 513,
+          "with_analysis_content": 648,
+          "marked_duplicate": 61
+        },
+        "chuzhong/shengwu": {
+          "total": 420,
+          "with_knowledge": 395,
+          "with_answer": 329,
+          "with_analysis_content": 420,
+          "marked_duplicate": 32
+        },
+        "chuzhong/shuxue": {
+          "total": 269,
+          "with_knowledge": 231,
+          "with_answer": 73,
+          "with_analysis_content": 269,
+          "marked_duplicate": 25
+        },
+        "chuzhong/tiyu": {
+          "total": 225,
+          "with_knowledge": 200,
+          "with_answer": 172,
+          "with_analysis_content": 225,
+          "marked_duplicate": 10
+        },
+        "chuzhong/wuli": {
+          "total": 174,
+          "with_knowledge": 149,
+          "with_answer": 84,
+          "with_analysis_content": 174,
+          "marked_duplicate": 19
+        },
+        "chuzhong/xinxi": {
+          "total": 292,
+          "with_knowledge": 260,
+          "with_answer": 151,
+          "with_analysis_content": 291,
+          "marked_duplicate": 26
+        },
+        "chuzhong/yingyu": {
+          "total": 643,
+          "with_knowledge": 610,
+          "with_answer": 575,
+          "with_analysis_content": 643,
+          "marked_duplicate": 36
+        },
+        "chuzhong/yinyue": {
+          "total": 327,
+          "with_knowledge": 300,
+          "with_answer": 264,
+          "with_analysis_content": 327,
+          "marked_duplicate": 16
+        },
+        "chuzhong/yuwen": {
+          "total": 415,
+          "with_knowledge": 356,
+          "with_answer": 278,
+          "with_analysis_content": 415,
+          "marked_duplicate": 69
+        },
+        "chuzhong/zhengzhi": {
+          "total": 486,
+          "with_knowledge": 479,
+          "with_answer": 401,
+          "with_analysis_content": 486,
+          "marked_duplicate": 2
+        },
+        "gaozhong/dili": {
+          "total": 329,
+          "with_knowledge": 235,
+          "with_answer": 185,
+          "with_analysis_content": 328,
+          "marked_duplicate": 92
+        },
+        "gaozhong/huaxue": {
+          "total": 312,
+          "with_knowledge": 263,
+          "with_answer": 211,
+          "with_analysis_content": 312,
+          "marked_duplicate": 65
+        },
+        "gaozhong/lishi": {
+          "total": 428,
+          "with_knowledge": 381,
+          "with_answer": 162,
+          "with_analysis_content": 428,
+          "marked_duplicate": 162
+        },
+        "gaozhong/meishu": {
+          "total": 553,
+          "with_knowledge": 498,
+          "with_answer": 418,
+          "with_analysis_content": 553,
+          "marked_duplicate": 19
+        },
+        "gaozhong/shengwu": {
+          "total": 509,
+          "with_knowledge": 451,
+          "with_answer": 407,
+          "with_analysis_content": 509,
+          "marked_duplicate": 93
+        },
+        "gaozhong/shuxue": {
+          "total": 282,
+          "with_knowledge": 240,
+          "with_answer": 98,
+          "with_analysis_content": 282,
+          "marked_duplicate": 47
+        },
+        "gaozhong/tiyu": {
+          "total": 267,
+          "with_knowledge": 249,
+          "with_answer": 204,
+          "with_analysis_content": 267,
+          "marked_duplicate": 6
+        },
+        "gaozhong/wuli": {
+          "total": 184,
+          "with_knowledge": 160,
+          "with_answer": 99,
+          "with_analysis_content": 184,
+          "marked_duplicate": 21
+        },
+        "gaozhong/xinxi": {
+          "total": 255,
+          "with_knowledge": 215,
+          "with_answer": 117,
+          "with_analysis_content": 253,
+          "marked_duplicate": 34
+        },
+        "gaozhong/yingyu": {
+          "total": 599,
+          "with_knowledge": 567,
+          "with_answer": 540,
+          "with_analysis_content": 599,
+          "marked_duplicate": 159
+        },
+        "gaozhong/yinyue": {
+          "total": 321,
+          "with_knowledge": 297,
+          "with_answer": 251,
+          "with_analysis_content": 321,
+          "marked_duplicate": 17
+        },
+        "gaozhong/yuwen": {
+          "total": 328,
+          "with_knowledge": 297,
+          "with_answer": 222,
+          "with_analysis_content": 328,
+          "marked_duplicate": 35
+        },
+        "gaozhong/zhengzhi": {
+          "total": 490,
+          "with_knowledge": 478,
+          "with_answer": 400,
+          "with_analysis_content": 490,
+          "marked_duplicate": 120
+        },
+        "xiaoxue/jiaoxue": {
+          "total": 596,
+          "with_knowledge": 514,
+          "with_answer": 387,
+          "with_analysis_content": 596,
+          "marked_duplicate": 31
+        },
+        "xiaoxue/jiaoyuxinlixue": {
+          "total": 36,
+          "with_knowledge": 25,
+          "with_answer": 2,
+          "with_analysis_content": 36,
+          "marked_duplicate": 0
+        },
+        "xiaoxue/jiaoyuxue": {
+          "total": 170,
+          "with_knowledge": 122,
+          "with_answer": 91,
+          "with_analysis_content": 170,
+          "marked_duplicate": 1
+        },
+        "xiaoxue/zonghe": {
+          "total": 620,
+          "with_knowledge": 584,
+          "with_answer": 494,
+          "with_analysis_content": 620,
+          "marked_duplicate": 71
+        },
+        "youer/baojiao": {
+          "total": 429,
+          "with_knowledge": 384,
+          "with_answer": 280,
+          "with_analysis_content": 429,
+          "marked_duplicate": 37
+        },
+        "youer/mianshi": {
+          "total": 153,
+          "with_knowledge": 151,
+          "with_answer": 0,
+          "with_analysis_content": 153,
+          "marked_duplicate": 1
+        },
+        "youer/zonghe": {
+          "total": 733,
+          "with_knowledge": 693,
+          "with_answer": 627,
+          "with_analysis_content": 733,
+          "marked_duplicate": 3
+        },
+        "zhongxiaoxue/mianshi": {
+          "total": 273,
+          "with_knowledge": 267,
+          "with_answer": 0,
+          "with_analysis_content": 273,
+          "marked_duplicate": 33
+        },
+        "zhongxue/jiaoyuxinlixue": {
+          "total": 181,
+          "with_knowledge": 117,
+          "with_answer": 135,
+          "with_analysis_content": 181,
+          "marked_duplicate": 1
+        },
+        "zhongxue/jiaoyuxue": {
+          "total": 72,
+          "with_knowledge": 57,
+          "with_answer": 30,
+          "with_analysis_content": 72,
+          "marked_duplicate": 2
+        },
+        "zhongxue/jiaoyuzhishi": {
+          "total": 664,
+          "with_knowledge": 628,
+          "with_answer": 439,
+          "with_analysis_content": 664,
+          "marked_duplicate": 4
+        },
+        "zhongxue/zonghe": {
+          "total": 700,
+          "with_knowledge": 662,
+          "with_answer": 581,
+          "with_analysis_content": 700,
+          "marked_duplicate": 93
+        }
+      },
+      "samples": {
+        "untagged": [
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q03",
+            "file": "数据集\\教资\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 3,
+            "knowledge": [],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q04",
+            "file": "数据集\\教资\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 4,
+            "knowledge": [],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q06",
+            "file": "数据集\\教资\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 6,
+            "knowledge": [],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q07",
+            "file": "数据集\\教资\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 7,
+            "knowledge": [],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q08",
+            "file": "数据集\\教资\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 8,
+            "knowledge": [],
+            "answer": null,
+            "stem": "暂缺"
+          }
+        ]
+      }
+    },
+    "ability_path_coverage": {
+      "questions_with_direct_ability_path": 13048,
+      "questions_with_inherited_ability_path": 13048,
+      "unique_questions": 12881,
+      "unique_with_knowledge": 12126,
+      "national_exam_questions": 14041,
+      "national_exam_with_knowledge": 12727
+    },
+    "no_ability_path_samples": [],
+    "graph": {
+      "nodes": 21079,
+      "edges": 93855,
+      "layers": {
+        "L1": 7,
+        "L3": 51,
+        "L2": 38,
+        "L6": 18303,
+        "L5": 586,
+        "L4": 791,
+        "L0": 1295,
+        "L7": 8
+      },
+      "types": {
+        "exam": 7,
+        "ability": 44,
+        "module": 38,
+        "question": 14500,
+        "material": 586,
+        "knowledge_node": 791,
+        "literacy": 7,
+        "standard": 39,
+        "exam_requirement": 1256,
+        "resource": 8,
+        "rubric": 3803
+      },
+      "edge_types": {
+        "contains": 14709,
+        "targets": 7,
+        "supports_ability": 18493,
+        "has_rubric": 3736,
+        "refers_to_material": 586,
+        "has_child": 620,
+        "assesses": 22797,
+        "prerequisite_of": 31,
+        "comprises": 44,
+        "specifies": 1256,
+        "basis": 36,
+        "aligned_to_requirement": 31509,
+        "confused_with": 7,
+        "misconception_lead_to": 3,
+        "supports_resource": 13,
+        "supplements_resource": 8
+      },
+      "dangling_edges_count": 0,
+      "dangling_edges": [],
+      "knowledge_nodes_with_direct_ability": 638,
+      "knowledge_nodes_with_inherited_ability": 638,
+      "module_to_knowledge_edge_count": 171,
+      "prerequisite_dag": {
+        "nodes": 0,
+        "acyclic": true
+      },
+      "standard_nodes_verified": 39,
+      "standard_nodes_with_source_file_or_url": 39
+    },
+    "outline": {
+      "files": 44,
+      "verified": 0,
+      "knowledge_nodes": 818
+    },
+    "materials": 586,
+    "manifest": {
+      "name": "教资真题知识库 v2",
+      "generated": "2026-10-02",
+      "source_dir": "教资/真题",
+      "source_files": 695,
+      "questions": 14500,
+      "materials": 586,
+      "duplicate_questions_marked": 1619,
+      "folder_duplicates_skipped": 72,
+      "by_level": {
+        "youer": 1315,
+        "xiaoxue": 1422,
+        "zhongxiaoxue": 273,
+        "zhongxue": 1617,
+        "chuzhong": 5016,
+        "gaozhong": 4857
+      },
+      "by_level_subject": {
+        "chuzhong/dili": 422,
+        "chuzhong/huaxue": 267,
+        "chuzhong/lishi": 428,
+        "chuzhong/meishu": 648,
+        "chuzhong/shengwu": 420,
+        "chuzhong/shuxue": 269,
+        "chuzhong/tiyu": 225,
+        "chuzhong/wuli": 174,
+        "chuzhong/xinxi": 292,
+        "chuzhong/yingyu": 643,
+        "chuzhong/yinyue": 327,
+        "chuzhong/yuwen": 415,
+        "chuzhong/zhengzhi": 486,
+        "gaozhong/dili": 329,
+        "gaozhong/huaxue": 312,
+        "gaozhong/lishi": 428,
+        "gaozhong/meishu": 553,
+        "gaozhong/shengwu": 509,
+        "gaozhong/shuxue": 282,
+        "gaozhong/tiyu": 267,
+        "gaozhong/wuli": 184,
+        "gaozhong/xinxi": 255,
+        "gaozhong/yingyu": 599,
+        "gaozhong/yinyue": 321,
+        "gaozhong/yuwen": 328,
+        "gaozhong/zhengzhi": 490,
+        "xiaoxue/jiaoxue": 596,
+        "xiaoxue/jiaoyuxinlixue": 36,
+        "xiaoxue/jiaoyuxue": 170,
+        "xiaoxue/zonghe": 620,
+        "youer/baojiao": 429,
+        "youer/mianshi": 153,
+        "youer/zonghe": 733,
+        "zhongxiaoxue/mianshi": 273,
+        "zhongxue/jiaoyuxinlixue": 181,
+        "zhongxue/jiaoyuxue": 72,
+        "zhongxue/jiaoyuzhishi": 664,
+        "zhongxue/zonghe": 700
+      },
+      "known_limitations": [
+        "全量保留原始题；缺答案/图形/学科审核/难度校准逐题见pending.jsonl。",
+        "source.verified=false；raw_file_verification只说明文件关联，不能证明答案正确。",
+        "量规为练习建议稿，缺具体评分点的题不能自动评分。"
+      ],
+      "field_dict": "见 教资知识库整理方案.md 3.1",
+      "tagging": {
+        "tagger": "content-rule-v2/llm-v2",
+        "status": "待专家复核",
+        "knowledge_mapped": 13048,
+        "ability_mapped": 13048,
+        "requirement_mapped": 10487
+      },
+      "graph": {
+        "nodes": 21079,
+        "edges": 93855,
+        "by_layer": {
+          "L0": 1295,
+          "L1": 7,
+          "L2": 38,
+          "L3": 51,
+          "L4": 791,
+          "L5": 586,
+          "L6": 18303,
+          "L7": 8
+        },
+        "by_type": {
+          "standard": 39,
+          "exam_requirement": 1256,
+          "exam": 7,
+          "module": 38,
+          "literacy": 7,
+          "knowledge_node": 791,
+          "ability": 44,
+          "material": 586,
+          "rubric": 3803,
+          "question": 14500,
+          "resource": 8
+        },
+        "eight_layer_hierarchy": {
+          "L0_standard_requirement": 1295,
+          "L1_exam": 7,
+          "L2_module": 38,
+          "L3_competency_ability": 51,
+          "L4_knowledge_node": 791,
+          "L5_shared_material": 586,
+          "L6_question_rubric": 18303,
+          "L7_learning_resource": 8
+        },
+        "by_edge_type": {
+          "specifies": 1256,
+          "contains": 14709,
+          "basis": 36,
+          "targets": 7,
+          "comprises": 44,
+          "has_child": 620,
+          "aligned_to_requirement": 31509,
+          "supports_ability": 18493,
+          "prerequisite_of": 31,
+          "assesses": 22797,
+          "has_rubric": 3736,
+          "refers_to_material": 586,
+          "supplements_resource": 8,
+          "supports_resource": 13,
+          "confused_with": 7,
+          "misconception_lead_to": 3
+        },
+        "files": [
+          "graph/nodes.jsonl",
+          "graph/edges.jsonl",
+          "graph/edges_curated.jsonl"
+        ],
+        "note": "layer 取值即规范 §3.2 的 L0-L7，无第二套编号；能力不隐式继承；先修候选未专家审核，不用于正式路径。"
+      },
+      "schema_version": "2.0",
+      "stats_file": "stats.json",
+      "pending_queue": "review/pending.jsonl",
+      "source_materials_original": 96,
+      "cards": 12881,
+      "eight_layer_hierarchy": {
+        "L0_standard_requirement": 1295,
+        "L1_exam": 7,
+        "L2_module": 38,
+        "L3_competency_ability": 51,
+        "L4_knowledge_node": 791,
+        "L5_shared_material": 586,
+        "L6_question_rubric": 18303,
+        "L7_learning_resource": 8
+      }
+    }
+  },
+  "json_errors": []
+}

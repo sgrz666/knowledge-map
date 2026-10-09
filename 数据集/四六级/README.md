@@ -1,95 +1,59 @@
-# 四六级 RAG 知识库
+# 四六级知识库
 
-> 状态：**v2 已按《应试考证功能设计与技术支撑》层级标准重构**（2026-10-02）。层级：L0 标准 → 素养 → L1 能力维度 → L2 知识点(含先修) → L3 题型 → L4 题目/资源 → L5 掌握度(模板)。质检：`manifest/stats.json`；来源映射：`manifest/ingest_log.md`。
-> 来源：《英语四六级资料合集（2026年最新）》→ 本库整理，全部记录可回溯原始文件。
+已修复 v2 迁移、重复资源与来源指针，并接入官方 CET 2016 大纲和题型表。全库仍是待教研审核的学习资料，未宣称已完成专家审核、难度校准或 CET/CSE 等级对接。
 
-## 库存总览
+统计日期：2026-10-09；实际口径见 `manifest/stats.json`，所有缺陷记录计入总数。
 
-| 库 | 文件 | 条数 | 说明 |
-| --- | --- | --- | --- |
-| 词汇 | `vocabulary/words_cet4.jsonl` | 4424 | 四级大纲词（含音标/释义；与六级共有词标 `CET-4/6`） |
-| 词汇 | `vocabulary/words_cet6.jsonl` | 5518 | 六级大纲词 |
-| 词汇 | `vocabulary/core_words.jsonl` | 3123 | 四/六级核心1500词（tier=core） |
-| 词汇 | `vocabulary/phrases_highfreq.jsonl` | 1406 | 六级高频词组635 + 高频700词 + 必背200词（含近年频次） |
-| 词汇 | `vocabulary/translation_topic_words.jsonl` | 8 | 翻译热点主题词（文化/科技/经济等主题分组） |
-| 真题 | `questions/cet4/*.jsonl` `questions/cet6/*.jsonl` | 5294 | **126 套卷**（2015.06–2025.12，docx 108 + PDF 18）逐题拆分，答案填充 835（16%），95 条标 `needs_fix`；每题按内容细粒度挂载知识点+能力 |
-| 长语料 | `passages/reading.jsonl` | 431 | 阅读文章/完形（含词库）/长篇阅读（老卷未分段已标注） |
-| 写作 | `writing/model_essays.jsonl` | 177 | 真题写作题目+范文（68 条含范文全文） |
-| 写作 | `writing/templates.jsonl` | 69 | 模板句（按功能分类：开头/论证/建议/结尾…）+ 人读版 md |
-| 翻译 | `translation/items.jsonl` | 193 | 真题中文段落+参考译文（116 条含译文） |
-| 本体 | `ontology/standards.json` `ability_nodes.jsonl` `knowledge_nodes.jsonl` `edges.jsonl` `mastery_template.json` | 48 知识点 + 28 能力 + 99 边 | L0 标准/CSE → 素养 → 能力维度 → 知识点(先修关系)；L5 掌握度模板 |
-| 考试说明 | `exam_guide/cet_overview.md` | — | 题型结构/分值/时间 |
+| 数据 | 当前数量 | 内容覆盖 |
+| --- | ---: | --- |
+| 客观题 | 5632 | 答案 1577，原始逐题解析 652 |
+| 阅读语篇 | 449 | 独立资源 ID |
+| 听力文字稿 | 648 | 当前源提取 616，唯一绑定题目 20 |
+| 写作任务 | 146 | 范文 146，题目 146 |
+| 翻译任务 | 146 | 译文 146，中文原文 146 |
+| 写作模板 | 69 | 功能标签与原始文件引用 |
+| 知识点 / 能力 | 48 / 28 | 官方要求 ID、原文定位与初标方法 |
+| 主观题量规 | 2 | 官方整体印象五档评分，原始分 1–15 |
 
-试卷覆盖：**126 套** = docx 拆题 108 套（2015.06–2024.06，含 11 套仅写作翻译的节选卷）+ PDF 拆题 18 套（2024.12 / 2025.06 / 2025.12）。节选卷经 `listening_ref`/`reading_ref` 指向同场次完整卷。**2026.6 为扫描件未拆题**（原件路径已登记）。
+基线 5294 个题目 ID 全部保留（缺失 0）。新增保留记录 338，其中 4 条是原解析器的伪题，已停用且不可判分；其余 334 条源编号恢复记录仍待专家确认，不能将新增行数称为已核定真题数量。全量 5632 条，活动源题记录 5628 条。
 
-## 数据字典（v2，对齐需求文档 §3.3）
+较审查基线 835 个答案、0 条解析，原来空白的题目新增答案 769，原有答案隔离 27，答案净变化 742，活动原始解析新增 652。现有答案中 0 条有本次明确源答案支持、1577 条仍为历史来源待核；全部保留待专家审核状态。此前过宽规则生成的字母与错误题号关联的解析已撤回；旧解析完整保存在 189 条题目的 `extra.analysis_history`，不计为可用解析。重复资源 ID 为 0；不丢文本，重复内容合并，释义不同的词条保留稳定 variant ID。
 
-所有库为 JSONL。**题目记录**严格采用文档参考 schema，一行 = 一个检索原子：
+题目读取 `question_id/exam/module/question_type/content/analysis/knowledge_node_ids/ability_ids/exam_requirement_ids`。答案在 `content.answer`；原始解析在 `analysis.raw`，提取方法、定位、状态同时保留。未从来源得到的三段解析仍为空，不把知识点标签或占位文案计为解析。
 
-```json
-{
-  "question_id": "cet4-2022-06-p1-reading-46",
-  "exam": "CET-4",
-  "module": "阅读理解",
-  "question_type": "仔细阅读",
-  "source": {"type": "真题", "year": "2022-06", "paper": "第一套", "verified": false,
-             "origin_file": "<原始资料路径>", "analysis_file": "<解析册路径>"},
-  "knowledge_node_ids": ["cet4.read.locate", "cet4.read.infer"],
-  "ability_ids": ["ab.cet4.read.locate", "ab.cet4.read.infer"],
-  "difficulty": null,
-  "content": {"stem": "...", "options": {"A": "...", "B": "...", "C": "...", "D": "..."}, "answer": "B"},
-  "analysis": {"key_info": null, "option_compare": null, "trace_back": null, "raw": null, "status": "answer_from_key"},
-  "tags": {"来源": "真题", "审核": "auto_parsed|needs_fix|checked", "版权": "internal-personal-use", "难度": null},
-  "extra": {"number": 46, "group": "c1", "passage_id": "cet4-2022-06-p1-reading-p1",
-            "text": "<预渲染RAG检索文本>", "review": {"status": "auto_parsed"}},
-  "text": "<同 extra.text，便于RAG加载器直接使用>"
-}
+三层状态分离与教资共用同一张词表（单一权威 Schema 目录是 `数据集/教资/schemas/`，四六级不放副本）：`review.status` 六态、`content.answer_status` 五态且必填、抽取形状只留在 `extra.answer_provenance` 供教研取证；审核人键统一为 `review.checked_by`/`review.checked_at`（历史 `reviewed_by`/`reviewed_at` 由 `scripts/migrate_v2_schema.py` 合并），无署名的 `checked`/`expert_reviewed` 一律降回 `needs_fix`，`answer_status = source_conflict` 的题目一律 `review.status = quarantined` 且 `content.answer = null`。图谱侧 `graph/nodes.jsonl` 只保留规范 §3.2 的 L0–L7 一套 `layer`，`graph/edges.jsonl` 的 `assesses`/`supports_ability`/`aligned_to_requirement` 一律"支撑方 → 被支撑方"（知识点/能力/条款 → 题目），与教资同向，由 `tests/test_graph_direction_contract.py` 逐条校验。
+
+资源读取 `resource_id/text/extra`。范文在 `extra.model_essay`，译文在 `extra.reference`。写译任务另有 `task_id/task_type/content.prompt/content.reference_answer/rubric_id/task_constraints`；量规见 `ontology/scoring_rubrics.jsonl`。评分先选择官方档次，再在该档分值范围内提出练习建议；维度反馈不冒充官方加权分数，正式评分仍需当次样卷与训练过的阅卷员。
+
+语篇引用通过原卷内完整题干、全部选项（匹配题为完整陈述）及明确语篇边界核对。此次修复原有 23 个双向引用错误：19 条恢复题补齐经原文证明的反向关联，4 条停用伪题的活动关联撤回。另将同卷核验发现的 9 条混合题干/选项记录撤回活动语篇关联，并标为 `source_identity_review.status=pending/scoring_eligible=false`；原 ID、全文及旧关联完整保留。详见 `manifest/passage_reference_repair_report.json`。保留 ID 与 `extra.number` 是历史解析身份，不能据此推断原题号；经内容唯一证明的原题号在 `extra.source_question_number`。2015-12 第 2 套 reading-51 实际对应源题号 46，源卷提示 56–60 与实际编号 46–50 冲突已显式留存，历年原卷认证仍待核。
+
+同次全文核验在这 5 份既有源卷内恢复了 6 份完整语篇：5 份移除正文尾部混入的题干/选项，1 份补齐截短的文章后半段。旧正文完整保存在 `extra.text_history`，恢复正文在原卷中有明确起止定位。全文、匹配段落字母及完整题干/选项均需等值核验；规范化只处理排版空白、全角 ASCII 与等价引号，保留英文词界、数字小数点及其他标点符号。
+
+`source.files` 是结构化多来源入口，每项含仓库根相对 `path/role/locator`；兼容 `source.origin_file` 仅保留首个原文件，旧值在 `_legacy_origin_file`。解析引用含 PDF 页码或 DOCX 正文块/表格行及题号。词汇与模板保留文本锚点；不会把包含省略号的旧指针当完整路径。
+
+版权状态在 `source.copyright`，未知授权明确为 `authorization_status=unknown`；权利人、允许用途、有效期没有证据时保持空值。存在这些字段不代表已取得使用授权。
+
+官方要求通过 `exam_requirement_ids` 对接仓库根 `权威资料/requirements.jsonl`，`requirement_mappings` 保存官方原文定位、来源 URL、初标方法和待专家审核状态。`source.verified` 与 `extra.content_review.expert_review` 分开；脚本不会生成专家姓名、审核日期或“已审核”。CSE 当前与历史版本均记录在 `ontology/standards.json`，原先把 CET 4/6 直接换成 CSE 4/5 的数值已移到历史初标字段。
+
+图谱先修提议使用 `rel=prerequisite_candidate/proposed_rel=prereq_of/active=false`；知识点的待审列表保存在 `candidate_prereq`，正式 `prereq` 保持空值。学习路径只能使用专家核定且激活的正式先修边。
+
+听力文字稿入口是 `listening/transcripts.jsonl`；题目通过 `extra.listening_transcript_ids` 关联题组，通过 `extra.spoken_question_source` 保存口述问题原文与绑定证据。原文存在但文本层损坏的来源标为提取失败，见 `manifest/source_transcript_audit.jsonl`，不能当成来源缺失。旧 PDF 排序提取的 32 条稿只保留审计，不作为活动稿使用。
+
+听力题组引用 `extra.audio.files` 中的原 MP3，题组 ID 供播放器组织播放；`start_seconds/end_seconds=null` 表示尚未校对片段。只有纸面选项的记录通过 `extra.question_prompt_availability` 记录口述题目可用性；整卷音频有 1648 题关联，仍有 321 题缺少确切音频，口述问题未恢复 1949 题。2015 年资料标题与现代听力题型冲突，历史适用版本通过 `extra.exam_design_applicability` 明确待核验，2016 官方技能只作为学习映射依据。`difficulty=null` 和 `difficulty_metadata.status=pending_calibration` 表示无实测校准，不能据此运行 IRT 诊断。
+
+仍缺答案 4055、逐题解析 4980、完整三段解析 5340；匹配陈述缺失 784，仔细阅读提问缺失 52。待专家审核 5632，待难度校准 4014。其余选项、词库、段落字母、音频缺口完整列在 `manifest/stats.json.remaining_gaps`；原文恢复及剩余边界问题见 `manifest/original_stem_recovery_report.json`、`manifest/reading_resource_recovery_report.json`；扫描件与字体损坏来源清单见 `manifest/answers_fill_report.json.source_diagnostics`。2026-10-06 起由 `fill_answers_ocr.py` 以 Windows OCR 重建损坏源文本并补绑答案/解析(证据分级、全部待审),逐卷结果与剩余缺口见 `manifest/answers_fill_ocr_report.json`。
+
+在仓库根使用 Python 运行以下命令（需要 `pymupdf/python-docx/pandas/xlrd`）：
+
+```powershell
+python .\数据集\四六级\scripts\migrate_v2_schema.py
+python .\数据集\四六级\scripts\fill_answers.py --src '英语四六级资料合集（2026年最新）(1)' --stage '数据集\四六级\scripts\_staging\answers' --kb '数据集\四六级'
+python .\数据集\四六级\scripts\repair_kb.py
+python .\数据集\四六级\scripts\build_stats.py --kb '数据集\四六级'
+python -m unittest discover -s tests -p test_cet_repair.py
+python .\审查\validate_kb.py
 ```
 
-- **id 约定**：`{exam}-{年月}-p{套}-{listening|reading|writing|translation}-{题号}`（在文档示例基础上增加 p{套} 段，因四六级一考多卷必须区分）
-- **层级挂载**：`knowledge_node_ids` 按题干内容细分类挂载（仔细阅读分 细节/定位/推断/主旨/态度，听力分 细节/主旨/推断），**每题 ≥1 个知识点**；`ability_ids` 由知识点经图谱边自动获得
-- **资源记录**（文章/范文/翻译/模板/词汇）统一 `resource_id/resource_type/knowledge_node_ids/ability_ids/source/tags/extra`，全部挂载图谱
-- **L5 掌握度**：运行时数据，schema 见 `ontology/mastery_template.json`（用户×知识点，支持 BKT/FSRS 扩展）
-- **9 类标签**：考试=exam、科目=module、题型=question_type、知识点=knowledge_node_ids、能力=ability_ids、难度=difficulty(tags.难度)、来源=source.type、审核=tags.审核、版权=tags.版权
+基础生成器使用增量合并，保留 v2 答案、审核及扩展字段。新增原始资料后可运行 `scripts/rebuild.py --extract` 完整重建，再检查统计与统一验收结果。只做当前数据修复时运行 `scripts/rebuild.py`。系统无 Python 时可把 `python` 换为 Codex 内置运行时 `C:\Users\sg\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`。
 
-## 检索约定
-
-- 1 记录 = 1 chunk，不二次切分；题目 chunk 自含题干+选项+答案
-- 混合检索：向量（`text`）+ metadata 过滤（exam/year/module/question_type/tier）；查词走 jsonl 精确查询
-- 建议给 Agent 配 5 个检索工具：`查词(word)`、`搜题(过滤条件)`、`取文章(id)`、`找范文(主题/年份)`、`知识树(节点)`
-
-### JSONL → 向量库 ingest 示例
-
-```python
-import json
-docs = []
-for line in open("questions/cet6/2024-06_p1.jsonl", encoding="utf-8"):
-    r = json.loads(line)
-    meta = {"exam": r["exam"], "module": r["module"], "question_type": r["question_type"],
-            "year": r["source"]["year"], "knowledge_nodes": r["knowledge_node_ids"]}
-    docs.append({"id": r["question_id"], "text": r["text"], "metadata": meta})
-# 之后按所用框架写入 FAISS / Milvus / Dify 知识库等
-```
-
-## 已知限制（详见 manifest/stats.json → not_ingested）
-
-1. 听力原文合集、2026.6 真题/解析册为扫描件 → 待 OCR 补录
-2. 2016.06–2017.06 部分解析册字体损坏 → 这些年份答案缺失较多
-3. 逐题文字解析（key_info/trace_back）未做切分 → 待 LLM 增补
-4. 老卷长篇阅读段落字母丢失 → 文章未分段（已标注），配对答案依赖解析册
-
-## 复跑
-
-```bash
-python scripts/build_vocab.py --src <资料根> --out <KB>/vocabulary
-python scripts/build_questions.py --src <资料根> --stage scripts/_staging --kb <KB>
-python scripts/build_questions_pdf.py --src <资料根> --kb <KB>
-python scripts/fill_answers.py --stage scripts/_staging/answers --src <资料根> --kb <KB>
-python scripts/build_writing_translation.py --src <资料根> --kb <KB>
-python scripts/build_templates.py --src <资料根> --kb <KB>
-python scripts/build_stats.py --kb <KB>
-```
-
-> 注：
-> - 本仓库远端：https://github.com/sgrz666/knowledge-map.git（真题文本为个人学习整理，建议仓库保持私有）
-> - 范文/译文覆盖不全系源文件所致：四六级《写作/翻译范文》合集 PDF 仅收录 2015–2023 各 12 月场次及 2024.06、2025.06
+使用时先按知识点/题型检索，打开 `content` 与共享 `extra.passage_id`，检查原始答案和解析来源。自动判分应排除 `extra.active=false`、`extra.scoring_eligible=false`、来源冲突、缺答案和选项不完整记录；面向正式用户的发布仍需内容专家审核。保留全库用于修订和检索，不以发布筛选掩盖剩余缺口。

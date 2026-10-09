@@ -1,0 +1,1200 @@
+{
+  "captured_at": "2026-10-03T00:38:15.248424+08:00",
+  "scope": "四六级和教资主 JSONL、静态本体和图谱全量；不核定每题答案正确性，不运行产品功能",
+  "cet": {
+    "questions": {
+      "counts": {
+        "total": 5294,
+        "with_knowledge": 5294,
+        "with_ability_field": 3049,
+        "with_answer": 835,
+        "with_difficulty": 0,
+        "with_analysis_content": 0,
+        "with_structured_analysis": 0,
+        "source_verified_true": 0,
+        "source_file_exists": 5294,
+        "with_tags": 5294,
+        "marked_duplicate": 0,
+        "with_material": 0,
+        "blank_stem": 3500,
+        "with_audio_field": 0,
+        "with_exam_requirement_id": 0,
+        "coarse_read_listen_fallback": 2245,
+        "review:auto_parsed": 5117,
+        "tagger:None": 5294,
+        "type:短篇新闻": 246,
+        "answer_status:None": 5294,
+        "exam:CET-4": 2407,
+        "type:长对话": 614,
+        "type:听力篇章": 651,
+        "type:选词填空": 1120,
+        "type:长篇阅读": 1125,
+        "type:仔细阅读": 1103,
+        "review:needs_fix": 177,
+        "answer_not_in_options": 7,
+        "exam:CET-6": 2887,
+        "type:讲座/讲话": 435,
+        "duplicate_id_rows": 0
+      },
+      "rates": {
+        "with_knowledge": 100.0,
+        "with_ability_field": 57.59,
+        "with_answer": 15.77,
+        "with_difficulty": 0.0,
+        "with_analysis_content": 0.0,
+        "with_structured_analysis": 0.0,
+        "with_tags": 100.0,
+        "with_material": 0.0,
+        "with_audio_field": 0.0,
+        "with_exam_requirement_id": 0.0
+      },
+      "segments": {
+        "CET-4": {
+          "total": 2407,
+          "with_knowledge": 2407,
+          "with_answer": 632,
+          "with_analysis_content": 0,
+          "marked_duplicate": 0
+        },
+        "CET-6": {
+          "total": 2887,
+          "with_knowledge": 2887,
+          "with_answer": 203,
+          "with_analysis_content": 0,
+          "marked_duplicate": 0
+        }
+      },
+      "samples": {
+        "answer_not_in_options": [
+          {
+            "id": "cet4-2021-06-p2-listening-1",
+            "file": "数据集\\四六级\\questions\\cet4\\2021-06_p2.jsonl",
+            "line": 1,
+            "knowledge": [
+              "cet4.listen.detail"
+            ],
+            "answer": "J",
+            "stem": ""
+          },
+          {
+            "id": "cet4-2022-06-p1-reading-29",
+            "file": "数据集\\四六级\\questions\\cet4\\2022-06_p1.jsonl",
+            "line": 29,
+            "knowledge": [
+              "cet4.read",
+              "cet4.listen"
+            ],
+            "answer": "O",
+            "stem": "If we eat something too hot or too cold, or if the tooth is worn down enough where the tissue ____ is exposed, all of those things cause pain, and then the pain"
+          },
+          {
+            "id": "cet4-2022-06-p1-reading-30",
+            "file": "数据集\\四六级\\questions\\cet4\\2022-06_p1.jsonl",
+            "line": 30,
+            "knowledge": [
+              "cet4.read",
+              "cet4.listen"
+            ],
+            "answer": "O",
+            "stem": "If teeth didn't feel pain, we might ____ to use them in situations that damage them, and for humans, damaging 31 teeth is a problem because, unlike crocodiles, "
+          },
+          {
+            "id": "cet4-2023-06-p1-reading-50",
+            "file": "数据集\\四六级\\questions\\cet4\\2023-06_p1.jsonl",
+            "line": 50,
+            "knowledge": [
+              "cet4.read.detail",
+              "cet4.read.locate"
+            ],
+            "answer": "O",
+            "stem": "What does the author advocate for people to live well?"
+          },
+          {
+            "id": "cet6-2022-09-p1-listening-7",
+            "file": "数据集\\四六级\\questions\\cet6\\2022-09_p1.jsonl",
+            "line": 7,
+            "knowledge": [
+              "cet6.listen.detail"
+            ],
+            "answer": "D",
+            "stem": ""
+          }
+        ]
+      }
+    },
+    "resources": {
+      "passages\\reading.jsonl": {
+        "total": 449,
+        "with_knowledge": 449,
+        "with_ability": 449,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 449,
+        "with_exam": 449,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      },
+      "writing\\model_essays.jsonl": {
+        "total": 177,
+        "with_knowledge": 177,
+        "with_ability": 177,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 68,
+        "with_reference_translation": 0,
+        "source_file_exists": 61,
+        "with_exam": 177,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 58
+      },
+      "writing\\templates.jsonl": {
+        "total": 69,
+        "with_knowledge": 69,
+        "with_ability": 69,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 0,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      },
+      "translation\\items.jsonl": {
+        "total": 193,
+        "with_knowledge": 193,
+        "with_ability": 193,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 116,
+        "source_file_exists": 49,
+        "with_exam": 193,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 72
+      },
+      "vocabulary\\core_words.jsonl": {
+        "total": 3123,
+        "with_knowledge": 3123,
+        "with_ability": 3123,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 3123,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\phrases_highfreq.jsonl": {
+        "total": 1406,
+        "with_knowledge": 1406,
+        "with_ability": 1406,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 1406,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 7
+      },
+      "vocabulary\\translation_topic_words.jsonl": {
+        "total": 8,
+        "with_knowledge": 8,
+        "with_ability": 8,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 8,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\words_cet4.jsonl": {
+        "total": 4424,
+        "with_knowledge": 4424,
+        "with_ability": 4424,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 0,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      },
+      "vocabulary\\words_cet6.jsonl": {
+        "total": 5518,
+        "with_knowledge": 5518,
+        "with_ability": 5518,
+        "dangling_knowledge": 0,
+        "dangling_ability": 0,
+        "with_model_essay": 0,
+        "with_reference_translation": 0,
+        "source_file_exists": 0,
+        "with_exam": 0,
+        "with_exam_requirement_id": 0,
+        "duplicate_ids": 0
+      }
+    },
+    "passage_links": {
+      "question_with_passage_id": 3348,
+      "passage_question_links": 3395,
+      "dangling_passage_question_id": 0
+    },
+    "passage_link_samples": [],
+    "ontology": {
+      "knowledge_nodes": 48,
+      "ability_nodes": 28,
+      "edges": 99,
+      "edge_types": {
+        "supports": 26,
+        "sub_ability": 2,
+        "exemplifies": 38,
+        "prereq_of": 30,
+        "anchored_by": 3
+      },
+      "dangling_edges": [],
+      "dangling_edges_count": 0,
+      "prerequisite_dag": {
+        "nodes": 40,
+        "acyclic": true
+      },
+      "standards": [
+        {
+          "id": "std.cet.syllabus",
+          "name": "全国大学英语四、六级考试大纲",
+          "type": "考试大纲",
+          "authority": "教育部教育考试院",
+          "约束": [
+            "L1 考试结构",
+            "L2 模块与题型",
+            "分值与时间"
+          ]
+        },
+        {
+          "id": "std.cse",
+          "name": "中国英语能力等级量表 (CSE)",
+          "type": "国家标准",
+          "authority": "GB/T 41671-2022",
+          "约束": [
+            "能力等级描述",
+            "cse_level 标定"
+          ]
+        },
+        {
+          "id": "std.cet.wordlist",
+          "name": "CET 词汇表",
+          "type": "考试大纲附件",
+          "authority": "教育部教育考试院",
+          "约束": [
+            "词汇库 tier=outline 的范围"
+          ]
+        }
+      ],
+      "knowledge_with_authority_fields": 0,
+      "knowledge_without_ability": 10
+    },
+    "manifest_stats": {
+      "generated": "2026-10-02",
+      "source": "英语四六级资料合集（2026年最新）(1)",
+      "vocabulary": {
+        "words_cet4": 4424,
+        "words_cet6": 5518,
+        "core_words": 3123,
+        "phrases_highfreq": 1406,
+        "translation_topic_words": 8
+      },
+      "questions": {
+        "total": 5294,
+        "with_answer": 835,
+        "answer_fill_rate": 0.158,
+        "papers_total": 126,
+        "papers_full_25L_30R": 46,
+        "papers_missing_listening_without_ref": 10,
+        "detail": {
+          "cet4": {
+            "records": 2407,
+            "with_answer": 632,
+            "duplicate_ids": 0,
+            "by_type": {
+              "短篇新闻": 246,
+              "长对话": 278,
+              "听力篇章": 345,
+              "选词填空": 520,
+              "长篇阅读": 519,
+              "仔细阅读": 499
+            },
+            "by_module": {
+              "听力理解": 869,
+              "阅读理解": 1538
+            }
+          },
+          "cet6": {
+            "records": 2887,
+            "with_answer": 203,
+            "duplicate_ids": 0,
+            "by_type": {
+              "长对话": 336,
+              "听力篇章": 306,
+              "讲座/讲话": 435,
+              "长篇阅读": 606,
+              "仔细阅读": 604,
+              "选词填空": 600
+            },
+            "by_module": {
+              "听力理解": 1077,
+              "阅读理解": 1810
+            }
+          }
+        }
+      },
+      "passages": {
+        "reading": 449,
+        "listening_transcripts": 0
+      },
+      "writing": {
+        "model_essays": 177,
+        "with_model_essay": 0,
+        "templates": 69
+      },
+      "translation": {
+        "items": 193,
+        "with_reference": 0
+      },
+      "ontology": {
+        "knowledge_nodes": 48
+      },
+      "not_ingested": {
+        "listening_audio": "120 个 MP3 仅在 manifest/ingest_log.md 登记路径，不入向量库",
+        "listening_transcripts": "四级/六级《听力原文合集》PDF 均为扫描件（无文本层），待 OCR 补录",
+        "sessions_2026_06": "2026年6月真题册/解析册为扫描件，仅登记原件路径，待 OCR",
+        "answer_books_corrupt_font": "2016.06-2017.06 部分解析册 PDF 字体映射损坏（文本为乱码），答案待 OCR/人工补录"
+      },
+      "answer_fill_report": "manifest/answers_fill_report.json",
+      "parse_report": "manifest/parse_report.json"
+    }
+  },
+  "ntce": {
+    "questions": {
+      "counts": {
+        "total": 14500,
+        "with_knowledge": 12109,
+        "with_ability_field": 0,
+        "with_answer": 11062,
+        "with_difficulty": 0,
+        "with_analysis_content": 71,
+        "with_structured_analysis": 0,
+        "source_verified_true": 14500,
+        "source_file_exists": 14500,
+        "with_tags": 0,
+        "marked_duplicate": 1619,
+        "with_material": 96,
+        "blank_stem": 52,
+        "with_audio_field": 0,
+        "with_exam_requirement_id": 0,
+        "coarse_read_listen_fallback": 0,
+        "review:待复核": 9667,
+        "tagger:rule-v1": 12109,
+        "type:单选": 10514,
+        "answer_status:letter": 10991,
+        "exam:NTCE": 14041,
+        "source_verified_but_question_unreviewed": 13409,
+        "review:低置信": 3742,
+        "answer_status:reference": 3339,
+        "type:简答": 1075,
+        "type:材料分析": 992,
+        "type:教学设计": 515,
+        "tagger:None": 2391,
+        "type:未标注": 675,
+        "untagged": 2391,
+        "review:已清洗": 1091,
+        "answer_status:missing": 99,
+        "answer_status:brief": 71,
+        "type:诊断": 10,
+        "answer_not_in_options": 23,
+        "type:解答": 33,
+        "type:论述": 432,
+        "type:活动设计": 33,
+        "exam:省考": 459,
+        "type:多选": 98,
+        "type:写作": 40,
+        "type:辨析": 83,
+        "duplicate_id_rows": 0
+      },
+      "rates": {
+        "with_knowledge": 83.51,
+        "with_ability_field": 0.0,
+        "with_answer": 76.29,
+        "with_difficulty": 0.0,
+        "with_analysis_content": 0.49,
+        "with_structured_analysis": 0.0,
+        "with_tags": 0.0,
+        "with_material": 0.66,
+        "with_audio_field": 0.0,
+        "with_exam_requirement_id": 0.0
+      },
+      "segments": {
+        "chuzhong/dili": {
+          "total": 422,
+          "with_knowledge": 399,
+          "with_answer": 324,
+          "with_analysis_content": 1,
+          "marked_duplicate": 97
+        },
+        "chuzhong/huaxue": {
+          "total": 267,
+          "with_knowledge": 267,
+          "with_answer": 212,
+          "with_analysis_content": 0,
+          "marked_duplicate": 37
+        },
+        "chuzhong/lishi": {
+          "total": 428,
+          "with_knowledge": 428,
+          "with_answer": 342,
+          "with_analysis_content": 8,
+          "marked_duplicate": 42
+        },
+        "chuzhong/meishu": {
+          "total": 648,
+          "with_knowledge": 648,
+          "with_answer": 518,
+          "with_analysis_content": 2,
+          "marked_duplicate": 61
+        },
+        "chuzhong/shengwu": {
+          "total": 420,
+          "with_knowledge": 420,
+          "with_answer": 347,
+          "with_analysis_content": 1,
+          "marked_duplicate": 32
+        },
+        "chuzhong/shuxue": {
+          "total": 269,
+          "with_knowledge": 255,
+          "with_answer": 125,
+          "with_analysis_content": 1,
+          "marked_duplicate": 25
+        },
+        "chuzhong/tiyu": {
+          "total": 225,
+          "with_knowledge": 225,
+          "with_answer": 188,
+          "with_analysis_content": 0,
+          "marked_duplicate": 10
+        },
+        "chuzhong/wuli": {
+          "total": 174,
+          "with_knowledge": 174,
+          "with_answer": 110,
+          "with_analysis_content": 2,
+          "marked_duplicate": 19
+        },
+        "chuzhong/xinxi": {
+          "total": 292,
+          "with_knowledge": 292,
+          "with_answer": 205,
+          "with_analysis_content": 4,
+          "marked_duplicate": 26
+        },
+        "chuzhong/yingyu": {
+          "total": 643,
+          "with_knowledge": 643,
+          "with_answer": 586,
+          "with_analysis_content": 1,
+          "marked_duplicate": 36
+        },
+        "chuzhong/yinyue": {
+          "total": 327,
+          "with_knowledge": 327,
+          "with_answer": 278,
+          "with_analysis_content": 2,
+          "marked_duplicate": 16
+        },
+        "chuzhong/yuwen": {
+          "total": 415,
+          "with_knowledge": 388,
+          "with_answer": 298,
+          "with_analysis_content": 4,
+          "marked_duplicate": 69
+        },
+        "chuzhong/zhengzhi": {
+          "total": 486,
+          "with_knowledge": 486,
+          "with_answer": 419,
+          "with_analysis_content": 1,
+          "marked_duplicate": 2
+        },
+        "gaozhong/dili": {
+          "total": 329,
+          "with_knowledge": 329,
+          "with_answer": 266,
+          "with_analysis_content": 1,
+          "marked_duplicate": 92
+        },
+        "gaozhong/huaxue": {
+          "total": 312,
+          "with_knowledge": 273,
+          "with_answer": 249,
+          "with_analysis_content": 0,
+          "marked_duplicate": 65
+        },
+        "gaozhong/lishi": {
+          "total": 428,
+          "with_knowledge": 289,
+          "with_answer": 337,
+          "with_analysis_content": 2,
+          "marked_duplicate": 162
+        },
+        "gaozhong/meishu": {
+          "total": 553,
+          "with_knowledge": 553,
+          "with_answer": 425,
+          "with_analysis_content": 2,
+          "marked_duplicate": 19
+        },
+        "gaozhong/shengwu": {
+          "total": 509,
+          "with_knowledge": 509,
+          "with_answer": 425,
+          "with_analysis_content": 6,
+          "marked_duplicate": 93
+        },
+        "gaozhong/shuxue": {
+          "total": 282,
+          "with_knowledge": 282,
+          "with_answer": 131,
+          "with_analysis_content": 1,
+          "marked_duplicate": 47
+        },
+        "gaozhong/tiyu": {
+          "total": 267,
+          "with_knowledge": 267,
+          "with_answer": 224,
+          "with_analysis_content": 1,
+          "marked_duplicate": 6
+        },
+        "gaozhong/wuli": {
+          "total": 184,
+          "with_knowledge": 184,
+          "with_answer": 119,
+          "with_analysis_content": 0,
+          "marked_duplicate": 21
+        },
+        "gaozhong/xinxi": {
+          "total": 255,
+          "with_knowledge": 255,
+          "with_answer": 179,
+          "with_analysis_content": 6,
+          "marked_duplicate": 34
+        },
+        "gaozhong/yingyu": {
+          "total": 599,
+          "with_knowledge": 599,
+          "with_answer": 547,
+          "with_analysis_content": 0,
+          "marked_duplicate": 159
+        },
+        "gaozhong/yinyue": {
+          "total": 321,
+          "with_knowledge": 321,
+          "with_answer": 277,
+          "with_analysis_content": 1,
+          "marked_duplicate": 17
+        },
+        "gaozhong/yuwen": {
+          "total": 328,
+          "with_knowledge": 328,
+          "with_answer": 231,
+          "with_analysis_content": 2,
+          "marked_duplicate": 35
+        },
+        "gaozhong/zhengzhi": {
+          "total": 490,
+          "with_knowledge": 490,
+          "with_answer": 416,
+          "with_analysis_content": 1,
+          "marked_duplicate": 120
+        },
+        "xiaoxue/jiaoxue": {
+          "total": 596,
+          "with_knowledge": 416,
+          "with_answer": 397,
+          "with_analysis_content": 1,
+          "marked_duplicate": 31
+        },
+        "xiaoxue/jiaoyuxinlixue": {
+          "total": 36,
+          "with_knowledge": 0,
+          "with_answer": 36,
+          "with_analysis_content": 0,
+          "marked_duplicate": 0
+        },
+        "xiaoxue/jiaoyuxue": {
+          "total": 170,
+          "with_knowledge": 0,
+          "with_answer": 120,
+          "with_analysis_content": 8,
+          "marked_duplicate": 1
+        },
+        "xiaoxue/zonghe": {
+          "total": 620,
+          "with_knowledge": 288,
+          "with_answer": 542,
+          "with_analysis_content": 0,
+          "marked_duplicate": 71
+        },
+        "youer/baojiao": {
+          "total": 429,
+          "with_knowledge": 244,
+          "with_answer": 283,
+          "with_analysis_content": 0,
+          "marked_duplicate": 37
+        },
+        "youer/mianshi": {
+          "total": 153,
+          "with_knowledge": 149,
+          "with_answer": 0,
+          "with_analysis_content": 0,
+          "marked_duplicate": 1
+        },
+        "youer/zonghe": {
+          "total": 733,
+          "with_knowledge": 307,
+          "with_answer": 647,
+          "with_analysis_content": 0,
+          "marked_duplicate": 3
+        },
+        "zhongxiaoxue/mianshi": {
+          "total": 273,
+          "with_knowledge": 273,
+          "with_answer": 0,
+          "with_analysis_content": 0,
+          "marked_duplicate": 33
+        },
+        "zhongxue/jiaoyuxinlixue": {
+          "total": 181,
+          "with_knowledge": 0,
+          "with_answer": 140,
+          "with_analysis_content": 10,
+          "marked_duplicate": 1
+        },
+        "zhongxue/jiaoyuxue": {
+          "total": 72,
+          "with_knowledge": 0,
+          "with_answer": 57,
+          "with_analysis_content": 2,
+          "marked_duplicate": 2
+        },
+        "zhongxue/jiaoyuzhishi": {
+          "total": 664,
+          "with_knowledge": 462,
+          "with_answer": 450,
+          "with_analysis_content": 0,
+          "marked_duplicate": 4
+        },
+        "zhongxue/zonghe": {
+          "total": 700,
+          "with_knowledge": 339,
+          "with_answer": 612,
+          "with_analysis_content": 0,
+          "marked_duplicate": 93
+        }
+      },
+      "samples": {
+        "source_verified_but_question_unreviewed": [
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q01",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 1,
+            "knowledge": [
+              "ntce.chuzhong.dili.s1"
+            ],
+            "answer": "D",
+            "stem": "下列大气圈中，能够反射无线电波的是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q02",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 2,
+            "knowledge": [
+              "ntce.chuzhong.dili.s1"
+            ],
+            "answer": "D",
+            "stem": "若流星体穿过地球大气层，坠入陆地表面的可能性约是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q03",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 3,
+            "knowledge": [
+              "ntce.chuzhong.dili.s1"
+            ],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q04",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 4,
+            "knowledge": [
+              "ntce.chuzhong.dili.s1"
+            ],
+            "answer": null,
+            "stem": "暂缺"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx-k2.q05",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+            "line": 5,
+            "knowledge": [
+              "ntce.chuzhong.dili.s1"
+            ],
+            "answer": "B",
+            "stem": "下图为某小区规划示意图，该小区位于21°34´N，拟在乙处建一新楼，为保证楼房一层全年均可采光，甲乙楼距X最小应是（ ）。"
+          }
+        ],
+        "untagged": [
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx.q01",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx.jsonl",
+            "line": 1,
+            "knowledge": [],
+            "answer": "D",
+            "stem": "下列大气圈中．能够反射无线电波的是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx.q02",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx.jsonl",
+            "line": 2,
+            "knowledge": [],
+            "answer": "D",
+            "stem": "若流星体穿过地球大气层，坠入陆地表面的可能性约是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx.q03",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx.jsonl",
+            "line": 3,
+            "knowledge": [],
+            "answer": "C",
+            "stem": "下图为某小区规划示意图，该小区位于21°34´N，拟在乙处建一新楼，为保证楼房一层全年均可采光．甲乙楼距X最小应是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx.q04",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx.jsonl",
+            "line": 4,
+            "knowledge": [],
+            "answer": "B",
+            "stem": "改革开放以来。随着生产力水平的提高，我国东部一些地区劳动力由第一产业向第二产业转移．再向第三产业转移。这一现象遵循的规律是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.dili.2014a-jx.q05",
+            "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx.jsonl",
+            "line": 5,
+            "knowledge": [],
+            "answer": "C",
+            "stem": "把冰鞋的冰刀改为滚轴，形成新的“旱冰鞋”，这种文化扩散现象是（ ）。"
+          }
+        ],
+        "answer_not_in_options": [
+          {
+            "id": "ntce.chuzhong.huaxue.2017b-jx.q08",
+            "file": "教资KB\\questions\\chuzhong\\huaxue\\2017b-jx.jsonl",
+            "line": 8,
+            "knowledge": [
+              "ntce.chuzhong.huaxue.s1"
+            ],
+            "answer": "C",
+            "stem": "下列关于自发反应的表述正确的是( )。"
+          },
+          {
+            "id": "ntce.chuzhong.shengwu.2017b.q18",
+            "file": "教资KB\\questions\\chuzhong\\shengwu\\2017b.jsonl",
+            "line": 18,
+            "knowledge": [
+              "ntce.chuzhong.shengwu.s1"
+            ],
+            "answer": "C",
+            "stem": "有关环境容纳量的叙述。正确的是()。"
+          },
+          {
+            "id": "ntce.chuzhong.shengwu.2021b.q09",
+            "file": "教资KB\\questions\\chuzhong\\shengwu\\2021b.jsonl",
+            "line": 9,
+            "knowledge": [
+              "ntce.chuzhong.shengwu.s1"
+            ],
+            "answer": "D",
+            "stem": "下列关于淀粉、脂肪、蛋白质的叙述，不正确的是（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.shuxue.2021b.q03",
+            "file": "教资KB\\questions\\chuzhong\\shuxue\\2021b.jsonl",
+            "line": 3,
+            "knowledge": [
+              "ntce.chuzhong.shuxue.s1"
+            ],
+            "answer": "C",
+            "stem": "，，因为三维向量，如阵，，如若，则（ ）。"
+          },
+          {
+            "id": "ntce.chuzhong.shuxue.2022b.q01",
+            "file": "教资KB\\questions\\chuzhong\\shuxue\\2022b.jsonl",
+            "line": 1,
+            "knowledge": [
+              "ntce.chuzhong.shuxue.s1"
+            ],
+            "answer": "D",
+            "stem": "函数零点的个数是（ ）。"
+          }
+        ]
+      }
+    },
+    "ability_path_coverage": {
+      "questions_with_direct_ability_path": 927,
+      "questions_with_inherited_ability_path": 1153,
+      "unique_questions": 12881,
+      "unique_with_knowledge": 10694,
+      "national_exam_questions": 14041,
+      "national_exam_with_knowledge": 12109
+    },
+    "no_ability_path_samples": [
+      {
+        "id": "ntce.chuzhong.dili.2014a-jx-k2.q01",
+        "knowledge_ids": [
+          "ntce.chuzhong.dili.s1"
+        ],
+        "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+        "line": 1
+      },
+      {
+        "id": "ntce.chuzhong.dili.2014a-jx-k2.q02",
+        "knowledge_ids": [
+          "ntce.chuzhong.dili.s1"
+        ],
+        "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+        "line": 2
+      },
+      {
+        "id": "ntce.chuzhong.dili.2014a-jx-k2.q03",
+        "knowledge_ids": [
+          "ntce.chuzhong.dili.s1"
+        ],
+        "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+        "line": 3
+      },
+      {
+        "id": "ntce.chuzhong.dili.2014a-jx-k2.q04",
+        "knowledge_ids": [
+          "ntce.chuzhong.dili.s1"
+        ],
+        "file": "教资KB\\questions\\chuzhong\\dili\\2014a-jx-k2.jsonl",
+        "line": 4
+      }
+    ],
+    "graph": {
+      "nodes": 14794,
+      "edges": 29849,
+      "layers": {
+        "L1": 7,
+        "S1": 45,
+        "L2": 38,
+        "L3": 186,
+        "S2": 18,
+        "L4": 14500
+      },
+      "types": {
+        "exam": 7,
+        "standard": 45,
+        "module": 38,
+        "knowledge_node": 186,
+        "literacy": 3,
+        "ability": 15,
+        "question": 14500
+      },
+      "edge_types": {
+        "basis": 45,
+        "contains": 14538,
+        "prerequisite": 119,
+        "has_child": 33,
+        "belongs_to": 6,
+        "comprises": 30,
+        "supports": 23,
+        "tagged": 15055
+      },
+      "dangling_edges_count": 0,
+      "dangling_edges": [],
+      "knowledge_nodes_with_direct_ability": 23,
+      "knowledge_nodes_with_inherited_ability": 34,
+      "module_to_knowledge_edge_count": 0,
+      "prerequisite_dag": {
+        "nodes": 153,
+        "acyclic": true
+      },
+      "standard_nodes_verified": 0,
+      "standard_nodes_with_source_file_or_url": 0
+    },
+    "outline": {
+      "files": 34,
+      "verified": 0,
+      "knowledge_nodes": 186
+    },
+    "materials": 96,
+    "manifest": {
+      "name": "教资真题知识库 v1",
+      "generated": "2026-10-02",
+      "source_dir": "教资/真题",
+      "source_files": 695,
+      "questions": 14500,
+      "materials": 96,
+      "duplicate_questions_marked": 1619,
+      "folder_duplicates_skipped": 72,
+      "by_level": {
+        "youer": 1315,
+        "xiaoxue": 1422,
+        "zhongxiaoxue": 273,
+        "zhongxue": 1617,
+        "chuzhong": 5016,
+        "gaozhong": 4857
+      },
+      "by_level_subject": {
+        "chuzhong/dili": 422,
+        "chuzhong/huaxue": 267,
+        "chuzhong/lishi": 428,
+        "chuzhong/meishu": 648,
+        "chuzhong/shengwu": 420,
+        "chuzhong/shuxue": 269,
+        "chuzhong/tiyu": 225,
+        "chuzhong/wuli": 174,
+        "chuzhong/xinxi": 292,
+        "chuzhong/yingyu": 643,
+        "chuzhong/yinyue": 327,
+        "chuzhong/yuwen": 415,
+        "chuzhong/zhengzhi": 486,
+        "gaozhong/dili": 329,
+        "gaozhong/huaxue": 312,
+        "gaozhong/lishi": 428,
+        "gaozhong/meishu": 553,
+        "gaozhong/shengwu": 509,
+        "gaozhong/shuxue": 282,
+        "gaozhong/tiyu": 267,
+        "gaozhong/wuli": 184,
+        "gaozhong/xinxi": 255,
+        "gaozhong/yingyu": 599,
+        "gaozhong/yinyue": 321,
+        "gaozhong/yuwen": 328,
+        "gaozhong/zhengzhi": 490,
+        "xiaoxue/jiaoxue": 596,
+        "xiaoxue/jiaoyuxinlixue": 36,
+        "xiaoxue/jiaoyuxue": 170,
+        "xiaoxue/zonghe": 620,
+        "youer/baojiao": 429,
+        "youer/mianshi": 153,
+        "youer/zonghe": 733,
+        "zhongxiaoxue/mianshi": 273,
+        "zhongxue/jiaoyuxinlixue": 181,
+        "zhongxue/jiaoyuxue": 72,
+        "zhongxue/jiaoyuzhishi": 664,
+        "zhongxue/zonghe": 700
+      },
+      "known_limitations": [
+        "原库基本无解析:answer_status=letter/reference 占多数,analysis 字段多为空",
+        "结构切分为规则解析,低置信卷与异常题见 qa_report.md",
+        "省考老卷(四川/辽宁)单独标记 exam=省考"
+      ],
+      "field_dict": "见 教资知识库整理方案.md 3.1",
+      "tagging": {
+        "tagger": "rule-v1",
+        "status": "自动初标(关键词规则,待专家审核)",
+        "coverage": {
+          "chuzhong/dili": {
+            "tagged": 399,
+            "total": 422
+          },
+          "chuzhong/huaxue": {
+            "tagged": 267,
+            "total": 267
+          },
+          "chuzhong/lishi": {
+            "tagged": 428,
+            "total": 428
+          },
+          "chuzhong/meishu": {
+            "tagged": 648,
+            "total": 648
+          },
+          "chuzhong/shengwu": {
+            "tagged": 420,
+            "total": 420
+          },
+          "chuzhong/shuxue": {
+            "tagged": 255,
+            "total": 269
+          },
+          "chuzhong/tiyu": {
+            "tagged": 225,
+            "total": 225
+          },
+          "chuzhong/wuli": {
+            "tagged": 174,
+            "total": 174
+          },
+          "chuzhong/xinxi": {
+            "tagged": 292,
+            "total": 292
+          },
+          "chuzhong/yingyu": {
+            "tagged": 643,
+            "total": 643
+          },
+          "chuzhong/yinyue": {
+            "tagged": 327,
+            "total": 327
+          },
+          "chuzhong/yuwen": {
+            "tagged": 388,
+            "total": 415
+          },
+          "chuzhong/zhengzhi": {
+            "tagged": 486,
+            "total": 486
+          },
+          "gaozhong/dili": {
+            "tagged": 329,
+            "total": 329
+          },
+          "gaozhong/huaxue": {
+            "tagged": 273,
+            "total": 312
+          },
+          "gaozhong/lishi": {
+            "tagged": 289,
+            "total": 428
+          },
+          "gaozhong/meishu": {
+            "tagged": 553,
+            "total": 553
+          },
+          "gaozhong/shengwu": {
+            "tagged": 509,
+            "total": 509
+          },
+          "gaozhong/shuxue": {
+            "tagged": 282,
+            "total": 282
+          },
+          "gaozhong/tiyu": {
+            "tagged": 267,
+            "total": 267
+          },
+          "gaozhong/wuli": {
+            "tagged": 184,
+            "total": 184
+          },
+          "gaozhong/xinxi": {
+            "tagged": 255,
+            "total": 255
+          },
+          "gaozhong/yingyu": {
+            "tagged": 599,
+            "total": 599
+          },
+          "gaozhong/yinyue": {
+            "tagged": 321,
+            "total": 321
+          },
+          "gaozhong/yuwen": {
+            "tagged": 328,
+            "total": 328
+          },
+          "gaozhong/zhengzhi": {
+            "tagged": 490,
+            "total": 490
+          },
+          "xiaoxue/jiaoxue": {
+            "tagged": 416,
+            "total": 596
+          },
+          "xiaoxue/jiaoyuxinlixue": {
+            "tagged": 0,
+            "total": 36
+          },
+          "xiaoxue/jiaoyuxue": {
+            "tagged": 0,
+            "total": 170
+          },
+          "xiaoxue/zonghe": {
+            "tagged": 288,
+            "total": 620
+          },
+          "youer/baojiao": {
+            "tagged": 244,
+            "total": 429
+          },
+          "youer/mianshi": {
+            "tagged": 149,
+            "total": 153
+          },
+          "youer/zonghe": {
+            "tagged": 307,
+            "total": 733
+          },
+          "zhongxiaoxue/mianshi": {
+            "tagged": 273,
+            "total": 273
+          },
+          "zhongxue/jiaoyuxinlixue": {
+            "tagged": 0,
+            "total": 181
+          },
+          "zhongxue/jiaoyuxue": {
+            "tagged": 0,
+            "total": 72
+          },
+          "zhongxue/jiaoyuzhishi": {
+            "tagged": 462,
+            "total": 664
+          },
+          "zhongxue/zonghe": {
+            "tagged": 339,
+            "total": 700
+          }
+        }
+      },
+      "graph": {
+        "standard": "L1考试→L2模块→L3知识点(含先修)→L4题目;L5掌握度为运行时数据,按(用户,知识点)更新",
+        "nodes": 14794,
+        "edges": 29849,
+        "by_layer": {
+          "L1": 7,
+          "L2": 38,
+          "L3": 186,
+          "L4": 14500,
+          "S1": 45,
+          "S2": 18
+        },
+        "by_edge_type": {
+          "basis": 45,
+          "belongs_to": 6,
+          "comprises": 30,
+          "contains": 14538,
+          "has_child": 33,
+          "prerequisite": 119,
+          "supports": 23,
+          "tagged": 15055
+        },
+        "files": [
+          "graph/nodes.jsonl",
+          "graph/edges.jsonl"
+        ],
+        "note": "先修关系/素养/能力层为建议稿(verified=false,待教研审核);题目标签沿用 review.tagger"
+      }
+    }
+  },
+  "json_errors": []
+}

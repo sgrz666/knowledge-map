@@ -9,6 +9,8 @@ import re
 import sys
 
 from build_kb import OUT, out_file
+from ntce_ontology import expand_outline
+from ntce_io import atomic_write
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -174,15 +176,24 @@ def gen_outline():
             'level': level, 'subject': subject, 'subject_cn': cn,
             'verified': False,
             'note': '依据 NTCE 公开考试大纲模块结构整理的种子树,待对照官方大纲原文核对;keywords 供规则打标使用',
-            'nodes': [{'node_id': 'ntce.%s.%s.%s' % (level, subject, nid),
-                       'name': name,
-                       'parent': ('ntce.%s.%s.%s' % (level, subject, parent)) if parent else None,
-                       'keywords': kws}
-                      for nid, name, parent, kws in nodes],
+            'nodes': expand_outline(level, subject, nodes),
         }
         path = out_file('outline', '%s.%s.json' % (level, subject))
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding='utf-8')
+        if path.exists():
+            previous = json.loads(path.read_text(encoding='utf-8'))
+            old_nodes = {n['node_id']: n for n in previous.get('nodes', [])}
+            for node in doc['nodes']:
+                old = old_nodes.get(node['node_id'], {})
+                if old.get('checked_by') or old.get('expert_verified'):
+                    node.update(old)
+                else:
+                    node.update({key: value for key, value in old.items() if key not in node})
+            doc['nodes'].extend(n for nid, n in old_nodes.items() if nid not in {n['node_id'] for n in doc['nodes']})
+            doc.update({key: value for key, value in previous.items() if key not in doc or key in ('checked_by', 'evidence')})
+            if previous.get('checked_by'):
+                doc['verified'] = previous.get('verified', False)
+        atomic_write(path, json.dumps(doc, ensure_ascii=False, indent=1))
         print('outline/%s.%s.json (%d 节点)' % (level, subject, len(doc['nodes'])))
 
 
@@ -218,78 +229,9 @@ def pick_nodes(text, nodes, max_n=3):
 
 
 def tag_all():
-    outline_cache = {}
-    for (level, subject), (cn, nodes) in OUTLINES.items():
-        outline_cache[(level, subject)] = [
-            {'node_id': 'ntce.%s.%s.%s' % (level, subject, nid), 'name': name, 'keywords': kws}
-            for nid, name, parent, kws in nodes]
-
-    total = tagged = 0
-    cov = {}
-    for qf in sorted(OUT.glob('questions/*/*/*.jsonl')):
-        level = qf.parent.parent.name
-        subject = qf.parent.name
-        recs = [json.loads(l) for l in qf.open(encoding='utf-8')]
-        nodes = outline_cache.get((level, subject))
-        changed = 0
-        for r in recs:
-            total += 1
-            if nodes is None:
-                continue
-            c = r['content']
-            text = c['stem'] + ' ' + ' '.join(o['text'] for o in c['options'])
-            ids = []
-            tnode = TYPE_NODE.get((subject, r['question_type']))
-            if not tnode and subject in SUBJECT_CN:
-                tnode = SUBJECT_TYPE_NODE.get(r['question_type'])
-            if tnode:
-                ids.append('ntce.%s.%s.%s' % (level, subject, tnode))
-            kw_ids = pick_nodes(text, nodes)
-            ids += [i for i in kw_ids if i not in ids]
-            # 面试卷优先按章节(卷名)归类
-            if subject == 'mianshi' and r['source'].get('paper'):
-                for key, nid in CHAPTER_NODE.items():
-                    if key in r['source']['paper']:
-                        cid = 'ntce.%s.%s.%s' % (level, subject, nid)
-                        ids = [cid] + [i for i in ids if i != cid]
-                        break
-            if ids:
-                r['knowledge_node_ids'] = ids[:3]
-                r['review']['tagger'] = 'rule-v1'
-                tagged += 1
-                changed += 1
-            else:
-                r['knowledge_node_ids'] = []
-        key = '%s/%s' % (level, subject)
-        if key not in cov:
-            cov[key] = [0, 0]
-        cov[key][0] += changed
-        cov[key][1] += len(recs)
-        qtext = '\n'.join(json.dumps(r, ensure_ascii=False) for r in recs) + '\n'
-        qf.write_text(qtext, encoding='utf-8')
-        # 同步卡片 frontmatter
-        if nodes is not None:
-            for r in recs:
-                if r['extra'].get('duplicate_of'):
-                    continue
-                card = out_file('cards', level, subject, r['source']['session'],
-                                'q%02d.md' % r['extra']['paper_order'])
-                if not card.exists():
-                    continue
-                txt = card.read_text(encoding='utf-8')
-                ids = ', '.join(r['knowledge_node_ids'])
-                new = re.sub(r'knowledge_nodes: \[\]', 'knowledge_nodes: [%s]' % ids, txt, count=1)
-                if new != txt:
-                    card.write_text(new, encoding='utf-8')
-    print('打标完成:%d/%d 题 (%.1f%%)' % (tagged, total, 100.0 * tagged / max(total, 1)))
-    for k, (c_, t_) in sorted(cov.items()):
-        print('  %-28s %d/%d' % (k, c_, t_))
-    # MANIFEST 补充打标信息
-    mf = out_file('MANIFEST.json')
-    manifest = json.loads(mf.read_text(encoding='utf-8'))
-    manifest['tagging'] = {'tagger': 'rule-v1', 'status': '自动初标(关键词规则,待专家审核)',
-                           'coverage': {k: {'tagged': v[0], 'total': v[1]} for k, v in cov.items()}}
-    mf.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
+    # 单一入口同步题目、能力、条目、卡片与图谱，禁止模块兜底。
+    from ntce_repair import repair
+    repair()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,217 @@
+{
+  "reviewed_at": "2026-10-04T00:18:57.811032+08:00",
+  "reviewer_type": "AI_editorial_review",
+  "expert_verified": false,
+  "sample_file": "教资KB/review/llm_analysis_sample.jsonl",
+  "sample_sha256": "73687fcfa0efd086050c88150a990e5474458b79946b24db138af6623ebcbead",
+  "sample_count": 20,
+  "review_scope": "逐条阅读20题完整题干、选项、原始答案、四段解析；检查是否答非所问、篡改选项、漏读否定设问或虚构题干事实。并检查生成模型、输入完整状态和候选答案一致性。",
+  "result": "未发现明确的答非所问或答案字母冲突；保持待专家审核，不扩大付费解析范围。",
+  "limitations": [
+    "原始答案仍是题库来源候选，不是已核定官方答案。",
+    "trace_back主要是概念与判断步骤，并未提供教材逐页引文，不能当已出版解析。",
+    "心理学概念的定义精度、理论适用范围和师德评价强弱仍需学科专家核定。"
+  ],
+  "items": [
+    {
+      "question_id": "ntce.xiaoxue.zonghe.2011b.q26",
+      "source_answer": "D",
+      "draft_answer": "D",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.xiaoxue.zonghe.2013b.q03",
+      "source_answer": "C",
+      "draft_answer": "C",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.xiaoxue.zonghe.2015a.q11",
+      "source_answer": "C",
+      "draft_answer": "C",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.xiaoxue.zonghe.2016b.q03",
+      "source_answer": "D",
+      "draft_answer": "D",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.xiaoxue.zonghe.2019b.q12",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.youer.zonghe.2017a.q03",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.youer.zonghe.2017a.q13",
+      "source_answer": "C",
+      "draft_answer": "C",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.youer.zonghe.2020b-k2.q01",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.youer.zonghe.2020b-k2.q03",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.youer.zonghe.2021a.q02",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.jiaoyuzhishi.2015a.q14",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.jiaoyuzhishi.2016b.q16",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.jiaoyuzhishi.2016b.q21",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.jiaoyuzhishi.2017b.q17",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.jiaoyuzhishi.2022b.q20",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.zonghe.2011b.q01",
+      "source_answer": "D",
+      "draft_answer": "D",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.zonghe.2012a.q14",
+      "source_answer": "C",
+      "draft_answer": "C",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.zonghe.2012b.q16",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.zonghe.2014b.q03",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    },
+    {
+      "question_id": "ntce.zhongxue.zonghe.2019a.q02",
+      "source_answer": "B",
+      "draft_answer": "B",
+      "answer_consistent": true,
+      "response_model": "deepseek-flash",
+      "input_complete": true,
+      "has_all_analysis_text": true,
+      "expert_verified": false
+    }
+  ]
+}

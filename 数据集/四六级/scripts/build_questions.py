@@ -10,6 +10,7 @@
 import argparse, json, re, sys
 from pathlib import Path
 from docx import Document
+from cet_common import merge_jsonl
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -68,6 +69,7 @@ def qrec(exam, ym, paper, module, n, stem, opts, group, passage_id, src):
         "exam": exam, "year": ym, "paper": paper, "module": module, "question_type": qt,
         "number": n, "group": group, "passage_id": passage_id,
         "stem": stem, "options": opts or {}, "answer": None, "analysis": None,
+        "option_parse_method": getattr(opts, 'method', None),
         "knowledge_nodes": kn, "difficulty": None, "analysis_status": None,
         "source": src, "review": {"status": "auto_parsed"},
         "text": f"【{ym.replace('-','年')}月{exam}真题第{paper}套·{'听力' if module=='听力' else '阅读'}·{qt}】{n}. {stem or ''} {opt_s}".strip(),
@@ -91,6 +93,32 @@ def _split_pieces(text):
             pieces.append((m.group(1), seg))
     return pieces
 
+class ParsedOptions(dict):
+    method = 'explicit_two_column_C_D_sequence'
+
+def _two_column_entries(entries, qn_range):
+    """Accept only complete explicit A/B rows followed by exactly one C/D pair per row."""
+    groups=[]
+    for num,text in entries:
+        if num is not None: groups.append([num,[]])
+        elif not groups: return None
+        groups[-1][1].extend(_split_pieces(text))
+    if len(groups)<2 or [g[0] for g in groups]!=list(qn_range): return None
+    bodies=[]
+    for num,pieces in groups:
+        leading=[]
+        while pieces and pieces[0][0] is None: leading.append(pieces.pop(0)[1])
+        # Unlabelled option continuation / missing letters require another parser.
+        if any(p[0] is None for p in pieces): return None
+        bodies.append((num,' '.join(leading),pieces))
+    if any([p[0] for p in ps]!=['A','B'] for _,_,ps in bodies[:-1]): return None
+    tail=bodies[-1][2]
+    if [p[0] for p in tail]!=['A','B']+['C','D']*len(groups): return None
+    pairs=tail[2:];out=[]
+    for i,(num,stem,pieces) in enumerate(bodies):
+        out.append((num,stem,ParsedOptions(pieces[:2]+pairs[2*i:2*i+2])))
+    return out
+
 def parse_question_blocks(lines, qn_range):
     """题块提取 v3：老 docx 题号/选项字母常在转换中丢失。
     切题信号：显式题号 / A) 重现 / 选项片段数已满4。
@@ -109,6 +137,8 @@ def parse_question_blocks(lines, qn_range):
         else:
             entries.append([None, t])
 
+    two_column = _two_column_entries(entries, qn_range)
+    if two_column is not None: return two_column
     blocks = []
     for num, text in entries:
         new = False
@@ -207,9 +237,9 @@ def extract_bank(seg, table_cells):
             chunk = chunk.strip()
             if not chunk:
                 continue
-            m = re.match(r"^([A-O])[)）]\s*([a-zA-Z][\w'\-\.]*)\s*$", chunk)
+            m = re.match(r"^([A-O0])[)）]\s*([a-zA-Z][\w'\-\.]*)\s*$", chunk)
             if m:
-                bank.setdefault(m.group(1), m.group(2))
+                bank.setdefault('O' if m.group(1)=='0' else m.group(1), m.group(2))
             elif re.match(r"^[a-zA-Z][\w'\-\.]*$", chunk) and len(chunk) <= 24:
                 nxt = next((c for c in "ABCDEFGHIJKLMNO" if c not in bank), None)
                 if nxt:
@@ -217,8 +247,8 @@ def extract_bank(seg, table_cells):
     # 2) 段落兜底
     if len(bank) < 15:
         for t in seg:
-            for m in re.finditer(r"(?:^|\s)([A-O])[)）]\s*([a-zA-Z][\w'\-\.]*)", t):
-                bank.setdefault(m.group(1), m.group(2))
+            for m in re.finditer(r"(?:^|\s)([A-O0])[)）]\s*([a-zA-Z][\w'\-\.]*)", t):
+                bank.setdefault('O' if m.group(1)=='0' else m.group(1), m.group(2))
     return bank
 
 def parse_paper(paras, banks, exam, ym, paper, src):
@@ -463,24 +493,12 @@ def load_docx(path: Path):
     from docx.oxml.ns import qn
     from docx.table import Table
     from docx.text.paragraph import Paragraph
-    d = Document(path)
-    lines, cells = [], []
-    for child in d.element.body.iterchildren():
-        if child.tag == qn("w:p"):
-            t = Paragraph(child, d).text.strip()
-            if t:
-                lines.append(t)
-        elif child.tag == qn("w:tbl"):
-            tb = Table(child, d)
-            seen = set()
-            for row in tb.rows:
-                for c in row.cells:
-                    ct = norm(c.text.strip())
-                    if ct and ct not in seen:
-                        seen.add(ct)
-                        lines.append(ct)
-                        if re.search(r"[A-O][)）]", ct):
-                            cells.append(ct)
+    from docx_source import read_docx_units
+    lines,cells=[],[]
+    for text,loc in read_docx_units(path):
+        text=norm(text.strip())
+        if text:lines.append(text)
+        if loc.get('kind')=='table' and re.search(r'[A-O]\s*[)）]',text):cells.append(text)
     return lines, cells
 
 def main():
@@ -504,6 +522,15 @@ def main():
             paras, banks = load_docx(path)
             origin = str(path.relative_to(SRC)) if str(path).startswith(str(SRC)) else f"_staging/{path.parent.name}/{path.name}"
             res, warn = parse_paper(paras, banks, exam, ym, paper, {"origin_file": origin})
+            if res:
+                from fill_answers import read_source,question_blocks,normalized
+                source_text,units=read_source(path)
+                blocks={n:block for n,block,a,b in question_blocks(source_text)}
+                for q in res['questions']:
+                    opts=q.get('options',{});block=normalized(blocks.get(q['number'],''))
+                    if set(opts)==set('ABCD') and all(normalized(v) and normalized(v) in block for v in opts.values()) and block:
+                        q['option_parse_method']='exact_original_word_question_number_and_four_options'
+                        q['source']['numbering_method']='original_word_numbering_xml_with_explicit_option_identity'
         except Exception as e:
             report[f"{exam} {ym} p{paper}"] = {"error": str(e), "file": path.name}
             continue
@@ -543,7 +570,7 @@ def main():
             warn.append("reading questions renumbered to 26-55 (source numbering out of range)")
         ofile = QDIR / lv / f"{ym}_p{paper}.jsonl"
         ofile.parent.mkdir(parents=True, exist_ok=True)
-        ofile.write_text("\n".join(json.dumps(q, ensure_ascii=False) for q in res["questions"]) + "\n", encoding="utf-8")
+        merge_jsonl(ofile,res["questions"])
         q_ok += len(res["questions"])
         reading_out += [dict(x, exam=exam, year=ym, paper=paper,
                              source={"origin_file": origin}, review={"status": "auto_parsed"},
@@ -580,15 +607,15 @@ def main():
                     p["listening_ref"] = src["id"]
                     p["warnings"].append(f"listening shared from {src['id']} (not printed in this paper)")
 
-    (PDIR / "reading.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in reading_out) + "\n", encoding="utf-8")
-    (KB / "writing" / "_prompts.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in prompts_out) + "\n", encoding="utf-8")
-    (KB / "translation" / "_from_papers.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in trans_out) + "\n", encoding="utf-8")
-    (MDIR / "papers.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in papers_out) + "\n", encoding="utf-8")
+    merge_jsonl(PDIR / "reading.jsonl",reading_out)
+    merge_jsonl(KB / "writing" / "_prompts.jsonl",prompts_out)
+    merge_jsonl(KB / "translation" / "_from_papers.jsonl",trans_out)
+    merge_jsonl(MDIR / "papers.jsonl",papers_out)
     (MDIR / "parse_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     q_ok = 0
     for lv in ("cet4", "cet6"):
         for f in (QDIR / lv).glob("*.jsonl"):
-            q_ok += len([x for x in f.read_text(encoding="utf-8").splitlines() if x.strip()])
+            q_ok += len([x for x in f.read_text(encoding="utf-8").split("\n") if x.strip()])
     print(f"total questions: {q_ok} | papers ok: {len(papers_out)} / {len(papers)} | reading passages: {len(reading_out)}")
     full = sum(1 for x in papers_out if x["listening_qs"] == 25 and x["reading_qs"] == 30)
     print(f"papers with full 25 listening + 30 reading: {full}")

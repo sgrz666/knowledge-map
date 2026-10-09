@@ -14,9 +14,9 @@ import hashlib
 from pathlib import Path
 from collections import Counter, defaultdict
 
-ROOT = Path(r'D:\codeplus\knowledge_map')
+ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / '教资' / '真题'
-OUT = ROOT / '教资KB'
+OUT = ROOT / '数据集' / '教资'
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -279,12 +279,12 @@ def find_k(text, pos, hi, k):
         s = pos + m.start()
         prev1 = text[s - 1] if s > 0 else ''
         prev2 = text[s - 2:s] if s >= 2 else ''
-        after = text[m.end():]
+        after = text[pos + m.end():]
         if prev1 == '（' and (SUB_MARK.match(after) or after.startswith('分')):
             continue  # （1）（2）小问 / （10分）分值
         if prev1 in '图表式' or prev2 == '第':
             continue  # 图3/表2/式(1)/第3问 等正文引用
-        if NUM_CAND_SKIP_AFTER.match(after):
+        if NUM_CAND_SKIP_AFTER.match(after) or re.match(r'^[.．]\d', after):
             continue
         return s, False
     return None
@@ -375,12 +375,25 @@ def parse_question_text(qno, body):
     body = body.strip()
     body = re.sub(r'^%d\s*' % qno, '', body, count=1)
     q = {'stem': body, 'options': []}
-    marks = []
-    for m in OPT_MARK.finditer(body):
-        key = m.group(1).translate(FW)
-        if len(marks) and key <= marks[-1][0]:
-            break
-        marks.append((key, m.start(), m.end()))
+    # CSV 常出现 A、A、；字母串 A、B、C三个状态是题干，不能充当选项。
+    repeated = re.compile(r'([A-GＡ-Ｇ])\s*[、.．:：]\s*\1\s*[、.．:：]')
+    body = repeated.sub(r'\1、', body)
+    q['stem'] = body
+    candidates = [(m.group(1).translate(FW), m.start(), m.end()) for m in OPT_MARK.finditer(body)]
+    chains = []
+    for i, candidate in enumerate(candidates):
+        if candidate[0] != 'A':
+            continue
+        chain = [candidate]
+        for key, start, end in candidates[i + 1:]:
+            if key == chr(ord(chain[-1][0]) + 1):
+                chain.append((key, start, end))
+            elif key <= chain[-1][0]:
+                break
+        if len(chain) >= 2:
+            chains.append(chain)
+    # 取首个最完整序列；残留的后续题目不能覆盖当前题目的选项。
+    marks = max(chains, key=lambda chain: (len(chain), -chain[0][1]), default=[])
     if len(marks) >= 2 and marks[0][0] == 'A':
         opts = []
         for i, (key, s, e) in enumerate(marks):
@@ -397,15 +410,28 @@ def parse_question_text(qno, body):
 
 def classify_answer(s):
     s = (s or '').strip().rstrip('。').strip()
-    if not s:
+    if not s or s in ('缺', '略', '暂缺', '暂无', '待补', '省略', '答案略', '解析略'):
         return 'missing', None
-    if re.fullmatch(r'[A-G]{1,4}', s):
+    if '问题与答案不符' in s or '答案与问题不符' in s:
+        return 'source_conflict', None
+    if re.fullmatch(r'[A-G]{1,7}', s):
         return 'letter', s
     if s in ('正确', '错误', '对', '错', '√', '×', 'T', 'F'):
         return 'letter', s
     if '参见解析' in s or '见解析' in s:
         return 'reference', None
     return 'brief', s
+
+
+# classify_answer 描述答案文件的形状；落库时按附录 A.1 归约为五态可用性，
+# 形状本身存入 extra.answer_provenance 供教研回溯，不参与诊断判分。
+ANSWER_CONTRACT = {
+    'letter': ('letter_only', 'letter'),
+    'reference': ('reference_only', 'reference'),
+    'brief': ('reference_only', 'brief'),
+    'missing': ('missing', 'missing'),
+    'source_conflict': ('source_conflict', 'source_conflict'),
+}
 
 
 def parse_answers(text):
@@ -476,16 +502,18 @@ def parse_paper(meta):
 
     for i, q in enumerate(questions):
         raw = answers.get(q.get('_num', i + 1))
-        status, content = classify_answer(raw)
+        shape, content = classify_answer(raw)
+        status, provenance = ANSWER_CONTRACT[shape]
         q['answer'] = content
         q['answer_status'] = status
-        if status == 'brief':
+        q['answer_provenance'] = provenance
+        if shape == 'brief':
             q['analysis'] = content
         if len(q['options']) == 1:
             qa['flags'].append('q%d 仅1个选项,疑似切分异常' % (i + 1))
         if len(q['stem'].strip()) < 10 or '暂缺' in q['stem']:
             qa['flags'].append('q%d 题干过短或疑似源文缺失' % (i + 1))
-        if len(q['options']) >= 2 and status == 'letter' and content and len(content) == 1 \
+        if len(q['options']) >= 2 and status == 'letter_only' and content and len(content) == 1 \
                 and content not in [o['key'] for o in q['options']]:
             qa['flags'].append('q%d 答案%s不在选项中' % (i + 1, content))
     qa['question_count'] = len(questions)
@@ -517,15 +545,28 @@ def render_card(rec, material_text):
         'id: %s' % rec['question_id'],
         'exam: %s' % rec['exam'],
         'level: %s' % rec['level'],
+        'school_level: %s' % rec.get('school_level', rec.get('level')),
         'subject: %s' % rec['subject'],
-        'session: %s' % rec['source']['session'],
+        'session: "%s"' % rec['source']['session'],
         'section: %s' % (rec['section'] or '未标注'),
         'question_type: %s' % rec['question_type'],
         'score: %s' % (rec['score'] if rec['score'] else 'null'),
+    ]
+    if rec.get('material_id'):
+        lines.append('material_id: %s' % rec['material_id'])
+    lines.extend([
         'answer: %s' % (ans_disp if is_choice else ('有' if ans else 'null')),
         'answer_status: %s' % rec['content']['answer_status'],
-        'knowledge_nodes: []',
-    ]
+        'knowledge_nodes: [%s]' % ', '.join(rec.get('knowledge_node_ids', [])),
+        'ability_ids: [%s]' % ', '.join(rec.get('ability_ids', [])),
+        'exam_requirement_ids: [%s]' % ', '.join(rec.get('exam_requirement_ids', [])),
+        'review_status: %s' % rec['review']['status'],
+        'content_verified: %s' % str(rec['review'].get('content_verified', False)).lower(),
+        'copyright_scope: %s' % rec.get('source', {}).get('copyright', {}).get('use_scope', 'research_non_commercial'),
+        'source_nature: %s' % rec.get('source', {}).get('copyright', {}).get('source_nature', 'official_exam'),
+    ])
+    if rec.get('rubric_id'):
+        lines.append('rubric_id: %s' % rec['rubric_id'])
     if rec['extra'].get('duplicate_of'):
         lines.append('duplicate_of: %s' % rec['extra']['duplicate_of'])
     lines += ['---', '']
@@ -541,14 +582,33 @@ def render_card(rec, material_text):
         lines.append('')
     lines.append('**答案:%s**' % ans_disp if is_choice else '**答案:** %s' % ans_disp)
     lines.append('')
-    if rec['content']['analysis']:
-        lines.append('**解析:** %s' % rec['content']['analysis'])
+    # 结构化三段解析（题眼定位、选项对比/得分点、溯源）
+    analysis = rec.get('analysis')
+    if isinstance(analysis, dict) and any(analysis.get(k) for k in ('key_info', 'option_compare', 'trace_back')):
+        lines.append('**【结构化解析】**')
+        if analysis.get('key_info'):
+            lines.append('**考点剖析与关键信息:** %s' % analysis['key_info'])
+        if analysis.get('option_compare'):
+            lines.append('**选项深度对比/得分点:** %s' % analysis['option_compare'])
+        if analysis.get('trace_back'):
+            lines.append('**考点溯源与理论依据:** %s' % analysis['trace_back'])
+        if analysis.get('explanation') and not (analysis.get('key_info') and analysis.get('option_compare')):
+            lines.append('**补充说明:** %s' % analysis['explanation'])
+    elif rec['content'].get('analysis'):
+        value = rec['content']['analysis']
+        lines.append('**解析:** %s' % (json.dumps(value, ensure_ascii=False) if isinstance(value, dict) else value))
     else:
         lines.append('**解析:**(原库未提供,待补充)')
     return '\n'.join(lines) + '\n'
 
 
+
 def build():
+    # 已有知识库的build是安全复算入口，避免重新按顺序分配ID并覆盖人工修订。
+    if any((OUT / 'questions').glob('*/*/*.jsonl')):
+        from ntce_repair import repair
+        repair()
+        return
     metas = build_inventory()
     unparsed = [m for m in metas if m['unparsed']]
     print('文件总数 %d, 未识别科目 %d' % (len(metas), len(unparsed)))
@@ -598,7 +658,7 @@ def build():
                 q['material_id'] = mid
                 del q['material_text']
 
-        # 复核分级(题级):严重异常=低置信;一般瑕疵=待复核;无标记=已清洗
+        # 复核分级(题级):严重异常与一般瑕疵都是 needs_fix，靠 review_priority 分级；无标记=auto_parsed
         major = False
         for f in qa['flags']:
             if any(h in f for h in ('未解析', 'ID 冲突', '科目未识别', '缺失或为空', '不在选项中')):
@@ -607,11 +667,11 @@ def build():
             if mm and (abs(int(mm.group(1)) - int(mm.group(2))) > 3 or int(mm.group(2)) == 0):
                 major = True
         if major:
-            review_status = '低置信'
+            review_status, review_priority = 'needs_fix', 'low_confidence'
         elif qa['flags']:
-            review_status = '待复核'
+            review_status, review_priority = 'needs_fix', 'flagged_general'
         else:
-            review_status = '已清洗'
+            review_status, review_priority = 'auto_parsed', 'none'
         q_severe = ('仅1个选项', '不在选项中', '题干过短')
         out_q = []
         for i, q in enumerate(questions):
@@ -635,11 +695,12 @@ def build():
             # 题级复核状态:本题自身的严重异常优先于整卷评级
             qflagged = [f for f in qa['flags'] if f.startswith('q%d ' % (i + 1))]
             if any(h in f for f in qflagged for h in q_severe):
-                q_status = '低置信'
-            elif qflagged or review_status != '已清洗':
-                q_status = '待复核' if review_status == '已清洗' else review_status
+                q_status, q_priority = 'needs_fix', 'low_confidence'
+            elif qflagged or review_status != 'auto_parsed':
+                q_status = 'needs_fix'
+                q_priority = review_priority if review_status != 'auto_parsed' else 'flagged_general'
             else:
-                q_status = '已清洗'
+                q_status, q_priority = review_status, review_priority
             rec = {
                 'question_id': qid,
                 'exam': 'NTCE' if meta['system'] == '国考' else '省考',
@@ -647,15 +708,19 @@ def build():
                 'source': {'type': '真题', 'system': meta['system'], 'session': session,
                            'paper': meta['paper'], 'variant': meta['variant'],
                            'origin_file': '教资/真题/%s/%s' % (meta['dir'], meta['file']),
-                           'verified': True},
+                           'verified': False,
+                           'raw_file_verification': {'status': 'file_exists', 'content_alignment': 'pending'},
+                           'content_verification': {'status': 'not_reviewed'}},
                 'section': q['section'], 'question_type': qtype,
                 'material_id': q.get('material_id'),
                 'score': q.get('_score'),
                 'content': {'stem': q['stem'], 'options': opts, 'answer': q['answer'],
                             'answer_status': q['answer_status'], 'analysis': q.get('analysis')},
                 'knowledge_node_ids': [], 'difficulty': None,
-                'review': {'status': q_status, 'tagger': None, 'checked_by': None},
-                'extra': {'duplicate_of': dup_of, 'paper_order': i + 1},
+                'review': {'status': q_status, 'review_priority': q_priority, 'tagger': None,
+                           'checked_by': None, 'content_verified': False},
+                'extra': {'duplicate_of': dup_of, 'paper_order': i + 1,
+                          'answer_provenance': q.get('answer_provenance')},
             }
             out_q.append(rec)
 
@@ -683,6 +748,8 @@ def build():
     write_reports(metas, all_qa, stats, q_total, m_total, dup_total, folder_dup, unparsed)
     print('完成:题目 %d, 材料 %d, 标记重复题 %d, 跳过跨目录重复卷 %d' %
           (q_total, m_total, dup_total, folder_dup))
+    from ntce_repair import repair
+    repair()
 
 
 def write_reports(metas, all_qa, stats, q_total, m_total, dup_total, folder_dup, unparsed):
@@ -713,7 +780,7 @@ def write_reports(metas, all_qa, stats, q_total, m_total, dup_total, folder_dup,
         'by_level': dict(lv_c),
         'by_level_subject': dict(sorted(sub_c.items())),
         'known_limitations': [
-            '原库基本无解析:answer_status=letter/reference 占多数,analysis 字段多为空',
+            '原库基本无解析:answer_status=letter_only/reference_only 占多数,analysis 字段多为空',
             '结构切分为规则解析,低置信卷与异常题见 qa_report.md',
             '省考老卷(四川/辽宁)单独标记 exam=省考',
         ],
