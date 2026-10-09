@@ -1,0 +1,27 @@
+{
+  "restored": {
+    "仔细阅读": 6
+  },
+  "remaining_empty_prompt_records": [
+    {
+      "question_id": "cet4-2015-12-p2-reading-56",
+      "status": "original_prompt_extraction_failure_or_no_unique_boundary",
+      "candidate_count": 0
+    },
+    {
+      "question_id": "cet4-2015-12-p2-reading-57",
+      "status": "original_prompt_extraction_failure_or_no_unique_boundary",
+      "candidate_count": 0
+    },
+    {
+      "question_id": "cet4-2015-12-p2-reading-58",
+      "status": "original_prompt_extraction_failure_or_no_unique_boundary",
+      "candidate_count": 0
+    },
+    {
+      "question_id": "cet4-2015-12-p2-reading-59",
+      "status": "original_prompt_extraction_failure_or_no_unique_boundary",
+      "candidate_count": 0
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+ "nodes": 25659,
+ "edges": 86688,
+ "by_layer": {
+  "L0": 4001,
+  "L1": 2,
+  "L2": 8,
+  "L3": 30,
+  "L4": 48,
+  "L5": 449,
+  "L6": 5634,
+  "L7": 15487
+ },
+ "by_type": {
+  "standard": 6,
+  "exam_requirement": 3995,
+  "exam": 2,
+  "literacy": 2,
+  "module": 8,
+  "ability": 28,
+  "knowledge_node": 48,
+  "material": 449,
+  "rubric": 2,
+  "question": 5632,
+  "resource": 15487
+ },
+ "by_edge_type": {
+  "specifies": 3995,
+  "targets": 2,
+  "contains": 5650,
+  "comprises": 28,
+  "aligned_to_requirement": 14706,
+  "has_child": 38,
+  "assesses": 11741,
+  "supports_ability": 9548,
+  "refers_to_material": 3358,
+  "has_rubric": 292,
+  "supplements_resource": 18703,
+  "supports_resource": 18557,
+  "prerequisite_of": 56,
+  "confused_with": 10,
+  "misconception_lead_to": 4
+ },
+ "prerequisite_verified": 0,
+ "prerequisite_pending": 56,
+ "files": [
+  "graph/nodes.jsonl",
+  "graph/edges.jsonl"
+ ],
+ "note": "八层分级与 §3.4 边命名对齐；自动映射与条款引用一律 verified=False 待教研核定；无审核人的先修自评已降为候选。"
+}

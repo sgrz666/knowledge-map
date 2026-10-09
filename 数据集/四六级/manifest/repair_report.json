@@ -1,0 +1,161 @@
+{
+  "baseline_resource_counts": {
+    "writing/model_essays.jsonl": 177,
+    "translation/items.jsonl": 193,
+    "vocabulary/phrases_highfreq.jsonl": 1406
+  },
+  "resources": {
+    "passages\\reading.jsonl": {
+      "before": 449,
+      "records": 449,
+      "unique_ids": 449
+    },
+    "writing\\model_essays.jsonl": {
+      "before": 146,
+      "records": 146,
+      "unique_ids": 146
+    },
+    "writing\\templates.jsonl": {
+      "before": 69,
+      "records": 69,
+      "unique_ids": 69
+    },
+    "translation\\items.jsonl": {
+      "before": 146,
+      "records": 146,
+      "unique_ids": 146
+    },
+    "vocabulary\\core_words.jsonl": {
+      "before": 3123,
+      "records": 3123,
+      "unique_ids": 3123
+    },
+    "vocabulary\\phrases_highfreq.jsonl": {
+      "before": 1405,
+      "records": 1405,
+      "unique_ids": 1405
+    },
+    "vocabulary\\translation_topic_words.jsonl": {
+      "before": 8,
+      "records": 8,
+      "unique_ids": 8
+    },
+    "vocabulary\\words_cet4.jsonl": {
+      "before": 4424,
+      "records": 4424,
+      "unique_ids": 4424
+    },
+    "vocabulary\\words_cet6.jsonl": {
+      "before": 5518,
+      "records": 5518,
+      "unique_ids": 5518
+    },
+    "listening\\transcripts.jsonl": {
+      "before": 648,
+      "records": 648,
+      "unique_ids": 648
+    }
+  },
+  "questions": {
+    "with_audio_file": 1626
+  },
+  "unresolved_sources": [],
+  "passage_reference_repair": {
+    "original_structure_errors": 23,
+    "source_identity_verified": 4,
+    "restored_original_error_backlinks_verified": 0,
+    "complete_articles_restored_with_history": 6,
+    "inactive_parser_artifact_links_cleared": 0,
+    "unproven_active_links_quarantined": 17
+  },
+  "historical_source_papers_pending_authentication": [
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet4/2015年06月四级真题第1套.docx",
+      "source_year": "2015-06",
+      "title": "2015年06月大学英语四级考试真题（第1套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet4/2015年06月四级真题第2套.docx",
+      "source_year": "2015-06",
+      "title": "大学英语四级考试 2015 年 6 月真题(第二套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A ),B), C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet4/2015年12月四级真题第1套.docx",
+      "source_year": "2015-12",
+      "title": "大学英语四级考试 2015 年 12 月真题(第一套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A ),B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet4/2015年12月四级真题第2套.docx",
+      "source_year": "2015-12",
+      "title": "大学英语四级考试 2015 年 12 月真题(第二套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A),B) C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet4/2015年12月四级真题第3套.docx",
+      "source_year": "2015-12",
+      "title": "大学英语四级考试 2015 年 12 月真题(第三套)",
+      "listening_direction_excerpt": null
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年06月六级真题（第1套）.docx",
+      "source_year": "2015-06",
+      "title": "大学英语六级考试2015年6月真题(第一套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A ),B), C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年06月六级真题（第2套）.docx",
+      "source_year": "2015-06",
+      "title": "大学英语六级考试2015年6月真题(第二套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A),B), C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年06月六级真题（第3套）.docx",
+      "source_year": "2015-06",
+      "title": "大学英语六级考试2015年6月真题(第三套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A),B), C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年12月六级真题（第1套）.docx",
+      "source_year": "2015-12",
+      "title": "大学英语六级考试2015年12月真题(第一套）",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions.Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A),B), C) and D ).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年12月六级真题（第2套）.docx",
+      "source_year": "2015-12",
+      "title": "大学英语六级考试2015年12月真题(第二套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A),B), C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "数据集/四六级/scripts/_staging/cet6/2015年12月六级真题（第3套）.docx",
+      "source_year": "2015-12",
+      "title": "大学英语六级考试2015年12月真题(第三套)",
+      "listening_direction_excerpt": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once.After you hear a question, you must choose the best answer from the four choices marked A),B),C) and D).Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "modern_format_terms": true
+    },
+    {
+      "source_path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【4】四级写作真题专项（2015-2025.12）/四级写作真题（2015-2025年6月）.pdf",
+      "source_year": "2015-06",
+      "title": null,
+      "listening_direction_excerpt": null
+    },
+    {
+      "source_path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【3】四级翻译真题专项（2015-2025.12）/四级翻译真题（2015-2025年6月）.pdf",
+      "source_year": "2015-12",
+      "title": null,
+      "listening_direction_excerpt": null
+    }
+  ]
+}

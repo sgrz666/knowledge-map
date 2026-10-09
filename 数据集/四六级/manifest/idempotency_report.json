@@ -1,0 +1,40 @@
+{
+  "command": "python 数据集/四六级/scripts/rebuild.py --extract",
+  "business_artifacts_compared": 149,
+  "changed_artifacts": [],
+  "passed": true,
+  "successful_comparison_runs": 2,
+  "notes": "All question/resource/ontology JSON(L), including intermediate tasks and listening transcripts, paper manifest, stats, README and ingest included. Run-specific counters/logs excluded; no historical entries erased.",
+  "root_final_verification_at": "2026-10-04T10:36:30.693744+08:00",
+  "snapshot_file_sha256": "dc56cc4c4bc554c85944007427dc7bdcbb9705b4111c583e197c96e3d712e6b1",
+  "second_run_resumed_after_interruption": true,
+  "resumed_steps": [
+    "fill_answers.py",
+    "repair_kb.py",
+    "build_stats.py"
+  ],
+  "resumed_steps_exit_code": 0,
+  "previous_full_extract_evidence_predates_passage_reference_repair": true,
+  "latest_repair_verification": {
+    "command": "python 数据集/四六级/scripts/repair_kb.py; python 数据集/四六级/scripts/build_stats.py --kb 数据集/四六级",
+    "scope": "Current affected repair pipeline only; prior full --extract evidence predates this passage repair; no source re-extraction outside existing five papers",
+    "business_artifacts_compared": 150,
+    "successful_comparison_runs": 2,
+    "runs": [
+      {
+        "run": 1,
+        "changed_artifacts": [],
+        "passed": true,
+        "completed_at": "2026-10-04T11:08:03.875665+08:00"
+      },
+      {
+        "run": 2,
+        "changed_artifacts": [],
+        "passed": true,
+        "completed_at": "2026-10-04T11:08:32.115453+08:00"
+      }
+    ],
+    "passed": true,
+    "frozen_at": "2026-10-04T11:08:32.115584+08:00"
+  }
+}

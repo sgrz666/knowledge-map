@@ -1,0 +1,528 @@
+[
+ {
+  "paper": "CET-4|2019-06|第1套",
+  "n_db": 55,
+  "n_bk_single": 19,
+  "n_matched": 7,
+  "checked": 7,
+  "agree": 3,
+  "disagree": 4,
+  "rate": 0.42857142857142855,
+  "mismatches": [
+   [
+    5,
+    6,
+    "C",
+    "B",
+    "短篇新闻"
+   ],
+   [
+    41,
+    41,
+    "M",
+    "K",
+    "长篇阅读"
+   ],
+   [
+    44,
+    44,
+    "A",
+    "M",
+    "长篇阅读"
+   ],
+   [
+    45,
+    45,
+    "K",
+    "C",
+    "长篇阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2019-06|第2套",
+  "n_db": 55,
+  "n_bk_single": 10,
+  "n_matched": 1,
+  "checked": 1,
+  "agree": 1,
+  "disagree": 0,
+  "rate": 1.0,
+  "mismatches": []
+ },
+ {
+  "paper": "CET-4|2019-06|第3套",
+  "n_db": 30,
+  "n_bk_single": 3,
+  "n_matched": 2,
+  "checked": 1,
+  "agree": 1,
+  "disagree": 0,
+  "rate": 1.0,
+  "mismatches": []
+ },
+ {
+  "paper": "CET-4|2019-12|第1套",
+  "n_db": 55,
+  "n_bk_single": 20,
+  "n_matched": 8,
+  "checked": 8,
+  "agree": 2,
+  "disagree": 6,
+  "rate": 0.25,
+  "mismatches": [
+   [
+    7,
+    6,
+    "B",
+    "A",
+    "短篇新闻"
+   ],
+   [
+    31,
+    29,
+    "M",
+    "C",
+    "选词填空"
+   ],
+   [
+    36,
+    36,
+    "K",
+    "E",
+    "长篇阅读"
+   ],
+   [
+    38,
+    38,
+    "B",
+    "C",
+    "长篇阅读"
+   ],
+   [
+    40,
+    40,
+    "D",
+    "K",
+    "长篇阅读"
+   ],
+   [
+    54,
+    54,
+    "D",
+    "A",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2019-12|第2套",
+  "n_db": 55,
+  "n_bk_single": 30,
+  "n_matched": 14,
+  "checked": 13,
+  "agree": 8,
+  "disagree": 5,
+  "rate": 0.6153846153846154,
+  "mismatches": [
+   [
+    4,
+    3,
+    "B",
+    "C",
+    "短篇新闻"
+   ],
+   [
+    17,
+    17,
+    "D",
+    "C",
+    "听力篇章"
+   ],
+   [
+    19,
+    20,
+    "A",
+    "C",
+    "听力篇章"
+   ],
+   [
+    40,
+    35,
+    "D",
+    "H",
+    "长篇阅读"
+   ],
+   [
+    49,
+    49,
+    "B",
+    "C",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2019-12|第3套",
+  "n_db": 30,
+  "n_bk_single": 11,
+  "n_matched": 6,
+  "checked": 6,
+  "agree": 2,
+  "disagree": 4,
+  "rate": 0.3333333333333333,
+  "mismatches": [
+   [
+    38,
+    38,
+    "A",
+    "E",
+    "长篇阅读"
+   ],
+   [
+    44,
+    41,
+    "J",
+    "B",
+    "长篇阅读"
+   ],
+   [
+    47,
+    47,
+    "D",
+    "C",
+    "仔细阅读"
+   ],
+   [
+    50,
+    50,
+    "C",
+    "A",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2020-12|第1套",
+  "n_db": 55,
+  "n_bk_single": 55,
+  "n_matched": 6,
+  "checked": 5,
+  "agree": 4,
+  "disagree": 1,
+  "rate": 0.8,
+  "mismatches": [
+   [
+    35,
+    25,
+    "H",
+    "C",
+    "选词填空"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2021-06|第1套",
+  "error": "no_good_source"
+ },
+ {
+  "paper": "CET-4|2022-06|第1套",
+  "n_db": 55,
+  "n_bk_single": 16,
+  "n_matched": 11,
+  "checked": 10,
+  "agree": 6,
+  "disagree": 4,
+  "rate": 0.6,
+  "mismatches": [
+   [
+    29,
+    34,
+    "O",
+    "N",
+    "选词填空"
+   ],
+   [
+    36,
+    36,
+    "F",
+    "G",
+    "长篇阅读"
+   ],
+   [
+    40,
+    40,
+    "J",
+    "F",
+    "长篇阅读"
+   ],
+   [
+    52,
+    47,
+    "B",
+    "A",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2022-06|第2套",
+  "n_db": 30,
+  "n_bk_single": 10,
+  "n_matched": 7,
+  "checked": 6,
+  "agree": 3,
+  "disagree": 3,
+  "rate": 0.5,
+  "mismatches": [
+   [
+    35,
+    26,
+    "N",
+    "M",
+    "选词填空"
+   ],
+   [
+    46,
+    46,
+    "C",
+    "A",
+    "仔细阅读"
+   ],
+   [
+    50,
+    50,
+    "B",
+    "C",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2022-09|第1套",
+  "n_db": 55,
+  "n_bk_single": 2,
+  "n_matched": 2,
+  "checked": 2,
+  "agree": 2,
+  "disagree": 0,
+  "rate": 1.0,
+  "mismatches": []
+ },
+ {
+  "paper": "CET-4|2022-12|第3套",
+  "n_db": 30,
+  "n_bk_single": 3,
+  "n_matched": 0,
+  "checked": 0,
+  "agree": 0,
+  "disagree": 0,
+  "rate": null,
+  "mismatches": []
+ },
+ {
+  "paper": "CET-4|2023-06|第1套",
+  "n_db": 55,
+  "n_bk_single": 4,
+  "n_matched": 3,
+  "checked": 3,
+  "agree": 2,
+  "disagree": 1,
+  "rate": 0.6666666666666666,
+  "mismatches": [
+   [
+    54,
+    52,
+    "C",
+    "A",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2023-06|第2套",
+  "n_db": 55,
+  "n_bk_single": 5,
+  "n_matched": 4,
+  "checked": 4,
+  "agree": 3,
+  "disagree": 1,
+  "rate": 0.75,
+  "mismatches": [
+   [
+    53,
+    53,
+    "C",
+    "D",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-4|2023-06|第3套",
+  "n_db": 30,
+  "n_bk_single": 3,
+  "n_matched": 3,
+  "checked": 3,
+  "agree": 2,
+  "disagree": 1,
+  "rate": 0.6666666666666666,
+  "mismatches": [
+   [
+    51,
+    51,
+    "A",
+    "C",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-6|2020-07|第1套",
+  "n_db": 55,
+  "n_bk_single": 1,
+  "n_matched": 1,
+  "checked": 0,
+  "agree": 0,
+  "disagree": 0,
+  "rate": null,
+  "mismatches": []
+ },
+ {
+  "paper": "CET-6|2020-09|第1套",
+  "n_db": 55,
+  "n_bk_single": 7,
+  "n_matched": 7,
+  "checked": 4,
+  "agree": 1,
+  "disagree": 3,
+  "rate": 0.25,
+  "mismatches": [
+   [
+    7,
+    7,
+    "D",
+    "A",
+    "长对话"
+   ],
+   [
+    16,
+    16,
+    "A",
+    "C",
+    "讲座/讲话"
+   ],
+   [
+    25,
+    24,
+    "A",
+    "B",
+    "讲座/讲话"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-6|2021-12|第3套",
+  "n_db": 51,
+  "n_bk_single": 5,
+  "n_matched": 2,
+  "checked": 2,
+  "agree": 1,
+  "disagree": 1,
+  "rate": 0.5,
+  "mismatches": [
+   [
+    42,
+    42,
+    "O",
+    "H",
+    "长篇阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-6|2022-06|第1套",
+  "n_db": 55,
+  "n_bk_single": 19,
+  "n_matched": 7,
+  "checked": 7,
+  "agree": 4,
+  "disagree": 3,
+  "rate": 0.5714285714285714,
+  "mismatches": [
+   [
+    38,
+    38,
+    "J",
+    "C",
+    "长篇阅读"
+   ],
+   [
+    44,
+    44,
+    "H",
+    "A",
+    "长篇阅读"
+   ],
+   [
+    45,
+    45,
+    "H",
+    "D",
+    "长篇阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-6|2022-06|第2套",
+  "n_db": 30,
+  "n_bk_single": 13,
+  "n_matched": 11,
+  "checked": 10,
+  "agree": 7,
+  "disagree": 3,
+  "rate": 0.7,
+  "mismatches": [
+   [
+    37,
+    37,
+    "K",
+    "B",
+    "长篇阅读"
+   ],
+   [
+    42,
+    42,
+    "B",
+    "G",
+    "长篇阅读"
+   ],
+   [
+    54,
+    54,
+    "D",
+    "C",
+    "仔细阅读"
+   ]
+  ]
+ },
+ {
+  "paper": "CET-6|2022-09|第1套",
+  "n_db": 55,
+  "n_bk_single": 25,
+  "n_matched": 10,
+  "checked": 9,
+  "agree": 8,
+  "disagree": 1,
+  "rate": 0.8888888888888888,
+  "mismatches": [
+   [
+    9,
+    9,
+    "C",
+    "D",
+    "听力篇章"
+   ]
+  ]
+ }
+]

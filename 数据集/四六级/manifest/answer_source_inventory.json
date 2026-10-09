@@ -1,0 +1,3753 @@
+{
+ "CET-4|2015-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2015-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 13,
+  "with_analysis": 11,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2015.06英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39498,
+    "cjk_ratio": 0.397
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2015-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2015-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 12,
+  "with_analysis": 11,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2015.06英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 37748,
+    "cjk_ratio": 0.4139
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2015-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2015-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 10,
+  "with_analysis": 10,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2015.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 38177,
+    "cjk_ratio": 0.3869
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2015-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2015-12_p2.jsonl",
+  "n_questions": 59,
+  "with_answer": 11,
+  "with_analysis": 8,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2015.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 40149,
+    "cjk_ratio": 0.3982
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2015-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2015-12_p3.jsonl",
+  "n_questions": 55,
+  "with_answer": 11,
+  "with_analysis": 9,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2015.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39746,
+    "cjk_ratio": 0.3837
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2015年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 21127,
+    "cjk_ratio": 0.3284
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2015.12英语四级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 23577,
+    "cjk_ratio": 0.1044
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2015.12四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 20957,
+    "cjk_ratio": 0.4015
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2016-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2016-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年06月四级解析第2套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 29372,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2016-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2016-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年06月四级解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 14911,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2016年06月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2016.06英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2016年06月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2016-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2016-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年12月大学英语4级解析（卷1）.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 238142,
+    "cjk_ratio": 0.0002
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2016-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2016-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年12月大学英语4级解析（卷2）.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 255318,
+    "cjk_ratio": 0.0003
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2016-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2016-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年12月大学英语4级解析（卷3）.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 63379,
+    "cjk_ratio": 0.0012
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2016年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2016.12英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2016年12月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2017-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2017-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2017年6月英语四级真题（卷一）答案解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 39513,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2017-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2017-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2017年6月英语四级真题（卷二）答案解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 45089,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2017-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2017-06_p3.jsonl",
+  "n_questions": 29,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2017年6月英语四级真题（卷三）答案解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 27717,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2017年06月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2017.06英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2017年06月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "broken_font",
+    "chars": 12020,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2017-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2017-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 27,
+  "with_analysis": 7,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2017年12月英语四级真题答案及解析（第一套）.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 38224,
+    "cjk_ratio": 0.2532
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2017-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2017-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 27,
+  "with_analysis": 7,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2017年12月英语四级真题答案及解析（第三套）.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 21611,
+    "cjk_ratio": 0.3503
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2017年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2017.12英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2017年12月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2018-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2018-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2018年12月四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 8222,
+    "cjk_ratio": 0.1453
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2018-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2018-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2018年12月四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5316,
+    "cjk_ratio": 0.2
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2018-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2018-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2018年12月四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5860,
+    "cjk_ratio": 0.1988
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2018年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2018.12英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2018年12月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 10,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.06英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39871,
+    "cjk_ratio": 0.2918
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 19,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.06英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 38366,
+    "cjk_ratio": 0.3019
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 23,
+  "with_analysis": 2,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.06英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 21679,
+    "cjk_ratio": 0.4417
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2019年06月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2019.06英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2019年06月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 22,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 34963,
+    "cjk_ratio": 0.309
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 14,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 38556,
+    "cjk_ratio": 0.308
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2019-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2019-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 12,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2019.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 23141,
+    "cjk_ratio": 0.4012
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2019年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2019.12英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 4454,
+    "cjk_ratio": 0.4333
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2019年12月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2020-09|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-09_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.09英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 33535,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2020-09|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-09_p2.jsonl",
+  "n_questions": 30,
+  "with_answer": 2,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.09英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 20866,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2020年09月四级阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "broken_font",
+    "chars": 11457,
+    "cjk_ratio": 0.0024
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2020.09英语四级选词填空解析全2套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2020.09英语四级长篇阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2020-09|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-09_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.09英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 8232,
+    "cjk_ratio": 0.1193
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2020-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 18,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 48609,
+    "cjk_ratio": 0.2458
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2020-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 30,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 46317,
+    "cjk_ratio": 0.2453
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2020-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2020-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 29,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2020.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 48067,
+    "cjk_ratio": 0.252
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2020年12月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 62,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2020年12月四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 17683,
+    "cjk_ratio": 0.2348
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2020年12月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2021-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2021-06_p1.jsonl",
+  "n_questions": 47,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2021年6月英语四级解析第一套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 64953,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2021-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2021-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2021年6月英语四级解析第二套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 78519,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2021-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2021-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2021年6月英语四级解析第三套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 53376,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2021年06月四级阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 60,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2021.06英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "broken_font",
+    "chars": 5035,
+    "cjk_ratio": 0.0095
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2021年06月四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2021-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2021-12_p3.jsonl",
+  "n_questions": 55,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2021.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 51227,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2021年12月四级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 63,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2021年12月四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 63,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2021.12英语四级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 14514,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2022-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 20,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2022.06英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39617,
+    "cjk_ratio": 0.2849
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年06月CET4真题+解析+听力/03、答案解析/2022.06英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39617,
+    "cjk_ratio": 0.2849
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2022-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-06_p2.jsonl",
+  "n_questions": 30,
+  "with_answer": 14,
+  "with_analysis": 2,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2022.06英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 22670,
+    "cjk_ratio": 0.4558
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年06月CET4真题+解析+听力/03、答案解析/2022.06英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 22670,
+    "cjk_ratio": 0.4558
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2022年06月四级阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 19427,
+    "cjk_ratio": 0.3342
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2022.06英语四级选词填空解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 16210,
+    "cjk_ratio": 0.13
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2022.06英语四级长篇阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 23322,
+    "cjk_ratio": 0.2586
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2022-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-06_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet4/2022.06英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 7829,
+    "cjk_ratio": 0.0015
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年06月CET4真题+解析+听力/03、答案解析/2022.06英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 7829,
+    "cjk_ratio": 0.0015
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-4|2022-09|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-09_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 2,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2022年09月四级阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5662,
+    "cjk_ratio": 0.5934
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2022.09英语四级选词填空解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4112,
+    "cjk_ratio": 0.4944
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2022.09四级长篇阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6636,
+    "cjk_ratio": 0.423
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2022-09|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-09_p2.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-4|2022-09|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-09_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-4|2022-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年12月CET4真题+解析+听力/03、答案解析/2022.12四级真题第1套答案及详解.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2022-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年12月CET4真题+解析+听力/03、答案解析/2022.12四级真题第2套答案及详解.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 537,
+    "cjk_ratio": 0.5736
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2022-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2022-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2022年12月CET4真题+解析+听力/03、答案解析/2022.12四级真题第3套答案及详解.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 31,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2022年12月四级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 12212,
+    "cjk_ratio": 0.5444
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2022.12英语四级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 8296,
+    "cjk_ratio": 0.4796
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2022.12英语四级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 11467,
+    "cjk_ratio": 0.4816
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2023-03|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-03_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2023年03月四级仔细阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7170,
+    "cjk_ratio": 0.5763
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2023.03英语四级选词填空解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 10226,
+    "cjk_ratio": 0.4979
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2023.03英语四级长篇阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7118,
+    "cjk_ratio": 0.4831
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2023-03|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-03_p2.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-4|2023-03|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-03_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-4|2023-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 5,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2023年06月四级仔细阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7047,
+    "cjk_ratio": 0.5216
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2023.06英语四级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4883,
+    "cjk_ratio": 0.3938
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2023.06英语四级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6206,
+    "cjk_ratio": 0.4373
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2023-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 6,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2023年06月四级仔细阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6498,
+    "cjk_ratio": 0.5823
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2023.06英语四级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4517,
+    "cjk_ratio": 0.4651
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2023.06英语四级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6074,
+    "cjk_ratio": 0.5347
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2023-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2023-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 5,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2023年06月四级仔细阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5350,
+    "cjk_ratio": 0.5903
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2023.06英语四级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5026,
+    "cjk_ratio": 0.4465
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2023.06英语四级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 5972,
+    "cjk_ratio": 0.4133
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-4|2024-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2024-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2024年12月四级真题+听力+答案/2024.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2024.12英语四级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2024.12英语四级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2024-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2024-12_p2.jsonl",
+  "n_questions": 47,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2024年12月四级真题+听力+答案/2024.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2024.12英语四级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2024.12英语四级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2024-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2024-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2024年12月四级真题+听力+答案/2024.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2024年12月四级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2024.12英语四级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2024.12英语四级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年6月四级真题+听力+答案/2025.06英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2025.06英语四级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2025.06英语四级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年6月四级真题+听力+答案/2025.06英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2025.06英语四级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2025.06英语四级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年6月四级真题+听力+答案/2025.06英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级仔细阅读真题专项(2015-2025.06)/四级仔细阅读真题解析(2015-2025.06)/2025年06月四级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 60,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级选词填空真题专项(2015-2025.06)/四级选词填空真题解析/2025.06英语四级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/四级长篇阅读真题专项(2015-2025.06)/四级长篇阅读真题解析/2025.06英语四级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年12月四级真题+听力+答案/2025.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【1】四级听力真题专项（2015-2025.12）/2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/【3】2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-12_p2.jsonl",
+  "n_questions": 53,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年12月四级真题+听力+答案/2025.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【1】四级听力真题专项（2015-2025.12）/2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/【3】2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-4|2025-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet4/2025-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/四级真题及答案（2015.6-2026.6）/【1】2015-2025年12月四级真题+听力+答案合集/2025年12月四级真题+听力+答案/2025.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【1】四级听力真题专项（2015-2025.12）/2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/四级专项题/【2】四级阅读专项真题（2015-2025.12）/【3】2025年12月四级真题+听力+答案（最新）/【3】2025年12月英语四级真题答案解析/2025.12英语四级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-06_p1.jsonl",
+  "n_questions": 45,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.06英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.06英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.06英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.06英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.06英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.06英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-06_p3.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.06英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.06英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.06英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-12_p1.jsonl",
+  "n_questions": 53,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.12英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.12英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.12英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.12英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.12英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.12英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2015-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2015-12_p3.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2015.12英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2015.12英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2015.12英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2015.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2016-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2016-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2016年12月六级（第1套）答案及解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 208378,
+    "cjk_ratio": 0.0016
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2016.12英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 53819,
+    "cjk_ratio": 0.0095
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2016.12英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 17345,
+    "cjk_ratio": 0.0092
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2016.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 35657,
+    "cjk_ratio": 0.0081
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2016-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2016-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2016年12月六级（第2套）答案及解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 207330,
+    "cjk_ratio": 0.0018
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2016.12英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 52783,
+    "cjk_ratio": 0.0081
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2016.12英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 17428,
+    "cjk_ratio": 0.0105
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2016.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 37918,
+    "cjk_ratio": 0.0077
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2016-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2016-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2016年12月六级（第3套）答案及解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 119460,
+    "cjk_ratio": 0.0014
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2016.12英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 51567,
+    "cjk_ratio": 0.0095
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2016.12英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 17661,
+    "cjk_ratio": 0.0085
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2016.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 39289,
+    "cjk_ratio": 0.0078
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2017-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.06英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 201222,
+    "cjk_ratio": 0.0018
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.06英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 48289,
+    "cjk_ratio": 0.0091
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.06英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 16430,
+    "cjk_ratio": 0.012
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 36465,
+    "cjk_ratio": 0.0081
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2017-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.06英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 195081,
+    "cjk_ratio": 0.0025
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.06英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 52341,
+    "cjk_ratio": 0.0122
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.06英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 16483,
+    "cjk_ratio": 0.0103
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2017-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.06英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 114583,
+    "cjk_ratio": 0.0019
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.06英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 48245,
+    "cjk_ratio": 0.0108
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.06英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 16133,
+    "cjk_ratio": 0.0097
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 36800,
+    "cjk_ratio": 0.0078
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2017-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-12_p1.jsonl",
+  "n_questions": 51,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.12英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 351607,
+    "cjk_ratio": 0.1207
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.12英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 84733,
+    "cjk_ratio": 0.1524
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.12英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 27013,
+    "cjk_ratio": 0.1293
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 65432,
+    "cjk_ratio": 0.1249
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2017-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.12英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 334193,
+    "cjk_ratio": 0.1273
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.12英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 83576,
+    "cjk_ratio": 0.1635
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.12英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 27349,
+    "cjk_ratio": 0.1267
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 62176,
+    "cjk_ratio": 0.1225
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2017-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2017-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2017.12英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 201958,
+    "cjk_ratio": 0.1322
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2017.12英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 86946,
+    "cjk_ratio": 0.1487
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2017.12英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 32468,
+    "cjk_ratio": 0.1317
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2017.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 62388,
+    "cjk_ratio": 0.1279
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-06_p1.jsonl",
+  "n_questions": 45,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.06英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 343415,
+    "cjk_ratio": 0.1267
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.06英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 85272,
+    "cjk_ratio": 0.1491
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.06英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 33672,
+    "cjk_ratio": 0.113
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 60757,
+    "cjk_ratio": 0.1213
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.06英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 337788,
+    "cjk_ratio": 0.1294
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.06英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 92177,
+    "cjk_ratio": 0.1503
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.06英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 24388,
+    "cjk_ratio": 0.133
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 59206,
+    "cjk_ratio": 0.1284
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.06英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 188526,
+    "cjk_ratio": 0.1346
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.06英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 80642,
+    "cjk_ratio": 0.1448
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.06英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 28722,
+    "cjk_ratio": 0.1397
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 57107,
+    "cjk_ratio": 0.1268
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-12_p1.jsonl",
+  "n_questions": 51,
+  "with_answer": 12,
+  "with_analysis": 8,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.12英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 132147,
+    "cjk_ratio": 0.2808
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.12英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 38012,
+    "cjk_ratio": 0.2957
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.12英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11438,
+    "cjk_ratio": 0.3532
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 24180,
+    "cjk_ratio": 0.3009
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-12_p2.jsonl",
+  "n_questions": 51,
+  "with_answer": 10,
+  "with_analysis": 5,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.12英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 136416,
+    "cjk_ratio": 0.2838
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.12英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 42044,
+    "cjk_ratio": 0.3424
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.12英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11222,
+    "cjk_ratio": 0.3123
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 27883,
+    "cjk_ratio": 0.2601
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2018-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2018-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 8,
+  "with_analysis": 8,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2018.12英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 89783,
+    "cjk_ratio": 0.2967
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2018.12英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 42430,
+    "cjk_ratio": 0.3101
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2018.12英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 13043,
+    "cjk_ratio": 0.3155
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2018.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 25856,
+    "cjk_ratio": 0.2849
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2019-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.06英语六级阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.06英语六级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2019-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.06英语六级阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.06英语六级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2019-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.06英语六级阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.06英语六级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2019-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 4,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2019.12英语六级考试解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 47164,
+    "cjk_ratio": 0.298
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.12英语六级阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11222,
+    "cjk_ratio": 0.6856
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.12英语六级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6745,
+    "cjk_ratio": 0.5115
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11933,
+    "cjk_ratio": 0.5295
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2019-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2019.12英语六级考试解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 46776,
+    "cjk_ratio": 0.3078
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.12英语六级阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 12071,
+    "cjk_ratio": 0.6849
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.12英语六级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7627,
+    "cjk_ratio": 0.5643
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11202,
+    "cjk_ratio": 0.5398
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2019-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2019-12_p3.jsonl",
+  "n_questions": 20,
+  "with_answer": 1,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2019.12英语六级考试解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 19872,
+    "cjk_ratio": 0.5279
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2019.12英语六级阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11355,
+    "cjk_ratio": 0.7526
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2019.12英语六级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 12034,
+    "cjk_ratio": 0.451
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2019.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 11839,
+    "cjk_ratio": 0.5295
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-07|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-07_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 19,
+  "with_analysis": 4,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.07英语六级考试全1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 164915,
+    "cjk_ratio": 0.2688
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.07英语六级阅读全1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 39615,
+    "cjk_ratio": 0.2926
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.07英语六级选词填空全1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 10516,
+    "cjk_ratio": 0.3115
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.07英语六级长篇阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 30916,
+    "cjk_ratio": 0.2274
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-09|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-09_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 22,
+  "with_analysis": 7,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.09英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 166819,
+    "cjk_ratio": 0.2805
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.09英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 36633,
+    "cjk_ratio": 0.3183
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.09英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 10150,
+    "cjk_ratio": 0.3077
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.09英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 32289,
+    "cjk_ratio": 0.2564
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-09|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-09_p2.jsonl",
+  "n_questions": 30,
+  "with_answer": 19,
+  "with_analysis": 7,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.09英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 33774,
+    "cjk_ratio": 0.3243
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.09英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 9892,
+    "cjk_ratio": 0.2976
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.09英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 29483,
+    "cjk_ratio": 0.2534
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-09|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-09_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.09英语六级考试第2、3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 90793,
+    "cjk_ratio": 0.2832
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-12_p1.jsonl",
+  "n_questions": 53,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.12英语六级考试第1套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 48861,
+    "cjk_ratio": 0.3258
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.12英语六级阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.12英语六级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-12_p2.jsonl",
+  "n_questions": 54,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.12英语六级考试第2套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 50353,
+    "cjk_ratio": 0.3044
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.12英语六级阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.12英语六级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2020-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2020-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 3,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2020.12英语六级考试第3套解析.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 21027,
+    "cjk_ratio": 0.5286
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2020.12英语六级阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2020.12英语六级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2020.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2021-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2021-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2021.06英语六级答案解析第1套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 71617,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2021.06英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2021.06英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2021.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2021-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2021-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2021.06英语六级答案解析第2套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 70430,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2021.06英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2021.06英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2021.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2021-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2021-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 2,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2021.06英语六级答案解析第3套.pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 48669,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2021.06英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 15,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2021.06英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2021.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 17,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2021-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2021-12_p3.jsonl",
+  "n_questions": 51,
+  "with_answer": 11,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "数据集/四六级/scripts/_staging/answers/cet6/2021.12英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 18522,
+    "cjk_ratio": 0.4779
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2021.12英语六级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 22592,
+    "cjk_ratio": 0.6246
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2021.12英语六级长篇阅读真题解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 8038,
+    "cjk_ratio": 0.5056
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 22,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年06月CET6真题+解析+听力/03、答案解析/2022.06英语六级考试解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 43287,
+    "cjk_ratio": 0.3196
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-06_p2.jsonl",
+  "n_questions": 30,
+  "with_answer": 10,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年06月CET6真题+解析+听力/03、答案解析/2022.06英语六级真题解析第2套 .pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 23320,
+    "cjk_ratio": 0.4813
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2022.06英语六级仔细阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 18056,
+    "cjk_ratio": 0.5177
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2022.06英语六级选词填空解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 14080,
+    "cjk_ratio": 0.159
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2022.06英语六级长篇阅读解析全2套.pdf",
+    "multi": true,
+    "quality": "good",
+    "chars": 22020,
+    "cjk_ratio": 0.2587
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-06_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年06月CET6真题+解析+听力/03、答案解析/2022.06英语六级真题解析第3套 .pdf",
+    "multi": false,
+    "quality": "broken_font",
+    "chars": 9020,
+    "cjk_ratio": 0.0013
+   }
+  ],
+  "best_quality": "broken_font",
+  "needs_external": true
+ },
+ "CET-6|2022-09|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-09_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 28,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年09月CET6真题+解析+听力/03、答案解析/2022.09英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 42467,
+    "cjk_ratio": 0.2783
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2022.09英语六级仔细阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7462,
+    "cjk_ratio": 0.6261
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2022.09英语六级选词填空解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 3583,
+    "cjk_ratio": 0.4893
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2022.09英语六级长篇阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7196,
+    "cjk_ratio": 0.4792
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-09|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-09_p2.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年09月CET6真题+解析+听力/03、答案解析/2022.09英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 2887,
+    "cjk_ratio": 0.1095
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-09|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-09_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年09月CET6真题+解析+听力/03、答案解析/2022.09英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 3143,
+    "cjk_ratio": 0.1005
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年12月CET6真题+解析+听力/03、答案解析/2022.12六级真题第1套答案及详解.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2022-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年12月CET6真题+解析+听力/03、答案解析/2022.12六级真题第2套答案及详解.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 576,
+    "cjk_ratio": 0.5729
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2022-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2022-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2022年12月CET6真题+解析+听力/03、答案解析/2022.12六级真题第3套答案及详解.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 333,
+    "cjk_ratio": 0.5946
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2022.12英语六级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 63,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2022.12英语六级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2022.12英语六级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2023-03|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-03_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2023.03英语六级仔细阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 9433,
+    "cjk_ratio": 0.5419
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2023.03英语六级选词填空解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 3723,
+    "cjk_ratio": 0.4902
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2023.03英语六级长篇阅读解析全1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6142,
+    "cjk_ratio": 0.5606
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2023-03|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-03_p2.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-6|2023-03|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-03_p3.jsonl",
+  "n_questions": 0,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-6|2023-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-6|2023-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [],
+  "best_quality": "none",
+  "needs_external": true
+ },
+ "CET-6|2023-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2023.06英语六级仔细阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2023.06英语六级选词填空解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2023.06英语六级长篇阅读解析全3套.pdf",
+    "multi": true,
+    "quality": "needs_ocr",
+    "chars": 57,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2023-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 2,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2023年12月CET6真题+解析+听力/03、答案解析/2023.12英语六级真题第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2023.12英语六级仔细阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 9532,
+    "cjk_ratio": 0.5167
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2023.12英语六级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 3305,
+    "cjk_ratio": 0.5359
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2023.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7406,
+    "cjk_ratio": 0.5128
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2023-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2023年12月CET6真题+解析+听力/03、答案解析/2023.12英语六级真题第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2023.12英语六级仔细阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 7992,
+    "cjk_ratio": 0.5365
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2023.12英语六级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4223,
+    "cjk_ratio": 0.5049
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2023.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6356,
+    "cjk_ratio": 0.561
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2023-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2023-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2023年12月CET6真题+解析+听力/03、答案解析/2023.12英语六级真题第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2023.12英语六级仔细阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 8937,
+    "cjk_ratio": 0.5183
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2023.12英语六级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 3647,
+    "cjk_ratio": 0.5341
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2023.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 6325,
+    "cjk_ratio": 0.5891
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2024-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-06_p1.jsonl",
+  "n_questions": 49,
+  "with_answer": 5,
+  "with_analysis": 1,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第一套解析.docx",
+    "multi": false,
+    "quality": "good(docx)",
+    "chars": 0,
+    "cjk_ratio": 1.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第一套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.06英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.06英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.06英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good(docx)",
+  "needs_external": false
+ },
+ "CET-6|2024-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-06_p2.jsonl",
+  "n_questions": 54,
+  "with_answer": 5,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第二套解析.docx",
+    "multi": false,
+    "quality": "good(docx)",
+    "chars": 0,
+    "cjk_ratio": 1.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第二套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.06英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.06英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.06英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 22,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good(docx)",
+  "needs_external": false
+ },
+ "CET-6|2024-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-06_p3.jsonl",
+  "n_questions": 23,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第三套解析.docx",
+    "multi": false,
+    "quality": "good(docx)",
+    "chars": 0,
+    "cjk_ratio": 1.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年06月CET6真题+解析+听力/2024年6月六级真题-答案解析/2024.6六级第三套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.06英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.06英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.06英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good(docx)",
+  "needs_external": false
+ },
+ "CET-6|2024-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年12月六级真题+解析+听力/2024.12英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.12英语六级阅读第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.12英语六级选词填空第1套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 19,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.12英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 21,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2024-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年12月六级真题+解析+听力/2024.12英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.12英语六级阅读第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.12英语六级选词填空第2套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 19,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.12英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 21,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2024-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2024-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2024年12月六级真题+解析+听力/2024.12英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2024.12英语六级阅读第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2024.12英语六级选词填空第3套解析.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 19,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2024.12英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 21,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2025-06|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-06_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年6月六级真题+解析+听力/2025.06英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4996,
+    "cjk_ratio": 0.1765
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2025.6英语六级仔细阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2025.06英语六级选词填空解析第1套.pdf",
+    "multi": false,
+    "quality": "good",
+    "chars": 4996,
+    "cjk_ratio": 0.1765
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2025.6月英语六级长篇阅读解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "good",
+  "needs_external": false
+ },
+ "CET-6|2025-06|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-06_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年6月六级真题+解析+听力/2025.06英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2025.6英语六级仔细阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2025.06英语六级选词填空解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2025.6月英语六级长篇阅读解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2025-06|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-06_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年6月六级真题+解析+听力/2025.06英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级仔细阅读真题专项(2015-2025.06)/六级仔细阅读真题解析(2015-2025.06)/2025.6英语六级仔细阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级选词填空真题专项(2015-2025.06)/六级选词填空答案解析(2015-2025.06)/2025.06英语六级选词填空解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/六级长篇阅读真题专项(2015-2025.06)/六级长篇阅读真题解析(2015-2025.06)/2025.6月英语六级长篇阅读解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 20,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2025-12|第1套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-12_p1.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年12月六级真题+解析+听力/2025.12英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【1】六级听力真题专项资料/2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/【3】2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第1套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2025-12|第2套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-12_p2.jsonl",
+  "n_questions": 55,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年12月六级真题+解析+听力/2025.12英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【1】六级听力真题专项资料/2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/【3】2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第2套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ },
+ "CET-6|2025-12|第3套": {
+  "jsonl": "数据集/四六级/questions/cet6/2025-12_p3.jsonl",
+  "n_questions": 30,
+  "with_answer": 0,
+  "with_analysis": 0,
+  "local_sources": [
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【1】四六级真题及答案（2015.6-2026.6）/六级真题及答案（2015.6-2026.6）/【1】2015-2025年12月六级真题+听力+答案合集/2025年12月六级真题+解析+听力/2025.12英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【1】六级听力真题专项资料/2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   },
+   {
+    "path": "英语四六级资料合集（2026年最新）(1)/【2】四六级专项题汇总（听力、阅读、翻译、作文）/六级专项题/【2】六级阅读专项真题/【3】2025年12月六级真题+解析+听力（最新）/【3】2025年12月英语六级真题答案解析/2025.12英语六级解析第3套.pdf",
+    "multi": false,
+    "quality": "needs_ocr",
+    "chars": 0,
+    "cjk_ratio": 0.0
+   }
+  ],
+  "best_quality": "needs_ocr",
+  "needs_external": true
+ }
+}

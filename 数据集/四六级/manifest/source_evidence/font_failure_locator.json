@@ -1,0 +1,9 @@
+{
+  "path": "数据集/四六级/scripts/_staging/answers/cet4/2016年06月四级解析第1套.pdf",
+  "page": 2,
+  "rendered_path": "数据集/四六级/manifest/source_evidence/cet4-2016-font-failure-page-2.png",
+  "extraction_status": "extraction_failure_font_mapping",
+  "expert_review_status": "pending",
+  "visual_observation": "Rendered page contains Section A complete news transcripts and spoken questions 1–4; decoded text is scrambled and does not represent source absence.",
+  "visual_review_method": "agent_visual_inspection_of_original_PDF_page_render; pending_subject_expert"
+}

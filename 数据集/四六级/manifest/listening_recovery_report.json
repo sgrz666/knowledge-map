@@ -1,0 +1,19 @@
+{
+  "audited_files": 753,
+  "by_status": {
+    "bounded_listening_groups_extracted": 32,
+    "needs_ocr_or_text_layer_repair": 265,
+    "text_extracted_no_bounded_listening_group": 456
+  },
+  "source_groups": 625,
+  "published_spoken_questions": 2206,
+  "restored_spoken_questions": 0,
+  "bound_question_records": 49,
+  "binding_gaps": {
+    "no_complete_option_anchor_in_published_question_or_script": 1651,
+    "four_original_options_identity_not_established": 8,
+    "no_unique_existing_question": 493,
+    "conflicting_spoken_question_texts": 1
+  },
+  "transcript_resources": 648
+}

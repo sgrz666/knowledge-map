@@ -1,0 +1,930 @@
+{
+ "generated": "2026-10-07",
+ "threshold": 0.95,
+ "papers": [
+  {
+   "paper": "CET-4|2015-06|第1套",
+   "source": "2015.06英语四级解析第1套.pdf",
+   "checked": 42,
+   "agree": 42,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 1,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2015-06|第2套",
+   "source": "2015.06英语四级解析第2套.pdf",
+   "checked": 43,
+   "agree": 42,
+   "disagree": 1,
+   "agreement_rate": 0.9767441860465116,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2015-12|第1套",
+   "source": "2015.12英语四级解析第1套.pdf",
+   "checked": 45,
+   "agree": 45,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2015-12|第2套",
+   "source": "2015.12英语四级解析第2套.pdf",
+   "checked": 43,
+   "agree": 42,
+   "disagree": 1,
+   "agreement_rate": 0.9767441860465116,
+   "new_answer_available": 1,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2015-12|第3套",
+   "source": "2015.12英语四级解析第3套.pdf",
+   "checked": 44,
+   "agree": 44,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2016-06|第2套",
+   "source": "2016年06月四级解析第2套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2016-06|第3套",
+   "source": "2016年06月四级解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2016-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2016-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2016-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2017-06|第1套",
+   "source": "2017年6月英语四级真题（卷一）答案解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2017-06|第2套",
+   "source": "2017年6月英语四级真题（卷二）答案解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2017-06|第3套",
+   "source": "2017年6月英语四级真题（卷三）答案解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2017-12|第1套",
+   "source": "2017年12月英语四级真题答案及解析（第一套）.pdf",
+   "checked": 6,
+   "agree": 6,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2017-12|第3套",
+   "source": "2017年12月英语四级真题答案及解析（第三套）.pdf",
+   "checked": 4,
+   "agree": 4,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2018-12|第1套",
+   "source": "2018年12月四级解析第1套.pdf",
+   "checked": 1,
+   "agree": 1,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2018-12|第2套",
+   "source": "2018年12月四级解析第2套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2018-12|第3套",
+   "source": "2018年12月四级解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2019-06|第1套",
+   "source": "2019.06英语四级解析第1套.pdf",
+   "checked": 15,
+   "agree": 8,
+   "disagree": 7,
+   "agreement_rate": 0.5333333333333333,
+   "new_answer_available": 3,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-06|第2套",
+   "source": "2019.06英语四级解析第2套.pdf",
+   "checked": 8,
+   "agree": 5,
+   "disagree": 3,
+   "agreement_rate": 0.625,
+   "new_answer_available": 2,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-06|第3套",
+   "source": "2019.06英语四级解析第3套.pdf",
+   "checked": 2,
+   "agree": 1,
+   "disagree": 1,
+   "agreement_rate": 0.5,
+   "new_answer_available": 1,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第1套",
+   "source": "2019.12英语四级解析第1套.pdf",
+   "checked": 15,
+   "agree": 7,
+   "disagree": 8,
+   "agreement_rate": 0.4666666666666667,
+   "new_answer_available": 5,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第2套",
+   "source": "2019.12英语四级解析第2套.pdf",
+   "checked": 23,
+   "agree": 15,
+   "disagree": 8,
+   "agreement_rate": 0.6521739130434783,
+   "new_answer_available": 7,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第3套",
+   "source": "2019.12英语四级解析第3套.pdf",
+   "checked": 7,
+   "agree": 2,
+   "disagree": 5,
+   "agreement_rate": 0.2857142857142857,
+   "new_answer_available": 4,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2020-09|第1套",
+   "source": "2020.09英语四级解析第1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2020-09|第2套",
+   "source": "2020.09英语四级解析第2套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2020-12|第1套",
+   "source": "2020.12英语四级解析第1套.pdf",
+   "checked": 45,
+   "agree": 42,
+   "disagree": 3,
+   "agreement_rate": 0.9333333333333333,
+   "new_answer_available": 10,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2020-12|第2套",
+   "source": "2020.12英语四级解析第2套.pdf",
+   "checked": 46,
+   "agree": 44,
+   "disagree": 2,
+   "agreement_rate": 0.9565217391304348,
+   "new_answer_available": 9,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2020-12|第3套",
+   "source": "2020.12英语四级解析第3套.pdf",
+   "checked": 30,
+   "agree": 29,
+   "disagree": 1,
+   "agreement_rate": 0.9666666666666667,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2021-06|第1套",
+   "source": "2021年6月英语四级解析第一套.pdf",
+   "checked": 1,
+   "agree": 0,
+   "disagree": 1,
+   "agreement_rate": 0.0,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2021-06|第2套",
+   "source": "2021年6月英语四级解析第二套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2021-06|第3套",
+   "source": "2021年6月英语四级解析第三套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2021-12|第3套",
+   "source": "2021.12英语四级解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2022-06|第1套",
+   "source": "2022.06英语四级解析第1套.pdf",
+   "checked": 14,
+   "agree": 9,
+   "disagree": 5,
+   "agreement_rate": 0.6428571428571429,
+   "new_answer_available": 2,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2022-06|第2套",
+   "source": "2022.06英语四级长篇阅读解析全2套.pdf",
+   "checked": 4,
+   "agree": 0,
+   "disagree": 4,
+   "agreement_rate": 0.0,
+   "new_answer_available": 3,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2022-09|第1套",
+   "source": "2022.09四级长篇阅读解析全1套.pdf",
+   "checked": 3,
+   "agree": 2,
+   "disagree": 1,
+   "agreement_rate": 0.6666666666666666,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2022-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2022-12|第2套",
+   "source": "2022.12四级真题第2套答案及详解.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2022-12|第3套",
+   "source": "2022年12月四级仔细阅读解析全3套.pdf",
+   "checked": 3,
+   "agree": 1,
+   "disagree": 2,
+   "agreement_rate": 0.3333333333333333,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2023-03|第1套",
+   "source": "2023.03英语四级选词填空解析全1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "source": "2023年06月四级仔细阅读解析第1套.pdf",
+   "checked": 4,
+   "agree": 3,
+   "disagree": 1,
+   "agreement_rate": 0.75,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "source": "2023年06月四级仔细阅读解析第2套.pdf",
+   "checked": 5,
+   "agree": 4,
+   "disagree": 1,
+   "agreement_rate": 0.8,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "source": "2023.06英语四级长篇阅读解析第3套.pdf",
+   "checked": 2,
+   "agree": 0,
+   "disagree": 2,
+   "agreement_rate": 0.0,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2024-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2024-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2024-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-06|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-06|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-06|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-4|2025-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "source": "2016.12英语六级阅读第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "source": "2016.12英语六级选词填空第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "source": "2017.06英语六级选词填空第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "source": "2017.06英语六级阅读第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "source": "2017.06英语六级选词填空第3套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "source": "2017.12英语六级考试第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "source": "2017.12英语六级考试第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "source": "2017.12英语六级考试第3套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "source": "2018.06英语六级考试第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "source": "2018.06英语六级考试第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "source": "2018.06英语六级考试第3套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "source": "2018.12英语六级考试第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "source": "2018.12英语六级考试第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "source": "2018.12英语六级考试第3套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2019-06|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2019-06|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2019-06|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "source": "2019.12英语六级考试解析第1套.pdf",
+   "checked": 2,
+   "agree": 2,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "source": "2019.12英语六级考试解析第2套.pdf",
+   "checked": 2,
+   "agree": 2,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "source": "2019.12英语六级考试解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2020-07|第1套",
+   "source": "2020.07英语六级考试全1套解析.pdf",
+   "checked": 1,
+   "agree": 0,
+   "disagree": 1,
+   "agreement_rate": 0.0,
+   "new_answer_available": 0,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "source": "2020.09英语六级考试第1套解析.pdf",
+   "checked": 4,
+   "agree": 1,
+   "disagree": 3,
+   "agreement_rate": 0.25,
+   "new_answer_available": 3,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2020-09|第2套",
+   "source": "2020.09英语六级阅读第2套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "source": "2020.12英语六级考试第1套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "source": "2020.12英语六级考试第2套解析.pdf",
+   "checked": 1,
+   "agree": 1,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "source": "2020.12英语六级考试第3套解析.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "source": "2021.06英语六级答案解析第1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "source": "2021.06英语六级答案解析第2套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "source": "2021.06英语六级答案解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "source": "2021.12英语六级仔细阅读解析全3套.pdf",
+   "checked": 1,
+   "agree": 0,
+   "disagree": 1,
+   "agreement_rate": 0.0,
+   "new_answer_available": 1,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-06|第1套",
+   "source": "2022.06英语六级考试解析第1套.pdf",
+   "checked": 18,
+   "agree": 8,
+   "disagree": 10,
+   "agreement_rate": 0.4444444444444444,
+   "new_answer_available": 1,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-06|第2套",
+   "source": "2022.06英语六级真题解析第2套 .pdf",
+   "checked": 11,
+   "agree": 8,
+   "disagree": 3,
+   "agreement_rate": 0.7272727272727273,
+   "new_answer_available": 2,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-09|第1套",
+   "source": "2022.09英语六级解析第1套.pdf",
+   "checked": 22,
+   "agree": 17,
+   "disagree": 5,
+   "agreement_rate": 0.7727272727272727,
+   "new_answer_available": 3,
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2022-12|第2套",
+   "source": "2022.12六级真题第2套答案及详解.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2022-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2023-03|第1套",
+   "source": "2023.03英语六级仔细阅读解析全1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2023-06|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2023-06|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2023-06|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "source": "2023.12英语六级仔细阅读解析第1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "source": "2023.12英语六级仔细阅读解析第2套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "source": "2023.12英语六级仔细阅读解析第3套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "source": "2024.6六级第一套解析.docx",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "source": "2024.6六级第二套解析.docx",
+   "checked": 25,
+   "agree": 25,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "source": "2024.6六级第三套解析.docx",
+   "checked": 14,
+   "agree": 14,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 1,
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "source": "2025.06英语六级解析第1套.pdf",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "status": "unverified"
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2025-12|第1套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2025-12|第2套",
+   "status": "no_readable_source"
+  },
+  {
+   "paper": "CET-6|2025-12|第3套",
+   "status": "no_readable_source"
+  }
+ ]
+}

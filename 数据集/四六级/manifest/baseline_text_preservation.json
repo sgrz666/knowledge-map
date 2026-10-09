@@ -1,0 +1,20 @@
+{
+  "method": "compare complete baseline content strings with current active content and nested preservation histories; no raw text discarded",
+  "files": {
+    "writing/model_essays.jsonl": {
+      "baseline_records": 177,
+      "baseline_content_fields": 177,
+      "fields_without_exact_preserved_string": []
+    },
+    "translation/items.jsonl": {
+      "baseline_records": 193,
+      "baseline_content_fields": 193,
+      "fields_without_exact_preserved_string": []
+    },
+    "vocabulary/phrases_highfreq.jsonl": {
+      "baseline_records": 1406,
+      "baseline_content_fields": 1406,
+      "fields_without_exact_preserved_string": []
+    }
+  }
+}

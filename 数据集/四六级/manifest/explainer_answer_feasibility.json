@@ -1,0 +1,892 @@
+{
+ "threshold": 0.95,
+ "papers": [
+  {
+   "paper": "CET-4|2015-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2015-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2015-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2015-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2015-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2016-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2016-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2016-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2016-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2016-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2017-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2017-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2017-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2017-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2017-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2018-12|第1套",
+   "source": "2018年12月四级解析第1套.pdf",
+   "extracted": 4,
+   "checked": 3,
+   "agree": 3,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 1,
+   "disagree_detail": [],
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2018-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2018-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2019-06|第1套",
+   "source": "2019.06英语四级解析第1套.pdf",
+   "extracted": 28,
+   "checked": 22,
+   "agree": 18,
+   "disagree": 4,
+   "agreement_rate": 0.8181818181818182,
+   "new_answer_available": 6,
+   "disagree_detail": [
+    {
+     "q": 40,
+     "kb": "F",
+     "got": "A"
+    },
+    {
+     "q": 41,
+     "kb": "M",
+     "got": "K"
+    },
+    {
+     "q": 44,
+     "kb": "A",
+     "got": "M"
+    },
+    {
+     "q": 45,
+     "kb": "K",
+     "got": "C"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-06|第2套",
+   "source": "2019.06英语四级解析第2套.pdf",
+   "extracted": 26,
+   "checked": 24,
+   "agree": 22,
+   "disagree": 2,
+   "agreement_rate": 0.9166666666666666,
+   "new_answer_available": 2,
+   "disagree_detail": [
+    {
+     "q": 34,
+     "kb": "M",
+     "got": "F"
+    },
+    {
+     "q": 44,
+     "kb": "G",
+     "got": "J"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-06|第3套",
+   "source": "2019.06英语四级解析第3套.pdf",
+   "extracted": 14,
+   "checked": 13,
+   "agree": 13,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 1,
+   "disagree_detail": [],
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第1套",
+   "source": "2019.12英语四级解析第1套.pdf",
+   "extracted": 19,
+   "checked": 16,
+   "agree": 15,
+   "disagree": 1,
+   "agreement_rate": 0.9375,
+   "new_answer_available": 3,
+   "disagree_detail": [
+    {
+     "q": 15,
+     "kb": "B",
+     "got": "A"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第2套",
+   "source": "2019.12英语四级解析第2套.pdf",
+   "extracted": 21,
+   "checked": 15,
+   "agree": 11,
+   "disagree": 4,
+   "agreement_rate": 0.7333333333333333,
+   "new_answer_available": 6,
+   "disagree_detail": [
+    {
+     "q": 4,
+     "kb": "B",
+     "got": "C"
+    },
+    {
+     "q": 10,
+     "kb": "D",
+     "got": "C"
+    },
+    {
+     "q": 37,
+     "kb": "I",
+     "got": "J"
+    },
+    {
+     "q": 49,
+     "kb": "B",
+     "got": "D"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2019-12|第3套",
+   "source": "2019.12英语四级解析第3套.pdf",
+   "extracted": 22,
+   "checked": 12,
+   "agree": 10,
+   "disagree": 2,
+   "agreement_rate": 0.8333333333333334,
+   "new_answer_available": 10,
+   "disagree_detail": [
+    {
+     "q": 43,
+     "kb": "A",
+     "got": "C"
+    },
+    {
+     "q": 47,
+     "kb": "D",
+     "got": "C"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2020-09|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2020-09|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2020-09|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2020-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2020-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2020-12|第3套",
+   "source": "2020年12月四级选词填空解析全3套.pdf",
+   "extracted": 1,
+   "checked": 1,
+   "agree": 0,
+   "disagree": 1,
+   "agreement_rate": 0.0,
+   "new_answer_available": 0,
+   "disagree_detail": [
+    {
+     "q": 35,
+     "kb": "N",
+     "got": "O"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2021-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2021-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2021-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2021-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-06|第1套",
+   "source": "2022.06英语四级解析第1套.pdf",
+   "extracted": 23,
+   "checked": 22,
+   "agree": 17,
+   "disagree": 5,
+   "agreement_rate": 0.7727272727272727,
+   "new_answer_available": 1,
+   "disagree_detail": [
+    {
+     "q": 33,
+     "kb": "D",
+     "got": "N"
+    },
+    {
+     "q": 34,
+     "kb": "B",
+     "got": "N"
+    },
+    {
+     "q": 40,
+     "kb": "J",
+     "got": "F"
+    },
+    {
+     "q": 43,
+     "kb": "D",
+     "got": "I"
+    },
+    {
+     "q": 45,
+     "kb": "A",
+     "got": "J"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2022-06|第2套",
+   "source": "2022.06英语四级解析第2套.pdf",
+   "extracted": 11,
+   "checked": 10,
+   "agree": 6,
+   "disagree": 4,
+   "agreement_rate": 0.6,
+   "new_answer_available": 1,
+   "disagree_detail": [
+    {
+     "q": 38,
+     "kb": "E",
+     "got": "K"
+    },
+    {
+     "q": 39,
+     "kb": "D",
+     "got": "F"
+    },
+    {
+     "q": 40,
+     "kb": "H",
+     "got": "K"
+    },
+    {
+     "q": 43,
+     "kb": "O",
+     "got": "D"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2022-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-09|第1套",
+   "source": "2022年09月四级阅读解析全1套.pdf",
+   "extracted": 8,
+   "checked": 7,
+   "agree": 7,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 1,
+   "disagree_detail": [],
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2022-09|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-09|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2022-12|第3套",
+   "source": "2022.12英语四级长篇阅读解析全3套.pdf",
+   "extracted": 9,
+   "checked": 9,
+   "agree": 1,
+   "disagree": 8,
+   "agreement_rate": 0.1111111111111111,
+   "new_answer_available": 0,
+   "disagree_detail": [
+    {
+     "q": 36,
+     "kb": "D",
+     "got": "I"
+    },
+    {
+     "q": 37,
+     "kb": "J",
+     "got": "G"
+    },
+    {
+     "q": 39,
+     "kb": "G",
+     "got": "D"
+    },
+    {
+     "q": 40,
+     "kb": "A",
+     "got": "L"
+    },
+    {
+     "q": 41,
+     "kb": "I",
+     "got": "A"
+    },
+    {
+     "q": 42,
+     "kb": "K",
+     "got": "J"
+    },
+    {
+     "q": 44,
+     "kb": "H",
+     "got": "C"
+    },
+    {
+     "q": 45,
+     "kb": "F",
+     "got": "H"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2023-03|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2023-03|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2023-03|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "source": "2023.06英语四级长篇阅读解析第1套.pdf",
+   "extracted": 9,
+   "checked": 9,
+   "agree": 9,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "disagree_detail": [],
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "source": "2023年06月四级仔细阅读解析第2套.pdf",
+   "extracted": 9,
+   "checked": 9,
+   "agree": 8,
+   "disagree": 1,
+   "agreement_rate": 0.8888888888888888,
+   "new_answer_available": 0,
+   "disagree_detail": [
+    {
+     "q": 53,
+     "kb": "C",
+     "got": "D"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "source": "2023.06英语四级长篇阅读解析第3套.pdf",
+   "extracted": 8,
+   "checked": 8,
+   "agree": 3,
+   "disagree": 5,
+   "agreement_rate": 0.375,
+   "new_answer_available": 0,
+   "disagree_detail": [
+    {
+     "q": 36,
+     "kb": "E",
+     "got": "F"
+    },
+    {
+     "q": 37,
+     "kb": "L",
+     "got": "C"
+    },
+    {
+     "q": 39,
+     "kb": "D",
+     "got": "E"
+    },
+    {
+     "q": 40,
+     "kb": "F",
+     "got": "B"
+    },
+    {
+     "q": 43,
+     "kb": "E",
+     "got": "D"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-4|2024-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2024-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2024-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-4|2025-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-07|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-09|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-09|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "source": "2021.12英语六级仔细阅读解析全3套.pdf",
+   "extracted": 7,
+   "checked": 6,
+   "agree": 3,
+   "disagree": 3,
+   "agreement_rate": 0.5,
+   "new_answer_available": 1,
+   "disagree_detail": [
+    {
+     "q": 51,
+     "kb": "A",
+     "got": "D"
+    },
+    {
+     "q": 52,
+     "kb": "C",
+     "got": "A"
+    },
+    {
+     "q": 54,
+     "kb": "C",
+     "got": "A"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-06|第1套",
+   "source": "2022.06英语六级考试解析第1套.pdf",
+   "extracted": 13,
+   "checked": 12,
+   "agree": 9,
+   "disagree": 3,
+   "agreement_rate": 0.75,
+   "new_answer_available": 1,
+   "disagree_detail": [
+    {
+     "q": 29,
+     "kb": "C",
+     "got": "H"
+    },
+    {
+     "q": 36,
+     "kb": "E",
+     "got": "D"
+    },
+    {
+     "q": 45,
+     "kb": "H",
+     "got": "G"
+    }
+   ],
+   "status": "distrusted"
+  },
+  {
+   "paper": "CET-6|2022-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-09|第1套",
+   "source": "2022.09英语六级解析第1套.pdf",
+   "extracted": 18,
+   "checked": 18,
+   "agree": 18,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "disagree_detail": [],
+   "status": "trusted"
+  },
+  {
+   "paper": "CET-6|2022-09|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-09|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2022-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-03|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-03|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-03|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-12|第1套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-12|第2套",
+   "status": "no_answer_explainer_found"
+  },
+  {
+   "paper": "CET-6|2025-12|第3套",
+   "status": "no_answer_explainer_found"
+  }
+ ],
+ "summary": {
+  "papers_scanned": 126,
+  "trusted": 5,
+  "distrusted": 13,
+  "unverified": 0,
+  "no_explainer": 108,
+  "trusted_checked": 50,
+  "trusted_agree": 50,
+  "trusted_overall_rate": 1.0,
+  "recoverable_answers": 3
+ }
+}

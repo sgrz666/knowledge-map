@@ -1,0 +1,774 @@
+{
+ "generated": "2026-10-08",
+ "action": "quarantine answers violating one-to-one constraint (long-passage matching)",
+ "scope": {
+  "question_type": "长篇阅读",
+  "min_questions": 5,
+  "excluded": "选词填空 (15选10填10空，字母可重复，属正常)"
+ },
+ "baseline": {
+  "papers_with_unique_answers_untouched": 49,
+  "papers_violating_constraint": 38
+ },
+ "papers": [
+  {
+   "paper": "cet4/2016-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "B"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "D",
+    "B",
+    "F",
+    "A",
+    "L",
+    "H",
+    "C",
+    "K",
+    "B",
+    "J"
+   ]
+  },
+  {
+   "paper": "cet4/2016-06_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "L"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "K",
+    "C",
+    "L",
+    "B",
+    "H",
+    "M",
+    "J",
+    "L",
+    "G"
+   ]
+  },
+  {
+   "paper": "cet4/2018-12_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "G"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "D",
+    "B",
+    "G",
+    "A",
+    "I",
+    "F",
+    "C",
+    "J",
+    "E",
+    "G"
+   ]
+  },
+  {
+   "paper": "cet4/2019-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "G"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "G",
+    "E",
+    "G",
+    "B",
+    "K",
+    "F",
+    "I",
+    "H",
+    "G",
+    "G"
+   ]
+  },
+  {
+   "paper": "cet4/2019-06_p3.jsonl",
+   "questions": 9,
+   "duplicates": [
+    "A"
+   ],
+   "quarantined": 9,
+   "answer_sequence": [
+    "A",
+    "L",
+    "F",
+    "A",
+    "J",
+    "G",
+    "N",
+    "D",
+    "I"
+   ]
+  },
+  {
+   "paper": "cet4/2019-12_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "I"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "K",
+    "I",
+    "B",
+    "J",
+    "D",
+    "E",
+    "I",
+    "C",
+    "A",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet4/2019-12_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "B",
+    "E",
+    "I"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "I",
+    "B",
+    "F",
+    "D",
+    "E",
+    "I",
+    "B",
+    "C",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet4/2019-12_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "A",
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "I",
+    "A",
+    "G",
+    "B",
+    "A",
+    "H",
+    "A",
+    "J",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet4/2020-09_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "A"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "B",
+    "A",
+    "F",
+    "H",
+    "D",
+    "K",
+    "A",
+    "C",
+    "I"
+   ]
+  },
+  {
+   "paper": "cet4/2020-12_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "H",
+    "D",
+    "K",
+    "B",
+    "G",
+    "I",
+    "E",
+    "C",
+    "H",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2021-06_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "D",
+    "E",
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "G",
+    "J",
+    "H",
+    "H",
+    "E",
+    "D",
+    "A",
+    "D",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2021-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "A"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "O",
+    "H",
+    "E",
+    "B",
+    "K",
+    "A",
+    "G",
+    "A",
+    "I",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2021-12_p3.jsonl",
+   "questions": 8,
+   "duplicates": [
+    "A",
+    "E"
+   ],
+   "quarantined": 8,
+   "answer_sequence": [
+    "E",
+    "B",
+    "G",
+    "A",
+    "J",
+    "O",
+    "A",
+    "E"
+   ]
+  },
+  {
+   "paper": "cet4/2022-06_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "F"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "D",
+    "M",
+    "A",
+    "F",
+    "K",
+    "E",
+    "I",
+    "C",
+    "J"
+   ]
+  },
+  {
+   "paper": "cet4/2022-06_p2.jsonl",
+   "questions": 7,
+   "duplicates": [
+    "E"
+   ],
+   "quarantined": 7,
+   "answer_sequence": [
+    "E",
+    "D",
+    "H",
+    "E",
+    "O",
+    "F",
+    "B"
+   ]
+  },
+  {
+   "paper": "cet4/2022-09_p1.jsonl",
+   "questions": 9,
+   "duplicates": [
+    "C"
+   ],
+   "quarantined": 9,
+   "answer_sequence": [
+    "E",
+    "K",
+    "B",
+    "F",
+    "C",
+    "L",
+    "H",
+    "C",
+    "J"
+   ]
+  },
+  {
+   "paper": "cet4/2022-12_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "I"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "I",
+    "G",
+    "B",
+    "D",
+    "L",
+    "A",
+    "J",
+    "I",
+    "C",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet4/2022-12_p2.jsonl",
+   "questions": 7,
+   "duplicates": [
+    "H"
+   ],
+   "quarantined": 7,
+   "answer_sequence": [
+    "B",
+    "H",
+    "A",
+    "G",
+    "H",
+    "D",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2022-12_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "D",
+    "J",
+    "B",
+    "G",
+    "A",
+    "I",
+    "K",
+    "H",
+    "H",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2023-03_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "H",
+    "H",
+    "D",
+    "A",
+    "J",
+    "B",
+    "E",
+    "G",
+    "L",
+    "F"
+   ]
+  },
+  {
+   "paper": "cet4/2023-06_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "J"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "K",
+    "H",
+    "D",
+    "J",
+    "M",
+    "C",
+    "G",
+    "E",
+    "J"
+   ]
+  },
+  {
+   "paper": "cet4/2023-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "K"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "G",
+    "L",
+    "D",
+    "A",
+    "M",
+    "K",
+    "F",
+    "C",
+    "H",
+    "K"
+   ]
+  },
+  {
+   "paper": "cet4/2023-06_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "E",
+    "L"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "L",
+    "J",
+    "D",
+    "F",
+    "L",
+    "G",
+    "E",
+    "L",
+    "L"
+   ]
+  },
+  {
+   "paper": "cet4/2025-06_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "A"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "H",
+    "C",
+    "L",
+    "A",
+    "M",
+    "G",
+    "K",
+    "D",
+    "J",
+    "A"
+   ]
+  },
+  {
+   "paper": "cet6/2020-09_p1.jsonl",
+   "questions": 9,
+   "duplicates": [
+    "G"
+   ],
+   "quarantined": 9,
+   "answer_sequence": [
+    "H",
+    "C",
+    "D",
+    "M",
+    "E",
+    "B",
+    "G",
+    "G",
+    "N"
+   ]
+  },
+  {
+   "paper": "cet6/2020-12_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "E"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "I",
+    "C",
+    "E",
+    "D",
+    "G",
+    "A",
+    "F",
+    "E",
+    "B"
+   ]
+  },
+  {
+   "paper": "cet6/2020-12_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "H",
+    "E",
+    "B",
+    "K",
+    "I",
+    "C",
+    "A",
+    "N",
+    "H",
+    "M"
+   ]
+  },
+  {
+   "paper": "cet6/2021-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "I"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "I",
+    "C",
+    "K",
+    "F",
+    "B",
+    "H",
+    "A",
+    "J",
+    "D",
+    "I"
+   ]
+  },
+  {
+   "paper": "cet6/2021-06_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "A",
+    "H"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "G",
+    "C",
+    "J",
+    "A",
+    "F",
+    "H",
+    "B",
+    "H",
+    "A",
+    "I"
+   ]
+  },
+  {
+   "paper": "cet6/2021-12_p3.jsonl",
+   "questions": 8,
+   "duplicates": [
+    "G"
+   ],
+   "quarantined": 8,
+   "answer_sequence": [
+    "G",
+    "G",
+    "M",
+    "D",
+    "I",
+    "C",
+    "O",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet6/2022-06_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "B",
+    "E",
+    "H",
+    "J"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "E",
+    "B",
+    "J",
+    "C",
+    "E",
+    "B",
+    "J",
+    "G",
+    "H",
+    "H"
+   ]
+  },
+  {
+   "paper": "cet6/2022-06_p2.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "J"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "K",
+    "H",
+    "D",
+    "J",
+    "C",
+    "B",
+    "A",
+    "J",
+    "E"
+   ]
+  },
+  {
+   "paper": "cet6/2022-09_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "N"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "L",
+    "E",
+    "K",
+    "G",
+    "D",
+    "H",
+    "B",
+    "J",
+    "N",
+    "N"
+   ]
+  },
+  {
+   "paper": "cet6/2022-12_p1.jsonl",
+   "questions": 9,
+   "duplicates": [
+    "D"
+   ],
+   "quarantined": 9,
+   "answer_sequence": [
+    "E",
+    "D",
+    "D",
+    "A",
+    "F",
+    "K",
+    "H",
+    "O",
+    "G"
+   ]
+  },
+  {
+   "paper": "cet6/2023-06_p2.jsonl",
+   "questions": 9,
+   "duplicates": [
+    "E"
+   ],
+   "quarantined": 9,
+   "answer_sequence": [
+    "E",
+    "A",
+    "F",
+    "C",
+    "H",
+    "B",
+    "I",
+    "E",
+    "G"
+   ]
+  },
+  {
+   "paper": "cet6/2023-06_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "L"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "G",
+    "D",
+    "J",
+    "H",
+    "B",
+    "L",
+    "O",
+    "L",
+    "E",
+    "N"
+   ]
+  },
+  {
+   "paper": "cet6/2024-12_p1.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "D"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "F",
+    "C",
+    "G",
+    "J",
+    "H",
+    "D",
+    "D",
+    "I",
+    "E",
+    "K"
+   ]
+  },
+  {
+   "paper": "cet6/2024-12_p3.jsonl",
+   "questions": 10,
+   "duplicates": [
+    "D",
+    "E"
+   ],
+   "quarantined": 10,
+   "answer_sequence": [
+    "G",
+    "C",
+    "D",
+    "D",
+    "M",
+    "E",
+    "E",
+    "H",
+    "A",
+    "L"
+   ]
+  }
+ ],
+ "quarantined_questions": 365,
+ "papers_affected": 38
+}

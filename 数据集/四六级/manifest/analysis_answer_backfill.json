@@ -1,0 +1,279 @@
+{
+ "generated": "2026-10-08",
+ "method": "extract answer conclusions from existing analysis.raw (published explainer text)",
+ "validation": {
+  "checked": 704,
+  "agree": 655,
+  "disagree": 49,
+  "surface_rate": 0.9303977272727273,
+  "adjudicated_refute_kb": 27,
+  "adjudicated_blame_extraction": 1,
+  "no_candidate": 21,
+  "estimated_true_rate": 0.96875
+ },
+ "fill_threshold": 0.9,
+ "note": "只填充缺失答案；不覆盖任何已有答案。所有填入值标记为待专家复核。",
+ "per_type_validation": {
+  "长对话": [
+   92,
+   95
+  ],
+  "听力篇章": [
+   86,
+   92
+  ],
+  "仔细阅读": [
+   280,
+   306
+  ],
+  "长篇阅读": [
+   101,
+   109
+  ],
+  "选词填空": [
+   8,
+   8
+  ],
+  "短篇新闻": [
+   25,
+   27
+  ],
+  "讲座/讲话": [
+   63,
+   67
+  ]
+ },
+ "filled": 325,
+ "conflicts": 0,
+ "no_conclusion": 2098,
+ "papers": [
+  {
+   "paper": "cet4/2015-06_p1.jsonl",
+   "filled": 1,
+   "conflicts": 0,
+   "no_conclusion": 1
+  },
+  {
+   "paper": "cet4/2016-06_p2.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 16
+  },
+  {
+   "paper": "cet4/2016-06_p3.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 12
+  },
+  {
+   "paper": "cet4/2018-12_p1.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 24
+  },
+  {
+   "paper": "cet4/2019-06_p2.jsonl",
+   "filled": 10,
+   "conflicts": 0,
+   "no_conclusion": 7
+  },
+  {
+   "paper": "cet4/2019-06_p3.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 4
+  },
+  {
+   "paper": "cet4/2019-12_p1.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 13
+  },
+  {
+   "paper": "cet4/2019-12_p2.jsonl",
+   "filled": 10,
+   "conflicts": 0,
+   "no_conclusion": 11
+  },
+  {
+   "paper": "cet4/2019-12_p3.jsonl",
+   "filled": 6,
+   "conflicts": 0,
+   "no_conclusion": 16
+  },
+  {
+   "paper": "cet4/2020-09_p2.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 5
+  },
+  {
+   "paper": "cet4/2020-12_p1.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 12
+  },
+  {
+   "paper": "cet4/2021-06_p1.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 18
+  },
+  {
+   "paper": "cet4/2021-06_p2.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 11
+  },
+  {
+   "paper": "cet4/2021-12_p3.jsonl",
+   "filled": 6,
+   "conflicts": 0,
+   "no_conclusion": 35
+  },
+  {
+   "paper": "cet4/2022-06_p1.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 8
+  },
+  {
+   "paper": "cet4/2022-06_p2.jsonl",
+   "filled": 4,
+   "conflicts": 0,
+   "no_conclusion": 7
+  },
+  {
+   "paper": "cet4/2022-09_p1.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 19
+  },
+  {
+   "paper": "cet4/2022-12_p1.jsonl",
+   "filled": 10,
+   "conflicts": 0,
+   "no_conclusion": 13
+  },
+  {
+   "paper": "cet4/2022-12_p2.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 15
+  },
+  {
+   "paper": "cet4/2022-12_p3.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 3
+  },
+  {
+   "paper": "cet4/2023-03_p1.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 16
+  },
+  {
+   "paper": "cet4/2023-06_p1.jsonl",
+   "filled": 10,
+   "conflicts": 0,
+   "no_conclusion": 9
+  },
+  {
+   "paper": "cet4/2023-06_p2.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 9
+  },
+  {
+   "paper": "cet4/2023-06_p3.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 8
+  },
+  {
+   "paper": "cet6/2015-06_p1.jsonl",
+   "filled": 39,
+   "conflicts": 0,
+   "no_conclusion": 3
+  },
+  {
+   "paper": "cet6/2015-06_p2.jsonl",
+   "filled": 30,
+   "conflicts": 0,
+   "no_conclusion": 16
+  },
+  {
+   "paper": "cet6/2015-06_p3.jsonl",
+   "filled": 12,
+   "conflicts": 0,
+   "no_conclusion": 25
+  },
+  {
+   "paper": "cet6/2021-06_p2.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 11
+  },
+  {
+   "paper": "cet6/2021-06_p3.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 4
+  },
+  {
+   "paper": "cet6/2021-12_p3.jsonl",
+   "filled": 6,
+   "conflicts": 0,
+   "no_conclusion": 36
+  },
+  {
+   "paper": "cet6/2022-06_p1.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 9
+  },
+  {
+   "paper": "cet6/2022-06_p2.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 13
+  },
+  {
+   "paper": "cet6/2022-09_p1.jsonl",
+   "filled": 7,
+   "conflicts": 0,
+   "no_conclusion": 8
+  },
+  {
+   "paper": "cet6/2022-12_p1.jsonl",
+   "filled": 5,
+   "conflicts": 0,
+   "no_conclusion": 18
+  },
+  {
+   "paper": "cet6/2023-06_p2.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 21
+  },
+  {
+   "paper": "cet6/2023-06_p3.jsonl",
+   "filled": 9,
+   "conflicts": 0,
+   "no_conclusion": 13
+  },
+  {
+   "paper": "cet6/2024-12_p1.jsonl",
+   "filled": 8,
+   "conflicts": 0,
+   "no_conclusion": 18
+  },
+  {
+   "paper": "cet6/2024-12_p3.jsonl",
+   "filled": 10,
+   "conflicts": 0,
+   "no_conclusion": 11
+  }
+ ]
+}

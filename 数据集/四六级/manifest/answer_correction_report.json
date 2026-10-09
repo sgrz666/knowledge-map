@@ -1,0 +1,354 @@
+{
+ "generated": "2026-10-08",
+ "action": "correct mis-aligned answers for one-to-one question types using verified explainer conclusions",
+ "criteria": {
+  "dual_anchor_required": true,
+  "one_to_one_check": true,
+  "per_paper_threshold": 0.95
+ },
+ "papers": [
+  {
+   "paper": "CET-4|2019-06|第1套",
+   "source": "2019.06英语四级解析第1套.pdf",
+   "extracted": 28,
+   "baseline_checked": 14,
+   "baseline_agree": 14,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "corrected",
+     "n": 8
+    },
+    "选词填空": {
+     "status": "corrected",
+     "n": 5
+    }
+   },
+   "corrected": 4,
+   "filled": 5,
+   "unchanged": 4,
+   "rejected": 0,
+   "difficulty_cleared": 9
+  },
+  {
+   "paper": "CET-4|2019-06|第2套",
+   "source": "2019.06英语四级解析第2套.pdf",
+   "extracted": 26,
+   "baseline_checked": 13,
+   "baseline_agree": 13,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "G"
+     ],
+     "n": 9
+    },
+    "选词填空": {
+     "status": "corrected",
+     "n": 2
+    }
+   },
+   "corrected": 1,
+   "filled": 0,
+   "unchanged": 1,
+   "rejected": 9,
+   "difficulty_cleared": 1
+  },
+  {
+   "paper": "CET-4|2019-06|第3套",
+   "source": "2019.06英语四级解析第3套.pdf",
+   "extracted": 14,
+   "baseline_checked": 7,
+   "baseline_agree": 7,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "corrected",
+     "n": 1
+    },
+    "选词填空": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "C"
+     ],
+     "n": 6
+    }
+   },
+   "corrected": 0,
+   "filled": 0,
+   "unchanged": 1,
+   "rejected": 6,
+   "difficulty_cleared": 0
+  },
+  {
+   "paper": "CET-4|2019-12|第1套",
+   "source": "2019.12英语四级解析第1套.pdf",
+   "extracted": 19,
+   "baseline_checked": 12,
+   "baseline_agree": 11,
+   "baseline_rate": 0.9166666666666666,
+   "baseline_disagree": [
+    {
+     "q": 15,
+     "kb": "B",
+     "got": "A",
+     "type": "长对话"
+    }
+   ],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-4|2019-12|第2套",
+   "source": "2019.12英语四级解析第2套.pdf",
+   "extracted": 21,
+   "baseline_checked": 13,
+   "baseline_agree": 10,
+   "baseline_rate": 0.7692307692307693,
+   "baseline_disagree": [
+    {
+     "q": 4,
+     "kb": "B",
+     "got": "C",
+     "type": "短篇新闻"
+    },
+    {
+     "q": 10,
+     "kb": "D",
+     "got": "C",
+     "type": "长对话"
+    },
+    {
+     "q": 49,
+     "kb": "B",
+     "got": "D",
+     "type": "仔细阅读"
+    }
+   ],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-4|2019-12|第3套",
+   "source": "2019.12英语四级解析第3套.pdf",
+   "extracted": 22,
+   "baseline_checked": 6,
+   "baseline_agree": 5,
+   "baseline_rate": 0.8333333333333334,
+   "baseline_disagree": [
+    {
+     "q": 47,
+     "kb": "D",
+     "got": "C",
+     "type": "仔细阅读"
+    }
+   ],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-4|2022-06|第1套",
+   "source": "2022.06英语四级解析第1套.pdf",
+   "extracted": 23,
+   "baseline_checked": 11,
+   "baseline_agree": 11,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "corrected",
+     "n": 8
+    },
+    "选词填空": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "N"
+     ],
+     "n": 3
+    }
+   },
+   "corrected": 3,
+   "filled": 0,
+   "unchanged": 5,
+   "rejected": 3,
+   "difficulty_cleared": 3
+  },
+  {
+   "paper": "CET-4|2022-06|第2套",
+   "source": "2022.06英语四级解析第2套.pdf",
+   "extracted": 11,
+   "baseline_checked": 6,
+   "baseline_agree": 6,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "K"
+     ],
+     "n": 5
+    }
+   },
+   "corrected": 0,
+   "filled": 0,
+   "unchanged": 0,
+   "rejected": 5,
+   "difficulty_cleared": 0
+  },
+  {
+   "paper": "CET-4|2022-09|第1套",
+   "source": "2022.09英语四级详解第1套.pdf",
+   "extracted": 22,
+   "baseline_checked": 7,
+   "baseline_agree": 7,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "corrected",
+     "n": 6
+    },
+    "选词填空": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "A"
+     ],
+     "n": 6
+    }
+   },
+   "corrected": 0,
+   "filled": 0,
+   "unchanged": 6,
+   "rejected": 6,
+   "difficulty_cleared": 0
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "source": "2023.06英语四级长篇阅读解析第1套.pdf",
+   "extracted": 9,
+   "baseline_checked": 0,
+   "baseline_agree": 0,
+   "baseline_rate": null,
+   "baseline_disagree": [],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "source": "2023年06月四级仔细阅读解析第2套.pdf",
+   "extracted": 9,
+   "baseline_checked": 9,
+   "baseline_agree": 8,
+   "baseline_rate": 0.8888888888888888,
+   "baseline_disagree": [
+    {
+     "q": 53,
+     "kb": "C",
+     "got": "D",
+     "type": "仔细阅读"
+    }
+   ],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "source": "2023.06英语四级长篇阅读解析第3套.pdf",
+   "extracted": 8,
+   "baseline_checked": 0,
+   "baseline_agree": 0,
+   "baseline_rate": null,
+   "baseline_disagree": [],
+   "status": "baseline_below_threshold"
+  },
+  {
+   "paper": "CET-6|2021-12|第1套",
+   "status": "no_kb_file"
+  },
+  {
+   "paper": "CET-6|2021-12|第2套",
+   "status": "no_kb_file"
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "source": "2021.12英语六级解析第3套.pdf",
+   "extracted": 4,
+   "baseline_checked": 3,
+   "baseline_agree": 3,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {},
+   "corrected": 0,
+   "filled": 0,
+   "unchanged": 0,
+   "rejected": 0,
+   "difficulty_cleared": 0
+  },
+  {
+   "paper": "CET-6|2022-06|第1套",
+   "source": "2022.06英语六级考试解析第1套.pdf",
+   "extracted": 13,
+   "baseline_checked": 6,
+   "baseline_agree": 6,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "rejected_source_has_duplicates",
+     "duplicates": [
+      "G"
+     ],
+     "n": 3
+    },
+    "选词填空": {
+     "status": "corrected",
+     "n": 4
+    }
+   },
+   "corrected": 1,
+   "filled": 1,
+   "unchanged": 2,
+   "rejected": 3,
+   "difficulty_cleared": 2
+  },
+  {
+   "paper": "CET-6|2022-09|第1套",
+   "source": "2022.09英语六级解析第1套.pdf",
+   "extracted": 18,
+   "baseline_checked": 10,
+   "baseline_agree": 10,
+   "baseline_rate": 1.0,
+   "baseline_disagree": [],
+   "status": "ok",
+   "type_scope": {
+    "长篇阅读": {
+     "status": "corrected",
+     "n": 5
+    },
+    "选词填空": {
+     "status": "corrected",
+     "n": 3
+    }
+   },
+   "corrected": 0,
+   "filled": 0,
+   "unchanged": 8,
+   "rejected": 0,
+   "difficulty_cleared": 0
+  }
+ ],
+ "corrected": 9,
+ "filled": 6,
+ "unchanged": 27,
+ "rejected_duplicate": 32,
+ "difficulty_cleared": 15
+}

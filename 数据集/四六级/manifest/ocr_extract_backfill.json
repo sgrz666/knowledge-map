@@ -1,0 +1,450 @@
+{
+ "generated": "2026-10-08",
+ "method": "extract answers+analysis from ocr_cache (space-normalized)",
+ "ocr_files_scanned": 397,
+ "validation": {
+  "checked": 265,
+  "agree": 255,
+  "disagree": 10,
+  "rate": 0.9622641509433962,
+  "disagree_detail": [
+   {
+    "paper": "CET-4|2015-12|第2套",
+    "q": 51,
+    "kb": "C",
+    "ocr": "A"
+   },
+   {
+    "paper": "CET-4|2016-12|第1套",
+    "q": 16,
+    "kb": "C",
+    "ocr": "A"
+   },
+   {
+    "paper": "CET-4|2016-12|第1套",
+    "q": 19,
+    "kb": "A",
+    "ocr": "B"
+   },
+   {
+    "paper": "CET-4|2016-12|第2套",
+    "q": 10,
+    "kb": "C",
+    "ocr": "A"
+   },
+   {
+    "paper": "CET-6|2015-06|第1套",
+    "q": 47,
+    "kb": "C",
+    "ocr": "D"
+   },
+   {
+    "paper": "CET-6|2015-06|第1套",
+    "q": 52,
+    "kb": "D",
+    "ocr": "C"
+   },
+   {
+    "paper": "CET-6|2015-06|第1套",
+    "q": 53,
+    "kb": "D",
+    "ocr": "B"
+   },
+   {
+    "paper": "CET-6|2015-06|第1套",
+    "q": 54,
+    "kb": "C",
+    "ocr": "D"
+   },
+   {
+    "paper": "CET-6|2017-06|第2套",
+    "q": 16,
+    "kb": "B",
+    "ocr": "A"
+   },
+   {
+    "paper": "CET-6|2024-06|第2套",
+    "q": 28,
+    "kb": "B",
+    "ocr": "H"
+   }
+  ]
+ },
+ "per_paper": [
+  {
+   "paper": "CET-4|2016-06|第2套",
+   "ocr_file": "2016年06月四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2016-06|第3套",
+   "ocr_file": "2016年06月四级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2016-12|第1套",
+   "ocr_file": "2016年12月大学英语4级解析_卷1_.200dpi.txt",
+   "filled_answers": 8,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-4|2016-12|第2套",
+   "ocr_file": "2016年12月大学英语4级解析_卷2_.200dpi.txt",
+   "filled_answers": 9,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-4|2018-12|第1套",
+   "ocr_file": "2018年12月四级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-4|2018-12|第2套",
+   "ocr_file": "2018年12月四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2018-12|第3套",
+   "ocr_file": "2018年12月四级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2019-06|第1套",
+   "ocr_file": "2019.06英语四级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2019-06|第2套",
+   "ocr_file": "2019.06英语四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-4|2019-06|第3套",
+   "ocr_file": "2019.06英语四级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 6
+  },
+  {
+   "paper": "CET-4|2019-12|第1套",
+   "ocr_file": "2019.12英语四级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-4|2019-12|第2套",
+   "ocr_file": "2019.12英语四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 17
+  },
+  {
+   "paper": "CET-4|2019-12|第3套",
+   "ocr_file": "2019.12英语四级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 7
+  },
+  {
+   "paper": "CET-4|2020-09|第1套",
+   "ocr_file": "2020.09英语四级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-4|2020-09|第2套",
+   "ocr_file": "2020.09英语四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-4|2021-06|第1套",
+   "ocr_file": "2021年6月英语四级解析第一套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 17
+  },
+  {
+   "paper": "CET-4|2021-06|第2套",
+   "ocr_file": "2021年6月英语四级解析第二套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 15
+  },
+  {
+   "paper": "CET-4|2021-06|第3套",
+   "ocr_file": "2021年6月英语四级解析第三套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-4|2021-12|第3套",
+   "ocr_file": "2021.12英语四级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-4|2022-06|第1套",
+   "ocr_file": "2022.06英语四级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 16
+  },
+  {
+   "paper": "CET-4|2022-06|第2套",
+   "ocr_file": "2022.06英语四级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 8
+  },
+  {
+   "paper": "CET-4|2022-09|第1套",
+   "ocr_file": "2022.09英语四级详解第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 18
+  },
+  {
+   "paper": "CET-4|2022-12|第1套",
+   "ocr_file": "2022.12四级真题第1套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 17
+  },
+  {
+   "paper": "CET-4|2022-12|第2套",
+   "ocr_file": "2022.12四级真题第2套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 14
+  },
+  {
+   "paper": "CET-4|2022-12|第3套",
+   "ocr_file": "2022.12四级真题第3套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 6
+  },
+  {
+   "paper": "CET-4|2023-03|第1套",
+   "ocr_file": "2023.03英语四级详解第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 13
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "ocr_file": "2023.06四级真题第1套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "ocr_file": "2023.06四级真题第2套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 11
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "ocr_file": "2023.06四级真题第3套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 5
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "ocr_file": "2015.06英语六级考试第2套解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "ocr_file": "2015.06英语六级考试第3套解析.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 4
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "ocr_file": "2015.12英语六级考试第2套解析.200dpi.txt",
+   "filled_answers": 13,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "ocr_file": "2015.12英语六级考试第3套解析.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 2
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "ocr_file": "2016年12月六级_第1套_答案及解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "ocr_file": "2016年12月六级_第2套_答案及解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "ocr_file": "2017.06英语六级考试第1套解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "ocr_file": "2017.12英语六级考试第1套解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "ocr_file": "2017.12英语六级考试第2套解析.200dpi.txt",
+   "filled_answers": 2,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "ocr_file": "2018.06英语六级考试第1套解析.200dpi.txt",
+   "filled_answers": 3,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "ocr_file": "2018.06英语六级考试第2套解析.200dpi.txt",
+   "filled_answers": 6,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "ocr_file": "2019.12英语六级考试解析第1套.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "ocr_file": "2019.12英语六级考试解析第2套.200dpi.txt",
+   "filled_answers": 4,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "ocr_file": "2020.09英语六级考试第1套解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "ocr_file": "2020.12英语六级考试第1套解析.200dpi.txt",
+   "filled_answers": 1,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "ocr_file": "2020.12英语六级考试第2套解析.200dpi.txt",
+   "filled_answers": 3,
+   "filled_analyses": 0
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "ocr_file": "2021.06英语六级答案解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 11
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "ocr_file": "2021.06英语六级答案解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 11
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "ocr_file": "2021.06英语六级答案解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "ocr_file": "2021.12英语六级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 1
+  },
+  {
+   "paper": "CET-6|2022-06|第1套",
+   "ocr_file": "2022.06英语六级考试解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 16
+  },
+  {
+   "paper": "CET-6|2022-06|第2套",
+   "ocr_file": "2022.06英语六级真题解析第2套_.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 7
+  },
+  {
+   "paper": "CET-6|2022-09|第1套",
+   "ocr_file": "2022.09英语六级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-6|2022-12|第1套",
+   "ocr_file": "2022.12六级真题第1套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 7
+  },
+  {
+   "paper": "CET-6|2022-12|第2套",
+   "ocr_file": "2022.12六级真题第2套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 11
+  },
+  {
+   "paper": "CET-6|2022-12|第3套",
+   "ocr_file": "2022.12六级真题第3套答案及详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 5
+  },
+  {
+   "paper": "CET-6|2023-03|第1套",
+   "ocr_file": "2023.03英语六级详解第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-6|2023-06|第1套",
+   "ocr_file": "2023.06六级真题第1套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 12
+  },
+  {
+   "paper": "CET-6|2023-06|第2套",
+   "ocr_file": "2023.06六级真题第2套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 14
+  },
+  {
+   "paper": "CET-6|2023-06|第3套",
+   "ocr_file": "2023.06六级真题第3套详解.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "ocr_file": "2024.12英语六级解析第1套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 9
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "ocr_file": "2024.12英语六级解析第2套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 10
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "ocr_file": "2024.12英语六级解析第3套.200dpi.txt",
+   "filled_answers": 0,
+   "filled_analyses": 7
+  }
+ ],
+ "filled_answers": 56,
+ "filled_analyses": 485,
+ "skipped": []
+}

@@ -1,0 +1,275 @@
+{
+  "generated": "2026-10-08",
+  "defect": "ocr_head_letter",
+  "root_cause": "该提取方法从选项区而非答案表取字母，导致答案偏向A（占位数据）",
+  "evidence": {
+    "a_ratio_head_letter": 0.388,
+    "a_ratio_other_methods": [
+      0.138,
+      0.191,
+      0.2,
+      0.213
+    ],
+    "expected_uniform": 0.25,
+    "answer_equals_first_option_ratio": 0.478,
+    "random_expectation": 0.25
+  },
+  "criteria": {
+    "a_ratio_threshold": 0.45,
+    "min_sample": 5
+  },
+  "action": "quarantine: clear content.answer, keep original in extra.answer_extraction.quarantine, clear derived difficulty",
+  "quarantined_papers": [
+    {
+      "paper": "cet6/2020-09_p1.jsonl",
+      "a_ratio": 1.0,
+      "sample": 9,
+      "answer_distribution": {
+        "A": 9
+      },
+      "quarantined": 9,
+      "kept_non_placeholder": 0,
+      "difficulty_cleared": 9
+    },
+    {
+      "paper": "cet6/2019-06_p2.jsonl",
+      "a_ratio": 1.0,
+      "sample": 5,
+      "answer_distribution": {
+        "A": 5
+      },
+      "quarantined": 5,
+      "kept_non_placeholder": 0,
+      "difficulty_cleared": 5
+    },
+    {
+      "paper": "cet6/2018-06_p2.jsonl",
+      "a_ratio": 1.0,
+      "sample": 15,
+      "answer_distribution": {
+        "A": 15
+      },
+      "quarantined": 15,
+      "kept_non_placeholder": 0,
+      "difficulty_cleared": 15
+    },
+    {
+      "paper": "cet6/2018-06_p1.jsonl",
+      "a_ratio": 1.0,
+      "sample": 19,
+      "answer_distribution": {
+        "A": 19
+      },
+      "quarantined": 19,
+      "kept_non_placeholder": 0,
+      "difficulty_cleared": 18
+    },
+    {
+      "paper": "cet6/2016-12_p2.jsonl",
+      "a_ratio": 0.9444,
+      "sample": 18,
+      "answer_distribution": {
+        "A": 17,
+        "B": 1
+      },
+      "quarantined": 17,
+      "kept_non_placeholder": 1,
+      "difficulty_cleared": 17
+    },
+    {
+      "paper": "cet6/2017-12_p2.jsonl",
+      "a_ratio": 0.9,
+      "sample": 20,
+      "answer_distribution": {
+        "A": 18,
+        "C": 1,
+        "D": 1
+      },
+      "quarantined": 18,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 18
+    },
+    {
+      "paper": "cet6/2017-12_p1.jsonl",
+      "a_ratio": 0.8889,
+      "sample": 18,
+      "answer_distribution": {
+        "A": 16,
+        "B": 2
+      },
+      "quarantined": 16,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 16
+    },
+    {
+      "paper": "cet6/2020-12_p2.jsonl",
+      "a_ratio": 0.8824,
+      "sample": 17,
+      "answer_distribution": {
+        "A": 15,
+        "B": 2
+      },
+      "quarantined": 15,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 15
+    },
+    {
+      "paper": "cet6/2018-12_p2.jsonl",
+      "a_ratio": 0.8824,
+      "sample": 17,
+      "answer_distribution": {
+        "A": 15,
+        "B": 2
+      },
+      "quarantined": 15,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 14
+    },
+    {
+      "paper": "cet6/2017-06_p2.jsonl",
+      "a_ratio": 0.85,
+      "sample": 20,
+      "answer_distribution": {
+        "A": 17,
+        "B": 2,
+        "D": 1
+      },
+      "quarantined": 17,
+      "kept_non_placeholder": 3,
+      "difficulty_cleared": 17
+    },
+    {
+      "paper": "cet6/2016-12_p1.jsonl",
+      "a_ratio": 0.8462,
+      "sample": 13,
+      "answer_distribution": {
+        "B": 1,
+        "A": 11,
+        "C": 1
+      },
+      "quarantined": 11,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 11
+    },
+    {
+      "paper": "cet6/2019-12_p2.jsonl",
+      "a_ratio": 0.8421,
+      "sample": 19,
+      "answer_distribution": {
+        "A": 16,
+        "B": 3
+      },
+      "quarantined": 16,
+      "kept_non_placeholder": 3,
+      "difficulty_cleared": 16
+    },
+    {
+      "paper": "cet6/2019-12_p1.jsonl",
+      "a_ratio": 0.8333,
+      "sample": 18,
+      "answer_distribution": {
+        "A": 15,
+        "B": 3
+      },
+      "quarantined": 15,
+      "kept_non_placeholder": 3,
+      "difficulty_cleared": 15
+    },
+    {
+      "paper": "cet6/2020-12_p1.jsonl",
+      "a_ratio": 0.8,
+      "sample": 20,
+      "answer_distribution": {
+        "A": 16,
+        "B": 3,
+        "M": 1
+      },
+      "quarantined": 16,
+      "kept_non_placeholder": 4,
+      "difficulty_cleared": 16
+    },
+    {
+      "paper": "cet6/2017-06_p1.jsonl",
+      "a_ratio": 0.8,
+      "sample": 15,
+      "answer_distribution": {
+        "A": 12,
+        "B": 1,
+        "C": 1,
+        "D": 1
+      },
+      "quarantined": 12,
+      "kept_non_placeholder": 3,
+      "difficulty_cleared": 12
+    },
+    {
+      "paper": "cet6/2018-12_p1.jsonl",
+      "a_ratio": 0.75,
+      "sample": 16,
+      "answer_distribution": {
+        "A": 12,
+        "M": 1,
+        "K": 1,
+        "E": 1,
+        "G": 1
+      },
+      "quarantined": 11,
+      "kept_non_placeholder": 5,
+      "difficulty_cleared": 10
+    },
+    {
+      "paper": "cet6/2020-07_p1.jsonl",
+      "a_ratio": 0.6667,
+      "sample": 6,
+      "answer_distribution": {
+        "A": 4,
+        "B": 2
+      },
+      "quarantined": 4,
+      "kept_non_placeholder": 2,
+      "difficulty_cleared": 4
+    },
+    {
+      "paper": "cet4/2016-12_p1.jsonl",
+      "a_ratio": 0.5926,
+      "sample": 27,
+      "answer_distribution": {
+        "A": 16,
+        "C": 2,
+        "E": 1,
+        "J": 1,
+        "D": 1,
+        "K": 1,
+        "L": 1,
+        "G": 1,
+        "I": 1,
+        "H": 1,
+        "M": 1
+      },
+      "quarantined": 14,
+      "kept_non_placeholder": 13,
+      "difficulty_cleared": 13
+    },
+    {
+      "paper": "cet4/2016-12_p2.jsonl",
+      "a_ratio": 0.5417,
+      "sample": 24,
+      "answer_distribution": {
+        "A": 13,
+        "B": 2,
+        "C": 2,
+        "D": 2,
+        "K": 1,
+        "G": 1,
+        "M": 1,
+        "E": 1,
+        "N": 1
+      },
+      "quarantined": 13,
+      "kept_non_placeholder": 11,
+      "difficulty_cleared": 12
+    }
+  ],
+  "quarantined_questions": 258,
+  "difficulty_cleared": 253
+}

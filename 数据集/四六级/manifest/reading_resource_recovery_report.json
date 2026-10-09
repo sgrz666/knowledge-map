@@ -1,0 +1,21 @@
+{
+  "restored": {},
+  "remaining": [
+    {
+      "resource_id": "cet6-2015-12-p1-reading-matching",
+      "field": "paragraphs",
+      "status": "original_text_does_not_supply_unique_complete_label_sequence",
+      "source_paths": [
+        "数据集/四六级/scripts/_staging/cet6/2015年12月六级真题（第1套）.docx"
+      ]
+    },
+    {
+      "resource_id": "cet6-2020-07-p1-reading-cloze",
+      "field": "word_bank",
+      "status": "original_text_does_not_supply_unique_complete_label_sequence",
+      "source_paths": [
+        "数据集/四六级/scripts/_staging/cet6/2020年07月六级真题（全1套）.docx"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+ "generated": "2026-10-07",
+ "method": "官方解析册文本层提取 + 坐标分栏；用题库已有答案反向校验，一致率>=0.95 才判trusted",
+ "conclusion": "本地解析册对当前缺口的实际增益极小（仅12题），主因是题号口径不一致与源可读性受限",
+ "by_status": {
+  "trusted": {
+   "papers": 15,
+   "new_answer_available": 12,
+   "checked": 348,
+   "agree": 343
+  },
+  "distrusted": {
+   "papers": 21,
+   "new_answer_available": 47,
+   "checked": 208,
+   "agree": 133
+  },
+  "unverified": {
+   "papers": 42,
+   "new_answer_available": 0,
+   "checked": 0,
+   "agree": 0
+  },
+  "no_readable_source": {
+   "papers": 36,
+   "new_answer_available": 0,
+   "checked": 0,
+   "agree": 0
+  }
+ },
+ "remaining_gap": {
+  "questions_total": 5340,
+  "missing_answer": 1831,
+  "missing_analysis": 2934
+ },
+ "blocking_reasons": {
+  "no_readable_source": "50份 broken_font(子集字体乱码) + 12份 image_only(纯图片)，需 OCR",
+  "unverified": "42套源可读但题库该套已填满，无可校验样本也无可新增",
+  "distrusted": "21套存在题号口径不一致（解析册编号含/不含听力、或按题型独立编号），答案与题库错位"
+ },
+ "safe_to_fill_now": 12
+}

@@ -1,0 +1,3751 @@
+{
+ "generated": "2026-10-07",
+ "method": "OCR answer-key extraction from ocr_cache; cross-validated against existing KB answers; per-set agreement >=0.95 required",
+ "ocr_scanned": 397,
+ "sets_matched": 285,
+ "filled_answers": 10,
+ "skipped_existing": 314,
+ "quarantined_invalid_letter": 1,
+ "quarantined_conflict": 0,
+ "sets": [
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "file": "2015.06英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "file": "2015.06英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 2,
+   "detail": [
+    {
+     "q": 37,
+     "ocr": "A",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 41,
+     "ocr": "P",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "file": "2015.06英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "file": "2015.06英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "file": "2015.06英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "file": "2015.06英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "file": "2015.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 1,
+   "detail": [
+    {
+     "q": 41,
+     "ocr": "D",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "file": "2015.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 1,
+   "detail": [
+    {
+     "q": 41,
+     "ocr": "P",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "file": "2015.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 2,
+   "detail": [
+    {
+     "q": 39,
+     "ocr": "C",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 41,
+     "ocr": "I",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-06|第1套",
+   "file": "2015.06英语六级阅读第1套解析.200dpi.txt",
+   "checked": 2,
+   "agree": 1,
+   "disagree": 1,
+   "agreement_rate": 0.5,
+   "new_answer_available": 4,
+   "detail": [
+    {
+     "q": 47,
+     "kb": "C",
+     "ocr": "D",
+     "result": "disagree"
+    },
+    {
+     "q": 51,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 52,
+     "ocr": "C",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 53,
+     "ocr": "B",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 54,
+     "ocr": "D",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-06|第2套",
+   "file": "2015.06英语六级阅读第2套解析.200dpi.txt",
+   "checked": 3,
+   "agree": 3,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-06|第3套",
+   "file": "2015.06英语六级阅读第3套解析.200dpi.txt",
+   "checked": 2,
+   "agree": 1,
+   "disagree": 1,
+   "agreement_rate": 0.5,
+   "new_answer_available": 1,
+   "detail": [
+    {
+     "q": 53,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 55,
+     "kb": "B",
+     "ocr": "C",
+     "result": "disagree"
+    }
+   ]
+  },
+  {
+   "paper": "CET-4|2015-06|第1套",
+   "file": "2015.06英语四级解析第1套.200dpi.txt",
+   "checked": 11,
+   "agree": 11,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2015-06|第2套",
+   "file": "2015.06英语四级解析第2套.200dpi.txt",
+   "checked": 13,
+   "agree": 13,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "file": "2015.12英语六级考试第1套解析.200dpi.txt",
+   "checked": 12,
+   "agree": 12,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "file": "2015.12英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 14,
+   "detail": [
+    {
+     "q": 10,
+     "ocr": "C",
+     "qtype": "听力篇章",
+     "result": "would_fill"
+    },
+    {
+     "q": 11,
+     "ocr": "D",
+     "qtype": "听力篇章",
+     "result": "would_fill"
+    },
+    {
+     "q": 12,
+     "ocr": "A",
+     "qtype": "听力篇章",
+     "result": "would_fill"
+    },
+    {
+     "q": 16,
+     "ocr": "A",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 19,
+     "ocr": "B",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 20,
+     "ocr": "D",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 21,
+     "ocr": "B",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 36,
+     "ocr": "H",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 37,
+     "ocr": "C",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 39,
+     "ocr": "N",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 41,
+     "ocr": "I",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 42,
+     "ocr": "G",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 49,
+     "ocr": "D",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 51,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "file": "2015.12英语六级考试第3套解析.200dpi.txt",
+   "checked": 11,
+   "agree": 11,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "file": "2015.12英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "file": "2015.12英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "file": "2015.12英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "file": "2015.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 2,
+   "agree": 2,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "file": "2015.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 4,
+   "detail": [
+    {
+     "q": 36,
+     "ocr": "H",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 37,
+     "ocr": "C",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 41,
+     "ocr": "I",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 42,
+     "ocr": "G",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "file": "2015.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 2,
+   "agree": 2,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第1套",
+   "file": "2015.12英语六级阅读第1套解析.200dpi.txt",
+   "checked": 4,
+   "agree": 4,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2015-12|第2套",
+   "file": "2015.12英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 2,
+   "detail": [
+    {
+     "q": 49,
+     "ocr": "D",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 51,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2015-12|第3套",
+   "file": "2015.12英语六级阅读第3套解析.200dpi.txt",
+   "checked": 2,
+   "agree": 2,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2015-12|第1套",
+   "file": "2015.12英语四级解析第1套.200dpi.txt",
+   "checked": 13,
+   "agree": 13,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2015-12|第2套",
+   "file": "2015.12英语四级解析第2套.200dpi.txt",
+   "checked": 17,
+   "agree": 16,
+   "disagree": 1,
+   "agreement_rate": 0.9411764705882353,
+   "new_answer_available": 0,
+   "detail": [
+    {
+     "q": 51,
+     "kb": "C",
+     "ocr": "A",
+     "result": "disagree"
+    }
+   ]
+  },
+  {
+   "paper": "CET-4|2015-12|第3套",
+   "file": "2015.12英语四级解析第3套.200dpi.txt",
+   "checked": 12,
+   "agree": 12,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2015-12|第3套",
+   "file": "2015.12英语四级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "file": "2016.12英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "file": "2016.12英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "file": "2016.12英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "file": "2016.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "file": "2016.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "file": "2016.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "file": "2016.12英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "file": "2016.12英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "file": "2016.12英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2016-06|第2套",
+   "file": "2016年06月四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2016-06|第3套",
+   "file": "2016年06月四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第1套",
+   "file": "2016年12月六级_第1套_答案及解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第2套",
+   "file": "2016年12月六级_第2套_答案及解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2016-12|第3套",
+   "file": "2016年12月六级_第3套_答案及解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2016-12|第1套",
+   "file": "2016年12月大学英语4级解析_卷1_.200dpi.txt",
+   "checked": 41,
+   "agree": 30,
+   "disagree": 11,
+   "agreement_rate": 0.7317073170731707,
+   "new_answer_available": 3,
+   "detail": [
+    {
+     "q": 12,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 13,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 15,
+     "kb": "A",
+     "ocr": "D",
+     "result": "disagree"
+    },
+    {
+     "q": 16,
+     "kb": "C",
+     "ocr": "A",
+     "result": "disagree"
+    },
+    {
+     "q": 18,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 19,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 23,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 24,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 25,
+     "kb": "A",
+     "ocr": "D",
+     "result": "disagree"
+    },
+    {
+     "q": 47,
+     "ocr": "C",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 49,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 10,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 20,
+     "kb": "A",
+     "ocr": "D",
+     "result": "disagree"
+    },
+    {
+     "q": 55,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-4|2016-12|第2套",
+   "file": "2016年12月大学英语4级解析_卷2_.200dpi.txt",
+   "checked": 43,
+   "agree": 35,
+   "disagree": 8,
+   "agreement_rate": 0.813953488372093,
+   "new_answer_available": 1,
+   "detail": [
+    {
+     "q": 13,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 16,
+     "kb": "A",
+     "ocr": "D",
+     "result": "disagree"
+    },
+    {
+     "q": 18,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 21,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 22,
+     "ocr": "D",
+     "qtype": "听力篇章",
+     "result": "would_fill"
+    },
+    {
+     "q": 23,
+     "kb": "A",
+     "ocr": "B",
+     "result": "disagree"
+    },
+    {
+     "q": 25,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 10,
+     "kb": "C",
+     "ocr": "A",
+     "result": "disagree"
+    },
+    {
+     "q": 20,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    }
+   ]
+  },
+  {
+   "paper": "CET-4|2016-12|第3套",
+   "file": "2016年12月大学英语4级解析_卷3_.200dpi.txt",
+   "checked": 29,
+   "agree": 29,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "file": "2017.06英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "file": "2017.06英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "file": "2017.06英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "file": "2017.06英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "file": "2017.06英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "file": "2017.06英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "file": "2017.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "file": "2017.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "file": "2017.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第1套",
+   "file": "2017.06英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第2套",
+   "file": "2017.06英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-06|第3套",
+   "file": "2017.06英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "file": "2017.12英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "file": "2017.12英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "file": "2017.12英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "file": "2017.12英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "file": "2017.12英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "file": "2017.12英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "file": "2017.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "file": "2017.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "file": "2017.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第1套",
+   "file": "2017.12英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第2套",
+   "file": "2017.12英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2017-12|第3套",
+   "file": "2017.12英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2017-12|第1套",
+   "file": "2017年12月英语四级真题答案及解析_第一套_.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2017-12|第3套",
+   "file": "2017年12月英语四级真题答案及解析_第三套_.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2017-06|第1套",
+   "file": "2017年6月英语四级真题_卷一_答案解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2017-06|第3套",
+   "file": "2017年6月英语四级真题_卷三_答案解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2017-06|第2套",
+   "file": "2017年6月英语四级真题_卷二_答案解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "file": "2018.06英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "file": "2018.06英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "file": "2018.06英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "file": "2018.06英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "file": "2018.06英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "file": "2018.06英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "file": "2018.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "file": "2018.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "file": "2018.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第1套",
+   "file": "2018.06英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第2套",
+   "file": "2018.06英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-06|第3套",
+   "file": "2018.06英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "file": "2018.12英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "file": "2018.12英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "file": "2018.12英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "file": "2018.12英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "file": "2018.12英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "file": "2018.12英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "file": "2018.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "file": "2018.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "file": "2018.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第1套",
+   "file": "2018.12英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第2套",
+   "file": "2018.12英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2018-12|第3套",
+   "file": "2018.12英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2018-12|第1套",
+   "file": "2018年12月四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2018-12|第2套",
+   "file": "2018年12月四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2018-12|第3套",
+   "file": "2018年12月四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第1套",
+   "file": "2019.06英语六级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第2套",
+   "file": "2019.06英语六级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第3套",
+   "file": "2019.06英语六级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第1套",
+   "file": "2019.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第2套",
+   "file": "2019.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第3套",
+   "file": "2019.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第1套",
+   "file": "2019.06英语六级阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第2套",
+   "file": "2019.06英语六级阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-06|第3套",
+   "file": "2019.06英语六级阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2019-06|第1套",
+   "file": "2019.06英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2019-06|第2套",
+   "file": "2019.06英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2019-06|第3套",
+   "file": "2019.06英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "file": "2019.12英语六级考试解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "file": "2019.12英语六级考试解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "file": "2019.12英语六级考试解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "file": "2019.12英语六级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "file": "2019.12英语六级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "file": "2019.12英语六级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "file": "2019.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "file": "2019.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "file": "2019.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第1套",
+   "file": "2019.12英语六级阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第2套",
+   "file": "2019.12英语六级阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2019-12|第3套",
+   "file": "2019.12英语六级阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2019-12|第1套",
+   "file": "2019.12英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": [
+    {
+     "q": 25,
+     "ocr": [
+      "O"
+     ],
+     "qtype": "听力篇章",
+     "result": "invalid_letter"
+    }
+   ]
+  },
+  {
+   "paper": "CET-4|2019-12|第2套",
+   "file": "2019.12英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2019-12|第3套",
+   "file": "2019.12英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "file": "2020.09英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "file": "2020.09英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第2套",
+   "file": "2020.09英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "file": "2020.09英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第2套",
+   "file": "2020.09英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第1套",
+   "file": "2020.09英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-09|第2套",
+   "file": "2020.09英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-09|第1套",
+   "file": "2020.09英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-09|第2套",
+   "file": "2020.09英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-09|第3套",
+   "file": "2020.09英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "file": "2020.12英语六级考试第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "file": "2020.12英语六级考试第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "file": "2020.12英语六级考试第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "file": "2020.12英语六级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "file": "2020.12英语六级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "file": "2020.12英语六级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "file": "2020.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "file": "2020.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "file": "2020.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第1套",
+   "file": "2020.12英语六级阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第2套",
+   "file": "2020.12英语六级阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2020-12|第3套",
+   "file": "2020.12英语六级阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-12|第1套",
+   "file": "2020.12英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-12|第2套",
+   "file": "2020.12英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2020-12|第3套",
+   "file": "2020.12英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "file": "2021.06英语六级答案解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "file": "2021.06英语六级答案解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "file": "2021.06英语六级答案解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "file": "2021.06英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "file": "2021.06英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "file": "2021.06英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "file": "2021.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "file": "2021.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "file": "2021.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第1套",
+   "file": "2021.06英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第2套",
+   "file": "2021.06英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-06|第3套",
+   "file": "2021.06英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "file": "2021.12英语六级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2021-12|第3套",
+   "file": "2021.12英语六级长篇阅读真题解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2021-12|第3套",
+   "file": "2021.12英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2021-12|第3套",
+   "file": "2021.12英语四级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2021-06|第1套",
+   "file": "2021年6月英语四级解析第一套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2021-06|第3套",
+   "file": "2021年6月英语四级解析第三套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2021-06|第2套",
+   "file": "2021年6月英语四级解析第二套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-06|第2套",
+   "file": "2022.06英语六级真题解析第2套_.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-06|第3套",
+   "file": "2022.06英语六级真题解析第3套_.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-06|第1套",
+   "file": "2022.06英语六级考试解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-06|第1套",
+   "file": "2022.06英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-06|第2套",
+   "file": "2022.06英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-06|第3套",
+   "file": "2022.06英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-09|第1套",
+   "file": "2022.09英语六级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-09|第2套",
+   "file": "2022.09英语六级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-09|第3套",
+   "file": "2022.09英语六级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-09|第1套",
+   "file": "2022.09英语四级详解第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-09|第2套",
+   "file": "2022.09英语四级详解第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-09|第3套",
+   "file": "2022.09英语四级详解第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-12|第1套",
+   "file": "2022.12六级真题第1套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-12|第2套",
+   "file": "2022.12六级真题第2套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2022-12|第3套",
+   "file": "2022.12六级真题第3套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-12|第1套",
+   "file": "2022.12四级真题第1套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-12|第2套",
+   "file": "2022.12四级真题第2套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2022-12|第3套",
+   "file": "2022.12四级真题第3套答案及详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-03|第1套",
+   "file": "2023.03英语六级详解第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-03|第2套",
+   "file": "2023.03英语六级详解第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-03|第3套",
+   "file": "2023.03英语六级详解第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-03|第1套",
+   "file": "2023.03英语四级详解第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-03|第2套",
+   "file": "2023.03英语四级详解第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-03|第3套",
+   "file": "2023.03英语四级详解第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-06|第1套",
+   "file": "2023.06六级真题第1套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-06|第2套",
+   "file": "2023.06六级真题第2套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-06|第3套",
+   "file": "2023.06六级真题第3套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "file": "2023.06四级真题第1套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "file": "2023.06四级真题第2套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "file": "2023.06四级真题第3套详解.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "file": "2023.06英语四级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "file": "2023.06英语四级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "file": "2023.06英语四级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "file": "2023.06英语四级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "file": "2023.06英语四级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "file": "2023.06英语四级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "file": "2023.12英语六级仔细阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "file": "2023.12英语六级仔细阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "file": "2023.12英语六级仔细阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "file": "2023.12英语六级真题第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "file": "2023.12英语六级真题第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "file": "2023.12英语六级真题第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "file": "2023.12英语六级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "file": "2023.12英语六级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "file": "2023.12英语六级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第1套",
+   "file": "2023.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第2套",
+   "file": "2023.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2023-12|第3套",
+   "file": "2023.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第1套",
+   "file": "2023年06月四级仔细阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第2套",
+   "file": "2023年06月四级仔细阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2023-06|第3套",
+   "file": "2023年06月四级仔细阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "file": "2024.06英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "file": "2024.06英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "file": "2024.06英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "file": "2024.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "file": "2024.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "file": "2024.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "file": "2024.06英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "file": "2024.06英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "file": "2024.06英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "file": "2024.12英语六级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "file": "2024.12英语六级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "file": "2024.12英语六级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "file": "2024.12英语六级选词填空第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "file": "2024.12英语六级选词填空第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "file": "2024.12英语六级选词填空第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "file": "2024.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "file": "2024.12英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "file": "2024.12英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第1套",
+   "file": "2024.12英语六级阅读第1套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第2套",
+   "file": "2024.12英语六级阅读第2套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-12|第3套",
+   "file": "2024.12英语六级阅读第3套解析.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第1套",
+   "file": "2024.12英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第2套",
+   "file": "2024.12英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第3套",
+   "file": "2024.12英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第1套",
+   "file": "2024.12英语四级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第2套",
+   "file": "2024.12英语四级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第3套",
+   "file": "2024.12英语四级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第1套",
+   "file": "2024.12英语四级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第2套",
+   "file": "2024.12英语四级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2024-12|第3套",
+   "file": "2024.12英语四级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2024-06|第1套",
+   "file": "2024.6六级第一套解析.200dpi.txt",
+   "checked": 32,
+   "agree": 32,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 6,
+   "detail": [
+    {
+     "q": 11,
+     "ocr": "B",
+     "qtype": "听力篇章",
+     "result": "would_fill"
+    },
+    {
+     "q": 18,
+     "ocr": "B",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 19,
+     "ocr": "A",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 22,
+     "ocr": "D",
+     "qtype": "讲座/讲话",
+     "result": "would_fill"
+    },
+    {
+     "q": 47,
+     "ocr": "D",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 55,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2024-06|第3套",
+   "file": "2024.6六级第三套解析.200dpi.txt",
+   "checked": 19,
+   "agree": 19,
+   "disagree": 0,
+   "agreement_rate": 1.0,
+   "new_answer_available": 3,
+   "detail": [
+    {
+     "q": 36,
+     "ocr": "D",
+     "qtype": "长篇阅读",
+     "result": "would_fill"
+    },
+    {
+     "q": 27,
+     "ocr": "H",
+     "qtype": "选词填空",
+     "result": "would_fill"
+    },
+    {
+     "q": 55,
+     "ocr": "C",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2024-06|第2套",
+   "file": "2024.6六级第二套解析.200dpi.txt",
+   "checked": 44,
+   "agree": 42,
+   "disagree": 2,
+   "agreement_rate": 0.9545454545454546,
+   "new_answer_available": 1,
+   "detail": [
+    {
+     "q": 47,
+     "kb": "A",
+     "ocr": "C",
+     "result": "disagree"
+    },
+    {
+     "q": 28,
+     "kb": "B",
+     "ocr": "H",
+     "result": "disagree"
+    },
+    {
+     "q": 55,
+     "ocr": "A",
+     "qtype": "仔细阅读",
+     "result": "would_fill"
+    }
+   ]
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "file": "2025.06英语六级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "file": "2025.06英语六级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "file": "2025.06英语六级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "file": "2025.06英语六级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "file": "2025.06英语六级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "file": "2025.06英语六级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第1套",
+   "file": "2025.06英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第2套",
+   "file": "2025.06英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第3套",
+   "file": "2025.06英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第1套",
+   "file": "2025.06英语四级选词填空解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第2套",
+   "file": "2025.06英语四级选词填空解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第3套",
+   "file": "2025.06英语四级选词填空解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第1套",
+   "file": "2025.06英语四级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第2套",
+   "file": "2025.06英语四级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-06|第3套",
+   "file": "2025.06英语四级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-12|第1套",
+   "file": "2025.12英语六级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-12|第2套",
+   "file": "2025.12英语六级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-12|第3套",
+   "file": "2025.12英语六级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-12|第1套",
+   "file": "2025.12英语四级解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-12|第2套",
+   "file": "2025.12英语四级解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-4|2025-12|第3套",
+   "file": "2025.12英语四级解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "file": "2025.6月英语六级长篇阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "file": "2025.6月英语六级长篇阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "file": "2025.6月英语六级长篇阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第1套",
+   "file": "2025.6英语六级仔细阅读解析第1套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第2套",
+   "file": "2025.6英语六级仔细阅读解析第2套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  },
+  {
+   "paper": "CET-6|2025-06|第3套",
+   "file": "2025.6英语六级仔细阅读解析第3套.200dpi.txt",
+   "checked": 0,
+   "agree": 0,
+   "disagree": 0,
+   "agreement_rate": null,
+   "new_answer_available": 0,
+   "detail": []
+  }
+ ],
+ "skipped": [
+  {
+   "file": "2015.06英语四级解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级考试第1套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级考试第2套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级考试第3套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级选词填空第1套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级选词填空第2套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级选词填空第3套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级长篇阅读解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级长篇阅读解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级长篇阅读解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级阅读第1套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级阅读第2套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语六级阅读第3套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016.06英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2016.12英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2016年06月四级解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2016年06月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2016年06月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2016年12月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2016年12月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017.06英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017.12英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017年06月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017年06月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017年12月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017年12月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2017年12月英语四级真题答案及解析_第二套_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2018.06英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018.12英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018年06月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018年06月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018年12月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018年12月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2018年6月英语四级真题答案解析_卷一_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2018年6月英语四级真题答案解析_卷三_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2018年6月英语四级真题答案解析_卷二_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2019.06英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年06月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年06月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年06月真题解析第1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年06月真题解析第2套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年06月真题解析第3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年12月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2019年12月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语六级考试全1套解析.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语六级选词填空全1套解析.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语六级长篇阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语六级阅读全1套解析.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语四级选词填空解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.07英语四级长篇阅读解析全1套1.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.09英语六级考试第2_3套解析.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.09英语四级选词填空解析全2套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020.09英语四级长篇阅读解析全2套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020年07月四级阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020年09月四级阅读解析全2套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020年12月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2020年12月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2021.06英语四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2021.12英语六级解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语六级解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语六级长篇阅读真题解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语六级长篇阅读解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语四级解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语四级解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语四级长篇阅读解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021.12英语四级长篇阅读解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2021年06月四级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2021年06月四级阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2021年12月四级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2021年12月四级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.09四级长篇阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.09英语六级仔细阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.09英语六级选词填空解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.09英语六级长篇阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.09英语四级选词填空解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.12英语六级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.12英语六级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022.12英语六级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2022年09月四级阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.03英语六级仔细阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.03英语六级选词填空解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.03英语六级长篇阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.03英语四级选词填空解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.03英语四级长篇阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.06英语六级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.06英语六级选词填空解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.06英语六级长篇阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023.12英语四级真题第1套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级真题第2套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级真题第3套解析.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级选词填空解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级选词填空解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级选词填空解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级长篇阅读解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级长篇阅读解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023.12英语四级长篇阅读解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2023年03月四级仔细阅读解析全1套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2023年12月四级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2024.06英语四级选词填空解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024.06英语四级选词填空解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024.06英语四级选词填空解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024.06英语四级长篇阅读解析第1套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024.06英语四级长篇阅读解析第2套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024.06英语四级长篇阅读解析第3套.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024年06月四级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2024年12月四级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2024年6月四级真题解析_第一套_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024年6月四级真题解析_第三套_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2024年6月四级真题解析_第二套_.200dpi.txt",
+   "reason": "no_kb_file"
+  },
+  {
+   "file": "2025年06月四级仔细阅读解析全3套.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2026年6月英语六级答案解析册_三套全_.200dpi.txt",
+   "reason": "unmapped_paper"
+  },
+  {
+   "file": "2026年6月英语四级答案解析册_三套全_.200dpi.txt",
+   "reason": "unmapped_paper"
+  }
+ ],
+ "trusted_sets": 15
+}
