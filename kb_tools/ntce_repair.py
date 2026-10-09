@@ -393,6 +393,28 @@ def practice_rubric(q):
     return rubric
 
 
+CHOICE_TYPES = ('单选', '多选')
+
+
+def drop_choice_framework(q):
+    """选择题按选项字母判分，不得携带主观题评分框架。
+
+    库里曾有 152 道选择题带着一份无 rubric_id 的五维练习框架：既不入图也不可判分，
+    只在卡片正文里可见，等于影子量规。具名审核过或已有真实评分点的保留，避免误删人工成果。
+    """
+    removed = False
+    rubric = q.get('rubric')
+    if isinstance(rubric, dict):
+        if rubric.get('checked_by') or rubric.get('question_specific_points'):
+            return False
+        q.pop('rubric')
+        removed = True
+    if q.get('rubric_id') == 'rubric.' + str(q.get('question_id')):
+        q.pop('rubric_id')
+        removed = True
+    return removed
+
+
 def refresh_mapping(q, node_index):
     review = q['review']
     ids = q['knowledge_node_ids']
@@ -615,7 +637,7 @@ def repair(skip_outline=False):
                     break
         refresh_mapping(q, node_index)
         structured_source_analysis(q)
-        if q['question_type'] not in ('单选', '多选'):
+        if q['question_type'] not in CHOICE_TYPES:
             practice_rubric(q)
             q.setdefault('rubric_id', 'rubric.' + q['question_id'])
             if q['subject'] == 'mianshi':
@@ -625,6 +647,8 @@ def repair(skip_outline=False):
                         if criterion['standard_id'] in scope_ids and criterion['requirement_id'] in q['exam_requirement_ids']]
                 q['rubric'].setdefault('official_rubric_file', 'rubrics/official_interview.json')
                 q['rubric'].setdefault('scope_note', '官方分值属于整场面试评价，不等于本题满分；具体任务评分点仍需教研制定。')
+        else:
+            drop_choice_framework(q)
         q.setdefault('school_level', q.get('level'))
         q.setdefault('module', SUBJECT_CN.get(q.get('subject'), q.get('subject')))
         if q.get('difficulty') is not None and not q.get('difficulty_meta'):

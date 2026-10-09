@@ -76,7 +76,7 @@ class NtceHierarchyContractTests(unittest.TestCase):
     def test_schemas_directory_contains_all_appendix_a_schemas(self):
         expected_schemas = [
             "question", "material", "knowledge_node",
-            "ability_node", "requirement", "rubric",
+            "ability_node", "requirement", "rubric", "practice_framework",
             "user_mastery", "card_frontmatter"
         ]
         for name in expected_schemas:

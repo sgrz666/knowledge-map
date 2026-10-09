@@ -132,7 +132,9 @@ def build():
             continue
         rid = data.get('rubric_id')
         if rid:
-            node(rid, 'L6', 'rubric', data.get('title') or rid, task_type=data.get('task_type'), total_score=data.get('total_score'), dimension_count=len(data.get('dimensions', [])), official=bool(data.get('official_scoring')), expert_verified=bool(data.get('expert_verified')), review_status=data.get('status'), source=rpath.name)
+            # 量规实体的审核态在 review.status 里，不在顶层 status；权重未经签署时必须让消费端看见。
+            review = data.get('review') or {}
+            node(rid, 'L6', 'rubric', data.get('title') or rid, task_type=data.get('task_type'), total_score=data.get('total_score'), dimension_count=len(data.get('dimensions', [])), official=bool(data.get('official_scoring')), expert_verified=bool(data.get('expert_verified')), review_status=review.get('status') or data.get('status'), pending_reasons=review.get('pending_reasons') or [], reviewed_by=review.get('checked_by'), source=rpath.name)
     # L6: 题目节点
     for path in sorted((OUT / 'questions').glob('*/*/*.jsonl')):
         for q in rows(path):

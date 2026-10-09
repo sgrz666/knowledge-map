@@ -11,6 +11,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SUBJECTIVE = {"简答", "材料分析", "教学设计", "活动设计", "论述", "写作", "辨析", "诊断", "解答", "结构化问答", "试讲", "短文写作", "段落汉译英"}
+CHOICE_TYPES = {"单选", "多选"}
+# 附录 A.6 的可计算量规只认 dimension_name/weight_score/criteria_levels；name/levels/max_level 是题内练习框架的字段。
+# 同一维度同时带两套字段就是双真相：消费端取哪一份就会得到哪种分数与档位。
+RUBRIC_LEGACY_DIM_KEYS = {"name", "levels", "max_level"}
+RUBRIC_WEIGHTED_DIM_KEYS = {"dimension_name", "weight_score", "criteria_levels"}
 REVIEWED = {"checked", "expert_reviewed", "expert", "专家审核", "已审核", "人工审核通过"}
 # 附录 A.1 的存储层词表：任何越界取值都是结构性错误，而不是可接受的待办状态。
 REVIEW_STATES = {"auto_parsed", "llm_enhanced", "checked", "expert_reviewed", "needs_fix", "quarantined"}
@@ -402,6 +407,23 @@ def inspect_requirement(requirement, base_paths):
     return issues
 
 
+def rubric_shape_issues(rubric):
+    """量规形状门禁：题内练习框架与附录 A.6 可计算量规不得混写，未经署名的专家声称不得存在。"""
+    issues = []
+    if not isinstance(rubric, dict):
+        return issues
+    review = rubric.get("review") if isinstance(rubric.get("review"), dict) else {}
+    if rubric.get("expert_verified") is True and not (rubric.get("checked_by") or review.get("checked_by")):
+        issues.append(("Q_RUBRIC_EXPERT_CLAIM", "量规标为 expert_verified 却没有具名审核人，自动生成不得声称已核", "error"))
+    for index, dimension in enumerate(rubric.get("dimensions") or []):
+        if not isinstance(dimension, dict):
+            continue
+        keys = set(dimension)
+        if keys & RUBRIC_LEGACY_DIM_KEYS and keys & RUBRIC_WEIGHTED_DIM_KEYS:
+            issues.append(("Q_RUBRIC_DUAL_TRUTH", f"第{index + 1}个维度同时带 name/levels/max_level 与 A.6 加权字段，取哪一份就会得到哪种分数", "error"))
+    return issues
+
+
 def inspect_question(record, context):
     issues = []
 
@@ -585,9 +607,9 @@ def inspect_question(record, context):
         add("Q_DIFFICULTY_INVALID", "难度不符合0到1数值范围", "error")
     elif not difficulty_is_calibrated(record):
         add("Q_DIFFICULTY_UNCALIBRATED", "难度缺少教研标定或实测校准的方法及证据")
+    rubric = record.get("rubric") or extra.get("rubric") or extra.get("scoring_rubric")
+    rubric_id = record.get("rubric_id") or extra.get("rubric_id")
     if question_type in SUBJECTIVE:
-        rubric = record.get("rubric") or extra.get("rubric") or extra.get("scoring_rubric")
-        rubric_id = record.get("rubric_id") or extra.get("rubric_id")
         if rubric_id and not rubric:
             rubric = context.get("rubrics", {}).get(rubric_id)
             if rubric is None:
@@ -596,6 +618,10 @@ def inspect_question(record, context):
             add("Q_RUBRIC_MISSING", "主观题缺少可计算评分维度，分值字段不能代替量规")
         elif rubric.get("status") in {"draft", "proposed", "待审核"} or pending_review(rubric.get("status")) or pending_review(rubric.get("review_status")) or rubric.get("verified") is False or rubric.get("expert_verified") is False:
             add("Q_RUBRIC_PENDING_REVIEW", "主观题量规尚未核验")
+    elif question_type in CHOICE_TYPES and (rubric or rubric_id):
+        add("Q_RUBRIC_ON_OBJECTIVE", "选择题按选项字母判分，携带主观题评分框架会成为只在正文可见的影子量规", "error")
+    for rule, detail, severity in rubric_shape_issues(rubric):
+        add(rule, detail, severity)
     review = record.get("review") or extra.get("review") or {}
     if review.get("status") not in REVIEW_STATES:
         add("Q_REVIEW_STATE_INVALID", f"复核状态“{review.get('status')}”不在附录 A.1 六态枚举内", "error")
@@ -881,7 +907,13 @@ def validate():
             counts["resources_complete_against_checked_requirements"] += not resource_issues
             for issue in resource_issues:
                 issue.update(dataset=dataset, id=record.get("resource_id") or record.get("material_id"), file=str(path.relative_to(ROOT)), line=line)
-                issues.append(issue)
+                issues.append(issue)        # 量规实体独立门禁：它们不被题目按 ID 引用，只在判分时由教研挑选，问题路径永远走不到。
+        counts["rubric_entities"] = len(context["rubrics"])
+        rubric_folder = "数据集/四六级/ontology/scoring_rubrics.jsonl" if dataset == "cet" else "数据集/教资/rubrics"
+        for rubric_id, rubric_entity in sorted(context["rubrics"].items()):
+            for rule, detail, severity in rubric_shape_issues(rubric_entity):
+                issues.append({"dataset": dataset, "rule": rule, "severity": severity,
+                               "id": rubric_id, "file": rubric_folder, "detail": detail})
         metrics[dataset] = dict(counts)
     # 补充官方样卷使用同一题目契约；计数单列，避免混成原题库净补量。
     supplemental = ROOT / "补充资料/四六级官方样题"
