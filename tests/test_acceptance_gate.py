@@ -47,7 +47,12 @@ from services.knowledge.graph_index import (  # noqa: E402
     get_graph_index,
 )
 from services.knowledge.naming import exam_values  # noqa: E402
-from services.knowledge.repository import QUESTION_DIRS, REQUIREMENT_FILES, get_repository  # noqa: E402
+from services.knowledge.repository import (  # noqa: E402
+    QUESTION_DIRS,
+    REQUIREMENT_FILES,
+    get_repository,
+    timed_stages,
+)
 from services.knowledge.retrieval import RESEARCH_ANSWER_STATUSES, RetrievalService  # noqa: E402
 from services.knowledge.trust import TrustGate, answer_letter  # noqa: E402
 from services.knowledge.vector_index import SearchHit, get_card_index  # noqa: E402
@@ -56,14 +61,14 @@ from services.master.agent import TutorMasterAgent  # noqa: E402
 from services.memory.agent import MemoryReviewAgent  # noqa: E402
 from services.memory.store import InMemoryMasteryStore  # noqa: E402
 from services.planner.agent import CurriculumPlannerAgent  # noqa: E402
-from services.practice.cet_statemachine import CETExamStateMachine  # noqa: E402
 from services.review.queue import ReviewQueue, get_review_queue  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SERVICES_DIR = REPO_ROOT / "services"
 
-# A1 原文点名的两个影子数据常量名。
+# A1 原文点名的两个影子数据常量名，以及"一场模考多久"这个只属于库内卷面的量。
 BANNED_SHADOW_NAMES = ("SAMPLE_QUESTION_BANK", "PROVENANCE_DB")
+BANNED_TIMETABLE_NAMES = ("MOCK_MINUTES",)
 
 # "中文题面形态"的可执行判据：只有真题/条文正文才会长这样——填空括号、带序号的并列选项、
 # 答案/解析块。运行时里的提示语和 notice 都不含这些形状，所以判据不会误伤文案。
@@ -194,7 +199,7 @@ class TestA1NoShadowData(AcceptanceTestCase):
                          "待复核清单.md 与生成器输出不一致：要么清单被手改过，要么生成器漏了段落")
 
     def test_the_exam_clock_is_the_blueprint_not_a_transcript(self):
-        """卷面规格也是库内实体：模考时序必须逐节等于 paper_specs，服务代码里不许留手抄的分钟数。"""
+        """卷面规格也是库内实体：模考用时必须逐节等于 paper_specs，服务代码里不许留手抄的分钟数。"""
 
         def parts_of(spec):
             return spec.get("parts") or spec.get("sections") or []
@@ -204,7 +209,7 @@ class TestA1NoShadowData(AcceptanceTestCase):
             p.get("name") and p.get("duration_minutes") for p in parts_of(s))]
         self.assertGreater(timed, [], "两套库里没有任何带逐节用时的规格，这条验收成了空跑")
         for spec in timed[:8] + timed[-4:]:
-            stages = CETExamStateMachine.stages_from_spec(spec)
+            stages = timed_stages(spec)
             self.assertEqual([s["name"] for s in stages], [p["name"] for p in parts_of(spec)],
                              f"{spec.get('spec_id')} 的小节顺序不是卷面给的顺序")
             self.assertEqual([s["minutes"] for s in stages],
@@ -215,7 +220,7 @@ class TestA1NoShadowData(AcceptanceTestCase):
         untimed = [s for s in specs if s.get("spec_id") not in taught and parts_of(s)]
         self.assertGreater(untimed, [], "库里已没有无逐节用时的规格，负向断言成了空跑")
         for spec in untimed[:8]:
-            self.assertEqual(CETExamStateMachine.stages_from_spec(spec), [],
+            self.assertEqual(timed_stages(spec), [],
                              f"{spec.get('spec_id')} 卷面没说用时，时序机却给出了阶段")
 
     def test_the_state_machine_holds_no_transcribed_timetable(self):
@@ -228,6 +233,22 @@ class TestA1NoShadowData(AcceptanceTestCase):
                 if node.value not in units:
                     copied.append(f"{path.name}:{node.lineno}={node.value}")
         self.assertEqual(copied, [], "时序机里出现了写死的分钟数，那是一份手抄的考务时间表")
+
+    def test_no_service_layer_ships_its_own_exam_length(self):
+        """排课也一样：任何层都不许留自己的"一场模考多久"，否则日历与卷面各说一套。"""
+        found = []
+        for path, source in self.service_sources():
+            for node in ast.walk(ast.parse(source)):
+                if isinstance(node, ast.AnnAssign):
+                    names = [node.target]
+                elif isinstance(node, (ast.Assign, ast.AugAssign)):
+                    names = list(node.targets) if isinstance(node, ast.Assign) else [node.target]
+                else:
+                    continue
+                for target in names:
+                    if isinstance(target, ast.Name) and target.id in BANNED_TIMETABLE_NAMES:
+                        found.append(f"{path.relative_to(REPO_ROOT).as_posix()}:{node.lineno}: {target.id}")
+        self.assertEqual(found, [], "服务层里出现了自有的模考时长常量")
 
 
 # --------------------------------------------------------------------- A2

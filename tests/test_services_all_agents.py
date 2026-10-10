@@ -224,6 +224,29 @@ class TestCurriculumPlanner(LibraryBackedTestCase):
             self.assertIn("mock_sprint", types, f"第 {index + 1} 天应有模考")
             self.assertLessEqual(sum(t.estimated_minutes for t in plan.daily_plans[index].tasks), 120)
 
+    def test_the_planner_books_the_mock_the_blueprint_runs(self):
+        """模考那一格的分钟数来自库内考务规格：以前排课写死 90 分钟，与卷面的 120 各说一套。"""
+        expected = self.repository.mock_minutes_for("NTCE")
+        self.assertIsNotNone(expected, "库内规格明明有总时长，排课却读不出模考用时")
+        plan = self._plan("u_plan_mock", 7, 240)
+        sprints = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "mock_sprint"]
+        self.assertTrue(sprints, "240 分钟的一天仍然没排下模考")
+        for task in sprints:
+            self.assertEqual(task.estimated_minutes, expected, "排课用的模考时长不是库内卷面的数字")
+            self.assertIn(str(expected), task.title, "标题没说出这场模考按哪份卷面计时")
+
+    def test_a_shorter_day_than_the_blueprint_gets_no_mock_instead_of_a_truncated_one(self):
+        # 卷面 120 分钟排不进 100 分钟的一天：宁可这天不排模考，也不排一场做不完的"限时模考"。
+        expected = self.repository.mock_minutes_for("NTCE")
+        self.assertIsNotNone(expected)
+        plan = self._plan("u_plan_short", 7, min(100, expected - 1))
+        self.assertFalse(any(t.task_type == "mock_sprint" for day in plan.daily_plans for t in day.tasks))
+
+    def test_pacing_numbers_are_labelled_as_service_estimates(self):
+        """日程里的分钟数大多是本服务的配速估算，响应必须说清，免得被读成官方题均用时。"""
+        plan = self._plan("u_plan_pace", 3, 60)
+        self.assertTrue(any("配速" in n for n in plan.notices), plan.notices)
+
     def test_review_tasks_come_from_the_learners_own_due_items(self):
         # 没有作答记录就没有到期项，也就没有复习任务 —— 而不是凭空排一轮"FSRS 复习"。
         fresh = self._plan("u_new", 3, 60)

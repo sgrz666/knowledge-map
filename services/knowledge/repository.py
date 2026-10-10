@@ -83,8 +83,8 @@ def _loads_safe(raw: bytes) -> Tuple[Optional[dict], Optional[str]]:
         return None, str(exc)
 
 
-#: 套名/来源行形如「【2019年12月CET-6真题第1套·阅读·选词填空】」，题号只剩数字。
-#: 去掉这两样之后还剩文字，或者带选项可勾，才算learner 真能作答的题面。
+#: 套名/来源行形如「【2019年12月CET-6真题第1套·阅读·选词填空】」，去掉套名与题号后还剩文字，
+#: 或者带选项可勾，才算学习者真能作答的题面。
 _PAPER_HEADER = re.compile(r"^【[^】]*】")
 
 
@@ -93,6 +93,50 @@ def has_answerable_text(stem: Optional[str], options: Optional[Iterable]) -> boo
         return True
     core = _PAPER_HEADER.sub("", stem or "").strip(" 　、,，.。0123456789")
     return bool(core)
+
+
+def timed_stages(spec: Optional[dict]) -> List[Dict[str, object]]:
+    """按库内考务规格（``parts[]``/``sections[]``）读出有序的计时节；读不出就返回空列表。
+
+    这份读法只写在这里一遍：组卷、模考时序机与排课都从这里取数。三处各写一份"逐节合计"，
+    就会有的层用 125、有的层用 130，而响应看起来都像是官方口径。
+    空列表的含义是"库里这份规格没有描述逐节用时"，调用方必须据此撤掉时序机与模考格——
+    给一半时序比不给更危险：学习者会在错误的分钟被封锁作答，而响应仍然像官方考务。
+    """
+    if not spec:
+        return []
+    stages: List[Dict[str, object]] = []
+    for part in spec.get("parts") or spec.get("sections") or []:
+        name = part.get("name") or part.get("module")
+        minutes = part.get("duration_minutes")
+        if not name or not minutes:
+            return []
+        policy = part.get("lock_policy") or {}
+        stages.append(
+            {
+                "name": str(name),
+                "module": part.get("module"),
+                "minutes": int(minutes),
+                "sheet_submission": policy.get("sheet_submission"),
+                # 没声明 allow_backtrack 的小节按"不可回退"处理：保守的默认只会少给一次翻页，
+                # 宽松的默认则会让运行时在教研从未核定的时机上允许改答案。
+                "allow_backtrack": bool(policy.get("allow_backtrack")),
+            }
+        )
+    return stages
+
+
+def mock_minutes(spec: Optional[dict]) -> Optional[int]:
+    """一套规格真正会走完的分钟数：逐节合计优先，退回声明总时长，两者都没有就是 ``None``。
+
+    逐节合计排在前面，因为那份数字才决定何时收卡；``total_duration_minutes`` 与它不一致时
+    （库里 126 套 CET 规格全部如此）由调用方显式说明矛盾并交给教研核定，服务不选边改数。
+    """
+    scheduled = sum(int(stage["minutes"]) for stage in timed_stages(spec))
+    if scheduled:
+        return scheduled
+    declared = (spec or {}).get("total_duration_minutes")
+    return int(declared) if declared else None
 
 
 def _as_set(value: Optional[Iterable[str]], *, exam: bool = False) -> Optional[frozenset]:
@@ -502,6 +546,15 @@ class KnowledgeRepository:
             values = set(exam_values(exam))
             specs = [s for s in specs if s.get("exam") in values]
         return specs
+
+    def mock_minutes_for(self, exam: str) -> Optional[int]:
+        """The one mock length this exam's blueprints agree on, or ``None`` when they don't.
+
+        排课需要"一场模考要多久"，但不该为此挑一套卷面：库里同一考试的多套规格若给出不同用时，
+        返回 ``None`` 让调用方显式降级，比随手拿第一套的数字冒充整场考试诚实。
+        """
+        values = {minutes for minutes in (mock_minutes(spec) for spec in self.paper_specs(exam)) if minutes}
+        return values.pop() if len(values) == 1 else None
 
     # --------------------------------------------------------------- stats
     def stats(self) -> dict:

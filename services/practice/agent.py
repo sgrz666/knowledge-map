@@ -20,7 +20,13 @@ from services.common.models import (
     TrustTier,
 )
 from services.knowledge.naming import exam_values, module_values
-from services.knowledge.repository import KnowledgeRepository, QuestionMeta, get_repository
+from services.knowledge.repository import (
+    KnowledgeRepository,
+    QuestionMeta,
+    get_repository,
+    mock_minutes,
+    timed_stages,
+)
 from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate
 from services.memory.agent import MemoryReviewAgent
 from services.practice.cet_statemachine import CETExamStateMachine
@@ -93,8 +99,8 @@ class PracticeEngineAgent:
             )
 
         # 模考时序只认这份规格：能列出逐节用时就有时序机，列不出就没有——服务不替官方考试编时间表。
-        stages = CETExamStateMachine.stages_from_spec(spec)
-        limit = self._time_limit(req, spec, len(questions), stages)
+        stages = timed_stages(spec)
+        limit = self._time_limit(req, spec, len(questions))
         scope = req.target_node or req.target_module or req.exam_type
         title = MODE_TITLES.get(req.practice_mode, "【专项练习】{scope}").format(scope=scope)
         notices.extend(self._timing_notices(req, spec, stages))
@@ -403,7 +409,7 @@ class PracticeEngineAgent:
         """Say where the mock timetable came from, and refuse to pretend when the library has none."""
         if req.practice_mode != PracticeMode.MOCK_EXAM:
             return []
-        scheduled = sum(int(s["minutes"]) for s in stages)
+        scheduled = mock_minutes(spec) or 0
         if not stages:
             return [
                 "库内考务规格没有给出逐节用时（parts[].duration_minutes），系统不内置模考时序："
@@ -423,17 +429,11 @@ class PracticeEngineAgent:
         return notices
 
     @staticmethod
-    def _time_limit(
-        req: AssemblePaperRequest, spec: Optional[dict], items: int, stages: Optional[List[dict]] = None
-    ) -> Optional[int]:
+    def _time_limit(req: AssemblePaperRequest, spec: Optional[dict], items: int) -> Optional[int]:
         if req.practice_mode == PracticeMode.MOCK_EXAM:
-            # 模考只报库内说得出的用时：逐节合计优先（它才是时序机真正执行的），退回规格总时长，
-            # 两者都没有就不限时——服务替官方考试编一个分钟数就是影子数据。
-            scheduled = sum(int(s["minutes"]) for s in stages or [])
-            if scheduled:
-                return scheduled
-            declared = (spec or {}).get("total_duration_minutes")
-            return int(declared) if declared else None
+            # 模考只报库内说得出的用时（读法在 repository.mock_minutes，与排课同源）：
+            # 库里既没有逐节用时也没有声明总时长就不限时——服务编一个分钟数就是影子数据。
+            return mock_minutes(spec)
         if req.practice_mode == PracticeMode.TIMED_SPRINT:
             return max(5, int(items))
         if req.practice_mode == PracticeMode.DAILY_PRACTICE:

@@ -363,7 +363,6 @@ class PlanRequest(BaseModel):
     """Request payload for generating adaptive calendar."""
     user_id: str
     exam_type: Literal["CET-4", "CET-6", "NTCE"]
-    target_score: float = 70.0
     days_until_exam: int = Field(default=30, ge=1, le=180)
     daily_available_minutes: int = Field(default=60, ge=15, le=360)
     current_mastery: Optional[List[UserMasteryRecord]] = None

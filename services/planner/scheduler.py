@@ -7,6 +7,10 @@ from ``KnowledgeRepository`` (nodes that questions actually attach to, with thei
 sizes) and the ordering comes from ``GraphIndex.topological_order``, which refuses to use
 prerequisite edges while none are confirmed (§3.3: 先修边暂不入算法).
 
+一场模考要多久同样来自 ``repository.mock_minutes_for(exam)``：旧版写死 ``MOCK_MINUTES = 90``，
+而库内卷面是 NTCE 120 / CET 逐节 125——90 既让日历在 60 分钟的一天承诺做不完的模考，也替官方考试
+编了一个教研从未核定的时长。规格给不出一致用时时就不排模考，并在 notices 里说明。
+
 Missing mastery is treated as *unseen*, not as a made-up 0.40 baseline: an unseen node is ranked
 by how much practice material the library actually holds for it, and the plan says so.
 """
@@ -25,13 +29,16 @@ MINUTES_PER_QUESTION = 2.0
 REVIEW_SHARE = 0.30
 NEW_NODE_SHARE = 0.55
 NODES_PER_DAY = 2
-MOCK_MINUTES = 90
 MOCK_EVERY_DAYS = 7
 WEAK_MASTERY_THRESHOLD = 0.5
 
 UNSEEN_NOTICE = (
     "排课依据为库内真实题池与已持久化的掌握度；未练习过的考点按“无掌握度记录”处理，"
     "不套用任何默认基线分。"
+)
+PACING_NOTICE = (
+    f"日程里除模考那一格外，分钟数都是服务按每题 {MINUTES_PER_QUESTION:g} 分钟估的配速，"
+    "不是官方题均用时；模考那一格取的是库内考务规格的卷面用时。"
 )
 POOL_EXHAUSTED_NOTICE = (
     "新考点已排完，后续日程改为对已排考点做巩固练习；如需更大题量请先扩充题库，系统不会虚构考点。"
@@ -115,6 +122,16 @@ class AdaptiveScheduler:
         if prereq_note:
             notices.append(prereq_note)
         notices.append(UNSEEN_NOTICE)
+        notices.append(PACING_NOTICE)
+
+        # 一场模考要多久只问库内考务规格（与组卷、时序机共用同一份读法）。以前这里写死 90 分钟，
+        # 于是日历既会在 60 分钟的一天承诺一场做不完的模考，也替官方考试编了一个教研没核定的时长。
+        exam_minutes = self.repository.mock_minutes_for(exam)
+        if exam_minutes is None:
+            notices.append(
+                "库内该考试的考务规格没有一致的卷面用时（逐节缺失或各套不同），日程不排限时模考；"
+                "要排模考请先由教研把 paper_specs 的用时补齐，系统不替考试编一个分钟数。"
+            )
 
         due = self._due_question_ids(user_id)
         today = date.today()
@@ -126,13 +143,13 @@ class AdaptiveScheduler:
             budget = daily_minutes
             tasks: List[DailyTaskItem] = []
 
-            if (index + 1) % MOCK_EVERY_DAYS == 0 and budget >= MOCK_MINUTES:
-                budget -= MOCK_MINUTES
+            if exam_minutes and (index + 1) % MOCK_EVERY_DAYS == 0 and budget >= exam_minutes:
+                budget -= exam_minutes
                 tasks.append(
                     DailyTaskItem(
                         task_type="mock_sprint",
-                        title="限时模考冲刺（按官方卷面结构组卷）",
-                        estimated_minutes=MOCK_MINUTES,
+                        title=f"限时模考冲刺（库内卷面 {exam_minutes} 分钟，按官方规格组卷）",
+                        estimated_minutes=exam_minutes,
                         target_question_count=0,
                     )
                 )

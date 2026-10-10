@@ -1,16 +1,17 @@
-"""CET 模考时序由库内考务规格推进——服务不再另立一份卷面。
+"""模考时序由库内考务规格推进——服务不再另立一份卷面。
 
 旧版把 "写作 30 / 听力 30 / 阅读+翻译 70" 写死在这个文件里，而
 ``数据集/四六级/manifest/paper_specs.jsonl`` 的 ``parts[]`` 给的是 30 / 25 / 40 / 30。同一条组卷响应
 因此带着两套时间表：``structure`` 用库内的分钟数，``stage_state`` 用这里的常数——学习者会按一份教研
 从未核定过的时序被收卡（听力晚 5 分钟）。按验收 A1 的口径，卷面规格与题面、条文一样是库内实体，
-不许复制进服务代码。
+不许复制进服务代码。逐节读法本身也只在 ``repository.timed_stages`` 里写一遍。
 """
 from __future__ import annotations
 
 from typing import Dict, List, Optional
 
 from services.common.models import ExamStageState
+from services.knowledge.repository import timed_stages
 
 #: 运行时自己的终局标记，不是卷面上的小节名。
 COMPLETED_STAGE = "completed"
@@ -20,49 +21,17 @@ class CETExamStateMachine:
     """Advances a mock exam through the timed sections its own blueprint declares."""
 
     @staticmethod
-    def stages_from_spec(spec: Optional[dict]) -> List[Dict[str, object]]:
-        """Ordered timed stages read off ``parts[]`` / ``sections[]``.
-
-        空列表的含义是"库内这份规格没有描述逐节用时"，调用方必须据此撤掉时序机：给一半时序比不给更
-        危险——学习者会在错误的分钟被封锁作答，而响应看起来仍然像官方考务。
-        """
-        if not spec:
-            return []
-        parts = spec.get("parts") or spec.get("sections") or []
-        stages: List[Dict[str, object]] = []
-        for part in parts:
-            name = part.get("name") or part.get("module")
-            minutes = part.get("duration_minutes")
-            if not name or not minutes:
-                return []
-            policy = part.get("lock_policy") or {}
-            stages.append(
-                {
-                    "name": str(name),
-                    "module": part.get("module"),
-                    "minutes": int(minutes),
-                    "sheet_submission": policy.get("sheet_submission"),
-                    # 没声明 allow_backtrack 的小节按"不可回退"处理：保守的默认只会少给一次翻页，
-                    # 宽松的默认则会让运行时在教研从未核定的时机上允许改答案。
-                    "allow_backtrack": bool(policy.get("allow_backtrack")),
-                }
-            )
-        return stages
-
-    @staticmethod
     def get_initial_state(spec: Optional[dict]) -> Optional[ExamStageState]:
         """Start at the blueprint's first timed section; ``None`` when the library has no timing."""
-        stages = CETExamStateMachine.stages_from_spec(spec)
-        if not stages:
-            return None
-        return CETExamStateMachine._state(stages[0])
+        stages = timed_stages(spec)
+        return CETExamStateMachine._state(stages[0]) if stages else None
 
     @staticmethod
     def step_stage(
         current_state: ExamStageState, elapsed_seconds: int = 0, spec: Optional[dict] = None
     ) -> Optional[ExamStageState]:
         """Burn the clock, then move to the next section the blueprint lists."""
-        stages = CETExamStateMachine.stages_from_spec(spec)
+        stages = timed_stages(spec)
         if not stages:
             return None
         index = next(
