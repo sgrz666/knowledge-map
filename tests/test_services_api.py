@@ -152,6 +152,24 @@ class TestAgentAPI(unittest.TestCase):
         without_env = self.client.post("/api/v1/retrieval/search", json=payload)
         self.assertEqual(without_env.status_code, 200)
 
+    def test_every_route_but_health_sits_behind_the_auth_dependency(self):
+        """令牌闸按路由挂：漏一条就等于给那条路由开了免检口，而画像/溯源/原文都在那些路由里。"""
+        from fastapi.routing import APIRoute
+
+        from services.app import AuthContext
+
+        open_routes = {"/api/v1/health"}
+        covered = 0
+        for route in app.routes:
+            if not isinstance(route, APIRoute) or route.path in open_routes:
+                continue
+            calls = {dep.call for dep in route.dependant.dependencies}
+            self.assertIn(
+                AuthContext.from_header, calls, f"{route.path} 没有挂 AuthContext，会绕过档位令牌"
+            )
+            covered += 1
+        self.assertGreaterEqual(covered, 12, "路由数量与文档口径不符，先复核这条检查的范围")
+
     # ---------------------------------------------------------------------- memory
     def test_memory_review_and_mastery_endpoint(self):
         event_payload = {

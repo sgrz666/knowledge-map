@@ -346,7 +346,9 @@ def process_review_event(
 
 
 @app.get("/api/v1/memory/mastery/{user_id}/{node_id}", response_model=UserMasteryRecord)
-def get_user_mastery(user_id: str, node_id: str):
+def get_user_mastery(user_id: str, node_id: str, auth: AuthContext = Depends(AuthContext.from_header)):
+    # 画像按 user_id 可直接枚举，属于学习者个人数据；与写入侧同一道闸，不设令牌时才是开发默认放行。
+    auth.require(TrustTier.RESEARCH_INTERNAL)
     record = memory_agent.get_user_mastery(user_id, node_id)
     if record is None:
         raise HTTPException(status_code=404, detail="该用户在该考点上还没有学习记录")

@@ -136,7 +136,7 @@ IDLE → DIAGNOSE → PROFILE → PLAN → PRACTICE|MOCK → GRADE(或 FEEDBACK_
 - **流式**：qa 与 master 走 SSE（`services/app.py:_sse`）；其余保持同步（设计文档未要求全链路流式，别过度设计）。
 - **异步与批量回填**：不起 Celery + Redis。模考分段时序由进程内 `practice/cet_statemachine.py` 推进——它是单请求内的确定状态转移，不需要跨进程锁。LLM 解析回填 `analysis` 的落地形态是一个 **stdlib 离线 CLI**：默认 dry-run、只把 `review.status` 抬到 `llm_enhanced`、绝不写 `checked_by`/`expert_verified`、跑完把条目投进 `审查/` 队列等教研签署。当前没有可用的 LLM 端点配置（`KNOWLEDGE_MAP_LLM_*` 未设置，`/health` 报 `rule_only`），所以这一步只留口径、不写工具，免得拿模型编造的解析把库填满。
 - **持久化**：FSRS 与掌握度落 SQLite（`services/memory/store.py:SqliteMasteryStore`）、会话与 envelope 落 SQLite（`services/orchestrator/session.py`）、人工复核队列落 JSONL（`services/review/queue.py`）。原先"进程内 dict、跨进程必 404"的缺陷已消除（验收 A5）。状态目录 `.local_state/` 与 `chroma/` 均不入库。
-- **鉴权与限流**：`AuthContext` 已是全部 agent 路由的依赖；配置了 `KNOWLEDGE_MAP_RUNTIME_TOKEN` 时，`research_internal` 档必须带 `Authorization: Bearer <token>`，否则 401——未配置即开发默认放行，**公开部署前必须设**，因为该档会外发真题全文。限流未落地（单机研究用途、无并发用户）；上线对外前它是 §9 传播面风险的最后一道技术闸。
+- **鉴权与限流**：`AuthContext` 已是除 `/health` 外每一条路由的依赖（14 条内容路由全挂，`tests/test_services_api.py` 按 `app.routes` 逐条断言，新增路由忘记挂闸会直接红）；配置了 `KNOWLEDGE_MAP_RUNTIME_TOKEN` 时，`research_internal` 档必须带 `Authorization: Bearer <token>`，否则 401——未配置即开发默认放行，**公开部署前必须设**，因为该档会外发真题全文，而 `GET /memory/mastery/{user_id}/{node_id}` 这类按 id 可枚举的学习者画像同样走这道闸。限流未落地（单机研究用途、无并发用户）；上线对外前它是 §9 传播面风险的最后一道技术闸。
 
 ## 4. LLM 层（现在完全不存在，必须新写）
 
@@ -210,4 +210,4 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 11. 落地状态（2026-10-10）
 
-P0–P4 全部完成，§8 的 A1–A9 各有对应测试，实现在 `tests/test_acceptance_gate.py`（23 例），全库回归 `python -m pytest tests -q` 为 347 passed + 55 subtests。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A9 各有对应测试，实现在 `tests/test_acceptance_gate.py`（23 例），全库回归 `python -m pytest tests -q` 为 348 passed + 55 subtests。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
