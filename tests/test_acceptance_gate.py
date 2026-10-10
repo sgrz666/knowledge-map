@@ -27,6 +27,8 @@ from starlette.testclient import TestClient  # noqa: E402
 from services.app import app  # noqa: E402
 from services.common.models import (  # noqa: E402
     AgentMessageEnvelope,
+    AnswerSubmission,
+    DiagnosticRequest,
     ErrorReviewEvent,
     MasterInteractionRequest,
     PlanRequest,
@@ -35,6 +37,7 @@ from services.common.models import (  # noqa: E402
     SubjectiveGradingRequest,
     TrustTier,
 )
+from services.diagnostic.agent import DiagnosticAgent  # noqa: E402
 from services.grader.agent import SubjectiveGraderAgent  # noqa: E402
 from services.knowledge.graph_index import (  # noqa: E402
     ALLOWED_EDGE_TYPES,
@@ -792,7 +795,7 @@ class TestA9HumanInTheLoop(AcceptanceTestCase):
 
 # --------------------------------------------------------------------- A10
 class TestA10ProfileVerdictSource(AcceptanceTestCase):
-    """A10 画像判据：写进掌握度与复习队列的对错由库内答案键决定，调用方申报只能兜底。"""
+    """A10 判据归属：写进掌握度、复习队列与诊断雷达的对错由库内答案键决定，调用方申报只能兜底。"""
 
     def _agent(self):
         return MemoryReviewAgent(store=InMemoryMasteryStore(), repository=self.repository)
@@ -829,6 +832,52 @@ class TestA10ProfileVerdictSource(AcceptanceTestCase):
         bundle = self._agent().process_event(self._event(meta, is_correct=True))
         self.assertIn("调用方申报", bundle.verdict_source or "")
         self.assertTrue(any("未独立核验" in n for n in bundle.notices))
+
+    def test_the_diagnostic_radar_uses_the_key_and_never_the_claim(self):
+        """同一条判据口径也管诊断：申报顶不掉库内答案键，没有判据的作答不折算成对错。"""
+        meta = self.usable_choice()
+        record = self.repository.load_question(meta.question_id) or {}
+        key = answer_letter((record.get("content") or {}).get("answer"))
+        self.assertTrue(key, "库内该单选题应能取出字母答案键")
+        wrong = next(c for c in "ABCD" if c != key)
+
+        def submission(**kw):
+            base = {
+                "question_id": meta.question_id,
+                "user_answer": wrong,
+                "is_correct": True,
+                "time_spent_seconds": 10.0,
+                "node_id": (meta.node_ids or ("a10.node",))[0],
+                "module_id": meta.module or "m1",
+            }
+            base.update(kw)
+            return AnswerSubmission(**base)
+
+        agent = DiagnosticAgent(repository=self.repository, queue=self.queue)
+        pending = self.queue.stats()["pending_records"]
+
+        counted = agent.evaluate(
+            DiagnosticRequest(user_id="u_a10_diag", exam_type="NTCE", submissions=[submission()])
+        )
+        self.assertEqual(counted.max_raw_score, 1.0)
+        self.assertEqual(counted.raw_score, 0.0, "库内答案键判错的题，被调用方申报记成了对")
+        self.assertTrue(any("与库内答案键的核对结果相反" in n for n in counted.notices))
+
+        uncheckable = agent.evaluate(
+            DiagnosticRequest(
+                user_id="u_a10_diag",
+                exam_type="NTCE",
+                submissions=[submission(user_answer="", is_correct=None)],
+            )
+        )
+        self.assertEqual(uncheckable.max_raw_score, 0.0, "没有判据的作答却占了分母，等于替学习者编了一个错")
+        self.assertEqual(uncheckable.radar_chart, [])
+        self.assertEqual(uncheckable.blocked_submissions[0]["question_id"], meta.question_id)
+        self.assertEqual(
+            self.queue.stats()["pending_records"],
+            pending,
+            "答案键缺口按人次进队列，会把唯一一位教研审核的队列刷满",
+        )
 
     def test_a_quarantined_question_writes_nothing_to_the_profile(self):
         conflicted = next(

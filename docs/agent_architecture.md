@@ -100,6 +100,7 @@ F 运行时层     services/app.py + SSE、stdlib 离线回填、SQLite 状态�
 | 量规 `official_scoring=false` 且无署名（6 套全中） | 维度反馈、自评清单 | **自动出分** | "框架反馈 + 人工复核"，同时把这条作答写进 `审查/` 队列 |
 | 题内练习框架（3,736 条，无 `weight_score`） | 生成反馈 | 参与判分 | 同上 |
 | 调用方自带的 `reference_answer`（库内已有参考原文时） | 仅作展示与兜底 | 顶替库内采分点、决定判分口径 | "采分点来源：库内 …"；库内确实没有原文时才写"调用方自备 … 不代表教研核定的判分口径" |
+| 调用方申报的 `is_correct`（库内有可核对的字母答案键时） | 只在库内核不动时兜底计数 | 顶替答案键改写掌握度、FSRS 队列与诊断雷达 | `verdict_source=库内答案键核对`，冲突时以答案键为准并把冲突写进 `notices`；既无答案键又无申报 → 画像侧 `attributable=false`、诊断侧该条进 `blocked_submissions` 且不占分母（答案键缺口已按 `answer_status` 全列在待复核清单里，运行时不再按人次追加队列） |
 | `content.stem` 只剩套名/题号且无选项（实测 CET-6 47 / CET-4 75 / 教资 42 题在"有答案"池内） | 教研补题干抽取 | 组卷、错题重做、计入 `pool_size`、**判分** | 组卷响应里报出缺口条数与原因；判分侧回 `refused_ungradable_input`，缺口按 `审查/待复核清单.md` 的题干抽取项处理，不占作答复核队列 |
 | 偏移读回的字节不属于该 `question_id`（行被删/合并导致错位） | 换代重扫一次后重读 | 把读到的另一条记录当成该题返回 | `load_question` 返回 `None`，判分侧走 `refused_ungradable_input`，缺口记进 `stats().scan_issues` |
 | 单行 JSON 解析失败 | 跳过该行并登记缺口 | 让整个文件后续的题消失 | `stats().scan_issues` 计数，`审查/validate_kb.py` 在 CI 里挡住 |
@@ -111,7 +112,7 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 
 **答案状态只有一份词表**：`SERVABLE_ANSWER_STATUSES = (letter_only, reference_only, verified)`。`servable_in_paper`、`repository.find_questions(require_answer=True)` 与召回过滤 `RESEARCH_ANSWER_STATUSES` 全部引用它——`missing`/`source_conflict` 一旦被判不可用，就在门面、组卷、判分、召回四处同时消失，不存在"某一层还留着口子"的第二套口径。
 
-**对错判据也只有一个入口**：`TrustGate.reconcile_verdict(record, selected_option, claimed)` 规定优先级——库内答案键核对 > 调用方申报 > 无判据（返回 `None` 即什么都不许写）。字母键的读法同样只有一份 `answer_letter`：以前 `master` 与 `qa` 各写了一份取首字母的逻辑，两份一旦分叉，同一份库内答案就能判出两个相反的对错，而画像与答疑各信一边。
+**对错判据也只有一个入口**：`TrustGate.reconcile_verdict(record, selected_option, claimed)` 规定优先级——库内答案键核对 > 调用方申报 > 无判据（返回 `None` 即什么都不许写）。它同时服务两个消费者：画像写入（`memory`/`master`）与诊断雷达（`diagnostic`）——后者以前直接把 `AnswerSubmission.is_correct` 累加成 `mastery_rate`，等于允许调用方用一个布尔刷满整张雷达。返回的判据来源写成 `VERDICT_SOURCE_KEY` / `VERDICT_SOURCE_CLAIM` 两个常量（申报还可能带一句"库内有答案键但未提交所选选项"的限定），调用方靠它区分"这条对错被库内核过"和"只是采信了申报"，报告里必须把后者的条数说出来。字母键的读法同样只有一份 `answer_letter`：以前 `master` 与 `qa` 各写了一份取首字母的逻辑，两份一旦分叉，同一份库内答案就能判出两个相反的对错，而画像与答疑各信一边。
 
 ### 3.3 D 能力层（保留现有 8 个 agent，重写数据依赖）
 
@@ -120,7 +121,7 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 | agent | 现文档模块 | 应改为消费 | 当前能承诺 / 不能承诺 |
 | --- | --- | --- | --- |
 | practice | F1 | `repository` 真题 + `graph_index.assesses` 定向 | 能：按考点/模块/题型组卷、CET 三段时序。不能：自动判分依据未签署量规 |
-| diagnostic | F3 | `assesses` + `supports_ability` 聚合 | 能：知识点覆盖度提示。不能：对外声称诊断结论、IRT 能力值 |
+| diagnostic | F3 | 索引投影出的 `module`/`knowledge_node_ids` 聚合 + `graph_index.requirements_for`；**雷达里的对错同样先过 `reconcile_verdict`**（不用 `supports_ability`：那是能力边，而 §10 不允许本层给能力结论） | 能：知识点覆盖度提示。不能：对外声称诊断结论、IRT 能力值，也不能把调用方申报的对错当成库内核验结果 |
 | planner | F4/F5 | `contains`/`has_child` 结构 + `assesses`；**先修边暂不入算法** | 能：按剩余天数 D 与每日时长 T 出日历。不能：前置阻断 |
 | memory | F6 | `confused_with`/`misconception_lead_to` + FSRS；**写入前用 `reconcile_verdict` 核对库内答案键** | 能：五维归因草稿、间隔调度。不能：把归因当已验证结论，也不能拿调用方申报覆盖库内答案键 |
 | qa | §5.2 | Chroma 卡片 + `aligned_to_requirement` + `权威资料/text/` 原文 | 能：带 `locator` 的溯源回答。不能：无出处回答、编造条文 |
@@ -177,7 +178,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 | `/grade/subjective` | 未签署量规下 `score = null` + `feedback_only = true` + 写入复核队列；不再回启发式分数。`question_id` 未命中索引或库内题面只剩套名时回 `review_status = refused_ungradable_input`（不出分、不占队列），`reference_answer` 只在库内无参考原文时兜底并在 `notices` 标明来源 |
 | `/practice/assemble` | 题目来自 `repository`，返回体带 `trust_tier` 与每题 `review.status` |
 | `/qa/query` | 溯源改真条款（`requirement_id` + `locator`）；删除硬编码"本题答案为 B" |
-| `/diagnostic/evaluate`、`/planner/generate` | `published` 档在 0 签署题下必须显式返回不可声称；先修阻断保持关闭并说明原因 |
+| `/diagnostic/evaluate`、`/planner/generate` | `published` 档在 0 签署题下必须显式返回不可声称；先修阻断保持关闭并说明原因。诊断的 `raw_score`/`mastery_rate` 只统计 `reconcile_verdict` 给出的判据：库内答案键与申报冲突时以答案键为准，两者都没有的作答进 `blocked_submissions` 而不折算成 0 分，靠申报计数的条数必须在 `notices` 里说出来 |
 | `/memory/*` | 落 SQLite，跨进程可读；`/memory/review` 的 `is_correct` 只是申报，响应必须回 `verdict_source`（库内答案键核对 / 调用方申报），无可核对判据时 `attributable=false` 且不写画像 |
 | `/master/chat` | 由状态机驱动，真调子 agent |
 | 新增 `/retrieval/search` | 三路径 + TrustGate 的统一出口，供 qa 与前端复用 |
@@ -205,7 +206,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 - **A7 难度措辞**：任何 `heuristic_*` 难度在响应中的 label 必须为"教研初估"，全库禁止 IRT/CAT/标准误字样出现在未校准路径输出里——**运行时自己写的提示语也在扫描范围内**，否则一句"不可用作能力估计"就会成为第一条违规。
 - **A8 编排闭环**：一条会话可跑完 `诊断→画像→规划→刷题→归因→回写`，且每步消息都是 `AgentMessageEnvelope`。归因步只承认三种判据：调用方显式给的 `is_correct`、库内答案键、学习者自己的错题日志；三者都没有就不写记忆、不给错因，状态机停在中立出口而不是编造一个对错。
 - **A9 人工不旁路**：每一条**教研能拍板**的拒绝（内容隔离、答案来源冲突、量规待签署）都必须在 `/review/queue` 留下一条 `pending_human_review` 记录，且 `checked_by=null`、`expert_verified=false`。反向同样成立：调用方漏传输入、`published` 档天然空池**不得**入队——否则唯一审核人会被无效项淹没，真正要他签的条目反而看不见。
-- **A10 画像判据**：写进掌握度与 FSRS 复习队列的"对错"必须由 `TrustGate.reconcile_verdict` 决定，优先级是**库内答案键核对 > 调用方申报 > 无判据**。旧写法把 `is_correct` 申报排在答案键之前，等于任何人报一次"对"就能永久改写这个学习者的画像；现在两者冲突时以库内答案键为准（`answer_status ∈ {letter_only, verified}` 且提交了可核对的所选选项），申报只在库内核不动时兜底，且必须落进 `ReviewBundle.verdict_source` 与 `notices`（"系统未独立核验"）。既无可核对答案键又无申报时返回 `attributable=false`——不虚构对错，掌握度、错题日志与复习队列都不动；隔离/来源冲突的题同样走这条路。答疑侧的选项比对共用同一个 `answer_letter` 与同一套字母键口径（参考答案是原文时不硬套字母，改为声明"无法与所选比对"）。
+- **A10 判据归属**：写进掌握度、FSRS 复习队列**与诊断雷达**的"对错"必须由 `TrustGate.reconcile_verdict` 决定，优先级是**库内答案键核对 > 调用方申报 > 无判据**。旧写法把 `is_correct` 申报排在答案键之前——画像那边是任何人报一次"对"就能永久改写这个学习者的画像，诊断那边更直接：`module_stats[...]["correct"] += int(submission.is_correct)` 让调用方用一个布尔刷满整张雷达，于是 `is_correct` 已从必填改成可选申报，雷达的每条对错都先按库内答案键核对。两者冲突时以库内答案键为准（`answer_status ∈ {letter_only, verified}` 且提交了可核对的所选选项），申报只在库内核不动时兜底，且必须落进 `ReviewBundle.verdict_source`／报告 `notices`（"系统未独立核验"，并给出有多少条是申报来的）。既无可核对答案键又无申报时画像返回 `attributable=false`、诊断把该条送进 `blocked_submissions` 且不占分母——不虚构对错，掌握度、错题日志、复习队列与覆盖度结论都不动；隔离/来源冲突的题同样走这条路。答疑侧的选项比对共用同一个 `answer_letter` 与同一套字母键口径（参考答案是原文时不硬套字母，改为声明"无法与所选比对"）。
 - **A11 索引换代与偏移身份**：门面缓存的是数据的**一个版本**，不是进程启动那一刻。运行期间教研在盘上签署、reopen 或合并套卷，门面必须在一个 TTL 窗口内看见，并把题目、条款、量规与图谱缓存一起换代（`generation += 1`，`GraphIndex` 跟随重建）——否则"人工在环"只在重启后生效。同时 `load_question` 只接受"读回来的字节仍属于这个 `question_id`"的记录：删行/合并会让后面的偏移整体错位，此时先换代重扫再读一次，仍读不回原题就返回 `None`（判分侧走 `refused_ungradable_input`）并把缺口登记进 `stats().scan_issues`。宁可报"这道题读不到"，也绝不把另一道题的答案键当成这道题送出去。单行坏 JSON 只登记该行缺口，不得带走同一文件后续的题。RAG 侧同理：卡片集合按**内容指纹**增量重建并剔除已从库里撤下的卡——只比条数的"重建"会把旧正文留到永远。
 - 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A11 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试。
 
@@ -222,4 +223,4 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 11. 落地状态（2026-10-10）
 
-P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（28 例），全库回归 `python -m pytest tests -q` 为 367 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）；卡片集合的"按内容指纹增量重建 + 撤卡剔除"在 `TestA11CardIndexFreshness`（临时根目录 + 注入词法后端）复现。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（29 例），全库回归 `python -m pytest tests -q` 为 371 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；判据归属在 `TestA10ProfileVerdictSource` 两头各钉一次——画像侧申报顶不掉答案键、`is_correct` 缺省时不写画像，诊断侧 `raw_score` 按库内答案键归零、无判据的作答不占分母也不追加教研队列，并在 `tests/test_services_all_agents.py:TestDiagnosticAgent` 用库内答案键现取现算（测试不写死"A 对 B 错"）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）；卡片集合的"按内容指纹增量重建 + 撤卡剔除"在 `TestA11CardIndexFreshness`（临时根目录 + 注入词法后端）复现。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。

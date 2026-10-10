@@ -53,6 +53,11 @@ VERDICT_CONTRADICTION_NOTICE = (
 )
 NO_VERDICT_NOTICE = "既没有库内可核对的答案键，也没有调用方申报：本次没有对错判据，不写记忆、不给错因。"
 
+#: ``reconcile_verdict`` 返回的判据来源标记。调用方要靠它区分"这条对错被库内核过"和"只是采信了申报"，
+#: 所以它是契约的一部分——散成各处硬写的字符串，就没人能确定自己比的是哪一个值。
+VERDICT_SOURCE_KEY = "库内答案键核对"
+VERDICT_SOURCE_CLAIM = "调用方申报"
+
 
 def answer_letter(value) -> Optional[str]:
     """First A–Z letter of a library answer key or a submitted option ("B." / "选 B" -> "B").
@@ -239,12 +244,12 @@ class TrustGate:
         selected_option: Optional[str],
         claimed: Optional[bool] = None,
     ) -> Tuple[Optional[bool], str, List[str]]:
-        """Who decides right/wrong for the learner profile: 库内答案键 > 调用方申报 > 无判据。
+        """Who decides right/wrong for the learner profile and the diagnostic radar: 库内答案键 > 调用方申报 > 无判据。
 
         ``is_correct`` used to be taken from the caller first, so one reported "对" permanently
         moved mastery and the FSRS queue even when the library held a checkable key that said the
         opposite. Returns ``(verdict, provenance, notices)``; ``verdict is None`` means the
-        attempt is not attributable and nothing may be written from it.
+        attempt is not attributable and nothing may be written or counted from it.
         """
         notices: List[str] = []
         key = None
@@ -261,13 +266,13 @@ class TrustGate:
                     notices.append(
                         VERDICT_CONTRADICTION_NOTICE % ("True" if claimed else "False")
                     )
-                return checked, "库内答案键核对", notices
+                return checked, VERDICT_SOURCE_KEY, notices
         if claimed is not None:
             notices.append(CLAIMED_VERDICT_NOTICE)
             provenance = (
-                "调用方申报（库内有答案键，但未提交可核对的所选选项）"
+                f"{VERDICT_SOURCE_CLAIM}（库内有答案键，但未提交可核对的所选选项）"
                 if key
-                else "调用方申报"
+                else VERDICT_SOURCE_CLAIM
             )
             return bool(claimed), provenance, notices
         notices.append(NO_VERDICT_NOTICE)

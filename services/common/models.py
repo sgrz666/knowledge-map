@@ -284,12 +284,14 @@ class AnswerSubmission(BaseModel):
     """Individual item answering submission for diagnostic evaluation."""
     question_id: str
     user_answer: str
-    is_correct: bool
+    #: 申报，不是判据：库内有可核对答案键且 ``user_answer`` 能取出选项时，以答案键为准（§8 A10）。
+    #: 允许不填——没有可核对的判据时诊断宁可把这条挡在外面，也不替学习者编一个对错。
+    is_correct: Optional[bool] = None
     time_spent_seconds: float
-    node_id: str
-    module_id: str
-    difficulty: float = 0.5
-    option_flips: int = 0
+    #: 考点与模块由索引 ``knowledge_node_ids``/``module`` 投影，请求里这两个字段只是提示（§3.3 diagnostic）。
+    #: 原来它们必填，等于让调用方自称"这题属于哪个考点"，而答案并不会被用到。
+    node_id: Optional[str] = None
+    module_id: Optional[str] = None
 
 
 class ModuleAbility(BaseModel):

@@ -9,6 +9,12 @@ It returns no score interval, no ability estimate and no pass probability — th
 ``None`` with ``estimate_basis="coverage_only"`` instead of being dressed up from accuracy. The
 tier decides the rest: under ``published`` with zero expert-signed items in the library, the agent
 must refuse to issue a diagnostic conclusion at all.
+
+Right/wrong comes from the same place the learner profile gets it (``docs/agent_architecture.md``
+§8 A10): ``TrustGate.reconcile_verdict`` prefers the library answer key, only falls back to the
+caller's ``is_correct`` claim when the library cannot check it, and returns ``None`` when neither
+exists. Counting the claim first would let anyone report "对" twenty times and walk away with a
+full-mastery radar.
 """
 from __future__ import annotations
 
@@ -25,13 +31,25 @@ from services.common.models import (
 )
 from services.knowledge.graph_index import get_graph_index, library_for_exam
 from services.knowledge.repository import KnowledgeRepository, get_repository
-from services.knowledge.trust import SIGNED_STATUSES, TrustGate
+from services.knowledge.trust import (
+    CLAIMED_VERDICT_NOTICE,
+    SIGNED_STATUSES,
+    VERDICT_SOURCE_KEY,
+    TrustGate,
+)
 from services.review.queue import get_review_queue
 
 logger = logging.getLogger("services.diagnostic.agent")
 
 WEAK_NODE_THRESHOLD = 0.6
 UNSEEN_MODULE_NOTICE = "该模块在库内没有可判定的作答题，覆盖度以已作答部分计。"
+COVERAGE_ONLY_NOTICE = (
+    "诊断仅统计知识覆盖度：难度全部为 heuristic_* 且无真实作答校准数据，系统不输出分数区间、报告分或通过率。"
+)
+NO_JUDGEMENT_NOTICE = (
+    "提交的作答都没有可用判据（库内该题答案不可核对，且没有可采信的申报）："
+    "诊断不替学习者编对错，因此不出结论。"
+)
 
 
 class DiagnosticAgent:
@@ -44,11 +62,15 @@ class DiagnosticAgent:
     ) -> None:
         self.repository = repository or get_repository()
         self.queue = queue or get_review_queue()
+        # 核对口径的档位写死在 research_internal（与 memory 同一做法）：让调用方自选档位，
+        # 就等于让它自己挑一套更宽的答案键核对标准。
+        self.verdict_gate = TrustGate("research_internal")
 
     def evaluate(self, request: DiagnosticRequest) -> DiagnosticReport:
         gate = TrustGate(request.trust_tier.value)
         kept: List[Tuple[AnswerSubmission, object]] = []
         rejected: List[dict] = []
+        queued = 0
 
         for submission in request.submissions or []:
             meta = self.repository.get_meta(submission.question_id)
@@ -70,14 +92,11 @@ class DiagnosticAgent:
                     tier=request.trust_tier.value,
                     detail={"path": "diagnostic"},
                 )
+                queued += 1
                 continue
             kept.append((submission, meta))
 
-        notices = [
-            "诊断仅统计知识覆盖度：难度全部为 heuristic_* 且无真实作答校准数据，系统不输出分数区间、报告分或通过率。"
-        ]
-        if rejected:
-            notices.append(f"{len(rejected)} 条作答未计入诊断（原因见 blocked_submissions），已转入待复核队列。")
+        notices = [COVERAGE_ONLY_NOTICE]
 
         if request.trust_tier is TrustTier.PUBLISHED:
             signed = [(s, m) for s, m in kept if m.review_status in SIGNED_STATUSES]
@@ -86,26 +105,34 @@ class DiagnosticAgent:
                     "published 档位下库内没有任何已签署（checked/expert_reviewed）的题目，"
                     "系统按设计拒绝出具诊断结论。"
                 )
-                return self._empty(request, notices, rejected)
+                return self._empty(request, notices + self._blocked_notices(rejected, queued), rejected)
             kept = signed
 
         if not kept:
             notices.append("没有可计入诊断的作答记录（未提交，或全部被信任门禁拒绝）。")
-            return self._empty(request, notices, rejected)
+            return self._empty(request, notices + self._blocked_notices(rejected, queued), rejected)
+
+        judged, unjudged, claimed, verdict_notices = self._attribute(kept)
+        rejected.extend(unjudged)
+        if not judged:
+            notices.append(NO_JUDGEMENT_NOTICE)
+            return self._empty(
+                request, notices + self._blocked_notices(rejected, queued) + verdict_notices, rejected
+            )
 
         module_stats: Dict[str, Dict[str, int]] = defaultdict(lambda: {"total": 0, "correct": 0})
         node_stats: Dict[str, Dict[str, int]] = defaultdict(lambda: {"total": 0, "correct": 0})
         node_modules: Dict[str, str] = {}
-        for submission, meta in kept:
+        for _, meta, correct in judged:
             module = meta.module or "未标注模块"
             module_stats[module]["total"] += 1
-            module_stats[module]["correct"] += int(submission.is_correct)
+            module_stats[module]["correct"] += int(correct)
             for node_id in meta.node_ids or (f"question:{meta.question_id}",):
                 node_stats[node_id]["total"] += 1
-                node_stats[node_id]["correct"] += int(submission.is_correct)
+                node_stats[node_id]["correct"] += int(correct)
                 node_modules.setdefault(node_id, module)
 
-        correct_total = sum(1 for s, _ in kept if s.is_correct)
+        correct_total = sum(1 for _, _, correct in judged if correct)
         radar = [
             ModuleAbility(
                 module_id=module,
@@ -127,13 +154,20 @@ class DiagnosticAgent:
             if stats["correct"] / max(stats["total"], 1) < WEAK_NODE_THRESHOLD
         ][:5]
 
+        notices.extend(self._blocked_notices(rejected, queued))
+        notices.extend(verdict_notices)
+        if claimed:
+            notices.append(
+                f"计入诊断的 {len(judged)} 条对错里有 {claimed} 条采信了调用方申报"
+                "（库内没有可核对的字母答案键，或本次没提交可核对的所选选项），系统未独立核验。"
+            )
         notices.extend(self._library_context(request.exam_type, weak_points))
         actions = self._actions(weak_points, node_modules, request)
         return DiagnosticReport(
             user_id=request.user_id,
             exam_type=request.exam_type,
             raw_score=float(correct_total),
-            max_raw_score=float(len(kept)),
+            max_raw_score=float(len(judged)),
             point_estimate=None,
             predicted_score_interval=None,
             pass_probability=None,
@@ -148,6 +182,61 @@ class DiagnosticAgent:
         )
 
     # ----------------------------------------------------------------- helpers
+    def _attribute(
+        self, kept: List[Tuple[AnswerSubmission, object]]
+    ) -> Tuple[List[Tuple[AnswerSubmission, object, bool]], List[dict], int, List[str]]:
+        """Give every kept submission a verdict the report may count, plus who issued it.
+
+        Returns ``(judged, blocked, claim_backed, notices)``; a submission with no basis at all is
+        blocked rather than counted as wrong — an unanswered-but-uncheckable item says nothing
+        about the learner, and silently scoring it 0 would put that fiction in the radar.
+        """
+        judged: List[Tuple[AnswerSubmission, object, bool]] = []
+        blocked: List[dict] = []
+        claim_backed = 0
+        notices: List[str] = []
+        for submission, meta in kept:
+            record = self.repository.load_question(submission.question_id)
+            checked, provenance, verdict_notices = self.verdict_gate.reconcile_verdict(
+                record, submission.user_answer, submission.is_correct
+            )
+            if checked is None:
+                # 不进待复核队列：答案不可核对的题已经按 answer_status 全列在 审查/待复核清单.md 里，
+                # 运行时再按人次追加只会把唯一一位教研审核的队列淹掉。
+                blocked.append(
+                    {
+                        "question_id": submission.question_id,
+                        "reason": "；".join(verdict_notices) or "该次作答没有可计入诊断的对错判据",
+                        "review_status": meta.review_status,
+                    }
+                )
+                continue
+            if submission.is_correct is not None and bool(submission.is_correct) != checked:
+                logger.warning(
+                    "question %s: reported is_correct=%s contradicts the verdict (basis=%s)",
+                    submission.question_id,
+                    submission.is_correct,
+                    provenance,
+                )
+            if provenance != VERDICT_SOURCE_KEY:
+                claim_backed += 1
+            judged.append((submission, meta, checked))
+            for notice in verdict_notices:
+                # 逐条的申报提示由聚合那句替代：报告要说清"多少分是申报来的"，而不是重复同一句话。
+                if notice != CLAIMED_VERDICT_NOTICE and notice not in notices:
+                    notices.append(notice)
+        return judged, blocked, claim_backed, notices
+
+    @staticmethod
+    def _blocked_notices(rejected: List[dict], queued: int) -> List[str]:
+        """Count the refused submissions and say only what actually happened to them."""
+        if not rejected:
+            return []
+        lines = [f"{len(rejected)} 条作答未计入诊断，逐条原因见 blocked_submissions。"]
+        if queued:
+            lines.append(f"其中 {queued} 条已转入待复核队列，等教研复核后才会重新可用。")
+        return lines
+
     def _empty(self, request: DiagnosticRequest, notices: List[str], rejected: List[dict]) -> DiagnosticReport:
         return DiagnosticReport(
             user_id=request.user_id,

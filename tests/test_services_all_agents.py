@@ -33,7 +33,7 @@ from services.common.models import (
 from services.diagnostic.agent import DiagnosticAgent
 from services.interview.agent import InterviewCoachAgent
 from services.knowledge.repository import get_repository
-from services.knowledge.trust import COPYRIGHT_NOTICE
+from services.knowledge.trust import COPYRIGHT_NOTICE, answer_letter
 from services.master.agent import TutorMasterAgent
 from services.memory.store import InMemoryMasteryStore
 from services.planner.agent import CurriculumPlannerAgent
@@ -67,16 +67,29 @@ class TestDiagnosticAgent(LibraryBackedTestCase):
     def setUp(self):
         self.agent = DiagnosticAgent(repository=self.repository)
 
+    def _key(self, question_id: str) -> str:
+        record = self.repository.load_question(question_id) or {}
+        return answer_letter((record.get("content") or {}).get("answer")) or "A"
+
+    def _other_letter(self, question_id: str) -> str:
+        return next(ch for ch in "ABCD" if ch != self._key(question_id))
+
+    def _submission(self, question_id: str, **kw):
+        base = {
+            "question_id": question_id,
+            "user_answer": self._key(question_id),
+            "time_spent_seconds": 15.0,
+            "node_id": self.repository.get_meta(question_id).node_ids[0],
+            "module_id": self.repository.get_meta(question_id).module or "m1",
+        }
+        base.update(kw)
+        return AnswerSubmission(**base)
+
     def _submissions(self):
+        """一条按库内答案键选对、一条按同一把键选错：对错由库说了算，不是测试自己声明。"""
         return [
-            AnswerSubmission(
-                question_id=self.choice_ids[0], user_answer="A", is_correct=True,
-                time_spent_seconds=15.0, node_id=self.sample_node_id, module_id="m1",
-            ),
-            AnswerSubmission(
-                question_id=self.choice_ids[1], user_answer="B", is_correct=False,
-                time_spent_seconds=20.0, node_id=self.sample_node_id, module_id="m1",
-            ),
+            self._submission(self.choice_ids[0]),
+            self._submission(self.choice_ids[1], user_answer=self._other_letter(self.choice_ids[1])),
         ]
 
     def test_report_is_coverage_only_and_never_reports_a_scaled_score(self):
@@ -93,6 +106,8 @@ class TestDiagnosticAgent(LibraryBackedTestCase):
         self.assertEqual(report.estimate_basis, "coverage_only")
         self.assertFalse(report.publishable)
         self.assertTrue(any("heuristic" in n for n in report.notices))
+        # 两条都是库内答案键核对出来的，没有一条靠申报。
+        self.assertFalse(any("采信了调用方申报" in n for n in report.notices))
 
         # 模块与考点来自索引，不来自请求里自称的 node_id。
         wrong_meta = self.repository.get_meta(self.choice_ids[1])
@@ -103,6 +118,49 @@ class TestDiagnosticAgent(LibraryBackedTestCase):
         self.assertTrue({r.module_id for r in report.radar_chart}.issubset(index_modules),
                         "雷达图的模块必须来自索引")
         self.assertTrue(report.recommended_actions)
+
+    def test_a_claimed_correct_never_outweighs_the_library_answer_key(self):
+        """申报排在答案键前面时，谁都能报一次"对"把雷达刷满。"""
+        report = self.agent.evaluate(
+            DiagnosticRequest(
+                user_id="u_diag",
+                exam_type="NTCE",
+                submissions=[
+                    self._submission(qid, user_answer=self._other_letter(qid), is_correct=True)
+                    for qid in self.choice_ids
+                ],
+            )
+        )
+        self.assertEqual(report.max_raw_score, 2.0)
+        self.assertEqual(report.raw_score, 0.0)
+        self.assertTrue(any("与库内答案键的核对结果相反" in n for n in report.notices))
+        self.assertTrue(all(row.mastery_rate == 0.0 for row in report.radar_chart))
+
+    def test_a_claim_the_library_cannot_check_is_counted_but_labelled(self):
+        report = self.agent.evaluate(
+            DiagnosticRequest(
+                user_id="u_diag",
+                exam_type="NTCE",
+                submissions=[self._submission(self.choice_ids[0], user_answer="", is_correct=True)],
+            )
+        )
+        self.assertEqual(report.raw_score, 1.0)
+        self.assertTrue(any("采信了调用方申报" in n and "未独立核验" in n for n in report.notices))
+
+    def test_a_submission_with_no_basis_at_all_is_not_scored_as_wrong(self):
+        """既没有可核对的所选选项也没有申报：这条作答什么都没说，不能替它编一个 0 分。"""
+        report = self.agent.evaluate(
+            DiagnosticRequest(
+                user_id="u_diag",
+                exam_type="NTCE",
+                submissions=[self._submission(self.choice_ids[0], user_answer="", is_correct=None)],
+            )
+        )
+        self.assertEqual(report.raw_score, 0.0)
+        self.assertEqual(report.max_raw_score, 0.0)
+        self.assertEqual(report.radar_chart, [])
+        self.assertEqual(report.blocked_submissions[0]["question_id"], self.choice_ids[0])
+        self.assertTrue(any("判据" in n for n in report.notices))
 
     def test_submissions_outside_the_index_are_reported_not_quietly_dropped(self):
         ghost = AnswerSubmission(
