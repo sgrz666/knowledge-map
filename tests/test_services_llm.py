@@ -157,7 +157,8 @@ class TestWritePermission(unittest.TestCase):
         self.assertFalse(result.ok)
         self.assertTrue(result.queued)
         row = queue.recent(limit=5)[0]
-        self.assertTrue(row["reason"].startswith("llm_guardrail_violation"))
+        self.assertEqual(row["reason"], "llm_guardrail_violation", "队列的键是缺陷码，schema 名进 detail")
+        self.assertIn("schema_name", row["detail"])
         self.assertTrue(row["detail"]["no_repair"])
         self.assertEqual(row["question_id"], "q1-guard")
         self.assertEqual(queue.stats()["pending_records"], rows_before + 1)
@@ -257,7 +258,7 @@ class TestGraderLlmWiring(unittest.TestCase):
         self.assertIsNone(resp.total_score)
         self.assertFalse(resp.rubric_signed)
         self.assertTrue(
-            any(r["reason"].startswith("llm_guardrail_violation") and r["question_id"] == self.ntce_case
+            any(r["reason"] == "llm_guardrail_violation" and r["question_id"] == self.ntce_case
                 for r in queue.recent(limit=50)),
             "被护栏拒绝的载荷必须留痕，而不是静默丢弃",
         )

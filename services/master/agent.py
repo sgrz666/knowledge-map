@@ -365,12 +365,17 @@ class TutorMasterAgent:
 
     def _enqueue(self, row: dict) -> None:
         self.queue.add(
-            reason=str(row.get("reason", "编排降级")),
+            reason="orchestrator_degraded",
             user_id=str(row.get("user_id", "")),
             question_id=row.get("question_id"),
             node_id=row.get("node_id"),
             tier=row.get("trust_tier"),
-            detail={"state": row.get("state"), "path": "orchestrator"},
+            detail={
+                "state": row.get("state"),
+                "path": "orchestrator",
+                # 降级那句人读的话留给会话与复核正文，队列的分类键是码：换措辞不改桶。
+                "reason_text": str(row.get("reason") or ""),
+            },
         )
 
     def _handlers(self) -> Dict[State, Any]:

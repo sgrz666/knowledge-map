@@ -48,7 +48,6 @@ class InterviewCoachAgent:
             response.notices.append("published 档位拒绝：试讲量规未签署。")
         if not verdict.signed:
             response.review_queue_entry = self._enqueue(
-                "rubric_signature_required",
                 verdict,
                 detail={"capability": "speech", "phase_coverage_rate": response.phase_coverage_rate},
             )
@@ -60,7 +59,6 @@ class InterviewCoachAgent:
         response = self.lesson_plan_evaluator.evaluate(req, tier=tier)
         if response.total_score is None:
             response.review_queue_entry = self._enqueue(
-                "rubric_signature_required",
                 None,
                 detail={
                     "capability": "lesson_plan",
@@ -75,9 +73,9 @@ class InterviewCoachAgent:
     def _tier(value) -> str:
         return value.value if isinstance(value, TrustTier) else str(value)
 
-    def _enqueue(self, reason: str, verdict, *, detail: dict) -> dict:
+    def _enqueue(self, verdict, *, detail: dict) -> dict:
         return self.review_queue.add(
-            reason=reason,
+            reason="rubric_signature_required",
             user_id="interview_agent",
             tier=detail.get("tier"),
             source="services.interview.agent",

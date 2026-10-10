@@ -153,12 +153,18 @@ class RetrievalService:
                 }
                 blocked.append(row)
                 queue.add(
-                    reason=row["reason"],
+                    reason="trust_gate_blocked",
                     user_id=user_id,
                     question_id=hit.question_id,
                     tier=tier,
                     source=hit.path,
-                    detail={"path": "retrieval", "score": hit.score},
+                    detail={
+                        "path": "retrieval",
+                        "score": hit.score,
+                        "review_status": verdict.review_status,
+                        "answer_status": verdict.answer_status,
+                        "notices": list(verdict.notices),
+                    },
                 )
                 continue
 
@@ -260,12 +266,12 @@ class RetrievalService:
         if meta is None:
             blocked.append({"question_id": hit.question_id, "reason": "卡片命中但题目索引无此 question_id"})
             queue.add(
-                reason="检索命中孤儿卡片：题目索引无此 question_id",
+                reason="orphan_card_hit",
                 user_id=user_id,
                 question_id=hit.question_id,
                 tier=tier,
                 source=hit.path,
-                detail={"path": "retrieval/orphan_card"},
+                detail={"path": "retrieval/orphan_card", "score": hit.score},
             )
             return None, None
         if card_review and card_review != meta.review_status:
@@ -274,12 +280,17 @@ class RetrievalService:
             )
             blocked.append({"question_id": hit.question_id, "reason": notice})
             queue.add(
-                reason=notice,
+                reason="card_index_status_mismatch",
                 user_id=user_id,
                 question_id=hit.question_id,
                 tier=tier,
                 source=hit.path,
-                detail={"path": "retrieval/state_mismatch"},
+                detail={
+                    "path": "retrieval/state_mismatch",
+                    "card_status": card_review,
+                    "index_status": meta.review_status,
+                    "notice": notice,
+                },
             )
         return meta.review_status, meta.answer_status
 

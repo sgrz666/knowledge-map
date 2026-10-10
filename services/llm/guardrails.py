@@ -341,13 +341,14 @@ def enforce_payload(
         from services.review.queue import get_review_queue
 
         get_review_queue().add(
-            reason="llm_guardrail_violation:" + (result.schema_name or "unknown_schema"),
+            reason="llm_guardrail_violation",
             user_id=user_id,
             question_id=question_id,
             node_id=node_id,
             requirement_id=requirement_id,
             source=source,
             detail={
+                "schema_name": result.schema_name or "unknown_schema",
                 "errors": result.errors[:20],
                 "banned_claims": result.banned_claims,
                 "payload_preview": _preview(payload),

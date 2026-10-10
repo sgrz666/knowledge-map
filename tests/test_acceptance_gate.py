@@ -66,6 +66,7 @@ from services.memory.store import InMemoryMasteryStore  # noqa: E402
 from services.planner.agent import CurriculumPlannerAgent  # noqa: E402
 from services.practice.agent import PracticeEngineAgent  # noqa: E402
 from services.review.queue import ReviewQueue, get_review_queue  # noqa: E402
+from services.review.reasons import REVIEW_REASONS, UnknownReasonError  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SERVICES_DIR = REPO_ROOT / "services"
@@ -971,7 +972,13 @@ class TestA9HumanInTheLoop(AcceptanceTestCase):
         self.assertIsNone(row["checked_by"], "运行时代签 = 旁路人工")
         self.assertFalse(row["expert_verified"])
         self.assertEqual(row["user_id"], "u_a9")
-        self.assertTrue(row["reason"])
+        self.assertIn(row["reason"], REVIEW_REASONS, "队列的分类键必须是缺陷码，不是给人读的句子")
+        self.assertEqual(row["reason"], "trust_gate_blocked")
+        self.assertTrue(row["reason_label"], "码要带着它的人读说明一起入队")
+        self.assertEqual(row["detail"].get("review_status"), conflicted.review_status,
+                         "触发拒绝的数据状态没写进队列，复核者只剩一句话可看")
+        self.assertEqual(row["detail"].get("answer_status"), conflicted.answer_status)
+        self.assertTrue(row["detail"].get("notices"), "说明文本应当挪进 detail 而不是当键")
         self.assertEqual(self.queue.stats()["pending_records"], before + 1)
 
     def test_the_endpoint_shows_the_row_the_runtime_queued(self):
@@ -1012,6 +1019,56 @@ class TestA9HumanInTheLoop(AcceptanceTestCase):
         self.assertTrue(rows, "未签署出反馈没有落队列")
         self.assertEqual(rows[0]["reason"], "rubric_signature_required")
         self.assertIsNone(rows[0]["checked_by"])
+
+    def test_every_queue_reason_is_a_code_from_the_one_vocabulary(self):
+        """队列的键只能取 `services/review/reasons.py` 里那份词表，而且必须写成字面量。
+
+        reason 同时是教研唯一的分类入口和队列的分桶名。旧写法一半是机器码、一半是人读句子
+        （诊断与检索把 TrustGate 的说明原样拼进来，编排层用"编排降级"兜底）：改一次文案，桶与计数
+        整体漂移，同一类缺陷在不同层叫不同名字，队列因此排不出优先级。
+        """
+        offenders = []
+        sites = 0
+        for path, source in self.service_sources():
+            relative = path.relative_to(REPO_ROOT).as_posix()
+            for node in ast.walk(ast.parse(source)):
+                if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+                        and node.func.attr == "add"):
+                    continue
+                keyword = next((kw for kw in node.keywords if kw.arg == "reason"), None)
+                if keyword is None:
+                    continue
+                sites += 1
+                literals = [n.value for n in ast.walk(keyword.value)
+                            if isinstance(n, ast.Constant) and isinstance(n.value, str)]
+                if not literals:
+                    offenders.append(f"{relative}:{node.lineno} 的 reason 不是词表里的字面量码")
+                for value in literals:
+                    if value not in REVIEW_REASONS:
+                        offenders.append(f"{relative}:{node.lineno} 自造了缺陷码 {value!r}")
+        self.assertGreaterEqual(sites, 6, "扫不到几个入队点，这条核验近乎空跑")
+        self.assertEqual(offenders, [], "复核队列的 reason 必须取词表内的码：" + "；".join(offenders))
+
+    def test_the_bucket_is_the_defect_class_not_the_entity_or_the_wording(self):
+        """一个缺陷码一个 JSONL：旧写法按题号分片，没有实体 id 的降级还按句子前 60 字符分片。
+
+        于是 `stats().buckets` 数的是文件而不是缺陷类别，`recent()` 每次都要 glob 并读完全部文件，
+        队列随挡下的题数线性变慢，教研看到的计数也没法按类别相加。词表外的码直接抛错，不留半条记录。
+        """
+        queue = ReviewQueue(root=Path(tempfile.mkdtemp(prefix="km_acceptance_reason_")))
+        for index in range(2):
+            queue.add(
+                reason="trust_gate_blocked", user_id="u_bucket", question_id=f"q{index}",
+                detail={"review_status": "quarantined"},
+            )
+        with self.assertRaises(UnknownReasonError):
+            queue.add(reason="TrustGate 拒绝该题参与诊断", user_id="u_bucket")
+        stats = queue.stats()
+        self.assertEqual(stats["buckets"], 1, "同一类缺陷应按码归到一个桶")
+        self.assertEqual(stats["pending_records"], 2)
+        self.assertEqual(stats["by_reason"], {"trust_gate_blocked": 2})
+        self.assertEqual([p.name for p in queue.root.glob("*.jsonl")], ["trust_gate_blocked.jsonl"])
+        self.assertEqual(len(queue.recent(limit=10)), 2, "被拒绝的码不许留下半条记录")
 
     def test_a_caller_input_gap_does_not_implicate_the_reviewer(self):
         """反向不变量：只有教研能裁决的缺陷才进队列，使用者补齐的缺口不算。"""

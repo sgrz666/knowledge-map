@@ -85,11 +85,16 @@ class DiagnosticAgent:
                 }
                 rejected.append(row)
                 self.queue.add(
-                    reason=row["reason"],
+                    reason="trust_gate_blocked",
                     user_id=request.user_id,
                     question_id=submission.question_id,
                     tier=request.trust_tier.value,
-                    detail={"path": "diagnostic"},
+                    detail={
+                        "path": "diagnostic",
+                        "review_status": verdict.review_status,
+                        "answer_status": verdict.answer_status,
+                        "notices": list(verdict.notices),
+                    },
                 )
                 queued += 1
                 continue
