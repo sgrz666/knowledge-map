@@ -3,12 +3,23 @@
 The dataset is the only source of truth for agent-visible content: questions are
 addressed by ``question_id`` and read lazily from their JSONL line, so no answer,
 stem or difficulty is ever embedded in service code.
+
+Two consequences of that design are enforced here:
+
+* the index is a *cache* of the dataset, not a snapshot of process start — 教研 edits
+  ``review.status`` and rubric signatures directly on disk, so the facade re-checks the
+  tracked files and drops a stale index instead of serving an old verdict forever;
+* a byte offset is only valid for the file version it was measured on, so a record is
+  returned only when the bytes read back still belong to the requested ``question_id``.
 """
 from __future__ import annotations
 
 import json
+import logging
+import os
 import re
 import threading
+import time
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -16,6 +27,8 @@ from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 
 from services.knowledge.naming import exam_values, task_type_value
 from services.knowledge.trust import SERVABLE_ANSWER_STATUSES
+
+logger = logging.getLogger("services.knowledge.repository")
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -40,11 +53,34 @@ PAPER_SPEC_FILES: Tuple[str, ...] = (
     "数据集/四六级/manifest/paper_specs.jsonl",
 )
 
+RUBRIC_DIR = "数据集/教资/rubrics"
+CET_RUBRIC_FILE = "数据集/四六级/ontology/scoring_rubrics.jsonl"
+
+
+def _default_ttl() -> float:
+    """Seconds between two fingerprint checks; 0 means "check on every read".
+
+    一次指纹要 stat 约 770 个文件（约 0.16s），所以默认 5s 复核一次：教研在盘上签署/reopen 之后，
+    运行中的服务最迟 5s 就会换代重扫，而不是等到下次重启。用 ``KNOWLEDGE_MAP_INDEX_TTL`` 覆盖。
+    """
+    try:
+        return max(float(os.environ.get("KNOWLEDGE_MAP_INDEX_TTL", "5.0")), 0.0)
+    except ValueError:
+        return 5.0
+
 
 def _loads(raw: bytes) -> Optional[dict]:
     if not raw or not raw.strip():
         return None
     return json.loads(raw.decode("utf-8"))
+
+
+def _loads_safe(raw: bytes) -> Tuple[Optional[dict], Optional[str]]:
+    """Decode one JSONL line, reporting a malformed line instead of raising through a route."""
+    try:
+        return _loads(raw), None
+    except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+        return None, str(exc)
 
 
 #: 套名/来源行形如「【2019年12月CET-6真题第1套·阅读·选词填空】」，题号只剩数字。
@@ -105,13 +141,17 @@ class QuestionMeta:
 class KnowledgeRepository:
     """Read-only facade over questions, authoritative requirements and the graph."""
 
-    def __init__(self, root: Optional[Path] = None) -> None:
+    def __init__(self, root: Optional[Path] = None, *, ttl_seconds: Optional[float] = None) -> None:
         self.root = Path(root) if root else REPO_ROOT
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
         self._questions: Optional[Dict[str, QuestionMeta]] = None
         self._requirements: Optional[Dict[str, dict]] = None
         self._rubrics: Optional[Dict[str, dict]] = None
         self._scan_errors: List[str] = []
+        self._ttl = float(ttl_seconds) if ttl_seconds is not None else _default_ttl()
+        self._stamp: Optional[Tuple[float, Tuple[Tuple[str, int, int], ...]]] = None
+        #: 每次索引换代 +1：GraphIndex 等下游按它判断自己的缓存是否已经属于上一代数据。
+        self.generation = 0
 
     # ---------------------------------------------------------------- paths
     def path(self, rel: str) -> Path:
@@ -125,8 +165,63 @@ class KnowledgeRepository:
                 files.extend(sorted(base.rglob("*.jsonl")))
         return files
 
+    # -------------------------------------------------------------- freshness
+    def _tracked_files(self) -> List[Path]:
+        """Every dataset file a cached index is derived from."""
+        files = self.question_files()
+        for rel in list(REQUIREMENT_FILES) + list(PAPER_SPEC_FILES) + [CET_RUBRIC_FILE]:
+            files.append(self.path(rel))
+        for nodes_rel, edges_rel in GRAPH_FILES.values():
+            files.extend([self.path(nodes_rel), self.path(edges_rel)])
+        rubric_dir = self.path(RUBRIC_DIR)
+        if rubric_dir.is_dir():
+            files.extend(sorted(rubric_dir.glob("*.json")))
+        return files
+
+    def _fingerprint(self) -> Tuple[Tuple[str, int, int], ...]:
+        rows: List[Tuple[str, int, int]] = []
+        for path in self._tracked_files():
+            try:
+                stat = path.stat()
+            except OSError:
+                continue
+            rows.append((path.relative_to(self.root).as_posix(), stat.st_mtime_ns, stat.st_size))
+        return tuple(sorted(rows))
+
+    def _check_fresh(self) -> None:
+        """Drop cached indexes when the files they were built from changed on disk."""
+        if self._stamp is not None and self._ttl > 0:
+            if time.monotonic() - self._stamp[0] < self._ttl:
+                return
+        with self._lock:
+            if self._stamp is not None and self._ttl > 0:
+                if time.monotonic() - self._stamp[0] < self._ttl:
+                    return
+            stamp = self._fingerprint()
+            if self._stamp is not None and stamp != self._stamp[1]:
+                self._invalidate_locked()
+            self._stamp = (time.monotonic(), stamp)
+
+    def _invalidate_locked(self) -> None:
+        self._questions = None
+        self._requirements = None
+        self._rubrics = None
+        self._scan_errors = []
+        self.generation += 1
+
+    def invalidate(self) -> None:
+        """Forget the cached indexes; the next read rebuilds them and offsets are remeasured."""
+        with self._lock:
+            self._invalidate_locked()
+            self._stamp = None
+
+    def _note_scan_error(self, message: str) -> None:
+        if message not in self._scan_errors:
+            self._scan_errors.append(message)
+
     # ------------------------------------------------------------ questions
     def questions(self) -> Dict[str, QuestionMeta]:
+        self._check_fresh()
         if self._questions is None:
             with self._lock:
                 if self._questions is None:
@@ -135,7 +230,6 @@ class KnowledgeRepository:
 
     def _build_question_index(self) -> Dict[str, QuestionMeta]:
         index: Dict[str, QuestionMeta] = {}
-        self._scan_errors = []
         for path in self.question_files():
             rel = path.relative_to(self.root).as_posix()
             try:
@@ -143,17 +237,20 @@ class KnowledgeRepository:
                     offset = 0
                     for line in fh:
                         length = len(line)
-                        record = _loads(line)
-                        if record is not None:
+                        record, decode_error = _loads_safe(line)
+                        if decode_error is not None:
+                            # 一行坏了不能把这个文件剩下的题全部丢掉：登记缺口，继续索引后续行。
+                            self._note_scan_error(f"{rel}: 偏移 {offset} 行不是合法 JSON（{decode_error}）")
+                        elif record is not None:
                             meta = self._to_meta(record, rel, offset, length)
                             if meta is not None:
                                 if meta.question_id in index:
-                                    self._scan_errors.append(f"duplicate question_id {meta.question_id}")
+                                    self._note_scan_error(f"duplicate question_id {meta.question_id}")
                                 else:
                                     index[meta.question_id] = meta
                         offset += length
             except OSError as exc:
-                self._scan_errors.append(f"{rel}: {exc}")
+                self._note_scan_error(f"{rel}: {exc}")
         return index
 
     @staticmethod
@@ -196,13 +293,46 @@ class KnowledgeRepository:
         return self.questions().get(question_id)
 
     def load_question(self, question_id: str) -> Optional[dict]:
-        """Read the full record for a question id from its byte range."""
+        """Read the full record for a question id from its byte range.
+
+        The offset was measured against one version of the file; a 教研 edit elsewhere in that file
+        moves every later record. So the bytes are accepted only when they still decode to *this*
+        question: 宁可报"读不到"，也绝不把别的题当成这道题送出去——判分拿到别人的答案键，比没有答案危险。
+        """
         meta = self.get_meta(question_id)
         if meta is None:
             return None
-        with open(self.path(meta.file), "rb") as fh:
-            fh.seek(meta.offset)
-            return _loads(fh.read(meta.length))
+        record = self._read_range(meta, question_id)
+        if record is not None:
+            return record
+        # 偏移失效：换代重扫一遍再按新位置读一次，仍然对不上就返回 None 并登记缺口。
+        logger.warning("question %s: index offset %s@%d no longer decodes to it, rebuilding index",
+                       question_id, meta.file, meta.offset)
+        self.invalidate()
+        meta = self.get_meta(question_id)
+        if meta is None:
+            self._note_scan_error(f"{question_id}: 索引换代后该题已不在库内")
+            return None
+        record = self._read_range(meta, question_id)
+        if record is None:
+            self._note_scan_error(
+                f"{meta.file}: 偏移 {meta.offset} 长度 {meta.length} 读不回 {question_id}")
+            logger.error("question %s: byte range still does not decode to it after a rebuild", question_id)
+        return record
+
+    def _read_range(self, meta: QuestionMeta, question_id: str) -> Optional[dict]:
+        try:
+            with open(self.path(meta.file), "rb") as fh:
+                fh.seek(meta.offset)
+                raw = fh.read(meta.length)
+        except OSError:
+            return None
+        record, decode_error = _loads_safe(raw)
+        if decode_error is not None:
+            return None
+        if record is None or record.get("question_id") != question_id:
+            return None
+        return record
 
     def find_questions(
         self,
@@ -257,6 +387,7 @@ class KnowledgeRepository:
 
     # --------------------------------------------------------- requirements
     def requirements(self) -> Dict[str, dict]:
+        self._check_fresh()
         if self._requirements is None:
             with self._lock:
                 if self._requirements is None:
@@ -270,13 +401,16 @@ class KnowledgeRepository:
             if not path.is_file():
                 continue
             with open(path, "rb") as fh:
+                offset = 0
                 for line in fh:
-                    record = _loads(line)
-                    if record is None:
-                        continue
-                    rid = record.get("requirement_id")
-                    if rid and rid not in index:
-                        index[rid] = record
+                    record, decode_error = _loads_safe(line)
+                    if decode_error is not None:
+                        self._note_scan_error(f"{rel}: 偏移 {offset} 行不是合法 JSON（{decode_error}）")
+                    elif record is not None:
+                        rid = record.get("requirement_id")
+                        if rid and rid not in index:
+                            index[rid] = record
+                    offset += len(line)
             # The first existing file wins; later aliases add nothing new.
             break
         return index
@@ -286,6 +420,7 @@ class KnowledgeRepository:
 
     # --------------------------------------------------------------- graph
     def graph_records(self, library: str) -> Tuple[List[dict], List[dict]]:
+        self._check_fresh()
         nodes_rel, edges_rel = GRAPH_FILES[library]
         return self._read_jsonl(nodes_rel), self._read_jsonl(edges_rel)
 
@@ -295,10 +430,14 @@ class KnowledgeRepository:
             return []
         out: List[dict] = []
         with open(path, "rb") as fh:
+            offset = 0
             for line in fh:
-                record = _loads(line)
-                if record is not None:
+                record, decode_error = _loads_safe(line)
+                if decode_error is not None:
+                    self._note_scan_error(f"{rel}: 偏移 {offset} 行不是合法 JSON（{decode_error}）")
+                elif record is not None:
                     out.append(record)
+                offset += len(line)
         return out
 
     # --------------------------------------------------------------- rubrics
@@ -308,6 +447,7 @@ class KnowledgeRepository:
         The grader must not open these files itself: rubric provenance and signature state is a
         knowledge-facade concern, and a second reader would be a second source of truth.
         """
+        self._check_fresh()
         if self._rubrics is None:
             with self._lock:
                 if self._rubrics is None:
@@ -316,21 +456,22 @@ class KnowledgeRepository:
 
     def _build_rubric_index(self) -> Dict[str, dict]:
         index: Dict[str, dict] = {}
-        ntce_dir = self.path("数据集/教资/rubrics")
+        ntce_dir = self.path(RUBRIC_DIR)
         for path in sorted(ntce_dir.glob("*.json")) if ntce_dir.is_dir() else []:
+            rel = path.relative_to(self.root).as_posix()
             try:
                 record = json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
+            except (OSError, json.JSONDecodeError) as exc:
+                self._note_scan_error(f"{rel}: 量规文件读不出（{exc}）")
                 continue
             if isinstance(record, dict) and record.get("rubric_id"):
                 record.setdefault("library", "ntce")
-                record.setdefault("rubric_source", path.relative_to(self.root).as_posix())
+                record.setdefault("rubric_source", rel)
                 index[record["rubric_id"]] = record
-        cet_rel = "数据集/四六级/ontology/scoring_rubrics.jsonl"
-        for record in self._read_jsonl(cet_rel):
+        for record in self._read_jsonl(CET_RUBRIC_FILE):
             if record.get("rubric_id"):
                 record.setdefault("library", "cet")
-                record.setdefault("rubric_source", cet_rel)
+                record.setdefault("rubric_source", CET_RUBRIC_FILE)
                 index[record["rubric_id"]] = record
         return index
 
@@ -353,6 +494,7 @@ class KnowledgeRepository:
     # --------------------------------------------------------------- paper specs
     def paper_specs(self, exam: Optional[str] = None) -> List[dict]:
         """Official blueprints (section order, counts, minute budgets) for both libraries."""
+        self._check_fresh()
         specs: List[dict] = []
         for rel in PAPER_SPEC_FILES:
             specs.extend(self._read_jsonl(rel))
@@ -363,6 +505,7 @@ class KnowledgeRepository:
 
     # --------------------------------------------------------------- stats
     def stats(self) -> dict:
+        self._check_fresh()
         q = self.questions()
         return {
             "question_records": len(q),
@@ -370,6 +513,8 @@ class KnowledgeRepository:
             "question_files": len(self.question_files()),
             "paper_specs": len(self.paper_specs()),
             "scan_issues": len(self._scan_errors),
+            "index_generation": self.generation,
+            "index_ttl_seconds": self._ttl,
             "root": self.root.as_posix(),
         }
 

@@ -1,13 +1,16 @@
 """Executable acceptance checks for the knowledge facade (docs/agent_architecture.md §8).
 
 A1 no shadow data · A2 real references · A3 quarantine cannot leak ·
-A5 state survives across processes · A7 difficulty wording.
+A5 state survives across processes · A7 difficulty wording · A11 facade freshness +
+byte-offset integrity.
 """
 from __future__ import annotations
 
 import ast
+import json
 import os
 import re
+import shutil
 import tempfile
 import unittest
 from datetime import datetime, timezone
@@ -246,6 +249,138 @@ class TestA7DifficultyWording(unittest.TestCase):
         meta = next(m for m in repo.questions().values() if m.difficulty_method)
         verdict = TrustGate("research_internal").classify_meta(meta)
         self.assertTrue(any("教研初估" in n for n in verdict.notices))
+
+
+class TestA11FacadeFreshness(unittest.TestCase):
+    """A11 门面缓存与字节偏移：盘上的教研改动要能到达运行中的进程，偏移读回来必须仍是那道题。
+
+    数据集是教研直接编辑的文本，门面把索引缓存在进程里。缓存放着不动，"人工复核"就只在重启后生效；
+    偏移不做身份校验，一次删行会让判分拿到别人的答案键。两条都用临时根目录复现，不碰真库。
+    """
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp(prefix="km_facade_fresh_")
+        self.root = Path(self._tmp)
+        self.qdir = self.root / "数据集" / "教资" / "questions"
+        self.qdir.mkdir(parents=True)
+        self.qfile = self.qdir / "paper1.jsonl"
+
+    def tearDown(self):
+        shutil.rmtree(self._tmp, ignore_errors=True)
+
+    def _write(self, *lines: bytes) -> None:
+        self.qfile.write_bytes(b"".join(lines))
+
+    def _repo(self) -> KnowledgeRepository:
+        # ttl=0：每次读取都复核指纹，测试不等 TTL 窗口。
+        return KnowledgeRepository(root=self.root, ttl_seconds=0.0)
+
+    def test_a_reviewer_signing_on_disk_reaches_the_running_facade(self):
+        self._write(_qline("q1", answer="A", status="pending_review"))
+        repo = self._repo()
+        self.assertEqual(repo.get_meta("q1").review_status, "pending_review")
+
+        self._write(_qline("q1", answer="A", status="checked"))
+        self.assertEqual(
+            repo.get_meta("q1").review_status, "checked", "运行中的门面没看见盘上的教研签署"
+        )
+        self.assertGreaterEqual(repo.generation, 1, "换代计数没增加，下游缓存不会重建")
+        self.assertEqual(repo.load_question("q1")["review"]["status"], "checked")
+
+    def test_a_rubric_signature_on_disk_reaches_the_running_facade(self):
+        rubric_dir = self.root / "数据集" / "教资" / "rubrics"
+        rubric_dir.mkdir(parents=True)
+        path = rubric_dir / "r-demo.json"
+        unsigned = {
+            "rubric_id": "r-demo",
+            "dimensions": [{"name": "要点覆盖", "weight": 1.0}],
+            "review": {"status": "llm_enhanced", "checked_by": None, "expert_verified": False},
+        }
+        path.write_text(json.dumps(unsigned, ensure_ascii=False), encoding="utf-8")
+        repo = self._repo()
+        gate = TrustGate("research_internal")
+        self.assertFalse(gate.classify_rubric(repo.find_rubric(rubric_id="r-demo")).signed)
+
+        signed = dict(
+            unsigned,
+            review={"status": "checked", "checked_by": "教研-试用", "expert_verified": True},
+        )
+        path.write_text(json.dumps(signed, ensure_ascii=False), encoding="utf-8")
+        verdict = gate.classify_rubric(repo.find_rubric(rubric_id="r-demo"))
+        self.assertTrue(verdict.signed, "教研已签署的量规仍被当作未签署，出分会被永久挡住")
+
+    def test_a_shifted_offset_cannot_pass_another_question_off_as_this_one(self):
+        first, second, third = (_qline(f"q{i}", answer=letter) for i, letter in ((1, "A"), (2, "B"), (3, "C")))
+        self.assertEqual((len(first), len(second), len(third)), (len(second), len(second), len(second)))
+        self._write(first, second, third)
+        repo = self._repo()
+        stale = repo.get_meta("q2")
+        self.assertEqual(stale.offset, len(first))
+
+        # 删掉 q1 那一行（真题库里合并套卷就会这么改）：q2 平移到 0，旧偏移正好读回 q3 的整行。
+        self._write(second, third)
+        raw = self.qfile.read_bytes()
+        self.assertEqual(raw[stale.offset : stale.offset + stale.length], third)
+        self.assertIsNone(repo._read_range(stale, "q2"), "读回的不是这道题却返回了内容")
+
+        record = repo.load_question("q2")
+        self.assertEqual(record["question_id"], "q2")
+        self.assertEqual(record["content"]["answer"], "B", "偏移换代重扫之后必须读回本题的答案键")
+
+    def test_a_line_that_stopped_decoding_never_falls_back_to_a_guess(self):
+        self._write(_qline("q1", answer="A"))
+        repo = self._repo()
+        repo.get_meta("q1")
+        self.qfile.write_bytes(b'{"question_id": "q9", "content"')
+        self.assertIsNone(repo.load_question("q1"), "读不回原题时宁可报读不到，绝不返回别的记录")
+        self.assertTrue(
+            any("paper1.jsonl" in issue for issue in repo._scan_errors),
+            "坏行没登记成缺口，等于把数据事故咽下去",
+        )
+
+    def test_a_stale_offset_is_remmeasured_instead_of_being_trusted(self):
+        """TTL 窗口内没复核到改动时，读回来的身份校验要把索引换代补上。"""
+        first, second, third = (
+            _qline(f"q{i}", answer=letter) for i, letter in ((1, "A"), (2, "B"), (3, "C"))
+        )
+        self._write(first, second, third)
+        repo = KnowledgeRepository(root=self.root, ttl_seconds=3600)
+        repo.get_meta("q2")  # 建立指纹基线，之后 TTL 内不再复核
+
+        self._write(second, third)  # 删掉首行：q2 的旧偏移现在整段落在 q3 上
+        record = repo.load_question("q2")
+        self.assertEqual(record["question_id"], "q2")
+        self.assertEqual(record["content"]["answer"], "B", "偏移失效后必须重扫，而不是把 q3 交出去")
+        self.assertEqual(repo.get_meta("q2").offset, 0)
+
+    def test_a_malformed_line_does_not_take_the_rest_of_the_file_down(self):
+        self._write(
+            _qline("q1", answer="A"),
+            b'{"question_id": "q2", "content": {"stem": "\n',
+            _qline("q3", answer="C"),
+        )
+        repo = self._repo()
+        self.assertEqual(sorted(repo.questions()), ["q1", "q3"])
+        self.assertEqual(repo.stats()["scan_issues"], 1, "坏行没登记成缺口，等于把数据事故咽下去")
+        self.assertEqual(repo.load_question("q3")["content"]["answer"], "C")
+
+
+def _qline(question_id: str, *, answer: str, status: str = "llm_enhanced") -> bytes:
+    """一条最小可用的真题记录：题面/答案键/复核状态齐备，只用于临时根目录。"""
+    record = {
+        "question_id": question_id,
+        "exam": "NTCE",
+        "module": "综合素质",
+        "content": {
+            "stem": f"{question_id}：下列关于教师职业道德的表述，正确的一项是。",
+            "answer": answer,
+            "answer_status": "letter_only",
+        },
+        "review": {"status": status},
+        "knowledge_node_ids": ["n-demo"],
+        "difficulty": {"value": 0.4, "method": "教研初估"},
+    }
+    return json.dumps(record, ensure_ascii=False).encode("utf-8") + b"\n"
 
 
 def _sample_state():

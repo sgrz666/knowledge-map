@@ -87,13 +87,17 @@ class GraphIndex:
         self._graph: Optional[nx.MultiDiGraph] = None
         self._edge_stats: Dict[str, dict] = {}
         self._node_meta: Dict[str, dict] = {}
+        # 图谱缓存属于门面的哪一代索引：教研改 edges.jsonl 的 verified/mapping_status 之后，
+        # 缓存必须换代，否则"挂载已核对"这种结论会永远停在进程启动时的那一刻。
+        self._built_generation: Optional[int] = -1
 
     # ------------------------------------------------------------------ build
     @property
     def graph(self) -> nx.MultiDiGraph:
-        if self._graph is None:
+        generation = getattr(self.repository, "generation", None)
+        if self._graph is None or self._built_generation != generation:
             with self._lock:
-                if self._graph is None:
+                if self._graph is None or self._built_generation != generation:
                     self._build()
         assert self._graph is not None
         return self._graph
@@ -101,10 +105,11 @@ class GraphIndex:
     def _build(self) -> None:
         nodes, edges = self.repository.graph_records(self.library)
         graph = nx.MultiDiGraph()
+        node_meta: Dict[str, dict] = {}
         for record in nodes:
             nid = record.get("id")
             if nid:
-                self._node_meta[nid] = record
+                node_meta[nid] = record
                 graph.add_node(nid, layer=record.get("layer"), type=record.get("type"), name=record.get("name"))
 
         stats: Dict[str, dict] = {}
@@ -135,7 +140,9 @@ class GraphIndex:
             if record.get("active_for_learning_path"):
                 row["active_for_learning_path"] += 1
         self._edge_stats = stats
+        self._node_meta = node_meta
         self._graph = graph
+        self._built_generation = getattr(self.repository, "generation", None)
 
     # ------------------------------------------------------------------ lookup
     def node(self, node_id: str) -> Optional[dict]:

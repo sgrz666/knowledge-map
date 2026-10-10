@@ -1,4 +1,4 @@
-"""可执行验收 A1–A10（docs/agent_architecture.md §8），一条验收一个测试。
+"""可执行验收 A1–A11（docs/agent_architecture.md §8），一条验收一个测试。
 
 文档要求"每条都是测试，不是形容词"，所以这里每个测试的 docstring 直接抄文档原文，断言只允许引用两类
 证据：`数据集/**` 与 `官方权威资料/**` 里的实体本身，或调用方自己送进来的文本。测试不写死任何题号、
@@ -852,6 +852,42 @@ class TestA10ProfileVerdictSource(AcceptanceTestCase):
         self.assertIsNone(bundle.attribution)
         self.assertIsNone(agent.get_user_mastery("u_a10", node_id), "不可核对的题却写了画像")
         self.assertEqual(list(agent.store.error_entries("u_a10")), [])
+
+
+# --------------------------------------------------------------------- A11
+class TestA11IndexRegeneration(AcceptanceTestCase):
+    """A11 门面换代：索引是数据的缓存而不是进程启动时的快照，字节偏移读回来的必须仍是那道题。"""
+
+    def test_every_question_file_boundary_reads_back_as_its_own_record(self):
+        """偏移是"某一刻文件版本"上的坐标：每个文件首尾各读一次，任何错位都会在这里现形。"""
+        first, last = {}, {}
+        for meta in self.repository.questions().values():
+            first.setdefault(meta.file, meta)
+            previous = last.get(meta.file)
+            if previous is None or meta.offset > previous.offset:
+                last[meta.file] = meta
+        self.assertGreaterEqual(len(first), 700, "题量文件太少，边界校验失去意义")
+        offenders = [
+            meta.question_id
+            for meta in [*first.values(), *last.values()]
+            if (self.repository.load_question(meta.question_id) or {}).get("question_id")
+            != meta.question_id
+        ]
+        self.assertEqual(offenders, [], "偏移读不回原题：判分会拿到另一道题的答案键")
+
+    def test_invalidate_remeasures_the_index_and_the_graph_generation(self):
+        graph = get_graph_index("ntce")
+        self.assertTrue(graph.graph.number_of_edges() > 0)
+        before = self.repository.generation
+        self.repository.invalidate()
+        self.assertGreaterEqual(self.repository.generation, before + 1)
+        self.assertGreaterEqual(len(self.repository.questions()), 20000)
+        graph.stats()
+        self.assertEqual(
+            graph._built_generation,
+            self.repository.generation,
+            "门面换代后图谱仍用上一代缓存，教研核对过的 verified 到不了运行时",
+        )
 
 
 if __name__ == "__main__":
