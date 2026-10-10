@@ -23,6 +23,12 @@ class UserRole(str, Enum):
     ADMIN = "admin"
 
 
+class TrustTier(str, Enum):
+    """Runtime tier declared by the caller and enforced by TrustGate."""
+    RESEARCH_INTERNAL = "research_internal"
+    PUBLISHED = "published"
+
+
 class AuthContext(BaseModel):
     """User and request authentication context."""
     user_id: str
@@ -30,8 +36,38 @@ class AuthContext(BaseModel):
     exam: ExamType = ExamType.NTCE
 
 
+class GeneratedBy(BaseModel):
+    """Provenance stamp every agent message must carry."""
+    agent: str
+    version: str = "1.1.0"
+    requested_model: Optional[str] = None
+    mode: Literal["rule_only", "llm", "deterministic"] = "deterministic"
+    prompt_sha256: Optional[str] = None
+    created_at: str = Field(
+        default_factory=lambda: datetime.now(timezone.utc).isoformat()
+    )
+
+
+class EvidenceItem(BaseModel):
+    """One pointer back to library text, so no claim travels without its source."""
+    question_id: Optional[str] = None
+    node_id: Optional[str] = None
+    requirement_id: Optional[str] = None
+    standard_id: Optional[str] = None
+    edge: Optional[str] = None
+    locator: Optional[dict] = None
+    source: Optional[str] = None
+    verified: Optional[bool] = None
+    notices: List[str] = Field(default_factory=list)
+
+
 class AgentMessageEnvelope(BaseModel, Generic[T]):
-    """Unified RPC / Message envelope for agent-to-agent communication."""
+    """Unified RPC / Message envelope for agent-to-agent communication.
+
+    ``docs/agent_architecture.md`` §3.4 makes this the only message shape between orchestrator
+    nodes: every hop must declare the tier it served, the evidence behind it, and who generated
+    it. Nothing may assert a review status the gate did not clear.
+    """
     message_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     trace_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     timestamp: str = Field(
@@ -41,8 +77,13 @@ class AgentMessageEnvelope(BaseModel, Generic[T]):
     recipient: str
     action: str
     auth_context: AuthContext
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    evidence: List[EvidenceItem] = Field(default_factory=list)
+    generated_by: GeneratedBy = Field(default_factory=GeneratedBy)
+    notices: List[str] = Field(default_factory=list)
     payload: T
     error: Optional[dict] = None
+
 
 
 # ---------------------------------------------------------------------------
@@ -64,6 +105,7 @@ class SubjectiveGradingRequest(BaseModel):
     rubric_id: Optional[str] = None
     max_score: Optional[float] = None
     scoring_mode: Literal["auto", "holistic_band", "analytic_criteria"] = "auto"
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class HolisticDimensionFeedback(BaseModel):
@@ -74,9 +116,19 @@ class HolisticDimensionFeedback(BaseModel):
 
 
 class HolisticDetails(BaseModel):
-    """Details for CET official holistic band selection."""
-    selected_band: int = Field(..., description="Selected band level: 14, 11, 8, 5, 2")
-    band_range: List[float] = Field(..., min_length=2, max_length=2, description="Score range [min, max]")
+    """Details for CET official holistic band selection.
+
+    ``selected_band`` stays null while the rubric is unsigned: a band is a raw-score claim, and
+    §10 forbids auto-scoring on unsigned rubrics. Feedback without a band is still allowed, which
+    is exactly what the library's own ``score_use`` field says these bands may be used for.
+    """
+    selected_band: Optional[int] = Field(None, description="Band level 14/11/8/5/2; null when unsigned")
+    band_range: Optional[List[float]] = Field(
+        None, min_length=2, max_length=2, description="Score range [min, max]; null when unsigned"
+    )
+    band_reference: Optional[str] = Field(
+        None, description="Transcribed official band descriptor quoted as feedback, not a reported score"
+    )
     qualitative_dimensions: List[HolisticDimensionFeedback] = Field(default_factory=list)
 
 
@@ -100,21 +152,40 @@ class AnalyticDetails(BaseModel):
     """Details for NTCE analytic criteria-based grading."""
     dimensions: List[AnalyticDimensionResult] = Field(default_factory=list)
     rubric_points_hit: List[RubricPointHit] = Field(default_factory=list)
+    dimension_feedback: List[HolisticDimensionFeedback] = Field(
+        default_factory=list,
+        description="Per-dimension qualitative feedback; the only form allowed on an unsigned rubric",
+    )
 
 
 class UnifiedSubjectiveGradingResponse(BaseModel):
-    """Unified subjective grading output schema conforming to Section 4.2 of the specification."""
+    """Unified subjective grading output schema.
+
+    Acceptance A4: an unsigned rubric may never produce a score. ``total_score`` is therefore
+    optional and ``feedback_only`` is the honest answer for everything the reviewer has not
+    signed — the response says so instead of dressing a heuristic up as a grade.
+    """
     question_id: str
     exam_type: Literal["CET-4", "CET-6", "NTCE"]
     grading_mode: Literal["holistic_band", "analytic_criteria"]
-    total_score: float = Field(..., description="Total awarded score")
-    max_score: float = Field(..., gt=0.0)
+    total_score: Optional[float] = Field(
+        None, description="Awarded score; null unless the rubric is 教研签署"
+    )
+    max_score: Optional[float] = Field(
+        None, gt=0.0, description="Rubric total from the library; null when no rubric exists"
+    )
+    feedback_only: bool = False
+    score_basis: Literal["signed_rubric", "unsigned_framework", "none"] = "unsigned_framework"
+    rubric_signed: Optional[bool] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
     holistic_details: Optional[HolisticDetails] = None
     analytic_details: Optional[AnalyticDetails] = None
     evaluation_summary: str
     revision_advice: str
     confidence_score: float = Field(default=0.85, ge=0.0, le=1.0)
     review_status: Literal["llm_graded", "heuristic_graded", "expert_reviewed", "quarantined_for_human"] = "llm_graded"
+    notices: List[str] = Field(default_factory=list)
+    review_queue_entry: Optional[dict] = None
 
 
 # ---------------------------------------------------------------------------
@@ -217,26 +288,37 @@ class ModuleAbility(BaseModel):
 
 
 class DiagnosticRequest(BaseModel):
-    """Request for running cold-start or adaptive diagnostic test."""
+    """Request for running cold-start or coverage-oriented diagnostic probing."""
     user_id: str
     exam_type: Literal["CET-4", "CET-6", "NTCE"]
-    stage: Literal["cold_start", "adaptive_cat"] = "cold_start"
+    stage: Literal["cold_start", "coverage_probe"] = "cold_start"
     submissions: Optional[List[AnswerSubmission]] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class DiagnosticReport(BaseModel):
-    """Comprehensive diagnostic report with dual-track score conversion."""
+    """Diagnostic output. §10 forbids IRT/CAT claims, so the numbers are coverage heuristics."""
     user_id: str
     exam_type: Literal["CET-4", "CET-6", "NTCE"]
     raw_score: float
     max_raw_score: float
-    point_estimate: float
-    predicted_score_interval: List[float] = Field(..., min_length=2, max_length=2)
-    pass_probability: float = Field(..., ge=0.0, le=1.0)
+    point_estimate: Optional[float] = None
+    predicted_score_interval: Optional[List[float]] = Field(None, min_length=2, max_length=2)
+    pass_probability: Optional[float] = Field(None, ge=0.0, le=1.0)
     radar_chart: List[ModuleAbility]
     weak_points_top5: List[str]
     recommended_actions: List[str]
-    disclaimer: str = "本预测基于知识图谱与当前作答表现测算，仅供考前备考参考，不代表官方正式考试结果。"
+    estimate_basis: str = "coverage_heuristic"
+    publishable: bool = False
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    notices: List[str] = Field(default_factory=list)
+    #: submissions the gate or the index refused, each with its reason, so the notice that counts
+    #: them points at something the caller can actually read.
+    blocked_submissions: List[dict] = Field(default_factory=list)
+    disclaimer: str = (
+        "本结果基于库内知识覆盖度与当前作答表现计算，难度为教研初估且未用真实作答数据校准，"
+        "仅供备考内部参考，不构成能力测量结论，也不代表官方考试结果。"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -269,6 +351,7 @@ class PlanRequest(BaseModel):
     days_until_exam: int = Field(default=30, ge=1, le=180)
     daily_available_minutes: int = Field(default=60, ge=15, le=360)
     current_mastery: Optional[List[UserMasteryRecord]] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class CurriculumPlanResponse(BaseModel):
@@ -278,6 +361,9 @@ class CurriculumPlanResponse(BaseModel):
     total_days: int
     daily_plans: List[DailyPlan]
     milestones: List[str]
+    prerequisite_note: str = ""
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    notices: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -312,6 +398,12 @@ class AssemblePaperRequest(BaseModel):
     target_module: Optional[str] = None
     target_node: Optional[str] = None
     item_count: int = 10
+    weak_node_ids: List[str] = Field(default_factory=list)
+    wrong_question_ids: List[str] = Field(default_factory=list)
+    spec_id: Optional[str] = None
+    school_level: Optional[str] = None
+    subject: Optional[str] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class PracticePaperResponse(BaseModel):
@@ -324,6 +416,12 @@ class PracticePaperResponse(BaseModel):
     total_items: int
     time_limit_minutes: int
     stage_state: Optional[ExamStageState] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    pool_size: int = 0
+    shortfall: int = 0
+    spec_id: Optional[str] = None
+    structure: List[dict] = Field(default_factory=list)
+    notices: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -338,6 +436,7 @@ class QARequest(BaseModel):
     user_query: Optional[str] = None
     mode: Literal["sparks_three_chain", "socratic_hint"] = "sparks_three_chain"
     hint_turn: int = 1
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class SparksThreeChainResponse(BaseModel):
@@ -347,6 +446,9 @@ class SparksThreeChainResponse(BaseModel):
     option_discrimination: dict
     knowledge_provenance: dict
     explanation_summary: str
+    answer_visibility: Literal["letter", "reference", "none"] = "none"
+    grounded_in_library: bool = False
+    notices: List[str] = Field(default_factory=list)
 
 
 class SocraticHintResponse(BaseModel):
@@ -357,6 +459,8 @@ class SocraticHintResponse(BaseModel):
     scaffold_prompt: str
     is_final_reveal: bool = False
     revealed_answer: Optional[str] = None
+    grounded_in_library: bool = False
+    notices: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -368,7 +472,8 @@ class SpeechAnalysisRequest(BaseModel):
     transcript_text: str
     audio_duration_seconds: float = Field(..., gt=0.0)
     audio_pauses: Optional[List[float]] = None
-    lesson_title: Optional[str] = "小学语文《春》"
+    lesson_title: Optional[str] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class TeachingPhaseMatch(BaseModel):
@@ -379,15 +484,22 @@ class TeachingPhaseMatch(BaseModel):
 
 
 class SpeechAnalysisResponse(BaseModel):
-    """Diagnostic report for 10-minute trial teaching speech."""
+    """Diagnostic report for trial teaching speech.
+
+    Only measured quantities here; ``overall_score`` needs a signed 试讲 rubric, which the
+    library does not have yet, so it stays null instead of shipping invented weights.
+    """
     words_per_minute: float
     speed_evaluation: Literal["too_fast", "optimal", "too_slow"]
     filler_words_count: dict
     hesitation_pause_count: int
     teaching_phases: List[TeachingPhaseMatch]
     phase_coverage_rate: float
-    overall_score: float = Field(..., ge=0.0, le=100.0)
+    overall_score: Optional[float] = Field(None, ge=0.0, le=100.0)
+    rubric_signed: Optional[bool] = None
     coaching_feedback: str
+    notices: List[str] = Field(default_factory=list)
+    review_queue_entry: Optional[dict] = None
 
 
 class LessonPlanReviewRequest(BaseModel):
@@ -396,14 +508,22 @@ class LessonPlanReviewRequest(BaseModel):
     grade_level: str = "小学"
     topic: str
     plan_text: str
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class LessonPlanReviewResponse(BaseModel):
-    """Lesson plan rubric scoring evaluation."""
-    total_score: float = Field(..., ge=0.0, le=40.0)
+    """Lesson plan review. Feedback is always available; a score needs a signed rubric."""
+    total_score: Optional[float] = Field(None, ge=0.0)
+    max_score: Optional[float] = Field(None, gt=0.0)
+    feedback_only: bool = True
+    rubric_signed: Optional[bool] = None
+    rubric_id: Optional[str] = None
     dimensions: List[dict]
     missed_elements: List[str]
     improvement_suggestions: str
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    notices: List[str] = Field(default_factory=list)
+    review_queue_entry: Optional[dict] = None
 
 
 # ---------------------------------------------------------------------------
@@ -428,6 +548,7 @@ class MasterInteractionRequest(BaseModel):
     session_id: Optional[str] = None
     exam_type: Literal["CET-4", "CET-6", "NTCE"] = "NTCE"
     action_payload: Optional[dict] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
 class MasterInteractionResponse(BaseModel):
@@ -447,4 +568,41 @@ class MasterInteractionResponse(BaseModel):
     ]
     card_data: dict
     suggested_quick_replies: List[str]
+    state: str = "IDLE"
+    trace: List[dict] = Field(default_factory=list)
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    notices: List[str] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# Retrieval Endpoint Models (§5)
+# ---------------------------------------------------------------------------
+
+class RetrievalRequest(BaseModel):
+    """Three-path retrieval input, shared by qa, the frontend and the orchestrator."""
+    query: str
+    user_id: str = "anonymous"
+    exam_type: Optional[Literal["CET-4", "CET-6", "NTCE"]] = None
+    trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    top_k: int = Field(default=8, ge=1, le=50)
+    modules: List[str] = Field(default_factory=list)
+    levels: List[str] = Field(default_factory=list)
+    question_types: List[str] = Field(default_factory=list)
+    use_graph: bool = True
+
+
+class RetrievalResponse(BaseModel):
+    """Recall results already passed through TrustGate, with pointers back to source text."""
+    trust_tier: TrustTier
+    query: str
+    backend: str
+    libraries: List[str] = Field(default_factory=list)
+    candidates: List[dict] = Field(default_factory=list)
+    candidate_count: int = 0
+    evidence: List[dict] = Field(default_factory=list)
+    blocked: List[dict] = Field(default_factory=list)
+    review_queued: int = 0
+    notices: List[str] = Field(default_factory=list)
+    code: Optional[str] = None
+    message: Optional[str] = None
 

@@ -1,8 +1,16 @@
-"""Trial teaching speech acoustics and discourse structure analyzer."""
+"""Trial teaching speech acoustics and discourse structure analyzer.
+
+Everything here is a *measurement of the transcript the caller supplied*: characters per minute,
+filler counts, long pauses, and which of the five instructional phases have a marker in the text.
+The composite 0-100 score the previous version returned was built from weights invented in this
+file (20/20/20/40) and had no counterpart in the library — the 试讲 rubric
+(``数据集/教资/rubrics/interview_teaching.json``, 50 分) is unsigned, so per §10 nothing is scored
+and ``overall_score`` stays null.
+"""
 from __future__ import annotations
 
 import re
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from services.common.models import (
     SpeechAnalysisRequest,
@@ -12,121 +20,118 @@ from services.common.models import (
 
 FILLER_WORDS = ["然后", "那个", "就是", "这个", "嗯", "啊"]
 
+# Marker cues only: they say "the transcript appears to contain this phase", not "this phase scores X".
 PHASE_KEYWORDS = {
     "导入": ["导入", "同学们请看", "上课", "创设情境", "回顾上节课", "大家看看大屏幕"],
     "新授": ["自主探究", "小组讨论", "讲解", "请同学们读", "大家齐读", "深入剖析", "新课学习"],
-    "巩固": ["巩固练习", "做一做", "课堂练习", "拓展延伸", "角色扮演", "连线", "趁热打铁"],
+    "巩固": ["巩固练习", "做一做", "课堂练习", "拓展延伸", "角色扮演", "连线"],
     "小结": ["课堂小结", "总结", "这节课我们学到了", "谁能说一说收获", "梳理"],
     "作业": ["布置作业", "课后作业", "家庭作业", "回家后", "下节课分享", "必做题和选做题"],
 }
 
+NO_TRANSCRIPT = SpeechAnalysisResponse(
+    words_per_minute=0.0,
+    speed_evaluation="optimal",
+    filler_words_count={},
+    hesitation_pause_count=0,
+    teaching_phases=[],
+    phase_coverage_rate=0.0,
+    overall_score=None,
+    coaching_feedback="未收到转写文本，系统不做任何测算，也不给出印象分。",
+    notices=("transcript_text 为空：语速、口头禅与环节覆盖全部不可计算。",),
+)
+
+PAUSE_HESITATION_SECONDS = 3.0
+COMFORTABLE_WPM = (180.0, 270.0)
+
 
 class SpeechAnalyzer:
-    """Analyzes trial teaching transcript text and duration for pedagogical quality."""
+    """Measures speech pacing, hesitation and phase coverage without inventing a score."""
 
     @classmethod
     def evaluate(cls, req: SpeechAnalysisRequest) -> SpeechAnalysisResponse:
-        """Run speech metrics and five-phase instructional coverage checks."""
-        text = req.transcript_text.strip()
-        dur_sec = max(1.0, req.audio_duration_seconds)
-        dur_min = dur_sec / 60.0
+        text = (req.transcript_text or "").strip()
+        if not text:
+            return NO_TRANSCRIPT
 
-        # 1. Words per minute (Chinese characters + English tokens)
+        dur_min = max(1.0, req.audio_duration_seconds) / 60.0
         char_count = len(re.findall(r"[\u4e00-\u9fff]|[a-zA-Z0-9]+", text))
         wpm = round(char_count / dur_min, 1)
 
-        # Baseline: 200 - 250 wpm (tolerated 180 - 270)
-        if wpm < 180.0:
+        low, high = COMFORTABLE_WPM
+        if wpm < low:
             speed_eval = "too_slow"
-            speed_score = 14.0
-        elif wpm > 270.0:
+        elif wpm > high:
             speed_eval = "too_fast"
-            speed_score = 15.0
         else:
             speed_eval = "optimal"
-            speed_score = 20.0
 
-        # 2. Filler words detection
         filler_counts: Dict[str, int] = {}
-        total_fillers = 0
-        for f in FILLER_WORDS:
-            cnt = len(re.findall(re.escape(f), text))
-            if cnt > 0:
-                filler_counts[f] = cnt
-                total_fillers += cnt
+        for filler in FILLER_WORDS:
+            count = len(re.findall(re.escape(filler), text))
+            if count:
+                filler_counts[filler] = count
+        total_fillers = sum(filler_counts.values())
 
-        # Max 20 points for low filler rate
-        filler_score = max(5.0, 20.0 - total_fillers * 1.5)
-
-        # 3. Hesitation pauses (>3.0s)
         pauses = req.audio_pauses or []
-        hesitations = sum(1 for p in pauses if p >= 3.0)
-        hesitation_score = max(5.0, 20.0 - hesitations * 3.0)
+        hesitations = sum(1 for pause in pauses if pause >= PAUSE_HESITATION_SECONDS)
 
-        # 4. Five essential teaching phases match
-        phase_matches: List[TeachingPhaseMatch] = []
-        covered_count = 0
-
-        for phase, keywords in PHASE_KEYWORDS.items():
-            matched_kw = None
-            for kw in keywords:
-                if kw in text:
-                    matched_kw = kw
-                    break
-
-            if matched_kw:
-                covered_count += 1
-                idx = text.find(matched_kw)
-                snippet = text[max(0, idx - 10) : min(len(text), idx + 25)]
-                phase_matches.append(
-                    TeachingPhaseMatch(
-                        phase_name=phase,  # type: ignore
-                        covered=True,
-                        evidence_snippet=snippet,
-                    )
+        matches: List[TeachingPhaseMatch] = []
+        covered = 0
+        for phase, cues in PHASE_KEYWORDS.items():
+            cue = next((keyword for keyword in cues if keyword in text), None)
+            if cue:
+                covered += 1
+                index = text.find(cue)
+                snippet = text[max(0, index - 10) : index + len(cue) + 15]
+                matches.append(
+                    TeachingPhaseMatch(phase_name=phase, covered=True, evidence_snippet=snippet)  # type: ignore[arg-type]
                 )
             else:
-                phase_matches.append(
+                matches.append(
                     TeachingPhaseMatch(
-                        phase_name=phase,  # type: ignore
+                        phase_name=phase,  # type: ignore[arg-type]
                         covered=False,
-                        evidence_snippet="未检测到明确的引导性过渡标志词",
+                        evidence_snippet="转写文本内未出现该环节的标志语",
                     )
                 )
-
-        phase_coverage_rate = round(covered_count / 5.0, 2)
-        # Max 40 points for 5 phases
-        phase_score = round(phase_coverage_rate * 40.0, 1)
-
-        # 5. Composite overall score (out of 100)
-        overall_score = round(speed_score + filler_score + hesitation_score + phase_score, 1)
-        overall_score = max(0.0, min(100.0, overall_score))
-
-        # 6. Actionable feedback
-        feedback_parts = []
-        if speed_eval == "too_slow":
-            feedback_parts.append(f"试讲语速偏慢（{wpm} 字/分），建议适当精炼过渡词，强化课堂生动性与节奏感。")
-        elif speed_eval == "too_fast":
-            feedback_parts.append(f"试讲语速过快（{wpm} 字/分），易给考官压迫感且不利于学生理解，建议适度留白提问。")
-        else:
-            feedback_parts.append(f"试讲语速自然从容（{wpm} 字/分），处于考官评判最佳舒适区间。")
-
-        if total_fillers >= 5:
-            feedback_parts.append(f"检测到口头禅共计 {total_fillers} 次（高频词: {', '.join(filler_counts.keys())}），建议在环节切换时用沉稳停顿替代口头禅。")
-
-        missing_phases = [pm.phase_name for pm in phase_matches if not pm.covered]
-        if missing_phases:
-            feedback_parts.append(f"教学五环节中缺少明确的【{'、'.join(missing_phases)}】环节，面试评委重点关注环节完整性，请务必设置清晰标志语。")
-        else:
-            feedback_parts.append("教学设计五环节（导入、新授、巩固、小结、作业）结构完备，各环节衔接自然顺畅。")
 
         return SpeechAnalysisResponse(
             words_per_minute=wpm,
-            speed_evaluation=speed_eval,
+            speed_evaluation=speed_eval,  # type: ignore[arg-type]
             filler_words_count=filler_counts,
             hesitation_pause_count=hesitations,
-            teaching_phases=phase_matches,
-            phase_coverage_rate=phase_coverage_rate,
-            overall_score=overall_score,
-            coaching_feedback=" ".join(feedback_parts),
+            teaching_phases=matches,
+            phase_coverage_rate=round(covered / len(PHASE_KEYWORDS), 4),
+            overall_score=None,
+            coaching_feedback=cls._feedback(
+                wpm, speed_eval, total_fillers, filler_counts, hesitations, matches, dur_min
+            ),
+            notices=[
+                f"语速/停顿/环节覆盖为对转写文本的直接测算（时长 {round(dur_min, 2)} 分钟），不含任何评分权重。",
+                "面试试讲总分需依据 数据集/教资/rubrics/interview_teaching.json（50 分）签署后才能出具。",
+            ],
         )
+
+    @staticmethod
+    def _feedback(wpm, speed_eval, total_fillers, filler_counts, hesitations, matches, dur_min) -> str:
+        parts: List[str] = [
+            {
+                "too_slow": f"转写测算语速 {wpm} 字/分，低于舒适区间（{COMFORTABLE_WPM[0]:.0f}–{COMFORTABLE_WPM[1]:.0f}）。",
+                "too_fast": f"转写测算语速 {wpm} 字/分，高于舒适区间（{COMFORTABLE_WPM[0]:.0f}–{COMFORTABLE_WPM[1]:.0f}）。",
+                "optimal": f"转写测算语速 {wpm} 字/分，落在舒适区间（{COMFORTABLE_WPM[0]:.0f}–{COMFORTABLE_WPM[1]:.0f}）。",
+            }[speed_eval]
+        ]
+        if total_fillers:
+            parts.append(
+                f"口头禅共 {total_fillers} 次（{'、'.join(filler_counts)}），环节切换处可用停顿替代。"
+            )
+        if hesitations:
+            parts.append(f"检测到 {hesitations} 处 ≥{PAUSE_HESITATION_SECONDS:.0f} 秒的停顿。")
+        missing = [m.phase_name for m in matches if not m.covered]
+        if missing:
+            parts.append("标志语未覆盖的环节：" + "、".join(missing) + "。")
+        else:
+            parts.append("五个环节均检测到标志语，请核对是否与教案设计一致。")
+        parts.append(f"以上为 {round(dur_min, 1)} 分钟文本的测算结果，不构成等级或分数。")
+        return " ".join(parts)

@@ -60,3 +60,9 @@ _contract_snapshot/
 
 # Qoder 本地工作区元数据
 .workbuddy/
+
+# 运行时 learner 状态（FSRS 调度/错题队列），非知识库内容，按机器隔离
+.local_state/
+
+# Chroma 向量索引：可从 数据集/*/cards 全量重建，不入库
+chroma/

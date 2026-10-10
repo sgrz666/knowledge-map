@@ -1,45 +1,98 @@
-"""CurriculumPlannerAgent generating personalized adaptive study paths."""
+"""CurriculumPlannerAgent — adaptive path built only from library facts and persisted state."""
 from __future__ import annotations
+
+from typing import List, Optional
 
 from services.common.models import (
     CurriculumPlanResponse,
     PlanRequest,
+    UserMasteryRecord,
 )
+from services.knowledge.repository import KnowledgeRepository, get_repository
+from services.memory.store import default_store
 from services.planner.scheduler import AdaptiveScheduler
 
 
 class CurriculumPlannerAgent:
     """Agent orchestrating adaptive curriculum scheduling based on mastery and exam countdown."""
 
-    def __init__(self):
-        self.scheduler = AdaptiveScheduler()
+    def __init__(
+        self,
+        repository: Optional[KnowledgeRepository] = None,
+        store=None,
+    ) -> None:
+        self.repository = repository or get_repository()
+        self.store = store if store is not None else default_store()
+        self.scheduler = AdaptiveScheduler(repository=self.repository, store=self.store)
 
     def generate_plan(self, request: PlanRequest) -> CurriculumPlanResponse:
         """Create a multi-day study schedule tailored to available time and mastery gaps."""
-        days = request.days_until_exam
-        daily_mins = request.daily_available_minutes
-        mastery_list = request.current_mastery or []
-
-        daily_plans = self.scheduler.schedule_curriculum(
-            days=days,
-            daily_minutes=daily_mins,
-            mastery_records=mastery_list,
+        daily_plans, notices, prereq_note = self.scheduler.schedule(
+            user_id=request.user_id,
+            exam=request.exam_type,
+            days=request.days_until_exam,
+            daily_minutes=request.daily_available_minutes,
+            mastery_records=request.current_mastery,
+            tier=request.trust_tier.value,
         )
-
-        milestones = [
-            f"第 1 天: 开启核心高频知识点首轮突破",
-            f"第 {min(7, days)} 天: 第一阶段全真模考检验与雷达图校准",
-        ]
-        if days >= 14:
-            milestones.append(f"第 {min(14, days)} 天: 第二阶段薄弱模块专项攻坚")
-        if days >= 21:
-            milestones.append(f"第 {min(21, days)} 天: 第三阶段限时提速与主观题量规演练")
-        milestones.append(f"考前 3 天: 高频错题全面清零与全真考务时序演练")
-
         return CurriculumPlanResponse(
             user_id=request.user_id,
             exam_type=request.exam_type,
-            total_days=days,
+            total_days=len(daily_plans),
             daily_plans=daily_plans,
-            milestones=milestones,
+            milestones=self._milestones(daily_plans, request.current_mastery),
+            prerequisite_note=prereq_note,
+            trust_tier=request.trust_tier,
+            notices=notices,
         )
+
+    # ---------------------------------------------------------------- helpers
+    @staticmethod
+    def _milestones(daily_plans: List[object], mastery_records: Optional[List[UserMasteryRecord]]) -> List[str]:
+        """Milestone text is read back out of the generated calendar, never pre-written."""
+        if not daily_plans:
+            return ["当前档位内可用考点为空，未生成日历；请先由教研复核题库挂载关系后重试。"]
+
+        out: List[str] = []
+        first = daily_plans[0]
+        node_ids = list(
+            dict.fromkeys(
+                task.node_id
+                for task in getattr(first, "tasks", [])
+                if getattr(task, "node_id", None)
+            )
+        )
+        if node_ids:
+            out.append(
+                f"第 1 天：从库内题池最大的考点切入（{len(node_ids)} 个考点，"
+                f"共 {sum(t.target_question_count for t in first.tasks)} 题）"
+            )
+        mock_days = [
+            plan.day_index
+            for plan in daily_plans
+            if any(t.task_type == "mock_sprint" for t in plan.tasks)
+        ]
+        if mock_days:
+            out.append(
+                f"模考节点：第 {'、'.join(str(d) for d in mock_days)} 天安排限时模考，"
+                "组卷结构与官方卷面一致"
+            )
+        drills = [
+            plan.day_index
+            for plan in daily_plans
+            if any(t.task_type == "weakness_drill" for t in plan.tasks)
+        ]
+        if drills:
+            out.append(
+                f"薄弱攻坚：第 {drills[0]} 天起对已有掌握度记录的考点做专项练习"
+                f"（当前传入 {len(mastery_records or [])} 条掌握度）"
+            )
+        elif mastery_records is None or not mastery_records:
+            out.append("首轮无掌握度记录：完成诊断与作答后，日历会按真实掌握度重排薄弱项")
+
+        last = daily_plans[-1]
+        out.append(
+            f"第 {last.day_index} 天（考前）：{last.total_minutes} 分钟用于错题回炉与已排考点巩固，"
+            "不新增考点"
+        )
+        return out

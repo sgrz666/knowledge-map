@@ -1,148 +1,424 @@
-"""PracticeEngineAgent managing paper generation across 7 modes and timed exam protocols."""
+"""PracticeEngineAgent: assembles papers from the knowledge library through TrustGate.
+
+Nothing here embeds a question, an answer or a difficulty value; every item is read from
+``数据集/**/questions`` by ``question_id``, filtered by the gate for the requested tier,
+and mock exams follow the official blueprints in ``paper_specs.jsonl``.
+"""
 from __future__ import annotations
 
-import uuid
-from typing import Dict, List
+import hashlib
+import random
+import re
+from collections import Counter
+from datetime import date
+from typing import List, Optional, Sequence, Tuple
 
 from services.common.models import (
     AssemblePaperRequest,
     PracticeMode,
     PracticePaperResponse,
+    TrustTier,
 )
+from services.knowledge.naming import exam_values, module_values
+from services.knowledge.repository import KnowledgeRepository, QuestionMeta, get_repository
+from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate
+from services.memory.agent import MemoryReviewAgent
 from services.practice.cet_statemachine import CETExamStateMachine
 
-# Sample curated seed questions representing valid ontology items
-SAMPLE_QUESTION_BANK = [
-    {
-        "question_id": "ntce-item-m1-001",
-        "exam_type": "NTCE",
-        "module_id": "m1",
-        "node_id": "ntce.m1.student_view",
-        "stem": "某小学班主任李老师在评定学生操行时，不仅看期末考试成绩，还结合学生平时的课堂表现、作业情况和劳动参与进行多元评价。李老师的做法（ ）。",
-        "options": {
-            "A": "不恰当，违背了以考试成绩为准绳的原则",
-            "B": "恰当，体现了关注学生发展过程的评价理念",
-            "C": "不恰当，忽视了终结性评价的客观权威性",
-            "D": "恰当，有利于减轻教师的教学管理负担",
-        },
-        "answer": "B",
-        "difficulty": 0.35,
-        "mode_fit": ["point_focus", "daily_practice", "mock_exam", "high_frequency"],
-    },
-    {
-        "question_id": "ntce-item-m2-002",
-        "exam_type": "NTCE",
-        "module_id": "m2",
-        "node_id": "ntce.m2.education_law",
-        "stem": "根据《中华人民共和国义务教育法》，适龄儿童、少年的父母或者其他法定监护人应当依法保证其按时入学接受并完成义务教育。这体现了义务教育的（ ）。",
-        "options": {
-            "A": "强制性",
-            "B": "免费性",
-            "C": "普及性",
-            "D": "基础性",
-        },
-        "answer": "A",
-        "difficulty": 0.42,
-        "mode_fit": ["point_focus", "daily_practice", "mock_exam", "weakness_breakthrough"],
-    },
-    {
-        "question_id": "ntce-item-m3-003",
-        "exam_type": "NTCE",
-        "module_id": "m3",
-        "node_id": "ntce.m3.ethics_code",
-        "stem": "张老师利用课余时间给班上有偿补课，还要求全班同学自愿购买其指定的教辅资料。张老师的行为违反了《中小学教师职业道德规范》中的（ ）。",
-        "options": {
-            "A": "爱国守法与爱岗敬业",
-            "B": "关爱学生与教书育人",
-            "C": "廉洁从教与为人师表",
-            "D": "严谨治学与终身学习",
-        },
-        "answer": "C",
-        "difficulty": 0.30,
-        "mode_fit": ["point_focus", "daily_practice", "mock_exam", "high_frequency", "timed_sprint"],
-    },
-    {
-        "question_id": "cet4-item-read-001",
-        "exam_type": "CET-4",
-        "module_id": "cet_reading",
-        "node_id": "cet4.reading.careful",
-        "stem": "Which of the following is most likely true according to the passage regarding autonomous vehicles?",
-        "options": {
-            "A": "They completely eliminate all urban traffic congestion.",
-            "B": "They raise significant legal and ethical concerns regarding liability.",
-            "C": "They are already universally adopted worldwide.",
-            "D": "They require more fossil fuel consumption than conventional cars.",
-        },
-        "answer": "B",
-        "difficulty": 0.55,
-        "mode_fit": ["point_focus", "daily_practice", "mock_exam", "timed_sprint"],
-    },
-]
+NO_CONTENT_NOTICE = "当前档位没有可用于组卷的内容；请修复待复核队列或改用 research_internal 档位。"
+NO_INPUT_NOTICE = "该模式需要输入（考点/错题/模块），系统不猜测填充；请携带 target_node、weak_node_ids 或 wrong_question_ids 重试。"
+
+MODE_TITLES = {
+    PracticeMode.POINT_FOCUS: "【考点专练】{scope} 定向强化",
+    PracticeMode.WEAKNESS_BREAKTHROUGH: "【薄弱突击】诊断驱动的薄弱考点歼灭",
+    PracticeMode.ERROR_ELIMINATION: "【错题消灭】FSRS 到期错题重做",
+    PracticeMode.DAILY_PRACTICE: "【每日一练】真题池随机抽练",
+    PracticeMode.HIGH_FREQUENCY: "【高频冲刺】按历年考点覆盖度排序",
+    PracticeMode.TIMED_SPRINT: "【限时快练】客观题节奏冲刺",
+    PracticeMode.MOCK_EXAM: "【全真模考】{scope} 官方考务时序卷",
+}
 
 
 class PracticeEngineAgent:
     """Agent assembling tailored question sets across 7 practice modalities."""
 
-    def __init__(self):
-        pass
+    def __init__(
+        self,
+        repository: Optional[KnowledgeRepository] = None,
+        memory: Optional[MemoryReviewAgent] = None,
+    ) -> None:
+        self.repository = repository or get_repository()
+        self._memory = memory
 
+    @property
+    def memory(self) -> MemoryReviewAgent:
+        if self._memory is None:
+            self._memory = MemoryReviewAgent()
+        return self._memory
+
+    # --------------------------------------------------------------- public
     def assemble_paper(self, req: AssemblePaperRequest) -> PracticePaperResponse:
-        """Assemble practice paper matching user mode, exam type, and target scope."""
-        mode = req.practice_mode
-        exam = req.exam_type
+        gate = TrustGate(req.trust_tier.value)
+        notices: List[str] = [COPYRIGHT_NOTICE]
 
-        # 1. Filter bank matching exam
-        candidates = [q for q in SAMPLE_QUESTION_BANK if q["exam_type"] == exam]
-        if not candidates:
-            # Fallback if specific exam pool is empty in mock sample
-            candidates = SAMPLE_QUESTION_BANK
+        exams = exam_values(req.exam_type)
+        modules, module_notice = module_values(req.exam_type, req.target_module)
+        if module_notice:
+            notices.append(module_notice)
 
-        # 2. Filter by target scope if specified
-        if req.target_node:
-            matched = [q for q in candidates if q.get("node_id") == req.target_node]
-            if matched:
-                candidates = matched
-        elif req.target_module:
-            matched = [q for q in candidates if q.get("module_id") == req.target_module]
-            if matched:
-                candidates = matched
+        # A3: 缺答案/来源冲突的题不进组卷，索引查询层面就挡住，池子大小才是可核对答案的池子。
+        answer_pool = list(self.repository.find_questions(exams=exams, require_answer=True))
+        pool = [m for m in answer_pool if m.has_answerable_text]
+        extraction_gap = len(answer_pool) - len(pool)
+        usable_pool = gate.filter_usable(pool)
 
-        # 3. Mode-specific selection
-        selected_questions = candidates[:req.item_count]
+        spec = None
+        structure: List[dict] = []
+        if req.practice_mode == PracticeMode.MOCK_EXAM:
+            selection, spec, mode_notices, structure = self._select_mock(
+                req, usable_pool, modules
+            )
+        else:
+            selection, mode_notices = self._select_adaptive(
+                req, usable_pool, gate, modules, exams
+            )
+        notices.extend(mode_notices)
 
-        # 4. Mode-specific titles and time limits
-        mode_titles = {
-            PracticeMode.POINT_FOCUS: f"【考点专练】{req.target_node or '重点考点'} 强化训练",
-            PracticeMode.WEAKNESS_BREAKTHROUGH: "【薄弱突击】AI 诊断薄弱考点专项歼灭",
-            PracticeMode.ERROR_ELIMINATION: "【错题消灭】FSRS 记忆衰减错题重做",
-            PracticeMode.DAILY_PRACTICE: "【每日一练】考点精选通关每日打卡",
-            PracticeMode.HIGH_FREQUENCY: "【高频冲刺】历年真题高频核心考点集训",
-            PracticeMode.TIMED_SPRINT: "【限时快练】考场极限答题节奏冲刺",
-            PracticeMode.MOCK_EXAM: f"【全真模考】{exam} 官方考务时序模拟卷",
-        }
-        title = mode_titles.get(mode, f"【专项练习】{exam} 练习试卷")
+        questions, item_verdicts = self._materialise(selection, gate, req.trust_tier)
+        notices.extend(gate.response_notices(item_verdicts))
+        if extraction_gap:
+            notices.append(
+                f"{extraction_gap} 题在库内只剩套名与题号（content.stem 为空且无选项可勾），"
+                "已从组卷池剔除而不冒充题面；这是题干抽取缺口，需教研补抽取后才可练习。"
+            )
 
-        time_limits = {
-            PracticeMode.TIMED_SPRINT: 15,
-            PracticeMode.MOCK_EXAM: 130 if "CET" in exam else 120,
-            PracticeMode.DAILY_PRACTICE: 20,
-        }
-        limit_mins = time_limits.get(mode, 30)
+        limit = self._time_limit(req, spec, len(questions))
+        scope = req.target_node or req.target_module or req.exam_type
+        title = MODE_TITLES.get(req.practice_mode, "【专项练习】{scope}").format(scope=scope)
 
-        # 5. CET Mock Exam gets official 3-stage timed state machine
-        stage_state = None
-        if mode == PracticeMode.MOCK_EXAM and "CET" in exam:
-            stage_state = CETExamStateMachine.get_initial_state()
+        if not questions:
+            notices.append(
+                NO_CONTENT_NOTICE
+                if not usable_pool
+                else "过滤后没有可组卷的题目（题型/档位/考点条件过窄），已如实返回空卷而不是补造题目。"
+            )
 
-        paper_id = f"paper-{exam.lower()}-{mode.value[:4]}-{uuid.uuid4().hex[:6]}"
-
+        planned = sum(int(e.get("planned_count") or 0) for e in structure) or req.item_count
         return PracticePaperResponse(
-            paper_id=paper_id,
+            paper_id=f"paper-{req.exam_type.lower()}-{req.practice_mode.value[:4]}-{self._token(req)}",
             title=title,
-            exam_type=exam,
-            practice_mode=mode,
-            questions=selected_questions,
-            total_items=len(selected_questions),
-            time_limit_minutes=limit_mins,
-            stage_state=stage_state,
+            exam_type=req.exam_type,
+            practice_mode=req.practice_mode,
+            questions=questions,
+            total_items=len(questions),
+            time_limit_minutes=limit,
+            stage_state=CETExamStateMachine.get_initial_state()
+            if req.practice_mode == PracticeMode.MOCK_EXAM and req.exam_type.startswith("CET")
+            else None,
+            trust_tier=req.trust_tier,
+            pool_size=len(usable_pool),
+            shortfall=max(0, planned - len(questions)),
+            spec_id=(spec or {}).get("spec_id"),
+            structure=structure,
+            notices=notices,
         )
+
+    def node_frequency(self, exam: str, top: int = 12) -> List[Tuple[str, int]]:
+        """Rank knowledge nodes by how many real questions assess them within one exam."""
+        counter: Counter = Counter()
+        for meta in self.repository.find_questions(exams=exam_values(exam)):
+            for node in meta.node_ids:
+                counter[node] += 1
+        return counter.most_common(top)
+
+    # ---------------------------------------------------------- selection
+    def _select_adaptive(
+        self,
+        req: AssemblePaperRequest,
+        usable_pool: Sequence[QuestionMeta],
+        gate: TrustGate,
+        modules: Optional[Tuple[str, ...]],
+        exams: Tuple[str, ...],
+    ) -> Tuple[List[QuestionMeta], List[str]]:
+        notices: List[str] = []
+        mode = req.practice_mode
+        pool = list(usable_pool)
+
+        if mode == PracticeMode.ERROR_ELIMINATION:
+            ids = list(req.wrong_question_ids) or self.memory.due_question_ids(
+                req.user_id, limit=req.item_count
+            )
+            if not ids:
+                notices.append("FSRS 队列为空：该 learner 尚无错题记录，请先作答或完成诊断。")
+                return [], notices
+            metas = []
+            unknown = skipped = untexted = 0
+            for qid in ids:
+                meta = self.repository.get_meta(qid)
+                if meta is None or meta.exam not in exams:
+                    unknown += 1
+                    continue
+                if not meta.has_answerable_text:
+                    # 错题本里的题也可能只有套名没有题干：重做它等于对着一行标题作答，只能跳过。
+                    untexted += 1
+                    continue
+                if gate.classify_meta(meta).servable_in_paper:
+                    metas.append(meta)
+                else:
+                    # 错题本里可能有教研尚未核定答案的题：重做它没有判分依据，只能跳过并说明。
+                    skipped += 1
+            if unknown:
+                notices.append(f"{unknown} 道错题不在库内或不属于当前考试，已跳过。")
+            if untexted:
+                notices.append(
+                    f"{untexted} 道错题在库内只剩套名与题号（content.stem 为空且无选项可勾），"
+                    "已跳过：没有题面的重做无从下手，系统不用猜测题干补位。"
+                )
+            if skipped:
+                notices.append(
+                    f"{skipped} 道错题在库内没有可核对的答案（answer_status 非 letter_only/reference_only/verified），"
+                    "已跳过：没有答案键的重做没有判分依据，系统不用猜测答案补位。"
+                )
+            return metas[: req.item_count], notices
+
+        if mode in (PracticeMode.POINT_FOCUS,):
+            if req.target_node:
+                pool = [m for m in pool if req.target_node in m.node_ids]
+            elif modules:
+                pool = [m for m in pool if m.module in modules]
+            else:
+                notices.append(NO_INPUT_NOTICE)
+                return [], notices
+
+        elif mode == PracticeMode.WEAKNESS_BREAKTHROUGH:
+            nodes = list(req.weak_node_ids) or self.memory.weak_node_ids(req.user_id)
+            if nodes:
+                pool = [m for m in pool if set(nodes) & set(m.node_ids)]
+            elif modules:
+                pool = [m for m in pool if m.module in modules]
+            else:
+                ranked = [n for n, _ in self.node_frequency(req.exam_type, top=3)]
+                pool = [m for m in pool if set(ranked) & set(m.node_ids)]
+                notices.append("无诊断记录，已回退到历年覆盖度最高的考点抽题（非个性化薄弱项）。")
+
+        elif mode == PracticeMode.HIGH_FREQUENCY:
+            ranked = [n for n, _ in self.node_frequency(req.exam_type, top=12)]
+            if modules:
+                pool = [m for m in pool if m.module in modules]
+            ranked_set = set(ranked)
+            scored = [(len(ranked_set & set(m.node_ids)), m.question_id, m) for m in pool]
+            scored.sort(key=lambda x: (-x[0], x[1]))
+            pool = [m for _, _, m in scored if m.node_ids]
+
+        elif mode == PracticeMode.TIMED_SPRINT:
+            # Letter-answerable is the data-truth definition of an auto-checkable item.
+            pool = [m for m in pool if m.answer_status == "letter_only"]
+            if modules:
+                pool = [m for m in pool if m.module in modules]
+
+        elif mode == PracticeMode.DAILY_PRACTICE:
+            if modules:
+                pool = [m for m in pool if m.module in modules]
+
+        if mode not in (PracticeMode.HIGH_FREQUENCY, PracticeMode.ERROR_ELIMINATION):
+            pool = self._stable_sample(pool, req, seed_extra=mode.value)
+        return pool[: req.item_count], notices
+
+    def _select_mock(
+        self,
+        req: AssemblePaperRequest,
+        usable_pool: Sequence[QuestionMeta],
+        modules: Optional[Tuple[str, ...]],
+    ) -> Tuple[List[QuestionMeta], Optional[dict], List[str], List[dict]]:
+        """Follow an official blueprint: real question ids when pinned, section counts otherwise."""
+        notices: List[str] = []
+        specs = self.repository.paper_specs(req.exam_type)
+        if not specs:
+            notices.append("库内没有该考试的考务规格（paper_specs），已退回按题型均衡抽题。")
+            return (
+                self._stable_sample(list(usable_pool), req, seed_extra="mock"),
+                None,
+                notices,
+                [],
+            )
+
+        spec, spec_notice = self._pick_spec(req, specs)
+        if spec_notice:
+            notices.append(spec_notice)
+
+        by_id = {m.question_id: m for m in usable_pool}
+        scoped = self._scope_to_spec(spec, usable_pool)
+        sections = spec.get("sections") or spec.get("parts") or []
+        structure: List[dict] = []
+        chosen: List[QuestionMeta] = []
+        taken = set()
+
+        for part in sections:
+            name = part.get("name") or ""
+            qtype = part.get("question_type") or ""
+            entry = {
+                "name": name,
+                "module": part.get("module"),
+                "question_type": qtype or None,
+                "duration_minutes": part.get("duration_minutes"),
+                "score": part.get("score") or part.get("total_score"),
+                "score_ratio": part.get("score_ratio"),
+                "lock_policy": part.get("lock_policy"),
+            }
+            pinned = part.get("question_ids")
+            want = int(part.get("count") or part.get("question_count") or len(pinned or []))
+            entry["planned_count"] = want
+
+            if pinned:
+                got = [by_id[qid] for qid in pinned if qid in by_id]
+                dropped = len(pinned) - len(got)
+                if dropped:
+                    notices.append(
+                        f"「{name}」有 {dropped} 题不在可用池（隔离、缺答案或未入库），本节实发 {len(got)} 题。"
+                    )
+                chosen.extend(got)
+                entry["issued_count"] = len(got)
+            else:
+                candidates = [
+                    m
+                    for m in scoped
+                    if m.question_id not in taken
+                    and (m.section == name or (qtype and m.question_type == qtype))
+                ]
+                candidates.sort(key=lambda m: m.question_id)
+                picked = candidates[:want]
+                chosen.extend(picked)
+                taken.update(m.question_id for m in picked)
+                entry["issued_count"] = len(picked)
+                if len(picked) < want:
+                    notices.append(
+                        f"规格 {spec.get('spec_id')} 的「{name or qtype}」需要 {want} 题，"
+                        f"同题型可用仅 {len(candidates)} 题，已如实缩短本节。"
+                    )
+            structure.append(entry)
+
+        return chosen, spec, notices, structure
+
+    @staticmethod
+    def _pick_spec(req: AssemblePaperRequest, specs: Sequence[dict]) -> Tuple[dict, str]:
+        if req.spec_id:
+            hit = next((s for s in specs if s.get("spec_id") == req.spec_id), None)
+            if hit is not None:
+                return hit, ""
+            notice = f"spec_id={req.spec_id} 不在库内规格中，已按其余条件选择。"
+        else:
+            notice = ""
+
+        cands = list(specs)
+        if req.school_level:
+            cands = [s for s in cands if s.get("school_level") == req.school_level] or cands
+        if req.subject:
+            cands = [s for s in cands if s.get("subject") == req.subject] or cands
+        if cands and cands[0].get("paper_id"):
+            # CET: newest real paper first, so the default mock is the closest to today's 考务.
+            cands.sort(key=lambda s: (str(s.get("year") or ""), str(s.get("paper") or "")), reverse=True)
+        chosen = cands[0] if cands else specs[0]
+        if not notice:
+            notice = (
+                f"未指定 spec_id，已按〈{chosen.get('title') or chosen.get('spec_id')}〉组卷；"
+                "如需其它学段/科目请传 spec_id。"
+            )
+        return chosen, notice
+
+    @staticmethod
+    def _scope_to_spec(spec: dict, pool: Sequence[QuestionMeta]) -> List[QuestionMeta]:
+        school_level = spec.get("school_level")
+        subject = spec.get("subject")
+        scoped = list(pool)
+        if school_level:
+            hit = [m for m in scoped if m.school_level == school_level]
+            scoped = hit or scoped
+        if subject:
+            hit = [m for m in scoped if m.subject == subject]
+            scoped = hit or scoped
+        return scoped
+
+    def _stable_sample(
+        self, pool: Sequence[QuestionMeta], req: AssemblePaperRequest, seed_extra: str
+    ) -> List[QuestionMeta]:
+        """Deterministic per (user, day, mode) so a paper can be reproduced."""
+        if not pool:
+            return []
+        seed_text = f"{req.user_id}|{date.today().isoformat()}|{seed_extra}"
+        seed = int(hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:12], 16)
+        rng = random.Random(seed)
+        ordered = sorted(pool, key=lambda m: m.question_id)
+        rng.shuffle(ordered)
+        return ordered
+
+    # -------------------------------------------------------- materialise
+    def _materialise(
+        self, metas: Sequence[QuestionMeta], gate: TrustGate, tier: TrustTier
+    ) -> Tuple[List[dict], List]:
+        questions: List[dict] = []
+        verdicts = []
+        for meta in metas:
+            record = self.repository.load_question(meta.question_id)
+            if record is None:
+                continue
+            verdict = gate.classify_record(record)
+            if not verdict.servable_in_paper:
+                continue
+            content = record.get("content") or {}
+            stem = content.get("stem") or record.get("text") or ""
+            payload = {
+                "question_id": meta.question_id,
+                "exam": record.get("exam"),
+                "module": record.get("module"),
+                "section": record.get("section"),
+                "question_type": record.get("question_type"),
+                "stem": stem,
+                "options": content.get("options") or [],
+                "material_id": record.get("material_id"),
+                "node_ids": list(meta.node_ids),
+                "requirement_ids": list(meta.requirement_ids),
+                "difficulty": {
+                    "value": meta.difficulty,
+                    "method": meta.difficulty_method,
+                    "calibration": "heuristic",
+                    "label": "教研初估",
+                },
+                "review_status": verdict.review_status,
+                "answer_status": verdict.answer_status,
+                "answer_available": verdict.may_assert_answer,
+                "analysis_available": bool(content.get("analysis") or record.get("analysis")),
+                "source": record.get("source") or {},
+            }
+            # Answers only travel in the research tier; the published tier is
+            # fail-closed on unsigned content anyway.
+            if tier == TrustTier.RESEARCH_INTERNAL and verdict.may_assert_answer:
+                payload["answer"] = content.get("answer")
+            questions.append(payload)
+            verdicts.append(verdict)
+        return questions, verdicts
+
+    @staticmethod
+    def _time_limit(req: AssemblePaperRequest, spec: Optional[dict], items: int) -> int:
+        if req.practice_mode == PracticeMode.MOCK_EXAM and spec:
+            return int(spec.get("total_duration_minutes") or 120)
+        if req.practice_mode == PracticeMode.TIMED_SPRINT:
+            return max(5, int(items))
+        if req.practice_mode == PracticeMode.DAILY_PRACTICE:
+            return 20
+        return max(10, int(items) * 2)
+
+
+    @staticmethod
+    def _token(req: AssemblePaperRequest) -> str:
+        digest = hashlib.sha256(
+            "|".join(
+                [
+                    req.user_id,
+                    req.practice_mode.value,
+                    req.target_node or "",
+                    req.spec_id or "",
+                    date.today().isoformat(),
+                ]
+            ).encode("utf-8")
+        ).hexdigest()
+        return digest[:8]

@@ -1,160 +1,269 @@
-"""Topological DAG and Priority-based scheduling algorithms."""
+"""Scheduling over the library's own nodes — no built-in syllabus.
+
+The previous version of this file shipped ``DEFAULT_SYLLABUS_NODES``: thirteen hardcoded 教资
+syllabus nodes with weights, frequencies and prerequisites, i.e. a second copy of the knowledge
+graph living inside service code. Acceptance A1 forbids that, so the candidate list now comes
+from ``KnowledgeRepository`` (nodes that questions actually attach to, with their real pool
+sizes) and the ordering comes from ``GraphIndex.topological_order``, which refuses to use
+prerequisite edges while none are confirmed (§3.3: 先修边暂不入算法).
+
+Missing mastery is treated as *unseen*, not as a made-up 0.40 baseline: an unseen node is ranked
+by how much practice material the library actually holds for it, and the plan says so.
+"""
 from __future__ import annotations
 
-from typing import Dict, List, Optional
 from datetime import date, timedelta
+from typing import Dict, List, Optional, Tuple
 
-from services.common.models import (
-    DailyPlan,
-    DailyTaskItem,
-    UserMasteryRecord,
+from services.common.models import DailyPlan, DailyTaskItem, UserMasteryRecord
+from services.knowledge.graph_index import get_graph_index, library_for_exam
+from services.knowledge.naming import exam_values
+from services.knowledge.repository import KnowledgeRepository, get_repository
+from services.knowledge.trust import TrustGate
+
+MINUTES_PER_QUESTION = 2.0
+REVIEW_SHARE = 0.30
+NEW_NODE_SHARE = 0.55
+NODES_PER_DAY = 2
+MOCK_MINUTES = 90
+MOCK_EVERY_DAYS = 7
+WEAK_MASTERY_THRESHOLD = 0.5
+
+UNSEEN_NOTICE = (
+    "排课依据为库内真实题池与已持久化的掌握度；未练习过的考点按“无掌握度记录”处理，"
+    "不套用任何默认基线分。"
 )
-
-# Standard default NTCE syllabus nodes with module mapping and weights
-DEFAULT_SYLLABUS_NODES = [
-    {"node_id": "ntce.m1.student_view", "module": "m1", "title": "以人为本的学生观", "weight": 0.85, "freq": 0.90, "prereq": []},
-    {"node_id": "ntce.m1.teacher_view", "module": "m1", "title": "新课程背景下的教师观", "weight": 0.85, "freq": 0.92, "prereq": ["ntce.m1.student_view"]},
-    {"node_id": "ntce.m1.education_view", "module": "m1", "title": "素质教育与全面发展观", "weight": 0.80, "freq": 0.88, "prereq": []},
-    {"node_id": "ntce.m2.education_law", "module": "m2", "title": "教育法与义务教育法核心法条", "weight": 0.75, "freq": 0.85, "prereq": []},
-    {"node_id": "ntce.m2.minors_protection", "module": "m2", "title": "未成年人保护法与预防犯罪法", "weight": 0.70, "freq": 0.80, "prereq": ["ntce.m2.education_law"]},
-    {"node_id": "ntce.m2.student_rights", "module": "m2", "title": "学生的受教育权与人身安全保护", "weight": 0.78, "freq": 0.84, "prereq": ["ntce.m2.education_law"]},
-    {"node_id": "ntce.m3.ethics_code", "module": "m3", "title": "中小学教师职业道德规范（三爱两人一终身）", "weight": 0.90, "freq": 0.95, "prereq": []},
-    {"node_id": "ntce.m3.teacher_behavior", "module": "m3", "title": "教师职业行为准则与师德违规处理", "weight": 0.75, "freq": 0.78, "prereq": ["ntce.m3.ethics_code"]},
-    {"node_id": "ntce.m4.culture_history", "module": "m4", "title": "中国古代历史与传统文化常识", "weight": 0.60, "freq": 0.70, "prereq": []},
-    {"node_id": "ntce.m4.science_literacy", "module": "m4", "title": "中外科技常识与重大科学成就", "weight": 0.60, "freq": 0.65, "prereq": []},
-    {"node_id": "ntce.m5.logical_reasoning", "module": "m5", "title": "逻辑思维能力（概念/推理/论证）", "weight": 0.70, "freq": 0.75, "prereq": []},
-    {"node_id": "ntce.m5.reading_comprehension", "module": "m5", "title": "现代文阅读理解主观题解法", "weight": 0.85, "freq": 0.90, "prereq": []},
-    {"node_id": "ntce.m5.essay_writing", "module": "m5", "title": "材料作文立意与论说文结构", "weight": 0.95, "freq": 1.00, "prereq": ["ntce.m1.teacher_view", "ntce.m3.ethics_code"]},
-]
-
-MODULE_NAME_MAP = {
-    "m1": "职业理念",
-    "m2": "教育法律法规",
-    "m3": "教师职业道德",
-    "m4": "文化素养",
-    "m5": "基本能力",
-}
+POOL_EXHAUSTED_NOTICE = (
+    "新考点已排完，后续日程改为对已排考点做巩固练习；如需更大题量请先扩充题库，系统不会虚构考点。"
+)
 
 
 class AdaptiveScheduler:
-    """Computes priority scores and schedules learning calendar satisfying DAG constraints."""
+    """Builds the day-by-day calendar from library facts and the learner's persisted state."""
 
-    @staticmethod
-    def calculate_priority(
-        mastery_rate: float,
-        frequency: float,
-        syllabus_weight: float,
-        w1: float = 0.50,
-        w2: float = 0.30,
-        w3: float = 0.20,
-    ) -> float:
-        """Calculate node priority: Priority(k) = w1 * (1 - M_k) + w2 * Freq(k) + w3 * Weight(k)."""
-        loss_rate = 1.0 - max(0.0, min(1.0, mastery_rate))
-        return round(w1 * loss_rate + w2 * frequency + w3 * syllabus_weight, 4)
+    def __init__(
+        self,
+        repository: Optional[KnowledgeRepository] = None,
+        store=None,
+    ) -> None:
+        self.repository = repository or get_repository()
+        self.store = store
 
-    @classmethod
-    def schedule_curriculum(
-        cls,
+    # ------------------------------------------------------------- candidates
+    def candidate_nodes(self, exam: str, *, tier: str = "research_internal") -> List[dict]:
+        """Every knowledge node that the current tier can actually practise, with its real pool."""
+        gate = TrustGate(tier)  # type: ignore[arg-type]
+        library = library_for_exam(exam)
+        graph = get_graph_index(library) if library else None
+
+        pools: Dict[str, dict] = {}
+        for meta in self.repository.find_questions(
+            exams=exam_values(exam), require_nodes=True, require_answer=True
+        ):
+            if not gate.classify_meta(meta).usable:
+                continue
+            for node_id in meta.node_ids:
+                row = pools.get(node_id)
+                if row is None:
+                    row = pools[node_id] = {
+                        "node_id": node_id,
+                        "pool": 0,
+                        "module": meta.module or "未标注模块",
+                        "difficulty_sum": 0.0,
+                        "difficulty_n": 0,
+                    }
+                row["pool"] += 1
+                if meta.difficulty is not None:
+                    row["difficulty_sum"] += float(meta.difficulty)
+                    row["difficulty_n"] += 1
+
+        rows: List[dict] = []
+        for node_id, row in pools.items():
+            row["requirements"] = len(graph.requirements_for(node_id)) if graph else 0
+            row["avg_difficulty"] = (
+                round(row["difficulty_sum"] / row["difficulty_n"], 4) if row["difficulty_n"] else None
+            )
+            row.pop("difficulty_sum", None)
+            row.pop("difficulty_n", None)
+            rows.append(row)
+        rows.sort(key=lambda r: (-r["pool"], r["node_id"]))
+        return rows
+
+    # ------------------------------------------------------------- scheduling
+    def schedule(
+        self,
+        *,
+        user_id: str,
+        exam: str,
         days: int,
         daily_minutes: int,
         mastery_records: Optional[List[UserMasteryRecord]] = None,
-        start_date: Optional[date] = None,
-    ) -> List[DailyPlan]:
-        """Generate day-by-day plan adhering to topological dependencies and priority."""
-        if start_date is None:
-            start_date = date.today()
+        tier: str = "research_internal",
+    ) -> Tuple[List[DailyPlan], List[str], str]:
+        notices: List[str] = []
+        rows = self.candidate_nodes(exam, tier=tier)
+        if not rows:
+            notices.append("当前档位内没有可用于排课的考点（题池为空），已停止生成日历而不是用内置大纲填充。")
+            return [], notices, ""
 
-        # Build mastery map
-        mastery_map: Dict[str, float] = {}
-        if mastery_records:
-            for rec in mastery_records:
-                mastery_map[rec.node_id] = rec.mastery_score
+        by_node = {row["node_id"]: row for row in rows}
+        mastery_map = self._mastery_map(user_id, mastery_records)
+        library = library_for_exam(exam)
+        ranked, prereq_note = self._rank(rows, mastery_map, library)
+        if library:
+            notices.extend(get_graph_index(library).notices())
+        if prereq_note:
+            notices.append(prereq_note)
+        notices.append(UNSEEN_NOTICE)
 
-        # 1. Compute priority score for each candidate node
-        node_pool = []
-        for n in DEFAULT_SYLLABUS_NODES:
-            nid = n["node_id"]
-            m_score = mastery_map.get(nid, 0.40)  # default new node mastery = 0.40
-            prio = cls.calculate_priority(
-                mastery_rate=m_score,
-                frequency=n["freq"],
-                syllabus_weight=n["weight"],
-            )
-            node_pool.append({**n, "mastery": m_score, "priority": prio})
+        due = self._due_question_ids(user_id)
+        today = date.today()
+        plans: List[DailyPlan] = []
+        cursor = 0
+        exhausted_reported = False
 
-        # 2. Sort pool by priority descending
-        node_pool.sort(key=lambda x: x["priority"], reverse=True)
+        for index in range(days):
+            budget = daily_minutes
+            tasks: List[DailyTaskItem] = []
 
-        daily_plans: List[DailyPlan] = []
-        node_idx = 0
-        total_nodes = len(node_pool)
-
-        for d in range(1, days + 1):
-            curr_date = start_date + timedelta(days=d - 1)
-            date_str = curr_date.isoformat()
-
-            # Every 7th day or the last day is a milestone mock sprint
-            is_mock_day = (d % 7 == 0) or (d == days)
-
-            day_tasks: List[DailyTaskItem] = []
-            focus_module = "综合模考" if is_mock_day else "专项突破"
-
-            if is_mock_day:
-                day_tasks.append(
+            if (index + 1) % MOCK_EVERY_DAYS == 0 and budget >= MOCK_MINUTES:
+                budget -= MOCK_MINUTES
+                tasks.append(
                     DailyTaskItem(
                         task_type="mock_sprint",
-                        node_id=None,
-                        title=f"第 {d} 天阶段全真模拟冲刺（限时全真模考）",
-                        estimated_minutes=min(daily_minutes, 90),
-                        target_question_count=35,
-                    )
-                )
-                day_tasks.append(
-                    DailyTaskItem(
-                        task_type="weakness_drill",
-                        node_id=None,
-                        title="模考错题回炉与薄弱考点深度归因",
-                        estimated_minutes=max(15, daily_minutes - min(daily_minutes, 90)),
-                        target_question_count=10,
-                    )
-                )
-            else:
-                # Regular study day: FSRS Review (20 mins) + 1-2 New/Weak Nodes
-                review_mins = min(20, int(daily_minutes * 0.3))
-                learn_mins = daily_minutes - review_mins
-
-                day_tasks.append(
-                    DailyTaskItem(
-                        task_type="fsrs_review",
-                        node_id=None,
-                        title="FSRS 到期错题智能回炉复习包",
-                        estimated_minutes=review_mins,
-                        target_question_count=8,
+                        title="限时模考冲刺（按官方卷面结构组卷）",
+                        estimated_minutes=MOCK_MINUTES,
+                        target_question_count=0,
                     )
                 )
 
-                # Pick next node in priority pool
-                node = node_pool[node_idx % total_nodes]
-                node_idx += 1
-                focus_module = MODULE_NAME_MAP.get(node["module"], node["module"])
+            review_cap = int(budget * REVIEW_SHARE)
+            if due:
+                take = min(len(due), max(1, int(review_cap / MINUTES_PER_QUESTION)))
+                minutes = int(take * MINUTES_PER_QUESTION)
+                if minutes <= budget:
+                    budget -= minutes
+                    tasks.append(
+                        DailyTaskItem(
+                            task_type="fsrs_review",
+                            title=f"FSRS 到期错题回炉（{take} 题）",
+                            estimated_minutes=minutes,
+                            target_question_count=take,
+                        )
+                    )
 
-                day_tasks.append(
+            if cursor >= len(ranked):
+                if not exhausted_reported:
+                    notices.append(POOL_EXHAUSTED_NOTICE)
+                    exhausted_reported = True
+                cursor = 0
+            focus = self._next_nodes(ranked, cursor)
+            cursor += len(focus)
+
+            new_minutes = int(budget * NEW_NODE_SHARE)
+            per_node = max(0, int(new_minutes / max(len(focus), 1)))
+            for node_id in focus:
+                if per_node < MINUTES_PER_QUESTION:
+                    break
+                count = min(by_node[node_id]["pool"], int(per_node / MINUTES_PER_QUESTION))
+                if count <= 0:
+                    continue
+                minutes = int(count * MINUTES_PER_QUESTION)
+                budget -= minutes
+                tasks.append(
                     DailyTaskItem(
                         task_type="new_node_learning",
-                        node_id=node["node_id"],
-                        title=f"考点攻克: {node['title']}",
-                        estimated_minutes=learn_mins,
-                        target_question_count=12,
+                        node_id=node_id,
+                        title=f"考点学习：{node_id}",
+                        estimated_minutes=minutes,
+                        target_question_count=count,
                     )
                 )
 
-            plan = DailyPlan(
-                day_index=d,
-                date_str=date_str,
-                focus_module=focus_module,
-                tasks=day_tasks,
-                total_minutes=daily_minutes,
-            )
-            daily_plans.append(plan)
+            weak_focus = [node_id for node_id in focus if mastery_map.get(node_id) is not None]
+            for node_id in weak_focus[:2]:
+                count = min(by_node[node_id]["pool"], 3)
+                minutes = int(count * MINUTES_PER_QUESTION)
+                if count <= 0 or minutes > budget:
+                    continue
+                budget -= minutes
+                tasks.append(
+                    DailyTaskItem(
+                        task_type="weakness_drill",
+                        node_id=node_id,
+                        title=f"薄弱考点专项：{node_id}（掌握度 {mastery_map[node_id]:.2f}）",
+                        estimated_minutes=minutes,
+                        target_question_count=count,
+                    )
+                )
 
-        return daily_plans
+            plans.append(
+                DailyPlan(
+                    day_index=index + 1,
+                    date_str=(today + timedelta(days=index)).isoformat(),
+                    focus_module=(
+                        by_node[focus[0]]["module"] if focus else rows[0]["module"]
+                    ),
+                    tasks=tasks,
+                    total_minutes=sum(t.estimated_minutes for t in tasks),
+                )
+            )
+
+        return plans, self._dedupe(notices), prereq_note
+
+    # ---------------------------------------------------------------- helpers
+    def _mastery_map(self, user_id: str, records: Optional[List[UserMasteryRecord]]) -> Dict[str, float]:
+        """Only scores that exist — persisted first, then whatever the caller supplied."""
+        merged: Dict[str, float] = {}
+        for record in records or []:
+            merged[record.node_id] = record.mastery_score
+        if self.store is not None:
+            for node in self.store.weak_node_ids(user_id, limit=20):
+                record = self.store.get(user_id, node)
+                if record is not None:
+                    merged[node] = record.mastery_score
+        return merged
+
+    def _rank(
+        self, rows: List[dict], mastery_map: Dict[str, float], library: Optional[str]
+    ) -> Tuple[List[str], str]:
+        ordered = sorted(
+            rows,
+            key=lambda row: self._sort_key(row, mastery_map),
+        )
+        node_ids = [row["node_id"] for row in ordered]
+        if library is None:
+            return node_ids, ""
+        graph = get_graph_index(library)
+        ranked, note = graph.topological_order(node_ids)
+        return (ranked or node_ids), note
+
+    @staticmethod
+    def _sort_key(row: dict, mastery_map: Dict[str, float]) -> Tuple[int, float, int, str]:
+        node_id = row["node_id"]
+        if node_id in mastery_map:
+            score = mastery_map[node_id]
+            # Weak-but-known nodes first, weakest at the top.
+            return (0, score, -row["pool"], node_id) if score < WEAK_MASTERY_THRESHOLD else (2, score, -row["pool"], node_id)
+        # Unseen: no invented baseline, order by how much material the library really holds.
+        return (1, 0.0, -row["pool"], node_id)
+
+    def _due_question_ids(self, user_id: str) -> List[str]:
+        if self.store is None:
+            return []
+        return list(self.store.due_question_ids(user_id, limit=20))
+
+    @staticmethod
+    def _dedupe(notices: List[str]) -> List[str]:
+        seen: set = set()
+        out: List[str] = []
+        for notice in notices:
+            if notice and notice not in seen:
+                seen.add(notice)
+                out.append(notice)
+        return out
+
+    @staticmethod
+    def _next_nodes(ranked: List[str], cursor: int) -> List[str]:
+        """Take the next slice of the ranked list; the caller cycles when it reaches the end."""
+        return ranked[cursor : cursor + NODES_PER_DAY]

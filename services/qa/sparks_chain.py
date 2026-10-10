@@ -1,33 +1,49 @@
-"""Sparks 3-Chain Explanation Engine: Clue Localization, Option Discrimination, Knowledge Provenance."""
+"""Sparks 3-Chain explanation engine, grounded in the knowledge library.
+
+Chain 1 reads the record's own clue analysis, Chain 2 the recorded option comparison and
+the real options, Chain 3 the requirement clauses indexed in ``requirements.jsonl``.
+Every chain carries the provenance status of what it quotes: most analyses in the library
+are still ``draft(llm-v2)`` and unreviewed, so the engine labels them instead of
+presenting them as authority, and it never asserts an answer the gate has not cleared.
+"""
 from __future__ import annotations
 
-from typing import Dict, Optional
+from typing import List, Optional, Tuple
 
 from services.common.models import SparksThreeChainResponse
+from services.knowledge.repository import KnowledgeRepository, get_repository
+from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate, TrustVerdict
 
-# Pre-compiled authoritative knowledge & legal references for NTCE / CET
-PROVENANCE_DB = {
-    "ntce.m1.student_view": {
-        "source": "国家教师资格考试大纲《综合素质》模块一：职业理念",
-        "clause": "以人为本的学生观：学生是具有独立意义的主体，具有巨大的发展潜能；评价应关注学生发展的过程性与全面性。",
-    },
-    "ntce.m2.education_law": {
-        "source": "《中华人民共和国义务教育法》（2018年修正版）第四条、第十一条",
-        "clause": "国家实行九年义务教育制度。凡具有中华人民共和国国籍的适龄儿童、少年，不分性别、民族、种族、家庭财产状况、宗教信仰等，应当依法完成规定年限的义务教育。具有强制性与公益性特征。",
-    },
-    "ntce.m3.ethics_code": {
-        "source": "教育部《中小学教师职业道德规范》（2008年修订）第三条",
-        "clause": "关爱学生、为人师表、廉洁从教。坚守高尚情操，发扬奉献精神，自觉抵制有偿家教，不利用职务之便谋取私利。",
-    },
-    "cet4.reading.careful": {
-        "source": "中国英语能力等级量表（CSE）六级描述语 - 批判性阅读",
-        "clause": "能识别说明文与议论文中的隐含假设，区分事实陈述与作者推测，准确推断关于法律伦理议题的观点支撑。",
-    },
-}
+NO_RECORD = SparksThreeChainResponse(
+    question_id="",
+    key_clue_localization="该 question_id 不在知识库索引内，系统不生成任何解析。",
+    option_discrimination={},
+    knowledge_provenance={"requirements": [], "node_ids": []},
+    explanation_summary="无法定位题目原文，已拒绝作答。请先通过检索接口取得真实 question_id。",
+    answer_visibility="none",
+    grounded_in_library=False,
+    notices=("question_id 未命中知识库索引。", COPYRIGHT_NOTICE),
+)
+
+UNREVIEWED_ANALYSIS_NOTICE = (
+    "以下解析引自库内自动生成的草稿（analysis_status=%s），尚未通过教研复核，"
+    "仅可作研究参考，不可作为承诺性讲解。"
+)
+ANSWER_UNAVAILABLE = (
+    "该题参考答案缺失或来源冲突，系统不断言正确选项，请改做同考点其他题目。"
+)
 
 
 class SparksChainEngine:
-    """Generates structured Sparks 3-Chain Explanations grounded in authoritative evidence."""
+    """Generates the 3-chain explanation from stored evidence only."""
+
+    def __init__(
+        self,
+        repository: Optional[KnowledgeRepository] = None,
+        gate: Optional[TrustGate] = None,
+    ) -> None:
+        self.repository = repository or get_repository()
+        self.gate = gate or TrustGate("research_internal")
 
     @classmethod
     def generate(
@@ -35,45 +51,212 @@ class SparksChainEngine:
         question_id: str,
         user_selected_option: Optional[str] = None,
         node_id: Optional[str] = None,
+        repository: Optional[KnowledgeRepository] = None,
+        tier: str = "research_internal",
     ) -> SparksThreeChainResponse:
-        """Construct 3-chain evidence explanation."""
-        # 1. Chain 1: Key Clue Localization
+        engine = cls(repository, TrustGate(tier))
+        return engine.explain(question_id, user_selected_option, node_id)
+
+    # ------------------------------------------------------------------ main
+    def explain(
+        self,
+        question_id: str,
+        user_selected_option: Optional[str] = None,
+        node_id: Optional[str] = None,
+    ) -> SparksThreeChainResponse:
+        record = self.repository.load_question(question_id)
+        if record is None:
+            return NO_RECORD.model_copy(update={"question_id": question_id})
+
+        verdict = self.gate.classify_record(record)
+        if not verdict.usable:
+            return self._blocked(record, verdict)
+
+        content = record.get("content") or {}
+        structured, analysis_status = self._draft_analysis(record)
+        notices: List[str] = [COPYRIGHT_NOTICE]
+        if analysis_status and analysis_status != "verified":
+            notices.append(UNREVIEWED_ANALYSIS_NOTICE % analysis_status)
+        notices.extend(verdict.notices)
+
         clue = (
-            "【题眼定位】：本题关键信息聚焦于题干的核心引导词与限定语境。"
-            "需特别注意修饰主语的限定条件，提取核心动词短语以锁定主干考向。"
+            structured.get("key_info")
+            or self._first_sentence(self._plain_analysis(record))
+            or "本题未存有题目专属解析草稿，请依据题干限定条件自行圈画题眼（系统不代拟结论）。"
         )
 
-        # 2. Chain 2: Option Discrimination
-        discrimination: Dict[str, str] = {
-            "A": "选项A过度绝对化或片面理解了概念内涵，忽略了题干情境中的多元平衡要素。",
-            "B": "选项B切中题意，准确对应了考纲核心原理中关于过程性与合规性评价的要求。",
-            "C": "选项C偷换了概念外延，混淆了评价形式与评价主体的客观范畴。",
-            "D": "选项D因果逻辑倒置，将表面次要结果当成了根本教学依据。",
-        }
-        if user_selected_option and user_selected_option in discrimination:
-            discrimination[f"考生所选[{user_selected_option}]错因诊断"] = (
-                f"你选择了 [{user_selected_option}]，该选项属于典型的干扰项设计，"
-                "容易因没有把握好题干主语立场或忽略前提限定而误选。"
-            )
+        discrimination = self._discrimination(record, content, structured, verdict, user_selected_option)
+        provenance, prov_notices = self._provenance(record, structured, node_id)
+        notices.extend(prov_notices)
 
-        # 3. Chain 3: Knowledge & Legal Provenance
-        prov = PROVENANCE_DB.get(
-            node_id or "ntce.m1.student_view",
-            {
-                "source": "教育部考试中心教师资格考试大纲 / 大学英语四六级考试大纲",
-                "clause": "现行教育法律法规与测评量表核心基准要义。",
-            },
-        )
-
-        summary = (
-            f"本题答案为 B。考查核心知识点为【{prov['source']}】中的核心要义。"
-            "解题关键在于先辨识题眼排除极端绝对化表述，再结合权威法条与理论内涵锁定合规选项。"
-        )
-
+        summary = self._summary(structured, content, verdict)
         return SparksThreeChainResponse(
             question_id=question_id,
             key_clue_localization=clue,
             option_discrimination=discrimination,
-            knowledge_provenance=prov,
+            knowledge_provenance=provenance,
             explanation_summary=summary,
+            answer_visibility=verdict.answer_visibility,
+            grounded_in_library=True,
+            notices=notices,
+        )
+
+    # -------------------------------------------------------------- helpers
+    @staticmethod
+    def _plain_analysis(record: dict) -> str:
+        content = record.get("content") or {}
+        for candidate in (content.get("analysis"), record.get("analysis")):
+            if isinstance(candidate, str) and candidate.strip():
+                return candidate.strip()
+        structured = SparksChainEngine._draft_analysis(record)[0]
+        return str(structured.get("raw") or structured.get("explanation") or "").strip()
+
+    @staticmethod
+    def _draft_analysis(record: dict) -> Tuple[dict, Optional[str]]:
+        """Return ``(fields, provenance_status)`` from whatever analysis the record carries."""
+        extra = record.get("extra") or {}
+        lar = extra.get("llm_analysis_result") or {}
+        inner = (lar.get("result") or {}).get("analysis") if isinstance(lar, dict) else None
+        if isinstance(inner, dict) and any(inner.values()):
+            return inner, extra.get("analysis_status") or "draft(llm)"
+
+        content = record.get("content") or {}
+        for candidate in (content.get("analysis"), record.get("analysis")):
+            if isinstance(candidate, dict) and any(v for v in candidate.values()):
+                return candidate, candidate.get("status") or "source_extracted"
+            if isinstance(candidate, str) and candidate.strip():
+                status = extra.get("analysis_status") or "draft(unstructured)"
+                return {"explanation": candidate.strip()}, status
+        return {}, None
+
+    @staticmethod
+    def _first_sentence(text: str) -> str:
+        for sep in ("。", "；", ";", "\n"):
+            if sep in text:
+                return text.split(sep)[0].strip() + ("。" if sep == "。" else "")
+        return text.strip()
+
+    def _discrimination(
+        self,
+        record: dict,
+        content: dict,
+        structured: dict,
+        verdict: TrustVerdict,
+        user_selected_option: Optional[str],
+    ) -> dict:
+        options = content.get("options") or []
+        normalised = []
+        for opt in options:
+            if isinstance(opt, dict):
+                normalised.append({"key": opt.get("key"), "text": opt.get("text")})
+            else:
+                normalised.append({"key": None, "text": str(opt)})
+
+        payload = {
+            "options": normalised,
+            "comparison": structured.get("option_compare") or "",
+            "answer_status": verdict.answer_status,
+        }
+        if verdict.may_assert_answer:
+            payload["reference_answer"] = content.get("answer")
+        else:
+            payload["reference_answer"] = None
+            payload["note"] = ANSWER_UNAVAILABLE
+
+        if user_selected_option:
+            payload["candidate_choice"] = user_selected_option
+            if verdict.may_assert_answer:
+                same = self._letter(content.get("answer")) == self._letter(user_selected_option)
+                payload["matches_reference"] = same
+                payload["diagnosis"] = (
+                    "所选与库内参考答案一致。"
+                    if same
+                    else "所选与库内参考答案不一致；差异判据见 comparison，最终以教研复核为准。"
+                )
+            else:
+                payload["diagnosis"] = ANSWER_UNAVAILABLE
+        return payload
+
+    @staticmethod
+    def _letter(value: Optional[str]) -> Optional[str]:
+        if not value:
+            return None
+        text = str(value).strip().upper()
+        for ch in text:
+            if "A" <= ch <= "Z":
+                return ch
+        return None
+
+    def _provenance(
+        self, record: dict, structured: dict, node_id: Optional[str]
+    ) -> Tuple[dict, List[str]]:
+        notices: List[str] = []
+        requirement_ids = list(record.get("exam_requirement_ids") or [])
+        if node_id:
+            requirement_ids.append(node_id)
+
+        clauses = []
+        for rid in record.get("exam_requirement_ids") or []:
+            requirement = self.repository.get_requirement(rid)
+            gate_verdict = self.gate.classify_requirement(requirement)
+            if not gate_verdict.citable:
+                notices.extend(gate_verdict.notices)
+                continue
+            clauses.append(
+                {
+                    "requirement_id": rid,
+                    "standard_id": requirement.get("standard_id"),
+                    "title": requirement.get("title"),
+                    "content": requirement.get("content"),
+                    "locator": requirement.get("locator"),
+                    "mapping_status": requirement.get("mapping_status"),
+                }
+            )
+            notices.extend(gate_verdict.notices)
+
+        if not clauses:
+            notices.append("该题在库内没有可引用的权威条款，解析仅基于题目自身文本。")
+
+        source = record.get("source") or {}
+        provenance = {
+            "requirements": clauses,
+            "node_ids": list(record.get("knowledge_node_ids") or []),
+            "requested_node": node_id,
+            "trace_back": structured.get("trace_back") or "",
+            "analysis_source": structured.get("source"),
+            "analysis_method": structured.get("method"),
+            "source_files": source.get("files") or [],
+            "source_verified": source.get("verified"),
+            "review_status": (record.get("review") or {}).get("status"),
+        }
+        return provenance, notices
+
+    @staticmethod
+    def _summary(structured: dict, content: dict, verdict: TrustVerdict) -> str:
+        explanation = str(structured.get("explanation") or structured.get("raw") or "").strip()
+        if verdict.may_assert_answer:
+            return (
+                f"参考答案：{content.get('answer')}（answer_status={verdict.answer_status}，"
+                f"review_status={verdict.review_status}，未经教研签署）。{explanation}".strip()
+            )
+        return f"{ANSWER_UNAVAILABLE} {explanation}".strip()
+
+    def _blocked(self, record: dict, verdict: TrustVerdict) -> SparksThreeChainResponse:
+        """Quarantined or out-of-tier content: no answer, no explanation, just the reason."""
+        reasons = list(verdict.notices) or ["该内容未通过 TrustGate 当前档位校验。"]
+        reasons.append(COPYRIGHT_NOTICE)
+        return SparksThreeChainResponse(
+            question_id=record.get("question_id", ""),
+            key_clue_localization="该内容已被隔离或未达展示档位，系统不渲染解析正文。",
+            option_discrimination={},
+            knowledge_provenance={
+                "requirements": [],
+                "node_ids": [],
+                "review_status": verdict.review_status,
+                "answer_status": verdict.answer_status,
+            },
+            explanation_summary="已转入待复核队列（审查/待复核清单.md），由教研复核后再开放。",
+            answer_visibility="none",
+            grounded_in_library=True,
+            notices=reasons,
         )

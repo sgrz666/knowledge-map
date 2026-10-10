@@ -1,4 +1,10 @@
-"""Safety and anti-hallucination guard for agent outputs and scoring operations."""
+"""Safety and anti-hallucination guard for agent outputs and scoring operations.
+
+The guard is a *backstop*, not the primary decision maker: ``TrustGate`` already decides whether
+a rubric may produce a score. This module makes sure that decision cannot be undone further down
+the pipeline — a score appearing on an unsigned rubric is treated as a defect and removed, not
+clamped and shipped.
+"""
 from __future__ import annotations
 
 import logging
@@ -10,9 +16,15 @@ from services.common.models import (
 
 logger = logging.getLogger("services.common.safety")
 
+UNSIGNED_SCORE_REMOVED = (
+    "安全校验拦截：量规未签署却出现分数，已将 total_score 置空并转为反馈。"
+)
+DISPUTE_CONFLICT = "试题在历年真题版本中存在多方解析与标答争议（source_conflict），系统不出分、不断言正确选项。"
+DISPUTE_MISSING = "试题官方参考答案暂缺（missing），系统不做硬性扣分，仅提供可比对的要点反馈。"
+
 
 class SafetyGuard:
-    """Quality and security guard enforcing schema consistency, score bounds, and dispute handling."""
+    """Quality guard: schema consistency, score bounds, dispute handling."""
 
     CONFIDENCE_THRESHOLD = 0.60
 
@@ -20,70 +32,61 @@ class SafetyGuard:
     def sanitize_grading_response(
         cls,
         response: UnifiedSubjectiveGradingResponse,
+        *,
+        rubric_signed: Optional[bool] = None,
         max_allowed_score: Optional[float] = None,
     ) -> Tuple[UnifiedSubjectiveGradingResponse, bool]:
-        """Validate and clamp scores, verify confidence threshold, and check format consistency.
+        """Clamp what may be scored; strip anything scored that may not be.
 
-        Returns:
-            (sanitized_response, is_quarantined)
+        Returns ``(response, quarantined)``.
         """
         is_quarantined = False
 
-        # 1. Clamp total_score to [0, max_score]
-        effective_max = max_allowed_score or response.max_score
-        if response.total_score > effective_max:
+        if rubric_signed is False and response.total_score is not None:
             logger.warning(
-                "total_score %.2f exceeds max_score %.2f for question %s; clamping.",
-                response.total_score,
-                effective_max,
+                "Unsigned rubric produced a score for %s; stripping it instead of clamping.",
                 response.question_id,
             )
-            response.total_score = effective_max
+            response.total_score = None
+            response.feedback_only = True
+            response.score_basis = "unsigned_framework"
+            response.review_status = "quarantined_for_human"
+            response.notices = list(dict.fromkeys(list(response.notices) + [UNSIGNED_SCORE_REMOVED]))
+            is_quarantined = True
 
-        if response.total_score < 0:
-            logger.warning(
-                "total_score %.2f is negative for question %s; clamping to 0.",
-                response.total_score,
-                response.question_id,
-            )
-            response.total_score = 0.0
+        if response.total_score is not None:
+            effective_max = max_allowed_score or response.max_score
+            if effective_max is not None:
+                if response.total_score > effective_max:
+                    logger.warning(
+                        "total_score %.2f exceeds max_score %.2f for %s; clamping.",
+                        response.total_score,
+                        effective_max,
+                        response.question_id,
+                    )
+                    response.total_score = effective_max
+                if response.total_score < 0:
+                    response.total_score = 0.0
 
-        # 2. Check analytic dimension scores sum consistency (for NTCE)
-        if response.analytic_details and response.analytic_details.dimensions:
-            dims = response.analytic_details.dimensions
-            for d in dims:
-                if d.score > d.max_score:
-                    d.score = d.max_score
-                elif d.score < 0:
-                    d.score = 0.0
+            if response.analytic_details and response.analytic_details.dimensions:
+                dims = response.analytic_details.dimensions
+                for dim in dims:
+                    dim.score = max(0.0, min(dim.score, dim.max_score))
+                dim_sum = round(sum(d.score for d in dims), 2)
+                if abs(dim_sum - response.total_score) > 0.5:
+                    response.total_score = dim_sum
 
-            dim_sum = round(sum(d.score for d in dims), 2)
-            # If total_score differs substantially from dimension sum, align it
-            if abs(dim_sum - response.total_score) > 0.5:
-                logger.info(
-                    "Reconciling total_score (%.2f -> %.2f) with dimension sum for %s",
-                    response.total_score,
-                    dim_sum,
-                    response.question_id,
-                )
-                response.total_score = min(dim_sum, effective_max)
+            if response.holistic_details and response.holistic_details.band_range:
+                low, high = response.holistic_details.band_range
+                response.total_score = max(low, min(response.total_score, high))
 
-        # 3. Check holistic band boundaries (for CET)
-        if response.holistic_details:
-            details = response.holistic_details
-            min_bound, max_bound = details.band_range
-            if response.total_score < min_bound or response.total_score > max_bound:
-                logger.warning(
-                    "Score %.2f outside holistic band [%.2f, %.2f] for band %d; clamping.",
-                    response.total_score,
-                    min_bound,
-                    max_bound,
-                    details.selected_band,
-                )
-                response.total_score = max(min_bound, min(response.total_score, max_bound))
+        if response.feedback_only and response.total_score is not None:
+            # feedback_only and a score cannot travel together.
+            response.feedback_only = False if rubric_signed else True
+            if rubric_signed is not True:
+                response.total_score = None
 
-        # 4. Confidence threshold check
-        if response.confidence_score < cls.CONFIDENCE_THRESHOLD:
+        if response.total_score is not None and response.confidence_score < cls.CONFIDENCE_THRESHOLD:
             logger.warning(
                 "Low grading confidence %.2f (< %.2f) for %s; routing to human review.",
                 response.confidence_score,
@@ -96,24 +99,10 @@ class SafetyGuard:
         return response, is_quarantined
 
     @classmethod
-    def check_disputed_question(
-        cls,
-        answer_status: str,
-        question_id: str,
-    ) -> Tuple[bool, str]:
-        """Check whether a question has version conflicts (source_conflict) or missing answer keys.
-
-        Returns:
-            (is_disputed, explanation_message)
-        """
+    def check_disputed_question(cls, answer_status: str, question_id: str) -> Tuple[bool, str]:
+        """Whether a question's answer key is disputed or missing, with the honest wording."""
         if answer_status == "source_conflict":
-            return (
-                True,
-                f"试题 [{question_id}] 在历年真题版本中存在多方解析与标答争议（source_conflict）。系统在前台已降级为开放讨论题，不扣除考生能力分，请重点研读不同版本分歧与法条沿革。",
-            )
+            return (True, f"[{question_id}] {DISPUTE_CONFLICT}")
         if answer_status == "missing":
-            return (
-                True,
-                f"试题 [{question_id}] 官方参考答案暂缺（missing），系统不进行自动硬性扣分，仅提供参考要点比对。",
-            )
+            return (True, f"[{question_id}] {DISPUTE_MISSING}")
         return (False, "")

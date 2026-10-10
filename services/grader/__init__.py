@@ -1,6 +1,5 @@
-"""Grader package exposing subjective grading engines."""
+"""Grader package: library-grounded rubric engines behind a single trust decision."""
 from services.grader.agent import SubjectiveGraderAgent
-from services.grader.cet_holistic import CETHolisticGrader
-from services.grader.ntce_analytic import NTCEAnalyticGrader
+from services.grader.rubric_engine import grade
 
-__all__ = ["SubjectiveGraderAgent", "CETHolisticGrader", "NTCEAnalyticGrader"]
+__all__ = ["SubjectiveGraderAgent", "grade"]

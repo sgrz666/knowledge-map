@@ -13,6 +13,7 @@ from services.common.models import (
 from services.memory.agent import MemoryReviewAgent
 from services.memory.attribution import ErrorAttributionEngine
 from services.memory.fsrs import FSRSModel
+from services.memory.store import InMemoryMasteryStore
 
 ROOT = Path(__file__).resolve().parents[1]
 USER_MASTERY_SCHEMA_PATH = ROOT / "数据集" / "教资" / "schemas" / "user_mastery.json"
@@ -20,7 +21,8 @@ USER_MASTERY_SCHEMA_PATH = ROOT / "数据集" / "教资" / "schemas" / "user_mas
 
 class TestMemoryReviewService(unittest.TestCase):
     def setUp(self):
-        self.agent = MemoryReviewAgent()
+        # Per-test volatile store keeps FSRS counters independent of .local_state/.
+        self.agent = MemoryReviewAgent(store=InMemoryMasteryStore())
         self.user_mastery_schema = json.loads(
             USER_MASTERY_SCHEMA_PATH.read_text(encoding="utf-8")
         )

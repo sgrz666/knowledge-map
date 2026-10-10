@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime, timezone
-from typing import Dict, Optional
+from typing import Optional
 
 from services.common.models import (
     ErrorAttributionCategory,
@@ -14,6 +14,7 @@ from services.common.models import (
 )
 from services.memory.attribution import ErrorAttributionEngine
 from services.memory.fsrs import FSRSModel
+from services.memory.store import default_store
 
 logger = logging.getLogger("services.memory.agent")
 
@@ -21,14 +22,27 @@ logger = logging.getLogger("services.memory.agent")
 class MemoryReviewAgent:
     """Agent managing error analysis, spaced repetition updates, and mastery state."""
 
-    def __init__(self, in_memory_store: Optional[Dict[str, UserMasteryRecord]] = None):
-        # In-memory mock store for session tracking; in production backed by PostgreSQL / Redis
-        self.store = in_memory_store if in_memory_store is not None else {}
+    def __init__(self, store=None):
+        # Defaults to the on-disk store under .local_state/ so scheduling survives restarts.
+        self.store = store if store is not None else default_store()
 
     def get_user_mastery(self, user_id: str, node_id: str) -> Optional[UserMasteryRecord]:
         """Retrieve existing mastery record for a user on a given knowledge node."""
-        key = f"{user_id}:{node_id}"
-        return self.store.get(key)
+        return self.store.get(user_id, node_id)
+
+    def due_question_ids(self, user_id: str, limit: int = 20) -> list:
+        """Question ids the learner owes a re-attempt on (FSRS queue)."""
+        return self.store.due_question_ids(user_id, limit=limit)
+
+    def weak_node_ids(self, user_id: str, limit: int = 5) -> list:
+        """Lowest-mastery nodes for this learner, worst first."""
+        return self.store.weak_node_ids(user_id, limit=limit)
+
+    def _prior_error_entry(self, event: ErrorReviewEvent) -> dict:
+        for entry in self.store.error_entries(event.user_id):
+            if entry.get("question_id") == event.question_id:
+                return entry
+        return {"correct_count": 0, "incorrect_count": 0}
 
     def process_event(self, event: ErrorReviewEvent) -> ReviewBundle:
         """Process an answering event, update FSRS scheduling, and return review bundle."""
@@ -86,8 +100,22 @@ class MemoryReviewAgent:
             last_updated_at=now_iso,
         )
 
-        # Persist to in-memory store
-        self.store[f"{event.user_id}:{event.node_id}"] = updated_mastery
+        # Persist mastery, and keep a question-level error queue for 错题消灭 mode
+        self.store.put(updated_mastery)
+        prior = self._prior_error_entry(event)
+        self.store.log_error(
+            {
+                "user_id": event.user_id,
+                "question_id": event.question_id,
+                "node_id": event.node_id,
+                "exam": event.exam,
+                "error_category": None if event.is_correct else attribution.category.value,
+                "correct_count": prior["correct_count"] + (1 if event.is_correct else 0),
+                "incorrect_count": prior["incorrect_count"] + (0 if event.is_correct else 1),
+                "last_reviewed_at": now_iso,
+                "due_at": new_fsrs.due_date,
+            }
+        )
 
         # 7. Formulate followup plan
         if not event.is_correct:
