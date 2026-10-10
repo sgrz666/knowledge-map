@@ -397,8 +397,15 @@ class PracticeMode(str, Enum):
 
 
 class ExamStageState(BaseModel):
-    """CET-4/6 Strict 3-Stage Timed State Machine status."""
-    stage: Literal["writing", "listening", "reading_translation", "completed"]
+    """一格模考时序状态：小节名、用时与收卡/封锁语义全部来自库内 paper_specs 的 parts[]。
+
+    以前这里的 ``stage`` 是一个 ``Literal["writing","listening","reading_translation"]``——那份三段
+    时间表是服务代码里手抄的卷面，与 ``数据集/四六级/manifest/paper_specs.jsonl`` 的四节并不一致。
+    """
+    #: 卷面小节名（库内 ``parts[].name``），终局为 ``completed``
+    stage: str
+    module: Optional[str] = None
+    sheet_submission: Optional[str] = None
     stage_time_limit_minutes: int
     time_remaining_seconds: int
     input_locked: bool
@@ -430,7 +437,8 @@ class PracticePaperResponse(BaseModel):
     practice_mode: PracticeMode
     questions: List[dict]
     total_items: int
-    time_limit_minutes: int
+    #: 模考必须来自库内卷面；库里没给用时就是 ``None``，而不是服务替官方考试编一个数。
+    time_limit_minutes: Optional[int] = None
     stage_state: Optional[ExamStageState] = None
     trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
     pool_size: int = 0

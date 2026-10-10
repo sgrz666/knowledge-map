@@ -1,5 +1,11 @@
-"""生成 审查/待复核清单.md：把所有“机器不能替教研签字”的队列如实列出。"""
-import json, io, glob, collections, pathlib, datetime
+"""生成 审查/待复核清单.md：把所有“机器不能替教研签字”的队列如实列出。
+
+本文件是 待复核清单.md 的**唯一来源**：清单里的数字一律现算，不许手抄进 markdown——
+手抄的段落重跑本脚本时会被抹掉（§3.1 与考务规格一节都曾因此丢过），也迟早和库不符。
+"""
+import json, io, glob, os, collections, pathlib, datetime, sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 ROOT = pathlib.Path('.')
 rows_by_lib = {}
@@ -137,6 +143,60 @@ cet_rubric_entities = len({json.loads(line).get('rubric_id')
                            for line in io.open(cet_rubric_path, encoding='utf-8') if line.strip()}) \
     if cet_rubric_path.is_file() else 0
 
+# 考务规格自检：组卷与时序都只认 paper_specs，规格自己打架时机器无权挑一边当真——必须进教研队列。
+SPEC_FILES = {'NTCE': '数据集/教资/paper_specs.jsonl', 'CET': '数据集/四六级/manifest/paper_specs.jsonl'}
+
+
+def spec_audit(rel):
+    rows = [json.loads(line) for line in io.open(rel, encoding='utf-8') if line.strip()]
+    out = {'specs': len(rows), 'no_timing': 0, 'timing_mismatch': collections.Counter(),
+           'score_mismatch': collections.Counter(), 'count_mismatch': collections.Counter(),
+           'parts': 0, 'locked': 0}
+    for r in rows:
+        parts = r.get('parts') or r.get('sections') or []
+        out['parts'] += len(parts)
+        out['locked'] += sum(1 for p in parts if p.get('lock_policy'))
+        minutes = [p.get('duration_minutes') for p in parts]
+        if not any(minutes):
+            out['no_timing'] += 1
+        elif sum(int(m or 0) for m in minutes) != int(r.get('total_duration_minutes') or 0):
+            out['timing_mismatch'][(sum(int(m or 0) for m in minutes), r.get('total_duration_minutes'))] += 1
+        scored = [p.get('total_score', p.get('score')) for p in parts]
+        declared_score = r.get('total_raw_score', r.get('total_score'))
+        if declared_score and any(s is not None for s in scored) \
+                and abs(sum(float(s or 0) for s in scored) - float(declared_score)) > 1e-6:
+            out['score_mismatch'][(sum(float(s or 0) for s in scored), declared_score)] += 1
+        counted = [p.get('question_count', p.get('count')) for p in parts]
+        declared_count = r.get('question_count')
+        if declared_count and any(c is not None for c in counted) \
+                and sum(int(c or 0) for c in counted) != int(declared_count):
+            out['count_mismatch'][(sum(int(c or 0) for c in counted), declared_count)] += 1
+    return out
+
+
+specs = {name: spec_audit(rel) for name, rel in SPEC_FILES.items()}
+
+# 抽取缺口用运行时同一份索引投影来数：清单和组卷池子必须共用判据，否则清单说 45 题、引擎挡下 46 题。
+from services.knowledge.repository import get_repository  # noqa: E402
+
+GROUPS = (('教资（NTCE+省考）', ('NTCE', '省考')), ('CET-4', ('CET-4',)), ('CET-6', ('CET-6',)))
+_facade = get_repository()
+_all_meta = list(_facade.find_questions())
+gap = {name: collections.Counter() for name, _ in GROUPS}
+gap_where = {name: collections.Counter() for name, _ in GROUPS}
+for _m in _all_meta:
+    for name, exams in GROUPS:
+        if _m.exam not in exams:
+            continue
+        if _m.answer_status == 'missing':
+            gap[name]['missing'] += 1
+        if not _m.has_answerable_text:
+            gap[name]['unanswerable'] += 1
+            gap_where[name][(_m.module or _m.subject or '-', _m.question_type or '-')] += 1
+            if _m.answer_status in ('letter_only', 'reference_only'):
+                gap[name]['checkable'] += 1
+total_missing = sum(1 for m in _all_meta if m.answer_status == 'missing')
+
 L = []
 L.append('# 待复核清单（教研签署队列）\n')
 L.append('生成时间：%s。本清单只列**机器无法自行判定**的事项：每一项都需要具名教研复核，任何脚本都不代签。\n' % datetime.date.today().isoformat())
@@ -186,6 +246,29 @@ L.append('- 四六级 `source_conflict` %d 题、`missing` %d 题：听力口语
          % (stats['CET']['ans'].get('source_conflict', 0), stats['CET']['ans'].get('missing', 0)))
 L.append('- 教资 `missing` %d 题：原答案文件标注“略/暂缺”。' % stats['NTCE']['ans'].get('missing', 0))
 L.append('- RAG 卡片：教资 12,881 张有效（14,500 题中 1,619 题判为重复题干，按设计不出卡，避免污染向量库）。\n')
+L.append('### 3.1 运行时已按 A3 挡下的两类题（由 `审查/build_review_queue.py` 现算，判据在 `services/knowledge/repository.py:has_answerable_text`）\n')
+L.append('这两类都不是可信度问题，而是**抽取完整性**问题：机器能看出题号，看不出可作答的题面。'
+         '运行时不猜题干、也不把它们计入可用题量。\n')
+L.append('| 缺口 | %s | 运行时后果 |' % ' | '.join(name for name, _ in GROUPS))
+L.append('| %s |' % ' | '.join(['---'] * (2 + len(GROUPS))))
+for label, key, note in (
+        ('只剩套名/题号、且无选项可勾', 'unanswerable', '不进组卷池、不进错题重做，组卷响应带缺口条数'),
+        ('└ 其中答案已可核对、只差题干的', 'checkable', '补完题干抽取即可直接变可用题量'),
+        ('答案态 `missing`', 'missing', '不进组卷/判分/召回；答疑只能按题目文本讲，`answer_visibility=none`')):
+    L.append('| %s | %s | %s |' % (label, ' | '.join('{:,}'.format(gap[name][key]) for name, _ in GROUPS), note))
+L.append('\n集中位置：%s。\n' % '；'.join(
+    '%s 落在 %s%s' % (name,
+                      '、'.join('%s·%s %d' % (where, kind, n)
+                                for (where, kind), n in gap_where[name].most_common(8)),
+                      '（共 %d 类，此处列前 8 类）' % len(gap_where[name]) if len(gap_where[name]) > 8 else '')
+    for name, _ in GROUPS if gap_where[name]))
+L.append('- 需要人做的动作：回到 `数据集/四六级/questions/cet*/**` 与教资对应目录的原始 PDF，'
+         '把对应题干的文本块补齐并重建索引；不要由模型据解析反推题干。')
+L.append('- 口径差异说明：`审查/validate_kb.py` 的 `Q_STEM_EMPTY` 判据是"题干无可读文本"，不看有没有选项，'
+         '所以它统计的总缺口一定不小于上表第一行；上表第一行数的是其中"连选项都没有、所以真的无法作答"的子集，'
+         '也就是运行时真正会少出题量的那一块。')
+L.append('- 补完后本表三条计数应同时下降，`tests/test_acceptance_gate.py` 的 A3 题干用例随之失去正例，'
+         '需要按当时数据改判据。\n')
 
 L.append('\n## 4. 评分量规与权重（题内框架一律不可判分）\n')
 L.append('库里有两套量规形状，契约不同：`数据集/教资/schemas/rubric.json` 是 附录 A.6 的可计算加权量规实体，'
@@ -209,20 +292,52 @@ L.append('\n## 5. 复核优先级\n')
 L.append('- 教资 needs_fix 按历史标记分级：低置信 %d 题、一般瑕疵 %d 题，明细见 `数据集/教资/review/pending.jsonl`；低置信项来自结构切分严重异常，应优先处理。'
          % (prio['NTCE'].get('low_confidence', 0), prio['NTCE'].get('flagged_general', 0)))
 L.append('- 四六级 `needs_fix` %d 题：来源身份或语篇绑定未核实，先修边一律待核定。' % stats['CET']['rev'].get('needs_fix', 0))
+_checkable_total = sum(gap[name]['checkable'] for name, _ in GROUPS)
+L.append('- 题干抽取缺口 %d 题（§3.1 第 2 行：%s）性价比最高：答案已在库内、只差题面，补完即可直接转为可用练习量；'
+         '相比之下全库 `missing` 的 %s 题要先回溯原件定答案。' % (
+             _checkable_total,
+             '、'.join('%s %d' % (name, gap[name]['checkable']) for name, _ in GROUPS),
+             '{:,}'.format(total_missing)))
 L.append('- 版权：全部题目 `authorization_status=unknown`、`use_scope=research_non_commercial`，未做任何授权声明；'
          '若项目要转为商业或出版用途，本清单第 5 节全部结论作废并需重新清权。\n')
 
-L.append('\n## 6. 复核动作\n')
+L.append('\n## 6. 考务规格（paper_specs）内部一致性\n')
+L.append('组卷结构与时序只认 `数据集/**/paper_specs.jsonl`（验收 A1：服务里不许留手抄卷面）。'
+         '规格自己打架时机器无权挑一边当成真的，以下差异全部留给教研核定，官方卷面数据不做任何自动改动。\n')
+for name in ('NTCE', 'CET'):
+    a = specs[name]
+    L.append('- %s：规格 %d 套、小节 %d 个，其中 %d 个小节带 `lock_policy`（决定何时收答题卡、能否回退）。'
+             % (name, a['specs'], a['parts'], a['locked']))
+    if a['no_timing']:
+        L.append('  - **%d 套完全没有逐节用时**（只有 `total_duration_minutes`）：模考只按卷面结构组卷，'
+                 '不启动时序机，也不替官方考试编一份时间表。补齐 `sections[].duration_minutes` 后模考才谈得上收卡时机。'
+                 % a['no_timing'])
+    for label, key in (('逐节用时合计 ≠ 声明总时长', 'timing_mismatch'),
+                       ('逐节分值合计 ≠ 声明总分', 'score_mismatch'),
+                       ('逐节题量合计 ≠ 声明题量', 'count_mismatch')):
+        for (summed, declared), n in sorted(a[key].items(), key=lambda kv: -kv[1]):
+            L.append('  - **%s：%d 套**，逐节合计 %s 而规格声明 %s。运行时时序按逐节数字推进（那份数字决定何时收卡），'
+                     '两处需统一口径。' % (label, n, ('%g' % summed), declared))
+L.append('\n教研需逐项判定：声明总量里多出的分钟数是试音/收发答题卡等卷面外时间，还是逐节漏记；'
+         '若属卷面外时间，请把它写成独立字段（如 `instruction_time_minutes`）而不是改官方逐节分钟数。\n')
+
+L.append('\n## 7. 复核动作\n')
 L.append('1. 认领某一项后，在对应记录写入 `review.checked_by` 与 `review.checked_at`，并把 `review.status` 推进到 `checked` 或 `expert_reviewed`；'
          '验收器 `审查/validate_kb.py` 会拒绝没有署名的这类状态。')
 L.append('2. 先修边核定：改 `graph/edges_curated.jsonl` 的 `reviewed_by`、`status=verified`、`active=true`，再跑 `python kb_tools/build_graph.py`。')
 L.append('3. 量规权重签署：在 `数据集/教资/rubrics/*.json` 写 `review.checked_by`/`checked_at`、把 `review.status` 推进到 `expert_reviewed`，'
          '并同步 `expert_verified: true`；署名缺失时 `tests/test_rubric_contract.py` 与 `Q_RUBRIC_EXPERT_CLAIM` 会直接拒绝。'
          '题内练习框架不参与判分，如需出分请把核定后的权重写成 A.6 实体并建立绑定，不要往题内框架塞 `weight_score`。')
-L.append('4. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、`python 审查/validate_kb.py`。\n')
+L.append('4. 考务规格核定（§6）：只改 `数据集/**/paper_specs.jsonl` 里教研确认有误的那一侧，并在提交说明里写清依据；'
+         '运行时按逐节分钟数推进时序，服务不会替官方卷面补齐或删减分钟数。')
+L.append('5. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、'
+         '`python 审查/validate_kb.py`、`python 审查/build_review_queue.py`（清单是生成物，不要手改）。\n')
 
 out = '\n'.join(x for x in L if x is not None) + '\n'
-pathlib.Path('审查/待复核清单.md').write_text(out, encoding='utf-8')
-print('written 审查/待复核清单.md, lines:', out.count('\n'),
-      '| prereq rows NTCE/CET:', len(rows_by_lib['NTCE']), len(rows_by_lib['CET']),
-      '| unreferenced clauses:', len(unref))
+target = pathlib.Path(os.environ.get('KM_QUEUE_OUT', '审查/待复核清单.md'))
+target.write_text(out, encoding='utf-8')
+print('written %s, lines: %s' % (target, out.count('\n')),
+      '| prereq rows NTCE/CET: %d %d' % (len(rows_by_lib['NTCE']), len(rows_by_lib['CET'])),
+      '| unreferenced clauses: %d' % len(unref),
+      '| spec timing gaps NTCE/CET: %d %d' % (specs['NTCE']['no_timing'],
+                                              sum(specs['CET']['timing_mismatch'].values())))

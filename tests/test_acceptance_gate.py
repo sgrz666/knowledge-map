@@ -56,6 +56,7 @@ from services.master.agent import TutorMasterAgent  # noqa: E402
 from services.memory.agent import MemoryReviewAgent  # noqa: E402
 from services.memory.store import InMemoryMasteryStore  # noqa: E402
 from services.planner.agent import CurriculumPlannerAgent  # noqa: E402
+from services.practice.cet_statemachine import CETExamStateMachine  # noqa: E402
 from services.review.queue import ReviewQueue, get_review_queue  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -137,7 +138,7 @@ class AcceptanceTestCase(unittest.TestCase):
 
 # --------------------------------------------------------------------- A1
 class TestA1NoShadowData(AcceptanceTestCase):
-    """A1 无影子数据：services/**.py 中不得出现题面/条文常量。"""
+    """A1 无影子数据：services/**.py 中不得出现题面/条文常量，也不得手抄卷面规格（考务时序）。"""
 
     def test_no_shadow_constants_and_no_stem_shaped_literals(self):
         banned, offenders = [], []
@@ -169,6 +170,64 @@ class TestA1NoShadowData(AcceptanceTestCase):
             if len(text) > 40 and stem_shape(text):
                 caught += 1
         self.assertGreater(caught, 0, "题面形态判据对真实题库文本零命中，A1 扫描无效")
+
+    def test_the_review_queue_is_generated_not_transcribed(self):
+        """教研队列是生成物：手抄进 markdown 的数字在下次重跑生成器时会被抹掉，所以清单必须能被逐字复现。"""
+        committed = (REPO_ROOT / "审查" / "待复核清单.md").read_text(encoding="utf-8")
+        target = Path(tempfile.mkdtemp(prefix="km_queue_regen_")) / "queue.md"
+        from services.memory.store import default_store  # 共享真正在用的状态目录，避免重复建索引
+        env = dict(os.environ, PYTHONIOENCODING="utf-8", KM_QUEUE_OUT=str(target),
+                   KNOWLEDGE_MAP_STATE_DIR=str(Path(default_store().path).parent))
+        completed = subprocess.run(
+            [sys.executable, str(REPO_ROOT / "审查" / "build_review_queue.py")],
+            capture_output=True, text=True, encoding="utf-8", env=env,
+            cwd=str(REPO_ROOT), timeout=900,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr[-2000:])
+        regenerated = target.read_text(encoding="utf-8")
+
+        def dated(text):
+            return "\n".join("生成时间：–" if line.startswith("生成时间：") else line
+                              for line in text.splitlines())
+
+        self.assertEqual(dated(regenerated), dated(committed),
+                         "待复核清单.md 与生成器输出不一致：要么清单被手改过，要么生成器漏了段落")
+
+    def test_the_exam_clock_is_the_blueprint_not_a_transcript(self):
+        """卷面规格也是库内实体：模考时序必须逐节等于 paper_specs，服务代码里不许留手抄的分钟数。"""
+
+        def parts_of(spec):
+            return spec.get("parts") or spec.get("sections") or []
+
+        specs = self.repository.paper_specs()
+        timed = [s for s in specs if parts_of(s) and all(
+            p.get("name") and p.get("duration_minutes") for p in parts_of(s))]
+        self.assertGreater(timed, [], "两套库里没有任何带逐节用时的规格，这条验收成了空跑")
+        for spec in timed[:8] + timed[-4:]:
+            stages = CETExamStateMachine.stages_from_spec(spec)
+            self.assertEqual([s["name"] for s in stages], [p["name"] for p in parts_of(spec)],
+                             f"{spec.get('spec_id')} 的小节顺序不是卷面给的顺序")
+            self.assertEqual([s["minutes"] for s in stages],
+                             [int(p["duration_minutes"]) for p in parts_of(spec)],
+                             f"{spec.get('spec_id')} 的逐节用时被服务改写过")
+        # 没有逐节用时的规格只能得到"无时序"，绝不能得到一份编出来的时间表。
+        taught = {s.get("spec_id") for s in timed}
+        untimed = [s for s in specs if s.get("spec_id") not in taught and parts_of(s)]
+        self.assertGreater(untimed, [], "库里已没有无逐节用时的规格，负向断言成了空跑")
+        for spec in untimed[:8]:
+            self.assertEqual(CETExamStateMachine.stages_from_spec(spec), [],
+                             f"{spec.get('spec_id')} 卷面没说用时，时序机却给出了阶段")
+
+    def test_the_state_machine_holds_no_transcribed_timetable(self):
+        """旧实现把 30/30/70 分钟写死在代码里；时序机里出现任何别的数字都是一份手抄的考务表。"""
+        path = SERVICES_DIR / "practice" / "cet_statemachine.py"
+        units = {0, 1, 60}  # 索引步进与秒/分换算，不是考试用时
+        copied = []
+        for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+            if isinstance(node, ast.Constant) and isinstance(node.value, int) and not isinstance(node.value, bool):
+                if node.value not in units:
+                    copied.append(f"{path.name}:{node.lineno}={node.value}")
+        self.assertEqual(copied, [], "时序机里出现了写死的分钟数，那是一份手抄的考务时间表")
 
 
 # --------------------------------------------------------------------- A2

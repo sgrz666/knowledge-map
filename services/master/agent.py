@@ -502,7 +502,14 @@ class TutorMasterAgent:
             else []
         )
         return {
-            "summary": f"组卷 {paper.total_items} 题（池 {paper.pool_size}，缺 {paper.shortfall}），限时 {paper.time_limit_minutes} 分钟。",
+            "summary": (
+                f"组卷 {paper.total_items} 题（池 {paper.pool_size}，缺 {paper.shortfall}），"
+                + (
+                    f"限时 {paper.time_limit_minutes} 分钟。"
+                    if paper.time_limit_minutes is not None
+                    else "库内规格没有给出用时，因此不限时（不编分钟数）。"
+                )
+            ),
             "data": paper.model_dump(mode="json"),
             "evidence": [
                 {

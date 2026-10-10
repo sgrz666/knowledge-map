@@ -309,18 +309,73 @@ class TestPracticeEngine(LibraryBackedTestCase):
         self.assertEqual(ghost.total_items, 0)
         self.assertTrue(any("不在库内" in n for n in ghost.notices))
 
-    def test_cet_three_stage_clock(self):
-        state = CETExamStateMachine.get_initial_state()
-        self.assertEqual(state.stage, "writing")
-        self.assertFalse(state.input_locked)
-        state = CETExamStateMachine.step_stage(state, elapsed_seconds=1800)
-        self.assertEqual(state.stage, "listening")
-        state = CETExamStateMachine.step_stage(state, elapsed_seconds=1800)
-        self.assertEqual(state.stage, "reading_translation")
-        self.assertTrue(state.sheet_collected)
-        state = CETExamStateMachine.step_stage(state, elapsed_seconds=4200)
-        self.assertEqual(state.stage, "completed")
-        self.assertTrue(state.input_locked)
+    def test_cet_clock_walks_the_blueprints_own_sections(self):
+        """时序机的每一格都等于库内卷面：服务里不许留一份手抄的考试时间表。"""
+        spec = next(s for s in self.repository.paper_specs("CET-4") if s.get("parts"))
+        parts = spec["parts"]
+        state = CETExamStateMachine.get_initial_state(spec)
+        self.assertIsNotNone(state, "库内规格有逐节用时，时序机却起不来")
+        self.assertEqual(state.stage, parts[0]["name"])
+        self.assertEqual(state.stage_time_limit_minutes, parts[0]["duration_minutes"])
+        self.assertEqual(
+            state.time_remaining_seconds, parts[0]["duration_minutes"] * 60
+        )
+        # 第一节自己的回退策略要落到状态里：写作声明不可回退，就不许显示成还能切模块。
+        self.assertEqual(
+            state.can_switch_modules,
+            bool((parts[0].get("lock_policy") or {}).get("allow_backtrack")),
+        )
+        for index, part in enumerate(parts[1:], start=1):
+            state = CETExamStateMachine.step_stage(
+                state, elapsed_seconds=state.time_remaining_seconds, spec=spec
+            )
+            self.assertIsNotNone(state, f"走完第 {index} 节后时序机消失了，规格明明还有下一节")
+            finished = (parts[index - 1].get("lock_policy") or {})
+            current = part.get("lock_policy") or {}
+            self.assertEqual(state.stage, part["name"])
+            self.assertEqual(state.stage_time_limit_minutes, part["duration_minutes"])
+            self.assertEqual(state.sheet_submission, current.get("sheet_submission"))
+            self.assertEqual(state.sheet_collected, bool(finished.get("sheet_submission")),
+                             "收卡状态不等于上一节卷面声明的答题卡")
+            self.assertEqual(state.can_switch_modules, bool(current.get("allow_backtrack")))
+            # 卷面写 allow_backtrack=false 说的是"这一节封住不能回去作答"，不是整卷停止作答：
+            # 把它翻译成 input_locked 会让学习者在听力刚开始时被锁死输入。
+            self.assertFalse(state.input_locked, "本节进行中就封锁输入，卷面没有这个口径")
+        final = CETExamStateMachine.step_stage(
+            state, elapsed_seconds=state.time_remaining_seconds, spec=spec
+        )
+        self.assertEqual(final.stage, "completed")
+        self.assertTrue(final.input_locked)
+
+    def test_an_old_caller_cannot_start_the_clock_without_a_spec(self):
+        # 规格是必需参数：允许无规格启动，就等于把"没有卷面"重新变回"服务自己编一份"。
+        with self.assertRaises(TypeError):
+            CETExamStateMachine.get_initial_state()  # type: ignore[call-arg]
+
+    def test_a_blueprint_without_section_timing_gets_no_invented_clock(self):
+        self.assertIsNone(
+            CETExamStateMachine.get_initial_state({"spec_id": "x", "parts": [{"name": "Part I"}]})
+        )
+        paper = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="NTCE",
+                                 practice_mode=PracticeMode.MOCK_EXAM, item_count=200,
+                                 school_level="xiaoxue", subject="zonghe")
+        )
+        self.assertIsNone(paper.stage_state, "教资规格没有逐节用时，却挂上了一份模考时序")
+        self.assertTrue(any("不内置模考时序" in n for n in paper.notices))
+
+    def test_cet_mock_time_limit_is_the_sum_of_the_sections_it_actually_runs(self):
+        paper = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="CET-4",
+                                 practice_mode=PracticeMode.MOCK_EXAM, item_count=60)
+        )
+        spec = next(s for s in self.repository.paper_specs("CET-4") if s["spec_id"] == paper.spec_id)
+        scheduled = sum(int(p["duration_minutes"]) for p in spec["parts"])
+        self.assertEqual(paper.time_limit_minutes, scheduled, "限时不是这份卷面真正会走完的分钟数")
+        declared = int(spec["total_duration_minutes"])
+        if declared != scheduled:
+            # 库里两个字段自己打架：必须说出来让教研核定，而不是悄悄挑一个当口径。
+            self.assertTrue(any("自相矛盾" in n for n in paper.notices), paper.notices)
 
 
 # --------------------------------------------------------------------------- 4. 答疑

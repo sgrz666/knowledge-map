@@ -92,9 +92,12 @@ class PracticeEngineAgent:
                 "已从组卷池剔除而不冒充题面；这是题干抽取缺口，需教研补抽取后才可练习。"
             )
 
-        limit = self._time_limit(req, spec, len(questions))
+        # 模考时序只认这份规格：能列出逐节用时就有时序机，列不出就没有——服务不替官方考试编时间表。
+        stages = CETExamStateMachine.stages_from_spec(spec)
+        limit = self._time_limit(req, spec, len(questions), stages)
         scope = req.target_node or req.target_module or req.exam_type
         title = MODE_TITLES.get(req.practice_mode, "【专项练习】{scope}").format(scope=scope)
+        notices.extend(self._timing_notices(req, spec, stages))
 
         if not questions:
             notices.append(
@@ -112,9 +115,7 @@ class PracticeEngineAgent:
             questions=questions,
             total_items=len(questions),
             time_limit_minutes=limit,
-            stage_state=CETExamStateMachine.get_initial_state()
-            if req.practice_mode == PracticeMode.MOCK_EXAM and req.exam_type.startswith("CET")
-            else None,
+            stage_state=CETExamStateMachine.get_initial_state(spec),
             trust_tier=req.trust_tier,
             pool_size=len(usable_pool),
             shortfall=max(0, planned - len(questions)),
@@ -398,9 +399,41 @@ class PracticeEngineAgent:
         return questions, verdicts
 
     @staticmethod
-    def _time_limit(req: AssemblePaperRequest, spec: Optional[dict], items: int) -> int:
-        if req.practice_mode == PracticeMode.MOCK_EXAM and spec:
-            return int(spec.get("total_duration_minutes") or 120)
+    def _timing_notices(req: AssemblePaperRequest, spec: Optional[dict], stages: List[dict]) -> List[str]:
+        """Say where the mock timetable came from, and refuse to pretend when the library has none."""
+        if req.practice_mode != PracticeMode.MOCK_EXAM:
+            return []
+        scheduled = sum(int(s["minutes"]) for s in stages)
+        if not stages:
+            return [
+                "库内考务规格没有给出逐节用时（parts[].duration_minutes），系统不内置模考时序："
+                "只按卷面结构组卷，收卡与封锁时机需教研把规格补齐后才谈得上。"
+            ]
+        notices = [
+            f"模考时序按库内规格 {(spec or {}).get('spec_id')} 的 {len(stages)} 节推进，"
+            f"合计 {scheduled} 分钟；服务不另立卷面。"
+        ]
+        declared = (spec or {}).get("total_duration_minutes")
+        if declared and int(declared) != scheduled:
+            notices.append(
+                f"库内该规格自相矛盾：逐节用时合计 {scheduled} 分钟，而 total_duration_minutes 写的是 "
+                f"{int(declared)} 分钟。时序按逐节数字推进（那份数字决定何时收卡），"
+                "两处需教研核定后统一——系统不自行改动官方卷面数据。"
+            )
+        return notices
+
+    @staticmethod
+    def _time_limit(
+        req: AssemblePaperRequest, spec: Optional[dict], items: int, stages: Optional[List[dict]] = None
+    ) -> Optional[int]:
+        if req.practice_mode == PracticeMode.MOCK_EXAM:
+            # 模考只报库内说得出的用时：逐节合计优先（它才是时序机真正执行的），退回规格总时长，
+            # 两者都没有就不限时——服务替官方考试编一个分钟数就是影子数据。
+            scheduled = sum(int(s["minutes"]) for s in stages or [])
+            if scheduled:
+                return scheduled
+            declared = (spec or {}).get("total_duration_minutes")
+            return int(declared) if declared else None
         if req.practice_mode == PracticeMode.TIMED_SPRINT:
             return max(5, int(items))
         if req.practice_mode == PracticeMode.DAILY_PRACTICE:

@@ -86,6 +86,9 @@ F 运行时层     services/app.py + SSE、stdlib 离线回填、SQLite 状态�
   - **重建按内容指纹，不按条数**：每张卡把"正文 + 状态"的 `card_digest` 写进 metadata，`build()` 只重嵌指纹变过的卡，并 `prune` 掉已从库里撤下的卡。旧实现是 `existing >= len(docs)` 就跳过，于是教研改了卡片正文或把 `review_status` 签成 `checked` 而条数不变时，集合里的旧文本会**永久**留着——连重启都不会刷新。
   - **运行中也会复核**：按 `KNOWLEDGE_MAP_CARD_TTL`（默认 60s）比对卡片目录的 `(路径, mtime_ns, 大小)` 指纹，变化即触发一次增量重建；窗口比知识门面的 5s 宽，因为一次指纹要 stat 上万张卡。
 - 一切索引均可从 `数据集/**` 全量重建，索引本身不入库（`.gitignore`），坏了删掉重跑。
+- **考务规格（`数据集/**/paper_specs.jsonl`）是组卷结构与模考时序的唯一来源**：`_select_mock` 按 `sections[]`/`parts[]` 出卷，`CETExamStateMachine.stages_from_spec()` 按同一份 `parts[]` 生成阶段——小节名、`duration_minutes`、`lock_policy.sheet_submission`/`allow_backtrack` 逐字段读回。旧实现在 `cet_statemachine.py` 里手抄了"写作 30 / 听力 30 / 阅读+翻译 70"，而库里 126 套 CET 规格写的是 30 / 25 / 40 / 30：**同一条组卷响应带着两套时间表**，学习者会按教研从未核定过的时序被收卡（听力晚 5 分钟）。现在库里没有逐节用时的规格（教资 32 套全部如此）就**不启动时序机**，`stage_state=None` 并在 `notices` 说明"不内置模考时序"，`time_limit_minutes` 退回库内 `total_duration_minutes`，两处都没有则为 `None`——给官方考试编一个分钟数就是影子数据。
+- **库内两处打架时机器不选边**：CET 126 套规格逐节合计 125 分钟而 `total_duration_minutes` 声明 130。运行时时序按逐节数字推进（那份数字才决定何时收卡），同时把矛盾显式写进 `notices`，并登记在 `审查/待复核清单.md` §6 由教研核定；官方卷面数据一律不自动改动。
+- **`审查/待复核清单.md` 是生成物**：清单里的每个计数都由 `审查/build_review_queue.py` 现算（题干抽取缺口用 `repository.has_answerable_text` 的同一份索引投影，与运行时组卷池子同源）。手抄进 markdown 的段落会在下次重跑时被抹掉——这一轮就差点弄丢了 §3.1 整节，所以加了一条验收用例逐字比对"生成器输出 vs 已提交文件"（只归一生成时间行）。
 
 ### 3.2 C 信任策略层 TrustGate（唯一降级点）
 
@@ -101,7 +104,7 @@ F 运行时层     services/app.py + SSE、stdlib 离线回填、SQLite 状态�
 | 题内练习框架（3,736 条，无 `weight_score`） | 生成反馈 | 参与判分 | 同上 |
 | 调用方自带的 `reference_answer`（库内已有参考原文时） | 仅作展示与兜底 | 顶替库内采分点、决定判分口径 | "采分点来源：库内 …"；库内确实没有原文时才写"调用方自备 … 不代表教研核定的判分口径" |
 | 调用方申报的 `is_correct`（库内有可核对的字母答案键时） | 只在库内核不动时兜底计数 | 顶替答案键改写掌握度、FSRS 队列与诊断雷达 | `verdict_source=库内答案键核对`，冲突时以答案键为准并把冲突写进 `notices`；既无答案键又无申报 → 画像侧 `attributable=false`、诊断侧该条进 `blocked_submissions` 且不占分母（答案键缺口已按 `answer_status` 全列在待复核清单里，运行时不再按人次追加队列） |
-| `content.stem` 只剩套名/题号且无选项（实测 CET-6 47 / CET-4 75 / 教资 42 题在"有答案"池内） | 教研补题干抽取 | 组卷、错题重做、计入 `pool_size`、**判分** | 组卷响应里报出缺口条数与原因；判分侧回 `refused_ungradable_input`，缺口按 `审查/待复核清单.md` 的题干抽取项处理，不占作答复核队列 |
+| `content.stem` 只剩套名/题号且无选项（题数不写在这里：由 `审查/build_review_queue.py` 现算并写进清单 §3.1，运行时与清单同一份投影） | 教研补题干抽取 | 组卷、错题重做、计入 `pool_size`、**判分** | 组卷响应里报出缺口条数与原因；判分侧回 `refused_ungradable_input`，缺口按 `审查/待复核清单.md` 的题干抽取项处理，不占作答复核队列 |
 | 偏移读回的字节不属于该 `question_id`（行被删/合并导致错位） | 换代重扫一次后重读 | 把读到的另一条记录当成该题返回 | `load_question` 返回 `None`，判分侧走 `refused_ungradable_input`，缺口记进 `stats().scan_issues` |
 | 单行 JSON 解析失败 | 跳过该行并登记缺口 | 让整个文件后续的题消失 | `stats().scan_issues` 计数，`审查/validate_kb.py` 在 CI 里挡住 |
 | `prerequisite_of` 全部 `active_for_learning_path=false` | 供教研核定查看 | 参与路径拓扑排序 | "先修阻断未启用（0 条已核定）" |
@@ -120,7 +123,7 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 
 | agent | 现文档模块 | 应改为消费 | 当前能承诺 / 不能承诺 |
 | --- | --- | --- | --- |
-| practice | F1 | `repository` 真题 + `graph_index.assesses` 定向 | 能：按考点/模块/题型组卷、CET 三段时序。不能：自动判分依据未签署量规 |
+| practice | F1 | `repository` 真题 + `graph_index.assesses` 定向 + `paper_specs` 卷面结构与时序 | 能：按考点/模块/题型组卷、按库内规格推进模考分段时序。不能：自动判分依据未签署量规；库里没有逐节用时的规格就不假装知道收卡时机 |
 | diagnostic | F3 | 索引投影出的 `module`/`knowledge_node_ids` 聚合 + `graph_index.requirements_for`；**雷达里的对错同样先过 `reconcile_verdict`**（不用 `supports_ability`：那是能力边，而 §10 不允许本层给能力结论） | 能：知识点覆盖度提示。不能：对外声称诊断结论、IRT 能力值，也不能把调用方申报的对错当成库内核验结果 |
 | planner | F4/F5 | `contains`/`has_child` 结构 + `assesses`；**先修边暂不入算法** | 能：按剩余天数 D 与每日时长 T 出日历。不能：前置阻断 |
 | memory | F6 | `confused_with`/`misconception_lead_to` + FSRS；**写入前用 `reconcile_verdict` 核对库内答案键** | 能：五维归因草稿、间隔调度。不能：把归因当已验证结论，也不能拿调用方申报覆盖库内答案键 |
@@ -145,7 +148,7 @@ IDLE → DIAGNOSE → PROFILE → PLAN → PRACTICE|MOCK → GRADE(或 FEEDBACK_
 ### 3.5 F 运行时层
 
 - **流式**：qa 与 master 走 SSE（`services/app.py:_sse`）；其余保持同步（设计文档未要求全链路流式，别过度设计）。
-- **异步与批量回填**：不起 Celery + Redis。模考分段时序由进程内 `practice/cet_statemachine.py` 推进——它是单请求内的确定状态转移，不需要跨进程锁。LLM 解析回填 `analysis` 的落地形态是一个 **stdlib 离线 CLI**：默认 dry-run、只把 `review.status` 抬到 `llm_enhanced`、绝不写 `checked_by`/`expert_verified`、跑完把条目投进 `审查/` 队列等教研签署。当前没有可用的 LLM 端点配置（`KNOWLEDGE_MAP_LLM_*` 未设置，`/health` 报 `rule_only`），所以这一步只留口径、不写工具，免得拿模型编造的解析把库填满。
+- **异步与批量回填**：不起 Celery + Redis。模考分段时序由进程内 `practice/cet_statemachine.py` 推进——阶段、分钟数、收卡与回退策略逐字段读自 `paper_specs.jsonl`（见 §3.1），代码里没有第二份考试时间表；它是单请求内的确定状态转移，不需要跨进程锁。LLM 解析回填 `analysis` 的落地形态是一个 **stdlib 离线 CLI**：默认 dry-run、只把 `review.status` 抬到 `llm_enhanced`、绝不写 `checked_by`/`expert_verified`、跑完把条目投进 `审查/` 队列等教研签署。当前没有可用的 LLM 端点配置（`KNOWLEDGE_MAP_LLM_*` 未设置，`/health` 报 `rule_only`），所以这一步只留口径、不写工具，免得拿模型编造的解析把库填满。
 - **持久化**：FSRS 与掌握度落 SQLite（`services/memory/store.py:SqliteMasteryStore`）、会话与 envelope 落 SQLite（`services/orchestrator/session.py`）、人工复核队列落 JSONL（`services/review/queue.py`）。原先"进程内 dict、跨进程必 404"的缺陷已消除（验收 A5）。状态目录 `.local_state/` 与 `chroma/` 均不入库。
 - **鉴权与限流**：`AuthContext` 已是除 `/health` 外每一条路由的依赖（14 条内容路由全挂，`tests/test_services_api.py` 按 `app.routes` 逐条断言，新增路由忘记挂闸会直接红）；配置了 `KNOWLEDGE_MAP_RUNTIME_TOKEN` 时，`research_internal` 档必须带 `Authorization: Bearer <token>`，否则 401——未配置即开发默认放行，**公开部署前必须设**，因为该档会外发真题全文，而 `GET /memory/mastery/{user_id}/{node_id}` 这类按 id 可枚举的学习者画像同样走这道闸。限流未落地（单机研究用途、无并发用户）；上线对外前它是 §9 传播面风险的最后一道技术闸。
 
@@ -197,7 +200,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 8. 可执行验收（每条都是测试，不是形容词）
 
-- **A1 无影子数据**：`services/**.py` 中不得出现题面/条文常量（断言 `SAMPLE_QUESTION_BANK`、`PROVENANCE_DB` 不存在，且任何字符串常量长度 > 40 的中文题面形态一律拒绝）。
+- **A1 无影子数据**：`services/**.py` 中不得出现题面/条文常量（断言 `SAMPLE_QUESTION_BANK`、`PROVENANCE_DB` 不存在，且任何字符串常量长度 > 40 的中文题面形态一律拒绝）。**卷面规格同属库内实体**：模考时序必须逐节等于 `paper_specs`（`stages_from_spec()` 的节名与分钟数一比一来自 `parts[]`/`sections[]`），`cet_statemachine.py` 里不许出现任何分钟数常量（只允许 0/1/60 这类单位换算与索引步进，出现即视为手抄考务表）；库里没有逐节用时的规格必须得到"无时序"（`stages=[]`、`stage_state=None`），绝不给一份编出来的时间表。**生成物也不许手抄**：`审查/待复核清单.md` 必须能被 `审查/build_review_queue.py` 逐字复现（只归一"生成时间"行）——手抄进清单的计数会在下次重跑时被抹掉，教研队列因此不可信。
 - **A2 真实引用**：`/practice/assemble` 返回的每个 `question_id` 必须能在 `数据集/**/questions` 索引中命中；`/qa/query` 的每条溯源必须命中 `权威资料/requirements.jsonl` 的 `requirement_id`。
 - **A3 隔离不可漏**：`quarantined` 或 `answer_status ∈ {source_conflict, missing}` 的题，永不出现在 practice 组卷、grader 判分与向量召回结果中；卡片正文不出现确定答案。只剩套名/题号、无选项可答的题同样不得入卷，也不得计入 `pool_size`（缺口条数必须在 `notices` 里可见）。
 - **A4 判分不冒充**：量规无署名时响应必须 `score=null`、`feedback_only=true`，且 `review.status` 不得被推进到 `checked`/`expert_reviewed`（LLM 同理）。判分**依据**同属此条：采分点与题干以库内记录为准（库内量规 `question_specific_points` → 库内 `content.answer`/`content.reference_answer` → 题内框架 `key_points`），调用方自带的 `reference_answer` 只能在三者皆空时兜底，且 provenance 必须写明"不代表教研核定的判分口径"；题面立不住的两种输入缺口（`question_id` 未命中索引、库内只剩套名与题号）在 agent 层直接拒判 `refused_ungradable_input`，不出分、不给针对该题的采分反馈，也不落队列。交给模型的题面取库内 `content.stem`，调用方题干与库内差异过大时显式声明以库内为准。
@@ -208,7 +211,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 - **A9 人工不旁路**：每一条**教研能拍板**的拒绝（内容隔离、答案来源冲突、量规待签署）都必须在 `/review/queue` 留下一条 `pending_human_review` 记录，且 `checked_by=null`、`expert_verified=false`。反向同样成立：调用方漏传输入、`published` 档天然空池**不得**入队——否则唯一审核人会被无效项淹没，真正要他签的条目反而看不见。
 - **A10 判据归属**：写进掌握度、FSRS 复习队列**与诊断雷达**的"对错"必须由 `TrustGate.reconcile_verdict` 决定，优先级是**库内答案键核对 > 调用方申报 > 无判据**。旧写法把 `is_correct` 申报排在答案键之前——画像那边是任何人报一次"对"就能永久改写这个学习者的画像，诊断那边更直接：`module_stats[...]["correct"] += int(submission.is_correct)` 让调用方用一个布尔刷满整张雷达，于是 `is_correct` 已从必填改成可选申报，雷达的每条对错都先按库内答案键核对。两者冲突时以库内答案键为准（`answer_status ∈ {letter_only, verified}` 且提交了可核对的所选选项），申报只在库内核不动时兜底，且必须落进 `ReviewBundle.verdict_source`／报告 `notices`（"系统未独立核验"，并给出有多少条是申报来的）。既无可核对答案键又无申报时画像返回 `attributable=false`、诊断把该条送进 `blocked_submissions` 且不占分母——不虚构对错，掌握度、错题日志、复习队列与覆盖度结论都不动；隔离/来源冲突的题同样走这条路。答疑侧的选项比对共用同一个 `answer_letter` 与同一套字母键口径（参考答案是原文时不硬套字母，改为声明"无法与所选比对"）。
 - **A11 索引换代与偏移身份**：门面缓存的是数据的**一个版本**，不是进程启动那一刻。运行期间教研在盘上签署、reopen 或合并套卷，门面必须在一个 TTL 窗口内看见，并把题目、条款、量规与图谱缓存一起换代（`generation += 1`，`GraphIndex` 跟随重建）——否则"人工在环"只在重启后生效。同时 `load_question` 只接受"读回来的字节仍属于这个 `question_id`"的记录：删行/合并会让后面的偏移整体错位，此时先换代重扫再读一次，仍读不回原题就返回 `None`（判分侧走 `refused_ungradable_input`）并把缺口登记进 `stats().scan_issues`。宁可报"这道题读不到"，也绝不把另一道题的答案键当成这道题送出去。单行坏 JSON 只登记该行缺口，不得带走同一文件后续的题。RAG 侧同理：卡片集合按**内容指纹**增量重建并剔除已从库里撤下的卡——只比条数的"重建"会把旧正文留到永远。
-- 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A11 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试。
+- 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A11 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试；`审查/待复核清单.md` 由 `审查/build_review_queue.py` 生成，重跑必须得到同一份内容（A1 已经替这条跑了）。
 
 ## 9. 风险与留痕
 
@@ -221,6 +224,6 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 不上 IRT / CAT / BKT / DKT（无真实作答数据，设计文档列为阶段二三）；不启用先修路径阻断（0 条已核定）；不在 `published` 档给出诊断结论；不做未签署量规的自动出分；不引入外部编排框架；不把索引与 Chroma 数据写入 git。
 
-## 11. 落地状态（2026-10-10）
+## 11. 落地状态（2026-10-11）
 
-P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（29 例），全库回归 `python -m pytest tests -q` 为 371 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；判据归属在 `TestA10ProfileVerdictSource` 两头各钉一次——画像侧申报顶不掉答案键、`is_correct` 缺省时不写画像，诊断侧 `raw_score` 按库内答案键归零、无判据的作答不占分母也不追加教研队列，并在 `tests/test_services_all_agents.py:TestDiagnosticAgent` 用库内答案键现取现算（测试不写死"A 对 B 错"）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）；卡片集合的"按内容指纹增量重建 + 撤卡剔除"在 `TestA11CardIndexFreshness`（临时根目录 + 注入词法后端）复现。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（32 例），全库回归 `python -m pytest tests -q` 为 377 passed + 55 subtests（约 4.5 分钟，其中清单复现那条约要 3 分钟——它必须另起进程把两套库重扫一遍）。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；判据归属在 `TestA10ProfileVerdictSource` 两头各钉一次——画像侧申报顶不掉答案键、`is_correct` 缺省时不写画像，诊断侧 `raw_score` 按库内答案键归零、无判据的作答不占分母也不追加教研队列，并在 `tests/test_services_all_agents.py:TestDiagnosticAgent` 用库内答案键现取现算（测试不写死"A 对 B 错"）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）；卡片集合的"按内容指纹增量重建 + 撤卡剔除"在 `TestA11CardIndexFreshness`（临时根目录 + 注入词法后端）复现。卷面时序在 `TestA1NoShadowData.test_the_exam_clock_is_the_blueprint_not_a_transcript` 逐套规格比对节名与分钟数，并用 `test_the_state_machine_holds_no_transcribed_timetable` 把"时序机里不许出现分钟数常量"钉成静态断言；整条流水线在 `tests/test_services_all_agents.py:TestPracticeEngineAgent` 走真规格——收卡状态等于上一节 `lock_policy.sheet_submission`，而进行中的小节绝不锁输入（`allow_backtrack=false` 说的是"这一节封住不能回去作答"，不是整卷停止作答），教资规格因为没有逐节用时只能拿到 `stage_state=None` 加一条显式降级说明。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
