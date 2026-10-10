@@ -94,7 +94,8 @@ F 运行时层     services/app.py + SSE、stdlib 离线回填、SQLite 状态�
 | `difficulty` 只有 `heuristic_*` | 组卷排序参考 | IRT/CAT/标准误措辞 | "教研初估" |
 | 量规 `official_scoring=false` 且无署名（6 套全中） | 维度反馈、自评清单 | **自动出分** | "框架反馈 + 人工复核"，同时把这条作答写进 `审查/` 队列 |
 | 题内练习框架（3,736 条，无 `weight_score`） | 生成反馈 | 参与判分 | 同上 |
-| `content.stem` 只剩套名/题号且无选项（实测 CET-6 47 / CET-4 75 / 教资 42 题在"有答案"池内） | 教研补题干抽取 | 组卷、错题重做、计入 `pool_size` | 组卷响应里报出缺口条数与原因 |
+| 调用方自带的 `reference_answer`（库内已有参考原文时） | 仅作展示与兜底 | 顶替库内采分点、决定判分口径 | "采分点来源：库内 …"；库内确实没有原文时才写"调用方自备 … 不代表教研核定的判分口径" |
+| `content.stem` 只剩套名/题号且无选项（实测 CET-6 47 / CET-4 75 / 教资 42 题在"有答案"池内） | 教研补题干抽取 | 组卷、错题重做、计入 `pool_size`、**判分** | 组卷响应里报出缺口条数与原因；判分侧回 `refused_ungradable_input`，缺口按 `审查/待复核清单.md` 的题干抽取项处理，不占作答复核队列 |
 | `prerequisite_of` 全部 `active_for_learning_path=false` | 供教研核定查看 | 参与路径拓扑排序 | "先修阻断未启用（0 条已核定）" |
 | `use_scope ≠ research_non_commercial` | — | 输出原文、二次分发 | 直接拒发并记审计日志 |
 | L0 条款 `verified=false`（2,260 + 3,995） | 溯源展示 | 作为"官方要求已核对"的结论 | 附 `requirement_id` + `locator`，标注未核定 |
@@ -114,7 +115,7 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 | planner | F4/F5 | `contains`/`has_child` 结构 + `assesses`；**先修边暂不入算法** | 能：按剩余天数 D 与每日时长 T 出日历。不能：前置阻断 |
 | memory | F6 | `confused_with`/`misconception_lead_to` + FSRS | 能：五维归因草稿、间隔调度。不能：把归因当已验证结论 |
 | qa | §5.2 | Chroma 卡片 + `aligned_to_requirement` + `权威资料/text/` 原文 | 能：带 `locator` 的溯源回答。不能：无出处回答、编造条文 |
-| grader | F7/主观题 | A.6 加权量规（签署后）／题内框架（现在） | 现在只能出维度反馈 + 复核队列，**不出分** |
+| grader | F7/主观题 | A.6 加权量规（签署后）／题内框架（现在）；题干与采分点只认库内记录 | 现在只能出维度反馈 + 复核队列，**不出分**；题面立不住（未命中索引／只剩套名）直接拒判，不入队列 |
 | interview | F7 | `rubrics/official_interview.json` 口径原文 | 能：结构化建议。不能："不替代正式考试评分"必须常驻 |
 | master | §2.1 总控 | 见 E 层 | — |
 
@@ -164,7 +165,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 | 路由 | 改动 |
 | --- | --- |
-| `/grade/subjective` | 未签署量规下 `score = null` + `feedback_only = true` + 写入复核队列；不再回启发式分数 |
+| `/grade/subjective` | 未签署量规下 `score = null` + `feedback_only = true` + 写入复核队列；不再回启发式分数。`question_id` 未命中索引或库内题面只剩套名时回 `review_status = refused_ungradable_input`（不出分、不占队列），`reference_answer` 只在库内无参考原文时兜底并在 `notices` 标明来源 |
 | `/practice/assemble` | 题目来自 `repository`，返回体带 `trust_tier` 与每题 `review.status` |
 | `/qa/query` | 溯源改真条款（`requirement_id` + `locator`）；删除硬编码"本题答案为 B" |
 | `/diagnostic/evaluate`、`/planner/generate` | `published` 档在 0 签署题下必须显式返回不可声称；先修阻断保持关闭并说明原因 |
@@ -189,7 +190,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 - **A1 无影子数据**：`services/**.py` 中不得出现题面/条文常量（断言 `SAMPLE_QUESTION_BANK`、`PROVENANCE_DB` 不存在，且任何字符串常量长度 > 40 的中文题面形态一律拒绝）。
 - **A2 真实引用**：`/practice/assemble` 返回的每个 `question_id` 必须能在 `数据集/**/questions` 索引中命中；`/qa/query` 的每条溯源必须命中 `权威资料/requirements.jsonl` 的 `requirement_id`。
 - **A3 隔离不可漏**：`quarantined` 或 `answer_status ∈ {source_conflict, missing}` 的题，永不出现在 practice 组卷、grader 判分与向量召回结果中；卡片正文不出现确定答案。只剩套名/题号、无选项可答的题同样不得入卷，也不得计入 `pool_size`（缺口条数必须在 `notices` 里可见）。
-- **A4 判分不冒充**：量规无署名时响应必须 `score=null`、`feedback_only=true`，且 `review.status` 不得被推进到 `checked`/`expert_reviewed`（LLM 同理）。
+- **A4 判分不冒充**：量规无署名时响应必须 `score=null`、`feedback_only=true`，且 `review.status` 不得被推进到 `checked`/`expert_reviewed`（LLM 同理）。判分**依据**同属此条：采分点与题干以库内记录为准（库内量规 `question_specific_points` → 库内 `content.answer`/`content.reference_answer` → 题内框架 `key_points`），调用方自带的 `reference_answer` 只能在三者皆空时兜底，且 provenance 必须写明"不代表教研核定的判分口径"；题面立不住的两种输入缺口（`question_id` 未命中索引、库内只剩套名与题号）在 agent 层直接拒判 `refused_ungradable_input`，不出分、不给针对该题的采分反馈，也不落队列。交给模型的题面取库内 `content.stem`，调用方题干与库内差异过大时显式声明以库内为准。
 - **A5 状态持久**：两个独立进程实例共享同一状态目录时，`GET /memory/mastery/{user}/{node}` 必须命中。
 - **A6 边名白名单**：加载 `edges.jsonl` 时出现 16 词表外边名即抛错；`prerequisite_of` 在 `active_for_learning_path=false` 时不得进入 planner 排序。
 - **A7 难度措辞**：任何 `heuristic_*` 难度在响应中的 label 必须为"教研初估"，全库禁止 IRT/CAT/标准误字样出现在未校准路径输出里——**运行时自己写的提示语也在扫描范围内**，否则一句"不可用作能力估计"就会成为第一条违规。
@@ -210,4 +211,4 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 11. 落地状态（2026-10-10）
 
-P0–P4 全部完成，§8 的 A1–A9 各有对应测试，实现在 `tests/test_acceptance_gate.py`（23 例），全库回归 `python -m pytest tests -q` 为 348 passed + 55 subtests。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A9 各有对应测试，实现在 `tests/test_acceptance_gate.py`（23 例），全库回归 `python -m pytest tests -q` 为 353 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。

@@ -36,7 +36,7 @@ from services.grader.evidence import (
 from services.knowledge.trust import RubricVerdict
 
 NO_POINTS_NOTICE = (
-    "库内该题型量规未录入 question_specific_points，且本次请求未提供参考作答，"
+    "库内该题型量规未录入 question_specific_points，且题内参考原文与本次请求的参考作答都切不出采分点，"
     "系统不内置采分点清单，只按维度描述给出质性反馈。"
 )
 FEEDBACK_ONLY_NOTICE = (
@@ -46,7 +46,8 @@ PUBLISHED_REFUSAL = (
     "published 档位只允许出具已签署量规的分数，当前量规未签署，已拒绝出分并转人工复核。"
 )
 UNKNOWN_QUESTION_NOTICE = (
-    "该 question_id 未命中知识库索引：反馈仅基于本次请求自带的文本，不代表库内任何判分口径。"
+    "该 question_id 未命中知识库索引：采分点只能来自本次请求自带的文本，不代表库内任何判分口径。"
+    "面向学习者的判分入口（SubjectiveGraderAgent）对接未命中索引的题直接拒判，不调用本引擎。"
 )
 BAND_REFERENCE_NOTICE = (
     "档位列名与描述为库内转录原文，仅作练习反馈定位用；未出分，也不是报道分或官方阅卷结果。"

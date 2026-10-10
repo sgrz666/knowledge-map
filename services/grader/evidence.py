@@ -58,10 +58,12 @@ def expected_points(
     reference_answer: Optional[str],
     record: Optional[dict] = None,
 ) -> Tuple[List[str], str]:
-    """采分点 come from the library record or the caller's reference answer, never from us.
+    """采分点只认库内记录；调用方自带的参考作答排在最后，且来源必须写清是"调用方自备"。
 
     Returns ``(points, provenance)`` where provenance names the field the points were read from,
-    so the response can say where its own checklist came from.
+    so the response can say where its own checklist came from. 顺序即口径：库内 ``content.answer``
+    与 ``content.reference_answer`` 先于调用方文本——否则任何人传一份自定参考答案，就能顶掉教研
+    核定的判分依据，而响应仍挂着库内的 ``question_id``。
     """
     points: List[str] = []
     provenance = ""
@@ -71,10 +73,15 @@ def expected_points(
         if text and text not in points:
             points.append(text)
     if points:
-        provenance = "rubric.question_specific_points"
+        provenance = "库内量规 question_specific_points 原文"
 
     content = (record or {}).get("content") or {}
-    for candidate in (reference_answer, content.get("answer"), content.get("reference_answer")):
+    candidates = (
+        (content.get("answer"), "库内 content.answer 分点切分"),
+        (content.get("reference_answer"), "库内 content.reference_answer 分点切分"),
+        (reference_answer, "调用方自备 reference_answer 分点切分（库内该题没有参考原文，不代表教研核定的判分口径）"),
+    )
+    for candidate, label in candidates:
         if points or not candidate:
             continue
         segments = [s.strip() for s in _SEGMENTED.split(str(candidate)) if len(s.strip()) >= 4]
@@ -83,7 +90,7 @@ def expected_points(
             if len(clause) >= 3 and clause not in points:
                 points.append(clause[:40])
         if points:
-            provenance = "reference_answer 分点切分"
+            provenance = label
 
     framework = (record or {}).get("rubric") or content.get("rubric") or {}
     if isinstance(framework, dict):
@@ -92,7 +99,7 @@ def expected_points(
             if text and text not in points:
                 points.append(text)
         if points and not provenance:
-            provenance = "题目内嵌练习框架 key_points"
+            provenance = "库内题目内嵌练习框架 key_points"
 
     return points[:8], provenance
 

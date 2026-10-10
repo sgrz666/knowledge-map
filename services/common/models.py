@@ -183,7 +183,15 @@ class UnifiedSubjectiveGradingResponse(BaseModel):
     evaluation_summary: str
     revision_advice: str
     confidence_score: float = Field(default=0.85, ge=0.0, le=1.0)
-    review_status: Literal["llm_graded", "heuristic_graded", "expert_reviewed", "quarantined_for_human"] = "llm_graded"
+    review_status: Literal[
+        "llm_graded",
+        "heuristic_graded",
+        "expert_reviewed",
+        "quarantined_for_human",
+        # 题面本身立不住（未命中索引 / 库内只剩套名）：既不出分也不落待复核队列，
+        # 因为待复核队列收的是"这条判分需要教研看一眼"，而输入缺口没有判分可看。
+        "refused_ungradable_input",
+    ] = "llm_graded"
     notices: List[str] = Field(default_factory=list)
     review_queue_entry: Optional[dict] = None
 

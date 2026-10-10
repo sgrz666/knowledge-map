@@ -419,7 +419,11 @@ class TestA4NoScoreWithoutSignature(AcceptanceTestCase):
         grader = SubjectiveGraderAgent(repository=self.repository, review_queue=self.queue)
         library_ids = {}
         for exam in ("NTCE", "CET-4"):
-            for meta in self.repository.find_questions(exams=(exam,), require_nodes=True):
+            # A4 讲的是"已可判分的题在未签署量规下不出分"，所以选题必须走 A3 那一套可用口径：
+            # 有答案状态、有真题面，否则 agent 层会先因输入缺口拒判，测不到签署这道闸。
+            for meta in self.repository.find_questions(
+                exams=(exam,), require_nodes=True, require_answer=True, require_answerable_text=True
+            ):
                 library_ids[exam] = meta.question_id
                 break
         seen = 0

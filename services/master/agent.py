@@ -555,7 +555,7 @@ class TutorMasterAgent:
                 "question_id": request.question_id,
                 "node_id": (meta.node_ids or (None,))[0] if meta else None,
                 "requirement_id": (meta.requirement_ids or (None,))[0] if meta else None,
-                "source": (meta.file if meta else None) or "本次请求自带文本（未命中索引）",
+                "source": (meta.file if meta else None) or "题面未命中库内索引：已拒判，调用方文本不作为判分依据",
                 "locator": {"offset": meta.offset, "length": meta.length} if meta else None,
             }
         ]
