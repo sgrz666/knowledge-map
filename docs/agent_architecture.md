@@ -104,6 +104,8 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 
 **答案状态只有一份词表**：`SERVABLE_ANSWER_STATUSES = (letter_only, reference_only, verified)`。`servable_in_paper`、`repository.find_questions(require_answer=True)` 与召回过滤 `RESEARCH_ANSWER_STATUSES` 全部引用它——`missing`/`source_conflict` 一旦被判不可用，就在门面、组卷、判分、召回四处同时消失，不存在"某一层还留着口子"的第二套口径。
 
+**对错判据也只有一个入口**：`TrustGate.reconcile_verdict(record, selected_option, claimed)` 规定优先级——库内答案键核对 > 调用方申报 > 无判据（返回 `None` 即什么都不许写）。字母键的读法同样只有一份 `answer_letter`：以前 `master` 与 `qa` 各写了一份取首字母的逻辑，两份一旦分叉，同一份库内答案就能判出两个相反的对错，而画像与答疑各信一边。
+
 ### 3.3 D 能力层（保留现有 8 个 agent，重写数据依赖）
 
 现有 agent 的**职责划分是对的**（对应设计文档 F1–F7），要改的是它们的数据来源与判分依据：
@@ -113,7 +115,7 @@ TrustGate 的输出不是布尔，而是一个带说明的裁决对象。落地�
 | practice | F1 | `repository` 真题 + `graph_index.assesses` 定向 | 能：按考点/模块/题型组卷、CET 三段时序。不能：自动判分依据未签署量规 |
 | diagnostic | F3 | `assesses` + `supports_ability` 聚合 | 能：知识点覆盖度提示。不能：对外声称诊断结论、IRT 能力值 |
 | planner | F4/F5 | `contains`/`has_child` 结构 + `assesses`；**先修边暂不入算法** | 能：按剩余天数 D 与每日时长 T 出日历。不能：前置阻断 |
-| memory | F6 | `confused_with`/`misconception_lead_to` + FSRS | 能：五维归因草稿、间隔调度。不能：把归因当已验证结论 |
+| memory | F6 | `confused_with`/`misconception_lead_to` + FSRS；**写入前用 `reconcile_verdict` 核对库内答案键** | 能：五维归因草稿、间隔调度。不能：把归因当已验证结论，也不能拿调用方申报覆盖库内答案键 |
 | qa | §5.2 | Chroma 卡片 + `aligned_to_requirement` + `权威资料/text/` 原文 | 能：带 `locator` 的溯源回答。不能：无出处回答、编造条文 |
 | grader | F7/主观题 | A.6 加权量规（签署后）／题内框架（现在）；题干与采分点只认库内记录 | 现在只能出维度反馈 + 复核队列，**不出分**；题面立不住（未命中索引／只剩套名）直接拒判，不入队列 |
 | interview | F7 | `rubrics/official_interview.json` 口径原文 | 能：结构化建议。不能："不替代正式考试评分"必须常驻 |
@@ -169,7 +171,7 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 | `/practice/assemble` | 题目来自 `repository`，返回体带 `trust_tier` 与每题 `review.status` |
 | `/qa/query` | 溯源改真条款（`requirement_id` + `locator`）；删除硬编码"本题答案为 B" |
 | `/diagnostic/evaluate`、`/planner/generate` | `published` 档在 0 签署题下必须显式返回不可声称；先修阻断保持关闭并说明原因 |
-| `/memory/*` | 落 SQLite，跨进程可读 |
+| `/memory/*` | 落 SQLite，跨进程可读；`/memory/review` 的 `is_correct` 只是申报，响应必须回 `verdict_source`（库内答案键核对 / 调用方申报），无可核对判据时 `attributable=false` 且不写画像 |
 | `/master/chat` | 由状态机驱动，真调子 agent |
 | 新增 `/retrieval/search` | 三路径 + TrustGate 的统一出口，供 qa 与前端复用 |
 | 新增 `/review/queue` | 把运行时降级项写进教研队列（与 `build_review_queue.py` 同源），保证"agent 不旁路人工" |
@@ -196,7 +198,8 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 - **A7 难度措辞**：任何 `heuristic_*` 难度在响应中的 label 必须为"教研初估"，全库禁止 IRT/CAT/标准误字样出现在未校准路径输出里——**运行时自己写的提示语也在扫描范围内**，否则一句"不可用作能力估计"就会成为第一条违规。
 - **A8 编排闭环**：一条会话可跑完 `诊断→画像→规划→刷题→归因→回写`，且每步消息都是 `AgentMessageEnvelope`。归因步只承认三种判据：调用方显式给的 `is_correct`、库内答案键、学习者自己的错题日志；三者都没有就不写记忆、不给错因，状态机停在中立出口而不是编造一个对错。
 - **A9 人工不旁路**：每一条**教研能拍板**的拒绝（内容隔离、答案来源冲突、量规待签署）都必须在 `/review/queue` 留下一条 `pending_human_review` 记录，且 `checked_by=null`、`expert_verified=false`。反向同样成立：调用方漏传输入、`published` 档天然空池**不得**入队——否则唯一审核人会被无效项淹没，真正要他签的条目反而看不见。
-- 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A9 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试。
+- **A10 画像判据**：写进掌握度与 FSRS 复习队列的"对错"必须由 `TrustGate.reconcile_verdict` 决定，优先级是**库内答案键核对 > 调用方申报 > 无判据**。旧写法把 `is_correct` 申报排在答案键之前，等于任何人报一次"对"就能永久改写这个学习者的画像；现在两者冲突时以库内答案键为准（`answer_status ∈ {letter_only, verified}` 且提交了可核对的所选选项），申报只在库内核不动时兜底，且必须落进 `ReviewBundle.verdict_source` 与 `notices`（"系统未独立核验"）。既无可核对答案键又无申报时返回 `attributable=false`——不虚构对错，掌握度、错题日志与复习队列都不动；隔离/来源冲突的题同样走这条路。答疑侧的选项比对共用同一个 `answer_letter` 与同一套字母键口径（参考答案是原文时不硬套字母，改为声明"无法与所选比对"）。
+- 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A10 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试。
 
 ## 9. 风险与留痕
 
@@ -211,4 +214,4 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 11. 落地状态（2026-10-10）
 
-P0–P4 全部完成，§8 的 A1–A9 各有对应测试，实现在 `tests/test_acceptance_gate.py`（23 例），全库回归 `python -m pytest tests -q` 为 353 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A10 各有对应测试，实现在 `tests/test_acceptance_gate.py`（26 例），全库回归 `python -m pytest tests -q` 为 356 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。

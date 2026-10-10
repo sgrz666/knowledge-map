@@ -12,7 +12,13 @@ from typing import List, Optional, Tuple
 
 from services.common.models import SparksThreeChainResponse
 from services.knowledge.repository import KnowledgeRepository, get_repository
-from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate, TrustVerdict
+from services.knowledge.trust import (
+    COPYRIGHT_NOTICE,
+    LETTER_ANSWER_STATUSES,
+    TrustGate,
+    TrustVerdict,
+    answer_letter,
+)
 
 NO_RECORD = SparksThreeChainResponse(
     question_id="",
@@ -165,27 +171,30 @@ class SparksChainEngine:
 
         if user_selected_option:
             payload["candidate_choice"] = user_selected_option
-            if verdict.may_assert_answer:
-                same = self._letter(content.get("answer")) == self._letter(user_selected_option)
+            key = (
+                answer_letter(content.get("answer"))
+                if verdict.answer_status in LETTER_ANSWER_STATUSES
+                else None
+            )
+            picked = answer_letter(user_selected_option)
+            if verdict.may_assert_answer and key and picked:
+                same = key == picked
                 payload["matches_reference"] = same
                 payload["diagnosis"] = (
-                    "所选与库内参考答案一致。"
+                    "所选与库内答案键一致。"
                     if same
-                    else "所选与库内参考答案不一致；差异判据见 comparison，最终以教研复核为准。"
+                    else "所选与库内答案键不一致；差异判据见 comparison，最终以教研复核为准。"
+                )
+            elif verdict.may_assert_answer:
+                # 参考答案是原文而不是字母键时，选项比对没有意义，硬比只会造出一个假结论。
+                payload["matches_reference"] = None
+                payload["diagnosis"] = (
+                    "库内该题的参考答案不是选项键（answer_status=%s），无法与所选字母比对；"
+                    "只能按参考原文自评。" % verdict.answer_status
                 )
             else:
                 payload["diagnosis"] = ANSWER_UNAVAILABLE
         return payload
-
-    @staticmethod
-    def _letter(value: Optional[str]) -> Optional[str]:
-        if not value:
-            return None
-        text = str(value).strip().upper()
-        for ch in text:
-            if "A" <= ch <= "Z":
-                return ch
-        return None
 
     def _provenance(
         self, record: dict, structured: dict, node_id: Optional[str]

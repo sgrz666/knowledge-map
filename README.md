@@ -13,7 +13,7 @@
 - **`数据集/`**：结构化考试与课程数据集总目录（四六级、教资、教育学类、计算机类）
 - **kb_tools/**：教资数据处理与知识图谱构建工具链（含 `ntce_contract.py` 状态契约迁移、`build_graph.py` 图谱导出）
 - **审查/**：全库质量与门禁工具（`validate_kb.py` 结构与引用门禁、`状态词表检查.py` 状态枚举门禁、`build_review_queue.py` 生成教研待复核清单、`知识库形式审查.py` 形式审查与验收报告）
-- **tests/**：自动化测试套件（回归测试与数据契约断言，含 `test_graph_direction_contract.py` 两库图谱方向/层级契约、`test_status_vocabulary.py` 两库状态词表契约、`test_rubric_contract.py` 题内练习框架与 A.6 加权量规的双轨契约、`test_acceptance_gate.py` 架构方案 §8 的可执行验收 A1–A9（无影子数据、真实引用、隔离不漏、判分不冒充、状态持久、边名白名单、难度措辞、编排闭环、人工不旁路）、`test_workspace_aliases.py` 工作区别名前置条件）
+- **tests/**：自动化测试套件（回归测试与数据契约断言，含 `test_graph_direction_contract.py` 两库图谱方向/层级契约、`test_status_vocabulary.py` 两库状态词表契约、`test_rubric_contract.py` 题内练习框架与 A.6 加权量规的双轨契约、`test_acceptance_gate.py` 架构方案 §8 的可执行验收 A1–A10（无影子数据、真实引用、隔离不漏、判分不冒充、状态持久、边名白名单、难度措辞、编排闭环、人工不旁路、画像判据）、`test_workspace_aliases.py` 工作区别名前置条件）
 - **services/**：agent 运行时（47 个 py / 13 个模块）。`knowledge/` 是唯一的读数据门面（字节偏移索引、16 词边名白名单图谱、Chroma 卡片召回、TrustGate 两档可信裁决），`practice/ diagnostic/ planner/ memory/ qa/ grader/ interview/ master/` 八个能力层 agent 只经门面取数，`orchestrator/` 是自研状态机与会话信封，`llm/` 是结构化输出与禁用声称护栏，`review/` 是教研待复核队列，`app.py` 是 FastAPI 入口（含 SSE 与运行时令牌校验）
 - **docs/**：项目实施计划与文档（`agent_architecture.md` agent 运行时架构设计、`agent_workflow_plan.md` 知识库数据补齐工作流）
 

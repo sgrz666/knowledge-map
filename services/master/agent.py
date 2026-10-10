@@ -134,7 +134,7 @@ class TutorMasterAgent:
         self.planner = planner_agent or CurriculumPlannerAgent(repository=self.repository)
         self.practice = practice_agent or PracticeEngineAgent(repository=self.repository)
         self.grader = grader_agent or SubjectiveGraderAgent(repository=self.repository)
-        self.memory = memory_agent or MemoryReviewAgent(store=self.store)
+        self.memory = memory_agent or MemoryReviewAgent(store=self.store, repository=self.repository)
         self.qa = qa_agent or TutorQAAgent(repository=self.repository)
         self.interview = interview_agent or InterviewCoachAgent(repository=self.repository)
         self.queue = queue or get_review_queue()
@@ -603,7 +603,7 @@ class TutorMasterAgent:
                     })
                 },
             }
-        correct = self._verdict(ctx, question_id)
+        correct, verdict_source, verdict_notices = self._verdict_with_provenance(ctx, question_id)
         if correct is None:
             # No checkable judgement exists: the library answer is unverified and the caller
             # submitted no option. Writing "wrong" here would poison the learner's own FSRS queue.
@@ -635,40 +635,48 @@ class TutorMasterAgent:
             has_negation_in_stem=bool(ctx.get("has_negation_in_stem", False)),
         )
         bundle = self.memory.process_event(event)
+        notices = [ATTRIBUT_NOTICE, f"对错判据：{verdict_source}。" if verdict_source else "", *verdict_notices]
+        notices += list(getattr(bundle, "notices", []) or [])
         return {
             "summary": bundle.followup_plan,
             "data": bundle.model_dump(mode="json"),
             "evidence": [{"question_id": question_id, "node_id": node_id, "source": "memory store"}],
-            "notices": [ATTRIBUT_NOTICE, *list(getattr(bundle, "notices", []) or [])],
+            "notices": [n for n in dict.fromkeys(notices) if n],
             "context": {
                 "attributed": True,
                 "card_attribut": _serialisable({
-                    "attribution": bundle.attribution.model_dump(mode="json"),
+                    "attribution": bundle.attribution.model_dump(mode="json") if bundle.attribution else None,
                     "fsrs_rating": bundle.fsrs_rating,
                     "retrievability": bundle.retrievability,
                     "next_review_interval_days": bundle.next_review_interval_days,
                     "followup_plan": bundle.followup_plan,
                     "is_correct": correct,
+                    "verdict_source": bundle.verdict_source or verdict_source,
                 }),
             },
         }
 
     def _verdict(self, ctx: dict, question_id: str) -> Optional[bool]:
-        """Right/wrong comes from a real signal only: an explicit flag, the library key, or the log."""
-        if ctx.get("is_correct") is not None:
-            return bool(ctx["is_correct"])
+        return self._verdict_with_provenance(ctx, question_id)[0]
+
+    def _verdict_with_provenance(self, ctx: dict, question_id: str):
+        """判据优先级：库内答案键核对 > 调用方申报 > 学习者自己的错题日志。
+
+        申报排在前面的旧写法意味着任何人报一次"对"就能永久改写这个学习者的掌握度与复习队列，
+        哪怕库里那道题的答案键说的是反的（与 A4 的判分依据同一条口径）。
+        """
+        gate = TrustGate(TrustTier.RESEARCH_INTERNAL)
         record = self.repository.load_question(question_id) if question_id else None
-        selected = ctx.get("selected_option")
-        if record is not None and selected:
-            gate = TrustGate(TrustTier.RESEARCH_INTERNAL)
-            if gate.classify_record(record).may_assert_answer:
-                key = (record.get("content") or {}).get("answer")
-                return _letter(key) == _letter(selected)
+        checked, provenance, notices = gate.reconcile_verdict(
+            record, ctx.get("selected_option"), ctx.get("is_correct")
+        )
+        if checked is not None:
+            return checked, provenance, notices
         if question_id:
             logged = self.memory.store.error_entries(ctx["user_id"])
             if any(entry.get("question_id") == question_id for entry in logged):
-                return False
-        return None
+                return False, "学习者自己的错题日志", notices
+        return None, "", notices
 
     def _h_review(self, ctx: dict) -> dict:
         return {"summary": "已转入待复核队列，本次会话不输出结论。", "data": {"queued": True}}
@@ -744,13 +752,3 @@ def _serialisable(value):
     if hasattr(value, "model_dump"):
         return value.model_dump(mode="json")
     return str(value)
-
-
-def _letter(value) -> Optional[str]:
-    """First A-Z letter of an answer key or a submitted option ("B." / "选 B" -> "B")."""
-    if not value:
-        return None
-    for ch in str(value).strip().upper():
-        if "A" <= ch <= "Z":
-            return ch
-    return None

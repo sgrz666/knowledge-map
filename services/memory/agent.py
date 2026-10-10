@@ -1,4 +1,9 @@
-"""MemoryReviewAgent: Coordinates error attribution, FSRS memory scheduling, and mastery persistence."""
+"""MemoryReviewAgent: Coordinates error attribution, FSRS memory scheduling, and mastery persistence.
+
+The event's ``is_correct`` is a claim, not a verdict: before anything is written to a learner's
+profile it goes through ``TrustGate.reconcile_verdict``, which prefers the library answer key and
+only falls back to the claim when the library cannot check it (see ``docs/agent_architecture.md`` §8 A10).
+"""
 from __future__ import annotations
 
 import logging
@@ -12,6 +17,8 @@ from services.common.models import (
     ReviewBundle,
     UserMasteryRecord,
 )
+from services.knowledge.repository import KnowledgeRepository, get_repository
+from services.knowledge.trust import TrustGate
 from services.memory.attribution import ErrorAttributionEngine
 from services.memory.fsrs import FSRSModel
 from services.memory.store import default_store
@@ -22,9 +29,31 @@ logger = logging.getLogger("services.memory.agent")
 class MemoryReviewAgent:
     """Agent managing error analysis, spaced repetition updates, and mastery state."""
 
-    def __init__(self, store=None):
+    def __init__(self, store=None, repository: Optional[KnowledgeRepository] = None):
         # Defaults to the on-disk store under .local_state/ so scheduling survives restarts.
         self.store = store if store is not None else default_store()
+        # 库门面用来核对申报的对错；不注入时按默认门面走，不给"没核对"留口子。
+        self.repository = repository if repository is not None else get_repository()
+        # 档位写死在 research_internal：让调用方自选档位就等于让它自己挑一套更宽的核对口径。
+        self.gate = TrustGate("research_internal")
+
+    def _reconcile(self, event: ErrorReviewEvent):
+        """Right/wrong plus its provenance; ``None`` verdict means "write nothing"."""
+        record = self.repository.load_question(event.question_id) if event.question_id else None
+        return self.gate.reconcile_verdict(record, event.selected_option, event.is_correct)
+
+    def _not_attributable(self, event: ErrorReviewEvent, notices) -> ReviewBundle:
+        return ReviewBundle(
+            user_id=event.user_id,
+            node_id=event.node_id,
+            followup_plan=(
+                "这次作答没有可核对的对错判据（库内该题答案不可用，且没有提交可核对的所选选项）："
+                "系统不虚构对错，掌握度与复习队列都未改动。"
+            ),
+            verdict_source=None,
+            attributable=False,
+            notices=list(notices),
+        )
 
     def get_user_mastery(self, user_id: str, node_id: str) -> Optional[UserMasteryRecord]:
         """Retrieve existing mastery record for a user on a given knowledge node."""
@@ -46,6 +75,17 @@ class MemoryReviewAgent:
 
     def process_event(self, event: ErrorReviewEvent) -> ReviewBundle:
         """Process an answering event, update FSRS scheduling, and return review bundle."""
+        checked, provenance, notices = self._reconcile(event)
+        if checked is None:
+            return self._not_attributable(event, notices)
+        if bool(event.is_correct) != checked:
+            logger.warning(
+                "question %s: reported is_correct=%s contradicts the library answer key; using %s",
+                event.question_id,
+                event.is_correct,
+                checked,
+            )
+        event = event.model_copy(update={"is_correct": checked})
         now = datetime.now(timezone.utc)
         now_iso = now.isoformat()
 
@@ -136,4 +176,6 @@ class MemoryReviewAgent:
             retrievability=round(retrievability, 3),
             next_review_interval_days=next_days,
             followup_plan=followup,
+            verdict_source=provenance,
+            notices=list(notices),
         )

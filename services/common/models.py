@@ -245,7 +245,9 @@ class ErrorReviewEvent(BaseModel):
     question_id: str
     node_id: str
     exam: Literal["CET-4", "CET-6", "NTCE"]
-    is_correct: bool
+    is_correct: bool = Field(
+        ..., description="Caller's claim; MemoryReviewAgent reconciles it against the library answer key (A10)"
+    )
     time_spent_seconds: float
     option_flip_count: int = 0
     selected_option: Optional[str] = None
@@ -262,12 +264,16 @@ class ReviewBundle(BaseModel):
     """Response returned by MemoryReviewAgent after processing an answer event."""
     user_id: str
     node_id: str
-    attribution: ErrorAttributionResult
-    updated_mastery: UserMasteryRecord
-    fsrs_rating: int = Field(..., ge=1, le=4, description="FSRS rating: 1=Again, 2=Hard, 3=Good, 4=Easy")
-    retrievability: float = Field(..., ge=0.0, le=1.0, description="Predicted retrievability R")
-    next_review_interval_days: float
+    attribution: Optional[ErrorAttributionResult] = None
+    updated_mastery: Optional[UserMasteryRecord] = None
+    fsrs_rating: Optional[int] = Field(None, ge=1, le=4, description="FSRS rating: 1=Again, 2=Hard, 3=Good, 4=Easy")
+    retrievability: float = Field(default=0.0, ge=0.0, le=1.0, description="Predicted retrievability R")
+    next_review_interval_days: float = 0.0
     followup_plan: str
+    # 对错是谁定的必须写出来：库内答案键核对，还是只是采信了调用方的申报（A4 同一条口径）。
+    verdict_source: Optional[str] = None
+    attributable: bool = True
+    notices: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------

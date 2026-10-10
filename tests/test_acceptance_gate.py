@@ -1,4 +1,4 @@
-"""可执行验收 A1–A9（docs/agent_architecture.md §8），一条验收一个测试。
+"""可执行验收 A1–A10（docs/agent_architecture.md §8），一条验收一个测试。
 
 文档要求"每条都是测试，不是形容词"，所以这里每个测试的 docstring 直接抄文档原文，断言只允许引用两类
 证据：`数据集/**` 与 `官方权威资料/**` 里的实体本身，或调用方自己送进来的文本。测试不写死任何题号、
@@ -46,10 +46,12 @@ from services.knowledge.graph_index import (  # noqa: E402
 from services.knowledge.naming import exam_values  # noqa: E402
 from services.knowledge.repository import QUESTION_DIRS, REQUIREMENT_FILES, get_repository  # noqa: E402
 from services.knowledge.retrieval import RESEARCH_ANSWER_STATUSES, RetrievalService  # noqa: E402
-from services.knowledge.trust import TrustGate  # noqa: E402
+from services.knowledge.trust import TrustGate, answer_letter  # noqa: E402
 from services.knowledge.vector_index import SearchHit, get_card_index  # noqa: E402
 from services.llm.guardrails import scan_banned_claims  # noqa: E402
 from services.master.agent import TutorMasterAgent  # noqa: E402
+from services.memory.agent import MemoryReviewAgent  # noqa: E402
+from services.memory.store import InMemoryMasteryStore  # noqa: E402
 from services.planner.agent import CurriculumPlannerAgent  # noqa: E402
 from services.review.queue import ReviewQueue, get_review_queue  # noqa: E402
 
@@ -786,6 +788,70 @@ class TestA9HumanInTheLoop(AcceptanceTestCase):
         )
         self.assertEqual(set(response.card_data["missing_inputs"]), {"answer_text", "question_id"})
         self.assertEqual(self.queue.stats()["pending_records"], before)
+
+
+# --------------------------------------------------------------------- A10
+class TestA10ProfileVerdictSource(AcceptanceTestCase):
+    """A10 画像判据：写进掌握度与复习队列的对错由库内答案键决定，调用方申报只能兜底。"""
+
+    def _agent(self):
+        return MemoryReviewAgent(store=InMemoryMasteryStore(), repository=self.repository)
+
+    def _event(self, meta, **kw):
+        base = {
+            "user_id": "u_a10",
+            "question_id": meta.question_id,
+            "node_id": (meta.node_ids or ("a10.node",))[0],
+            "exam": "NTCE",
+            "is_correct": True,
+            "time_spent_seconds": 20.0,
+        }
+        base.update(kw)
+        return ErrorReviewEvent(**base)
+
+    def test_the_library_key_overrides_a_claimed_correct(self):
+        meta = self.usable_choice()
+        record = self.repository.load_question(meta.question_id) or {}
+        key = answer_letter((record.get("content") or {}).get("answer"))
+        self.assertTrue(key, "库内该单选题应能取出字母答案键")
+        picked = next(c for c in "ABCD" if c != key)
+        bundle = self._agent().process_event(
+            self._event(meta, is_correct=True, selected_option=picked)
+        )
+        self.assertEqual(bundle.verdict_source, "库内答案键核对")
+        self.assertTrue(bundle.attributable)
+        self.assertEqual(bundle.fsrs_rating, 1, "申报的「对」被记成 Hard/Good，说明它顶掉了库内答案键")
+        self.assertEqual(bundle.updated_mastery.correct_count, 0)
+        self.assertTrue(any("与库内答案键的核对结果相反" in n for n in bundle.notices))
+
+    def test_a_claim_without_checkable_evidence_is_labelled_as_a_claim(self):
+        meta = self.usable_choice()
+        bundle = self._agent().process_event(self._event(meta, is_correct=True))
+        self.assertIn("调用方申报", bundle.verdict_source or "")
+        self.assertTrue(any("未独立核验" in n for n in bundle.notices))
+
+    def test_a_quarantined_question_writes_nothing_to_the_profile(self):
+        conflicted = next(
+            (
+                m
+                for m in self.repository.find_questions(
+                    exams=("NTCE",), answer_statuses=("source_conflict",)
+                )
+            ),
+            None,
+        )
+        if conflicted is None:
+            self.skipTest("库内当前没有 source_conflict 题")
+        agent = self._agent()
+        node_id = (conflicted.node_ids or ("a10.node",))[0]
+        bundle = agent.process_event(
+            self._event(conflicted, is_correct=True, selected_option="A", node_id=node_id)
+        )
+        self.assertFalse(bundle.attributable)
+        self.assertIsNone(bundle.updated_mastery)
+        self.assertIsNone(bundle.attribution)
+        self.assertIsNone(agent.get_user_mastery("u_a10", node_id), "不可核对的题却写了画像")
+        self.assertEqual(list(agent.store.error_entries("u_a10")), [])
 
 
 if __name__ == "__main__":

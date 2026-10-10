@@ -82,7 +82,7 @@ app = FastAPI(
 
 repository = get_repository()
 grader_agent = SubjectiveGraderAgent(repository=repository)
-memory_agent = MemoryReviewAgent()
+memory_agent = MemoryReviewAgent(repository=repository)
 diagnostic_agent = DiagnosticAgent(repository=repository)
 planner_agent = CurriculumPlannerAgent(repository=repository)
 practice_agent = PracticeEngineAgent(repository=repository)

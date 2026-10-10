@@ -41,6 +41,32 @@ COPYRIGHT_NOTICE = (
     "authorization_status=unknown，不得用于商业交付或对外宣称已获授权。"
 )
 
+#: 只有库内声明"答案是字母"的状态才拿首字母比对；参考答案类（翻译/主观）不做字母核对。
+LETTER_ANSWER_STATUSES = ("letter_only", ANSWER_VERIFIED)
+
+CLAIMED_VERDICT_NOTICE = (
+    "本次对错取自调用方申报（库内没有可核对的答案键，或没有提交可核对的所选选项），"
+    "系统未独立核验，画像按此申报更新。"
+)
+VERDICT_CONTRADICTION_NOTICE = (
+    "调用方申报 is_correct=%s 与库内答案键的核对结果相反：判据以库内答案键为准，申报不参与改写。"
+)
+NO_VERDICT_NOTICE = "既没有库内可核对的答案键，也没有调用方申报：本次没有对错判据，不写记忆、不给错因。"
+
+
+def answer_letter(value) -> Optional[str]:
+    """First A–Z letter of a library answer key or a submitted option ("B." / "选 B" -> "B").
+
+    One implementation on purpose: ``master`` and ``qa`` each carried their own copy, and two
+    copies of the same reading rule can judge one and the same library answer contradictory.
+    """
+    if value is None:
+        return None
+    for ch in str(value).strip().upper():
+        if "A" <= ch <= "Z":
+            return ch
+    return None
+
 
 @dataclass(frozen=True)
 class TrustVerdict:
@@ -206,6 +232,46 @@ class TrustGate:
 
     def filter_usable(self, metas: Iterable) -> List:
         return [m for m in metas if self.classify_meta(m).usable]
+
+    def reconcile_verdict(
+        self,
+        record: Optional[dict],
+        selected_option: Optional[str],
+        claimed: Optional[bool] = None,
+    ) -> Tuple[Optional[bool], str, List[str]]:
+        """Who decides right/wrong for the learner profile: 库内答案键 > 调用方申报 > 无判据。
+
+        ``is_correct`` used to be taken from the caller first, so one reported "对" permanently
+        moved mastery and the FSRS queue even when the library held a checkable key that said the
+        opposite. Returns ``(verdict, provenance, notices)``; ``verdict is None`` means the
+        attempt is not attributable and nothing may be written from it.
+        """
+        notices: List[str] = []
+        key = None
+        if record is not None:
+            verdict = self.classify_record(record)
+            if not verdict.servable_in_paper:
+                return None, "", [*verdict.notices, NO_VERDICT_NOTICE]
+            if verdict.answer_status in LETTER_ANSWER_STATUSES:
+                key = answer_letter((record.get("content") or {}).get("answer"))
+            picked = answer_letter(selected_option)
+            if key and picked:
+                checked = key == picked
+                if claimed is not None and bool(claimed) != checked:
+                    notices.append(
+                        VERDICT_CONTRADICTION_NOTICE % ("True" if claimed else "False")
+                    )
+                return checked, "库内答案键核对", notices
+        if claimed is not None:
+            notices.append(CLAIMED_VERDICT_NOTICE)
+            provenance = (
+                "调用方申报（库内有答案键，但未提交可核对的所选选项）"
+                if key
+                else "调用方申报"
+            )
+            return bool(claimed), provenance, notices
+        notices.append(NO_VERDICT_NOTICE)
+        return None, "", notices
 
     # --------------------------------------------------------- requirements
     def classify_requirement(self, requirement: Optional[dict]) -> RequirementVerdict:
