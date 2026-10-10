@@ -83,6 +83,8 @@ F 运行时层     services/app.py + SSE、stdlib 离线回填、SQLite 状态�
   - 单行 JSON 坏了只登记该行缺口（`stats().scan_issues`），不再让一行带走整个文件后面的题。
 - `graph_index.py`：`edges.jsonl`+`nodes.jsonl` → NetworkX 有向图；**边名白名单硬编码 16 词**（与设计文档 §3.4 同源），出现第 17 个词直接抛错，把"不得再出现新边名"变成运行时约束。
 - `vector_index.py`：Chroma 集合 `ntce_cards` / `cet_cards`，文档体取 `数据集/教资/cards/*/*/*/*.md`（自包含卡片，天然适合 RAG）与 CET 对应卡片，metadata 必带 `question_id`、`exam`、`module`、`level`、`review_status`、`answer_status`、`node_ids`。**元数据里带状态是硬要求**：召回后 C 层要按状态过滤，否则隔离题会经向量搜索漏进答案。
+  - **重建按内容指纹，不按条数**：每张卡把"正文 + 状态"的 `card_digest` 写进 metadata，`build()` 只重嵌指纹变过的卡，并 `prune` 掉已从库里撤下的卡。旧实现是 `existing >= len(docs)` 就跳过，于是教研改了卡片正文或把 `review_status` 签成 `checked` 而条数不变时，集合里的旧文本会**永久**留着——连重启都不会刷新。
+  - **运行中也会复核**：按 `KNOWLEDGE_MAP_CARD_TTL`（默认 60s）比对卡片目录的 `(路径, mtime_ns, 大小)` 指纹，变化即触发一次增量重建；窗口比知识门面的 5s 宽，因为一次指纹要 stat 上万张卡。
 - 一切索引均可从 `数据集/**` 全量重建，索引本身不入库（`.gitignore`），坏了删掉重跑。
 
 ### 3.2 C 信任策略层 TrustGate（唯一降级点）
@@ -204,13 +206,13 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 - **A8 编排闭环**：一条会话可跑完 `诊断→画像→规划→刷题→归因→回写`，且每步消息都是 `AgentMessageEnvelope`。归因步只承认三种判据：调用方显式给的 `is_correct`、库内答案键、学习者自己的错题日志；三者都没有就不写记忆、不给错因，状态机停在中立出口而不是编造一个对错。
 - **A9 人工不旁路**：每一条**教研能拍板**的拒绝（内容隔离、答案来源冲突、量规待签署）都必须在 `/review/queue` 留下一条 `pending_human_review` 记录，且 `checked_by=null`、`expert_verified=false`。反向同样成立：调用方漏传输入、`published` 档天然空池**不得**入队——否则唯一审核人会被无效项淹没，真正要他签的条目反而看不见。
 - **A10 画像判据**：写进掌握度与 FSRS 复习队列的"对错"必须由 `TrustGate.reconcile_verdict` 决定，优先级是**库内答案键核对 > 调用方申报 > 无判据**。旧写法把 `is_correct` 申报排在答案键之前，等于任何人报一次"对"就能永久改写这个学习者的画像；现在两者冲突时以库内答案键为准（`answer_status ∈ {letter_only, verified}` 且提交了可核对的所选选项），申报只在库内核不动时兜底，且必须落进 `ReviewBundle.verdict_source` 与 `notices`（"系统未独立核验"）。既无可核对答案键又无申报时返回 `attributable=false`——不虚构对错，掌握度、错题日志与复习队列都不动；隔离/来源冲突的题同样走这条路。答疑侧的选项比对共用同一个 `answer_letter` 与同一套字母键口径（参考答案是原文时不硬套字母，改为声明"无法与所选比对"）。
-- **A11 索引换代与偏移身份**：门面缓存的是数据的**一个版本**，不是进程启动那一刻。运行期间教研在盘上签署、reopen 或合并套卷，门面必须在一个 TTL 窗口内看见，并把题目、条款、量规与图谱缓存一起换代（`generation += 1`，`GraphIndex` 跟随重建）——否则"人工在环"只在重启后生效。同时 `load_question` 只接受"读回来的字节仍属于这个 `question_id`"的记录：删行/合并会让后面的偏移整体错位，此时先换代重扫再读一次，仍读不回原题就返回 `None`（判分侧走 `refused_ungradable_input`）并把缺口登记进 `stats().scan_issues`。宁可报"这道题读不到"，也绝不把另一道题的答案键当成这道题送出去。单行坏 JSON 只登记该行缺口，不得带走同一文件后续的题。
+- **A11 索引换代与偏移身份**：门面缓存的是数据的**一个版本**，不是进程启动那一刻。运行期间教研在盘上签署、reopen 或合并套卷，门面必须在一个 TTL 窗口内看见，并把题目、条款、量规与图谱缓存一起换代（`generation += 1`，`GraphIndex` 跟随重建）——否则"人工在环"只在重启后生效。同时 `load_question` 只接受"读回来的字节仍属于这个 `question_id`"的记录：删行/合并会让后面的偏移整体错位，此时先换代重扫再读一次，仍读不回原题就返回 `None`（判分侧走 `refused_ungradable_input`）并把缺口登记进 `stats().scan_issues`。宁可报"这道题读不到"，也绝不把另一道题的答案键当成这道题送出去。单行坏 JSON 只登记该行缺口，不得带走同一文件后续的题。RAG 侧同理：卡片集合按**内容指纹**增量重建并剔除已从库里撤下的卡——只比条数的"重建"会把旧正文留到永远。
 - 回归总闸：`python -m pytest tests -q`、`审查/validate_kb.py`（结构性错误必须仍为 0）、`审查/状态词表检查.py` 两库各 0 违规。A1–A11 的实现是 `tests/test_acceptance_gate.py`，一条验收一个测试。
 
 ## 9. 风险与留痕
 
 - **版权**：仓库 public，且已推送 470MB 含真题题干/答案/解析与 6,255 条条款抽取文本；运行时还有 `research_internal` 档会全文外发。所有者 2026-10-10 明确同意此状态。库内口径保持 `use_scope=research_non_commercial`、`authorization_status=unknown`，**不得在任何对外文案里声称已获授权或商业可用**；`AuthContext` 与限流是现存的唯一技术收口。
-- **Chroma 冷启动**：12,881+ 卡片首次 embedding 有分钟级成本，需持久化 `chroma/` 目录并纳入"可重建产物"口径（不入库）。
+- **Chroma 冷启动**：12,881+ 卡片首次 embedding 有分钟级成本，需持久化 `chroma/` 目录并纳入"可重建产物"口径（不入库）。首次升级到"按内容指纹重建"时，旧集合里没有 `card_digest`，会被判为全部改动并触发一次全量重嵌——一次性成本，之后只做增量。
 - **`needs_fix` 占教资题池 92.8%**：这是 `published` 档当前为空集的直接原因，也是 §2 两档设计的全部动机。
 - **4,014 道 CET 题无难度值**：planner/practice 的排序不能假设难度非空，缺失即显式降级。
 
@@ -220,4 +222,4 @@ query ─┬─ Chroma 向量召回（卡片自包含正文）
 
 ## 11. 落地状态（2026-10-10）
 
-P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（28 例），全库回归 `python -m pytest tests -q` 为 364 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。
+P0–P4 全部完成，§8 的 A1–A11 各有对应测试，实现在 `tests/test_acceptance_gate.py`（28 例），全库回归 `python -m pytest tests -q` 为 367 passed + 55 subtests。判分依据归属那条另在 `tests/test_services_grader.py:TestGraderLibraryTruth` 逐条钉住（库内采分点不被调用方顶掉、未命中索引与只剩套名都拒判且不入队、模型看到的是库内题干）；门面换代与偏移身份在 `tests/test_services_data_source.py:TestA11FacadeFreshness` 用临时根目录复现（签署与量规署名在运行中被看见、删行错位不会把 q3 当成 q2、坏行只登记自己这一行）；卡片集合的"按内容指纹增量重建 + 撤卡剔除"在 `TestA11CardIndexFreshness`（临时根目录 + 注入词法后端）复现。仍未落地的只有两件，且都是有意为之：批量解析回填（无可用的 LLM 端点，见 §3.5）与对外限流（无并发用户，公开部署前必须补）。

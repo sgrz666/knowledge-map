@@ -20,8 +20,10 @@ from __future__ import annotations
 
 import hashlib
 import math
+import os
 import re
 import threading
+import time
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from functools import lru_cache
@@ -43,6 +45,21 @@ FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?", re.S)
 _LIST_RE = re.compile(r"^\[(.*)\]$")
 
 LEXICAL_NOTICE = "向量后端不可用（chromadb 未安装），本次检索使用 BM25 词法回退模式，语义召回能力受限。"
+
+
+def _default_card_ttl() -> float:
+    """卡片目录指纹的复核窗口（秒）。
+
+    复核一次要 stat 全部卡片文件（万级，约半秒），所以窗口比知识门面放宽到 60s：教研改卡之后最迟
+    一分钟，检索命中的就是新正文，而不是"等下次重启"。用 ``KNOWLEDGE_MAP_CARD_TTL`` 覆盖。
+    """
+    try:
+        return max(float(os.environ.get("KNOWLEDGE_MAP_CARD_TTL", "60.0")), 0.0)
+    except ValueError:
+        return 60.0
+
+
+CARD_TTL_SECONDS = _default_card_ttl()
 
 
 @dataclass
@@ -74,6 +91,20 @@ def _split(value: Optional[str]) -> List[str]:
     if not value:
         return []
     return [part for part in value.split(",") if part]
+
+
+def _content_digest(text: str, metadata: Dict[str, str]) -> str:
+    """一张卡片"正文 + 状态"的指纹。
+
+    只比条数的重建等于没重建：教研改一张卡的正文或把 ``review_status`` 签成 ``checked``，条数不变，
+    旧实现会把旧文本永久留在集合里。指纹进 metadata 一起存，重建时才分得出"哪几张真的变了"。
+    """
+    payload = (text + "\n" + "\n".join(f"{key}={metadata[key]}" for key in sorted(metadata))).encode("utf-8")
+    return hashlib.blake2b(payload, digest_size=16).hexdigest()
+
+
+def _doc_id(doc: CardDoc) -> str:
+    return f"{doc.library}:{doc.question_id}"
 
 
 def _parse_frontmatter(text: str) -> Tuple[Dict[str, str], str]:
@@ -150,12 +181,27 @@ class ChromaStore:
         for start in range(0, len(docs), batch):
             chunk = docs[start:start + batch]
             collection.upsert(
-                ids=[f"{d.library}:{d.question_id}" for d in chunk],
+                ids=[_doc_id(d) for d in chunk],
                 documents=[d.text for d in chunk],
                 embeddings=embeddings[start:start + batch],
                 metadatas=[d.metadata for d in chunk],
             )
         return len(docs)
+
+    def known_digests(self, library: str) -> Dict[str, str]:
+        """集合里已有文档的指纹：增量的依据是内容，不是条数。"""
+        collection = self._collection(library)
+        if collection.count() == 0:
+            return {}
+        rows = collection.get(include=["metadatas"])
+        return {doc_id: str((meta or {}).get("card_digest", "")) for doc_id, meta in zip(rows["ids"], rows["metadatas"])}
+
+    def prune(self, library: str, keep: set) -> int:
+        """卡片被删/改名后从集合里移除：留着它，隔离题就能靠一次相似命中回到答案里。"""
+        stale = [doc_id for doc_id in self.known_digests(library) if doc_id not in keep]
+        if stale:
+            self._collection(library).delete(ids=stale)
+        return len(stale)
 
     def count(self, library: str) -> int:
         return self._collection(library).count()
@@ -209,8 +255,10 @@ class LexicalStore:
     backend = "bm25_fallback"
 
     def __init__(self) -> None:
+        # 倒排表按库分开放：两库共用一张 posting 表时，重建第二库会把第一库的下标解释成自己的文档。
+        self._by_id: Dict[str, Dict[str, CardDoc]] = defaultdict(dict)
         self._docs: Dict[str, List[CardDoc]] = defaultdict(list)
-        self._postings: Dict[str, Dict[int, int]] = defaultdict(dict)
+        self._postings: Dict[str, Dict[str, Dict[int, int]]] = defaultdict(dict)
         self._lengths: Dict[str, List[int]] = defaultdict(list)
         self._embedder: Optional[Embedder] = None
 
@@ -219,31 +267,54 @@ class LexicalStore:
         lowered = text.lower()
         return re.findall(r"[a-z0-9]+|[\u4e00-\u9fff]{1,2}", lowered)
 
-    def upsert(self, library: str, docs: List[CardDoc]) -> int:
-        self._docs[library] = list(docs)
-        self._postings = defaultdict(dict)
-        self._lengths[library] = []
+    def _reindex(self, library: str) -> None:
+        docs = list(self._by_id[library].values())
+        self._docs[library] = docs
+        postings: Dict[str, Dict[int, int]] = {}
+        lengths: List[int] = []
         for position, doc in enumerate(docs):
             counts = Counter(self._tokens(doc.text))
-            self._lengths[library].append(sum(counts.values()))
+            lengths.append(sum(counts.values()))
             for term, count in counts.items():
-                self._postings[term][position] = count
+                postings.setdefault(term, {})[position] = count
+        self._postings[library] = postings
+        self._lengths[library] = lengths
+
+    def upsert(self, library: str, docs: List[CardDoc]) -> int:
+        """按文档 id 合并，和 Chroma 的 upsert 同语义：增量重建不能把其余卡片清掉。"""
+        bucket = self._by_id[library]
+        for doc in docs:
+            bucket[_doc_id(doc)] = doc
+        self._reindex(library)
         return len(docs)
 
+    def known_digests(self, library: str) -> Dict[str, str]:
+        return {doc_id: doc.metadata.get("card_digest", "") for doc_id, doc in self._by_id[library].items()}
+
+    def prune(self, library: str, keep: set) -> int:
+        bucket = self._by_id[library]
+        stale = [doc_id for doc_id in bucket if doc_id not in keep]
+        for doc_id in stale:
+            del bucket[doc_id]
+        if stale:
+            self._reindex(library)
+        return len(stale)
+
     def count(self, library: str) -> int:
-        return len(self._docs.get(library, ()))
+        return len(self._by_id.get(library, {}))
 
     def search(self, library: str, query: str, k: int, filters: Dict[str, set]) -> List[SearchHit]:
         docs = self._docs.get(library, [])
         if not docs:
             return []
         lengths = self._lengths[library]
+        postings_all = self._postings.get(library, {})
         average = max(sum(lengths) / max(len(lengths), 1), 1.0)
         total = len(docs)
         scores: Dict[int, float] = defaultdict(float)
         k1, b = 1.5, 0.75
         for term in set(self._tokens(query)):
-            postings = self._postings.get(term)
+            postings = postings_all.get(term)
             if not postings:
                 continue
             idf = math.log(1.0 + (total - len(postings) + 0.5) / (len(postings) + 0.5))
@@ -303,16 +374,49 @@ class CardIndex:
         repository: Optional[KnowledgeRepository] = None,
         root: Optional[Path] = None,
         embedder: Optional[Embedder] = None,
+        store=None,
+        card_ttl_seconds: Optional[float] = None,
     ) -> None:
         self.repository = repository or get_repository()
         self.root = Path(root) if root else REPO_ROOT
         self._embedder = embedder
         self._lock = threading.Lock()
         self._built: set = set()
-        self._store = None
-        self.backend = available_backend()
+        self._store = store
+        self.backend = getattr(store, "backend", None) or available_backend()
+        self._card_ttl = CARD_TTL_SECONDS if card_ttl_seconds is None else float(card_ttl_seconds)
+        self._card_stamp: Dict[str, Tuple[float, Tuple[Tuple[str, int, int], ...]]] = {}
 
     # ------------------------------------------------------------------ docs
+    def card_files(self, library: str) -> List[Path]:
+        base = self.root / CARD_DIRS[library]
+        if not base.is_dir():
+            return []
+        return [path for path in sorted(base.rglob("*.md")) if path.name != "README.md"]
+
+    def _card_stamp_of(self, library: str) -> Tuple[Tuple[str, int, int], ...]:
+        rows: List[Tuple[str, int, int]] = []
+        for path in self.card_files(library):
+            try:
+                stat = path.stat()
+            except OSError:
+                continue
+            rows.append((path.relative_to(self.root).as_posix(), stat.st_mtime_ns, stat.st_size))
+        return tuple(rows)
+
+    def _ensure_current(self, library: str) -> None:
+        """运行期间教研也会改卡片：按窗口复核文件指纹，变了就增量重建，而不是抱着旧正文到重启。"""
+        if library not in self._built:
+            return  # 还没建过，交给 search() 里的首次 build
+        stamp = self._card_stamp.get(library)
+        if stamp is not None and time.monotonic() - stamp[0] < self._card_ttl:
+            return
+        current = self._card_stamp_of(library)
+        if stamp is None or current != stamp[1]:
+            # 不在这儿加锁：build() 会经由 store 属性取同一把锁。并发的重复 upsert 是幂等的。
+            self.build([library])
+        self._card_stamp[library] = (time.monotonic(), current)
+
     def iter_cards(self, library: str, limit: Optional[int] = None) -> Iterable[CardDoc]:
         base = self.root / CARD_DIRS[library]
         if not base.is_dir():
@@ -329,6 +433,7 @@ class CardIndex:
             question_id = fields.get("id") or path.stem
             if not question_id.startswith(("ntce.", "cet")) and "question_id" in fields:
                 question_id = fields["question_id"]
+            text = body.strip() or raw.strip()
             metadata = {
                 "question_id": question_id,
                 "exam": fields.get("exam", ""),
@@ -346,11 +451,12 @@ class CardIndex:
                 "copyright_scope": fields.get("copyright_scope", ""),
                 "path": path.relative_to(self.root).as_posix(),
             }
+            metadata["card_digest"] = _content_digest(text, metadata)
             yield CardDoc(
                 question_id=question_id,
                 library=library,
                 path=metadata["path"],
-                text=body.strip() or raw.strip(),
+                text=text,
                 metadata=metadata,
             )
             produced += 1
@@ -374,20 +480,41 @@ class CardIndex:
         return self._store
 
     def build(self, libraries: Sequence[str] = ("ntce", "cet"), limit_per_library: Optional[int] = None) -> dict:
+        """按内容指纹增量重建：条数相同但正文/状态变过的卡也必须重新入集合。"""
         report: Dict[str, dict] = {}
         for library in libraries:
             docs = list(self.iter_cards(library, limit=limit_per_library))
-            existing = 0
+            ids = {_doc_id(d) for d in docs}
+            known_digests = getattr(self.store, "known_digests", None)
+            known: Dict[str, str] = {}
+            if callable(known_digests):
+                try:
+                    known = known_digests(library)
+                except Exception:
+                    known = {}
+            changed = [d for d in docs if known.get(_doc_id(d)) != d.metadata.get("card_digest")]
+            if changed:
+                self.store.upsert(library, changed)
+            pruned = 0
+            prune = getattr(self.store, "prune", None)
+            if callable(prune) and limit_per_library is None:
+                try:
+                    pruned = prune(library, ids)
+                except Exception:
+                    pruned = 0
             try:
-                existing = self.store.count(library)
+                stored = self.store.count(library)
             except Exception:
-                existing = 0
-            if limit_per_library is None and existing >= len(docs) and docs:
-                report[library] = {"documents": existing, "rebuilt": False}
-            else:
-                written = self.store.upsert(library, docs)
-                report[library] = {"documents": written, "rebuilt": True}
+                stored = len(ids)
+            report[library] = {
+                "documents": stored,
+                "cards": len(ids),
+                "changed": len(changed),
+                "pruned": pruned,
+                "rebuilt": bool(changed or pruned),
+            }
             self._built.add(library)
+            self._card_stamp[library] = (time.monotonic(), self._card_stamp_of(library))
         return {"backend": self.backend, "embedder": EMBEDDER_NAME if self.backend == "chroma" else "bm25", "libraries": report}
 
     def notices(self) -> List[str]:
@@ -411,6 +538,8 @@ class CardIndex:
                 continue
             if library not in self._built:
                 self.build([library])
+            else:
+                self._ensure_current(library)
             try:
                 hits.extend(self.store.search(library, query, k, filters))
             except Exception as exc:  # a broken index is rebuildable, not fatal

@@ -1,8 +1,8 @@
 """Executable acceptance checks for the knowledge facade (docs/agent_architecture.md §8).
 
 A1 no shadow data · A2 real references · A3 quarantine cannot leak ·
-A5 state survives across processes · A7 difficulty wording · A11 facade freshness +
-byte-offset integrity.
+A5 state survives across processes · A7 difficulty wording · A11 facade freshness,
+byte-offset integrity and the card store's content-digest rebuild.
 """
 from __future__ import annotations
 
@@ -394,6 +394,75 @@ def _sample_state():
         lapses=1,
         due_date=datetime.now(timezone.utc).isoformat(),
     )
+
+
+class TestA11CardIndexFreshness(unittest.TestCase):
+    """A11 的另一半：卡片索引（RAG 正文）也必须是数据的缓存，不是首次命中那一刻的快照。"""
+
+    def setUp(self):
+        self._tmp = tempfile.mkdtemp(prefix="km_card_fresh_")
+        self.root = Path(self._tmp)
+        self.cards = self.root / "数据集" / "教资" / "cards" / "综合素质"
+        self.cards.mkdir(parents=True)
+
+    def tearDown(self):
+        shutil.rmtree(self._tmp, ignore_errors=True)
+
+    def _index(self):
+        from services.knowledge.vector_index import CardIndex, LexicalStore
+
+        repository = KnowledgeRepository(root=self.root, ttl_seconds=0.0)
+        return CardIndex(repository=repository, root=self.root, store=LexicalStore(), card_ttl_seconds=0.0)
+
+    def _write_card(self, question_id: str, body: str, review: str = "pending_review"):
+        path = self.cards / f"{question_id}.md"
+        path.write_text(
+            "---\n"
+            f"id: {question_id}\n"
+            "exam: NTCE\n"
+            f"review_status: {review}\n"
+            "answer_status: letter_only\n"
+            "---\n"
+            f"{body}\n",
+            encoding="utf-8",
+        )
+        return path
+
+    def test_an_edited_card_body_reaches_a_running_index(self):
+        self._write_card("ntce.c1", "原题面：下列关于教师职业道德的表述，正确的一项是。")
+        index = self._index()
+        report = index.build(["ntce"])
+        self.assertEqual(report["libraries"]["ntce"]["changed"], 1)
+        self.assertIn("原题面", index.search("教师职业道德", libraries=("ntce",), k=3)[0].snippet)
+
+        self._write_card("ntce.c1", "修订稿题面：下列关于教师职业道德的表述，正确的一项是（已按考纲复核）。")
+        hits = index.search("已按考纲复核", libraries=("ntce",), k=3)
+        self.assertTrue(hits, "卡片正文改了却召回为空：索引还停在旧版本")
+        self.assertIn("修订稿", hits[0].snippet)
+        self.assertEqual(index.build(["ntce"])["libraries"]["ntce"]["changed"], 0, "没改动也该只做增量")
+
+    def test_a_card_status_flip_is_not_mistaken_for_no_change(self):
+        path = self._write_card("ntce.c2", "题面：请分析该案例中教师的做法。")
+        index = self._index()
+        index.build(["ntce"])
+        self.assertEqual(index.search("请分析该案例", libraries=("ntce",), k=3)[0].metadata["review_status"], "pending_review")
+
+        self._write_card("ntce.c2", "题面：请分析该案例中教师的做法。", review="checked")
+        hit = index.search("请分析该案例", libraries=("ntce",), k=3)[0]
+        self.assertEqual(hit.metadata["review_status"], "checked", "条数没变就被当作没改动，卡片状态永远停在旧值")
+
+    def test_a_withdrawn_card_leaves_the_index(self):
+        keep = self._write_card("ntce.c3", "题面：保留的卡片。")
+        drop = self._write_card("ntce.c4", "题面：教研撤下的争议卡片，正文含未核定答案。")
+        index = self._index()
+        index.build(["ntce"])
+        self.assertEqual(index.store.count("ntce"), 2)
+
+        drop.unlink()
+        report = index.build(["ntce"])
+        self.assertTrue(keep.exists())
+        self.assertEqual(report["libraries"]["ntce"]["pruned"], 1, "撤下的卡还在集合里，一次相似命中就能把它带回答案")
+        self.assertEqual(index.store.count("ntce"), 1)
 
 
 if __name__ == "__main__":
