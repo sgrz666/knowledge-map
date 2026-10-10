@@ -38,6 +38,7 @@ from services.common.models import (  # noqa: E402
     SubjectiveGradingRequest,
     TrustTier,
 )
+from services.common.weakness import WEAK_MASTERY_BAR, is_weak, weakness_bar_notice  # noqa: E402
 from services.diagnostic.agent import DiagnosticAgent  # noqa: E402
 from services.grader.agent import SubjectiveGraderAgent  # noqa: E402
 from services.knowledge.graph_index import (  # noqa: E402
@@ -270,6 +271,40 @@ class TestA1NoShadowData(AcceptanceTestCase):
                     if isinstance(target, ast.Name) and target.id == "MINUTES_PER_QUESTION":
                         owners.add(relative)
         self.assertEqual(owners, {home}, f"配速数除了 {home} 之外还有别的出处：{sorted(owners)}")
+
+    def test_the_weakness_bar_has_exactly_one_home(self):
+        """什么叫"这个考点还没掌握"只许有一条线。
+
+        诊断量的是考点作答正确率、排课量的是持久化掌握度，可它们是同一个学习者的同一批考点：旧写法
+        诊断用 0.60、排课用 0.50，落在两数之间的考点一边进薄弱项、一边被当作已掌握。凡是名字以 WEAK
+        开头的数值常量（枚举成员那样的字符串不算）都只许住在 services/common/weakness.py，改个名字
+        躲不过这条；并且线必须在说明里自陈不是官方口径。
+        """
+        home = "services/common/weakness.py"
+        owners = set()
+        for path, source in self.service_sources():
+            relative = path.relative_to(REPO_ROOT).as_posix()
+            for node in ast.walk(ast.parse(source)):
+                if isinstance(node, ast.AnnAssign):
+                    targets = [node.target]
+                elif isinstance(node, (ast.Assign, ast.AugAssign)):
+                    targets = list(node.targets) if isinstance(node, ast.Assign) else [node.target]
+                else:
+                    continue
+                if not isinstance(node.value, ast.Constant) or not isinstance(
+                    node.value.value, (int, float)
+                ) or isinstance(node.value.value, bool):
+                    continue
+                for target in targets:
+                    if isinstance(target, ast.Name) and target.id.startswith("WEAK"):
+                        owners.add(relative)
+        self.assertEqual(owners, {home}, f"薄弱线除了 {home} 之外还有别的出处：{sorted(owners)}")
+
+        notice = weakness_bar_notice()
+        self.assertIn(f"{WEAK_MASTERY_BAR:.2f}", notice)
+        self.assertIn("不是", notice, "薄弱线没自陈来历，调用方会把它读成官方分数线")
+        self.assertTrue(is_weak(WEAK_MASTERY_BAR - 0.01) and not is_weak(WEAK_MASTERY_BAR),
+                        "线的方向变了：等于这条线算不算薄弱，必须只有一种读法")
 
     def test_the_item_time_limit_reader_never_invents_a_minute(self):
         """单题用时只认库内题面约束；读不出就是 None，服务不许退到"一般建议 X 分钟"。"""

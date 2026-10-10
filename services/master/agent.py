@@ -28,6 +28,7 @@ from services.common.models import (
     TrustTier,
     UserIntent,
 )
+from services.common.weakness import WEAK_MASTERY_BAR
 from services.diagnostic.agent import DiagnosticAgent
 from services.grader.agent import SubjectiveGraderAgent
 from services.interview.agent import InterviewCoachAgent
@@ -424,15 +425,24 @@ class TutorMasterAgent:
 
     def _h_profile(self, ctx: dict) -> dict:
         user_id = ctx["user_id"]
-        weak = list(ctx.get("weak_nodes") or []) or list(self.memory.weak_node_ids(user_id, limit=5))
+        diagnosed = list(ctx.get("weak_nodes") or [])
+        # 诊断给的是"低于薄弱线"的考点；记忆里的只是掌握度相对最低的前几名，全都已掌握时照样给出名字。
+        # 两种来源不能叫同一个名字，否则画像一句"薄弱考点 5 个"就把相对排序说成了能力结论。
+        weak = diagnosed or list(self.memory.weak_node_ids(user_id, limit=5))
         due = list(self.memory.due_question_ids(user_id, limit=20))
         mastery = [self.memory.get_user_mastery(user_id, node) for node in weak]
         records = [m.model_dump(mode="json") for m in mastery if m]
         ctx["weak_nodes"] = weak
+        if diagnosed:
+            weak_summary = f"低于薄弱线（{WEAK_MASTERY_BAR:.2f}）的考点 {len(weak)} 个（诊断给出）"
+            weak_source = "诊断（按考点作答正确率与薄弱线比对）"
+        else:
+            weak_summary = f"掌握度相对最低的考点 {len(weak)} 个（相对排序，不代表低于薄弱线）"
+            weak_source = "memory store（按掌握度相对排序）"
         return {
-            "summary": f"画像：薄弱考点 {len(weak)} 个，FSRS 到期错题 {len(due)} 道（读自持久化存储）。",
+            "summary": f"画像：{weak_summary}，FSRS 到期错题 {len(due)} 道（读自持久化存储）。",
             "data": {"weak_nodes": weak, "due_question_ids": due, "mastery": records},
-            "evidence": [{"node_id": node, "source": "memory store"} for node in weak],
+            "evidence": [{"node_id": node, "source": weak_source} for node in weak],
             "context": {
                 "weak_nodes": weak,
                 "due_question_ids": due,

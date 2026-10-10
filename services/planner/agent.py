@@ -84,7 +84,7 @@ class CurriculumPlannerAgent:
         ]
         if drills:
             out.append(
-                f"薄弱攻坚：第 {drills[0]} 天起对已有掌握度记录的考点做专项练习"
+                f"薄弱攻坚：第 {drills[0]} 天起对低于薄弱线的考点做专项练习"
                 f"（当前传入 {len(mastery_records or [])} 条掌握度）"
             )
         elif mastery_records is None or not mastery_records:

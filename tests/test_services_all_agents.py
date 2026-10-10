@@ -21,6 +21,7 @@ from services.common.models import (
     AnswerSubmission,
     AssemblePaperRequest,
     DiagnosticRequest,
+    FSRSState,
     LessonPlanReviewRequest,
     MasterInteractionRequest,
     PlanRequest,
@@ -29,13 +30,16 @@ from services.common.models import (
     SpeechAnalysisRequest,
     TrustTier,
     UserIntent,
+    UserMasteryRecord,
 )
 from services.common.pacing import MINUTES_PER_QUESTION, paper_minutes, pace_minutes
+from services.common.weakness import WEAK_MASTERY_BAR, is_weak
 from services.diagnostic.agent import DiagnosticAgent
 from services.interview.agent import InterviewCoachAgent
 from services.knowledge.repository import get_repository, item_time_limit, timed_stages
 from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate, answer_letter
 from services.master.agent import TutorMasterAgent
+from services.memory.agent import MemoryReviewAgent
 from services.memory.store import InMemoryMasteryStore
 from services.planner.agent import CurriculumPlannerAgent
 from services.practice.agent import PracticeEngineAgent
@@ -359,6 +363,82 @@ class TestCurriculumPlanner(LibraryBackedTestCase):
         for node_id in silent:
             self.assertEqual(rows[node_id]["minutes_per_item"], MINUTES_PER_QUESTION)
 
+    def _mastery(self, user_id, node_id, score):
+        return UserMasteryRecord(
+            user_id=user_id, node_id=node_id, mastery_score=score, practice_count=4,
+            correct_count=2,
+            fsrs_state=FSRSState(stability=1.0, difficulty=5.0,
+                                 due_date="2026-01-01T00:00:00+00:00"),
+            last_updated_at="2026-01-01T00:00:00+00:00",
+        )
+
+    def _busy_node_with_two_keys(self):
+        """库内一个题池最大的考点，外加两道可按字母答案键核对的题目（测试不写死题号）。"""
+        for row in self.agent.scheduler.candidate_nodes("NTCE"):
+            ids = [
+                meta.question_id
+                for meta in self.repository.find_questions(
+                    exams=("NTCE",), node_ids=[row["node_id"]],
+                    answer_statuses=("letter_only",), require_answer=True
+                )
+            ][:2]
+            if len(ids) == 2:
+                return row["node_id"], ids
+        self.fail("库内没有同时含两道可核对字母答案键题目的考点")
+
+    def _key(self, question_id: str) -> str:
+        record = self.repository.load_question(question_id) or {}
+        return answer_letter((record.get("content") or {}).get("answer"))
+
+    def _answer(self, question_id: str, node_id: str, letter: str):
+        meta = self.repository.get_meta(question_id)
+        return AnswerSubmission(
+            question_id=question_id, user_answer=letter, time_spent_seconds=20.0,
+            node_id=node_id, module_id=meta.module or "m1",
+        )
+
+    def test_the_diagnosis_and_the_calendar_judge_weakness_by_one_bar(self):
+        """同一个考点，诊断按正确率说它薄弱，日历就不能拿另一条线把它排到最后。
+
+        旧写法诊断用 0.60、排课用 0.50：落在两数之间的考点，一边进薄弱点列表、一边被归为"已掌握"。
+        """
+        node_id, (right_id, wrong_id) = self._busy_node_with_two_keys()
+        right_key = self._key(right_id)
+        self.assertIsNotNone(right_key, "库内标为 letter_only 的题却读不出字母键")
+        other = next(ch for ch in "ABCD" if ch != self._key(wrong_id))
+        report = DiagnosticAgent(repository=self.repository).evaluate(DiagnosticRequest(
+            user_id="u_bar", exam_type="NTCE", stage="cold_start",
+            submissions=[self._answer(right_id, node_id, right_key),
+                         self._answer(wrong_id, node_id, other)],
+        ))
+        self.assertIn(node_id, report.weak_points_top5, "诊断没把一对一错的考点报成薄弱项")
+        self.assertTrue(is_weak(0.5), "0.50 的正确率本就该在薄弱线以下，用例的前提没了")
+
+        plan = self.agent.generate_plan(PlanRequest(
+            user_id="u_bar", exam_type="NTCE", days_until_exam=3, daily_available_minutes=120,
+            current_mastery=[self._mastery("u_bar", node_id, 0.5)],
+        ))
+        drilled = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "weakness_drill"]
+        self.assertIn(
+            node_id, [t.node_id for t in drilled],
+            f"诊断报为薄弱的考点没被日历排进薄弱专项；专项只给了 {sorted({t.node_id for t in drilled})}",
+        )
+        self.assertTrue(any("薄弱线" in n for n in plan.notices), plan.notices)
+        self.assertTrue(any("薄弱线" in n for n in report.notices), report.notices)
+
+    def test_a_mastered_node_is_never_booked_as_a_weakness_drill(self):
+        # 专项那一格旧写法只看"有没有掌握度记录"，于是可以出现"薄弱考点专项：xxx（掌握度 0.90）"。
+        node_id, _ = self._busy_node_with_two_keys()
+        plan = self.agent.generate_plan(PlanRequest(
+            user_id="u_bar_strong", exam_type="NTCE", days_until_exam=3, daily_available_minutes=120,
+            current_mastery=[self._mastery("u_bar_strong", node_id, 0.95)],
+        ))
+        drilled = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "weakness_drill"]
+        self.assertNotIn(node_id, [t.node_id for t in drilled])
+        for task in drilled:
+            printed = float(task.title.split("掌握度 ")[1].rstrip("）"))
+            self.assertTrue(is_weak(printed), f"响应把掌握度 {printed} 的考点叫成了薄弱考点专项")
+
     def test_milestones_are_read_back_out_of_the_calendar(self):
         plan = self._plan("u_plan_ms", 14, 120)
         self.assertTrue(plan.milestones)
@@ -395,6 +475,44 @@ class TestPracticeEngine(LibraryBackedTestCase):
                     self.assertTrue(payload["stem"])
                     self.assertEqual(payload["difficulty"]["calibration"], "heuristic")
                 self.assertIn(COPYRIGHT_NOTICE, resp.notices)
+
+    def _memory_backed_agent(self, user_id: str, node_id: str, score: float) -> PracticeEngineAgent:
+        store = InMemoryMasteryStore()
+        store.put(UserMasteryRecord(
+            user_id=user_id, node_id=node_id, mastery_score=score, practice_count=4,
+            correct_count=2,
+            fsrs_state=FSRSState(stability=1.0, difficulty=5.0,
+                                 due_date="2026-01-01T00:00:00+00:00"),
+            last_updated_at="2026-01-01T00:00:00+00:00",
+        ))
+        return PracticeEngineAgent(repository=self.repository,
+                                   memory=MemoryReviewAgent(store=store))
+
+    def test_relative_lowest_mastery_is_never_sold_as_below_the_bar(self):
+        """组卷的"薄弱突击"有两种来源，两种都得说清算的是哪一种：
+
+        memory store 给的是掌握度相对最低的前几名（全都已掌握时照样给出名字），传入的考点则由来源方判定。
+        旧写法两边都只叫"薄弱"，于是一次没有任何考点低于线的练习也能顶着【薄弱突击】的标题。
+        """
+        node_id = self.sample_node_id
+        self.assertFalse(is_weak(0.95), "用例的前提没了：0.95 本就不该算薄弱")
+        agent = self._memory_backed_agent("u_prac_bar", node_id, 0.95)
+
+        ranked = agent.assemble_paper(AssemblePaperRequest(
+            user_id="u_prac_bar", exam_type="NTCE",
+            practice_mode=PracticeMode.WEAKNESS_BREAKTHROUGH, item_count=5))
+        self.assertGreater(ranked.total_items, 0)
+        self.assertTrue(any("相对排序" in n and f"{WEAK_MASTERY_BAR:.2f}" in n for n in ranked.notices),
+                        ranked.notices)
+
+        declared = agent.assemble_paper(AssemblePaperRequest(
+            user_id="u_prac_bar", exam_type="NTCE",
+            practice_mode=PracticeMode.WEAKNESS_BREAKTHROUGH, item_count=5,
+            weak_node_ids=[node_id]))
+        self.assertTrue(any("由调用方传入" in n and "未独立核对" in n for n in declared.notices),
+                        declared.notices)
+        self.assertFalse(any("相对最低" in n for n in declared.notices),
+                         "传入了考点却还挂着记忆排序的说明，本轮的题池来源说不清了")
 
     def test_mock_paper_follows_the_official_blueprint(self):
         mock = self.agent.assemble_paper(
@@ -737,6 +855,36 @@ class TestTutorMaster(LibraryBackedTestCase):
                 self.assertEqual(resp.card_type, card)
                 self.assertTrue(resp.card_data, f"{card} 不能是空卡片")
                 self.assertTrue(resp.suggested_quick_replies)
+
+    def test_the_profile_labels_which_source_its_weak_list_came_from(self):
+        """画像里的"薄弱"有两种来源，只有一种真的比过线。
+
+        诊断给的是按考点作答正确率与薄弱线比出的结果，memory store 给的只是掌握度相对最低的前几名
+        （全都已掌握时照样有名字）。旧写法把两者都写成"薄弱考点 N 个"，一句画像就把相对排序说成了能力结论。
+        """
+        node_id = self.sample_node_id
+        store = InMemoryMasteryStore()
+        store.put(UserMasteryRecord(
+            user_id="u_master_bar", node_id=node_id, mastery_score=0.95, practice_count=4,
+            correct_count=4,
+            fsrs_state=FSRSState(stability=1.0, difficulty=5.0,
+                                 due_date="2026-01-01T00:00:00+00:00"),
+            last_updated_at="2026-01-01T00:00:00+00:00",
+        ))
+        agent = TutorMasterAgent(
+            queue=self.queue,
+            memory_agent=MemoryReviewAgent(store=store, repository=self.repository))
+
+        ranked = agent._h_profile({"user_id": "u_master_bar", "exam_type": "NTCE"})
+        self.assertIn(node_id, ranked["data"]["weak_nodes"])
+        self.assertIn("相对排序", ranked["summary"])
+        self.assertNotIn("薄弱考点", ranked["summary"])
+        self.assertIn("memory store", ranked["evidence"][0]["source"])
+
+        diagnosed = agent._h_profile({"user_id": "u_master_bar", "exam_type": "NTCE",
+                                      "weak_nodes": [node_id]})
+        self.assertIn(f"低于薄弱线（{WEAK_MASTERY_BAR:.2f}）", diagnosed["summary"])
+        self.assertIn("诊断", diagnosed["evidence"][0]["source"])
 
     def test_a_grading_request_without_an_answer_asks_for_the_answer(self):
         pending_before = self.queue.stats()["pending_records"]

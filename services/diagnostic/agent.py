@@ -29,6 +29,7 @@ from services.common.models import (
     ModuleAbility,
     TrustTier,
 )
+from services.common.weakness import WEAK_MASTERY_BAR, is_weak, weakness_bar_notice
 from services.knowledge.graph_index import get_graph_index, library_for_exam
 from services.knowledge.repository import KnowledgeRepository, get_repository
 from services.knowledge.trust import (
@@ -41,7 +42,6 @@ from services.review.queue import get_review_queue
 
 logger = logging.getLogger("services.diagnostic.agent")
 
-WEAK_NODE_THRESHOLD = 0.6
 COVERAGE_ONLY_NOTICE = (
     "诊断仅统计知识覆盖度：难度全部为 heuristic_* 且无真实作答校准数据，系统不输出分数区间、报告分或通过率。"
 )
@@ -150,9 +150,10 @@ class DiagnosticAgent:
         weak_points = [
             node_id
             for node_id, stats in ranked_nodes
-            if stats["correct"] / max(stats["total"], 1) < WEAK_NODE_THRESHOLD
+            if is_weak(stats["correct"] / max(stats["total"], 1))
         ][:5]
 
+        notices.append(weakness_bar_notice())
         notices.extend(self._blocked_notices(rejected, queued))
         notices.extend(verdict_notices)
         if claimed:
@@ -279,7 +280,9 @@ class DiagnosticAgent:
                 "建议先做考点专练，再按计划复习。"
             )
         if not weak_points:
-            actions.append("未发现低于阈值的考点，可按计划推进新考点学习。")
+            actions.append(
+                f"未发现低于薄弱线（{WEAK_MASTERY_BAR:.2f}）的考点，可按计划推进新考点学习。"
+            )
         actions.append(
             f"当前档位：{request.trust_tier.value}；诊断结果 publishable=false，不可对外作为能力结论。"
         )

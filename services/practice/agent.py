@@ -20,6 +20,7 @@ from services.common.models import (
     TrustTier,
 )
 from services.common.pacing import paper_minutes, pacing_notice
+from services.common.weakness import WEAK_MASTERY_BAR
 from services.knowledge.naming import exam_values, module_values
 from services.knowledge.repository import (
     KnowledgeRepository,
@@ -202,7 +203,20 @@ class PracticeEngineAgent:
                 return [], notices
 
         elif mode == PracticeMode.WEAKNESS_BREAKTHROUGH:
-            nodes = list(req.weak_node_ids) or self.memory.weak_node_ids(req.user_id)
+            supplied = list(req.weak_node_ids)
+            nodes = supplied or self.memory.weak_node_ids(req.user_id)
+            if nodes and not supplied:
+                # 记忆里的"相对最低"只是按掌握度排序取前几名，与薄弱线无关：全都已掌握时它照样给出名字。
+                notices.append(
+                    f"本轮薄弱项取自掌握度相对最低的 {len(nodes)} 个考点（相对排序，不代表低于薄弱线 "
+                    f"{WEAK_MASTERY_BAR:.2f}）；按线筛出的薄弱项在诊断结果里。"
+                )
+            elif supplied:
+                # 这一层只按传入的考点筛题，线是来源方判的；不写清这点，响应标题的"薄弱"就成了本层自证的结论。
+                notices.append(
+                    f"本轮的 {len(supplied)} 个考点由调用方传入，本层只按它们筛题：是否低于薄弱线 "
+                    f"{WEAK_MASTERY_BAR:.2f} 由来源方判定（诊断按考点作答正确率比线），本层未独立核对。"
+                )
             if nodes:
                 pool = [m for m in pool if set(nodes) & set(m.node_ids)]
             elif modules:

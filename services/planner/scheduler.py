@@ -20,6 +20,11 @@ prerequisite edges while none are confirmed (§3.3: 先修边暂不入算法).
 
 Missing mastery is treated as *unseen*, not as a made-up 0.40 baseline: an unseen node is ranked
 by how much practice material the library actually holds for it, and the plan says so.
+
+"多少分算薄弱"这条线也不归本文件所有：它住在 ``services.common.weakness``，与诊断筛薄弱项用的是
+同一条。旧写法是排课 ``0.5``、诊断 ``0.6``——同一个学习者在同一条闭环里被两边用两个数判定，诊断报
+0.55 的考点是薄弱项，日历却把它归为"已掌握"排到所有未练考点之后；而"薄弱考点专项"那一格旧写法根本
+不看线，只要有掌握度记录就挂标题，于是响应里可以出现"薄弱考点专项：xxx（掌握度 0.90）"。
 """
 from __future__ import annotations
 
@@ -28,6 +33,7 @@ from typing import Dict, List, Optional, Tuple
 
 from services.common.models import DailyPlan, DailyTaskItem, UserMasteryRecord
 from services.common.pacing import MINUTES_PER_QUESTION, paper_minutes
+from services.common.weakness import is_weak, weakness_bar_notice
 from services.knowledge.graph_index import get_graph_index, library_for_exam
 from services.knowledge.naming import exam_values
 from services.knowledge.repository import KnowledgeRepository, get_repository
@@ -37,7 +43,6 @@ REVIEW_SHARE = 0.30
 NEW_NODE_SHARE = 0.55
 NODES_PER_DAY = 2
 MOCK_EVERY_DAYS = 7
-WEAK_MASTERY_THRESHOLD = 0.5
 
 UNSEEN_NOTICE = (
     "排课依据为库内真实题池与已持久化的掌握度；未练习过的考点按“无掌握度记录”处理，"
@@ -53,6 +58,10 @@ PACING_NOTICE = (
 REVIEW_UNFIT_NOTICE = (
     "有到期题的库内题面用时超过当日复习格能分到的分钟数，本日不排这些题："
     "日历不把官方题面用时改短来凑一格，也不会用配速估时去覆盖题面约束。"
+)
+NO_WEAK_NODE_NOTICE = (
+    "本日切入的考点都已有掌握度记录且都不低于薄弱线，因此不排薄弱专项："
+    "系统不把已掌握的考点叫成薄弱，巩固仍走新考点格与错题回炉。"
 )
 POOL_EXHAUSTED_NOTICE = (
     "新考点已排完，后续日程改为对已排考点做巩固练习；如需更大题量请先扩充题库，系统不会虚构考点。"
@@ -147,6 +156,7 @@ class AdaptiveScheduler:
             notices.append(prereq_note)
         notices.append(UNSEEN_NOTICE)
         notices.append(PACING_NOTICE)
+        notices.append(weakness_bar_notice())
 
         # 一场模考要多久只问库内考务规格（与组卷、时序机共用同一份读法）。以前这里写死 90 分钟，
         # 于是日历既会在 60 分钟的一天承诺一场做不完的模考，也替官方考试编了一个教研没核定的时长。
@@ -225,7 +235,12 @@ class AdaptiveScheduler:
                     )
                 )
 
-            weak_focus = [node_id for node_id in focus if mastery_map.get(node_id) is not None]
+            # "薄弱考点专项"只给真低于薄弱线的考点。旧写法只要有掌握度记录就挂这个标题，
+            # 于是响应里可以出现"薄弱考点专项：xxx（掌握度 0.90）"——把已掌握的考点叫成薄弱。
+            known = [node_id for node_id in focus if mastery_map.get(node_id) is not None]
+            weak_focus = [node_id for node_id in known if is_weak(mastery_map[node_id])]
+            if known and not weak_focus:
+                notices.append(NO_WEAK_NODE_NOTICE)
             for node_id in weak_focus[:2]:
                 pace = by_node[node_id]["minutes_per_item"]
                 if pace <= 0:
@@ -292,7 +307,8 @@ class AdaptiveScheduler:
         if node_id in mastery_map:
             score = mastery_map[node_id]
             # Weak-but-known nodes first, weakest at the top.
-            return (0, score, -row["pool"], node_id) if score < WEAK_MASTERY_THRESHOLD else (2, score, -row["pool"], node_id)
+            # 低于薄弱线的考点排最前，越弱越前；线只有一条，住在 services.common.weakness。
+            return (0, score, -row["pool"], node_id) if is_weak(score) else (2, score, -row["pool"], node_id)
         # Unseen: no invented baseline, order by how much material the library really holds.
         return (1, 0.0, -row["pool"], node_id)
 
