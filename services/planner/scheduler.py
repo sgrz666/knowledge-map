@@ -13,6 +13,10 @@ prerequisite edges while none are confirmed (§3.3: 先修边暂不入算法).
 
 而"每题几分钟"这个配速数也不归本文件所有：它住在 ``services.common.pacing``，组卷层给一卷限时时
 用的是同一份。两个层各抄一个数，就会出现日历按 2 分钟一题排、卷子按 1 分钟一题发的打架。
+配速只是兜底：库里说得出单题用时的地方是题面约束（``repository.item_time_limit``，经索引投影
+读进 ``QuestionMeta.time_limit_minutes``），排课一格能放几题先按这些题的真实用时算。以前一律按
+每题 2 分钟折算，于是一道写明 30 分钟的 CET 作文被排进 2 分钟的一格——同一批题，日历许的时间与
+组卷发的限时由同一份库给出却互相打脸。
 
 Missing mastery is treated as *unseen*, not as a made-up 0.40 baseline: an unseen node is ranked
 by how much practice material the library actually holds for it, and the plan says so.
@@ -23,7 +27,7 @@ from datetime import date, timedelta
 from typing import Dict, List, Optional, Tuple
 
 from services.common.models import DailyPlan, DailyTaskItem, UserMasteryRecord
-from services.common.pacing import MINUTES_PER_QUESTION
+from services.common.pacing import MINUTES_PER_QUESTION, paper_minutes
 from services.knowledge.graph_index import get_graph_index, library_for_exam
 from services.knowledge.naming import exam_values
 from services.knowledge.repository import KnowledgeRepository, get_repository
@@ -40,10 +44,15 @@ UNSEEN_NOTICE = (
     "不套用任何默认基线分。"
 )
 PACING_NOTICE = (
-    f"日程里除模考那一格外，分钟数都是服务按每题 {MINUTES_PER_QUESTION:g} 分钟估的配速，"
-    "不是官方题均用时；模考那一格取的是库内考务规格的卷面用时。"
-    "排到的题实际作答时若带库内题面用时约束（如 CET 写作/翻译各 30 分钟），以题面约束为准："
-    "组卷只在库里说不出用时的题上用这同一配速，那一格的真实耗时会超过日程估计。"
+    "日程里的分钟数按“先问库内、问不到才估”算：带题面用时约束的题"
+    "（extra.task_constraints.time_limit_minutes）按题面约束计，"
+    f"库里说不出用时的题按服务配速每题 {MINUTES_PER_QUESTION:g} 分钟估——后者不是官方题均用时；"
+    "模考那一格取库内考务规格的卷面用时。一格排不进一道完整的题时宁可少排或不排，"
+    "日历不会把官方题面用时改短来塞进格子。"
+)
+REVIEW_UNFIT_NOTICE = (
+    "有到期题的库内题面用时超过当日复习格能分到的分钟数，本日不排这些题："
+    "日历不把官方题面用时改短来凑一格，也不会用配速估时去覆盖题面约束。"
 )
 POOL_EXHAUSTED_NOTICE = (
     "新考点已排完，后续日程改为对已排考点做巩固练习；如需更大题量请先扩充题库，系统不会虚构考点。"
@@ -63,7 +72,8 @@ class AdaptiveScheduler:
 
     # ------------------------------------------------------------- candidates
     def candidate_nodes(self, exam: str, *, tier: str = "research_internal") -> List[dict]:
-        """Every knowledge node that the current tier can actually practise, with its real pool."""
+        """Every knowledge node that the current tier can actually practise, with its real pool
+        and the pool's own per-item minutes (题面约束优先，库里说不出才按共用配速估)。"""
         gate = TrustGate(tier)  # type: ignore[arg-type]
         library = library_for_exam(exam)
         graph = get_graph_index(library) if library else None
@@ -83,11 +93,17 @@ class AdaptiveScheduler:
                         "module": meta.module or "未标注模块",
                         "difficulty_sum": 0.0,
                         "difficulty_n": 0,
+                        "minutes_sum": 0.0,
                     }
                 row["pool"] += 1
                 if meta.difficulty is not None:
                     row["difficulty_sum"] += float(meta.difficulty)
                     row["difficulty_n"] += 1
+                # 题面说得出用时就用题面的，说不出才落到共用配速（与组卷给一卷限时用的是同一份读法）。
+                if meta.time_limit_minutes:
+                    row["minutes_sum"] += meta.time_limit_minutes
+                else:
+                    row["minutes_sum"] += MINUTES_PER_QUESTION
 
         rows: List[dict] = []
         for node_id, row in pools.items():
@@ -95,8 +111,11 @@ class AdaptiveScheduler:
             row["avg_difficulty"] = (
                 round(row["difficulty_sum"] / row["difficulty_n"], 4) if row["difficulty_n"] else None
             )
+            # 这个考点的题池做一题要多久：按池内每题的真实用时平均，不是服务拍的题均分钟数。
+            row["minutes_per_item"] = round(row["minutes_sum"] / max(row["pool"], 1), 3)
             row.pop("difficulty_sum", None)
             row.pop("difficulty_n", None)
+            row.pop("minutes_sum", None)
             rows.append(row)
         rows.sort(key=lambda r: (-r["pool"], r["node_id"]))
         return rows
@@ -139,6 +158,7 @@ class AdaptiveScheduler:
             )
 
         due = self._due_question_ids(user_id)
+        due_minutes = self._due_item_minutes(due)
         today = date.today()
         plans: List[DailyPlan] = []
         cursor = 0
@@ -161,9 +181,9 @@ class AdaptiveScheduler:
 
             review_cap = int(budget * REVIEW_SHARE)
             if due:
-                take = min(len(due), max(1, int(review_cap / MINUTES_PER_QUESTION)))
-                minutes = int(take * MINUTES_PER_QUESTION)
-                if minutes <= budget:
+                take = self._fit_within(due_minutes, review_cap)
+                if take:
+                    minutes = paper_minutes(due_minutes[:take])["total"]
                     budget -= minutes
                     tasks.append(
                         DailyTaskItem(
@@ -173,6 +193,8 @@ class AdaptiveScheduler:
                             target_question_count=take,
                         )
                     )
+                else:
+                    notices.append(REVIEW_UNFIT_NOTICE)
 
             if cursor >= len(ranked):
                 if not exhausted_reported:
@@ -183,14 +205,15 @@ class AdaptiveScheduler:
             cursor += len(focus)
 
             new_minutes = int(budget * NEW_NODE_SHARE)
-            per_node = max(0, int(new_minutes / max(len(focus), 1)))
+            per_node = new_minutes / max(len(focus), 1)
             for node_id in focus:
-                if per_node < MINUTES_PER_QUESTION:
-                    break
-                count = min(by_node[node_id]["pool"], int(per_node / MINUTES_PER_QUESTION))
+                # 一格能排几题，按这个考点题池的真实用时算：CET 写作题池每题 30 分钟，
+                # 16 分钟的一格就排不下一题——把 30 分钟的题塞进 2 分钟的格子是日历在撒谎。
+                pace = by_node[node_id]["minutes_per_item"]
+                count = min(by_node[node_id]["pool"], int(per_node // pace)) if pace > 0 else 0
                 if count <= 0:
                     continue
-                minutes = int(count * MINUTES_PER_QUESTION)
+                minutes = int(round(count * pace))
                 budget -= minutes
                 tasks.append(
                     DailyTaskItem(
@@ -204,10 +227,13 @@ class AdaptiveScheduler:
 
             weak_focus = [node_id for node_id in focus if mastery_map.get(node_id) is not None]
             for node_id in weak_focus[:2]:
-                count = min(by_node[node_id]["pool"], 3)
-                minutes = int(count * MINUTES_PER_QUESTION)
-                if count <= 0 or minutes > budget:
+                pace = by_node[node_id]["minutes_per_item"]
+                if pace <= 0:
                     continue
+                count = min(by_node[node_id]["pool"], 3, int(budget // pace))
+                if count <= 0:
+                    continue
+                minutes = int(round(count * pace))
                 budget -= minutes
                 tasks.append(
                     DailyTaskItem(
@@ -274,6 +300,21 @@ class AdaptiveScheduler:
         if self.store is None:
             return []
         return list(self.store.due_question_ids(user_id, limit=20))
+
+    def _due_item_minutes(self, question_ids: List[str]) -> List[Optional[int]]:
+        """到期题的用时只问题面约束（与组卷同一个读法）；None 是库里说不出，留给共用配速估。"""
+        return [
+            meta.time_limit_minutes if meta is not None else None
+            for meta in (self.repository.get_meta(qid) for qid in question_ids)
+        ]
+
+    @staticmethod
+    def _fit_within(item_minutes: List[Optional[int]], cap: int) -> int:
+        """按到期题顺序逐题累加真实用时，加到再加一题就超过当日复习格为止。"""
+        take = 0
+        while take < len(item_minutes) and (paper_minutes(item_minutes[: take + 1])["total"] or 0) <= cap:
+            take += 1
+        return take
 
     @staticmethod
     def _dedupe(notices: List[str]) -> List[str]:

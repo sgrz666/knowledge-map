@@ -28,6 +28,7 @@ from services.app import app  # noqa: E402
 from services.common.models import (  # noqa: E402
     AgentMessageEnvelope,
     AnswerSubmission,
+    AssemblePaperRequest,
     DiagnosticRequest,
     ErrorReviewEvent,
     MasterInteractionRequest,
@@ -62,6 +63,7 @@ from services.master.agent import TutorMasterAgent  # noqa: E402
 from services.memory.agent import MemoryReviewAgent  # noqa: E402
 from services.memory.store import InMemoryMasteryStore  # noqa: E402
 from services.planner.agent import CurriculumPlannerAgent  # noqa: E402
+from services.practice.agent import PracticeEngineAgent  # noqa: E402
 from services.review.queue import ReviewQueue, get_review_queue  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -316,6 +318,52 @@ class TestA1NoShadowData(AcceptanceTestCase):
                             )
         self.assertGreaterEqual(corroborated, 20, "两处口径同时说话的样本不足，这条核验近乎空跑")
         self.assertEqual(mismatches[:5], [], f"库内卷面用时自相矛盾，需教研核定：{mismatches[:5]}")
+
+    def test_the_calendar_and_the_paper_book_the_same_items_for_the_same_minutes(self):
+        """同一批题，日历给这一格排的分钟数必须等于卷子给同一批题的限时。
+
+        旧实现里排课一律按每题 2 分钟折算，组卷却按题面约束限时：同一位学习者同一批题，
+        日历说 8 分钟、卷子说 64 分钟，于是一道卷面写明 30 分钟的 CET 作文被排进 2 分钟的一格。
+        """
+        timed, silent = [], []
+        for meta in self.repository.find_questions(
+            exams=exam_values("CET-4"), require_nodes=True, require_answer=True
+        ):
+            if meta.time_limit_minutes and len(timed) < 2:
+                timed.append(meta.question_id)
+            elif not meta.time_limit_minutes and len(silent) < 2:
+                silent.append(meta.question_id)
+            if len(timed) == 2 and len(silent) == 2:
+                break
+        self.assertTrue(timed, "库内四六级已没有带题面用时约束的题，这条跨层核验成了空跑")
+        ids = timed + silent
+        user_id = "u_a1_cross_layer"
+        store = InMemoryMasteryStore()
+        for question_id in ids:
+            store.log_error({
+                "user_id": user_id, "question_id": question_id,
+                "node_id": self.repository.get_meta(question_id).node_ids[0],
+                "exam": "CET-4", "error_category": "concept_lapse",
+                "incorrect_count": 1, "due_at": "2000-01-01T00:00:00+00:00",
+            })
+        plan = CurriculumPlannerAgent(repository=self.repository, store=store).generate_plan(
+            PlanRequest(user_id=user_id, exam_type="CET-4", days_until_exam=2,
+                        daily_available_minutes=240)
+        )
+        review = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "fsrs_review"]
+        self.assertTrue(review, plan.notices)
+        paper = PracticeEngineAgent(repository=self.repository).assemble_paper(
+            AssemblePaperRequest(user_id=user_id, exam_type="CET-4",
+                                 practice_mode=PracticeMode.ERROR_ELIMINATION,
+                                 item_count=len(ids), wrong_question_ids=ids)
+        )
+        self.assertEqual(paper.total_items, review[0].target_question_count,
+                         "两处取到的题不是同一批，下面的分钟数没法比")
+        self.assertEqual(
+            paper.time_limit_minutes, review[0].estimated_minutes,
+            f"同一批到期题：日历给这一格排了 {review[0].estimated_minutes} 分钟，"
+            f"卷子却限时 {paper.time_limit_minutes} 分钟",
+        )
 
 
 # --------------------------------------------------------------------- A2

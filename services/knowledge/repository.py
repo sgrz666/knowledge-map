@@ -195,6 +195,9 @@ class QuestionMeta:
     #: 抽取完整性而不是可信度：只剩「【2019年12月CET-6真题第1套·阅读·选词填空】35.」这种套名题号、
     #: 又没有选项可答的题，在索引阶段就标出来，组卷池子才不会把空题面算成可用题量。
     has_answerable_text: bool = True
+    #: 卷面对这一题要求的分钟数（`extra.task_constraints.time_limit_minutes`）；库里没写就是 None，
+    #: 由调用方按共用配速折算并标注为估计。读法只有 `item_time_limit` 一处，这里只是把结果缓存进投影。
+    time_limit_minutes: Optional[int] = None
 
 
 class KnowledgeRepository:
@@ -346,6 +349,7 @@ class KnowledgeRepository:
             has_answerable_text=has_answerable_text(
                 content.get("stem") or record.get("text"), content.get("options")
             ),
+            time_limit_minutes=item_time_limit(record),
         )
 
     def get_meta(self, question_id: str) -> Optional[QuestionMeta]:

@@ -30,11 +30,11 @@ from services.common.models import (
     TrustTier,
     UserIntent,
 )
-from services.common.pacing import paper_minutes, pace_minutes
+from services.common.pacing import MINUTES_PER_QUESTION, paper_minutes, pace_minutes
 from services.diagnostic.agent import DiagnosticAgent
 from services.interview.agent import InterviewCoachAgent
 from services.knowledge.repository import get_repository, item_time_limit, timed_stages
-from services.knowledge.trust import COPYRIGHT_NOTICE, answer_letter
+from services.knowledge.trust import COPYRIGHT_NOTICE, TrustGate, answer_letter
 from services.master.agent import TutorMasterAgent
 from services.memory.store import InMemoryMasteryStore
 from services.planner.agent import CurriculumPlannerAgent
@@ -244,7 +244,7 @@ class TestCurriculumPlanner(LibraryBackedTestCase):
         self.assertFalse(any(t.task_type == "mock_sprint" for day in plan.daily_plans for t in day.tasks))
 
     def test_pacing_numbers_are_labelled_as_service_estimates(self):
-        """日程里的分钟数大多是本服务的配速估算，响应必须说清，免得被读成官方题均用时。"""
+        """日程里凡是库里说不出用时的题都按配速估，响应必须说清，免得被读成官方题均用时。"""
         plan = self._plan("u_plan_pace", 3, 60)
         self.assertTrue(any("配速" in n for n in plan.notices), plan.notices)
 
@@ -266,6 +266,98 @@ class TestCurriculumPlanner(LibraryBackedTestCase):
         ]
         self.assertTrue(review_tasks)
         self.assertEqual(review_tasks[0].target_question_count, 1)
+
+    def _cet_plan(self, user_id, days, minutes):
+        return self.agent.generate_plan(
+            PlanRequest(user_id=user_id, exam_type="CET-4", days_until_exam=days,
+                        daily_available_minutes=minutes)
+        )
+
+    def _log_due(self, user_id, question_ids):
+        for qid in question_ids:
+            meta = self.repository.get_meta(qid)
+            self.store.log_error({
+                "user_id": user_id, "question_id": qid, "node_id": meta.node_ids[0],
+                "exam": "CET-4", "error_category": "concept_lapse", "incorrect_count": 1,
+                "due_at": "2000-01-01T00:00:00+00:00",
+            })
+
+    def _timed_and_untimed_cet_ids(self):
+        timed, untimed = [], []
+        for meta in self.repository.find_questions(
+            exams=("CET-4",), require_nodes=True, require_answer=True
+        ):
+            if meta.time_limit_minutes and len(timed) < 2:
+                timed.append(meta.question_id)
+            elif not meta.time_limit_minutes and len(untimed) < 2:
+                untimed.append(meta.question_id)
+            if len(timed) == 2 and len(untimed) == 2:
+                return timed, untimed
+        self.fail("库内四六级既没有带题面用时约束的题，也没有不带约束的题")
+
+    def test_a_timed_essay_is_booked_for_the_minutes_its_own_paper_asks(self):
+        """排课给一题的分钟数取自库内题面约束：以前一律按每题 2 分钟折算，
+        一道卷面写明 30 分钟的 CET 作文被排进 2 分钟的一格，日历与卷子各说一套。"""
+        timed, _ = self._timed_and_untimed_cet_ids()
+        self._log_due("u_cet_timed", timed[:1])
+        plan = self._cet_plan("u_cet_timed", 2, 120)
+        review = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "fsrs_review"]
+        self.assertTrue(review, plan.notices)
+        self.assertEqual(review[0].target_question_count, 1)
+        self.assertEqual(
+            review[0].estimated_minutes,
+            self.repository.get_meta(timed[0]).time_limit_minutes,
+        )
+
+    def test_a_timed_item_too_big_for_the_review_slot_is_reported_not_shrunk(self):
+        # 一道 30 分钟的题排不进 60 分钟那天 18 分钟的复习格：宁可这天不回炉，也不把卷面用时改短。
+        timed, _ = self._timed_and_untimed_cet_ids()
+        self._log_due("u_cet_unfit", timed[:1])
+        plan = self._cet_plan("u_cet_unfit", 2, 60)
+        self.assertFalse(
+            any(t.task_type == "fsrs_review" for day in plan.daily_plans for t in day.tasks)
+        )
+        self.assertTrue(any("复习格" in n for n in plan.notices), plan.notices)
+
+    def test_the_calendar_and_the_paper_price_the_same_due_items_alike(self):
+        """同一批到期题，日历许的分钟数必须等于组卷按同一读法算出的限时（两处不许各挑一个数）。"""
+        timed, untimed = self._timed_and_untimed_cet_ids()
+        self._log_due("u_cet_cross", timed + untimed)
+        plan = self._cet_plan("u_cet_cross", 2, 240)
+        review = [t for day in plan.daily_plans for t in day.tasks if t.task_type == "fsrs_review"]
+        self.assertTrue(review, plan.notices)
+        due = self.store.due_question_ids("u_cet_cross")
+        take = review[0].target_question_count
+        self.assertEqual(take, len(due), "整批到期题都放得下却只排了一部分")
+        expected = paper_minutes(
+            [item_time_limit(self.repository.load_question(q)) for q in due[:take]]
+        )["total"]
+        self.assertEqual(review[0].estimated_minutes, expected)
+        for day in plan.daily_plans:
+            self.assertLessEqual(day.total_minutes, 240)
+
+    def test_a_nodes_minutes_per_item_comes_from_its_own_pool(self):
+        """考点的题均用时按池内每题的真实用时算：整池都带同一约束的考点必须是那个约束，
+        整池都说不出用时的考点才落到共用配速。"""
+        gate = TrustGate("research_internal")
+        limits = {}
+        for meta in self.repository.find_questions(
+            exams=("CET-4",), require_nodes=True, require_answer=True
+        ):
+            if not gate.classify_meta(meta).usable:
+                continue
+            for node_id in meta.node_ids:
+                limits.setdefault(node_id, set()).add(meta.time_limit_minutes)
+        rows = {row["node_id"]: row for row in self.agent.scheduler.candidate_nodes("CET-4")}
+        self.assertEqual(set(rows), set(limits))
+        timed_only = {n: v.pop() for n, v in limits.items() if len(v) == 1 and None not in v}
+        silent = {n for n, v in limits.items() if v == {None}}
+        self.assertTrue(timed_only, "库内四六级没有整池都带题面用时约束的考点，这条用例失去意义")
+        self.assertTrue(silent, "库内四六级没有整池都说不出用时的考点")
+        for node_id, minutes in timed_only.items():
+            self.assertEqual(rows[node_id]["minutes_per_item"], float(minutes))
+        for node_id in silent:
+            self.assertEqual(rows[node_id]["minutes_per_item"], MINUTES_PER_QUESTION)
 
     def test_milestones_are_read_back_out_of_the_calendar(self):
         plan = self._plan("u_plan_ms", 14, 120)
