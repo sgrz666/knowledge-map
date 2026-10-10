@@ -321,6 +321,58 @@ for name in ('NTCE', 'CET'):
 L.append('\n教研需逐项判定：声明总量里多出的分钟数是试音/收发答题卡等卷面外时间，还是逐节漏记；'
          '若属卷面外时间，请把它写成独立字段（如 `instruction_time_minutes`）而不是改官方逐节分钟数。\n')
 
+# 题面用时约束与卷面逐节用时是库内两处独立记录：清单用运行时同一份读数，避免清单与组卷各算一套。
+from services.knowledge.repository import item_time_limit  # noqa: E402
+
+spec_minutes_by_module = {}
+for lib, rel in SPEC_FILES.items():
+    for line in io.open(rel, encoding='utf-8'):
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        for part in (row.get('parts') or row.get('sections') or []):
+            if part.get('module') and part.get('duration_minutes'):
+                spec_minutes_by_module.setdefault((lib, part['module']), set()).add(int(part['duration_minutes']))
+
+item_minutes = collections.Counter()
+item_status = collections.Counter()
+conflict = collections.Counter()
+timed_items = 0
+for _m in _all_meta:
+    record = _facade.load_question(_m.question_id)
+    minutes = item_time_limit(record)
+    if not minutes:
+        continue
+    timed_items += 1
+    item_minutes[(_m.exam, _m.module or '-', minutes)] += 1
+    status = ((record.get('extra') or {}).get('task_constraints') or {}).get('constraints_status')
+    item_status[status or '(未声明)'] += 1
+    # 同一套卷里题面用时应当等于所属小节的逐节用时；不一致只登记，机器不选边改数。
+    lib = 'CET' if (_m.exam or '').startswith('CET') else 'NTCE'
+    allowed = spec_minutes_by_module.get((lib, _m.module or '-'))
+    if allowed and minutes not in allowed:
+        conflict[(_m.exam, _m.module or '-', minutes, tuple(sorted(allowed)))] += 1
+
+L.append('\n## 6.1 题面用时约束（`extra.task_constraints.time_limit_minutes`）\n')
+L.append('组卷给一卷定限时逐题问这份约束；库里说不出用时的题按服务配速（`services/common/pacing.py`，'
+         '目前每题 2 分钟）折算，并在结果里写明那部分是估计。以下数字由题面约束算出，与 §6 的逐节用时相互独立。\n')
+L.append('- 全库 %s 题里 %d 题带题面用时约束：' % ('{:,}'.format(len(_all_meta)), timed_items))
+for (exam, module, minutes), n in sorted(item_minutes.items(), key=lambda kv: (-kv[1], kv[0])):
+    L.append('  - `%s` / %s：%d 题，各 %d 分钟' % (exam, module, n, minutes))
+for status, n in sorted(item_status.items(), key=lambda kv: -kv[1]):
+    L.append('  - `constraints_status` = `%s`：%d 题（这份约束的出处由库里自己声明）' % (status, n))
+if conflict:
+    L.append('- **与所属小节逐节用时对不上的：%d 题**——组卷仍按题面约束计入限时（限时不短于题面要求），'
+             '时序机按逐节用时推进，两处需教研核定后统一：')
+    for (exam, module, minutes, allowed), n in sorted(conflict.items(), key=lambda kv: -kv[1]):
+        L.append('  - %s / %s：%d 题写 %d 分钟，而 §6 里该小节写 %s。'
+                 % (exam, module, n, minutes, '/'.join(str(v) for v in allowed)))
+else:
+    L.append('- 与 §6 的逐节用时交叉核对：全部一致（带约束的题，其题面用时等于所属小节的 `duration_minutes`）。'
+             '两处若将来打架，组卷会把不一致写进卷子说明并排队复核，机器不会自行改数。')
+L.append('- 其余题库内没有题面用时约束（含教资全部题目）：组卷按配速估时并标注为估计值，'
+         '如果这些题也需要按卷面限时出题，请教研把约束补进 `extra.task_constraints`。\n')
+
 L.append('\n## 7. 复核动作\n')
 L.append('1. 认领某一项后，在对应记录写入 `review.checked_by` 与 `review.checked_at`，并把 `review.status` 推进到 `checked` 或 `expert_reviewed`；'
          '验收器 `审查/validate_kb.py` 会拒绝没有署名的这类状态。')
@@ -330,7 +382,9 @@ L.append('3. 量规权重签署：在 `数据集/教资/rubrics/*.json` 写 `rev
          '题内练习框架不参与判分，如需出分请把核定后的权重写成 A.6 实体并建立绑定，不要往题内框架塞 `weight_score`。')
 L.append('4. 考务规格核定（§6）：只改 `数据集/**/paper_specs.jsonl` 里教研确认有误的那一侧，并在提交说明里写清依据；'
          '运行时按逐节分钟数推进时序，服务不会替官方卷面补齐或删减分钟数。')
-L.append('5. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、'
+L.append('5. 题面用时核定（§6.1）：卷面确实要求单题用时的，写进对应题目的 `extra.task_constraints.time_limit_minutes`；'
+         '库里没写的，组卷只会按服务配速估时并标注为估计，不会冒出"官方建议用时"。')
+L.append('6. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、'
          '`python 审查/validate_kb.py`、`python 审查/build_review_queue.py`（清单是生成物，不要手改）。\n')
 
 out = '\n'.join(x for x in L if x is not None) + '\n'

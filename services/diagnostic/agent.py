@@ -42,7 +42,6 @@ from services.review.queue import get_review_queue
 logger = logging.getLogger("services.diagnostic.agent")
 
 WEAK_NODE_THRESHOLD = 0.6
-UNSEEN_MODULE_NOTICE = "该模块在库内没有可判定的作答题，覆盖度以已作答部分计。"
 COVERAGE_ONLY_NOTICE = (
     "诊断仅统计知识覆盖度：难度全部为 heuristic_* 且无真实作答校准数据，系统不输出分数区间、报告分或通过率。"
 )

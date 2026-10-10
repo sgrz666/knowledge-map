@@ -51,6 +51,7 @@ from services.knowledge.repository import (  # noqa: E402
     QUESTION_DIRS,
     REQUIREMENT_FILES,
     get_repository,
+    item_time_limit,
     timed_stages,
 )
 from services.knowledge.retrieval import RESEARCH_ANSWER_STATUSES, RetrievalService  # noqa: E402
@@ -249,6 +250,72 @@ class TestA1NoShadowData(AcceptanceTestCase):
                     if isinstance(target, ast.Name) and target.id in BANNED_TIMETABLE_NAMES:
                         found.append(f"{path.relative_to(REPO_ROOT).as_posix()}:{node.lineno}: {target.id}")
         self.assertEqual(found, [], "服务层里出现了自有的模考时长常量")
+
+    def test_the_pace_number_has_exactly_one_home(self):
+        """"每题几分钟"这份估计只许住在一个文件里；两处各抄一份，日历和卷子就会打架。"""
+        home = "services/common/pacing.py"
+        owners = set()
+        for path, source in self.service_sources():
+            relative = path.relative_to(REPO_ROOT).as_posix()
+            for node in ast.walk(ast.parse(source)):
+                if isinstance(node, ast.AnnAssign):
+                    targets = [node.target]
+                elif isinstance(node, (ast.Assign, ast.AugAssign)):
+                    targets = list(node.targets) if isinstance(node, ast.Assign) else [node.target]
+                else:
+                    continue
+                for target in targets:
+                    if isinstance(target, ast.Name) and target.id == "MINUTES_PER_QUESTION":
+                        owners.add(relative)
+        self.assertEqual(owners, {home}, f"配速数除了 {home} 之外还有别的出处：{sorted(owners)}")
+
+    def test_the_item_time_limit_reader_never_invents_a_minute(self):
+        """单题用时只认库内题面约束；读不出就是 None，服务不许退到"一般建议 X 分钟"。"""
+        self.assertIsNone(item_time_limit(None))
+        self.assertIsNone(item_time_limit({"extra": {}}))
+        self.assertIsNone(item_time_limit({"extra": {"task_constraints": {"time_limit_minutes": 0}}}))
+        self.assertIsNone(item_time_limit({"extra": {"constraints_status": "official_general_rule"}}))
+        checked = 0
+        for meta in self.repository.find_questions(exams=("CET-4", "CET-6")):
+            record = self.repository.load_question(meta.question_id)
+            raw = (((record or {}).get("extra") or {}).get("task_constraints") or {}).get(
+                "time_limit_minutes"
+            )
+            self.assertEqual(
+                item_time_limit(record),
+                int(raw) if isinstance(raw, (int, float)) and not isinstance(raw, bool) and raw > 0 else None,
+                f"{meta.question_id} 的题面用时被读法改写过",
+            )
+            checked += 1
+            if checked >= 200:
+                break
+        self.assertGreaterEqual(checked, 200, "题池遍历不足 200 题，这条核验近乎空跑")
+
+    def test_the_two_timing_sources_in_the_library_agree_where_both_speak(self):
+        """卷面逐节用时与题面约束是库里两份独立记录：说话一致才谈得上一份口径。
+
+        不一致时机器不选边——它必须进待复核清单（§6）由教研核定，所以这里让它直接失败。
+        """
+        mismatches = []
+        corroborated = 0
+        for exam in ("CET-4", "CET-6"):
+            for spec in self.repository.paper_specs(exam):
+                for part in spec.get("parts") or []:
+                    minutes = part.get("duration_minutes")
+                    if not minutes:
+                        continue
+                    for question_id in (part.get("question_ids") or [])[:1]:
+                        value = item_time_limit(self.repository.load_question(question_id))
+                        if value is None:
+                            continue
+                        corroborated += 1
+                        if value != int(minutes):
+                            mismatches.append(
+                                f"{spec.get('spec_id')} {question_id}: 题面 {value} 分钟 vs "
+                                f"所属小节 {int(minutes)} 分钟"
+                            )
+        self.assertGreaterEqual(corroborated, 20, "两处口径同时说话的样本不足，这条核验近乎空跑")
+        self.assertEqual(mismatches[:5], [], f"库内卷面用时自相矛盾，需教研核定：{mismatches[:5]}")
 
 
 # --------------------------------------------------------------------- A2

@@ -139,6 +139,21 @@ def mock_minutes(spec: Optional[dict]) -> Optional[int]:
     return int(declared) if declared else None
 
 
+def item_time_limit(record: Optional[dict]) -> Optional[int]:
+    """这一题卷面要求多少分钟：库里唯一说得出单题用时的地方是题面约束。
+
+    读的是 ``extra.task_constraints.time_limit_minutes``（CET 写作/段落翻译各 30 分钟，
+    与同套 ``paper_specs`` 里写作、翻译两节的 ``duration_minutes`` 相互印证）。读不出就返回
+    ``None`` 交回调用方标注为估计值——服务不许替一题编一个"官方建议用时"。
+    """
+    constraints = ((record or {}).get("extra") or {}).get("task_constraints") or {}
+    minutes = constraints.get("time_limit_minutes")
+    if isinstance(minutes, bool) or not isinstance(minutes, (int, float)):
+        return None
+    value = int(minutes)
+    return value if value > 0 else None
+
+
 def _as_set(value: Optional[Iterable[str]], *, exam: bool = False) -> Optional[frozenset]:
     """Normalize a predicate without letting a bare string explode into single characters.
 

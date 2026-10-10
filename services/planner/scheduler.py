@@ -11,6 +11,9 @@ prerequisite edges while none are confirmed (§3.3: 先修边暂不入算法).
 而库内卷面是 NTCE 120 / CET 逐节 125——90 既让日历在 60 分钟的一天承诺做不完的模考，也替官方考试
 编了一个教研从未核定的时长。规格给不出一致用时时就不排模考，并在 notices 里说明。
 
+而"每题几分钟"这个配速数也不归本文件所有：它住在 ``services.common.pacing``，组卷层给一卷限时时
+用的是同一份。两个层各抄一个数，就会出现日历按 2 分钟一题排、卷子按 1 分钟一题发的打架。
+
 Missing mastery is treated as *unseen*, not as a made-up 0.40 baseline: an unseen node is ranked
 by how much practice material the library actually holds for it, and the plan says so.
 """
@@ -20,12 +23,12 @@ from datetime import date, timedelta
 from typing import Dict, List, Optional, Tuple
 
 from services.common.models import DailyPlan, DailyTaskItem, UserMasteryRecord
+from services.common.pacing import MINUTES_PER_QUESTION
 from services.knowledge.graph_index import get_graph_index, library_for_exam
 from services.knowledge.naming import exam_values
 from services.knowledge.repository import KnowledgeRepository, get_repository
 from services.knowledge.trust import TrustGate
 
-MINUTES_PER_QUESTION = 2.0
 REVIEW_SHARE = 0.30
 NEW_NODE_SHARE = 0.55
 NODES_PER_DAY = 2
@@ -39,6 +42,8 @@ UNSEEN_NOTICE = (
 PACING_NOTICE = (
     f"日程里除模考那一格外，分钟数都是服务按每题 {MINUTES_PER_QUESTION:g} 分钟估的配速，"
     "不是官方题均用时；模考那一格取的是库内考务规格的卷面用时。"
+    "排到的题实际作答时若带库内题面用时约束（如 CET 写作/翻译各 30 分钟），以题面约束为准："
+    "组卷只在库里说不出用时的题上用这同一配速，那一格的真实耗时会超过日程估计。"
 )
 POOL_EXHAUSTED_NOTICE = (
     "新考点已排完，后续日程改为对已排考点做巩固练习；如需更大题量请先扩充题库，系统不会虚构考点。"

@@ -30,9 +30,10 @@ from services.common.models import (
     TrustTier,
     UserIntent,
 )
+from services.common.pacing import paper_minutes, pace_minutes
 from services.diagnostic.agent import DiagnosticAgent
 from services.interview.agent import InterviewCoachAgent
-from services.knowledge.repository import get_repository
+from services.knowledge.repository import get_repository, item_time_limit, timed_stages
 from services.knowledge.trust import COPYRIGHT_NOTICE, answer_letter
 from services.master.agent import TutorMasterAgent
 from services.memory.store import InMemoryMasteryStore
@@ -399,6 +400,80 @@ class TestPracticeEngine(LibraryBackedTestCase):
         if declared != scheduled:
             # 库里两个字段自己打架：必须说出来让教研核定，而不是悄悄挑一个当口径。
             self.assertTrue(any("自相矛盾" in n for n in paper.notices), paper.notices)
+
+    def test_item_time_limits_are_the_librarys_not_the_services(self):
+        """每道题带上路的用时必须就是库内题面约束读出来的，缺了是 None，不是估的数。"""
+        paper = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="CET-4",
+                                 practice_mode=PracticeMode.POINT_FOCUS,
+                                 target_module="写作", item_count=5)
+        )
+        self.assertTrue(paper.questions, "CET-4 写作题池里有题，组卷却空了")
+        for payload in paper.questions:
+            record = self.repository.load_question(payload["question_id"])
+            self.assertEqual(payload["time_limit_minutes"], item_time_limit(record))
+        # 库里说不出用时的题就是 None：不许被填成任何一个"常见配速"。
+        timed = [p for p in paper.questions if p["time_limit_minutes"] is not None]
+        if timed:
+            self.assertTrue(all(p["time_limit_minutes"] > 0 for p in timed))
+
+    def test_a_paper_of_timed_essays_is_never_shorter_than_the_items_require(self):
+        """五道 30 分钟的作文不能发成一张 10 分钟的卷子：限时先问库内题面约束。"""
+        paper = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="CET-4",
+                                 practice_mode=PracticeMode.POINT_FOCUS,
+                                 target_module="写作", item_count=5)
+        )
+        required = sum(p["time_limit_minutes"] or 0 for p in paper.questions)
+        if required:
+            self.assertGreaterEqual(paper.time_limit_minutes, required,
+                                    "整卷限时短于题面约束合计，等于要求学习者做不完这一卷")
+
+    def test_untimed_items_are_paced_and_the_pace_is_labelled(self):
+        """库里说不出用时的题按共用配速折算，但说明里必须承认这是服务估的，不是官方题均用时。"""
+        paper = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="NTCE",
+                                 practice_mode=PracticeMode.DAILY_PRACTICE, item_count=6)
+        )
+        self.assertTrue(paper.questions)
+        self.assertTrue(all(p["time_limit_minutes"] is None for p in paper.questions),
+                        "教资题面带出题面用时，这条负向用例的前提变了")
+        self.assertEqual(paper.time_limit_minutes, pace_minutes(paper.total_items))
+        self.assertTrue(any("不是官方题均用时" in n for n in paper.notices), paper.notices)
+        # 旧实现给每日一练拍的 20 分钟定数不再出现：分钟数只随题量与库内约束走。
+        mixed = self.agent.assemble_paper(
+            AssemblePaperRequest(user_id="u_prac", exam_type="NTCE",
+                                 practice_mode=PracticeMode.DAILY_PRACTICE, item_count=12)
+        )
+        self.assertGreater(mixed.total_items, paper.total_items, "两次组卷题量相同，用例测不出配速")
+        self.assertEqual(mixed.time_limit_minutes, pace_minutes(mixed.total_items))
+
+    def test_a_mock_without_section_minutes_falls_back_to_the_items_own_numbers(self):
+        """卷面逐节说不出、题面约束说得出时用后者；两处都说不出就没有限时。"""
+        mock = AssemblePaperRequest(user_id="u_prac", exam_type="CET-6",
+                                    practice_mode=PracticeMode.MOCK_EXAM)
+        spec = {"spec_id": "spec.no_timing",
+                "parts": [{"name": "Part I Writing", "module": "写作"}]}
+        self.assertEqual(
+            PracticeEngineAgent._time_limit(mock, spec, paper_minutes([30, 30])), 60,
+            "题面约束说这一卷要 60 分钟，组卷却说不出用时",
+        )
+        self.assertIsNone(PracticeEngineAgent._time_limit(mock, spec, paper_minutes([None, None])),
+                          "库里两处都说不出分钟数，服务就不许自己补一个")
+
+    def test_an_item_that_disagrees_with_its_section_is_reported_not_reconciled(self):
+        """同一套卷面里题面约束与所属小节用时打架：报给教研，不自行改数也不静默选一个。"""
+        spec = {"spec_id": "spec.conflict", "parts": [
+            {"name": "Part IV Translation", "module": "翻译", "duration_minutes": 20}]}
+        questions = [{"question_id": "cet6-2015-12-p1-translation-1",
+                      "module": "翻译", "time_limit_minutes": 30}]
+        notices = PracticeEngineAgent._timing_notices(
+            AssemblePaperRequest(user_id="u_prac", exam_type="CET-6",
+                                 practice_mode=PracticeMode.MOCK_EXAM),
+            spec, timed_stages(spec), questions, paper_minutes([30]),
+        )
+        self.assertTrue(any("对不上" in n and "题面约束" in n for n in notices), notices)
+        self.assertTrue(any("教研" in n for n in notices), notices)
 
 
 # --------------------------------------------------------------------------- 4. 答疑

@@ -507,7 +507,11 @@ class TutorMasterAgent:
                 + (
                     f"限时 {paper.time_limit_minutes} 分钟。"
                     if paper.time_limit_minutes is not None
-                    else "库内规格没有给出用时，因此不限时（不编分钟数）。"
+                    else (
+                        "这一卷没有组出题，也就没有用时可报。"
+                        if not paper.total_items
+                        else "库内卷面与题面约束都说不出用时，因此不限时（不编分钟数）。"
+                    )
                 )
             ),
             "data": paper.model_dump(mode="json"),

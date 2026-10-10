@@ -19,11 +19,13 @@ from services.common.models import (
     PracticePaperResponse,
     TrustTier,
 )
+from services.common.pacing import paper_minutes, pacing_notice
 from services.knowledge.naming import exam_values, module_values
 from services.knowledge.repository import (
     KnowledgeRepository,
     QuestionMeta,
     get_repository,
+    item_time_limit,
     mock_minutes,
     timed_stages,
 )
@@ -100,10 +102,12 @@ class PracticeEngineAgent:
 
         # 模考时序只认这份规格：能列出逐节用时就有时序机，列不出就没有——服务不替官方考试编时间表。
         stages = timed_stages(spec)
-        limit = self._time_limit(req, spec, len(questions))
+        # 单题用时先问库内题面约束（extra.task_constraints），库里说不出来的题才落到共用配速估计。
+        breakdown = paper_minutes([q.get("time_limit_minutes") for q in questions])
+        limit = self._time_limit(req, spec, breakdown)
         scope = req.target_node or req.target_module or req.exam_type
         title = MODE_TITLES.get(req.practice_mode, "【专项练习】{scope}").format(scope=scope)
-        notices.extend(self._timing_notices(req, spec, stages))
+        notices.extend(self._timing_notices(req, spec, stages, questions, breakdown))
 
         if not questions:
             notices.append(
@@ -373,6 +377,8 @@ class PracticeEngineAgent:
                 continue
             content = record.get("content") or {}
             stem = content.get("stem") or record.get("text") or ""
+            # 库内说不出时就是 None：单题用时不许由服务补一个估计值进题面，估计只进卷级限时并附说明。
+            item_limit = item_time_limit(record)
             payload = {
                 "question_id": meta.question_id,
                 "exam": record.get("exam"),
@@ -382,6 +388,7 @@ class PracticeEngineAgent:
                 "stem": stem,
                 "options": content.get("options") or [],
                 "material_id": record.get("material_id"),
+                "time_limit_minutes": item_limit,
                 "node_ids": list(meta.node_ids),
                 "requirement_ids": list(meta.requirement_ids),
                 "difficulty": {
@@ -405,20 +412,39 @@ class PracticeEngineAgent:
         return questions, verdicts
 
     @staticmethod
-    def _timing_notices(req: AssemblePaperRequest, spec: Optional[dict], stages: List[dict]) -> List[str]:
-        """Say where the mock timetable came from, and refuse to pretend when the library has none."""
+    def _timing_notices(
+        req: AssemblePaperRequest,
+        spec: Optional[dict],
+        stages: List[dict],
+        questions: Sequence[dict],
+        breakdown: dict,
+    ) -> List[str]:
+        """Say where every minute on the paper came from, and refuse to pretend when the library has none."""
         if req.practice_mode != PracticeMode.MOCK_EXAM:
-            return []
+            if breakdown["total"] is None:
+                return []
+            # 只这一条：它已经把「多少来自库内题面约束、多少是服务估的」拆开说清了。
+            return [pacing_notice(breakdown)]
+
         scheduled = mock_minutes(spec) or 0
+        conflicting = PracticeEngineAgent._constraint_conflicts(stages, questions)
+        if conflicting:
+            notices = [
+                "库内两处卷面用时对不上：" + "；".join(conflicting) + "。"
+                "整卷限时仍按逐节用时（那份数字决定何时收卡），题面约束只报不改——"
+                "两处需教研核定后统一，系统不自行改动官方卷面数据。"
+            ]
+        else:
+            notices = []
         if not stages:
-            return [
+            return notices + [
                 "库内考务规格没有给出逐节用时（parts[].duration_minutes），系统不内置模考时序："
                 "只按卷面结构组卷，收卡与封锁时机需教研把规格补齐后才谈得上。"
             ]
-        notices = [
+        notices.append(
             f"模考时序按库内规格 {(spec or {}).get('spec_id')} 的 {len(stages)} 节推进，"
             f"合计 {scheduled} 分钟；服务不另立卷面。"
-        ]
+        )
         declared = (spec or {}).get("total_duration_minutes")
         if declared and int(declared) != scheduled:
             notices.append(
@@ -429,17 +455,32 @@ class PracticeEngineAgent:
         return notices
 
     @staticmethod
-    def _time_limit(req: AssemblePaperRequest, spec: Optional[dict], items: int) -> Optional[int]:
-        if req.practice_mode == PracticeMode.MOCK_EXAM:
-            # 模考只报库内说得出的用时（读法在 repository.mock_minutes，与排课同源）：
-            # 库里既没有逐节用时也没有声明总时长就不限时——服务编一个分钟数就是影子数据。
-            return mock_minutes(spec)
-        if req.practice_mode == PracticeMode.TIMED_SPRINT:
-            return max(5, int(items))
-        if req.practice_mode == PracticeMode.DAILY_PRACTICE:
-            return 20
-        return max(10, int(items) * 2)
+    def _constraint_conflicts(stages: Sequence[dict], questions: Sequence[dict]) -> List[str]:
+        """同一套卷面里，题面约束与所属小节的逐节用时不一致时只报不改。"""
+        minutes_by_module = {stage.get("module"): stage["minutes"] for stage in stages}
+        conflicts = []
+        for item in questions:
+            limit = item.get("time_limit_minutes")
+            stage_minutes = minutes_by_module.get(item.get("module"))
+            if limit and stage_minutes and int(limit) != int(stage_minutes):
+                conflicts.append(
+                    f"{item.get('question_id')} 题面要求 {limit} 分钟，"
+                    f"而库内规格「{item.get('module')}」一节写的是 {stage_minutes} 分钟"
+                )
+        return conflicts
 
+    @staticmethod
+    def _time_limit(
+        req: AssemblePaperRequest, spec: Optional[dict], breakdown: dict
+    ) -> Optional[int]:
+        if req.practice_mode == PracticeMode.MOCK_EXAM:
+            # 模考先报卷面说得出的用时（读法在 repository.mock_minutes，与排课同源）：
+            # 逐节与声明总时长都没有时，退回题面约束合计——库里说得出多少就限时多少，
+            # 两处都说不出就不限时，服务编一个分钟数就是影子数据。
+            scheduled = mock_minutes(spec)
+            return scheduled or (breakdown["declared_minutes"] or None)
+        # 非模考的一卷没有卷面规格，就逐题问题面约束；库里说不出用时的题按共用配速折算并说明。
+        return breakdown["total"]
 
     @staticmethod
     def _token(req: AssemblePaperRequest) -> str:
