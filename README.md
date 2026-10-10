@@ -15,7 +15,7 @@
 - **审查/**：全库质量与门禁工具（`validate_kb.py` 结构与引用门禁、`状态词表检查.py` 状态枚举门禁、`build_review_queue.py` 生成教研待复核清单、`知识库形式审查.py` 形式审查与验收报告）
 - **tests/**：自动化测试套件（回归测试与数据契约断言，含 `test_graph_direction_contract.py` 两库图谱方向/层级契约、`test_status_vocabulary.py` 两库状态词表契约、`test_rubric_contract.py` 题内练习框架与 A.6 加权量规的双轨契约、`test_workspace_aliases.py` 工作区别名前置条件）
 - **services/**：主观题评分与记忆复习服务（`grader/` 教资解析式与四六级整体式评分、`memory/` FSRS 调度与归因、`app.py` FastAPI 入口）
-- **docs/**：项目实施计划与文档
+- **docs/**：项目实施计划与文档（`agent_architecture.md` agent 运行时架构设计、`agent_workflow_plan.md` 知识库数据补齐工作流）
 
 ## 工作区别名（必须在本地建立，且不入库）
 
@@ -50,3 +50,4 @@
 - [应试考证功能设计与技术支撑：以教资和四六级为例.md](应试考证功能设计与技术支撑：以教资和四六级为例.md)：系统顶层功能设计与技术规范（含附录 A 完整 Schema 字典）。
 - [教资KB版权清权报告.md](教资KB版权清权报告.md)：科研非商业使用定位与合理使用边界。
 - [审查/待复核清单.md](审查/待复核清单.md)：教研签署队列（当前 0 人具名审核、0 条实测校准难度；先修边教资 31 条 / 四六级 56 条全部待核定；6 套加权量规的维度权重与档位措辞也全部待签署）。由 `审查/build_review_queue.py` 重新生成，请勿手改数据结论。
+- [docs/agent_architecture.md](docs/agent_architecture.md)：Agent 架构设计方案——把本库的数据契约（八层 L0–L7、16 种边、三层状态、双轨量规）翻译成运行时：知识门面、TrustGate 两档运行态、自研编排状态机、Chroma 检索与 LLM 结构化护栏，并逐条给出可执行验收断言。
