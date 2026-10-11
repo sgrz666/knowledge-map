@@ -132,3 +132,24 @@ L7 升格这一轮的计数（**447 项通过、63 个子测试通过、7 项失
 
 完整性快照落盘只写库内容的函数值，不写钟点（`tests/test_completeness_audit.py` 断言重跑逐字相同、且仓库里那份能由库复现）。之前它带一个 `generated_at`，每批修补后重跑都会把文件改脏，`git diff` 就分不清是补掉了缺口还是只是过了几分钟。
 
+## 答案冲突首批核对之后（2026-10-11，`xiaoxue/jiaoyuxinlixue`）
+
+这一轮**动了数据**，上面各处记录的 13,269 可练、1,040 冲突、`remaining_gaps = 130,762` 是核对前那棵树的数，实况以本节为准。
+
+34 题隔离里 22 题回原卷核对成立并落回，12 题核对不出来仍留隔离（题干定位不到 4、两份抽取不一致 6、非四选项单选 2）。逐题的题号、修改前后内容、原卷文件与卷内题号、隔离时保全的候选、审核状态都在 `数据集/教资/review/answer_conflict_reconciliation.jsonl`。
+
+| 命令 | 结果 |
+| --- | --- |
+| `python -m pytest tests -q`（主工作区工作树） | `455 项通过、63 个子测试通过、7 项失败`，实测 118.94 秒，退出码 `1` |
+| `python 审查/audit_ntce_completeness.py` | 14,500 题里 **13,291** 可练（+22），来源冲突 **1,018**（−22），缺答案仍 149，具名签核 0 |
+| `python 审查/状态词表检查.py 数据集/教资` | 15,185 条 0 违规，退出码 0 |
+| `python 审查/状态词表检查.py 数据集/四六级` | 31,991 条 0 违规，退出码 0 |
+| `python 审查/validate_kb.py --output .local_state/web_audit_final.json` | 退出码 `1`：`structure_errors = 0`、`remaining_gaps = 130,738`、`complete = false` |
+| `python -m pytest tests/test_ntce_conflict_reconcile.py tests/test_status_vocabulary.py -q` | 15 passed，12 subtests passed，退出码 0 |
+
+严格审查的教资分项：`Q_ANSWER_MISSING` 4,509 → **4,487**，`Q_ANSWER_SOURCE_CONFLICT` 1,040 → **1,018**，`Q_ANSWER_BINDING_PENDING` 2,176 → **2,196**，`Q_STEM_EMPTY` 369 与 `Q_ANALYSIS_INCOMPLETE` 4,829 **不变**。`+20` 那一条不是新缺陷：同一批题从"没有答案"改记为"答案已回卷落回、待原卷绑定核验"（其中 2 题原本就带绑定证据）。少的 24 条全库缺口 = −22 缺答案 − 22 冲突 + 20 待绑定，与 130,762 → 130,738 逐条对得上。**验收达成的是该批内容缺口下降且 `structure_errors` 保持 0。**
+
+7 项失败没有一项由这批数据改动产生，全部在并行会话未入库的那条线上：5 项 `tests/test_learning_workflow.py`（都是 `AttributeError: 'Workbench' object has no attribute 'exam_sessions'`，`services/web/service.py:124` 的提交路径已引用该字段而那批用例的 fixture 没赋）、2 项 `tests/test_learning_resources.py`（断言 7 个无题叶子考点都有讲解与 14 道自测题，实际 3 份 6 题——即交付清单第 4 项按你的决定只写 3 份、另 4 份不编写，报红是有意的缺口标记）。本会话不碰这两组文件，也不把它们的红算成自己的绿。
+
+这一批真正修出来的架构缺陷是**卡片与题记录脱节**：上一轮只重跑了图谱、快照与队列，没重渲染卡片，卡片头部仍写隔离、正文仍断言"本题无给定答案"，学习者读到的是自相矛盾的一张卡。现在落回连带走 `sync_cards` 重渲染（本批 22 张），并由 `test_restored_card_mirrors_the_record_and_stops_denying_the_answer` 钉住；解析草稿只重算受答案影响的三段、仍记 `rule_draft_pending_expert`，由 `test_restored_rule_analysis_follows_the_answer_without_claiming_verification` 钉住。核对工具的摘要另外补了 `restored_in_dataset` / `still_quarantined` 两个字段：默认运行只出证据（`applied = false`、`cards_rewritten_this_run = 0`），没有这两个字段的话，测试里那次只读重跑会把摘要写成"这批一题都没落回"——证据文件自述数据实况，不只自述当次模式。
+
