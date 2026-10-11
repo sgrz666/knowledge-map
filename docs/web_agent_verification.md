@@ -9,7 +9,23 @@ python -m pip install -r requirements-dev.txt
 python -m pytest tests -q
 ```
 
-`424 项通过、55 个子测试通过`（实测 211.69 秒）。跑测试要先把状态目录指向临时处（`$env:KNOWLEDGE_MAP_STATE_DIR = <空目录>`），否则网页用例会把练习卷和提交写进本机 `.local_state/`。
+已提交树（`f0ff2dd7`）：`424 项通过、55 个子测试通过`（实测 211.69 秒）。跑测试要先把状态目录指向临时处（`$env:KNOWLEDGE_MAP_STATE_DIR = <空目录>`），否则网页用例会把练习卷和提交写进本机 `.local_state/`。
+
+错因与掌握度这一收口（+4 条用例，共 428 项）：**427 项通过、55 个子测试通过、1 项失败**，实测 209.33 秒。那条失败是 `tests/test_ntce_hierarchy_contract.py::test_learning_resources_layer_seven_compliance_and_graph_connectivity`——工作区里并行写的一批新资源 `数据集/教资/resources/study_guides.jsonl` 用 `guide_id` 当键，七层资源契约要的是 `resource_id`，用例在第 187 行 `assertTrue(rid)` 就停了。它由数据文件触发，与本次改的 `services/memory/**` 无关，改谁的文件归那一批的作者定。
+
+计数只能在主工作区取：另开一个只含已提交内容的 detached worktree 跑同一套代码，会多出 14 项失败与 22 项错误，全是 `数据集/**/_staging/*.docx` 这类**未入库的原始卷面文件**不在场导致的 `FileNotFoundError`，不是代码问题。
+
+## 知识库门禁复跑
+
+同一批改动之后重跑交付清单里的四条命令（`python 审查/audit_ntce_completeness.py`、`python 审查/状态词表检查.py 数据集/教资`、`… 数据集/四六级`、`python 审查/validate_kb.py --output .local_state/web_audit_final.json`）：
+
+| 门禁 | 结果 |
+| --- | --- |
+| 教资完整性审查 | 退出码 `0`；14,500 题里 13,269 可练，缺知识点／能力挂载 1,331、缺考纲绑定 3,928、答案来源冲突 1,040、缺答案 149、空题干 45；791 个考点中 160 个没有直接考查题，其中 7 个是叶子；待签署量规 6 |
+| 状态词表 | 教资 15,185 条 0 违规、四六级 31,991 条 0 违规，两条退出码都是 `0` |
+| 严格审查 | 退出码 `1`，`structure_errors = 0`，`remaining_gaps = 130,762`，`complete = false` |
+
+按口径分开看：结构错误为 0 说的是库的**形状**没问题；退出码 `1` 说的是**内容**还等教研补，两者不能混成"检查失败"。这批数字与交付快照一致——本轮改动只碰 `services/memory/**` 与测试／文档，一条数据也没动。
 
 ## 提交重试一致性（必修项）
 
@@ -26,6 +42,19 @@ python -m pytest tests -q
 | 清理学习记录 | `clear()` 同步删 `memory_events`，重置后重新计数 | `test_clear_drops_receipts_so_a_reset_learner_is_counted_again` |
 
 对本机真实状态库的**副本**跑过迁移：`memory.sqlite3` 补出 `user_id`／`fingerprint` 两列，26 条画像与 12 条错题记录不动，14 条旧收据全部记为"无法核对"；`workbench.sqlite3` 补出 `fingerprint` 列，3 份卷、1 条提交不动，那条无指纹提交按 `409` 处理。也就是说这台机器上指纹上线前的重放口子是关着的，要恢复只能清空本机学习记录。
+
+## 掌握度与错因只读学习者的证据
+
+收据关住的是"同一次作答不能被改"，这一节关住的是"画像里的数是从哪儿来的"。调用方可以申报题目难度和当前掌握度（`services/common/models.py` 里各给默认 0.5），旧实现把这两个申报值读进了判定：
+
+| 位置 | 旧写法 | 现在 |
+| --- | --- | --- |
+| 掌握度公式 | `(0.7*正确率 + 0.3*(1 - 申报难度*0.4)) * R`，而 `R` 恒为 1.0 | 只按该考点累计正确率做拉普拉斯平滑 `(correct+1)/(practice+2)`；`R` 按这次作答距上次复习的真实天数对 `stability` 算 |
+| 审题疏漏 | 还要申报难度 < 0.75，同样 4 秒交卷报 0.8 就判不成 | 只看学习者自己的耗时与题干否定词 |
+| 认知盲区 | 无记录时退回申报的 `current_node_mastery`，说明里给出一个从未存在过的历史百分比 | 只在这位学习者该考点的持久化记录 < 0.35 时成立；`persisted_mastery` 为必填 keyword-only，无记录时在 `notices` 明说"还没有你的作答记录" |
+| 事件指纹 | — | 这两个申报字段**照旧计入**指纹：指纹钉的是"这次提交了什么"，摘掉它们会让指纹上线前写下的收据全部对不上 |
+
+覆盖：`TestAttributionEvidenceSource`（申报难度挪不动判定、盲区要么用持久化记录要么不成立、无记录时那句说明真的出现），静态面 `TestA10ProfileVerdictSource.test_no_inference_path_reads_a_claimed_difficulty_or_mastery` 用 AST 扫 `services/**`，读出这两个属性即失败，只有 `services/memory/receipt.py` 在册。
 
 ## 真实浏览器实测
 

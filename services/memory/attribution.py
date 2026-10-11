@@ -18,15 +18,17 @@ from services.common.models import (
 )
 
 
-_UNSET = object()
-
-
 class ErrorAttributionEngine:
     """Classifies root cause of an erroneous response using behavioral traces."""
 
     @classmethod
-    def attribute(cls, event: ErrorReviewEvent, *, persisted_mastery=_UNSET) -> ErrorAttributionResult:
-        """Run hierarchical pedagogical classification tree on response trace."""
+    def attribute(cls, event: ErrorReviewEvent, *, persisted_mastery: Optional[float]) -> ErrorAttributionResult:
+        """Run hierarchical pedagogical classification tree on response trace.
+
+        ``persisted_mastery`` is what this learner's stored record says about the node, or ``None``
+        when the node has no record yet. The tree reads the learner's own behaviour plus that record;
+        it never reads a number the caller declares about the question or about the learner.
+        """
         # Case 5: Subjective expression deficit
         if event.is_subjective:
             if event.subjective_rubric_misses:
@@ -47,8 +49,9 @@ class ErrorAttributionEngine:
             )
 
         # Case 1: Careless reading (Super fast speed or overlooked negation)
-        # For objective questions: <= 6s spent or overlooked negative keyword
-        if (event.time_spent_seconds <= 6.0 and event.question_difficulty < 0.75) or (
+        # 只认学习者自己的动作。旧写法还要申报难度 < 0.75：那个浮点既不是库内记录（库内只有 heuristic_*
+        # 初估，§10/A7 不许它参与能力推断），方向还能反过来用——同样 4 秒交卷，调用方报 0.8 就判不成疏漏。
+        if event.time_spent_seconds <= 6.0 or (
             event.has_negation_in_stem and event.time_spent_seconds < 12.0
         ):
             neg_tip = "且题干含否定/限定词（如‘不正确/不属于’）" if event.has_negation_in_stem else ""
@@ -81,16 +84,15 @@ class ErrorAttributionEngine:
                 recommended_action="查看易混概念对比表，梳理概念内涵与外延边界，加练概念辨析双联题。",
             )
 
-        # Case 3: Cognitive Blindspot (Low historical mastery of this knowledge node)
-        # Runtime callers pass persisted history; first practice has no history to diagnose.
-        # Direct legacy callers retain the previous input contract.
-        mastery = event.current_node_mastery if persisted_mastery is _UNSET else persisted_mastery
-        if mastery is not None and mastery < 0.35:
+        # Case 3: Cognitive Blindspot —— 只认这位学习者在这条考点上的持久化记录。
+        # 没有记录就不声称盲区：旧写法在没有记录时退回去读调用方申报的 current_node_mastery，
+        # 于是"该考点历史掌握度仅 X%"里的 X 是一个从未存在过的历史。
+        if persisted_mastery is not None and persisted_mastery < 0.35:
             return ErrorAttributionResult(
                 category=ErrorAttributionCategory.BLINDSPOT,
                 category_name="认知盲区",
                 confidence=0.90,
-                rationale=f"该考点历史掌握度仅 {mastery*100:.0f}%，尚未建立基础知识框架。",
+                rationale=f"该考点你此前的掌握度记录为 {persisted_mastery*100:.0f}%，尚未建立基础知识框架。",
                 recommended_action="回溯考纲对应知识卡片，精读基础理论并完成考点专属基础变式题巩固。",
             )
 

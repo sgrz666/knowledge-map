@@ -124,6 +124,11 @@ class MemoryReviewAgent:
             attribution = ErrorAttributionEngine.attribute(
                 event, persisted_mastery=existing.mastery_score if existing else None
             )
+            if existing is None:
+                # 无记录就说无记录：盲区那一格要么用这位学习者自己的持久化记录，要么不成立。
+                notices = [*notices,
+                           "这条考点还没有你的作答记录，所以错因里没有“认知盲区”这一格；"
+                           "调用方申报的题目难度与掌握度都不参与判定（库内难度只有教研初估，未被采信）。"]
         else:
             attribution = ErrorAttributionResult(
                 category=ErrorAttributionCategory.CARELESS,  # Neutral placeholder

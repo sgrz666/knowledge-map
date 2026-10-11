@@ -42,11 +42,14 @@ def fingerprint(payload: Mapping[str, Any]) -> str:
 
 
 def event_inputs(event) -> dict:
-    """Every event field that changes what this attempt teaches the learner.
+    """Every field the caller submitted for this attempt — the digest pins the request, not the verdict.
 
-    ``question_difficulty`` stays in the digest because the attribution tree still reads it
-    (审题疏漏 branch); ``current_node_mastery`` does not — on this path the authority is the
-    persisted record the agent reads itself, not whatever number the caller declared.
+    ``question_difficulty`` and ``current_node_mastery`` are the learner-invisible claims a caller
+    makes *about* the question and *about* the learner; neither feeds the mastery formula or the
+    attribution tree any more (the tree reads behaviour plus this learner's own persisted record).
+    They still belong in the digest because a retry has to be the same submitted request: leaving
+    them out would also invalidate every receipt written before this line, which is a worse price
+    than digesting a field the service ignores.
     """
     return {
         'user_id': event.user_id,

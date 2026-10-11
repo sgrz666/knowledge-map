@@ -1189,6 +1189,36 @@ class TestA10ProfileVerdictSource(AcceptanceTestCase):
         self.assertIsNone(agent.get_user_mastery("u_a10", node_id), "不可核对的题却写了画像")
         self.assertEqual(list(agent.store.error_entries("u_a10")), [])
 
+    def test_no_inference_path_reads_a_claimed_difficulty_or_mastery(self):
+        """申报的题目难度与申报的当前掌握度不得被任何服务层代码读出来用。
+
+        这两个浮点是调用方自己填的默认值（models.py 里各给 0.5），库内那条难度只有 heuristic_* 初估，
+        §10/A7 明令它不得参与能力推断。旧写法把它们读进了掌握度公式与错因树：答对越"难"的题掌握度反而
+        越低，同样 4 秒交卷报 0.8 就不算审题疏漏，"该考点历史掌握度仅 X%"里的 X 是一段从未存在过的历史。
+        只有 services/memory/receipt.py 可以读它们——那是在给"这次提交的到底是什么"算身份指纹，不参与判定。
+        """
+        claimed_fields = {"question_difficulty", "current_node_mastery"}
+        digest_home = "services/memory/receipt.py"
+
+        def reads(source):
+            return [
+                node.attr
+                for node in ast.walk(ast.parse(source))
+                if isinstance(node, ast.Attribute) and node.attr in claimed_fields
+            ]
+
+        self.assertEqual(reads("score = 0.7 * event.question_difficulty\n"), ["question_difficulty"],
+                         "这条检查自己就是空的，钉不住任何东西")
+        found = []
+        for path, source in self.service_sources():
+            relative = path.relative_to(REPO_ROOT).as_posix()
+            if relative == digest_home:
+                continue
+            for node in ast.walk(ast.parse(source)):
+                if isinstance(node, ast.Attribute) and node.attr in claimed_fields:
+                    found.append(f"{relative}:{node.lineno}: {node.attr}")
+        self.assertEqual(found, [], "服务层把调用方申报的难度或掌握度读进了判定")
+
 
 # --------------------------------------------------------------------- A11
 class TestA11IndexRegeneration(AcceptanceTestCase):

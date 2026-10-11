@@ -43,7 +43,7 @@ class TestMemoryReviewService(unittest.TestCase):
             question_difficulty=0.4,
             current_node_mastery=0.7,
         )
-        res1 = ErrorAttributionEngine.attribute(event_careless)
+        res1 = ErrorAttributionEngine.attribute(event_careless, persisted_mastery=None)
         self.assertEqual(res1.category, ErrorAttributionCategory.CARELESS)
 
         # 2. Time Pressure (Spent over 160s on single objective question)
@@ -57,7 +57,7 @@ class TestMemoryReviewService(unittest.TestCase):
             question_difficulty=0.6,
             current_node_mastery=0.6,
         )
-        res2 = ErrorAttributionEngine.attribute(event_pressure)
+        res2 = ErrorAttributionEngine.attribute(event_pressure, persisted_mastery=0.6)
         self.assertEqual(res2.category, ErrorAttributionCategory.TIME_PRESSURE)
 
         # 3. Misconception (Typical distractor / option flipping)
@@ -73,7 +73,7 @@ class TestMemoryReviewService(unittest.TestCase):
             question_difficulty=0.5,
             current_node_mastery=0.6,
         )
-        res3 = ErrorAttributionEngine.attribute(event_misconception)
+        res3 = ErrorAttributionEngine.attribute(event_misconception, persisted_mastery=0.6)
         self.assertEqual(res3.category, ErrorAttributionCategory.MISCONCEPTION)
 
         # 4. Blindspot (Node historical mastery < 0.35)
@@ -87,7 +87,7 @@ class TestMemoryReviewService(unittest.TestCase):
             question_difficulty=0.5,
             current_node_mastery=0.25,
         )
-        res4 = ErrorAttributionEngine.attribute(event_blindspot)
+        res4 = ErrorAttributionEngine.attribute(event_blindspot, persisted_mastery=0.2)
         self.assertEqual(res4.category, ErrorAttributionCategory.BLINDSPOT)
 
         # 5. Expression Deficit (Subjective rubric misses)
@@ -101,7 +101,7 @@ class TestMemoryReviewService(unittest.TestCase):
             is_subjective=True,
             subjective_rubric_misses=["以人为本学生观", "因材施教原则"],
         )
-        res5 = ErrorAttributionEngine.attribute(event_expr)
+        res5 = ErrorAttributionEngine.attribute(event_expr, persisted_mastery=None)
         self.assertEqual(res5.category, ErrorAttributionCategory.EXPRESSION_DEFICIT)
 
     def test_fsrs_mathematical_properties(self):
@@ -151,6 +151,50 @@ class TestMemoryReviewService(unittest.TestCase):
         self.assertGreaterEqual(mastery.mastery_score, 0.0)
         self.assertLessEqual(mastery.mastery_score, 1.0)
         self.assertIn("复习计划已生成", bundle.followup_plan)
+
+
+class TestAttributionEvidenceSource(unittest.TestCase):
+    """错因树只认学习者自己的动作与这位学习者的持久化记录，不认调用方申报的浮点。"""
+
+    NODE = "ntce.zhongxue.jiaoyuzhishi.m4.k01"
+
+    def event(self, **updates):
+        base = dict(user_id="u-evidence", question_id="q01", node_id=self.NODE,
+                    exam="NTCE", is_correct=False, time_spent_seconds=30.0)
+        return ErrorReviewEvent(**{**base, **updates})
+
+    def test_declared_difficulty_cannot_move_the_careless_verdict(self):
+        # 同样 4 秒交卷：申报难度 0.4 判成审题疏漏、0.9 就判不成，等于让调用方挑一个错因。
+        for declared in (0.4, 0.9):
+            res = ErrorAttributionEngine.attribute(
+                self.event(time_spent_seconds=4.0, question_difficulty=declared),
+                persisted_mastery=None,
+            )
+            self.assertEqual(res.category, ErrorAttributionCategory.CARELESS, f"申报难度 {declared} 改写了错因")
+
+    def test_blindspot_requires_a_record_and_quotes_it(self):
+        # 没有记录：盲区那一格不成立，说明里也不许出现一个从未存在过的掌握度数字。
+        res = ErrorAttributionEngine.attribute(self.event(), persisted_mastery=None)
+        self.assertNotEqual(res.category, ErrorAttributionCategory.BLINDSPOT)
+        self.assertNotIn("掌握度", res.rationale)
+
+        # 有记录：报的是这位学习者自己的记录，不是调用方申报的那个数。
+        claimed = self.event(current_node_mastery=0.9)
+        persisted = ErrorAttributionEngine.attribute(claimed, persisted_mastery=0.2)
+        self.assertEqual(persisted.category, ErrorAttributionCategory.BLINDSPOT)
+        self.assertIn("20%", persisted.rationale)
+        self.assertNotIn("90%", persisted.rationale)
+
+    def test_agent_says_so_when_the_node_has_no_record(self):
+        agent = MemoryReviewAgent(store=InMemoryMasteryStore())
+        # 库内查不到这道题，对错只能按申报兜底；考点没有记录，所以盲区不得凭空成立。
+        bundle = agent.process_event(
+            self.event(question_id="不在库内的题号", current_node_mastery=0.1, time_spent_seconds=30.0)
+        )
+        self.assertIsNotNone(bundle.attribution)
+        self.assertNotEqual(bundle.attribution.category, ErrorAttributionCategory.BLINDSPOT)
+        self.assertTrue(any("还没有你的作答记录" in notice for notice in bundle.notices),
+                        f"没有一条说明交代盲区那一格为何缺席：{bundle.notices}")
 
 
 class TestEventReceipts(unittest.TestCase):
