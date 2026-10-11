@@ -153,3 +153,22 @@ L7 升格这一轮的计数（**447 项通过、63 个子测试通过、7 项失
 
 这一批真正修出来的架构缺陷是**卡片与题记录脱节**：上一轮只重跑了图谱、快照与队列，没重渲染卡片，卡片头部仍写隔离、正文仍断言"本题无给定答案"，学习者读到的是自相矛盾的一张卡。现在落回连带走 `sync_cards` 重渲染（本批 22 张），并由 `test_restored_card_mirrors_the_record_and_stops_denying_the_answer` 钉住；解析草稿只重算受答案影响的三段、仍记 `rule_draft_pending_expert`，由 `test_restored_rule_analysis_follows_the_answer_without_claiming_verification` 钉住。核对工具的摘要另外补了 `restored_in_dataset` / `still_quarantined` 两个字段：默认运行只出证据（`applied = false`、`cards_rewritten_this_run = 0`），没有这两个字段的话，测试里那次只读重跑会把摘要写成"这批一题都没落回"——证据文件自述数据实况，不只自述当次模式。
 
+## 隔离题的题面串题定位到字段（2026-10-11，同批，未动数据）
+
+上一节的 12 道拒绝题只带一个 `cross_question_risk` 风险码，读的人无法判断下一步：题面里吞了整段邻题，究竟是**剪掉重复文本**还是**这段根本没被收录**。这一轮把定位落到证据上，改动只在工具与证据，题库数据一行没动。
+
+`kb_tools/ntce_repair.py` 新增 `mix_risk_evidence(q)`，一份口径同时给修复轮与核对工具读（`sequence_fields` / `sequence_counts` / `combined_sequences` / `embedded_numbers`）；核对工具删掉自己那份正则，改为对每条带串题风险的拒绝题附 `content_boundary`，并用本卷已入库的题号集合算出 `embedded_numbers_without_record`。摘要加 `refused_with_open_question_boundary = 7`、`boundary_numbers_without_record = 2`。
+
+实测结论：该批 7 道题面带串题证据，最重的 `na-p1-jx.q02` 的 E 选项里有 19 道完整 A-D 序列，`na-p1-jx.q04` 的 D 有 7 道；`na-p1-jx` 题面的 77、`na-p2-jx` 题面的 74 在本卷没有任何独立记录，而这几份散卷总共只入库 4～5 条记录。所以**这些文本不能剪**——剪掉等于删掉库里唯一一份邻题内容；该批的题面缺陷登记为收录缺口，下一轮照原件补收录。编号识别是下限不是穷举，识别不出的串题仍由序列计数暴露。
+
+| 命令 | 结果 |
+| --- | --- |
+| `python -m pytest tests -q`（主工作区工作树） | `457 项通过、63 个子测试通过、7 项失败`，实测 204.59 秒，退出码 `1`。通过数比上一节的 455 多 2，正是本轮新增的两条用例；失败的 7 项与上一节**逐条同名**（5 项 `test_learning_workflow.py`、2 项 `test_learning_resources.py`），仍在并行会话那条线上，不由本轮改动产生 |
+| `python -m pytest tests/test_ntce_conflict_reconcile.py tests/test_ntce_repair.py tests/test_kb_contract.py tests/test_status_vocabulary.py tests/test_web_workbench.py -q` | 129 passed，16 subtests passed，退出码 0 |
+| `python 审查/状态词表检查.py 数据集/教资` | 15,185 条 0 违规，退出码 0 |
+| `python 审查/状态词表检查.py 数据集/四六级` | 31,991 条 0 违规，退出码 0 |
+| `python 审查/audit_ntce_completeness.py` | 退出码 0，来源冲突仍为 **1,018**、缺答案仍 149（这一轮不落回任何答案） |
+| `python 审查/validate_kb.py --output .local_state/web_audit_final.json` | 退出码 `1`：`structure_errors = 0`、`remaining_gaps = 130,738`，与上一节逐项相同——数据未动，只有两份证据文件重生成 |
+
+`refused_with_open_question_boundary`（7）比拒绝原因 `cross_question_risk_open`（6）多 1：`na-p1-jx.q02` 先因五选项多选被拒，串题证据照样登记。这两个数不该相等，摘要把它们分成两个字段而不是合并成一个"串题题数"。
+

@@ -15,7 +15,8 @@ from collections import Counter
 from build_kb import OUT, ROOT, load_text, parse_answers, classify_answer
 from ntce_analysis_fill import (METHOD as RULE_METHOD, build_explanation, build_key_info,
                                 build_option_compare, load_node_index, node_anchor)
-from ntce_repair import question_pending, read_rows, reviewed_content, sync_cards, write_rows
+from ntce_repair import (mix_risk_evidence, question_pending, read_rows, reviewed_content,
+                         sync_cards, write_rows)
 from ntce_io import atomic_write
 
 RECONCILED = 'source_conflict_answer_reconciled'
@@ -33,7 +34,7 @@ def _refuse(record, reason):
     return record
 
 
-def reconcile_one(q, parsed):
+def reconcile_one(q, parsed, recorded_numbers=()):
     """返回一条核对证据；result=reconciled 表示可以落回，refused 表示证据不足。"""
     c, ex, rv = q['content'], q['extra'], q['review']
     source = next((f for f in q['source'].get('files', []) if f['role'] == 'answer_raw'), None)
@@ -49,6 +50,14 @@ def reconcile_one(q, parsed):
               'cross_question_risk': rv.get('cross_question_risk') or [],
               'answer_file': source['path'] if source else None,
               'expert_verified': False}
+    if rv.get('cross_question_risk'):
+        # 串题风险不是"答案可疑"那么轻：题面里吞了整段邻题文本，下一步是剪文本还是补收录，
+        # 取决于被吞掉的邻题在本卷有没有独立记录。证据要把这个分岔答清楚，否则隔离只成一串码。
+        evidence = mix_risk_evidence(q)
+        record['content_boundary'] = {
+            **evidence,
+            'embedded_numbers_without_record': sorted(
+                n for n in evidence['embedded_numbers'] if n not in recorded_numbers)}
     if not source:
         return _refuse(record, 'answer_file_missing')
     path = ROOT / source['path']
@@ -162,6 +171,11 @@ def run(scope=None, apply_changes=False):
             continue
         # 同一张答案卷只解析一次，整批复用，避免逐题重读原卷。
         parsed_by_file = {}
+        # 本卷已入库的题号：串题证据要用它判断被吞掉的邻题是有独立记录（剪文本是去重）
+        # 还是根本没收录（剪文本会删掉库内唯一一份，必须走补收录）。
+        recorded_numbers = {(q['review'].get('type_source_verification') or {}).get('locator', {})
+                            .get('number') for q in rows}
+        recorded_numbers.discard(None)
         restored = []
         changed = 0
         for q in targets:
@@ -169,7 +183,7 @@ def run(scope=None, apply_changes=False):
             path = ROOT / source['path'] if source and source.get('path') else None
             if path is not None and path not in parsed_by_file:
                 parsed_by_file[path] = parse_answers(load_text(path)) if path.exists() else {}
-            record = reconcile_one(q, parsed_by_file.get(path, {}))
+            record = reconcile_one(q, parsed_by_file.get(path, {}), recorded_numbers)
             record['scope'] = f'{level}/{subject}'
             records.append(record)
             if record['result'] == 'reconciled':
@@ -203,6 +217,13 @@ def run(scope=None, apply_changes=False):
                # applied=False 的只出报告运行同样会整批再生证据，这两个字段说明数据实况而不是本次模式。
                'restored_in_dataset': sum(1 for r in records if r.get('restored_in_dataset')),
                'still_quarantined': sum(1 for r in records if r['result'] == 'refused'),
+               # 隔离题里有多少题卡的是"题面吞了邻题文本"而不是"答案算不出"，
+               # 以及被吞掉的邻题里有多少在本卷压根没有独立记录——后者是收录缺口，不能靠剪文本解决。
+               'refused_with_open_question_boundary': sum(
+                   1 for r in records if r['result'] == 'refused' and r.get('content_boundary')),
+               'boundary_numbers_without_record': sum(
+                   len((r.get('content_boundary') or {}).get('embedded_numbers_without_record', ()))
+                   for r in records if r['result'] == 'refused'),
                'scopes_touched': summary_scopes,
                'cards_rewritten_this_run': total_cards,
                'note': ('落回只承认"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + '

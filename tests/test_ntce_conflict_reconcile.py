@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / 'kb_tools'))
 
 from build_kb import OUT, ROOT as KB_ROOT, load_text, parse_answers  # noqa: E402
 from ntce_conflict_reconcile import RECONCILED, run  # noqa: E402
+from ntce_repair import mix_risk_evidence  # noqa: E402
 
 BATCH = 'xiaoxue/jiaoyuxinlixue'
 STILL_QUARANTINED = 'source_conflict'
@@ -143,6 +144,46 @@ class TestConflictReconciliation(unittest.TestCase):
         self.assertEqual(summary['still_quarantined'], summary['by_result']['refused'],
                          '摘要没记下核对不出来、仍留在隔离态的题数')
         self.assertFalse(summary['applied'])
+
+    def test_a_refused_question_names_the_field_that_swallows_the_next_questions(self):
+        """隔离码只写"跨题风险"不足以指导下一步：剪文本还是补收录，取决于串进了哪个字段、
+        被吞掉的邻题在本卷有没有独立记录。证据要自己把这两件事答出来。"""
+        summary = run(scope=BATCH, apply_changes=False)
+        records = [json.loads(l) for l in
+                   (OUT / 'review' / 'answer_conflict_reconciliation.jsonl').read_text(encoding='utf-8').splitlines()
+                   if l.strip()]
+        boundary = [r for r in records if r['result'] == 'refused' and r.get('content_boundary')]
+        self.assertEqual(summary['refused_with_open_question_boundary'], len(boundary))
+        self.assertTrue(boundary, '这批明明有题面串题的拒绝题，证据却没把字段定位出来')
+        for record in boundary:
+            evidence = record['content_boundary']
+            self.assertTrue(evidence['sequence_fields'],
+                            f"{record['question_id']} 说有风险，却没指出完整选项序列落在哪个字段")
+            self.assertGreaterEqual(evidence['combined_sequences'], 2)
+        worst = max(boundary, key=lambda r: max(r['content_boundary']['sequence_counts'].values()))
+        self.assertGreaterEqual(max(worst['content_boundary']['sequence_counts'].values()), 5,
+                                '一个选项里串进十几道邻题是这批最重的题面缺陷，只留一条风险码等于埋没它')
+        # 邻题编号按"数字 + 邻题常见开头词"识别，是下限；认得出的那些若本卷没有独立记录，
+        # 剪文本就会删掉库内唯一一份，必须走补收录。摘要按同一口径合计。
+        self.assertEqual(summary['boundary_numbers_without_record'],
+                         sum(len(r['content_boundary']['embedded_numbers_without_record']) for r in boundary))
+
+    def test_the_reconcile_tool_reads_the_same_boundary_rules_as_the_repair_pass(self):
+        """串题检测只许有一份口径：核对工具不得另写正则，否则两处会各自漂移出两套隔离结论。"""
+        level, subject = BATCH.split('/')
+        for qfile in sorted((OUT / 'questions' / level / subject).glob('*.jsonl')):
+            for line in qfile.read_text(encoding='utf-8').splitlines():
+                if not line.strip():
+                    continue
+                q = json.loads(line)
+                evidence = mix_risk_evidence(q)
+                codes = set(q['review'].get('cross_question_risk') or [])
+                self.assertEqual(bool(evidence['sequence_counts'].get('stem')),
+                                 'complete_choice_sequence_in_stem' in codes, q['question_id'])
+                self.assertEqual(any(f != 'stem' for f in evidence['sequence_fields']),
+                                 'complete_choice_sequence_in_option' in codes, q['question_id'])
+                self.assertEqual(evidence['combined_sequences'] >= 2,
+                                 'multiple_complete_choice_sequences' in codes, q['question_id'])
 
 
 if __name__ == '__main__':

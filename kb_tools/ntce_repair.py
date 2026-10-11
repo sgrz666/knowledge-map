@@ -356,20 +356,45 @@ def quarantine_unsafe_answer(q):
         q['review']['answer_validation_status'] = 'blocked_source_conflict' if c['answer_status'] == 'source_conflict' else 'not_expert_verified'
 
 
+CHOICE_SEQUENCE = re.compile(r'A\s*[、.．].*?B\s*[、.．].*?C\s*[、.．].*?D\s*[、.．]', re.S)
+EMBEDDED_QUESTION = re.compile(r'(?<!\d)\d{1,2}\s*(?=下列|教师|某学校|某幼儿园|某小学|某中学|学生|根据|依据|为了|中国|在我国)')
+
+
+def content_fields(q):
+    """题干与各选项按字段名排队；串题检测只认这一份字段口径。"""
+    c = q['content']
+    return [('stem', c['stem'] or '')] + [(o['key'], o['text'] or '') for o in c['options']]
+
+
+def mix_risk_evidence(q):
+    """把"疑似串题"落到具体字段：哪个字段里有完整选项序列、正文里露出了哪些邻题编号。
+
+    风险码只说"有问题"，不足以决定下一步是剪文本还是补收录；这里给的是可核对的位置。
+    编号按"数字 + 邻题常见开头词"识别，是下限而不是穷举——识别不出的串题仍由序列计数暴露。
+    """
+    fields = content_fields(q)
+    hits = [(name, len(CHOICE_SEQUENCE.findall(text))) for name, text in fields]
+    c = q['content']
+    combined = c['stem'] + '\n' + '\n'.join(o['key'] + '、' + (o['text'] or '') for o in c['options'])
+    numbers = {int(m.group(0).strip()) for _, text in fields for m in EMBEDDED_QUESTION.finditer(text)}
+    return {'sequence_fields': [name for name, count in hits if count],
+            'sequence_counts': {name: count for name, count in hits if count},
+            'combined_sequences': len(CHOICE_SEQUENCE.findall(combined)),
+            'embedded_numbers': sorted(numbers)}
+
+
 def source_mix_risks(q):
     """扫描所有题的跨题混入风险；风险是候选诊断，不能自动宣称源题正确。"""
-    c = q['content']
-    texts = [c['stem']] + [o['text'] for o in c['options']]
+    evidence = mix_risk_evidence(q)
+    counts = evidence['sequence_counts']
     risks = []
-    sequence = re.compile(r'A\s*[、.．].*?B\s*[、.．].*?C\s*[、.．].*?D\s*[、.．]', re.S)
-    if sequence.search(c['stem']):
+    if counts.get('stem'):
         risks.append('complete_choice_sequence_in_stem')
-    if any(sequence.search(o['text']) for o in c['options']):
+    if any(name != 'stem' for name in evidence['sequence_fields']):
         risks.append('complete_choice_sequence_in_option')
-    combined = c['stem'] + '\n' + '\n'.join(o['key'] + '、' + o['text'] for o in c['options'])
-    if len(sequence.findall(combined)) >= 2:
+    if evidence['combined_sequences'] >= 2:
         risks.append('multiple_complete_choice_sequences')
-    if any(re.search(r'(?<!\d)\d{1,2}\s*(?=下列|教师|某学校|某幼儿园|某小学|某中学|学生|根据|依据|为了|中国|在我国)', text) for text in texts):
+    if evidence['embedded_numbers']:
         risks.append('embedded_numbered_question_candidate')
     risks.extend(q['review'].get('case_material_risks', []))
     q['review']['source_boundary_status'] = q['extra'].get('source_boundary_verification', {}).get('status', 'not_located')
