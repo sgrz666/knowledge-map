@@ -10514,6 +10514,7 @@
 {"src": "ntce.chuzhong.lishi.s3", "dst": "ntce.chuzhong.lishi.s3.k02", "type": "has_child"}
 {"src": "ntce.chuzhong.lishi.s3", "dst": "ntce.chuzhong.lishi.s3.k03", "type": "has_child"}
 {"src": "ntce.chuzhong.lishi.s3", "dst": "ntce.chuzhong.lishi.s3.k04", "type": "has_child"}
+{"src": "ntce.chuzhong.lishi.s3.k01", "dst": "ntce.res.guide.chuzhong_lishi_s3_k01", "type": "supplements_resource"}
 {"src": "ntce.chuzhong.lishi.s3.k02", "dst": "ntce.chuzhong.lishi.2015b.q25", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
 {"src": "ntce.chuzhong.lishi.s3.k02", "dst": "ntce.chuzhong.lishi.2017a-k2.q29", "type": "assesses", "tagger": "llm-v2", "verified": false}
 {"src": "ntce.chuzhong.lishi.s3.k02", "dst": "ntce.chuzhong.lishi.2017a.q24", "type": "assesses", "tagger": "llm-v2", "verified": false}
@@ -13809,6 +13810,7 @@
 {"src": "ntce.chuzhong.shengwu.s3", "dst": "ntce.chuzhong.shengwu.s3.k02", "type": "has_child"}
 {"src": "ntce.chuzhong.shengwu.s3", "dst": "ntce.chuzhong.shengwu.s3.k03", "type": "has_child"}
 {"src": "ntce.chuzhong.shengwu.s3", "dst": "ntce.chuzhong.shengwu.s3.k04", "type": "has_child"}
+{"src": "ntce.chuzhong.shengwu.s3.k01", "dst": "ntce.res.guide.chuzhong_shengwu_s3_k01", "type": "supplements_resource"}
 {"src": "ntce.chuzhong.shengwu.s3.k02", "dst": "ntce.chuzhong.shengwu.2014a.q21", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
 {"src": "ntce.chuzhong.shengwu.s3.k02", "dst": "ntce.chuzhong.shengwu.2014b.q21", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
 {"src": "ntce.chuzhong.shengwu.s3.k02", "dst": "ntce.chuzhong.shengwu.2015a.q21", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
@@ -15546,6 +15548,7 @@
 {"src": "ntce.chuzhong.tiyu.s3.k03", "dst": "ntce.chuzhong.tiyu.2022b.q34", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
 {"src": "ntce.chuzhong.tiyu.s3.k03", "dst": "ntce.chuzhong.tiyu.2022b.q35", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
 {"src": "ntce.chuzhong.tiyu.s3.k03", "dst": "ntce.chuzhong.tiyu.2022b.q37", "type": "assesses", "tagger": "content-rule-v2", "verified": false}
+{"src": "ntce.chuzhong.tiyu.s3.k04", "dst": "ntce.res.guide.chuzhong_tiyu_s3_k04", "type": "supplements_resource"}
 {"src": "ntce.chuzhong.tiyu.s4", "dst": "ntce.chuzhong.tiyu.s4.k01", "type": "has_child"}
 {"src": "ntce.chuzhong.tiyu.s4", "dst": "ntce.chuzhong.tiyu.s4.k02", "type": "has_child"}
 {"src": "ntce.chuzhong.tiyu.s4", "dst": "ntce.chuzhong.tiyu.s4.k03", "type": "has_child"}
@@ -60587,6 +60590,8 @@
 {"src": "ntce.outline.308.r007", "dst": "rubric.ntce.chuzhong.shengwu.2019b.q25", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.308.r007", "dst": "rubric.ntce.chuzhong.shengwu.2020b.q28", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.308.r007", "dst": "rubric.ntce.chuzhong.shengwu.2020b.q29", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
+{"src": "ntce.outline.308.r009", "dst": "ntce.res.guide.chuzhong_shengwu_s3_k01", "type": "aligned_to_requirement"}
+{"src": "ntce.outline.308.r010", "dst": "ntce.res.guide.chuzhong_shengwu_s3_k01", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.2015a.q22", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.2018b.q21", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.2019a.q16", "type": "aligned_to_requirement", "verified": false}
@@ -60595,6 +60600,7 @@
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.2021a.q21", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.2023a.q22", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r011", "dst": "ntce.chuzhong.shengwu.s2.k01", "type": "aligned_to_requirement", "verified": false, "mapping_status": "automatic_pending_review"}
+{"src": "ntce.outline.308.r011", "dst": "ntce.res.guide.chuzhong_shengwu_s3_k01", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.308.r011", "dst": "rubric.ntce.chuzhong.shengwu.2019b.q27", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.308.r012", "dst": "ntce.chuzhong.shengwu.2014a.q21", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r012", "dst": "ntce.chuzhong.shengwu.2014b.q21", "type": "aligned_to_requirement", "verified": false}
@@ -60608,6 +60614,7 @@
 {"src": "ntce.outline.308.r012", "dst": "ntce.chuzhong.shengwu.2021a.q20", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r012", "dst": "ntce.chuzhong.shengwu.2021b.q29", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.308.r012", "dst": "ntce.chuzhong.shengwu.s3.k02", "type": "aligned_to_requirement", "verified": false, "mapping_status": "automatic_pending_review"}
+{"src": "ntce.outline.308.r012", "dst": "ntce.res.guide.chuzhong_shengwu_s3_k01", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.308.r012", "dst": "rubric.ntce.chuzhong.shengwu.2016a.q29", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.308.r012", "dst": "rubric.ntce.chuzhong.shengwu.2019a.q20", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.308.r012", "dst": "rubric.ntce.chuzhong.shengwu.2019b.q26", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
@@ -62105,6 +62112,7 @@
 {"src": "ntce.outline.310.r006", "dst": "rubric.ntce.chuzhong.lishi.2017a.q24", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.310.r006", "dst": "rubric.ntce.chuzhong.lishi.2017b-k2.q27", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.310.r006", "dst": "rubric.ntce.chuzhong.lishi.2020b.q27", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
+{"src": "ntce.outline.310.r007", "dst": "ntce.res.guide.chuzhong_lishi_s3_k01", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.310.r008", "dst": "ntce.chuzhong.lishi.2017a-k2.q26", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.310.r008", "dst": "ntce.chuzhong.lishi.2019a.q22", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.310.r008", "dst": "ntce.chuzhong.lishi.2019a.q26", "type": "aligned_to_requirement", "verified": false}
@@ -62140,6 +62148,7 @@
 {"src": "ntce.outline.310.r009", "dst": "ntce.chuzhong.lishi.2020b.q31", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.310.r009", "dst": "ntce.chuzhong.lishi.2023a.q21", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.310.r009", "dst": "ntce.chuzhong.lishi.s3.k03", "type": "aligned_to_requirement", "verified": false, "mapping_status": "automatic_pending_review"}
+{"src": "ntce.outline.310.r009", "dst": "ntce.res.guide.chuzhong_lishi_s3_k01", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.310.r009", "dst": "rubric.ntce.chuzhong.lishi.2015a.q27", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.310.r009", "dst": "rubric.ntce.chuzhong.lishi.2015a.q28", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.310.r009", "dst": "rubric.ntce.chuzhong.lishi.2015b.q31", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
@@ -64330,6 +64339,7 @@
 {"src": "ntce.outline.313.r018", "dst": "rubric.ntce.chuzhong.tiyu.2022b.q35", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.313.r018", "dst": "rubric.ntce.chuzhong.tiyu.2022b.q37", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.313.r019", "dst": "ntce.chuzhong.tiyu.s3.k04", "type": "aligned_to_requirement", "verified": false, "mapping_status": "automatic_pending_review"}
+{"src": "ntce.outline.313.r019", "dst": "ntce.res.guide.chuzhong_tiyu_s3_k04", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.313.r020", "dst": "ntce.chuzhong.tiyu.2017a.q11", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.313.r020", "dst": "ntce.chuzhong.tiyu.2017a.q12", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.313.r020", "dst": "ntce.chuzhong.tiyu.2017a.q37", "type": "aligned_to_requirement", "verified": false}
@@ -64397,6 +64407,7 @@
 {"src": "ntce.outline.313.r021", "dst": "rubric.ntce.chuzhong.tiyu.2021a.q13", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.313.r021", "dst": "rubric.ntce.chuzhong.tiyu.2022a.q41", "type": "aligned_to_requirement", "verified": false, "mapping_status": "rubric_framework_pending_subject_expert"}
 {"src": "ntce.outline.313.r027", "dst": "ntce.chuzhong.tiyu.s3.k04", "type": "aligned_to_requirement", "verified": false, "mapping_status": "automatic_pending_review"}
+{"src": "ntce.outline.313.r027", "dst": "ntce.res.guide.chuzhong_tiyu_s3_k04", "type": "aligned_to_requirement"}
 {"src": "ntce.outline.313.r028", "dst": "ntce.chuzhong.tiyu.2017a.q12", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.313.r028", "dst": "ntce.chuzhong.tiyu.2017a.q20", "type": "aligned_to_requirement", "verified": false}
 {"src": "ntce.outline.313.r028", "dst": "ntce.chuzhong.tiyu.2017a.q23", "type": "aligned_to_requirement", "verified": false}

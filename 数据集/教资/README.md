@@ -8,7 +8,7 @@
 
 ## 1. 完整八层数据模型（L0–L7）
 
-系统彻底贯彻规范第 3.2 节八层数据层级规范，拓扑网络记录于 `graph/nodes.jsonl` 与 `graph/edges.jsonl`（节点总数 22,104，边数 96,774）：
+系统彻底贯彻规范第 3.2 节八层数据层级规范，拓扑网络记录于 `graph/nodes.jsonl` 与 `graph/edges.jsonl`（节点总数 22,107，边数 96,785）：
 
 | 层级 | 实体类型 | 存储位置 | 当前规模 | 职能与约束 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -19,7 +19,7 @@
 | **L4 知识点图谱层** | `knowledge_node` | `outline/*.json` | 791 细点 | 考纲细点树；先修依赖 31 条边均带概念依据说明，但全部为 `proposed_pending_review`、`active_for_learning_path = false`，尚未经教研核定，不用于强制前置阻断 |
 | **L5 共享材料层** | `material` | `materials/*/*/*.jsonl` | 586 项 | 案例分析材料、教学设计教材节选，支持多小问双向关联 |
 | **L6 试题评测层** | `question` | `questions/*/*/*.jsonl` | 14,500 题（另含 3,803 量规节点） | 选择题按选项字母自动判定；主观题只带无权重题内练习框架，自动出分须待 `rubrics/` 加权量规经教研签署并绑定 |
-| **L7 学习资源层** | `resource` | `resources/*.jsonl` | 8 核心项 | 教育学核心流派理论、最新教育法规要点对照、面试策略模型 |
+| **L7 学习资源层** | `resource` | `resources/*.jsonl` | 11 项（8 核心项 + 3 学习指南草稿） | 教育学核心流派理论、最新教育法规要点对照、面试策略模型；`study_guides.jsonl` 的 3 条为无题考点原创讲解草稿，`review.status = needs_fix`、审核人为空、不进正式题池 |
 
 ---
 

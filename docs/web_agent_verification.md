@@ -11,9 +11,16 @@ python -m pytest tests -q
 
 已提交树（`f0ff2dd7`）：`424 项通过、55 个子测试通过`（实测 211.69 秒）。跑测试要先把状态目录指向临时处（`$env:KNOWLEDGE_MAP_STATE_DIR = <空目录>`），否则网页用例会把练习卷和提交写进本机 `.local_state/`。
 
-错因与掌握度这一收口（+4 条用例，共 428 项）：**427 项通过、55 个子测试通过、1 项失败**，实测 209.33 秒。那条失败是 `tests/test_ntce_hierarchy_contract.py::test_learning_resources_layer_seven_compliance_and_graph_connectivity`——工作区里并行写的一批新资源 `数据集/教资/resources/study_guides.jsonl` 用 `guide_id` 当键，七层资源契约要的是 `resource_id`，用例在第 187 行 `assertTrue(rid)` 就停了。它由数据文件触发，与本次改的 `services/memory/**` 无关，改谁的文件归那一批的作者定。
+错因与掌握度这一收口（+4 条用例）：**427 项通过、55 个子测试通过、1 项失败**，实测 209.33 秒。那条失败是 `tests/test_ntce_hierarchy_contract.py::test_learning_resources_layer_seven_compliance_and_graph_connectivity`——工作区里并行写的一批新资源 `数据集/教资/resources/study_guides.jsonl` 用 `guide_id` 当键，七层资源契约要的是 `resource_id`，用例在第 187 行 `assertTrue(rid)` 就停了；同一个文件还会让 `kb_tools/build_graph.py` 在 `res['resource_id']` 处 KeyError。它由数据文件触发，与本次改的 `services/memory/**` 无关。这批资源后来按教研决定升格为 L7 并入图，见下面"无题考点学习指南并入 L7"一节。
 
 计数只能在主工作区取：另开一个只含已提交内容的 detached worktree 跑同一套代码，会多出 14 项失败与 22 项错误，全是 `数据集/**/_staging/*.docx` 这类**未入库的原始卷面文件**不在场导致的 `FileNotFoundError`，不是代码问题。
+
+L7 升格这一轮的计数（**447 项通过、63 个子测试通过、7 项失败**，实测 194.96 秒，退出码 `1`）取的是**工作区树**，不是已提交树：并行会话的网页学习闭环改动（`services/web/**`、`services/learning/**`、`services/exam_sessions/**`、`web/**` 与四个新测试文件）也在同一目录里未入库，用例总数因此从 428 涨到 454。7 项失败没有一项由这一轮的数据改动产生，分两类：
+
+- 5 项在 `tests/test_learning_workflow.py`，报错都是同一句 `AttributeError: 'Workbench' object has no attribute 'exam_sessions'`。该文件的 fixture 用 `Workbench.__new__(Workbench)` 跳过构造函数、再手挑依赖字段，而同一批未入库改动已在 `services/web/service.py:124` 的提交路径上加了 `self.exam_sessions.guard_submission(...)`； fixture 少赋一个字段就整组报红。两边都还在工作区，不属于本仓库已提交内容，本会话不碰。
+- 2 项在 `tests/test_learning_resources.py`，断言 7 个无题叶子考点都有指南、共 14 道自测题，实际只有 3 条 6 题——就是交付清单第 4 项的内容缺口（下面覆盖表里 `tests/test_learning_resources.py` 那一行列清了缺的是哪 4 个考点），报红是有意的缺口标记，不是回归坏了。
+
+上一轮那两项与本会话相关的红都已转绿：`test_learning_resources_layer_seven_compliance_and_graph_connectivity`（`guide_id` 换成带完整 L7 信封的 `resource_id`）、`test_the_review_queue_is_generated_not_transcribed`（重跑生成脚本，不是手改数字）。两处细节见下面"无题考点学习指南并入 L7（2026-10-11，教研决定）"一节。
 
 ## 知识库门禁复跑
 
@@ -56,6 +63,29 @@ python -m pytest tests -q
 
 覆盖：`TestAttributionEvidenceSource`（申报难度挪不动判定、盲区要么用持久化记录要么不成立、无记录时那句说明真的出现），静态面 `TestA10ProfileVerdictSource.test_no_inference_path_reads_a_claimed_difficulty_or_mastery` 用 AST 扫 `services/**`，读出这两个属性即失败，只有 `services/memory/receipt.py` 在册。
 
+## 无题考点学习指南并入 L7（2026-10-11，教研决定）
+
+这批草稿原先放在 `数据集/教资/resources/study_guides.jsonl`，用 `guide_id` 当键，既不过七层资源契约，也会让图谱导出脚本在 `res['resource_id']` 处 KeyError。按"升格为 L7 资源并入图"的决定，每行前面加了 L7 外壳：`resource_id`（`ntce.res.guide.<学段>_<科目>_<节>_<考点>`，由 `node_id` 派生）、`type = study_guide`、`title`、`exam`、`summary`（取概念讲解第一段）、`copyright`（`authorization_status = unknown`、`use_scope = research_non_commercial`、`source_nature` 沿用行内 `content_status`，不新造词表外的值）、`knowledge_node_ids` / `ability_ids` / `exam_requirement_ids` 三个挂接字段。原来的 `guide_id` 折进 `resource_id`，**唯一丢掉的信息是它尾部的 `.v1` 版本号**——行内没有第二个字段记版本。
+
+三条记录：`ntce.res.guide.chuzhong_lishi_s3_k01`（条款 310.r007／r009）、`ntce.res.guide.chuzhong_shengwu_s3_k01`（308.r009–r012）、`ntce.res.guide.chuzhong_tiyu_s3_k04`（313.r019／r027）。`ability_ids` 留空——草稿只核到考点与条款，没有逐项判定能力归属，所以不产生 `supports_resource` 边。
+
+入图不手改 `graph/*.jsonl`，走唯一出口 `python kb_tools/build_graph.py`：L7 由 8 个变 11 个，节点 22,104 → 22,107，边 96,774 → 96,785（+3 个 `supplements_resource`、+8 个 `aligned_to_requirement`，方向照旧"支撑方 → 被支撑方"），`MANIFEST.json` 同步。图谱只是登记挂接关系，**没有把任何审核状态往上抬**：三条仍 `review.status = needs_fix`、`checked_by = null`、`formal_question_pool_eligible = false`，自测题仍是 `research_draft`、不带 `question_id` 与分值，具名签核数为 0。
+
+覆盖与边界：
+
+| 检查 | 结果 |
+| --- | --- |
+| 七层资源契约（`test_ntce_hierarchy_contract.py`） | 原先那条红用例转绿；连同方向契约、状态词表共 20 项 + 14 子测试通过 |
+| 严格审查 `validate_kb.py` | `structure_errors` 仍 0，`remaining_gaps` 仍 130,762，逐规则计数不变——它的资源规则只扫四六级官方样卷，教资 `resources/*.jsonl` 不在分母内，指南的形状与引用由七层契约和这批文件自带的用例钉住 |
+| 状态词表 `数据集/教资` | 15,185 条 0 违规。比已提交树的 15,182 多 3 条，是这 3 行指南记录本身进了扫描分母（与本次换键无关）；换键后才通过的是七层资源契约，不是词表 |
+| `tests/test_learning_resources.py` | 仍有 2 项失败：7 个无题叶子考点只整理了 3 份讲解，缺初中物理、初中信息技术、高中物理、高中音乐。属交付清单第 4 项的内容缺口，不是本次并入造成的回归；`learning_resources.py` 门面只按 `node_id` 读行，不认 `guide_id`，所以换键没动调用方（这份门面与它的用例、以及 `services/web/knowledge.py` 都还是并行会话在工作区里未入库的改动，本仓库提交树内暂无这些文件，本节只是登记已核对过的读法） |
+| 复核队列复现 `test_the_review_queue_is_generated_not_transcribed` | 并入后先红了一次：`审查/待复核清单.md` §2 写"被 `aligned_to_requirement` 引用的有 548 条、未引用 5,707 条"，生成器按新图重算出 551／5,704（`ntce.*` 那一档 740 → 737）。差的正是这 3 条指南新引到的 3 个条款——清单是生成物不是手写台账，所以按唯一出口 `python 审查/build_review_queue.py` 重跑落盘，用例转绿，没有手改那两行数字 |
+| 完整性快照 `审查/教资完整性核对.json` | 同一批重跑把 `L7` 从 8 改成 11、`graph_edges` 从 96,774 改成 96,785，其余计数逐字不变；这份 JSON 也只写库内容的函数值，不含钟点 |
+
+条款前缀交叉核对（发现一处不一致，留给教研，不改生成物）：`docs/教资无题考点学习索引.md` 把初中历史 `ntce.chuzhong.lishi.s3.k01` 自动对齐到 `ntce.outline.316.r007`，而 316 的科目是**历史与社会学科知识及教学能力**；指南草稿引的 `ntce.outline.310.r007／r009` 科目才是**历史学科知识与教学能力（初级中学）**，与这条考点所在的学科一致，内容也确实写着"分析学生的学习需求""对历史教材的内容进行梳理和分析"。两边都是未核定的对齐线索，谁也没被签核，所以这里只登记不改：入图用指南自陈的 310，索引里那条 316 保持原样等命题核定，`aligned_to_requirement` 边只说明挂在哪，不代表挂对了。
+
+网页知识浏览器（`services/web/knowledge.py`，同样是并行会话在工作区未入库的改动，下面的读法来自当场翻代码，不是提交树里能复现的事实）走的是 `LearningResources().list_guides()` 直读文件，不经图谱，因此这步并入只改变"能不能在图里查到这份资源、它挂在哪个考点"，不改变页面能展示的字段。
+
 ## 真实浏览器实测
 
 后端空 Key（规则模式）、`http://127.0.0.1:8001`、学习者 `retry-verify`、每日一练两份题。
@@ -93,9 +123,9 @@ python -m pytest tests -q
 
 | 命令 | 结果 |
 | --- | --- |
-| `python 审查/状态词表检查.py 数据集/教资` | 扫描 15,182 条，违规 0，退出码 0 |
+| `python 审查/状态词表检查.py 数据集/教资` | 扫描 15,185 条，违规 0，退出码 0（比升格前多 3 条，正是并入 L7 的 3 份学习指南） |
 | `python 审查/状态词表检查.py 数据集/四六级` | 扫描 31,991 条，违规 0，退出码 0 |
-| `python 审查/audit_ntce_completeness.py` | 退出码 0；791 知识点／160 无题／7 无题叶子，32 份卷面规格，6 份量规未签署，八层 L0–L7 = 2320／7／38／51／791／586／18303／8 |
+| `python 审查/audit_ntce_completeness.py` | 退出码 0；791 知识点／160 无题／7 无题叶子，32 份卷面规格，6 份量规未签署，八层 L0–L7 = 2320／7／38／51／791／586／18303／11 |
 | `python 审查/validate_kb.py --output .local_state/web_audit_final.json` | 退出码 1：`structure_errors=0`、`remaining_gaps=130762`、`complete=false` |
 
 退出码 1 只表示严格审查仍有内容缺口，与结构错误无关；130,762 是多维待补／待核定记录数，可在同一题重叠，不是缺同数量的题。逐条数字见 [教资完整性与网页端交付报告](教资完整性与网页端交付报告.md)。
