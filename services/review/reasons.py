@@ -26,6 +26,7 @@ class UnknownReasonError(ValueError):
 
 #: 码 → 这条缺陷在说什么、教研要动哪个文件。措辞给人看，码本身是稳定键。
 REVIEW_REASONS: Dict[str, str] = {
+    "learner_content_feedback": "学习者报告题面、答案、解析或来源疑问；按 detail 中的描述回到题库核对。",
     "trust_gate_blocked": (
         "C 层按数据状态挡下这道题（quarantined / needs_fix / source_conflict / missing）："
         "要复核的是数据状态本身，明细见 detail.review_status / detail.answer_status"

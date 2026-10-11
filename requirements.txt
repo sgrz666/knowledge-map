@@ -1,0 +1,9 @@
+# Verified on Python 3.13; Python 3.11+ recommended.
+fastapi==0.136.0
+pydantic==2.14.0
+uvicorn==0.44.0
+jsonschema==4.26.0
+httpx==0.28.1
+networkx==3.6.1
+# Optional semantic/vector deployment: install chromadb separately.
+# Without chromadb, the existing index uses explicit offline lexical retrieval.

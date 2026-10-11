@@ -68,7 +68,7 @@ from services.qa.agent import TutorQAAgent
 from services.review.queue import ReviewQueue, get_review_queue
 
 ENV_RUNTIME_TOKEN = "KNOWLEDGE_MAP_RUNTIME_TOKEN"
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 
 app = FastAPI(
     title="H-MAATS Adaptive Exam Agent Services",
@@ -539,3 +539,18 @@ async def master_stream(
         trust_tier=trust_tier,
     )
     return _sse(_stream(lambda: master_agent.handle_interaction(request), "master_card"))
+
+
+# The local workbench shares this runtime and its dataset; no browser CORS/key proxy setup.
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from services.web.routes import build_router
+
+app.include_router(build_router(AuthContext.from_header))
+WEB_ROOT = Path(__file__).resolve().parents[1] / "web"
+app.mount("/assets", StaticFiles(directory=WEB_ROOT, check_dir=False), name="web-assets")
+
+
+@app.get("/", include_in_schema=False, dependencies=[Depends(AuthContext.from_header)])
+def workbench_page():
+    return FileResponse(WEB_ROOT / "index.html", headers={"Cache-Control": "no-store"})

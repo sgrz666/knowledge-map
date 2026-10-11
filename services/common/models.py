@@ -366,6 +366,8 @@ class PlanRequest(BaseModel):
     days_until_exam: int = Field(default=30, ge=1, le=180)
     daily_available_minutes: int = Field(default=60, ge=15, le=360)
     current_mastery: Optional[List[UserMasteryRecord]] = None
+    school_level: Optional[str] = None
+    subject: Optional[str] = None
     trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
 
 
@@ -419,7 +421,7 @@ class AssemblePaperRequest(BaseModel):
     practice_mode: PracticeMode
     target_module: Optional[str] = None
     target_node: Optional[str] = None
-    item_count: int = 10
+    item_count: int = Field(default=10, ge=1, le=500)
     weak_node_ids: List[str] = Field(default_factory=list)
     wrong_question_ids: List[str] = Field(default_factory=list)
     spec_id: Optional[str] = None

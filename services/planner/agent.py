@@ -34,6 +34,8 @@ class CurriculumPlannerAgent:
             daily_minutes=request.daily_available_minutes,
             mastery_records=request.current_mastery,
             tier=request.trust_tier.value,
+            school_level=request.school_level,
+            subject=request.subject,
         )
         return CurriculumPlanResponse(
             user_id=request.user_id,
@@ -64,7 +66,7 @@ class CurriculumPlannerAgent:
         )
         if node_ids:
             out.append(
-                f"第 1 天：从库内题池最大的考点切入（{len(node_ids)} 个考点，"
+                f"第 1 天：按题池与学习记录安排（{len(node_ids)} 个考点，"
                 f"共 {sum(t.target_question_count for t in first.tasks)} 题）"
             )
         mock_days = [
@@ -75,7 +77,7 @@ class CurriculumPlannerAgent:
         if mock_days:
             out.append(
                 f"模考节点：第 {'、'.join(str(d) for d in mock_days)} 天安排限时模考，"
-                "组卷结构与官方卷面一致"
+                "实际题量以组卷时题池与可信门禁为准"
             )
         drills = [
             plan.day_index
@@ -88,11 +90,10 @@ class CurriculumPlannerAgent:
                 f"（当前传入 {len(mastery_records or [])} 条掌握度）"
             )
         elif mastery_records is None or not mastery_records:
-            out.append("首轮无掌握度记录：完成诊断与作答后，日历会按真实掌握度重排薄弱项")
+            out.append("完成诊断与作答后，可更新日历，按真实掌握度重排薄弱项")
 
         last = daily_plans[-1]
-        out.append(
-            f"第 {last.day_index} 天（考前）：{last.total_minutes} 分钟用于错题回炉与已排考点巩固，"
-            "不新增考点"
-        )
+        new_nodes = {t.node_id for t in last.tasks if t.task_type == 'new_node_learning' and t.node_id}
+        out.append(f"第 {last.day_index} 天（考前）：已安排 {last.total_minutes} 分钟，"
+                   f"包含 {len(new_nodes)} 个考点学习任务；具体内容以下方日程为准")
         return out

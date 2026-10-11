@@ -411,6 +411,8 @@ class KnowledgeRepository:
         require_answer: bool = False,
         require_answerable_text: bool = False,
         exclude: Optional[Iterable[str]] = None,
+        school_level: Optional[str] = None,
+        subject: Optional[str] = None,
     ) -> Iterator[QuestionMeta]:
         """Stream index entries matching every provided predicate."""
         exams_t = _as_set(exams, exam=True)
@@ -423,6 +425,10 @@ class KnowledgeRepository:
         skip = frozenset(exclude or ())
 
         for meta in self.questions().values():
+            if school_level is not None and meta.school_level != school_level:
+                continue
+            if subject is not None and meta.subject != subject:
+                continue
             if meta.question_id in skip:
                 continue
             if exams_t is not None and meta.exam not in exams_t:
@@ -576,6 +582,45 @@ class KnowledgeRepository:
         return values.pop() if len(values) == 1 else None
 
     # --------------------------------------------------------------- stats
+    def reading_passage(self, question_id: str) -> Optional[dict]:
+        record = self.load_question(question_id) or {}
+        passage_id = (record.get("extra") or {}).get("passage_id")
+        if not passage_id:
+            return None
+        return next((r for r in self._read_jsonl("数据集/四六级/passages/reading.jsonl")
+                     if r.get("resource_id") == passage_id), None)
+
+    def audio_path(self, question_id: str) -> Optional[Path]:
+        record = self.load_question(question_id) or {}
+        audio = (record.get("extra") or {}).get("audio") or {}
+        rel = audio.get("file_path") or next((f.get("path") for f in audio.get("files", []) if f.get("path")), None)
+        if not rel:
+            return None
+        path = self.path(rel).resolve()
+        root = self.root.resolve()
+        if not path.is_relative_to(root) or path.suffix.lower() not in (".mp3", ".wav", ".m4a") or not path.is_file():
+            return None
+        return path
+
+    def has_unavailable_figure(self, question_id: str) -> bool:
+        record = self.load_question(question_id) or {}
+        stem = (record.get("content") or {}).get("stem") or ""
+        return bool(re.search(r"右图|下图|如图|左图|图中|图示|图所示|图所给", stem))
+
+    def load_material(self, material_id: Optional[str]) -> Optional[dict]:
+        """Materials are read through the same facade as questions, never by a UI agent."""
+        if not material_id:
+            return None
+        nodes, _ = self.graph_records("ntce")
+        node = next((n for n in nodes if n.get("id") == material_id), None)
+        if node and node.get("text"):
+            return node
+        for path in self.path("数据集/教资/materials").rglob("*.jsonl"):
+            for record in self._read_jsonl(path.relative_to(self.root).as_posix()):
+                if record.get("material_id") == material_id:
+                    return record
+        return None
+
     def stats(self) -> dict:
         self._check_fresh()
         q = self.questions()

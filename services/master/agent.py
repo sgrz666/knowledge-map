@@ -467,6 +467,8 @@ class TutorMasterAgent:
             exam_type=ctx["exam_type"],  # type: ignore[arg-type]
             days_until_exam=int(ctx.get("days_until_exam", 30)),
             daily_available_minutes=int(ctx.get("daily_available_minutes", 60)),
+            school_level=ctx.get("school_level"),
+            subject=ctx.get("subject"),
             current_mastery=None,
             trust_tier=TrustTier(ctx["trust_tier"]),
         )
@@ -501,6 +503,8 @@ class TutorMasterAgent:
             user_id=ctx["user_id"],
             exam_type=ctx["exam_type"],  # type: ignore[arg-type]
             practice_mode=PracticeMode.MOCK_EXAM if state_mock else PracticeMode.DAILY_PRACTICE,
+            school_level=ctx.get("school_level"),
+            subject=ctx.get("subject"),
             target_node=(ctx.get("weak_nodes") or [None])[0],
             item_count=int(ctx.get("item_count", 10)),
             weak_node_ids=list(ctx.get("weak_nodes") or []),

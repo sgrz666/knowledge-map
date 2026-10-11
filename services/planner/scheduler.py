@@ -80,7 +80,7 @@ class AdaptiveScheduler:
         self.store = store
 
     # ------------------------------------------------------------- candidates
-    def candidate_nodes(self, exam: str, *, tier: str = "research_internal") -> List[dict]:
+    def candidate_nodes(self, exam: str, *, tier: str = "research_internal", school_level: Optional[str] = None, subject: Optional[str] = None) -> List[dict]:
         """Every knowledge node that the current tier can actually practise, with its real pool
         and the pool's own per-item minutes (题面约束优先，库里说不出才按共用配速估)。"""
         gate = TrustGate(tier)  # type: ignore[arg-type]
@@ -89,7 +89,8 @@ class AdaptiveScheduler:
 
         pools: Dict[str, dict] = {}
         for meta in self.repository.find_questions(
-            exams=exam_values(exam), require_nodes=True, require_answer=True
+            exams=exam_values(exam), require_nodes=True, require_answer=True,
+            school_level=school_level, subject=subject,
         ):
             if not gate.classify_meta(meta).usable:
                 continue
@@ -139,9 +140,11 @@ class AdaptiveScheduler:
         daily_minutes: int,
         mastery_records: Optional[List[UserMasteryRecord]] = None,
         tier: str = "research_internal",
+        school_level: Optional[str] = None,
+        subject: Optional[str] = None,
     ) -> Tuple[List[DailyPlan], List[str], str]:
         notices: List[str] = []
-        rows = self.candidate_nodes(exam, tier=tier)
+        rows = self.candidate_nodes(exam, tier=tier, school_level=school_level, subject=subject)
         if not rows:
             notices.append("当前档位内没有可用于排课的考点（题池为空），已停止生成日历而不是用内置大纲填充。")
             return [], notices, ""
@@ -168,6 +171,10 @@ class AdaptiveScheduler:
             )
 
         due = self._due_question_ids(user_id)
+        due = [qid for qid in due if (meta := self.repository.get_meta(qid)) is not None
+               and meta.exam in exam_values(exam)
+               and (not school_level or meta.school_level == school_level)
+               and (not subject or meta.subject == subject)]
         due_minutes = self._due_item_minutes(due)
         today = date.today()
         plans: List[DailyPlan] = []

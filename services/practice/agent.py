@@ -76,7 +76,9 @@ class PracticeEngineAgent:
             notices.append(module_notice)
 
         # A3: 缺答案/来源冲突的题不进组卷，索引查询层面就挡住，池子大小才是可核对答案的池子。
-        answer_pool = list(self.repository.find_questions(exams=exams, require_answer=True))
+        answer_pool = list(self.repository.find_questions(
+            exams=exams, require_answer=True, school_level=req.school_level, subject=req.subject
+        ))
         pool = [m for m in answer_pool if m.has_answerable_text]
         extraction_gap = len(answer_pool) - len(pool)
         usable_pool = gate.filter_usable(pool)
@@ -167,7 +169,9 @@ class PracticeEngineAgent:
             unknown = skipped = untexted = 0
             for qid in ids:
                 meta = self.repository.get_meta(qid)
-                if meta is None or meta.exam not in exams:
+                if (meta is None or meta.exam not in exams
+                    or (req.school_level and meta.school_level != req.school_level)
+                    or (req.subject and meta.subject != req.subject)):
                     unknown += 1
                     continue
                 if not meta.has_answerable_text:
@@ -222,12 +226,12 @@ class PracticeEngineAgent:
             elif modules:
                 pool = [m for m in pool if m.module in modules]
             else:
-                ranked = [n for n, _ in self.node_frequency(req.exam_type, top=3)]
+                ranked = [n for n, _ in Counter(n for m in pool for n in m.node_ids).most_common(3)]
                 pool = [m for m in pool if set(ranked) & set(m.node_ids)]
                 notices.append("无诊断记录，已回退到历年覆盖度最高的考点抽题（非个性化薄弱项）。")
 
         elif mode == PracticeMode.HIGH_FREQUENCY:
-            ranked = [n for n, _ in self.node_frequency(req.exam_type, top=12)]
+            ranked = [n for n, _ in Counter(n for m in pool for n in m.node_ids).most_common(12)]
             if modules:
                 pool = [m for m in pool if m.module in modules]
             ranked_set = set(ranked)
@@ -336,13 +340,15 @@ class PracticeEngineAgent:
 
         cands = list(specs)
         if req.school_level:
-            cands = [s for s in cands if s.get("school_level") == req.school_level] or cands
+            cands = [s for s in cands if s.get("school_level") == req.school_level]
         if req.subject:
-            cands = [s for s in cands if s.get("subject") == req.subject] or cands
+            cands = [s for s in cands if s.get("subject") == req.subject]
         if cands and cands[0].get("paper_id"):
             # CET: newest real paper first, so the default mock is the closest to today's 考务.
             cands.sort(key=lambda s: (str(s.get("year") or ""), str(s.get("paper") or "")), reverse=True)
-        chosen = cands[0] if cands else specs[0]
+        if not cands:
+            return {}, "所选学段科目没有匹配卷面规格，未退回其它学段科目。"
+        chosen = cands[0]
         if not notice:
             notice = (
                 f"未指定 spec_id，已按〈{chosen.get('title') or chosen.get('spec_id')}〉组卷；"
@@ -356,11 +362,9 @@ class PracticeEngineAgent:
         subject = spec.get("subject")
         scoped = list(pool)
         if school_level:
-            hit = [m for m in scoped if m.school_level == school_level]
-            scoped = hit or scoped
+            scoped = [m for m in scoped if m.school_level == school_level]
         if subject:
-            hit = [m for m in scoped if m.subject == subject]
-            scoped = hit or scoped
+            scoped = [m for m in scoped if m.subject == subject]
         return scoped
 
     def _stable_sample(

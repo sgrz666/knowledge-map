@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NTCEPaperSpecification", "type": "object",
+  "required": ["spec_id", "exam", "school_level", "subject", "title", "sections", "total_duration_minutes", "total_raw_score", "report_score_max", "passing_report_score", "score_conversion"],
+  "properties": {
+    "spec_id": {"type": "string", "minLength": 1}, "exam": {"const": "NTCE"},
+    "school_level": {"type": "string"}, "subject": {"type": "string"}, "title": {"type": "string"},
+    "total_duration_minutes": {"type": "integer", "minimum": 1},
+    "total_raw_score": {"type": "number", "exclusiveMinimum": 0},
+    "report_score_max": {"type": "number", "exclusiveMinimum": 0},
+    "passing_report_score": {"type": "number", "minimum": 0},
+    "score_conversion": {"type": ["object", "null"]},
+    "sections": {"type": "array", "minItems": 1, "items": {
+      "type": "object", "required": ["name", "count", "score_each", "total_score", "question_type"],
+      "properties": {
+        "name": {"type": "string"}, "question_type": {"type": "string"},
+        "count": {"type": "integer", "minimum": 0}, "score_each": {"type": "number", "minimum": 0},
+        "total_score": {"type": "number", "minimum": 0}
+      }
+    }}
+  }
+}

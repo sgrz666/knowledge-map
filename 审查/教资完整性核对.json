@@ -1,0 +1,1462 @@
+{
+  "total": 14500,
+  "usable": 13269,
+  "missing_knowledge": 1331,
+  "missing_requirement": 3928,
+  "missing_answer": 149,
+  "answer_conflict": 1040,
+  "missing_stem": 45,
+  "signed_questions": 0,
+  "knowledge_nodes": 791,
+  "used_knowledge_nodes": 631,
+  "unpractised_knowledge_nodes": 160,
+  "unpractised_leaf_nodes": 7,
+  "unpractised_nodes": [
+    {
+      "id": "ntce.chuzhong.dili.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.dili.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.dili.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.dili.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.huaxue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.huaxue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.huaxue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.huaxue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.lishi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.lishi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.lishi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.lishi.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": [
+        "ntce.outline.316.r007"
+      ]
+    },
+    {
+      "id": "ntce.chuzhong.lishi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.meishu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.meishu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.meishu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.meishu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shengwu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shengwu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shengwu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shengwu.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shengwu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shuxue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shuxue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shuxue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.shuxue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.tiyu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.tiyu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.tiyu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.tiyu.s3.k04",
+      "name": "教学资源与板书设计",
+      "is_leaf": true,
+      "requirement_ids": [
+        "ntce.outline.313.r019",
+        "ntce.outline.313.r027"
+      ]
+    },
+    {
+      "id": "ntce.chuzhong.tiyu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.wuli.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.wuli.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.wuli.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.wuli.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.wuli.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.xinxi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.xinxi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.xinxi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.xinxi.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": [
+        "ntce.outline.315.r016",
+        "ntce.outline.315.r017"
+      ]
+    },
+    {
+      "id": "ntce.chuzhong.xinxi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yingyu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yingyu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yingyu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yingyu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yinyue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yinyue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yinyue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yinyue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yuwen.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yuwen.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yuwen.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.yuwen.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.zhengzhi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.zhengzhi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.zhengzhi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.chuzhong.zhengzhi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.dili.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.dili.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.dili.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.dili.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.huaxue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.huaxue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.huaxue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.huaxue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.lishi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.lishi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.lishi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.lishi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.meishu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.meishu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.meishu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.meishu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shengwu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shengwu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shengwu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shengwu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shuxue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shuxue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shuxue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.shuxue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.tiyu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.tiyu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.tiyu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.tiyu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.wuli.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.wuli.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.wuli.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.wuli.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.wuli.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.xinxi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.xinxi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.xinxi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.xinxi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yingyu.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yingyu.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yingyu.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yingyu.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yinyue.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yinyue.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yinyue.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yinyue.s3.k01",
+      "name": "学情分析与教材分析",
+      "is_leaf": true,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yinyue.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yuwen.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yuwen.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yuwen.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.yuwen.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.zhengzhi.s1",
+      "name": "学科专业知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.zhengzhi.s2",
+      "name": "课程与教学理论",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.zhengzhi.s3",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.gaozhong.zhengzhi.s4",
+      "name": "教学实施与评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m1",
+      "name": "教育基础",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m2",
+      "name": "学生指导",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m3",
+      "name": "班级管理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m4",
+      "name": "小学学科知识",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m5",
+      "name": "教学设计",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m6",
+      "name": "教学实施",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.jiaoxue.m7",
+      "name": "教学评价与反思",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.zonghe.m1",
+      "name": "职业理念",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.zonghe.m2",
+      "name": "教育法律法规",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.zonghe.m3",
+      "name": "教师职业道德规范",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.zonghe.m4",
+      "name": "文化素养",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.xiaoxue.zonghe.m5",
+      "name": "基本能力",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m1",
+      "name": "学前教育原理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m2",
+      "name": "学前儿童发展",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m3",
+      "name": "幼儿生活指导",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m4",
+      "name": "幼儿园环境创设",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m5",
+      "name": "幼儿园游戏活动指导",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m6",
+      "name": "幼儿园教育活动的组织与实施",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.baojiao.m7",
+      "name": "幼儿园教育评价",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m1",
+      "name": "综合分析类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m2",
+      "name": "应急应变类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m3",
+      "name": "人际关系类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m4",
+      "name": "组织协调类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m5",
+      "name": "职业认知与自我认知类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.mianshi.m6",
+      "name": "教育教学实践类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.zonghe.m1",
+      "name": "职业理念",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.zonghe.m2",
+      "name": "教育法律法规",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.zonghe.m3",
+      "name": "教师职业道德规范",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.zonghe.m4",
+      "name": "文化素养",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.youer.zonghe.m5",
+      "name": "基本能力",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m1",
+      "name": "综合分析类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m2",
+      "name": "应急应变类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m3",
+      "name": "人际关系类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m4",
+      "name": "组织协调类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m5",
+      "name": "职业认知与自我认知类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxiaoxue.mianshi.m6",
+      "name": "教育教学实践类",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m1",
+      "name": "教育基础知识和基本原理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m2",
+      "name": "中学课程",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m3",
+      "name": "中学教学",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m4",
+      "name": "中学生学习心理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m5",
+      "name": "中学生发展心理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m6",
+      "name": "中学生心理辅导",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m7",
+      "name": "中学德育",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.jiaoyuzhishi.m8",
+      "name": "中学班级管理与教师心理",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.zonghe.m1",
+      "name": "职业理念",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.zonghe.m2",
+      "name": "教育法律法规",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.zonghe.m3",
+      "name": "教师职业道德规范",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.zonghe.m4",
+      "name": "文化素养",
+      "is_leaf": false,
+      "requirement_ids": []
+    },
+    {
+      "id": "ntce.zhongxue.zonghe.m5",
+      "name": "基本能力",
+      "is_leaf": false,
+      "requirement_ids": []
+    }
+  ],
+  "graph_layers": {
+    "L0": 2320,
+    "L1": 7,
+    "L2": 38,
+    "L3": 51,
+    "L4": 791,
+    "L5": 586,
+    "L6": 18303,
+    "L7": 8
+  },
+  "graph_edges": 96774,
+  "materials": 586,
+  "paper_specs": 32,
+  "unsigned_rubrics": 6,
+  "scopes": [
+    {
+      "school_level": "chuzhong",
+      "subject": "dili",
+      "total": 422,
+      "usable": 350,
+      "missing_knowledge": 89,
+      "missing_requirement": 90,
+      "missing_answer": 3,
+      "answer_conflict": 61,
+      "missing_stem": 8,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "huaxue",
+      "total": 267,
+      "usable": 247,
+      "missing_knowledge": 38,
+      "missing_requirement": 51,
+      "missing_answer": 4,
+      "answer_conflict": 16,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "lishi",
+      "total": 428,
+      "usable": 398,
+      "missing_knowledge": 44,
+      "missing_requirement": 232,
+      "missing_answer": 8,
+      "answer_conflict": 21,
+      "missing_stem": 1,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "meishu",
+      "total": 648,
+      "usable": 643,
+      "missing_knowledge": 48,
+      "missing_requirement": 236,
+      "missing_answer": 2,
+      "answer_conflict": 3,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "shengwu",
+      "total": 420,
+      "usable": 402,
+      "missing_knowledge": 25,
+      "missing_requirement": 36,
+      "missing_answer": 1,
+      "answer_conflict": 17,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "shuxue",
+      "total": 269,
+      "usable": 208,
+      "missing_knowledge": 38,
+      "missing_requirement": 133,
+      "missing_answer": 3,
+      "answer_conflict": 51,
+      "missing_stem": 7,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "tiyu",
+      "total": 225,
+      "usable": 208,
+      "missing_knowledge": 25,
+      "missing_requirement": 26,
+      "missing_answer": 1,
+      "answer_conflict": 16,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "wuli",
+      "total": 174,
+      "usable": 141,
+      "missing_knowledge": 25,
+      "missing_requirement": 115,
+      "missing_answer": 9,
+      "answer_conflict": 24,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "xinxi",
+      "total": 292,
+      "usable": 234,
+      "missing_knowledge": 31,
+      "missing_requirement": 33,
+      "missing_answer": 5,
+      "answer_conflict": 50,
+      "missing_stem": 3,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "yingyu",
+      "total": 643,
+      "usable": 632,
+      "missing_knowledge": 33,
+      "missing_requirement": 62,
+      "missing_answer": 1,
+      "answer_conflict": 10,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "yinyue",
+      "total": 327,
+      "usable": 313,
+      "missing_knowledge": 27,
+      "missing_requirement": 36,
+      "missing_answer": 2,
+      "answer_conflict": 12,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "yuwen",
+      "total": 415,
+      "usable": 392,
+      "missing_knowledge": 59,
+      "missing_requirement": 63,
+      "missing_answer": 5,
+      "answer_conflict": 16,
+      "missing_stem": 2,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "chuzhong",
+      "subject": "zhengzhi",
+      "total": 486,
+      "usable": 468,
+      "missing_knowledge": 7,
+      "missing_requirement": 9,
+      "missing_answer": 1,
+      "answer_conflict": 17,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "dili",
+      "total": 329,
+      "usable": 246,
+      "missing_knowledge": 94,
+      "missing_requirement": 96,
+      "missing_answer": 1,
+      "answer_conflict": 80,
+      "missing_stem": 2,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "huaxue",
+      "total": 312,
+      "usable": 267,
+      "missing_knowledge": 49,
+      "missing_requirement": 61,
+      "missing_answer": 6,
+      "answer_conflict": 38,
+      "missing_stem": 2,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "lishi",
+      "total": 428,
+      "usable": 253,
+      "missing_knowledge": 46,
+      "missing_requirement": 264,
+      "missing_answer": 2,
+      "answer_conflict": 173,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "meishu",
+      "total": 553,
+      "usable": 546,
+      "missing_knowledge": 50,
+      "missing_requirement": 189,
+      "missing_answer": 2,
+      "answer_conflict": 5,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "shengwu",
+      "total": 509,
+      "usable": 490,
+      "missing_knowledge": 58,
+      "missing_requirement": 72,
+      "missing_answer": 6,
+      "answer_conflict": 12,
+      "missing_stem": 1,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "shuxue",
+      "total": 282,
+      "usable": 239,
+      "missing_knowledge": 42,
+      "missing_requirement": 157,
+      "missing_answer": 3,
+      "answer_conflict": 32,
+      "missing_stem": 8,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "tiyu",
+      "total": 267,
+      "usable": 246,
+      "missing_knowledge": 17,
+      "missing_requirement": 19,
+      "missing_answer": 1,
+      "answer_conflict": 19,
+      "missing_stem": 1,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "wuli",
+      "total": 184,
+      "usable": 160,
+      "missing_knowledge": 24,
+      "missing_requirement": 129,
+      "missing_answer": 1,
+      "answer_conflict": 20,
+      "missing_stem": 3,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "xinxi",
+      "total": 255,
+      "usable": 190,
+      "missing_knowledge": 37,
+      "missing_requirement": 39,
+      "missing_answer": 9,
+      "answer_conflict": 56,
+      "missing_stem": 1,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "yingyu",
+      "total": 599,
+      "usable": 592,
+      "missing_knowledge": 32,
+      "missing_requirement": 62,
+      "missing_answer": 0,
+      "answer_conflict": 7,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "yinyue",
+      "total": 321,
+      "usable": 295,
+      "missing_knowledge": 24,
+      "missing_requirement": 27,
+      "missing_answer": 1,
+      "answer_conflict": 25,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "yuwen",
+      "total": 328,
+      "usable": 317,
+      "missing_knowledge": 31,
+      "missing_requirement": 36,
+      "missing_answer": 3,
+      "answer_conflict": 7,
+      "missing_stem": 1,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "gaozhong",
+      "subject": "zhengzhi",
+      "total": 490,
+      "usable": 473,
+      "missing_knowledge": 12,
+      "missing_requirement": 13,
+      "missing_answer": 2,
+      "answer_conflict": 15,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "xiaoxue",
+      "subject": "jiaoxue",
+      "total": 596,
+      "usable": 586,
+      "missing_knowledge": 57,
+      "missing_requirement": 69,
+      "missing_answer": 0,
+      "answer_conflict": 10,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "xiaoxue",
+      "subject": "jiaoyuxinlixue",
+      "total": 36,
+      "usable": 2,
+      "missing_knowledge": 9,
+      "missing_requirement": 36,
+      "missing_answer": 0,
+      "answer_conflict": 34,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "xiaoxue",
+      "subject": "jiaoyuxue",
+      "total": 170,
+      "usable": 123,
+      "missing_knowledge": 42,
+      "missing_requirement": 170,
+      "missing_answer": 18,
+      "answer_conflict": 29,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "xiaoxue",
+      "subject": "zonghe",
+      "total": 620,
+      "usable": 567,
+      "missing_knowledge": 26,
+      "missing_requirement": 295,
+      "missing_answer": 4,
+      "answer_conflict": 48,
+      "missing_stem": 2,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "youer",
+      "subject": "baojiao",
+      "total": 429,
+      "usable": 405,
+      "missing_knowledge": 43,
+      "missing_requirement": 154,
+      "missing_answer": 2,
+      "answer_conflict": 19,
+      "missing_stem": 3,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "youer",
+      "subject": "mianshi",
+      "total": 153,
+      "usable": 153,
+      "missing_knowledge": 2,
+      "missing_requirement": 2,
+      "missing_answer": 0,
+      "answer_conflict": 0,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "youer",
+      "subject": "zonghe",
+      "total": 733,
+      "usable": 713,
+      "missing_knowledge": 32,
+      "missing_requirement": 346,
+      "missing_answer": 0,
+      "answer_conflict": 20,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "zhongxiaoxue",
+      "subject": "mianshi",
+      "total": 273,
+      "usable": 273,
+      "missing_knowledge": 6,
+      "missing_requirement": 29,
+      "missing_answer": 0,
+      "answer_conflict": 0,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "zhongxue",
+      "subject": "jiaoyuxinlixue",
+      "total": 181,
+      "usable": 155,
+      "missing_knowledge": 29,
+      "missing_requirement": 181,
+      "missing_answer": 21,
+      "answer_conflict": 5,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "zhongxue",
+      "subject": "jiaoyuxue",
+      "total": 72,
+      "usable": 30,
+      "missing_knowledge": 14,
+      "missing_requirement": 72,
+      "missing_answer": 15,
+      "answer_conflict": 27,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "zhongxue",
+      "subject": "jiaoyuzhishi",
+      "total": 664,
+      "usable": 643,
+      "missing_knowledge": 34,
+      "missing_requirement": 34,
+      "missing_answer": 7,
+      "answer_conflict": 14,
+      "missing_stem": 0,
+      "signed_questions": 0
+    },
+    {
+      "school_level": "zhongxue",
+      "subject": "zonghe",
+      "total": 700,
+      "usable": 669,
+      "missing_knowledge": 32,
+      "missing_requirement": 254,
+      "missing_answer": 0,
+      "answer_conflict": 31,
+      "missing_stem": 0,
+      "signed_questions": 0
+    }
+  ],
+  "notices": [
+    "可练计数按研究档门禁和文本统计，不表示已由教研签署或配图、听力素材齐全；网页另行限制缺图题提交。",
+    "缺口是独立维度，可在同一题重复出现；不能相加当作缺题数。",
+    "缺失答案、来源冲突与人工审核无法由机器自动补成已核定。"
+  ],
+  "generated_at": "2026-10-11T10:41:49.010929+08:00"
+}
