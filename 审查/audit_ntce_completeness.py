@@ -46,12 +46,14 @@ def main():
     parser.add_argument('--study-index', type=Path, help='另导出无题叶子考点的真实考纲学习索引')
     args = parser.parse_args()
     report = audit_ntce()
-    report['generated_at'] = datetime.now(timezone(timedelta(hours=8))).isoformat()
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    # 落盘的快照只记内容，不记钟点：一份会随时钟变化的清单没法用 `git diff` 判断某一批修补到底改变了什么。
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     if args.study_index:
         write_study_index(report, args.study_index)
-    print(json.dumps({k: v for k, v in report.items() if k not in ('scopes', 'unpractised_nodes')}, ensure_ascii=False, indent=2))
+    summary = {k: v for k, v in report.items() if k not in ('scopes', 'unpractised_nodes')}
+    summary['written_at'] = datetime.now(timezone(timedelta(hours=8))).isoformat()
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':
