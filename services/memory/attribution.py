@@ -18,11 +18,14 @@ from services.common.models import (
 )
 
 
+_UNSET = object()
+
+
 class ErrorAttributionEngine:
     """Classifies root cause of an erroneous response using behavioral traces."""
 
     @classmethod
-    def attribute(cls, event: ErrorReviewEvent) -> ErrorAttributionResult:
+    def attribute(cls, event: ErrorReviewEvent, *, persisted_mastery=_UNSET) -> ErrorAttributionResult:
         """Run hierarchical pedagogical classification tree on response trace."""
         # Case 5: Subjective expression deficit
         if event.is_subjective:
@@ -79,12 +82,15 @@ class ErrorAttributionEngine:
             )
 
         # Case 3: Cognitive Blindspot (Low historical mastery of this knowledge node)
-        if event.current_node_mastery < 0.35:
+        # Runtime callers pass persisted history; first practice has no history to diagnose.
+        # Direct legacy callers retain the previous input contract.
+        mastery = event.current_node_mastery if persisted_mastery is _UNSET else persisted_mastery
+        if mastery is not None and mastery < 0.35:
             return ErrorAttributionResult(
                 category=ErrorAttributionCategory.BLINDSPOT,
                 category_name="认知盲区",
                 confidence=0.90,
-                rationale=f"该考点历史掌握度仅 {event.current_node_mastery*100:.0f}%，尚未建立基础知识框架。",
+                rationale=f"该考点历史掌握度仅 {mastery*100:.0f}%，尚未建立基础知识框架。",
                 recommended_action="回溯考纲对应知识卡片，精读基础理论并完成考点专属基础变式题巩固。",
             )
 

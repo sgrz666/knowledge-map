@@ -1,6 +1,6 @@
 # Agent 架构设计方案（教资 NTCE / 四六级 CET 双库）
 
-> 状态：设计定稿，待实现。日期 2026-10-10。
+> 状态：P0–P4 已落地，并于 2026-10-11 接入本机网页工作台。原设计基线保留于 §1；最新增量见 [网页端架构](web_agent_architecture.md)。
 > 上位文档：`应试考证功能设计与技术支撑：以教资和四六级为例.md`（下称"设计文档"）。
 > 本方案只做一件事：把设计文档已定死的**数据契约**（八层 L0–L7、16 种边、三层状态、双轨量规）翻译成可运行的 agent 运行时。设计文档对编排层只字未提（全文无 agent/编排/LangGraph/流式/工具调用字样），所以本方案是**补齐**，不是改写。
 
@@ -153,7 +153,7 @@ IDLE → DIAGNOSE → PROFILE → PLAN → PRACTICE|MOCK → GRADE(或 FEEDBACK_
 
 - **流式**：qa 与 master 走 SSE（`services/app.py:_sse`）；其余保持同步（设计文档未要求全链路流式，别过度设计）。
 - **异步与批量回填**：不起 Celery + Redis。模考分段时序由进程内 `practice/cet_statemachine.py` 推进——阶段、分钟数、收卡与回退策略逐字段读自 `paper_specs.jsonl`（见 §3.1），代码里没有第二份考试时间表；它是单请求内的确定状态转移，不需要跨进程锁。LLM 解析回填 `analysis` 的落地形态是一个 **stdlib 离线 CLI**：默认 dry-run、只把 `review.status` 抬到 `llm_enhanced`、绝不写 `checked_by`/`expert_verified`、跑完把条目投进 `审查/` 队列等教研签署。当前没有可用的 LLM 端点配置（`KNOWLEDGE_MAP_LLM_*` 未设置，`/health` 报 `rule_only`），所以这一步只留口径、不写工具，免得拿模型编造的解析把库填满。
-- **持久化**：FSRS 与掌握度落 SQLite（`services/memory/store.py:SqliteMasteryStore`）、会话与 envelope 落 SQLite（`services/orchestrator/session.py`）、人工复核队列落 JSONL（`services/review/queue.py`）。原先"进程内 dict、跨进程必 404"的缺陷已消除（验收 A5）。状态目录 `.local_state/` 与 `chroma/` 均不入库。
+- **持久化**：FSRS 与掌握度落 SQLite（`services/memory/store.py:SqliteMasteryStore`）、会话与 envelope 落 SQLite（`services/orchestrator/session.py`）、人工复核队列落 JSONL（`services/review/queue.py`）。原先"进程内 dict、跨进程必 404"的缺陷已消除（验收 A5）。事件收据不是"处理过"而是"按什么输入处理过"：`run_once` 在一个事务里比对输入指纹（`services/memory/receipt.py`），同指纹回放原结果、不同指纹在任何写入之前拒绝——保存失败后的重试只能补写页面结果，不能拿新参数换一次学习记录（`docs/web_agent_architecture.md`）。状态目录 `.local_state/` 与 `chroma/` 均不入库。
 - **鉴权与限流**：`AuthContext` 已是除 `/health` 外每一条路由的依赖（14 条内容路由全挂，`tests/test_services_api.py` 按 `app.routes` 逐条断言，新增路由忘记挂闸会直接红）；配置了 `KNOWLEDGE_MAP_RUNTIME_TOKEN` 时，`research_internal` 档必须带 `Authorization: Bearer <token>`，否则 401——未配置即开发默认放行，**公开部署前必须设**，因为该档会外发真题全文，而 `GET /memory/mastery/{user_id}/{node_id}` 这类按 id 可枚举的学习者画像同样走这道闸。限流未落地（单机研究用途、无并发用户）；上线对外前它是 §9 传播面风险的最后一道技术闸。
 
 ## 4. LLM 层（现在完全不存在，必须新写）

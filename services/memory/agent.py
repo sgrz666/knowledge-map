@@ -21,6 +21,7 @@ from services.knowledge.repository import KnowledgeRepository, get_repository
 from services.knowledge.trust import TrustGate
 from services.memory.attribution import ErrorAttributionEngine
 from services.memory.fsrs import FSRSModel
+from services.memory.receipt import event_fingerprint
 from services.memory.store import default_store
 
 logger = logging.getLogger("services.memory.agent")
@@ -73,8 +74,20 @@ class MemoryReviewAgent:
                 return entry
         return {"correct_count": 0, "incorrect_count": 0}
 
-    def process_event(self, event: ErrorReviewEvent) -> ReviewBundle:
-        """Process an answering event, update FSRS scheduling, and return review bundle."""
+    def process_event(self, event: ErrorReviewEvent, *, record_attempt: bool = True, event_id: Optional[str] = None) -> ReviewBundle:
+        """Process an answering event, update FSRS scheduling, and return review bundle.
+
+        ``event_id`` turns this into a receipt-backed write: the same id with the same inputs
+        replays the first result, the same id with different inputs raises ``ReceiptConflict``
+        before anything is written (see ``services/memory/receipt.py``).
+        """
+        if event_id:
+            payload = self.store.run_once(
+                event_id, event_fingerprint(event),
+                lambda: self.process_event(event, record_attempt=record_attempt).model_dump(mode='json'),
+                user_id=event.user_id,
+            )
+            return ReviewBundle.model_validate(payload)
         checked, provenance, notices = self._reconcile(event)
         if checked is None:
             return self._not_attributable(event, notices)
@@ -100,9 +113,17 @@ class MemoryReviewAgent:
             else:
                 fsrs_rating = 3  # Good
 
-        # 2. Attribution: analyze root cause if wrong; if correct, note mastery
+        # 2. Retrieve or initialize the persisted record first：归因要读它，而不是读调用方申报的掌握度。
+        existing = self.get_user_mastery(event.user_id, event.node_id)
+        current_fsrs = existing.fsrs_state if existing else None
+        p_count = (existing.practice_count if existing else 0) + 1
+        c_count = (existing.correct_count if existing else 0) + (1 if event.is_correct else 0)
+
+        # 3. Attribution: analyze root cause if wrong; if correct, note mastery
         if not event.is_correct:
-            attribution = ErrorAttributionEngine.attribute(event)
+            attribution = ErrorAttributionEngine.attribute(
+                event, persisted_mastery=existing.mastery_score if existing else None
+            )
         else:
             attribution = ErrorAttributionResult(
                 category=ErrorAttributionCategory.CARELESS,  # Neutral placeholder
@@ -112,22 +133,24 @@ class MemoryReviewAgent:
                 recommended_action="按计划进行间隔复习即可，无需额外补做基础概念卡片。",
             )
 
-        # 3. Retrieve or initialize existing mastery record
-        existing = self.get_user_mastery(event.user_id, event.node_id)
-        current_fsrs = existing.fsrs_state if existing else None
-        p_count = (existing.practice_count if existing else 0) + 1
-        c_count = (existing.correct_count if existing else 0) + (1 if event.is_correct else 0)
-
         # 4. FSRS step
         new_fsrs, next_days = FSRSModel.step(current_fsrs, fsrs_rating, now=now)
-        retrievability = FSRSModel.retrievability(0.0, new_fsrs.stability)
+        # 上报的 R 取"这次作答距上次复习隔了几天"。旧写法传 0.0，而 retrievability(0, S) 按定义恒等于
+        # 1.0，于是卡片里那个"可提取率"永远满分，注释还声称掌握度按遗忘曲线打过折。
+        if existing is None or current_fsrs is None:
+            retrievability = 1.0  # 没有历史可衰减：这一格说的就是"第一次作答"
+        else:
+            previous = datetime.fromisoformat(existing.last_updated_at)
+            if previous.tzinfo is None:
+                previous = previous.replace(tzinfo=timezone.utc)
+            elapsed_days = max(0.0, (now - previous).total_seconds() / 86400.0)
+            retrievability = FSRSModel.retrievability(elapsed_days, current_fsrs.stability)
 
-        # 5. Compute Bayesian-damped mastery score [0.0, 1.0]
-        # M = (alpha * acc + (1 - alpha) * (1 - diff)) * R
-        acc = (c_count + 1.0) / (p_count + 2.0)  # Laplace smoothed accuracy
-        diff_factor = 1.0 - (event.question_difficulty * 0.4)
-        raw_mastery = (0.7 * acc + 0.3 * diff_factor) * retrievability
-        mastery_score = max(0.05, min(0.98, round(raw_mastery, 3)))
+        # 5. 掌握度只按该考点累计作答正确率的拉普拉斯平滑估计：一处公式、一个出处。
+        #    旧写法是 (0.7*acc + 0.3*(1 - 申报难度*0.4)) * R，两个因子都不能要：难度取的是调用方申报的
+        #    浮点（库内那条只有 heuristic_* 初估，§10/A7 明令它不得参与能力推断），方向还是反的——答对
+        #    越难的题这一项越小，掌握度反而越低；而当时的 R 恒为 1.0，乘了等于没乘。
+        mastery_score = round((c_count + 1.0) / (p_count + 2.0), 3)
 
         # 6. Build updated UserMasteryRecord
         updated_mastery = UserMasteryRecord(
@@ -142,9 +165,9 @@ class MemoryReviewAgent:
 
         # Persist mastery, and keep a question-level error queue for 错题消灭 mode
         self.store.put(updated_mastery)
-        prior = self._prior_error_entry(event)
-        self.store.log_error(
-            {
+        if record_attempt:
+            prior = self._prior_error_entry(event)
+            self.store.log_error({
                 "user_id": event.user_id,
                 "question_id": event.question_id,
                 "node_id": event.node_id,
@@ -154,8 +177,7 @@ class MemoryReviewAgent:
                 "incorrect_count": prior["incorrect_count"] + (0 if event.is_correct else 1),
                 "last_reviewed_at": now_iso,
                 "due_at": new_fsrs.due_date,
-            }
-        )
+            })
 
         # 7. Formulate followup plan
         if not event.is_correct:

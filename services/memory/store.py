@@ -14,10 +14,11 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional
 
 from services.common.models import UserMasteryRecord
+from services.memory.receipt import verify_receipt
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 ENV_STATE_DIR = "KNOWLEDGE_MAP_STATE_DIR"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS meta (
@@ -45,6 +46,14 @@ CREATE TABLE IF NOT EXISTS error_log (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS ux_error_log ON error_log (user_id, question_id);
 CREATE INDEX IF NOT EXISTS ix_error_log_due ON error_log (user_id, due_at);
+-- 事件收据：event_id 说"这是哪一次作答"，fingerprint 说"那一次到底答了什么"。
+-- fingerprint 为 NULL 的行是指纹上线之前写入的旧收据，无法核对输入，见 services/memory/receipt.py。
+CREATE TABLE IF NOT EXISTS memory_events (
+    event_id TEXT PRIMARY KEY,
+    user_id TEXT,
+    fingerprint TEXT,
+    result_json TEXT NOT NULL
+);
 """
 
 
@@ -61,6 +70,16 @@ class InMemoryMasteryStore:
     def __init__(self) -> None:
         self._records: Dict[str, UserMasteryRecord] = {}
         self._errors: Dict[str, dict] = {}
+        self._events: Dict[str, dict] = {}
+
+    def run_once(self, event_id, event_fingerprint, apply, *, user_id=None):
+        receipt = self._events.get(event_id)
+        if receipt is not None:
+            verify_receipt(event_id, receipt[1], event_fingerprint)
+            return receipt[2]
+        result = apply()
+        self._events[event_id] = (user_id, event_fingerprint, result)
+        return result
 
     def get(self, user_id: str, node_id: str) -> Optional[UserMasteryRecord]:
         return self._records.get(f"{user_id}:{node_id}")
@@ -101,14 +120,19 @@ class InMemoryMasteryStore:
         return [node for node, _ in ranked[:limit]]
 
     def clear(self, user_id: Optional[str] = None) -> None:
+        # 事件收据也是学习记录的一部分：只清掌握度和错题会留下收据，下一次同一 event_id 的
+        # 提交会被当成"已经记过一次"原样回放，学习者再也拿不回这次的计数。
         if user_id is None:
             self._records.clear()
             self._errors.clear()
+            self._events.clear()
             return
         for key in [k for k in self._records if k.split(":", 1)[0] == user_id]:
             del self._records[key]
         for key in [k for k in self._errors if k.split(":", 1)[0] == user_id]:
             del self._errors[key]
+        for key in [k for k, (owner, _, _) in self._events.items() if owner == user_id]:
+            del self._events[key]
 
 
 class SqliteMasteryStore:
@@ -116,22 +140,67 @@ class SqliteMasteryStore:
 
     def __init__(self, path: Optional[Path] = None) -> None:
         self.path = Path(path) if path else state_dir() / "memory.sqlite3"
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
+        self._in_transaction = False
         self._conn = sqlite3.connect(str(self.path), check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
         with self._lock:
             self._conn.executescript(_SCHEMA)
+            # CREATE TABLE IF NOT EXISTS 不会给已经存在的库补列：收据表换代前上线的库里
+            # 已有 event_id/result_json，这两列必须 ALTER 出来，旧行的 fingerprint 留 NULL 当"无法核对"。
+            columns = {row[1] for row in self._conn.execute('PRAGMA table_info(memory_events)')}
+            if 'user_id' not in columns:
+                self._conn.execute('ALTER TABLE memory_events ADD COLUMN user_id TEXT')
+            if 'fingerprint' not in columns:
+                self._conn.execute('ALTER TABLE memory_events ADD COLUMN fingerprint TEXT')
             self._conn.execute(
                 "INSERT OR IGNORE INTO meta (key, value) VALUES ('schema_version', ?)",
                 (str(SCHEMA_VERSION),),
             )
+            self._conn.execute("UPDATE meta SET value=? WHERE key='schema_version'", (str(SCHEMA_VERSION),))
             self._conn.commit()
 
     def _execute(self, sql: str, params: Iterable) -> sqlite3.Cursor:
         with self._lock:
             cur = self._conn.execute(sql, tuple(params))
-            self._conn.commit()
+            if not self._in_transaction:
+                self._conn.commit()
             return cur
+
+    def run_once(self, event_id, event_fingerprint, apply, *, user_id=None):
+        """Persist the event receipt and its mastery/error writes in one transaction.
+
+        A receipt whose fingerprint differs is refused before ``apply`` runs, so a retry that
+        changed the answer (or the time spent, or the option flips) cannot leave a second
+        learning write behind and cannot be served the first attempt's verdict.
+        """
+        with self._lock:
+            self._conn.execute('BEGIN IMMEDIATE')
+            self._in_transaction = True
+            try:
+                row = self._conn.execute(
+                    'SELECT fingerprint, result_json FROM memory_events WHERE event_id=?', (event_id,)).fetchone()
+                if row is None:
+                    result = apply()
+                    self._conn.execute(
+                        'INSERT INTO memory_events (event_id, user_id, fingerprint, result_json) VALUES(?,?,?,?)',
+                        (event_id, user_id, event_fingerprint, json.dumps(result, ensure_ascii=False)),
+                    )
+                else:
+                    verify_receipt(event_id, row['fingerprint'], event_fingerprint)
+                    result = json.loads(row['result_json'])
+                self._conn.commit()
+                return result
+            except Exception:
+                self._conn.rollback()
+                raise
+            finally:
+                self._in_transaction = False
+
+    def unverifiable_receipts(self) -> int:
+        """How many receipts predate fingerprinting and therefore cannot be replayed."""
+        with self._lock:
+            return self._conn.execute('SELECT COUNT(*) FROM memory_events WHERE fingerprint IS NULL').fetchone()[0]
 
     def get(self, user_id: str, node_id: str) -> Optional[UserMasteryRecord]:
         with self._lock:
@@ -223,9 +292,12 @@ class SqliteMasteryStore:
         if user_id is None:
             self._execute("DELETE FROM user_mastery", ())
             self._execute("DELETE FROM error_log", ())
+            self._execute("DELETE FROM memory_events", ())
             return
         self._execute("DELETE FROM user_mastery WHERE user_id=?", (user_id,))
         self._execute("DELETE FROM error_log WHERE user_id=?", (user_id,))
+        # 指纹上线前的旧收据没有 user_id，只能由整库清空带走；它们本来就无法核对（见 receipt.py）。
+        self._execute("DELETE FROM memory_events WHERE user_id=?", (user_id,))
 
     def close(self) -> None:
         with self._lock:

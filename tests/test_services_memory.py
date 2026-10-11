@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sqlite3
+import tempfile
 import unittest
 import jsonschema
 
@@ -13,7 +15,8 @@ from services.common.models import (
 from services.memory.agent import MemoryReviewAgent
 from services.memory.attribution import ErrorAttributionEngine
 from services.memory.fsrs import FSRSModel
-from services.memory.store import InMemoryMasteryStore
+from services.memory.receipt import LegacyReceipt, ReceiptConflict
+from services.memory.store import InMemoryMasteryStore, SqliteMasteryStore
 
 ROOT = Path(__file__).resolve().parents[1]
 USER_MASTERY_SCHEMA_PATH = ROOT / "数据集" / "教资" / "schemas" / "user_mastery.json"
@@ -148,6 +151,80 @@ class TestMemoryReviewService(unittest.TestCase):
         self.assertGreaterEqual(mastery.mastery_score, 0.0)
         self.assertLessEqual(mastery.mastery_score, 1.0)
         self.assertIn("复习计划已生成", bundle.followup_plan)
+
+
+class TestEventReceipts(unittest.TestCase):
+    """A receipt identifies an attempt by what was submitted, not only by its id."""
+
+    NODE = 'ntce.zhongxue.jiaoyuzhishi.m4.k01'
+    QUESTION = 'ntce.zhongxue.jiaoyuzhishi.2023a.q05'
+
+    def setUp(self):
+        self.agent = MemoryReviewAgent(store=InMemoryMasteryStore())
+
+    def event(self, **updates):
+        base = dict(user_id='u-receipt', question_id=self.QUESTION, node_id=self.NODE,
+                    exam='NTCE', is_correct=False, time_spent_seconds=30.0)
+        return ErrorReviewEvent(**{**base, **updates})
+
+    def test_same_id_same_inputs_replays_without_a_second_write(self):
+        event = self.event(selected_option='Z')
+        first = self.agent.process_event(event, event_id='paper-q-node')
+        again = self.agent.process_event(event.model_copy(), event_id='paper-q-node')
+        self.assertEqual(again.model_dump(), first.model_dump())
+        self.assertEqual(self.agent.get_user_mastery('u-receipt', self.NODE).practice_count, 1)
+
+    def test_same_id_changed_inputs_are_refused_before_any_write(self):
+        event = self.event(selected_option='Z')
+        self.agent.process_event(event, event_id='paper-q-node')
+        before = self.agent.get_user_mastery('u-receipt', self.NODE).model_dump()
+        for changed in ({'selected_option': 'A'}, {'time_spent_seconds': 20.0}, {'option_flip_count': 2}):
+            with self.assertRaises(ReceiptConflict):
+                self.agent.process_event(event.model_copy(update=changed), event_id='paper-q-node')
+        self.assertEqual(self.agent.get_user_mastery('u-receipt', self.NODE).model_dump(), before)
+
+    def test_clear_drops_receipts_so_a_reset_learner_is_counted_again(self):
+        with tempfile.TemporaryDirectory() as folder:
+            store = SqliteMasteryStore(Path(folder) / 'memory.sqlite3')
+            try:
+                agent = MemoryReviewAgent(store=store)
+                event = self.event(selected_option='Z')
+                agent.process_event(event, event_id='paper-q-node')
+                self.assertEqual(agent.get_user_mastery('u-receipt', self.NODE).practice_count, 1)
+                store.clear('u-receipt')
+                self.assertIsNone(store.get('u-receipt', self.NODE))
+                # 收据不跟着掌握度一起清，重练的这次会被当成"这个 id 已经记过"原样回放，计数再也回不来
+                agent.process_event(event, event_id='paper-q-node')
+                self.assertEqual(agent.get_user_mastery('u-receipt', self.NODE).practice_count, 1)
+            finally:
+                store.close()
+
+    def test_receipts_written_before_fingerprinting_migrate_and_then_refuse_replay(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'memory.sqlite3'
+            conn = sqlite3.connect(path)
+            conn.executescript('CREATE TABLE memory_events (event_id TEXT PRIMARY KEY, result_json TEXT NOT NULL);')
+            conn.execute('INSERT INTO memory_events VALUES(?,?)',
+                         ('paper-q-node', '{"user_id":"u-receipt","node_id":"x"}'))
+            conn.commit()
+            conn.close()
+            store = SqliteMasteryStore(path)
+            try:
+                probe = sqlite3.connect(path)
+                try:
+                    columns = {row[1] for row in probe.execute('PRAGMA table_info(memory_events)')}
+                finally:
+                    probe.close()
+                self.assertTrue({'user_id', 'fingerprint'} <= columns)
+                self.assertEqual(store.unverifiable_receipts(), 1)
+                with self.assertRaises(LegacyReceipt):
+                    MemoryReviewAgent(store=store).process_event(self.event(selected_option='Z'),
+                                                                 event_id='paper-q-node')
+                # 没有指纹就无从证明这次请求就是第一次那次作答：既不回放旧结果，也不重新计一次
+                self.assertIsNone(store.get('u-receipt', self.NODE))
+                self.assertEqual(store.unverifiable_receipts(), 1)
+            finally:
+                store.close()
 
 
 if __name__ == "__main__":
