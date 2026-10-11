@@ -203,6 +203,98 @@ class TestA1NoShadowData(AcceptanceTestCase):
         self.assertEqual(dated(regenerated), dated(committed),
                          "待复核清单.md 与生成器输出不一致：要么清单被手改过，要么生成器漏了段落")
 
+    def test_the_boundary_fork_rows_are_recomputed_from_the_library(self):
+        """§3.2 把"题面吞掉邻题"分成动作相反的两侧：邻题在本卷有独立记录就剪重复文本，没有记录就只许
+        对着原件补收录。清单里这几个数字必须由题库现算——补收录条数还要按"学段/科目/卷面文件·编号"去重，
+        不同学段科目下存在同名卷面文件，只按文件名去重会把两道不同的缺口并成一条。
+        """
+        text = (REPO_ROOT / "审查" / "待复核清单.md").read_text(encoding="utf-8")
+        self.assertIn("### 3.2", text, "复核清单没有 §3.2：补收录缺口又回到只有批内证据能看到的状态")
+        section = text.split("### 3.2", 1)[1].split("\n## 4.", 1)[0]
+
+        sys.path.insert(0, str(REPO_ROOT / "kb_tools"))
+        from collections import Counter
+        from ntce_repair import (boundary_risks, mix_risk_evidence,  # noqa: E402
+                                 recorded_numbers, unrecorded_neighbors)
+
+        base = REPO_ROOT / "数据集" / "教资" / "questions"
+        labels = {"题干里有整道完整选项序列": "complete_choice_sequence_in_stem",
+                  "选项文本里有整道完整选项序列": "complete_choice_sequence_in_option",
+                  "一段文本里出现两道以上完整序列": "multiple_complete_choice_sequences",
+                  "正文里露出别的题号": "embedded_numbered_question_candidate"}
+        questions = with_risk = numbered = unrecorded = papers = locatorless = unlocated = 0
+        codes = Counter()
+        pairs, by_filename, located = set(), set(), set()
+        for path in sorted(base.glob("*/*/*.jsonl")):
+            rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+            recorded = recorded_numbers(rows)
+            papers += 1
+            if not recorded:
+                locatorless += 1
+            paper = path.relative_to(base).as_posix()
+            for q in rows:
+                questions += 1
+                evidence = mix_risk_evidence(q)
+                risks = boundary_risks(evidence)
+                if risks:
+                    with_risk += 1
+                    codes.update(risks)
+                if not evidence["embedded_numbers"]:
+                    continue
+                numbered += 1
+                missing = unrecorded_neighbors(evidence, recorded)
+                if not missing:
+                    continue
+                unrecorded += 1
+                pairs.update((paper, n) for n in missing)
+                by_filename.update((path.name, n) for n in missing)
+                if recorded:
+                    located.update((paper, n) for n in missing)
+                else:
+                    unlocated += 1
+
+        def row(marker):
+            hits = [line for line in section.splitlines() if line.startswith("|") and marker in line]
+            self.assertEqual(len(hits), 1, f"§3.2 里 {marker} 应该只有一行，实际 {len(hits)} 行")
+            return [int(n.replace(",", "")) for n in re.findall(r"\d[\d,]*", hits[0].split("|")[2])]
+
+        self.assertGreater(with_risk, 0, "全库一题都不命中题面边界形态，下面的分岔断言全是空跑")
+        self.assertLess(numbered, with_risk, "已没有“命中序列但认不出编号”的题，第三行分岔成了空位")
+        for marker, code in labels.items():
+            self.assertEqual(row(marker), [codes[code]], f"{marker} 那一行的题数与题库现算不符")
+        self.assertEqual(row("命中任一项"), [with_risk, questions],
+                         "命中任一项要么又写成四项之和，要么本库题数被手抄过")
+        self.assertLess(with_risk, sum(codes.values()),
+                        "四项有重叠，命中任一项必须小于四项相加；等于和就是清单把同一题数了两遍")
+        self.assertEqual(row("都有独立记录"), [numbered - unrecorded],
+                         "补收录的分母必须是“露出邻题编号”的题，两侧才互为补集")
+        self.assertNotEqual(row("都有独立记录"), [with_risk - unrecorded],
+                            "分母又用回全部命中题：认不出编号的题被算成了“邻题已有独立记录”")
+        self.assertEqual(row("没有独立记录"), [unrecorded, len(pairs)],
+                         "补收录缺口的题数或（卷·编号）条数与题库现算不符")
+        self.assertLess(len(by_filename), len(pairs),
+                        "按文件名去重与按全路径去重一样，说明这份断言失去了意义：清单可能又在合并不同卷的缺口")
+        self.assertEqual(row("认不出任何编号"), [with_risk - numbered])
+        self.assertIn("全库 %d 份卷面里有 %d 份一条题号定位都没有" % (papers, locatorless), section,
+                      "无定位卷面的比例被写死或抹掉：那部分“缺口”其实只是定位缺失")
+        self.assertIn("%s 条出自带题号定位的卷面" % "{:,}".format(len(located)), section,
+                      "可核对的收录缺口条数与题库现算不符")
+        self.assertIn("真正能对着原件补的是 %s 题／%s 条" % (
+            "{:,}".format(unrecorded - unlocated), "{:,}".format(len(located))), section,
+                      "定位缺失的那部分被算成了可动手的收录缺口：无定位卷面撑不起“本卷没有这条记录”这个结论")
+
+    def test_the_queue_does_not_own_a_second_copy_of_the_boundary_rules(self):
+        """串题判据只许有一份：清单脚本一旦自己再写一套正则，两处会各自漂出两套"补收录"数字。"""
+        tree = ast.parse((REPO_ROOT / "审查" / "build_review_queue.py").read_text(encoding="utf-8"))
+        imported = {alias.name for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names}
+        self.assertNotIn("re", imported,
+                         "清单脚本自己 import re：题面边界判据必须从 kb_tools/ntce_repair.py 取同一份函数")
+        from_repair = {alias.name for node in ast.walk(tree)
+                       if isinstance(node, ast.ImportFrom) and node.module == "ntce_repair"
+                       for alias in node.names}
+        self.assertTrue({"mix_risk_evidence", "boundary_risks", "recorded_numbers", "unrecorded_neighbors"}
+                        <= from_repair, "§3.2 没有复用修复流程那一份判据，两侧数字会各自漂移")
+
     def test_the_exam_clock_is_the_blueprint_not_a_transcript(self):
         """卷面规格也是库内实体：模考用时必须逐节等于 paper_specs，服务代码里不许留手抄的分钟数。"""
 

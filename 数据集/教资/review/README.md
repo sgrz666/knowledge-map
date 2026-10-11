@@ -17,6 +17,8 @@
 
 `embedded_numbers` 按"数字 + 邻题常见开头词"识别，是**下限而不是穷举**——识别不出编号的串题仍由序列计数暴露；编号本身也可能与库内重新编号后的题号不对应，对不上只说明"本卷没有这条记录"，是否漏收录要回原件判断。汇总里的 `refused_with_open_question_boundary` 统计的是"题面带串题风险的拒绝题"，与拒绝原因 `cross_question_risk_open` 的计数不必相等：题型不合（如五选项多选）会先触发拒绝，串题证据照样登记。
 
-串题检测的口径只有一份，在 `kb_tools/ntce_repair.py`（`mix_risk_evidence` / `source_mix_risks`）；核对工具与修复轮读同一份，不得另写正则。
+串题检测的口径只有一份，在 `kb_tools/ntce_repair.py`（`mix_risk_evidence` 出证据，`boundary_risks` 把证据映成风险码，`recorded_numbers` 给出同一份卷面里已独立入库的题号，`unrecorded_neighbors` 算出其中没有记录的邻题）；核对工具、修复轮与 `审查/build_review_queue.py` 都读这一份，不得另写正则。
+
+本文件只覆盖**已核对过的那一批**（拒绝题）。全库同一缺陷的规模在 `审查/待复核清单.md` §3.2 现算，两侧动作分三档写：邻题在本卷都有独立记录（剪重复文本）／有编号在本卷没有独立记录（回原件补收录，按"学段/科目/卷面文件·编号"去重）／命中序列但认不出任何编号（人工回卷，机器不给结论）。漏收邻题在库里表现为根本没有那条记录，`审查/validate_kb.py` 的题级缺口码不会单独计数，只能靠现算清单发现。
 
 落回只承认"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + 与保全候选一致"三件同时成立；核对不出来一题也不动，继续留在 `source_conflict` 与 `quarantined`。审核签署字段（`checked_by`、`content_verified`）不因落回而提升，`answer_validation_status` 记为 `not_expert_verified`，`expert_content_review_needed` 留在待补项里。

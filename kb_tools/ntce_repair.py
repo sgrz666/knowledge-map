@@ -383,9 +383,34 @@ def mix_risk_evidence(q):
             'embedded_numbers': sorted(numbers)}
 
 
-def source_mix_risks(q):
-    """扫描所有题的跨题混入风险；风险是候选诊断，不能自动宣称源题正确。"""
-    evidence = mix_risk_evidence(q)
+def source_locator_number(q):
+    """本卷卷内题号：只认题干在原卷定位到的数字，定位不到就是 None。
+
+    `paper_order` 不能顶替——库里那份顺序正是当初错位的地方，拿它当题号会把答案落到邻题上。
+    """
+    return ((q.get('review') or {}).get('type_source_verification') or {}).get('locator', {}).get('number')
+
+
+def recorded_numbers(rows):
+    """同一份卷面文件里已经独立入库的题号集合。
+
+    它决定被吞掉的邻题走哪条路：有独立记录时剪文本只是去重，没有记录时剪文本等于删掉库内唯一一份。
+    """
+    numbers = {source_locator_number(q) for q in rows}
+    numbers.discard(None)
+    return numbers
+
+
+def unrecorded_neighbors(evidence, recorded):
+    """题面里露出的邻题编号中，本卷没有独立记录的那些。"""
+    return sorted(n for n in evidence['embedded_numbers'] if n not in set(recorded))
+
+
+def boundary_risks(evidence, case_material_risks=()):
+    """题面边界证据 → 风险码；码与判据只在这里定义一份，修复、核对与复核清单都调它。
+
+    返回的是候选诊断，不宣称源题正确，也不代表可以直接动手剪文本。
+    """
     counts = evidence['sequence_counts']
     risks = []
     if counts.get('stem'):
@@ -396,7 +421,13 @@ def source_mix_risks(q):
         risks.append('multiple_complete_choice_sequences')
     if evidence['embedded_numbers']:
         risks.append('embedded_numbered_question_candidate')
-    risks.extend(q['review'].get('case_material_risks', []))
+    risks.extend(case_material_risks)
+    return risks
+
+
+def source_mix_risks(q):
+    """扫描所有题的跨题混入风险；风险是候选诊断，不能自动宣称源题正确。"""
+    risks = boundary_risks(mix_risk_evidence(q), q['review'].get('case_material_risks', []))
     q['review']['source_boundary_status'] = q['extra'].get('source_boundary_verification', {}).get('status', 'not_located')
     q['review']['cross_question_risk'] = risks
     return risks

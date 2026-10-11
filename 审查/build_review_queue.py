@@ -197,6 +197,62 @@ for _m in _all_meta:
                 gap[name]['checkable'] += 1
 total_missing = sum(1 for m in _all_meta if m.answer_status == 'missing')
 
+# 题面吞邻题的清点：判据与修复、回卷核对共用 kb_tools/ntce_repair.py 那一份函数，清单不另写正则。
+sys.path.insert(0, str((ROOT / 'kb_tools').resolve()))
+from ntce_repair import (boundary_risks, mix_risk_evidence,  # noqa: E402
+                         recorded_numbers, unrecorded_neighbors)
+
+
+def boundary_inventory(lib='数据集/教资'):
+    """全库清点"题面里吞掉另一道题"，并把其中"被吞掉的邻题在本卷没有独立记录"的那部分单列。
+
+    两类缺口的下一步动作相反：邻题已有独立记录时剪文本是去重；没有记录时剪文本等于删掉库里
+    唯一一份邻题内容，只能对着原件补收录。所以清单必须把这两类分开报，而不是给一个总数。
+    `numbered` 只数"正文露出邻题编号"的题，它才是补收录的分母；命中其它序列形态但没有编号的题
+    落不进这两侧，不能拿 `with_risk - unrecorded` 当成"已有独立记录"那一侧。
+    """
+    out = {'questions': 0, 'with_risk': 0, 'codes': collections.Counter(),
+           'numbered': 0, 'unrecorded_questions': 0, 'unrecorded_unlocated': 0,
+           'papers': 0, 'papers_without_locator': 0, 'where': collections.Counter(),
+           'pairs': set(), 'pairs_located': set()}
+    for path in sorted((ROOT / lib / 'questions').glob('*/*/*.jsonl')):
+        rows = [json.loads(line) for line in io.open(path, encoding='utf-8') if line.strip()]
+        recorded = recorded_numbers(rows)
+        out['papers'] += 1
+        if not recorded:
+            out['papers_without_locator'] += 1
+        scope = '%s/%s' % (path.parent.parent.name, path.parent.name)
+        # 卷的身份用"学段/科目/文件名"全路径，不用裸文件名：不同学段或科目下会有同名卷面文件，
+        # 裸名合并会把两道不同的补收录缺口当成一条，编号总数被压低。
+        paper = (path.relative_to(ROOT / lib / 'questions')).as_posix()
+        for q in rows:
+            out['questions'] += 1
+            evidence = mix_risk_evidence(q)
+            risks = boundary_risks(evidence)
+            if risks:
+                out['with_risk'] += 1
+                out['codes'].update(risks)
+            if not evidence['embedded_numbers']:
+                continue
+            out['numbered'] += 1
+            missing = unrecorded_neighbors(evidence, recorded)
+            if missing:
+                out['unrecorded_questions'] += 1
+                out['where'][scope] += 1
+                # 按（卷·编号）去重：同一卷里两道题都露出编号 77，要补的是同一条记录，不是两条。
+                out['pairs'].update((paper, n) for n in missing)
+                if recorded:
+                    out['pairs_located'].update((paper, n) for n in missing)
+                else:
+                    # 这份卷面一条题号定位都没有："没有记录"只说明定位缺失，不能当成收录缺口。
+                    out['unrecorded_unlocated'] += 1
+    out['unrecorded_numbers'] = len(out['pairs'])
+    out['unrecorded_numbers_located'] = len(out['pairs_located'])
+    return out
+
+
+boundary = boundary_inventory()
+
 L = []
 L.append('# 待复核清单（教研签署队列）\n')
 L.append('生成时间：%s。本清单只列**机器无法自行判定**的事项：每一项都需要具名教研复核，任何脚本都不代签。\n' % datetime.date.today().isoformat())
@@ -269,6 +325,50 @@ L.append('- 口径差异说明：`审查/validate_kb.py` 的 `Q_STEM_EMPTY` 判�
          '也就是运行时真正会少出题量的那一块。')
 L.append('- 补完后本表三条计数应同时下降，`tests/test_acceptance_gate.py` 的 A3 题干用例随之失去正例，'
          '需要按当时数据改判据。\n')
+
+L.append('### 3.2 题面吞掉邻题的题：剪文本还是补收录，看被吞的那道题有没有独立记录\n')
+L.append('判据与修复流程、回卷核对共用 `kb_tools/ntce_repair.py` 里的同一组函数'
+         '（`mix_risk_evidence` 出题面证据、`boundary_risks` 把证据映成形态码、'
+         '`recorded_numbers` 给出本卷已独立入库的题号、`unrecorded_neighbors` 取其中没有记录的那些），'
+         '本清单不另写一份正则；邻题编号按"数字 + 邻题常见开头词"识别，是**下限而不是穷举**。\n')
+L.append('| 题面边界形态（同一题可命中多项，不能相加） | 题数 |')
+L.append('| --- | --- |')
+for label, code in (('题干里有整道完整选项序列', 'complete_choice_sequence_in_stem'),
+                    ('选项文本里有整道完整选项序列', 'complete_choice_sequence_in_option'),
+                    ('一段文本里出现两道以上完整序列', 'multiple_complete_choice_sequences'),
+                    ('正文里露出别的题号', 'embedded_numbered_question_candidate')):
+    L.append('| %s | %s |' % (label, '{:,}'.format(boundary['codes'].get(code, 0))))
+L.append('| **命中任一项** | **%s**（本库 %s 题） |' % (
+    '{:,}'.format(boundary['with_risk']), '{:,}'.format(boundary['questions'])))
+L.append('\n下一轮该动哪一侧，由"被吞掉的邻题在本卷有没有独立记录"分开判，两侧动作相反。'
+         '分母只取"正文露出邻题编号"的 %s 题——其余命中题只数得出序列、认不出编号，无从判断有没有记录：\n'
+         % '{:,}'.format(boundary['numbered']))
+L.append('| 分岔 | 教资 | 该做的动作 |')
+L.append('| --- | --- | --- |')
+L.append('| 露出的编号在本卷都有独立记录 | %s 题 | 剪掉重复文本是去重，题量不变 |' %
+         '{:,}'.format(boundary['numbered'] - boundary['unrecorded_questions']))
+L.append('| **露出的编号在本卷没有独立记录** | **%s 题、%s 条（卷·编号）** | '
+         '**对着原件把漏收的题补成独立记录**；剪文本等于删掉库里唯一一份邻题内容 |' % (
+             '{:,}'.format(boundary['unrecorded_questions']), '{:,}'.format(boundary['unrecorded_numbers'])))
+L.append('| 命中序列但认不出任何编号 | %s 题 | 逐题回原卷人工判，机器不给结论 |' %
+         '{:,}'.format(boundary['with_risk'] - boundary['numbered']))
+L.append('\n- 补收录缺口的分布（列前 8 个学段·科目，共 %d 个）：%s。' % (
+    len(boundary['where']),
+    '、'.join('%s %s' % (scope, n) for scope, n in boundary['where'].most_common(8))))
+L.append('- 证据强度：全库 %d 份卷面里有 %d 份一条题号定位都没有，落在这些卷上的 %s 题（%s 条）只能说"定位缺失"——'
+         '无定位卷面撑不起"本卷没有这条记录"这个结论，表里那行 %s 题／%s 条是同口径总数，并没有替它担保。'
+         '减去这些之后，真正能对着原件补的是 %s 题／%s 条（%s 条出自带题号定位的卷面）。' % (
+             boundary['papers'], boundary['papers_without_locator'],
+             '{:,}'.format(boundary['unrecorded_unlocated']),
+             '{:,}'.format(boundary['unrecorded_numbers'] - boundary['unrecorded_numbers_located']),
+             '{:,}'.format(boundary['unrecorded_questions']), '{:,}'.format(boundary['unrecorded_numbers']),
+             '{:,}'.format(boundary['unrecorded_questions'] - boundary['unrecorded_unlocated']),
+             '{:,}'.format(boundary['unrecorded_numbers_located']),
+             '{:,}'.format(boundary['unrecorded_numbers_located'])))
+L.append('- 逐题证据（字段名、序列计数、被吞掉的编号清单）在 `数据集/教资/review/answer_conflict_reconciliation.jsonl` '
+         '的 `content_boundary`；该文件只覆盖已核对过的那一批，本表是全库现算，两边口径同一份函数。')
+L.append('- 这批缺陷不会被 `审查/validate_kb.py` 单独计数：它记的是 `Q_ANSWER_SOURCE_CONFLICT` 之类的题级缺口，'
+         '而"漏收邻题"在库里表现为**根本没有那条记录**，所以只能靠本表发现，不能等严格审查报出来。\n')
 
 L.append('\n## 4. 评分量规与权重（题内框架一律不可判分）\n')
 L.append('库里有两套量规形状，契约不同：`数据集/教资/schemas/rubric.json` 是 附录 A.6 的可计算加权量规实体，'
@@ -384,7 +484,10 @@ L.append('4. 考务规格核定（§6）：只改 `数据集/**/paper_specs.json
          '运行时按逐节分钟数推进时序，服务不会替官方卷面补齐或删减分钟数。')
 L.append('5. 题面用时核定（§6.1）：卷面确实要求单题用时的，写进对应题目的 `extra.task_constraints.time_limit_minutes`；'
          '库里没写的，组卷只会按服务配速估时并标注为估计，不会冒出"官方建议用时"。')
-L.append('6. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、'
+L.append('6. 题面吞邻题（§3.2）：先按 `content_boundary` 的编号查本卷有没有独立记录——有记录的剪重复文本，'
+         '没有记录的对着原始 PDF 把漏收的那道题补成独立记录再重建索引；**不许用剪文本"清理"补收录缺口**，'
+         '那等于删掉库里唯一一份邻题内容。')
+L.append('7. 每轮改动后运行：`python -m pytest tests -q`、`python 审查/状态词表检查.py 数据集/教资`、'
          '`python 审查/validate_kb.py`、`python 审查/build_review_queue.py`（清单是生成物，不要手改）。\n')
 
 out = '\n'.join(x for x in L if x is not None) + '\n'
@@ -393,5 +496,7 @@ target.write_text(out, encoding='utf-8')
 print('written %s, lines: %s' % (target, out.count('\n')),
       '| prereq rows NTCE/CET: %d %d' % (len(rows_by_lib['NTCE']), len(rows_by_lib['CET'])),
       '| unreferenced clauses: %d' % len(unref),
+      '| boundary risks/unrecorded: %d/%d 题, %d 条编号' % (
+          boundary['with_risk'], boundary['unrecorded_questions'], boundary['unrecorded_numbers']),
       '| spec timing gaps NTCE/CET: %d %d' % (specs['NTCE']['no_timing'],
                                               sum(specs['CET']['timing_mismatch'].values())))

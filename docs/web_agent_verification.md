@@ -172,3 +172,34 @@ L7 升格这一轮的计数（**447 项通过、63 个子测试通过、7 项失
 
 `refused_with_open_question_boundary`（7）比拒绝原因 `cross_question_risk_open`（6）多 1：`na-p1-jx.q02` 先因五选项多选被拒，串题证据照样登记。这两个数不该相等，摘要把它们分成两个字段而不是合并成一个"串题题数"。
 
+## 补收录缺口的全库规模进了现算复核清单（2026-10-11，未动数据）
+
+上一节把 12 道拒绝题的串题证据落到字段，这一节把同一缺陷的**全库规模**变成可核对的现算清单。改动只在 `kb_tools/ntce_repair.py`（判据拆成 `mix_risk_evidence` 出证据、`boundary_risks` 映形态码、`recorded_numbers` 给本卷已入库题号、`unrecorded_neighbors` 取没有记录的那些）、`kb_tools/ntce_conflict_reconcile.py`（改调这同一份函数，删掉自己那份题号与"无记录"计算）、`审查/build_review_queue.py`（新增 §3.2）与三份文档。**题库一行没动**：一条答案、一个审核字段、一张卡片、一条图边都没变。
+
+现算结果（重跑 `python 审查/build_review_queue.py` 可复现，清单里的数字不手抄）：
+
+- 命中任一边界形态 **646** 题（本库 14,500 题）；四个形态各自 280／295／564／227，同一题可命中多项，所以命中数小于四项相加的 1,366。
+- 分岔只在"正文露出邻题编号"的 227 题里分：**75 题**的邻题在本卷有独立记录（剪重复文本是去重，题量不变）；**152 题、195 条（卷·编号）**在本卷没有独立记录——按上一节已确认的口径，**这些文本不能剪**，剪掉等于删掉库里唯一一份邻题内容，动作是回原件补收录；其余 **419 题**只数得出序列、认不出编号，逐题人工回卷，机器不给结论。
+- 195 条按"学段／科目／卷面文件·编号"去重，其中 2 条落在一条题号定位都没有的 9 份卷面上，那部分只能说"定位缺失"，所以真正能对着原件补的是 **150 题／193 条**；缺口分布在 33 个学段·科目，最集中的是 `chuzhong/yuwen` 与 `gaozhong/yuwen`（各 12 条）。
+
+三个口径错各有一条负向断言钉住，防止清单再漂回去：
+
+- 分母若用回全部命中题（646−152），会把"认不出编号"的 419 题登记成"邻题已有独立记录"，也就是把待人工回卷的题当成可以直接剪文本的题。
+- 去重键若用裸文件名：`2019b.jsonl` 这类文件名在 14 个学段·科目目录下都出现，实测把 195 条并成 166 条，29 条缺口藏在合并里。用例同时断言两种键的结果数**不相等**，这条断言不会因数据变化而空跑。
+- 无定位卷面的那部分被单列成"证据强度"，并把表中总数减去它给出可动手的题数／条数；清单不把"没有定位"写成"没有记录"。
+
+覆盖在 `tests/test_acceptance_gate.py`：`test_the_boundary_fork_rows_are_recomputed_from_the_library` 用同一组函数把 §3.2 的每个单元格与题库现算逐行对齐；`test_the_queue_does_not_own_a_second_copy_of_the_boundary_rules` 用 AST 禁止清单脚本 `import re`，并要求它从 `ntce_repair` 取那四个函数。`test_the_review_queue_is_generated_not_transcribed` 继续保证整份清单是生成物。
+
+这类缺陷在库里表现为**根本没有那条记录**，`审查/validate_kb.py` 的题级缺口码不会单独计数，所以严格审查这轮逐字不变（`structure_errors = 0`、`remaining_gaps = 130,738`、退出码 `1`），完整性快照同样不变（13,291 可练、1,018 冲突、149 缺答案）。退出码 1 是内容缺口的既有状态，不是本轮引入的回归；`structure_errors` 保持 0。
+
+下一轮按 §3.2 的 150 题／193 条回原件补收录：补成独立记录后走唯一出口重建索引与卡片，验收看该表三条计数同时下降、`structure_errors` 仍 0，且新记录的 `checked_by` / `content_verified` 不因补收录而提升。
+
+| 命令 | 结果 |
+| --- | --- |
+| `python -m pytest tests -q`（主工作区工作树，最终状态） | `459 项通过、63 个子测试通过、7 项失败`，实测 179.46 秒，退出码 `1`。通过数比上一节的 457 多 2，正是本轮新增的两条用例；失败 7 项与上一节**逐条同名**（5 项 `test_learning_workflow.py` 的 `exam_sessions` AttributeError、2 项 `test_learning_resources.py` 的有意缺口标记），仍全在并行会话未入库的那条线上，本会话不碰也不把它们的红算成自己的绿 |
+| `python -m pytest tests/test_acceptance_gate.py -k "boundary_fork or second_copy or review_queue_is_generated" -q` | 3 passed，40 deselected，退出码 0 |
+| `python 审查/audit_ntce_completeness.py` | 退出码 0；13,291 可练、来源冲突 1,018、缺答案 149、无题叶子 7、未签署量规 6、L7 = 11、图边 96,785——与上一节逐字相同，`审查/教资完整性核对.json` 重跑后 `git status` 干净（快照不含钟点，所以能证明数据未变） |
+| `python 审查/状态词表检查.py 数据集/教资` | 15,185 条 0 违规，退出码 0 |
+| `python 审查/状态词表检查.py 数据集/四六级` | 31,991 条 0 违规，退出码 0 |
+| `python 审查/validate_kb.py --output .local_state/web_audit_final.json` | 退出码 `1`：`structure_errors = 0`、`remaining_gaps = 130,738`，逐项与上一节相同——数据未动，只有清单生成物与代码变了 |
+

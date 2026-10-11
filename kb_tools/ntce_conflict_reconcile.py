@@ -15,8 +15,9 @@ from collections import Counter
 from build_kb import OUT, ROOT, load_text, parse_answers, classify_answer
 from ntce_analysis_fill import (METHOD as RULE_METHOD, build_explanation, build_key_info,
                                 build_option_compare, load_node_index, node_anchor)
-from ntce_repair import (mix_risk_evidence, question_pending, read_rows, reviewed_content,
-                         sync_cards, write_rows)
+from ntce_repair import (mix_risk_evidence, question_pending, read_rows, recorded_numbers,
+                         reviewed_content, source_locator_number, sync_cards, unrecorded_neighbors,
+                         write_rows)
 from ntce_io import atomic_write
 
 RECONCILED = 'source_conflict_answer_reconciled'
@@ -38,8 +39,7 @@ def reconcile_one(q, parsed, recorded_numbers=()):
     """返回一条核对证据；result=reconciled 表示可以落回，refused 表示证据不足。"""
     c, ex, rv = q['content'], q['extra'], q['review']
     source = next((f for f in q['source'].get('files', []) if f['role'] == 'answer_raw'), None)
-    locator = (rv.get('type_source_verification') or {}).get('locator') or {}
-    number = locator.get('number')
+    number = source_locator_number(q)
     candidate = (ex.get('answer_candidate') or {}).get('answer')
     option_keys = [o['key'] for o in (c.get('options') or [])]
     record = {'question_id': q['question_id'], 'level': q['level'], 'subject': q['subject'],
@@ -56,8 +56,7 @@ def reconcile_one(q, parsed, recorded_numbers=()):
         evidence = mix_risk_evidence(q)
         record['content_boundary'] = {
             **evidence,
-            'embedded_numbers_without_record': sorted(
-                n for n in evidence['embedded_numbers'] if n not in recorded_numbers)}
+            'embedded_numbers_without_record': unrecorded_neighbors(evidence, recorded_numbers)}
     if not source:
         return _refuse(record, 'answer_file_missing')
     path = ROOT / source['path']
@@ -173,9 +172,7 @@ def run(scope=None, apply_changes=False):
         parsed_by_file = {}
         # 本卷已入库的题号：串题证据要用它判断被吞掉的邻题是有独立记录（剪文本是去重）
         # 还是根本没收录（剪文本会删掉库内唯一一份，必须走补收录）。
-        recorded_numbers = {(q['review'].get('type_source_verification') or {}).get('locator', {})
-                            .get('number') for q in rows}
-        recorded_numbers.discard(None)
+        paper_recorded = recorded_numbers(rows)
         restored = []
         changed = 0
         for q in targets:
@@ -183,7 +180,7 @@ def run(scope=None, apply_changes=False):
             path = ROOT / source['path'] if source and source.get('path') else None
             if path is not None and path not in parsed_by_file:
                 parsed_by_file[path] = parse_answers(load_text(path)) if path.exists() else {}
-            record = reconcile_one(q, parsed_by_file.get(path, {}), recorded_numbers)
+            record = reconcile_one(q, parsed_by_file.get(path, {}), paper_recorded)
             record['scope'] = f'{level}/{subject}'
             records.append(record)
             if record['result'] == 'reconciled':
