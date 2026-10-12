@@ -1,6 +1,6 @@
 """测试四六级与教资知识库短板补齐全量契约与功能规范 (Gap Remediation Tests)。
 覆盖：
-1. 四六级 RAG 双轨自包含 Markdown 卡片 (5,340 题卡与 Frontmatter 校验)
+1. 四六级 RAG 双轨自包含 Markdown 卡片（卡片轨与题目轨的双向一致，Frontmatter 校验）
 2. 写作与翻译试题规整与入库契约 (73 题写译各 4 份文件及评分量规)
 3. 卷级模考规格 PaperSpecification (四六级 126 套 710 分制，教资 32 套 120 分制)
 4. 多模态听力音频切片与时间对齐 (120 套音频索引及切片验证)
@@ -17,6 +17,37 @@ ROOT = Path(__file__).resolve().parents[1]
 CET_KB = ROOT / "数据集" / "四六级"
 NTCE_KB = ROOT / "数据集" / "教资"
 
+# 卡片目录里的说明文档不是知识卡：运行时 services/knowledge/vector_index.py::card_files 同样按文件名排除，
+# 门禁若不排除就会把文档当卡片计数、校验甚至改写。
+DOC_FILE_NAMES = {"README.md"}
+# 写作与翻译题只有题记录与量规，不进 RAG 卡片轨；口径见 数据集/四六级/scripts/generate_cards.py。
+UNCARDABLE_MODULES = {"写作", "翻译"}
+
+
+def data_cards(cards_dir: Path):
+    return sorted(p for p in cards_dir.rglob("*.md") if p.name not in DOC_FILE_NAMES)
+
+
+def cet_question_records():
+    records = []
+    for path in sorted((CET_KB / "questions").rglob("*.jsonl")):
+        for line in path.read_text("utf-8").splitlines():
+            if line.strip():
+                records.append(json.loads(line))
+    return records
+
+
+def card_frontmatter_id(path: Path):
+    with path.open(encoding="utf-8") as handle:
+        if handle.readline().strip() != "---":
+            return None
+        for line in handle:
+            if line.strip() == "---":
+                return None
+            if line.startswith("id:"):
+                return line.partition(":")[2].strip()
+    return None
+
 
 class GapRemediationTests(unittest.TestCase):
     @classmethod
@@ -31,18 +62,35 @@ class GapRemediationTests(unittest.TestCase):
     def test_rag_cards_count_and_path_convention(self):
         cards_dir = CET_KB / "cards"
         self.assertTrue(cards_dir.exists(), "CET cards 目录不存在")
-        all_cards = list(cards_dir.rglob("*.md"))
-        self.assertEqual(5340, len(all_cards), f"四六级卡片总数应精确为 5340，实际为 {len(all_cards)}")
-        
-        c4_cards = list((cards_dir / "cet4").rglob("*.md"))
-        c6_cards = list((cards_dir / "cet6").rglob("*.md"))
-        self.assertEqual(2445, len(c4_cards), f"CET4 卡片数应为 2445，实际为 {len(c4_cards)}")
-        self.assertEqual(2895, len(c6_cards), f"CET6 卡片数应为 2895，实际为 {len(c6_cards)}")
+        cards = data_cards(cards_dir)
+        records = cet_question_records()
+
+        # 卡片数不写死：由题目轨现算——每题一张卡，写作与翻译题不建卡。
+        expected = [q for q in records if q.get("module") not in UNCARDABLE_MODULES]
+        self.assertEqual(len(expected), len(cards),
+                         "卡片张数应等于「题目总数 − 写作/翻译题数」，实际题目 %d 张、可建卡 %d 张、卡片 %d 张"
+                         % (len(records), len(expected), len(cards)))
+
+        expected_ids = {q["question_id"] for q in expected}
+        card_ids = {card_frontmatter_id(p) for p in cards}
+        self.assertEqual(len(card_ids), len(cards), "卡片 frontmatter 的 id 缺失或重复: %s"
+                         % sorted(p for p in cards if card_frontmatter_id(p) is None)[:5])
+        self.assertEqual(expected_ids, card_ids,
+                         "卡片轨与题目轨必须双向一致（缺卡/孤儿卡）: 题有卡无 %s；卡有题无 %s"
+                         % (sorted(expected_ids - card_ids)[:5], sorted(card_ids - expected_ids)[:5]))
+
+        for exam_key in ("cet4", "cet6"):
+            folder_cards = data_cards(cards_dir / exam_key)
+            self.assertTrue(folder_cards, "%s 卡片目录为空" % exam_key)
+            in_folder = {card_frontmatter_id(p) for p in folder_cards}
+            by_id_prefix = {qid for qid in card_ids if qid.startswith("%s-" % exam_key)}
+            self.assertEqual(in_folder, by_id_prefix,
+                             "%s 目录必须恰好收纳该考试的卡片（目录归属与 id 前缀不许分叉）" % exam_key)
 
     def test_rag_cards_frontmatter_schema_and_four_stage_analysis(self):
         cards_dir = CET_KB / "cards"
-        all_cards = sorted(cards_dir.rglob("*.md"))
-        # 抽样 60 份卡片做结构与内容全面校验
+        all_cards = data_cards(cards_dir)
+        # 按卡片全集等距抽样，覆盖各 exam/年份/题型
         sample_cards = all_cards[::90]
         self.assertGreater(len(sample_cards), 50)
         

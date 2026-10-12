@@ -158,7 +158,7 @@ def main():
                    if "graph" not in p.parts and not any(part.startswith("_backup") for part in p.parts))
     for path in files:
         total += migrate_jsonl(path)
-    cards = sorted(OUT.joinpath("cards").rglob("*.md"))
+    cards = sorted(p for p in OUT.joinpath("cards").rglob("*.md") if p.name != "README.md")
     card_changed = sum(migrate_card(p) for p in cards)
 
     after = collections.Counter()

@@ -14,6 +14,8 @@ intent from ``answer_text`` is still honest, since the graded result is gated by
 """
 from __future__ import annotations
 
+from typing import Tuple
+
 from services.common.models import UserIntent
 
 # Ordered: the first group whose keyword appears in the utterance wins.
@@ -61,20 +63,32 @@ class IntentRouter:
 
     @staticmethod
     def classify(message: str, action_payload: dict | None = None) -> UserIntent:
+        return IntentRouter.classify_with_reason(message, action_payload)[0]
+
+    @staticmethod
+    def classify_with_reason(message: str, action_payload: dict | None = None) -> Tuple[UserIntent, str]:
+        """Same decision, plus the sentence that explains it.
+
+        The reason exists because the workbench shows its routing to the learner: "命中关键词「批改」"
+        is checkable, "我猜是批改" is not. When nothing matched, the reason says so instead of hiding
+        the fallback.
+        """
         payload = dict(action_payload or {})
         explicit = str(payload.get("intent") or "")
         if explicit:
             try:
-                return UserIntent(explicit)
+                return UserIntent(explicit), f"动作载荷显式声明 intent={explicit}，直接采信。"
             except ValueError:
                 pass  # an unknown label is not a reason to fabricate an intent
 
         text = (message or "").lower()
         for intent, keywords in INTENT_KEYWORDS:
-            if any(keyword.lower() in text for keyword in keywords):
-                return intent
+            for keyword in keywords:
+                if keyword.lower() in text:
+                    return intent, f"话里出现关键词「{keyword}」→ {intent.value}（关键词组按特异性排序，先命中先定）。"
 
-        return IntentRouter._from_payload(text, payload)
+        inferred = IntentRouter._from_payload(text, payload)
+        return inferred, f"这句话没有命中任何意图关键词，按动作载荷的形状推断为 {inferred.value}。"
 
     @staticmethod
     def _from_payload(text: str, payload: dict) -> UserIntent:

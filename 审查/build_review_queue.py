@@ -199,7 +199,7 @@ total_missing = sum(1 for m in _all_meta if m.answer_status == 'missing')
 
 # 题面吞邻题的清点：判据与修复、回卷核对共用 kb_tools/ntce_repair.py 那一份函数，清单不另写正则。
 sys.path.insert(0, str((ROOT / 'kb_tools').resolve()))
-from ntce_repair import (boundary_risks, mix_risk_evidence,  # noqa: E402
+from ntce_repair import (boundary_risks, dedup_audit, mix_risk_evidence,  # noqa: E402
                          recorded_numbers, unrecorded_neighbors)
 
 
@@ -253,6 +253,11 @@ def boundary_inventory(lib='数据集/教资'):
 
 boundary = boundary_inventory()
 
+# 判重归属的可核对性：建库那份指纹的算法只有一份（norm_stem + sha），本节拿它复算今天的归属还站不站得住。
+dedup = dedup_audit([json.loads(line)
+                     for path in sorted((ROOT / '数据集' / '教资' / 'questions').glob('*/*/*.jsonl'))
+                     for line in io.open(path, encoding='utf-8') if line.strip()])
+
 L = []
 L.append('# 待复核清单（教研签署队列）\n')
 L.append('生成时间：%s。本清单只列**机器无法自行判定**的事项：每一项都需要具名教研复核，任何脚本都不代签。\n' % datetime.date.today().isoformat())
@@ -301,7 +306,10 @@ L.append('- 教资 `source_conflict` %d 题：来源答案相互矛盾，`conten
 L.append('- 四六级 `source_conflict` %d 题、`missing` %d 题：听力口语项与部分客观项原文未恢复答案，不得用模型补答。'
          % (stats['CET']['ans'].get('source_conflict', 0), stats['CET']['ans'].get('missing', 0)))
 L.append('- 教资 `missing` %d 题：原答案文件标注“略/暂缺”。' % stats['NTCE']['ans'].get('missing', 0))
-L.append('- RAG 卡片：教资 12,881 张有效（14,500 题中 1,619 题判为重复题干，按设计不出卡，避免污染向量库）。\n')
+L.append('- RAG 卡片：教资 %s 张（磁盘现数），另有 %s 题判为重复题干按设计不出卡（避免同一内容在向量库里堆多份）；'
+         '这些归属里 %s 条今天已核不出来，见 §3.3。\n' % (
+             '{:,}'.format(sum(1 for _ in (ROOT / '数据集' / '教资' / 'cards').glob('*/*/*/q*.md'))),
+             '{:,}'.format(dedup['links']), '{:,}'.format(dedup['uncheckable'])))
 L.append('### 3.1 运行时已按 A3 挡下的两类题（由 `审查/build_review_queue.py` 现算，判据在 `services/knowledge/repository.py:has_answerable_text`）\n')
 L.append('这两类都不是可信度问题，而是**抽取完整性**问题：机器能看出题号，看不出可作答的题面。'
          '运行时不猜题干、也不把它们计入可用题量。\n')
@@ -365,10 +373,47 @@ L.append('- 证据强度：全库 %d 份卷面里有 %d 份一条题号定位都
              '{:,}'.format(boundary['unrecorded_questions'] - boundary['unrecorded_unlocated']),
              '{:,}'.format(boundary['unrecorded_numbers_located']),
              '{:,}'.format(boundary['unrecorded_numbers_located'])))
-L.append('- 逐题证据（字段名、序列计数、被吞掉的编号清单）在 `数据集/教资/review/answer_conflict_reconciliation.jsonl` '
-         '的 `content_boundary`；该文件只覆盖已核对过的那一批，本表是全库现算，两边口径同一份函数。')
+L.append('- 逐题证据（字段名、序列计数、被吞掉的编号清单）在 `数据集/教资/review/answer_conflict_reconciliation.<学段>_<科目>.jsonl` '
+         '的 `content_boundary`，一批科目一份；那里只有核对过的批次，本表是全库现算，两边口径同一份函数。')
 L.append('- 这批缺陷不会被 `审查/validate_kb.py` 单独计数：它记的是 `Q_ANSWER_SOURCE_CONFLICT` 之类的题级缺口，'
          '而"漏收邻题"在库里表现为**根本没有那条记录**，所以只能靠本表发现，不能等严格审查报出来。\n')
+
+L.append('\n### 3.3 判重归属：按设计不出卡的 %s 题里，%s 条的归属机器核不出来\n' % (
+    '{:,}'.format(dedup['links']), '{:,}'.format(dedup['uncheckable'])))
+L.append('建库时按 `sha(norm_stem(题干))` 认重复题干，被认作重复的那道题**不出卡**——卡只给被指向的那道，'
+         '上面 §3 那句"%s 题判为重复题干"数的就是这些归属。判据与修复、回卷核对共用 '
+         '`kb_tools/ntce_repair.py:dedup_evidence` 那一份（归一化也取自建库的 `norm_stem`），本清单不另写一套。\n'
+         % '{:,}'.format(dedup['links']))
+L.append('| 归属形态（同一归属可命中多项，相加前先对总数） | 条数 |')
+L.append('| --- | --- |')
+for label, code in (('指纹是空题干', 'empty_stem_fingerprint'),
+                    ('指纹只剩一个残留字（如"缺"）', 'single_character_stem_fingerprint'),
+                    ('题干在判重之后被改过，现指纹已与规范题不等', 'stem_no_longer_matches'),
+                    ('指向的规范题在库里已不存在', 'canonical_record_missing')):
+    L.append('| %s | %s |' % (label, '{:,}'.format(dedup['codes'].get(code, 0))))
+L.append('| **归属可核对（指纹承载题干内容且仍相等）** | **%s**（共 %s 条） |' % (
+    '{:,}'.format(dedup['checkable']), '{:,}'.format(dedup['links'])))
+L.append('\n- 前两类是**指纹不承载内容**：归一化后是空串或只剩一个残留字，两条抽取都失败过就等于"同一道题"，'
+         '相等说明不了两道题是同一道题。第三类是**归属已自相矛盾**：这道题既没有自己的卡，'
+         '规范题那张卡讲的也不是它——RAG 召回看不见它，但 `validate_kb` 也不报错，因为"记录在、卡不在"是设计行为，'
+         '形状上没有缺陷可报，只有本节这种现算能看到。\n')
+L.append('- 卡集交叉核对：这 %s 条归属里，%s 条确实没有自己的卡（与“重复题不出卡”一致）。'
+         '这个数字哪天不再等于归属总数，就说明出卡与判重两套口径开始各说各话。\n' % (
+             '{:,}'.format(dedup['links']),
+             '{:,}'.format(dedup['links'] - dedup['card_written'])))
+L.append('- 另一维缺口是**代答落空**：这 %s 条归属里有 %s 条，规范题自己就没有可给出的答案'
+         '（`answer_status` 为 `missing`／`source_conflict`，`content.answer` 已置 null，卡上印的是“未提供”）。'
+         '它不计进上面的“归属核不出来”——指纹仍然相等、归属仍然对得上，缺的是答案而不是归属；'
+         '其中 %s 条归属完全可核对，唯一的缺口就是这一条。清 `duplicate_of` 不解决它，'
+         '要动的是规范题那一侧的答案核对，两类动作分开排。\n' % (
+             '{:,}'.format(dedup['links']),
+             '{:,}'.format(dedup['answer_carrier_missing']),
+             '{:,}'.format(dedup['answer_carrier_missing_checkable'])))
+L.append('- 不可核对的归属集中在：%s（共 %d 个学段·科目）。' % (
+    '、'.join('%s %s' % (scope, n) for scope, n in dedup['where'].most_common(8)), len(dedup['where'])))
+L.append('- 需要人做的动作：逐条回原卷判定"是重题"还是"两道题"。脚本不自动清 `duplicate_of`——'
+         '清了会一次性多出几百张卡，卡集数量、可练题量与向量索引的口径同时变，只能分批人工核。'
+         '核对结果要落在题记录的 `extra.source_repairs`，并保留题号、修改前后内容与依据。\n')
 
 L.append('\n## 4. 评分量规与权重（题内框架一律不可判分）\n')
 L.append('库里有两套量规形状，契约不同：`数据集/教资/schemas/rubric.json` 是 附录 A.6 的可计算加权量规实体，'

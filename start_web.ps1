@@ -1,4 +1,4 @@
-param([int]$Port = 8000, [switch]$Install)
+﻿param([int]$Port = 8000, [switch]$Install)
 $ErrorActionPreference = 'Stop'
 $workspacePath = [System.IO.Path]::GetFullPath($PSScriptRoot)
 Set-Location -LiteralPath $workspacePath

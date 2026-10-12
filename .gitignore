@@ -66,3 +66,7 @@ _contract_snapshot/
 
 # Chroma 向量索引：可从 数据集/*/cards 全量重建，不入库
 chroma/
+
+# 会话级草稿区：一次性只读探针 + sqlite 运行时状态实例（见 .scratch/README.md），
+# 与 .local_state/ 同类按机器隔离，不属于交付内容
+.scratch/

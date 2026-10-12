@@ -1,0 +1,28 @@
+# services/interview/ —— 教资面试的文字反馈层：试讲转写测算 + 简案复核，只出反馈不出分
+
+这一层把考生提交的**文本**（试讲转写稿、20 分钟教学设计简案）变成可核对的反馈：语速/口头禅/停顿/五环节覆盖是测算值，简案的维度、分值与档位措辞逐字引自库内量规。写它的是能力层本身，读它的是 `services/app.py` 的 `POST /api/v1/interview/speech`、`POST /api/v1/interview/lesson_plan`，`services/master/agent.py::TutorMasterAgent._interview_turn`，以及 `services/web/service.py::Workbench.interview_agent`（由 `services/learning/interview.py::InterviewTrainer._grade_single` 驱动网页面试训练）。本目录只读 `数据集/教资/rubrics/*.json`，唯一的写盘动作是量规未签署时向 `.local_state/review_queue/rubric_signature_required.jsonl` 追加一行待复核记录（经 `services/review/queue.py`）。
+
+动它之后要跑（状态目录指向临时处，避免污染本机教研队列与学习记录）：
+
+```powershell
+$env:KNOWLEDGE_MAP_STATE_DIR = "D:\tmp\kb_state_check"
+python -m pytest tests/test_services_all_agents.py -q -k Interview      # TestInterviewCoach 三条
+python -m pytest tests/test_services_api.py -q -k interview            # 两个 HTTP 端点的反馈口径
+python -m pytest tests/test_interview_session.py -q                    # 网页面试训练会话（本轮实测 6 passed）
+```
+
+## 文件清单
+
+- `agent.py`（89 行）—— `InterviewCoachAgent`，本目录唯一的对外门面。构造参数 `repository`（默认 `services.knowledge.repository.get_repository()`）与 `review_queue`（默认 `services.review.queue.get_review_queue()`）都可注入：`services/app.py::_probe_resources` 在 `/api/v1/health` 探针里传临时目录的 `ReviewQueue`，就是为了健康检查不给教研塞队列行。入口两个：`analyze_speech(req: SpeechAnalysisRequest) -> SpeechAnalysisResponse` 先调 `SpeechAnalyzer.evaluate`，再 `repository.find_rubric(task_type="interview_teaching", exam="NTCE")` + `TrustGate(tier).classify_rubric(...)` 取 `verdict.signed/notices` 填进 `rubric_signed`/`notices`；`tier == "published"` 且未签署时把 `coaching_feedback` 整段替换为"published 档位不出具任何面试评分……已转人工复核"，并追加一句 notice；只要 `not verdict.signed` 就调 `_enqueue`。`review_lesson_plan(req: LessonPlanReviewRequest) -> LessonPlanReviewResponse` 走 `LessonPlanEvaluator.evaluate(req, tier=…)`，`total_score is None` 时同样 `_enqueue`。`_enqueue` 写死的键是 `reason="rubric_signature_required"`（码必须在 `services/review/reasons.py` 词表内，否则 `describe()` 抛 `UnknownReasonError`）、`user_id="interview_agent"`、`source="services.interview.agent"`，detail 带 `capability`（`speech`/`lesson_plan`）、`rubric_id`、`review_status`、`why_queued`、`next_action`（指向 `数据集/教资/rubrics` 由教研签署后 reopen）。`_tier` 静态方法把 `TrustTier` 枚举折成字符串。本地跑一条：`python -m uvicorn services.app:app --host 127.0.0.1 --port 8000` 后 `curl -X POST http://127.0.0.1:8000/api/v1/interview/speech -H 'Content-Type: application/json' -d '{"transcript_text":"导入：同学们请看大屏幕。新授：先自主探究，再小组讨论。巩固：完成课堂练习。小结：谁能说一说收获？","audio_duration_seconds":300}'`（若设了 `KNOWLEDGE_MAP_RUNTIME_TOKEN` 还要带 `Authorization: Bearer <token>`）。
+- `speech_analyzer.py`（137 行）—— `SpeechAnalyzer.evaluate(req)`（classmethod，不碰库、不碰磁盘，可对任意转写文本单测）。产出：`words_per_minute` = `len(re.findall(r"[\u4e00-\u9fff]|[a-zA-Z0-9]+", text))` ÷ `max(1.0, audio_duration_seconds)/60`；`speed_evaluation` 按 `COMFORTABLE_WPM = (180.0, 270.0)` 判 `too_slow/optimal/too_fast`；`filler_words_count` 遍历 `FILLER_WORDS = ["然后","那个","就是","这个","嗯","啊"]` 只记出现过的；`hesitation_pause_count` = 入参 `audio_pauses` 里 ≥ `PAUSE_HESITATION_SECONDS = 3.0` 的个数；`teaching_phases` 按 `PHASE_KEYWORDS`（导入/新授/巩固/小结/作业，每环节 6 条标志语）取首个命中的关键词回摘 10+15 字原文片段，未命中写"转写文本内未出现该环节的标志语"；`phase_coverage_rate = covered/5`；`overall_score` 恒 `None`（模块 docstring 记着旧版在这里内置 20/20/20/40 权重，而库内 `数据集/教资/rubrics/interview_teaching.json` 是 50 分制且 `review.status=needs_fix`、`checked_by=null`）。`_feedback` 拼出人读的那段并把最后一句钉成"以上为 N 分钟文本的测算结果，不构成等级或分数"。`transcript_text` 为空时直接返回模块级常量 `NO_TRANSCRIPT`（语速 0、覆盖 0、不评分），不做任何测算。
+- `lesson_plan.py`（122 行）—— `LessonPlanEvaluator(repository).evaluate(req, *, tier="research_internal") -> LessonPlanReviewResponse`。维度清单、`weight_score`、`criteria_levels` 的措辞全部读自 `repository.find_rubric(task_type="lesson_plan", exam="NTCE")`（即 `数据集/教资/rubrics/lesson_plan.json`：5 个维度 10/6/16/4/4，合计 40 分，同样未签署），本文件不内置任何维度或权重。`_presence(text, dimension)` 先把维度名与各档描述里的 `ELEMENT_CUE`（教学目标/重点/难点/导入/新授/巩固/小结/作业/板书/理念/设计意图）拿来做显性命中（命中即 `ratio=1.0` 并回摘 ±6/+24 字片段），否则退回 `services.grader.evidence.overlap` 的文本重合度；`pick_level(levels, ratio)` 选档位并取 `descriptor`；无片段的维度名进 `missed_elements`。`total_score` 只在 `verdict.may_score`（found 且 signed）时由 `_signed_total` 按 `Σ weight*min(1, ratio)` 得出，否则为 `None` 且 `feedback_only=True`。notice 来源：量规缺失时 `NO_RUBRIC_NOTICE`，未签署时 `FEEDBACK_ONLY_NOTICE`，其余透传 `TrustGate` 的措辞。跑一份：`POST /api/v1/interview/lesson_plan`，body `{"topic":"《春晓》","plan_text":"教学目标：……","trust_tier":"research_internal"}`。
+- `__init__.py`（4 行）—— 只转出 `InterviewCoachAgent`（`__all__`），不改行为；`services/app.py`、`services/master/agent.py`、`services/web/service.py` 都从这里或直接从 `services.interview.agent` 取类。
+
+## 改这里之前要知道的
+
+- **"没有官方报告分"是设计不是缺口**：`overall_score`/`total_score` 的开关只有一处，即 `services/knowledge/trust.py::TrustGate.classify_rubric` 读到的 `review.status ∈ {"checked","expert_reviewed"}` 且 `checked_by` 非空且 `expert_verified` 为真。库里 6 份量规全部 `needs_fix`（见 `审查/待复核清单.md`），所以现在恒为反馈态。想让它出分得改数据（教研在 `数据集/教资/rubrics` 具名签署），不许在服务里加默认权重或把 `signed` 判松。
+- 未签署时必须留下队列行：`_enqueue` 是 A9"人工不旁路"的落点之一，把拒绝改成静默返回或改成返回一个 0 分都会破坏 `tests/test_acceptance_gate.py` 的 `TestA9HumanInTheLoop` 口径。队列文件在 `.local_state/review_queue/`（不入库、可整目录删除重建）。
+- 别把维度与权重抄回服务里：`lesson_plan.py` 顶部 docstring 记着旧版在文件内写了 10/8/16/6=40，与库内 10/6/16/4/4 打架，等于第二份真相。同理 `speech_analyzer.py` 不许出现任何评分权重常量。
+- 量规的题图口径只允许"引自库内"：`ELEMENT_CUE` 与 `PHASE_KEYWORDS` 是**标志语提示**，不是采分点；新增关键词会改变 `phase_coverage_rate` 与 `missed_elements`，而这两个数会直接出现在网页反馈里（`web/workflows.js::interviewFeedbackBox`、`web/app.js` 的面试视图），改完要连着看前端渲染。
+- `published` 档在这里是"拒答"而不是"降级出分"：`analyze_speech` 在 published 且未签署时覆盖 `coaching_feedback`。若改成透传测算文本，等于对外档位给出了可被当成分数依据的东西。
+- 本目录与 `services/learning/interview.py` 共用 `InterviewCoachAgent` 实例（经 `Workbench.interview_agent`）：那里还额外用 `interview_qa` 量规做结构化问答的点级比对，动 `agent.py` 的返回字段会同时影响 `tests/test_interview_session.py`。

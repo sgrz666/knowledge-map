@@ -7,6 +7,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23243f35'/%3E%3Ctext x='13' y='45' font-size='40' fill='%23f5f1e7'%3E知%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="/assets/app.js" defer></script>
+  <script src="/assets/workflows.js" defer></script>
 </head>
 <body>
 <div class="app-shell">
@@ -17,6 +18,7 @@
       <button data-view="chat" class="nav-item active"><span>◇</span>学习助手<small>01</small></button>
       <button data-view="practice" class="nav-item"><span>▤</span>练习与模考<small>02</small></button>
       <button data-view="plan" class="nav-item"><span>▦</span>学习计划<small>03</small></button>
+      <button data-view="knowledge" class="nav-item"><span>⌘</span>知识点学习<small>04</small></button>
       <button data-view="profile" class="nav-item"><span>◴</span>学情与复习<small>04</small></button>
       <button data-view="interview" class="nav-item"><span>♧</span>面试练习<small>05</small></button>
       <button data-view="audit" class="nav-item"><span>▧</span>知识库审查<small>06</small></button>
@@ -52,17 +54,25 @@
     <section id="view-practice" class="view" hidden>
       <div class="page-heading"><div class="eyebrow">PRACTICE & REFLECT</div><h1>练得有方向，错得有收获。</h1><p>按当前学段科目组卷，提交后再显示讲解与答案依据。</p></div>
       <form id="practice-form" class="control-card"><label>练习方式<select id="practice-mode"><option value="daily_practice">每日一练</option><option value="point_focus">考点专练</option><option value="weakness_breakthrough">薄弱突击</option><option value="error_elimination">错题消灭 · 到期复习</option><option value="high_frequency">高频冲刺</option><option value="timed_sprint">限时快练</option><option value="mock_exam">结构模拟 · 整卷计时</option></select></label><label>题量<input id="item-count" type="number" value="5" min="1" max="100"></label><label class="grow">指定考点<select id="target-node"><option value="">按当前范围自动选择</option></select></label><button class="primary" id="assemble" type="submit">生成练习卷 →</button></form>
-      <div id="paper-status"></div><div id="paper-notices"></div><div id="paper-questions" class="question-list"><div class="empty-state"><span>▤</span><h2>留一段时间，认真做几道题。</h2><p>选择练习方式，开始一份属于当前科目的练习。</p></div></div>
+      <div id="paper-status"></div><div id="exam-controls"></div><div id="paper-notices"></div><div id="paper-questions" class="question-list"><div class="empty-state"><span>▤</span><h2>留一段时间，认真做几道题。</h2><p>选择练习方式，开始一份属于当前科目的练习。</p></div></div>
     </section>
     <section id="view-plan" class="view" hidden>
       <div class="page-heading"><div class="eyebrow">ONE DAY AT A TIME</div><h1>把目标，放进每一天。</h1><p>优先安排到期复习，再结合题库覆盖和真实作答记录排课。</p></div>
-      <form id="plan-form" class="control-card"><label>距考试天数<input id="plan-days" type="number" value="30" min="1" max="180"></label><label>每日可用分钟<input id="plan-minutes" type="number" value="60" min="15" max="360"></label><button class="primary" type="submit">生成 / 更新学习计划 →</button><button id="export-plan" class="secondary" type="button" disabled>导出计划</button></form><div id="plan-summary"></div><div id="plan-list" class="plan-list"></div>
+      <form id="plan-form" class="control-card"><label>距考试天数<input id="plan-days" type="number" value="30" min="1" max="180"></label><label>每日可用分钟<input id="plan-minutes" type="number" value="60" min="15" max="360"></label><button class="primary" type="submit">制定新计划 →</button><button id="replan" class="secondary" type="button" disabled>按最新学情重排</button><button id="export-plan" class="secondary" type="button" disabled>导出计划</button></form><div id="plan-summary"></div><div id="plan-list" class="plan-list"></div>
+    </section>
+    <section id="view-knowledge" class="view" hidden>
+      <div class="page-heading"><div class="eyebrow">CONNECT THE IDEAS</div><h1>先理解，再练习。</h1><p>沿知识树查看考纲、学习讲解与真实题目；未练习的考点保留空白画像。</p></div>
+      <div class="knowledge-layout"><aside class="surface knowledge-nav"><label>查找当前范围考点<input id="node-search" type="search" placeholder="考点名称或关键词"></label><div id="knowledge-tree" aria-label="知识点列表"></div></aside><article class="surface" id="knowledge-detail"><div class="empty-state"><h2>选择一个考点</h2><p>查看它的考纲依据、学习资源和练习入口。</p></div></article></div>
     </section>
     <section id="view-profile" class="view" hidden>
-      <div class="page-heading heading-row"><div><div class="eyebrow">YOUR LEARNING TRAIL</div><h1>进步，有迹可循。</h1><p>以真实提交记录更新画像，初次练习前不推测你的水平。</p></div><button id="refresh-profile" class="secondary">刷新学情 ↻</button></div><div id="profile-summary"></div><div class="profile-grid"><div class="surface"><h2>模块表现</h2><div id="radar"></div></div><div class="surface"><h2>考点掌握与复习</h2><div id="mastery-list"></div></div></div><div class="surface"><h2>错题与到期复习</h2><div id="wrong-list"></div></div>
+      <div class="page-heading heading-row"><div><div class="eyebrow">YOUR LEARNING TRAIL</div><h1>进步，有迹可循。</h1><p>以真实提交记录更新画像，初次练习前不推测你的水平。</p></div><button id="refresh-profile" class="secondary">刷新学情 ↻</button></div>
+      <form id="diagnostic-form" class="control-card"><div class="grow"><h2>先做一次摸底</h2><p class="muted">分散抽取当前范围客观题，完成后查看已覆盖与尚未覆盖的考点。</p></div><label>摸底题量<input id="diagnostic-count" type="number" value="8" min="1" max="30"></label><button type="submit" class="primary">开始摸底 →</button><button id="diagnostic-result" type="button" class="secondary">查看本次摸底</button></form><div id="diagnostic-summary"></div>
+      <div id="profile-summary"></div><div class="profile-grid"><div class="surface"><h2>模块表现</h2><div id="radar"></div></div><div class="surface"><h2>考点掌握与复习</h2><div id="mastery-list"></div></div></div><div class="surface"><h2>错题与到期复习</h2><div id="wrong-list"></div></div>
     </section>
     <section id="view-interview" class="view" hidden>
-      <div class="page-heading"><div class="eyebrow">FROM KNOWING TO TEACHING</div><h1>把知识，讲给学生听。</h1><p>教案结构检查与试讲转写反馈。文字分析不替代现场面试评价。</p></div>
+      <div class="page-heading"><div class="eyebrow">FROM KNOWING TO TEACHING</div><h1>把知识，讲给学生听。</h1><p>完整训练会话按阶段推进，也可以单独做教案结构检查与试讲转写反馈。文字分析不替代现场面试评价。</p></div>
+      <div class="surface"><div class="form-row"><div class="grow"><h2>完整训练会话 · 分阶段</h2><p class="muted">结构化问答（作答后追问一处）→ 试讲转写测算 → 20 分钟简案设计。题面、追问依据与选题都读自库内面试情境资源和真题题面；量规未签署时整场不出分数与通过概率。</p></div></div><div class="form-actions"><button id="interview-session-start" class="primary" type="button">开始训练会话 →</button><button id="interview-session-reload" class="text-button" type="button">从本机恢复</button></div></div>
+      <div id="interview-session"></div>
       <form id="interview-form" class="surface"><div class="form-row"><label>训练形式<select id="interview-mode"><option value="lesson_plan">教案 / 教学设计</option><option value="speech">试讲转写</option><option value="structured">结构化问答 · 模型反馈</option></select></label><label class="grow">主题<input id="interview-topic" placeholder="例如：小学语文《春晓》" required maxlength="200"></label><label>试讲时长（秒）<input id="speech-duration" type="number" value="600" min="1" max="3600"></label></div><label>教案、转写文本或结构化问答作答<textarea id="interview-text" rows="12" placeholder="写下导入、新授、巩固、小结与作业，或粘贴你的试讲转写。" required maxlength="12000"></textarea></label><div class="form-actions"><button id="voice-input" class="secondary" type="button">语音转写（浏览器支持时）</button><button class="primary" type="submit">获取训练反馈 →</button></div><p id="voice-status" class="muted"></p></form><div id="interview-result"></div>
     </section>
     <section id="view-audit" class="view" hidden>

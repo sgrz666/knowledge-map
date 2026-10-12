@@ -9,7 +9,7 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from build_kb import ROOT, OUT, load_text, norm_stem, parse_question_text, render_card, parse_answers, classify_answer, ANSWER_CONTRACT, NUM_CAND_SKIP_AFTER
+from build_kb import ROOT, OUT, load_text, norm_stem, parse_question_text, render_card, parse_answers, classify_answer, ANSWER_CONTRACT, NUM_CAND_SKIP_AFTER, sha
 from ntce_ontology import ABILITY_NAMES, select_nodes, matches
 from ntce_io import atomic_write
 
@@ -587,12 +587,75 @@ def sync_materials(questions):
         write_rows(path, records)
 
 
+def card_path(q):
+    """一道题该落在哪张卡：命名口径只在这里写一份，出卡、回卷核对与测试都取它，不各拼一遍。"""
+    return OUT / 'cards' / q['level'] / q['subject'] / q['source']['session'] / ('q%02d.md' % q['extra']['paper_order'])
+
+
+def dedup_evidence(q, by_id):
+    """一条 `duplicate_of` 归属今天还能不能机器核对（只读，不改数据、不清归属）。
+
+    建库按 `sha(norm_stem(题干))` 认重复题干，被认作重复的那道题**不出卡**——卡只给被指向的那道。
+    这条归属有两种站不住的时候：指纹本身不承载题干内容（空题干、只剩一个残留字），相等只说明
+    两次抽取都失败了，不说明两道题是同一道题；或者题干在判重之后被改过，现指纹已与规范题不等，
+    这时这道题既没有卡，规范题那张卡讲的也不是它。
+    `answer_carrier_missing` 单列成一个维度，不混进 `codes`：指纹相等、归属核得上，但规范题本身
+    没有答案（`missing`／`source_conflict` 已置 null），卡上写的是"未提供"——这道题被"由规范题的卡
+    代答"这件事就落空了。它是代答失效，不是归属存疑，清掉 `duplicate_of` 既不解决它也不该解决它。
+    """
+    target = q['extra'].get('duplicate_of')
+    if not target:
+        return None
+    fingerprint = norm_stem(q['content']['stem'] or '')
+    canonical = by_id.get(target)
+    codes = []
+    if canonical is None:
+        codes.append('canonical_record_missing')
+    elif sha(fingerprint) != sha(norm_stem(canonical['content']['stem'] or '')):
+        codes.append('stem_no_longer_matches')
+    if not fingerprint:
+        codes.append('empty_stem_fingerprint')
+    elif len(fingerprint) == 1:
+        codes.append('single_character_stem_fingerprint')
+    carrier_missing = bool(canonical is not None and not (canonical['content'].get('answer') or ''))
+    return {'question_id': q['question_id'], 'duplicate_of': target,
+            'fingerprint_length': len(fingerprint), 'codes': codes,
+            'answer_carrier_missing': carrier_missing,
+            'card_written': card_path(q).exists()}
+
+
+def dedup_audit(questions):
+    """全库现算判重归属的可核对性，供复核队列直接引用；同一归属可命中多个形态码，不能相加。"""
+    by_id = {q['question_id']: q for q in questions}
+    out = {'links': 0, 'uncheckable': 0, 'checkable': 0, 'card_written': 0,
+           'answer_carrier_missing': 0, 'answer_carrier_missing_checkable': 0,
+           'codes': Counter(), 'where': Counter()}
+    for q in questions:
+        evidence = dedup_evidence(q, by_id)
+        if evidence is None:
+            continue
+        out['links'] += 1
+        if evidence['card_written']:
+            out['card_written'] += 1
+        if evidence['answer_carrier_missing']:
+            out['answer_carrier_missing'] += 1
+            if not evidence['codes']:
+                out['answer_carrier_missing_checkable'] += 1
+        if evidence['codes']:
+            out['uncheckable'] += 1
+            out['codes'].update(evidence['codes'])
+            out['where']['%s/%s' % (q['level'], q['subject'])] += 1
+        else:
+            out['checkable'] += 1
+    return out
+
+
 def sync_cards(questions, materials):
     count = 0
     for q in questions:
         if q['extra'].get('duplicate_of'):
             continue
-        path = OUT / 'cards' / q['level'] / q['subject'] / q['source']['session'] / ('q%02d.md' % q['extra']['paper_order'])
+        path = card_path(q)
         path.parent.mkdir(parents=True, exist_ok=True)
         text = render_card(q, materials.get(q.get('material_id')))
         text += '\n**核验与使用:** 原料关联核验不等于专家核定。版权授权状态 ' + q['source']['copyright'].get('authorization_status', 'unknown') + '。\n'

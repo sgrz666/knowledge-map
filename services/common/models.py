@@ -428,6 +428,10 @@ class AssemblePaperRequest(BaseModel):
     school_level: Optional[str] = None
     subject: Optional[str] = None
     trust_tier: TrustTier = TrustTier.RESEARCH_INTERNAL
+    #: 「换一批」的轮次：种子按 (user, 日期, 模式, 轮次) 定，所以同一轮可复现、下一轮必然不同批。
+    rotation: int = Field(default=0, ge=0, le=999)
+    #: 上一批发出去的题目，本轮不再发（题量不足以避开时如实说明，不静默少发题）。
+    avoid_question_ids: List[str] = Field(default_factory=list)
 
 
 class PracticePaperResponse(BaseModel):
@@ -447,6 +451,8 @@ class PracticePaperResponse(BaseModel):
     spec_id: Optional[str] = None
     structure: List[dict] = Field(default_factory=list)
     notices: List[str] = Field(default_factory=list)
+    #: 这一批题是按哪个种子洗出来的。写进响应而不是只留在进程里：同一份种子必须能原样重放同一批题。
+    selection_seed: Optional[str] = None
 
 
 # ---------------------------------------------------------------------------

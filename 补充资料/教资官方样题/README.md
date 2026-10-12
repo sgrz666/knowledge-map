@@ -1,4 +1,24 @@
-# 教资官方样题与补充来源
+# 补充资料/教资官方样题/ —— 教资 38 份大纲附带的官方样题提取件与补充来源；由 kb_tools/official_examples.py 生成，供教资库答案恢复匹配与审查消费
+
+## 文件清单（15 个数据文件逐个列名）
+
+| 文件名 | 内容与消费 |
+| --- | --- |
+| `exact_matches.jsonl` | 对主库 14,500 题的完整题干+选项 NFKC 匹配记录 |
+| `ntce.outline.317.page.04.png` | 第 4 页页图：样题 1–6（含分式、碳循环图、向量等嵌入对象） |
+| `ntce.outline.317.page.05.png` | 第 5 页页图：样题 7（教材图） |
+| `ntce.outline.317.page.06.png` | 第 6 页页图：答案 1–6 |
+| `ntce.outline.317.page.07.png` | 第 7 页页图：答案 7 |
+| `ntce.outline.317.pdf` | 初中科学大纲样题的 Word COM 只读导出件（未修改原 DOC；原件在 ../官方权威资料/originals/ntce.outline.317.doc） |
+| `official_examples.jsonl` | 210 条样题/题组提取记录（157 单题 + 53 题组），带来源 ID、URL、原 Word 路径与 SHA-256、行定位、是否带答案；由 kb_tools/official_examples.py 生成 |
+| `preschool_guideline.2012.doc` | 教育部《3-6岁儿童学习与发展指南》通知附件原 DOC（50 页），只读归档、不入库检索 |
+| `preschool_guideline.2012.txt` | 上述 DOC 的提取正文（974 段、23,080 字符）；被 数据集/教资 53 处 source.files 以本目录路径引用（现算） |
+| `preschool_guideline.landing.html` | 指南发布通知页存档（来源证据） |
+| `recovery_patches.jsonl` | 严格恢复补丁；当前为空（恢复 0） |
+| `source_sample_sections.jsonl` | 38 份大纲样题章节的完整提取原文（含题型标题与嵌入材料） |
+| `summary.json` | 构建摘要（sources 38、example_records 210、corpus_questions_scanned 14500 等计数） |
+| `supplementary_sources.json` | 9 个官方/出版社补充来源（6 个出版社条目只有书目信息）；含《3-6岁儿童学习与发展指南》来源索引 |
+| `visual_verification.json` | ntce.outline.317 原件 DOC、导出 PDF、4 张页图的哈希与逐页视觉检查记录 |
 
 本目录独立于主库及通用考试要求。38份官方大纲的样题正文完整保存；每条题目或题组有来源ID、URL、原Word路径与SHA-256、提取文本行定位、原文以及是否提供答案的标记。来源是考试大纲样题，不能据此把现有题库题目声称为官方发布的历年真题。
 

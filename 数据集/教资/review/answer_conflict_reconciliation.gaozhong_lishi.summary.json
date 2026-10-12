@@ -1,0 +1,25 @@
+{
+  "batch": "gaozhong/lishi",
+  "scope": "gaozhong/lishi",
+  "applied": true,
+  "inspected": 173,
+  "by_result": {
+    "reconciled": 125,
+    "refused": 48
+  },
+  "by_refusal": {
+    "cross_question_risk_open": 18,
+    "stem_number_not_located_in_source": 27,
+    "not_a_four_option_single_choice": 3
+  },
+  "restored_in_dataset": 125,
+  "still_quarantined": 48,
+  "refused_with_open_question_boundary": 25,
+  "boundary_questions_without_record": 3,
+  "boundary_numbers_without_record": 3,
+  "scopes_touched": [
+    "gaozhong/lishi"
+  ],
+  "cards_rewritten_this_run": 95,
+  "note": "落回只承认\"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + 与隔离时保全的候选一致\"三件同时成立；题干定位不到、五选项多选、零选项缺图、两份抽取不一致都留在隔离态。审核签署字段不因落回而提升。"
+}

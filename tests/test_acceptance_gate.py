@@ -292,8 +292,61 @@ class TestA1NoShadowData(AcceptanceTestCase):
         from_repair = {alias.name for node in ast.walk(tree)
                        if isinstance(node, ast.ImportFrom) and node.module == "ntce_repair"
                        for alias in node.names}
-        self.assertTrue({"mix_risk_evidence", "boundary_risks", "recorded_numbers", "unrecorded_neighbors"}
-                        <= from_repair, "§3.2 没有复用修复流程那一份判据，两侧数字会各自漂移")
+        self.assertTrue({"mix_risk_evidence", "boundary_risks", "recorded_numbers", "unrecorded_neighbors",
+                         "dedup_audit"} <= from_repair,
+                        "§3.2/§3.3 没有复用修复流程那一份判据，两侧数字会各自漂移")
+
+    def test_the_dedup_link_rows_are_recomputed_from_the_library(self):
+        """§3.3 报的是"按设计不出卡的题里，有多少条判重归属今天已核不出来"。
+        判重题不出卡是设计，所以这张表说的不是形状缺陷而是覆盖缺口：validate_kb 看不见它，
+        只有拿建库那份指纹（norm_stem + sha）复算一遍才知道归属还站不站得住。
+        可核对与不可核对必须互为补集，三项形态码若有重叠，等式也会把它抓出来。
+        """
+        text = (REPO_ROOT / "审查" / "待复核清单.md").read_text(encoding="utf-8")
+        self.assertIn("### 3.3", text, "复核清单没有 §3.3：归属已失效的题又回到没人报的状态")
+        section = text.split("### 3.3", 1)[1].split("\n## 4.", 1)[0]
+
+        sys.path.insert(0, str(REPO_ROOT / "kb_tools"))
+        from ntce_repair import dedup_audit
+
+        base = REPO_ROOT / "数据集" / "教资" / "questions"
+        audit = dedup_audit([json.loads(line) for path in sorted(base.glob("*/*/*.jsonl"))
+                             for line in path.read_text(encoding="utf-8").splitlines() if line.strip()])
+        self.assertEqual(audit["checkable"] + audit["uncheckable"], audit["links"],
+                         "可核对与不可核对不是互补两侧：有归属两头都没被算进去")
+        self.assertGreater(audit["uncheckable"], 0, "全库归属都核得出来，本节下面的断言成了空跑")
+        self.assertEqual(audit["card_written"], 0,
+                         "有判重题拿到了自己的卡，清单里那句“确实没有自己的卡”不再成立")
+
+        def cells(marker):
+            hits = [line for line in section.splitlines() if line.startswith("|") and marker in line]
+            self.assertEqual(len(hits), 1, f"§3.3 里 {marker} 应该只有一行，实际 {len(hits)} 行")
+            return [int(n.replace(",", "")) for n in re.findall(r"\d[\d,]*", hits[0].split("|")[2])]
+
+        for marker, code in (("指纹是空题干", "empty_stem_fingerprint"),
+                             ("指纹只剩一个残留字", "single_character_stem_fingerprint"),
+                             ("题干在判重之后被改过", "stem_no_longer_matches"),
+                             ("指向的规范题在库里已不存在", "canonical_record_missing")):
+            self.assertEqual(cells(marker), [audit["codes"].get(code, 0)], f"{marker} 与题库现算不符")
+        self.assertEqual(cells("归属可核对"), [audit["checkable"], audit["links"]],
+                         "合计行把可核对写成了四项之和，或本库归属总数被手抄过")
+        self.assertLessEqual(sum(audit["codes"].values()), audit["uncheckable"],
+                             "形态码计数超过了不可核对的题数：同一归属命中多项却被当成多道题")
+        self.assertIn("### 3.3 判重归属：按设计不出卡的 %s 题里，%s 条的归属机器核不出来\n" % (
+            "{:,}".format(audit["links"]), "{:,}".format(audit["uncheckable"])), text,
+                      "§3.3 标题里的两个数与题库现算不符")
+        self.assertIn("- 卡集交叉核对：这 %s 条归属里，%s 条确实没有自己的卡" % (
+            "{:,}".format(audit["links"]), "{:,}".format(audit["links"] - audit["card_written"])), section,
+                      "卡集交叉核对那行与题库现算不符：出卡与判重的口径差异没人对账")
+        # 代答落空是另一维：归属对得上、规范题自己没答案。它一旦被折进形态码，上面那行"归属可核对"
+        # 的等式就会对不上，所以这里要单独把两个数钉住，而不是只钉总数。
+        self.assertIn("- 另一维缺口是**代答落空**：这 %s 条归属里有 %s 条" % (
+            "{:,}".format(audit["links"]), "{:,}".format(audit["answer_carrier_missing"])), section,
+                      "§3.3 没有报“规范题自己没答案、卡集里无人代答”这一维：落回的答案没人替它说话时没人知道")
+        self.assertIn("其中 %s 条归属完全可核对" % "{:,}".format(audit["answer_carrier_missing_checkable"]),
+                      section, "§3.3 里可核对却缺答案的那部分与题库现算不符")
+        self.assertLessEqual(audit["answer_carrier_missing_checkable"], audit["checkable"],
+                             "代答落空的可核对子集比可核对总数还大：两个维度又开始互相顶替")
 
     def test_the_exam_clock_is_the_blueprint_not_a_transcript(self):
         """卷面规格也是库内实体：模考用时必须逐节等于 paper_specs，服务代码里不许留手抄的分钟数。"""
@@ -876,6 +929,36 @@ class TestA6EdgeVocabulary(AcceptanceTestCase):
             self.assertGreater(stats["edges"], 0, f"{library} 图谱为空，白名单检查失去意义")
             self.assertTrue(set(stats["edge_types"]).issubset(set(ALLOWED_EDGE_TYPES)))
             self.assertEqual(stats["allowed_edge_types"], list(ALLOWED_EDGE_TYPES))
+
+    def test_the_health_probe_builds_the_graph_instead_of_reading_stats(self):
+        """/health 的 GraphIndex 项必须真构图：第 17 个边名只在 GraphIndex._build 里才炸，
+        探测若只读仓库统计，图谱建不出来了健康检查还是绿的。"""
+        import services.app as app_module
+
+        probes = {}
+        for node in ast.walk(ast.parse(Path(app_module.__file__).read_text(encoding="utf-8"))):
+            value_dict = node.value if isinstance(node, (ast.Assign, ast.AnnAssign)) else None
+            if not isinstance(value_dict, ast.Dict):
+                continue
+            for key, value in zip(value_dict.keys, value_dict.values):
+                if isinstance(key, ast.Constant) and key.value == "GraphIndex":
+                    probes[node.lineno] = ast.dump(value)
+        self.assertEqual(len(probes), 1, "健康检查里 GraphIndex 探测项应当只有一处: %s" % sorted(probes))
+        self.assertIn("_probe_graph_index", next(iter(probes.values())),
+                      "GraphIndex 探测项没有走真构图探测，而是回读了别的统计")
+
+        summary = app_module._probe_graph_index()
+        for library in ("ntce", "cet"):
+            self.assertGreater(summary[library]["nodes"], 0, f"{library} 图谱节点为空")
+            self.assertGreater(summary[library]["edges"], 0, f"{library} 图谱边为空")
+
+        original = app_module.get_graph_index
+        try:
+            app_module.get_graph_index = lambda library: GraphIndex(library, repository=self._BadRepo())
+            with self.assertRaises(UnknownEdgeTypeError):
+                app_module._probe_graph_index()
+        finally:
+            app_module.get_graph_index = original
 
     def test_unapproved_prerequisites_cannot_reorder_or_block(self):
         graph = get_graph_index("ntce")

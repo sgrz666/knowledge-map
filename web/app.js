@@ -1,6 +1,6 @@
 'use strict';
 const $ = (id) => document.getElementById(id);
-const views = {chat:'学习助手',practice:'练习与模考',plan:'学习计划',profile:'学情与复习',interview:'面试练习',audit:'知识库审查',settings:'模型与设置'};
+const views = {chat:'学习助手',practice:'练习与模考',plan:'学习计划',knowledge:'知识点学习',profile:'学情与复习',interview:'面试练习',audit:'知识库审查',settings:'模型与设置'};
 const levels = {xiaoxue:'小学',youer:'幼儿园',zhongxue:'中学公共科目',chuzhong:'初中',gaozhong:'高中',zhongxiaoxue:'中小学面试'};
 const subjects = {zonghe:'综合素质',jiaoxue:'教育教学知识与能力',jiaoyuzhishi:'教育知识与能力',baojiao:'保教知识与能力',yuwen:'语文',shuxue:'数学',yingyu:'英语',wuli:'物理',huaxue:'化学',shengwu:'生物',dili:'地理',lishi:'历史',zhengzhi:'思想政治',meishu:'美术',yinyue:'音乐',tiyu:'体育',xinxi:'信息技术',jiaoyuxue:'教育学',jiaoyuxinlixue:'教育心理学',mianshi:'面试任务'};
 const state = {bootstrap:null,view:'chat',paper:null,plan:null,history:[],timer:null,submissions:new Map(),
@@ -22,17 +22,25 @@ function toast(message) { $('toast').textContent=message;$('toast').hidden=false
 function notice(text, error=false) { return el('div',text,'notice'+(error?' error':'')); }
 function notices(rows) { const unique=[...new Set((rows||[]).filter(Boolean))];const box=el('details',undefined,'raw-details');if(!unique.length)return el('span');box.append(el('summary',`依据与说明 · ${unique.length} 项`),notice(unique.join('\n')));return box; }
 function rawDetails(data) { const d=el('details',undefined,'raw-details');d.append(el('summary','查看结构化结果与溯源'),el('pre',JSON.stringify(data,null,2)));return d; }
-function busy(btn, work) { const old=btn.textContent;btn.disabled=true;btn.textContent='正在处理…';return Promise.resolve().then(work).catch(e=>toast(e.message)).finally(()=>{btn.disabled=false;btn.textContent=old;}); }
+function busy(btn, work) { if(btn.disabled)return Promise.resolve();const old=btn.textContent;btn.disabled=true;btn.textContent='正在处理…';return Promise.resolve().then(work).catch(e=>toast(e.message)).finally(()=>{btn.disabled=false;btn.textContent=old;}); }
 async function api(path, body, method) {
   const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),180000);
   try {
     const headers={'Content-Type':'application/json'};if(state.token)headers.Authorization=`Bearer ${state.token}`;
     const res=await fetch('/api/v1/'+path,{method:method||(body?'POST':'GET'),headers,body:body?JSON.stringify(body):undefined,signal:controller.signal});
     const data=await res.json();
-    if(!res.ok){let detail=data.detail;if(Array.isArray(detail))detail=detail.map(d=>`${d.loc?.slice(-1)}: ${d.msg}`).join('；');throw new Error(res.status===401?'请先在模型与设置中填写本机运行时令牌。':String(detail||'请求未完成'));}return data;
+    if(!res.ok){
+      let detail=data.detail,code=null;
+      // 后端把"这一题在这张卷上再也提交不成功"的那几类冲突带成 {code,message}：code 决定按钮该不该继续承诺重试，消息只给人读。
+      if(Array.isArray(detail))detail=detail.map(d=>`${d.loc?.slice(-1)}: ${d.msg}`).join('；');
+      else if(detail&&typeof detail==='object'){code=detail.code||null;detail=detail.message||detail.code||'请求未完成';}
+      const err=new Error(res.status===401?'请先在模型与设置中填写本机运行时令牌。':String(detail||'请求未完成'));
+      err.code=code;err.status=res.status;throw err;
+    }
+    return data;
   } catch(e) { if(e.name==='AbortError')throw new Error('请求超时，可检查模型接口或缩小检索范围后重试。');throw e; } finally {clearTimeout(timeout);}
 }
-function show(view) {state.view=view;for(const key of Object.keys(views))$('view-'+key).hidden=key!==view;document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('view-name').textContent=views[view];if(view==='profile')loadProfile().catch(e=>toast(e.message));if(view==='audit'&&state.bootstrap)renderAudit();window.scrollTo({top:0,behavior:'instant'});}
+function show(view) {state.view=view;for(const key of Object.keys(views))$('view-'+key).hidden=key!==view;document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('view-name').textContent=views[view];if(view==='profile')loadProfile().catch(e=>toast(e.message));if(view==='audit'&&state.bootstrap)renderAudit();if(view==='knowledge')loadKnowledge().catch(e=>toast(e.message));if(view==='plan')loadSavedPlan().catch(e=>toast(e.message));if(view==='interview')loadInterviewSession().catch(e=>toast(e.message));if(view==='practice'&&!state.paper&&typeof restoreExam==='function')restoreExam().catch(e=>toast(e.message));window.scrollTo({top:0,behavior:'instant'});}
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.view)));
 $('settings-shortcut').addEventListener('click',()=>show('settings'));
 function updateScope(initial=false) {
@@ -49,28 +57,63 @@ function updateScope(initial=false) {
   } else if(!ntce) { $('scope-count').textContent='四六级题库 · 写译 / 阅读 / 听力';const nodes=(state.bootstrap?.cet_nodes||[]).filter(n=>n.exams.includes(context().exam_type));$('target-node').replaceChildren(el('option','自动选择当前考试考点'),...nodes.map(n=>{const o=el('option',n.name);o.value=n.id;return o;}));$('target-node').firstChild.value=''; }
   if(!initial){persist();resetWorkspace();}
 }
-function resetWorkspace() {state.session=null;state.history=[];state.paper=null;clearInterval(state.timer);replace('paper-questions',notice('学习者或备考方向已切换，请为当前范围重新生成练习卷。'));replace('paper-status');replace('paper-notices');state.plan=null;replace('plan-list');replace('plan-summary');$('export-plan').disabled=true;replace('chat-log');replace('chat-sources');replace('interview-result');$('chat-welcome').hidden=false;$('source-placeholder').hidden=false;}
+function resetWorkspace() {state.session=null;state.history=[];state.paper=null;state.exam=null;clearInterval(state.timer);replace('paper-questions',notice('学习者或备考方向已切换，请为当前范围重新生成练习卷。'));replace('paper-status');replace('paper-notices');replace('exam-controls');replace('diagnostic-summary');replace('knowledge-tree');replace('knowledge-detail',notice('选择当前范围的考点开始学习。'));state.plan=null;replace('plan-list');replace('plan-summary');$('export-plan').disabled=true;$('replan').disabled=true;replace('chat-log');replace('chat-sources');replace('interview-result');clearInterviewSession();$('chat-welcome').hidden=false;$('source-placeholder').hidden=false;}
 for(const name of ['exam','level'])$(name).addEventListener('change',()=>updateScope());
 $('subject').addEventListener('change',()=>updateScope());
 
 function message(role,text) {const e=el('article',undefined,'chat-message '+role);e.append(el('div',role==='user'?'你':'知序 · 学习助手','message-label'),el('div',text,'message-body'));$('chat-log').append(e);return e;}
+const RELATION_LABEL={vector_recall:'检索命中',same_node:'同一考点',same_requirement:'同一考纲条款',syllabus_clause:'考纲条款'};
+// 后端给出的"状态类冲突"：这一题在这张卷上已经不可能提交成功，只有重新组卷才是出路。
+const DEAD_END_CODES=new Set(['legacy_receipt','receipt_conflict','question_not_servable','paper_tier_mismatch','figure_unavailable','exam_tier_mismatch','exam_closed','exam_stage_collected','exam_media_missing']);
+function sourceBody(s) {
+  const head=s.kind==='question'
+    ? [s.id,`卷面：${[s.exam,s.section,s.question_type].filter(Boolean).join(' · ')||'未标注'}`,
+       `复核状态：${s.review_status}`,s.node_names?.length?`考点：${s.node_names.join(' / ')}`:'',
+       s.answer_withheld?'答案未展示：这道题你还没作答，练过之后这里才会出现答案与解析':`答案：${s.answer||'未核定'}`,
+       s.explanation?`解析：${s.explanation}`:'']
+    : [s.id,s.standard_id?`出处：${s.standard_id}`:''];
+  return [...head.filter(Boolean),s.stem||s.text||'',s.locator?JSON.stringify(s.locator,null,2):''].filter(Boolean).join('\n');
+}
 function renderSources(rows) {
-  $('source-placeholder').hidden=rows.length>0;replace('chat-sources',...rows.map(s=>{const d=el('details',undefined,'source-card');d.append(el('summary',(s.kind==='question'?'题目 · ':'条款 · ')+(s.title||s.id)),el('pre',[s.id,s.stem||s.text||'',s.review_status?`复核状态：${s.review_status}`:'',s.locator?JSON.stringify(s.locator,null,2):''].filter(Boolean).join('\n')));if(s.source_url&&/^https?:\/\//.test(s.source_url)){const a=el('a','查看官方来源 ↗');a.href=s.source_url;a.target='_blank';a.rel='noopener noreferrer';d.append(a);}return d;}));
+  $('source-placeholder').hidden=rows.length>0;replace('chat-sources',...rows.map(s=>{const d=el('details',undefined,'source-card');d.append(el('summary',[ (s.kind==='question'?'题目 · ':'条款 · ')+(s.title||s.id),RELATION_LABEL[s.relation]||s.relation].filter(Boolean).join(' · ')),el('pre',sourceBody(s)));if(s.source_url&&/^https?:\/\//.test(s.source_url)){const a=el('a','查看官方来源 ↗');a.href=s.source_url;a.target='_blank';a.rel='noopener noreferrer';d.append(a);}return d;}));
+}
+// 思考过程只渲染后端已经算出来的事实：每步的 detail 来自工具字段，没有一步由模型代写。
+function renderTrace(rows) {
+  if(!rows?.length)return el('span');
+  const box=el('details',undefined,'thinking');box.append(el('summary',`思考过程 · ${rows.length} 步`));
+  const list=el('ol',undefined,'thinking-steps');
+  for(const row of rows){const li=el('li',undefined,'thinking-step');li.append(el('span',row.action,'thinking-action'),el('p',row.detail||'','thinking-detail'));if(row.data)li.append(rawDetails(row.data));list.append(li);}
+  box.append(list);return box;
+}
+function renderRelated(rows) {
+  const box=el('details',undefined,'thinking');box.append(el('summary',`相关真题 · ${rows.length} 题（题面与卷面出处）`));
+  const list=el('div',undefined,'related-list');
+  for(const q of rows){const item=el('details',undefined,'source-card');
+    item.append(el('summary',(RELATION_LABEL[q.relation]||q.relation)+' · '+(q.question_type||'未标注题型')+' · '+q.review_status));
+    item.append(el('p',q.stem||'（库内题面存在抽取缺口，暂不完整）','study-prose'),el('small',`考点：${(q.node_names||[]).join(' / ')||'未绑定考点'} · ${q.id}`));
+    if(q.answer)item.append(el('pre',`答案：${q.answer}\n${q.explanation||''}`.trim()));
+    if(q.matched_nodes?.[0])item.append(button('按这个考点组一张练习卷 →',()=>{show('practice');assemble({practice_mode:'point_focus',target_node:q.matched_nodes[0],rotation:0,avoid_question_ids:[]}).catch(e=>toast(e.message));},'text-button'));
+    list.append(item);}
+  box.append(list);return box;
 }
 async function chat(text,questionId,extras) {
   const btn=$('send-chat');if(btn.disabled)return;message('user',text);$('chat-welcome').hidden=true;$('chat-input').value='';
+  const scope=scopeIdentity();
   $('chat-status').textContent='正在读取题库、查找依据'+(state.key?'并请求模型…':'…');
   await busy(btn,async()=>{
     const data=await api('web/chat',{...context(),message:text,question_id:questionId||null,session_id:state.session,
       history:state.history.slice(-6),model_config_input:config(),action_payload:extras||null});
+    // 在飞的这一轮属于发出请求时的那个学习者；切了范围就不能把旧范围的证据算到新范围头上。
+    if(scope!==scopeIdentity()){toast('学习者或备考方向已切换，上一范围的回答已丢弃，请在当前范围重新提问。');return;}
     state.session=data.session_id;const card=message('assistant',data.reply);
     card.append(el('div',data.model.ok?`模型已参与 · ${data.model.provenance?.response_model||state.model}`:'规则答复 · 模型未参与','message-meta'));
     if(!data.model.ok&&state.key)card.append(notice((data.model.errors||[]).join('\n')||'本次模型答复未通过校验',true));
+    card.append(renderTrace(data.trace));
     card.append(notices(data.notices));
+    if(data.related_questions?.length)card.append(renderRelated(data.related_questions));
     if(data.tool_result?.questions){renderPaper(data.tool_result);card.append(button('打开练习卷 →',()=>show('practice')));}
     if(data.tool_result?.daily_plans){renderPlan(data.tool_result);card.append(button('查看学习计划 →',()=>show('plan')));}
     if(data.tool_result?.radar_chart)card.append(button('查看学情 →',()=>show('profile')));
-    if(data.trace?.length)card.append(rawDetails({agent_trace:data.trace}));
     renderSources(data.sources||[]);state.history.push({role:'user',content:text},{role:'assistant',content:data.reply});
     card.scrollIntoView({behavior:'smooth',block:'nearest'});
   });$('chat-status').textContent='本地知识检索 · 回答附来源';
@@ -81,18 +124,32 @@ document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click'
 
 async function assemble(overrides={}) {
   let profile={};const mode=overrides.practice_mode||$('practice-mode').value;
+  if(mode==='mock_exam'){await startExam();return;}
   if(['weakness_breakthrough','error_elimination'].includes(mode))profile=await api('web/profile',context());
+  // 换一批只改轮次并避开上一批：种子按 (学习者, 日期, 模式, 轮次) 定，所以每一批都可复现，又必然与上一批不同。
   const body={...context(),practice_mode:mode,item_count:Number($('item-count').value),target_node:$('target-node').value||null,
-    weak_node_ids:profile.diagnostic?.weak_points_top5||[],wrong_question_ids:profile.due_question_ids||[],...overrides};
+    weak_node_ids:profile.diagnostic?.weak_points_top5||[],wrong_question_ids:profile.due_question_ids||[],
+    rotation:0,avoid_question_ids:[],...overrides};
   if(mode==='point_focus'&&!body.target_node)throw new Error('请先选择一个具体考点。');
-  renderPaper(await api('web/practice',body));
+  const scope=scopeIdentity();
+  const paper=await api('web/practice',body);
+  if(scope!==scopeIdentity()){toast('学习者或备考方向已切换，这张练习卷属于上一个范围，已丢弃。');return;}
+  renderPaper(paper);
 }
 $('practice-form').addEventListener('submit',e=>{e.preventDefault();busy($('assemble'),()=>assemble());});
 function renderPaper(paper,submissions=[]) {
+  if(state.exam?.paper_id!==paper.paper_id){state.exam=null;replace('exam-controls');}
   state.paper=paper;state.submissions=new Map(submissions.map(s=>[s.question_id,s]));clearInterval(state.timer);
-  // 待完成提交的参数只对本卷有意义（页面只能恢复最新一卷），换卷时把旧卷的参数带走，别让它们一直堆在 localStorage 里
-  for(let i=localStorage.length-1;i>=0;i--){const key=localStorage.key(i);if(key&&key.startsWith('pending-submit:')&&!key.startsWith(`pending-submit:${paper.paper_id}:`))localStorage.removeItem(key);}
-  const bar=el('div',undefined,'paper-bar');bar.append(el('strong',paper.title),el('span',`${paper.total_items} 题 · 题池 ${paper.pool_size} 题`));const timer=el('span','', 'timer');bar.append(timer);replace('paper-status',bar);replace('paper-notices',notices(paper.notices));
+  // Other plans or exam sessions may still own pending submissions; only a confirmed response clears one.
+  const bar=el('div',undefined,'paper-bar');bar.append(el('strong',paper.title),el('span',`${paper.total_items} 题 · 题池 ${paper.pool_size} 题`));
+  const batch=Number((paper.selection_seed||'').split('|').pop());
+  if(paper.practice_mode!=='mock_exam'&&paper.total_items){
+    bar.append(button('换一批 ↻',()=>busy($('assemble'),()=>assemble({practice_mode:paper.practice_mode||$('practice-mode').value,
+      item_count:paper.total_items,rotation:Math.min(999,(Number.isFinite(batch)?batch:0)+1),
+      avoid_question_ids:paper.questions.map(q=>q.question_id),...(paper.target_node?{target_node:paper.target_node}:{})})), 'text-button'));
+    bar.append(el('span',paper.selection_seed?`第 ${(Number.isFinite(batch)?batch:0)+1} 批 · 批次种子 ${paper.selection_seed}`:'这批题没有回传批次种子','paper-rotation'));
+  }
+  const timer=el('span','', 'timer');bar.append(timer);replace('paper-status',bar);replace('paper-notices',notices(paper.notices));
   if(!paper.total_items){replace('paper-questions',notice('当前条件下没有可练题目。错题复习需已有到期记录；发布档需人工核定；可调整考点或练习模式。'));return;}
   const cards=paper.questions.map((q,i)=>renderQuestion(q,i));replace('paper-questions',...cards);
   if(paper.time_limit_minutes){const start=Date.parse(paper.created_at||new Date().toISOString());const update=()=>{const seconds=Math.max(0,Math.ceil(paper.time_limit_minutes*60-(Date.now()-start)/1000));timer.textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;if(!seconds){clearInterval(state.timer);timer.textContent='练习时间已到';for(const card of cards)card.querySelectorAll('button[type="submit"],input,textarea').forEach(e=>e.disabled=true);}};update();state.timer=setInterval(update,1000);}else timer.textContent='无库内时长';
@@ -133,13 +190,20 @@ function renderQuestion(q,i) {
     form.querySelectorAll('input,textarea').forEach(e=>e.disabled=true);
     submit.disabled=true;submit.textContent='正在处理…';
     try{apply(await api('web/submit',payload));}
-    catch(err){toast(err.message);submit.disabled=false;submit.textContent='重试提交（沿用上次作答参数）';}
+    catch(err){toast(err.message);
+      if(DEAD_END_CODES.has(err.code)){
+        // 这几类 409 与作答参数无关：同一份参数重投必然同样被拒。继续挂着"重试提交"就是给学习者一个永远不会成功的按钮。
+        clearPending();payload=null;submit.disabled=true;submit.textContent='本题已不可提交';
+        result.append(notice(err.message+'\n换一批或重新组卷即可继续作答（这道题在本卷上已经不开放）。',true));
+      } else {submit.disabled=false;submit.textContent='重试提交（沿用上次作答参数）';}
+    }
   });
   if(state.submissions.has(q.question_id))apply(state.submissions.get(q.question_id));
   if(q.input_blocked){form.querySelectorAll('input,textarea,button[type="submit"]').forEach(e=>e.disabled=true);submit.textContent='缺原图 · 暂不可提交';}
   return card;
 }
 function renderAnswer(target,data,q) {
+  if(data.deferred_feedback){target.replaceChildren(notice('作答已收录。模考结束后统一显示答案、讲评与学情结果。'));return;}
   const box=el('div',undefined,'answer-result'+(data.is_correct===false?' wrong':''));box.append(el('h3',data.is_correct===true?'答对了 · 已更新学习记录':data.is_correct===false?'这次没答对 · 已安排复习':'主观题反馈 · 当前不作对错判断'));
   if(data.review?.attribution)box.append(el('p',`${data.review.attribution.category_name}\n${data.review.attribution.rationale}\n${data.review.attribution.recommended_action}`));
   if(data.review?.next_review_interval_days)box.append(el('p',`下次复习间隔约 ${data.review.next_review_interval_days.toFixed(1)} 天 · 依据本机复习调度`));
@@ -148,16 +212,22 @@ function renderAnswer(target,data,q) {
   box.append(button('向助手追问',()=>{show('chat');chat('讲讲这道题的考点，以及如何避免再错。',q.question_id);}),button('反馈内容问题',async()=>{const detail=window.prompt('请描述题面、答案、解析或来源中的具体问题（至少 5 个字）：');if(!detail)return;try{await api('web/feedback',{user_id:context().user_id,question_id:q.question_id,detail});toast('内容问题已进入教研待复核队列。');}catch(e){toast(e.message);}},'text-button'),rawDetails(data));target.replaceChildren(box);
 }
 
-$('plan-form').addEventListener('submit',e=>{e.preventDefault();busy(e.submitter,async()=>renderPlan(await api('planner/generate',{...context(),days_until_exam:Number($('plan-days').value),daily_available_minutes:Number($('plan-minutes').value)})));});
+$('plan-form').addEventListener('submit',e=>{e.preventDefault();busy(e.submitter,async()=>{const data=await trackedCall('web/learning/plan',{...context(),days_until_exam:Number($('plan-days').value),daily_available_minutes:Number($('plan-minutes').value)});renderPlan(data.plan);});});
 function renderPlan(plan) {
-  state.plan=plan;$('export-plan').disabled=false;replace('plan-summary',notice((plan.milestones||[]).join('\n')),notices(plan.notices));
-  replace('plan-list',...plan.daily_plans.map(day=>{const card=el('article',undefined,'day-card');const title=el('div',`DAY ${String(day.day_index).padStart(2,'0')}`,'day-number');title.append(el('small',`${day.date_str} · ${day.total_minutes} 分钟`));card.append(title);for(const task of day.tasks){const row=el('div',task.title,'day-task');row.append(el('small',`${task.estimated_minutes} 分钟 / ${task.target_question_count} 题`));row.append(button('开始任务 →',async()=>{show('practice');try{await assemble({practice_mode:task.task_type==='fsrs_review'?'error_elimination':task.task_type==='mock_sprint'?'mock_exam':'point_focus',target_node:task.node_id||null,item_count:Math.max(1,task.target_question_count)});}catch(e){toast(e.message);}}));card.append(row);}return card;}));
+  state.plan=plan;$('export-plan').disabled=false;$('replan').disabled=!plan.plan_id;
+  replace('plan-summary',notice(plan.plan_id?`计划已保存 · 第 ${plan.revision} 版 · 已完成 ${plan.completed_minutes||0} 分钟 / 预算 ${plan.budget_minutes} 分钟`:'这是对话中的计划建议。通过上方表单保存后即可跟踪任务。'),notice((plan.milestones||[]).join('\n')),notices(plan.notices));
+  replace('plan-list',...plan.daily_plans.map(day=>{const card=el('article',undefined,'day-card');const title=el('div',`DAY ${String(day.day_index).padStart(2,'0')}`,'day-number');title.append(el('small',`${day.date_str} · ${day.total_minutes} 分钟`));card.append(title);for(const task of day.tasks){const row=el('div',task.title,'day-task');row.append(el('small',`${task.estimated_minutes} 分钟 / ${task.target_question_count} 题`));
+    if(task.task_id){const label={pending:'待开始',in_progress:'练习中',completed:'已完成'}[task.status]||task.status;row.append(el('span',label,'task-state '+task.status));if(task.status!=='completed'){row.append(button(task.paper_id?'继续任务 →':'开始任务 →',()=>runPlanTask(plan,task)));if(task.paper_id)row.append(button('核对完成并更新计划',()=>completePlanTask(plan,task),'text-button'));}}
+    else row.append(button('开始练习 →',async()=>{show('practice');try{await assemble({practice_mode:task.task_type==='fsrs_review'?'error_elimination':task.task_type==='mock_sprint'?'mock_exam':'point_focus',target_node:task.node_id||null,item_count:Math.max(1,task.target_question_count)});}catch(e){toast(e.message);}}));
+    if(task.node_id)row.append(button('先学这个考点',()=>{show('knowledge');loadNode(task.node_id).catch(e=>toast(e.message));},'text-button'));card.append(row);}return card;}));
 }
 function download(name,data) {const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));const a=el('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 $('export-plan').addEventListener('click',()=>download('知序学习计划.json',state.plan));
 function bar(title,rate,extra) {const row=el('div',undefined,'bar-row');const t=el('div',undefined,'bar-title');t.append(el('span',title),el('span',extra||`${Math.round(rate*100)}%`));const track=el('div',undefined,'bar-track');const fill=el('div',undefined,'bar-fill');fill.style.width=`${Math.min(100,Math.max(0,rate*100))}%`;track.append(fill);row.append(t,track);return row;}
 async function loadProfile() {
-  const data=await api('web/profile',context());const report=data.diagnostic;
+  const scope=scopeIdentity();
+  const data=await api('web/profile',context());if(scope!==scopeIdentity())return;
+  const report=data.diagnostic;
   replace('profile-summary',notice(`已提交 ${data.submissions.length} 次作答 · ${data.mastery.length} 个考点有学习记录 · ${data.due_question_ids.length} 道题到期复习\n${report.disclaimer}`));
   replace('radar',...(report.radar_chart.length?report.radar_chart.map(m=>bar(m.module_name,m.mastery_rate,`${m.correct_count} / ${m.question_count}`)):[el('p','完成练习后，这里会显示各模块表现。','muted')]));
   replace('mastery-list',...(data.mastery.length?data.mastery.slice().sort((a,b)=>a.mastery_score-b.mastery_score).slice(0,20).map(m=>{const name=state.bootstrap?.nodes.find(n=>n.id===m.node_id)?.name||m.node_id;const row=bar(name,m.mastery_score,`${Math.round(m.mastery_score*100)}% · ${m.practice_count} 次`);row.append(el('small','到期：'+new Date(m.fsrs_state.due_date).toLocaleDateString('zh-CN'),'muted'));return row;}):[el('p','还没有掌握度记录。先完成几道题，系统会逐次记录。','muted')]));
@@ -191,7 +261,8 @@ $('test-model').addEventListener('click',e=>{applySettings();busy(e.target,async
 $('clear-key').addEventListener('click',()=>{$('api-key').value='';state.key='';applySettings();replace('model-test-result',notice('Key 已清空。现在使用规则模式。'));});
 async function init() {
   try {state.bootstrap=await api('web/bootstrap');$('fatal').hidden=true;updateScope(true);$('stat-questions').textContent=state.bootstrap.library.total.toLocaleString();$('stat-nodes').textContent=state.bootstrap.library.knowledge_nodes.toLocaleString();renderAudit();
-    if(!state.paper){const profile=await api('web/profile',context());const paper=profile.latest_paper;if(paper&&paper.exam_type===context().exam_type&&paper.trust_tier===context().trust_tier&&(!context().school_level||paper.school_level===context().school_level)&&(!context().subject||paper.subject===context().subject))renderPaper(paper,profile.latest_paper_submissions);}
+    if(!state.paper){const scope=scopeIdentity();const profile=await api('web/profile',context());const paper=scope===scopeIdentity()?profile.latest_paper:null;if(paper&&paper.exam_type===context().exam_type&&paper.trust_tier===context().trust_tier&&(!context().school_level||paper.school_level===context().school_level)&&(!context().subject||paper.subject===context().subject))renderPaper(paper,profile.latest_paper_submissions);}
+    if(typeof restoreExam==='function')await restoreExam();
   } catch(e) {$('fatal').textContent=e.message;$('fatal').hidden=false;$('scope-count').textContent='知识库未连接';throw e;}
 }
 init().catch(()=>{});

@@ -125,16 +125,25 @@ def reconciled_entry(q):
 
 
 def refresh_rule_analysis(q, node_index):
-    """落回答案后，规则草稿里"本题无给定答案"就成了假话，重算受答案影响的三段。
+    """落回答案后，解析草稿里"本题无给定答案"就成了假话，把受答案影响的字段改对。
 
-    解析文案的家在 ntce_analysis_fill，这里只调它自己的生成器，不新写学科判断、
-    不覆盖人工审核内容；解析仍缺题眼与选项辨析这一事实由 pending 项继续说清楚。
+    规则草稿的文案家在 ntce_analysis_fill，这里只调它自己的生成器重算受答案影响的三段；
+    别的出处的草稿（学科大模型推演候选）文案不是本工具写的，重写别人的正文等于替它做学科判断，
+    所以只把答案字段对齐，正文与状态留给它的家，缺解释这一事实由 pending 项继续说清楚。
+    人工审核过的内容一律不动。
     """
     analysis = q.get('analysis')
-    if not analysis or analysis.get('method') != RULE_METHOD or reviewed_content(q):
+    if not analysis or reviewed_content(q):
         return None
-    names, kws = node_anchor(q, node_index)
     answer = q['content'].get('answer')
+    if analysis.get('method') != RULE_METHOD:
+        after = {'correct_answer': str(answer).strip() if answer else None}
+        before = {field: analysis.get(field) for field in after}
+        if before == after:
+            return None
+        analysis.update(after)
+        return {'before': before, 'after': after}
+    names, kws = node_anchor(q, node_index)
     after = {'correct_answer': str(answer).strip() if answer else None,
              'key_info': build_key_info(q, names, kws),
              'explanation': build_explanation(q, names, kws),
@@ -155,7 +164,55 @@ def material_texts(needed):
     return texts
 
 
-def run(scope=None, apply_changes=False):
+def evidence_paths(review, batch):
+    """一批科目一对文件：逐题对照按批次存，核对别的科目不会碰到这一份。"""
+    stem = 'answer_conflict_reconciliation.%s' % batch.replace('/', '_')
+    return review / (stem + '.jsonl'), review / (stem + '.summary.json')
+
+
+def batch_summary(batch, rows, run_scope, applied, scopes_touched, cards):
+    """一批的汇总：题数与拒绝原因只数这一批的逐题证据，运行级字段单独说明当次模式。"""
+    return {'batch': batch,
+            'scope': run_scope,
+            'applied': applied,
+            'inspected': len(rows),
+            'by_result': dict(Counter(r['result'] for r in rows)),
+            'by_refusal': dict(Counter(r.get('refusal') for r in rows if r['result'] == 'refused')),
+            # applied=False 的只出报告运行同样会整批再生证据，这两个字段说明数据实况而不是本次模式。
+            'restored_in_dataset': sum(1 for r in rows if r.get('restored_in_dataset')),
+            'still_quarantined': sum(1 for r in rows if r['result'] == 'refused'),
+            # 隔离题里有多少题卡的是"题面吞了邻题文本"而不是"答案算不出"，
+            # 以及被吞掉的邻题里有多少在本卷压根没有独立记录——后者是收录缺口，不能靠剪文本解决。
+            'refused_with_open_question_boundary': sum(
+                1 for r in rows if r['result'] == 'refused' and r.get('content_boundary')),
+            # 补收录的缺口按 §3.2 的同一口径数：条按（卷·编号）去重，题按露出至少一个无记录编号算。
+            # 按题面处数累加会把同一卷里两道题都露出的同一个编号算成两条待补记录，
+            # 于是这一批的汇总与全库现算清单对同一件事给出两个数。
+            'boundary_questions_without_record': sum(
+                1 for r in rows if r['result'] == 'refused'
+                and (r.get('content_boundary') or {}).get('embedded_numbers_without_record')),
+            'boundary_numbers_without_record': len({
+                (r['scope'], r['session'], n) for r in rows if r['result'] == 'refused'
+                for n in (r.get('content_boundary') or {}).get('embedded_numbers_without_record', ())}),
+            'scopes_touched': scopes_touched,
+            'cards_rewritten_this_run': cards,
+            'note': ('落回只承认"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + '
+                     '与隔离时保全的候选一致"三件同时成立；题干定位不到、五选项多选、零选项缺图、'
+                     '两份抽取不一致都留在隔离态。审核签署字段不因落回而提升。')}
+
+
+def write_batch(review, batch, rows, run_scope, applied, scopes_touched, cards):
+    summary = batch_summary(batch, rows, run_scope, applied, scopes_touched, cards)
+    evidence, digest = evidence_paths(review, batch)
+    write_rows(evidence, rows)
+    atomic_write(digest, json.dumps(summary, ensure_ascii=False, indent=2))
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return summary
+
+
+def run(scope=None, apply_changes=False, review_dir=None):
+    """review_dir 只给测试用：核对未选中的批次时证据要落在别处，
+    否则跑一次测试就往库里多出一份"这批已经核对过"的假记录。"""
     records, touched = [], []
     node_index = load_node_index() if apply_changes else {}
     total_cards = 0
@@ -204,32 +261,25 @@ def run(scope=None, apply_changes=False):
             total_cards += sync_cards(
                 restored, material_texts({q['material_id'] for q in restored if q.get('material_id')}))
     summary_scopes = sorted(set(touched))
-    review = OUT / 'review'
-    write_rows(review / 'answer_conflict_reconciliation.jsonl', records)
-    summary = {'scope': scope or 'ALL',
-               'applied': bool(apply_changes),
-               'inspected': len(records),
-               'by_result': dict(Counter(r['result'] for r in records)),
-               'by_refusal': dict(Counter(r.get('refusal') for r in records if r['result'] == 'refused')),
-               # applied=False 的只出报告运行同样会整批再生证据，这两个字段说明数据实况而不是本次模式。
-               'restored_in_dataset': sum(1 for r in records if r.get('restored_in_dataset')),
-               'still_quarantined': sum(1 for r in records if r['result'] == 'refused'),
-               # 隔离题里有多少题卡的是"题面吞了邻题文本"而不是"答案算不出"，
-               # 以及被吞掉的邻题里有多少在本卷压根没有独立记录——后者是收录缺口，不能靠剪文本解决。
-               'refused_with_open_question_boundary': sum(
-                   1 for r in records if r['result'] == 'refused' and r.get('content_boundary')),
-               'boundary_numbers_without_record': sum(
-                   len((r.get('content_boundary') or {}).get('embedded_numbers_without_record', ()))
-                   for r in records if r['result'] == 'refused'),
-               'scopes_touched': summary_scopes,
-               'cards_rewritten_this_run': total_cards,
-               'note': ('落回只承认"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + '
-                        '与隔离时保全的候选一致"三件同时成立；题干定位不到、五选项多选、零选项缺图、'
-                        '两份抽取不一致都留在隔离态。审核签署字段不因落回而提升。')}
-    atomic_write(review / 'answer_conflict_reconciliation_summary.json',
-                 json.dumps(summary, ensure_ascii=False, indent=2))
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
-    return summary
+    review = review_dir or OUT / 'review'
+    # 一批科目一份逐题证据。原先合成一个总文件，下一次只核对别的科目就把上一批的
+    # 修改前后对照整批覆盖掉——"每批保留题号、修改前后内容、依据及审核状态"要的就是那份历史还在。
+    batches = {}
+    for record in records:
+        batches.setdefault(record['scope'], []).append(record)
+    summaries = []
+    for key in sorted(batches):
+        summaries.append(write_batch(review, key, batches[key], scope or 'ALL',
+                                     bool(apply_changes), summary_scopes, total_cards))
+    if len(summaries) == 1:
+        return summaries[0]
+    # 全库一次跑完会有多批：返回值仍是同一套键的全量汇总，另附逐批摘要，
+    # 免得读的人把两批的题数当成一批。
+    aggregate = batch_summary('multiple-batches', records, scope or 'ALL', bool(apply_changes),
+                              summary_scopes, total_cards)
+    aggregate['batches'] = summaries
+    print(json.dumps(aggregate, ensure_ascii=False, indent=2))
+    return aggregate
 
 
 if __name__ == '__main__':

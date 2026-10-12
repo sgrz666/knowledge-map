@@ -86,11 +86,11 @@ class PracticeEngineAgent:
         spec = None
         structure: List[dict] = []
         if req.practice_mode == PracticeMode.MOCK_EXAM:
-            selection, spec, mode_notices, structure = self._select_mock(
+            selection, spec, mode_notices, structure, seed_text = self._select_mock(
                 req, usable_pool, modules
             )
         else:
-            selection, mode_notices = self._select_adaptive(
+            selection, mode_notices, seed_text = self._select_adaptive(
                 req, usable_pool, gate, modules, exams
             )
         notices.extend(mode_notices)
@@ -135,6 +135,7 @@ class PracticeEngineAgent:
             spec_id=(spec or {}).get("spec_id"),
             structure=structure,
             notices=notices,
+            selection_seed=seed_text,
         )
 
     def node_frequency(self, exam: str, top: int = 12) -> List[Tuple[str, int]]:
@@ -153,10 +154,11 @@ class PracticeEngineAgent:
         gate: TrustGate,
         modules: Optional[Tuple[str, ...]],
         exams: Tuple[str, ...],
-    ) -> Tuple[List[QuestionMeta], List[str]]:
+    ) -> Tuple[List[QuestionMeta], List[str], str]:
         notices: List[str] = []
         mode = req.practice_mode
-        pool = list(usable_pool)
+        rng, seed_text = self._seeded(req, mode.value)
+        pool = self._avoid(list(usable_pool), req, notices)
 
         if mode == PracticeMode.ERROR_ELIMINATION:
             ids = list(req.wrong_question_ids) or self.memory.due_question_ids(
@@ -164,7 +166,7 @@ class PracticeEngineAgent:
             )
             if not ids:
                 notices.append("FSRS 队列为空：该 learner 尚无错题记录，请先作答或完成诊断。")
-                return [], notices
+                return [], notices, seed_text
             metas = []
             unknown = skipped = untexted = 0
             for qid in ids:
@@ -195,7 +197,11 @@ class PracticeEngineAgent:
                     f"{skipped} 道错题在库内没有可核对的答案（answer_status 非 letter_only/reference_only/verified），"
                     "已跳过：没有答案键的重做没有判分依据，系统不用猜测答案补位。"
                 )
-            return metas[: req.item_count], notices
+            # 到期队列是 FSRS 算出来的，不是随机池：换一批只改这批的先后，不删没做过的到期题。
+            if req.rotation:
+                notices.append("错题回炉按到期队列出题：换一批只换这批题的先后顺序，到期未做的题不会因此消失。")
+            self._shuffle(metas, rng)
+            return metas[: req.item_count], notices, seed_text
 
         if mode in (PracticeMode.POINT_FOCUS,):
             if req.target_node:
@@ -204,7 +210,7 @@ class PracticeEngineAgent:
                 pool = [m for m in pool if m.module in modules]
             else:
                 notices.append(NO_INPUT_NOTICE)
-                return [], notices
+                return [], notices, seed_text
 
         elif mode == PracticeMode.WEAKNESS_BREAKTHROUGH:
             supplied = list(req.weak_node_ids)
@@ -237,7 +243,12 @@ class PracticeEngineAgent:
             ranked_set = set(ranked)
             scored = [(len(ranked_set & set(m.node_ids)), m.question_id, m) for m in pool]
             scored.sort(key=lambda x: (-x[0], x[1]))
-            pool = [m for _, _, m in scored if m.node_ids]
+            ranked_pool = [m for _, _, m in scored if m.node_ids]
+            # 覆盖度排序决定"从哪一段抽"，段内按种子洗牌：高频优先不等于每次都是同一批题。
+            band_end = min(len(ranked_pool), max(req.item_count * 5, 40))
+            band = ranked_pool[:band_end]
+            self._shuffle(band, rng)
+            pool = band + ranked_pool[band_end:]
 
         elif mode == PracticeMode.TIMED_SPRINT:
             # Letter-answerable is the data-truth definition of an auto-checkable item.
@@ -251,24 +262,26 @@ class PracticeEngineAgent:
 
         if mode not in (PracticeMode.HIGH_FREQUENCY, PracticeMode.ERROR_ELIMINATION):
             pool = self._stable_sample(pool, req, seed_extra=mode.value)
-        return pool[: req.item_count], notices
+        return pool[: req.item_count], notices, seed_text
 
     def _select_mock(
         self,
         req: AssemblePaperRequest,
         usable_pool: Sequence[QuestionMeta],
         modules: Optional[Tuple[str, ...]],
-    ) -> Tuple[List[QuestionMeta], Optional[dict], List[str], List[dict]]:
+    ) -> Tuple[List[QuestionMeta], Optional[dict], List[str], List[dict], str]:
         """Follow an official blueprint: real question ids when pinned, section counts otherwise."""
         notices: List[str] = []
+        rng, seed_text = self._seeded(req, "mock")
         specs = self.repository.paper_specs(req.exam_type)
         if not specs:
             notices.append("库内没有该考试的考务规格（paper_specs），已退回按题型均衡抽题。")
             return (
-                self._stable_sample(list(usable_pool), req, seed_extra="mock"),
+                self._avoid(self._stable_sample(list(usable_pool), req, seed_extra="mock"), req, notices),
                 None,
                 notices,
                 [],
+                seed_text,
             )
 
         spec, spec_notice = self._pick_spec(req, specs)
@@ -281,6 +294,8 @@ class PracticeEngineAgent:
         structure: List[dict] = []
         chosen: List[QuestionMeta] = []
         taken = set()
+        avoided = set(req.avoid_question_ids)
+        unpinned_avoided = 0
 
         for part in sections:
             name = part.get("name") or ""
@@ -314,7 +329,12 @@ class PracticeEngineAgent:
                     if m.question_id not in taken
                     and (m.section == name or (qtype and m.question_type == qtype))
                 ]
-                candidates.sort(key=lambda m: m.question_id)
+                if avoided:
+                    before = len(candidates)
+                    candidates = [m for m in candidates if m.question_id not in avoided]
+                    unpinned_avoided += before - len(candidates)
+                # 卷面只钉了结构与题量，没钉题号：这些题号由本轮种子洗出来，换一批就换一批题。
+                self._shuffle(candidates, rng)
                 picked = candidates[:want]
                 chosen.extend(picked)
                 taken.update(m.question_id for m in picked)
@@ -326,7 +346,13 @@ class PracticeEngineAgent:
                     )
             structure.append(entry)
 
-        return chosen, spec, notices, structure
+        if req.avoid_question_ids:
+            pinned_count = sum(len(part.get("question_ids") or []) for part in sections)
+            if pinned_count and not unpinned_avoided:
+                notices.append(
+                    f"这份规格的 {pinned_count} 题由官方卷面钉死题号，换一批不影响它们；只有未钉题号的小节会轮换。"
+                )
+        return chosen, spec, notices, structure, seed_text
 
     @staticmethod
     def _pick_spec(req: AssemblePaperRequest, specs: Sequence[dict]) -> Tuple[dict, str]:
@@ -367,17 +393,50 @@ class PracticeEngineAgent:
             scoped = [m for m in scoped if m.subject == subject]
         return scoped
 
+    @staticmethod
+    def _seeded(req: AssemblePaperRequest, seed_extra: str) -> Tuple[random.Random, str]:
+        """Deterministic per (user, day, 模式/规格档, 轮次)：同一轮可复现，下一轮必然换一批。"""
+        seed_text = f"{req.user_id}|{date.today().isoformat()}|{seed_extra}|{req.rotation}"
+        digest = int(hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:12], 16)
+        return random.Random(digest), seed_text
+
+    @staticmethod
+    def _shuffle(rows: List[QuestionMeta], rng: random.Random) -> None:
+        """先按题号排定基准顺序再洗牌，同一个种子才能拿到同一批顺序。"""
+        rows.sort(key=lambda m: m.question_id)
+        rng.shuffle(rows)
+
+    @staticmethod
+    def _avoid(pool: List[QuestionMeta], req: AssemblePaperRequest, notices: List[str]) -> List[QuestionMeta]:
+        """「换一批」只按题号避让：上一批做过的题不再出现；题量不够就如实少发，不重发旧题凑数。"""
+        if not req.avoid_question_ids or not pool:
+            return pool
+        blocked = set(req.avoid_question_ids)
+        kept = [m for m in pool if m.question_id not in blocked]
+        dropped = len(pool) - len(kept)
+        if dropped:
+            notices.append(f"换一批：已避开上一批的 {dropped} 题。")
+        if not kept:
+            notices.append(
+                f"当前范围可用题共 {len(pool)} 题，上一批已全部出过，本轮换不出新题："
+                "请扩大考点或科目范围，或改做错题回炉。宁可出空卷说明原因，也不重发旧题冒充新批。"
+            )
+        elif len(kept) < req.item_count:
+            notices.append(
+                f"避开上一批后同范围只剩 {len(kept)} 题，不足要求的 {req.item_count} 题："
+                "本轮如实少发，不重发旧题凑数。"
+            )
+        return kept
+
     def _stable_sample(
         self, pool: Sequence[QuestionMeta], req: AssemblePaperRequest, seed_extra: str
     ) -> List[QuestionMeta]:
         """Deterministic per (user, day, mode) so a paper can be reproduced."""
         if not pool:
             return []
-        seed_text = f"{req.user_id}|{date.today().isoformat()}|{seed_extra}"
-        seed = int(hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:12], 16)
-        rng = random.Random(seed)
-        ordered = sorted(pool, key=lambda m: m.question_id)
-        rng.shuffle(ordered)
+        rng, _ = self._seeded(req, seed_extra)
+        ordered = list(pool)
+        self._shuffle(ordered, rng)
         return ordered
 
     # -------------------------------------------------------- materialise
@@ -509,6 +568,7 @@ class PracticeEngineAgent:
                     req.practice_mode.value,
                     req.target_node or "",
                     req.spec_id or "",
+                    str(req.rotation),
                     date.today().isoformat(),
                 ]
             ).encode("utf-8")

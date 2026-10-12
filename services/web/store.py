@@ -84,6 +84,17 @@ class WorkbenchStore:
         with self.lock:
             return [json.loads(r[0]) for r in self.db.execute('SELECT data FROM submissions WHERE paper=?', (paper,)).fetchall()]
 
+    def answered_question_ids(self, user):
+        """该学习者作答过的题号集合。
+
+        来源装配用它决定答案可见性：已经答过的题给答案与解析，没答过的题只给题面。
+        按题目而不是按卷子统计，所以练习卷换了一批之后，上一批答过的题依然不会被剧透。
+        """
+        with self.lock:
+            return {row[0] for row in self.db.execute(
+                'SELECT DISTINCT json_extract(s.data, ?) FROM submissions s JOIN papers p ON p.id=s.paper '
+                'WHERE p.user=?', ('$.question_id', user)).fetchall() if row[0]}
+
     def latest_paper(self, user, *, exam=None, school_level=None, subject=None, trust_tier=None):
         with self.lock:
             for row in self.db.execute('SELECT data FROM papers WHERE user=? ORDER BY rowid DESC', (user,)):

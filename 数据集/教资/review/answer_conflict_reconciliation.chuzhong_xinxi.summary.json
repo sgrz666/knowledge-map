@@ -1,0 +1,22 @@
+{
+  "batch": "chuzhong/xinxi",
+  "scope": "chuzhong/xinxi",
+  "applied": false,
+  "inspected": 50,
+  "by_result": {
+    "refused": 50
+  },
+  "by_refusal": {
+    "cross_question_risk_open": 38,
+    "not_a_four_option_single_choice": 6,
+    "stem_number_not_located_in_source": 6
+  },
+  "restored_in_dataset": 0,
+  "still_quarantined": 50,
+  "refused_with_open_question_boundary": 45,
+  "boundary_questions_without_record": 3,
+  "boundary_numbers_without_record": 3,
+  "scopes_touched": [],
+  "cards_rewritten_this_run": 0,
+  "note": "落回只承认\"题干在原卷唯一定位到题号 + 答案键该题号是单字母且落在印刷选项内 + 与隔离时保全的候选一致\"三件同时成立；题干定位不到、五选项多选、零选项缺图、两份抽取不一致都留在隔离态。审核签署字段不因落回而提升。"
+}

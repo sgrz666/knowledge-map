@@ -1,4 +1,5 @@
 {
+  "batch": "xiaoxue/jiaoyuxinlixue",
   "scope": "xiaoxue/jiaoyuxinlixue",
   "applied": false,
   "inspected": 34,
@@ -14,6 +15,7 @@
   "restored_in_dataset": 22,
   "still_quarantined": 12,
   "refused_with_open_question_boundary": 7,
+  "boundary_questions_without_record": 2,
   "boundary_numbers_without_record": 2,
   "scopes_touched": [],
   "cards_rewritten_this_run": 0,

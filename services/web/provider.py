@@ -11,15 +11,30 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         raise LLMUnavailableError('模型接口发生重定向，请在设置中填写最终 HTTPS 地址')
 
 
+def _carried_by_system_proxy(scheme, host):
+    """urllib 只在代理表里有该协议入口且该主机不在免代理名单里时，才把请求交给代理。
+
+    那时要连的对端是代理本身，域名解析结果根本不参与建连；代理型客户端（fake-ip／TUN）
+    在此时会把公网域名解成 198.18.0.0/15 这类占位地址，拿它判公网与否会误拒真实连接。
+    Key 仍在 TLS 里：Base URL 已由 services/web/models.py 限定为 https、端口 443、不含凭据与 IP 字面量。
+    """
+    return scheme == 'https' and bool(urllib.request.getproxies().get('https')) \
+        and not urllib.request.proxy_bypass(host)
+
+
 class PrivateProvider(OpenAICompatibleProvider):
     def _post(self, body):
         # Disallow local network proxying; redirects must never forward a visitor's Key.
         import json
         import time
-        host = urlsplit(self.base_url).hostname
-        for info in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM):
-            if not ipaddress.ip_address(info[4][0]).is_global:
-                raise LLMUnavailableError('模型域名解析到非公网地址，无法连接')
+        target = urlsplit(self.base_url)
+        host = target.hostname
+        if not _carried_by_system_proxy(target.scheme, host):
+            for info in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM):
+                if not ipaddress.ip_address(info[4][0]).is_global:
+                    raise LLMUnavailableError(
+                        f'模型域名解析到非公网地址（{info[4][0]}），本机也没有可用的系统代理；'
+                        '请在代理客户端里让该域名走真实解析，或在终端设置 HTTPS_PROXY')
         request = urllib.request.Request(
             self.base_url + '/chat/completions',
             data=json.dumps(body, ensure_ascii=False).encode('utf-8'),

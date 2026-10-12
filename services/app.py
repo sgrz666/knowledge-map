@@ -56,6 +56,7 @@ from services.common.models import (
 from services.diagnostic.agent import DiagnosticAgent
 from services.grader.agent import SubjectiveGraderAgent
 from services.interview.agent import InterviewCoachAgent
+from services.knowledge.graph_index import get_graph_index
 from services.knowledge.repository import get_repository
 from services.knowledge.retrieval import RetrievalService, get_retrieval_service
 from services.knowledge.trust import TrustGate
@@ -158,6 +159,24 @@ def _probe(name: str, call) -> tuple[str, Optional[str]]:
         return (name, f"{type(exc).__name__}: {exc}")
 
 
+def _probe_graph_index() -> dict:
+    """真构图探测：两库都要能建出非空图，且边名全在闭集白名单内。
+
+    读仓库统计不算探测——图谱数据里混进第 17 个边名时 GraphIndex._build 会抛
+    UnknownEdgeTypeError，只有真正构图才能把它变成 not_ready 而不是绿色健康检查。
+    """
+    probed: dict[str, dict] = {}
+    for library in ("ntce", "cet"):
+        summary = get_graph_index(library).stats()
+        _require(bool(summary["nodes"] and summary["edges"]), f"{library}: 图谱节点或边为空")
+        _require(
+            set(summary["edge_types"]) <= set(summary["allowed_edge_types"]),
+            f"{library}: 出现白名单外的边名",
+        )
+        probed[library] = {key: summary[key] for key in ("nodes", "edges", "edge_types")}
+    return probed
+
+
 def _readiness() -> tuple[list[str], list[str]]:
     root, agents = _probe_resources()
     gate = TrustGate("research_internal")
@@ -176,7 +195,7 @@ def _readiness() -> tuple[list[str], list[str]]:
     subjective_id = subjective.question_id if subjective else question_id
     checks: dict[str, object] = {
         "KnowledgeRepository": lambda: _require(repository.stats()["question_records"] > 0, "题目索引为空"),
-        "GraphIndex": lambda: agents["RetrievalService"].repository.stats(),
+        "GraphIndex": _probe_graph_index,
         "VectorCardIndex": lambda: retrieval_service.cards.notices(),
         "TrustGate": lambda: gate.classify(
             question_id=question_id, review_status="needs_fix", answer_status="reference_only"

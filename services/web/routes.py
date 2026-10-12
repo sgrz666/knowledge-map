@@ -6,6 +6,9 @@ from services.review.queue import get_review_queue
 from services.web.models import ChatRequest, ModelConfig, WebContext, WebPracticeRequest, SubmitRequest, FeedbackRequest
 from services.web.provider import client_for, narrate
 from services.web.service import Workbench
+from services.web.knowledge import build_router as knowledge_router
+from services.learning.router import build_router as learning_router
+from services.exam_sessions.routes import build_router as exam_router
 
 
 def build_router(auth_dependency):
@@ -57,7 +60,8 @@ def build_router(auth_dependency):
         data = workbench.store.paper(user_id, paper_id)
         if data is None:
             raise HTTPException(404, '没有找到这份练习卷')
-        return {'paper': data, 'submissions': workbench.store.paper_submissions(paper_id)}
+        return {'paper': data, 'submissions': [workbench.exam_sessions.mask_submission(paper_id, s)
+                for s in workbench.store.paper_submissions(paper_id)]}
 
     @router.post('/feedback')
     def feedback(req: FeedbackRequest):
@@ -69,4 +73,7 @@ def build_router(auth_dependency):
                 'description': req.detail, 'review_status': meta.review_status, 'answer_status': meta.answer_status})
         return {'message': '已记录到教研待复核队列', 'entry': row}
 
+    router.include_router(learning_router(workbench))
+    router.include_router(knowledge_router(workbench))
+    router.include_router(exam_router(workbench))
     return router

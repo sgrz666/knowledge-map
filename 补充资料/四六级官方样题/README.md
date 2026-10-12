@@ -1,4 +1,35 @@
-# CET 2016 官方大纲样卷补充集
+# 补充资料/四六级官方样题/ —— 《四六级大纲（2016 修订版）》样卷部分的抽取产物；由 kb_tools/cet_official_examples.py 生成，供四六级库的答案恢复核对与审查消费
+
+## 文件清单（92 个数据文件 + README.md，逐个列名/按命名规律列全）
+
+### 抽取与索引数据（14 个）
+
+| 文件名 | 内容 |
+| --- | --- |
+| `exact_matches.jsonl` | 与主库 CET 题的完整匹配记录（现检查 5,340 条主库记录，完整匹配 0） |
+| `index.html` | 离线查看页（双击可筛学段/题型/展开答案，无网络依赖） |
+| `official_examples.jsonl` | 118 条完整提取档案＝114 题 + 4 组写译评分样卷（每组 14/11/8/5/2 分共 20 篇作答） |
+| `oral_samples.jsonl` | 两套官方口试正文（四级 169–171、六级 192–193 页）与六级图像卡片文字；知识点/能力列表为空并标待对齐 |
+| `passages.jsonl` | 23 篇完整听读语篇（15 组听力文字稿、2 选词填空、2 长篇阅读、4 仔细阅读），resource_id 供题目 extra.passage_id 对接 |
+| `questions.jsonl` | 114 条标准题目契约记录；source.files[].path 全部指 `权威资料/originals/cet.syllabus.2016.pdf`（276 处引用，现算），题面带 PDF 页码与 locator |
+| `reconstructed_source.txt` | PDF 150–211 页恢复文本 |
+| `recovery_patches.jsonl` | 严格恢复补丁；当前 0 字节（真实恢复 0，主库未被修改） |
+| `source_pages.json` | 约 39 MB 抽取产物：62 页原生文本、字符坐标、原始字形流、恢复文本与页图路径；由 kb_tools/cet_official_examples.py 生成（dump_json 到本目录），PDF 哈希变化时拒绝沿用旧边界 |
+| `source_sections.jsonl` | 14 个完整原文边界（两套笔试、听力稿、答案、口试、答题卡、写译评分） |
+| `summary.json` | 数量/缺口摘要，含 page_text_path 指 source_pages.json |
+| `viewer_preview.png` | 查看页冒烟测试的浏览器截图留档（viewer_smoke.cjs 跑过后的画面存证，非试题内容） |
+| `viewer_smoke.cjs` | Node 冒烟测试：浏览器筛选、搜索、答案展开 |
+| `visual_verification.json` | 原 PDF、页图、恢复文本哈希与实际视觉检查范围；哈希变动会撤销 visually_verified |
+
+### 页图与布局图（62 个 PNG + 16 个 JPG）
+
+`page.NNN.png`（62 个，150–211 全列）：大纲 PDF 第 150–211 页逐页渲染图（pymupdf 出图，`--render` 重建）。页段：150–161 四级笔试、162–167 四级听力稿、168 四级答案、169–171 四级口试、172–183 六级笔试、184–190 六级听力稿、190–191 六级答案、192–193 六级口试、194–201 八张答题卡、202–204 四级作文评分样卷、205–207 六级作文、208–209 四级翻译、210–211 六级翻译。答题卡页 194–201 主要是扫描图，只留原图、不标完整文字提取——扫描件原件不入库，入库检索面只有文字条款与题目契约，扫描页以原图 + 哈希留档（哈希见 visual_verification.json）：
+
+`page.150.png` `page.151.png` `page.152.png` `page.153.png` `page.154.png` `page.155.png` `page.156.png` `page.157.png` `page.158.png` `page.159.png` `page.160.png` `page.161.png` `page.162.png` `page.163.png` `page.164.png` `page.165.png` `page.166.png` `page.167.png` `page.168.png` `page.169.png` `page.170.png` `page.171.png` `page.172.png` `page.173.png` `page.174.png` `page.175.png` `page.176.png` `page.177.png` `page.178.png` `page.179.png` `page.180.png` `page.181.png` `page.182.png` `page.183.png` `page.184.png` `page.185.png` `page.186.png` `page.187.png` `page.188.png` `page.189.png` `page.190.png` `page.191.png` `page.192.png` `page.193.png` `page.194.png` `page.195.png` `page.196.png` `page.197.png` `page.198.png` `page.199.png` `page.200.png` `page.201.png` `page.202.png` `page.203.png` `page.204.png` `page.205.png` `page.206.png` `page.207.png` `page.208.png` `page.209.png` `page.210.png` `page.211.png`
+
+`layout.NNN-NNN.jpg`（16 个，每 4 页一组拼版，Pillow 合成，供布局核对复看）：
+
+`layout.150-153.jpg` `layout.154-157.jpg` `layout.158-161.jpg` `layout.162-165.jpg` `layout.166-169.jpg` `layout.170-173.jpg` `layout.174-177.jpg` `layout.178-181.jpg` `layout.182-185.jpg` `layout.186-189.jpg` `layout.190-193.jpg` `layout.194-197.jpg` `layout.198-201.jpg` `layout.202-205.jpg` `layout.206-209.jpg` `layout.210-211.jpg`
 
 双击 `index.html` 即可筛选四级/六级、题型、评分样卷、口试及完整原文档案，展开官方参考答案，查看完整语篇、听力文字稿和原 PDF 页图。页面无需网络或服务器。
 

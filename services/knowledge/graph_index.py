@@ -195,9 +195,17 @@ class GraphIndex:
     def abilities_for_node(self, ability_node: str) -> List[str]:
         return [dst for dst, _ in self.link_out(ability_node, "supports_ability")]
 
+    def requirement_links(self, node_id: str) -> List[Tuple[str, dict]]:
+        """条款挂到考点/题目上的原边（含 verified、mapping_status）。
+
+        ``aligned_to_requirement`` 的方向是 条款 -> 目标，反着筛会得到恒空的结果；
+        方向与边名只在这里定义一次，消费方别再自己扫边。
+        """
+        return self.link_in(node_id, "aligned_to_requirement")
+
     def requirements_for(self, node_id: str) -> List[str]:
         """L0 clauses aligned to a node or question (points clause -> target)."""
-        return [src for src, _ in self.link_in(node_id, "aligned_to_requirement")]
+        return [src for src, _ in self.requirement_links(node_id)]
 
     def requirements_for_question(self, question_id: str) -> List[str]:
         out = self.requirements_for(question_id)
