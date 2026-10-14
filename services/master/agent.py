@@ -33,6 +33,7 @@ from services.diagnostic.agent import DiagnosticAgent
 from services.grader.agent import SubjectiveGraderAgent
 from services.interview.agent import InterviewCoachAgent
 from services.knowledge.repository import KnowledgeRepository, get_repository
+from services.knowledge.retrieval import RetrievalService, get_retrieval_service
 from services.knowledge.trust import TrustGate
 from services.master.intent_router import IntentRouter
 from services.memory.agent import MemoryReviewAgent
@@ -129,18 +130,28 @@ class TutorMasterAgent:
         repository: Optional[KnowledgeRepository] = None,
         queue: Optional[ReviewQueue] = None,
         session_store: Optional[SessionStore] = None,
+        retrieval_service: Optional[RetrievalService] = None,
     ) -> None:
         self.repository = repository or get_repository()
         self.store = default_store()
+        self.retrieval_service = retrieval_service
         self.diagnostic = diagnostic_agent or DiagnosticAgent(repository=self.repository)
         self.planner = planner_agent or CurriculumPlannerAgent(repository=self.repository)
         self.practice = practice_agent or PracticeEngineAgent(repository=self.repository)
         self.grader = grader_agent or SubjectiveGraderAgent(repository=self.repository)
         self.memory = memory_agent or MemoryReviewAgent(store=self.store, repository=self.repository)
-        self.qa = qa_agent or TutorQAAgent(repository=self.repository)
+        self.qa = qa_agent or TutorQAAgent(
+            repository=self.repository, retrieval_service=self.retrieval_service
+        )
         self.interview = interview_agent or InterviewCoachAgent(repository=self.repository)
         self.queue = queue or get_review_queue()
         self.sessions = session_store or get_session_store()
+
+    @property
+    def retrieval(self) -> RetrievalService:
+        if self.retrieval_service is None:
+            self.retrieval_service = get_retrieval_service()
+        return self.retrieval_service
 
     # ------------------------------------------------------------------ public
     def handle_interaction(self, req: MasterInteractionRequest) -> MasterInteractionResponse:
@@ -235,7 +246,51 @@ class TutorMasterAgent:
     # --------------------------------------------------------------- sub-turns
     def _qa_turn(self, session_id: str, req: MasterInteractionRequest, intent: UserIntent) -> MasterInteractionResponse:
         payload = req.action_payload or {}
-        question_id = payload.get("question_id") or req.message.strip()
+        raw_qid = payload.get("question_id")
+        record = self.repository.load_question(raw_qid) if raw_qid else None
+
+        if record is None and raw_qid is None and session_id:
+            sess = self.sessions.load(session_id)
+            if sess and sess.get("context"):
+                sess_qid = sess["context"].get("question_id") or sess["context"].get("last_question_id")
+                if sess_qid:
+                    rec = self.repository.load_question(sess_qid)
+                    if rec:
+                        raw_qid = sess_qid
+                        record = rec
+
+        msg_str = req.message.strip()
+        if record is None and raw_qid is None and msg_str:
+            rec = self.repository.load_question(msg_str)
+            if rec:
+                raw_qid = msg_str
+                record = rec
+
+        rag_candidate = None
+        rag_candidates = []
+        rag_backend = None
+        if record is None and raw_qid is None and msg_str:
+            try:
+                retrieval = self.retrieval.search(
+                    msg_str,
+                    exam=req.exam_type,
+                    tier=req.trust_tier.value,
+                    user_id=req.user_id,
+                    k=3,
+                )
+                rag_backend = retrieval.get("backend")
+                rag_candidates = retrieval.get("candidates", [])
+                if rag_candidates:
+                    top_qid = rag_candidates[0]["question_id"]
+                    cand_rec = self.repository.load_question(top_qid)
+                    if cand_rec:
+                        raw_qid = top_qid
+                        record = cand_rec
+                        rag_candidate = rag_candidates[0]
+            except Exception:
+                pass
+
+        question_id = raw_qid or msg_str
         qa_request = QARequest(
             user_id=req.user_id,
             question_id=question_id,
@@ -247,18 +302,39 @@ class TutorMasterAgent:
         )
         answer = self.qa.answer_query(qa_request)
         grounded = getattr(answer, "grounded_in_library", False)
+        notices = list(getattr(answer, "notices", []) or [])
+        if rag_candidate:
+            notices.append(
+                f"通过 RAG 向量检索定位库内题目：{rag_candidate['question_id']}（相似度 {rag_candidate['score']:.2f}）"
+            )
+
         card = {
             "question_id": answer.question_id,
             "grounded_in_library": grounded,
             "answer_visibility": getattr(answer, "answer_visibility", "none"),
-            "notices": list(getattr(answer, "notices", []) or []),
+            "notices": notices,
             "evidence": (answer.knowledge_provenance if hasattr(answer, "knowledge_provenance") else {}),
         }
+        if rag_candidates:
+            card["rag_backend"] = rag_backend
+            card["rag_candidates"] = [c["question_id"] for c in rag_candidates]
+
         reply = (
             getattr(answer, "explanation_summary", None)
             or getattr(answer, "guiding_question", "")
             or "该题不在知识库索引内，系统不生成解析。"
         )
+        if rag_candidate and grounded:
+            reply = f"根据 RAG 检索到的库内题目（{rag_candidate['question_id']}）：\n" + reply
+
+        self.sessions.save(
+            session_id=session_id,
+            user_id=req.user_id,
+            exam=req.exam_type,
+            state=State.IDLE.value,
+            context={"last_question_id": question_id, "qa_grounded": grounded},
+        )
+
         return MasterInteractionResponse(
             session_id=session_id,
             detected_intent=intent,

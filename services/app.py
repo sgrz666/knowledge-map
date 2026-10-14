@@ -82,16 +82,16 @@ app = FastAPI(
 )
 
 repository = get_repository()
+retrieval_service = get_retrieval_service()
+review_queue = get_review_queue()
 grader_agent = SubjectiveGraderAgent(repository=repository)
 memory_agent = MemoryReviewAgent(repository=repository)
 diagnostic_agent = DiagnosticAgent(repository=repository)
 planner_agent = CurriculumPlannerAgent(repository=repository)
 practice_agent = PracticeEngineAgent(repository=repository)
-qa_agent = TutorQAAgent(repository=repository)
+qa_agent = TutorQAAgent(repository=repository, retrieval_service=retrieval_service)
 interview_agent = InterviewCoachAgent(repository=repository)
-master_agent = TutorMasterAgent(repository=repository)
-retrieval_service = get_retrieval_service()
-review_queue = get_review_queue()
+master_agent = TutorMasterAgent(repository=repository, retrieval_service=retrieval_service)
 
 
 class HealthResponse(BaseModel):
@@ -143,11 +143,14 @@ def _probe_resources():
         "SubjectiveGraderAgent": SubjectiveGraderAgent(repository=repository, review_queue=queue),
         "InterviewCoachAgent": InterviewCoachAgent(repository=repository, review_queue=queue),
         "DiagnosticAgent": DiagnosticAgent(repository=repository, queue=queue),
-        "TutorMasterAgent": TutorMasterAgent(
-            repository=repository, queue=queue, session_store=sessions
-        ),
         "RetrievalService": RetrievalService(repository=repository, queue=queue),
     }
+    agents["TutorMasterAgent"] = TutorMasterAgent(
+        repository=repository,
+        queue=queue,
+        session_store=sessions,
+        retrieval_service=agents["RetrievalService"],
+    )
     return root, agents
 
 

@@ -47,9 +47,11 @@ class SparksChainEngine:
         self,
         repository: Optional[KnowledgeRepository] = None,
         gate: Optional[TrustGate] = None,
+        retrieval_service: Optional[object] = None,
     ) -> None:
         self.repository = repository or get_repository()
         self.gate = gate or TrustGate("research_internal")
+        self.retrieval_service = retrieval_service
 
     @classmethod
     def generate(
@@ -226,8 +228,30 @@ class SparksChainEngine:
             notices.append("该题在库内没有可引用的权威条款，解析仅基于题目自身文本。")
 
         source = record.get("source") or {}
+        related_cards = []
+        if getattr(self, "retrieval_service", None):
+            try:
+                stem = (record.get("content") or {}).get("stem") or ""
+                if stem:
+                    cand_ret = self.retrieval_service.search(
+                        stem[:120],
+                        tier=self.gate.tier,
+                        k=2,
+                        use_graph=False,
+                    )
+                    for cand in cand_ret.get("candidates", []):
+                        if cand.get("question_id") != record.get("question_id"):
+                            related_cards.append({
+                                "question_id": cand.get("question_id"),
+                                "card_path": cand.get("card_path"),
+                                "score": cand.get("score"),
+                            })
+            except Exception:
+                pass
+
         provenance = {
             "requirements": clauses,
+            "related_cards": related_cards,
             "node_ids": list(record.get("knowledge_node_ids") or []),
             "requested_node": node_id,
             "trace_back": structured.get("trace_back") or "",
