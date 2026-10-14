@@ -2,12 +2,12 @@
 
 2026-10-12。分三档写明：完整自动化覆盖、真实浏览器实测、尚未实测。没跑过的不写成跑过。**下面"当前实况"这一节是此刻库与代码的真实状态**；再往下按验收面分开（提交重试、掌握度取证、资源并入、agent 流程四项、浏览器、手机宽度、尚未实测），最后是答案冲突的逐批历史与逐轮清点，历史里保留的每一轮计数只作对照，实况以顶部为准。
 
-## 当前实况（agent 流程四项收口之后全量复跑）
+## 当前实况（agent 流程四项收口、学习指南补齐之后全量复跑）
 
 | 命令 | 结果 |
 | --- | --- |
-| `python -m pytest tests -q`（主工作区工作树，状态目录指向空临时处，整档单独跑、不与其它 pytest 运行重叠） | `2 项失败、492 项通过、63 个子测试通过`，实测 185.53 秒，退出码 `1`。红的两项仍是有意的内容缺口标记：`test_seven_target_nodes_have_substantive_guides_and_fourteen_self_checks` 与 `test_loader_filters_returns_detached_json_and_rereads_changes`（后者红在最后一步 `len(list_guides()) == 7`，它自己的过滤断言是过的），断言 7 个无题叶子考点都有讲解、共 14 道自测题，实际 3 份 6 题——交付清单第 4 项按教研决定留下的缺口，不是回归坏了。本轮为 agent 流程新增的用例全在 `tests/test_web_workbench.py`（该文件现在 30 条，单跑 30 项全绿、39.68 秒）：思考过程六支都产出且步骤集合固定、五条岔路逐条出 trace、批次轮换并避开上一批、越界载荷降级而不 500、同一句话不重复排课、考点真题附题面但不泄答案、没答过的题只给引导不给答案、模块级考点扩到下级考点、卷面回传考点、整句包裹仍锚得到考点、带考点的载荷不被面试关键词抢走、状态冲突与隔离题都带前端能用的错误码。上一档那 5 项 `tests/test_learning_workflow.py` 的红仍然没回来：该 fixture 现在走真实构造函数（`tests/test_learning_workflow.py:23` 那行注释记着这件事），"新增依赖漏赋字段"不再靠两边碰巧同步来避免 |
-| `python 审查/audit_ntce_completeness.py` | 本轮复跑，退出码 `0`；数字与上一档逐项一致（库内容这轮没动）：14,500 题里 **13,464** 可练，缺知识点／能力挂载 1,331、缺考纲绑定 3,928、来源冲突 **845**、缺答案 149、空题干 45；791 个考点中 160 个没有直接考查题、其中 **7** 个是叶子；32 份卷面规格、6 份量规未签署、具名签核 0；八层 L0–L7 = 2,320／7／38／51／791／586／18,303／11，图边 96,785 |
+| `python -m pytest tests -q`（主工作区工作树，状态目录指向空临时处，整档单独跑、不与其它 pytest 运行重叠） | `494 项通过、75 个子测试通过`，实测 182.07 秒，退出码 `0`——自 2026-10-11 起长红的两项资源层缺口标记（`test_seven_target_nodes_have_substantive_guides_and_fourteen_self_checks`、`test_loader_filters_returns_detached_json_and_rereads_changes`，后者红在最后一步 `len(list_guides()) == 7`，它自己的过滤断言一直是过的）已转绿：7 个无题叶子考点补齐为各 1 条原创讲解草稿、共 14 道研究草稿自测题（`数据集/教资/resources/study_guides.jsonl` 由 3 条增至 7 条，`审查/_append_study_guides.py` 写入，写入前在内存里镜像资源层全部断言；引用条款的 quote 与 locator 一律取自库内 requirement 记录，`review.status=needs_fix`、审核人为空、不进正式题池、具名签核仍为 0）。全库回归首次零红。上一档那 5 项 `tests/test_learning_workflow.py` 的红也没有回来：该 fixture 现在走真实构造函数（`tests/test_learning_workflow.py:23` 那行注释记着这件事），"新增依赖漏赋字段"不再靠两边碰巧同步来避免 |
+| `python 审查/audit_ntce_completeness.py` | 本轮复跑，退出码 `0`；14,500 题里 **13,464** 可练，缺知识点／能力挂载 1,331、缺考纲绑定 3,928、来源冲突 **845**、缺答案 149、空题干 45；791 个考点中 160 个没有直接考查题、其中 **7** 个是叶子（现已各有学习指南草稿）；32 份卷面规格、6 份量规未签署、具名签核 0；八层 L0–L7 = 2,320／7／38／51／791／586／18,303／**15**（学习指南补齐 4 条：L7 由 11 增至 15，`审查/教资完整性核对.json` 同步），图边 **96,801**（+4 `supplements_resource`、+12 `aligned_to_requirement`） |
 | `python 审查/状态词表检查.py 数据集/教资` | 本轮复跑：15,185 条 0 违规，退出码 `0` |
 | `python 审查/状态词表检查.py 数据集/四六级` | 本轮复跑：31,991 条 0 违规，退出码 `0` |
 | `python 审查/validate_kb.py --output .local_state/web_audit_final.json` | 本轮复跑，退出码实测 `1`：`structure_errors = 0`、`remaining_gaps = 130,555`、`complete = false` |
@@ -45,6 +45,8 @@ L7 升格这一轮的计数（**447 项通过、63 个子测试通过、7 项失
 模型选路护栏这一轮把总数推到 479，多的那一项是 `tests/test_web_workbench.py::test_model_guard_checks_the_endpoint_it_will_actually_dial`，红的仍是那两条缺口标记；这一档的完整计数与耗时就写在顶上"当前实况"，不在这里重复一遍。
 
 agent 流程四项这一轮（含同一天第二轮审计照出并修掉的 8 处缺陷，见下面同名一节）新增的用例都在 `tests/test_web_workbench.py`；这一轮的完整计数只写在顶上"当前实况"，这里不重复一遍。
+
+学习指南补齐这一轮（2026-10-12）：**494 项通过、75 个子测试通过**（总计 494），实测 182.07 秒，退出码 `0`。全库回归首次零红——自 2026-10-11 起长红的两项 `tests/test_learning_resources.py` 是有意的内容缺口标记（7 个无题叶子考点只整理了 3 个、14 道自测题只有 6 道），本轮把 4 个缺口考点（初中信息技术／初中物理、高中物理／高中音乐）的原创讲解草稿按同一契约补齐：`study_guides.jsonl` 3→7 条，引用条款的 quote 与 locator 由 `审查/_append_study_guides.py` 从库内 requirement 记录现取并逐项镜像资源层断言后才落盘；`kb_tools/build_graph.py` 重建图（L7 11→15、边 96,785→96,801、`MANIFEST.json` 同步），`audit_ntce_completeness.py` 重算快照，`build_review_queue.py` 重算清单（被引条款 551→552）。审核状态一律未动：仍 `needs_fix`、`checked_by=null`、`formal_question_pool_eligible=false`，自测题仍是 `research_draft`、不带 `question_id` 与分值。
 
 ## agent 流程四项（2026-10-12，思考过程／批次轮换／相关真题／流程缺陷）
 

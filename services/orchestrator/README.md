@@ -27,7 +27,9 @@
   → 走 `on_degrade` 回调并追加一条 `recipient="review"` 的 `review.enqueue` 信封（验收 A9）。
   `run(*, session_id, user_id, exam_type="NTCE", tier=TrustTier.RESEARCH_INTERNAL, context=None, entry=State.IDLE) -> RunResult`：
   `merged` 先塞 `user_id/exam_type/trust_tier(=tier.value)`，`notices_seen` 去重累积（处理器在别线程拿到的是 context 副本，notice 只能经机器回传）。
-  `_invoke` 用 `concurrent.futures.ThreadPoolExecutor(max_workers=1)` 给每跳套 `spec.timeout_seconds` 超时。`replay(session_id, store)` = `store.trace(...)`（A8 要求闭环可回放）。
+  `_invoke` 用 `concurrent.futures.ThreadPoolExecutor(max_workers=1)` 给每跳套 `spec.timeout_seconds` 超时；超时/异常路径
+  `shutdown(wait=False)`（不把请求线程陪到卡死的 handler 跑完）。回放入口是 `SessionStore.trace(session_id)`（A8 要求闭环可回放；
+  曾有的模块级 `replay()` 转发函数全仓零调用，已删）。
   依赖 `services.common.models`（`AgentMessageEnvelope/AuthContext/EvidenceItem/GeneratedBy/TrustTier`），**不 import 任何磁盘数据路径**——题面/判据由注入的 handler 从 `knowledge/` 门面取。
 - `session.py`（136 行）—— 会话持久化（§3.5）。`class SessionStore`：SQLite（`sqlite3.connect(check_same_thread=False)` + `threading.Lock`），
   **默认落盘 `.local_state/orchestrator.sqlite3`**（路径 = `services.memory.store.state_dir()/"orchestrator.sqlite3"`；`KNOWLEDGE_MAP_STATE_DIR` 环境变量可改状态根目录）。

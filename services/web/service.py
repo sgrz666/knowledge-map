@@ -122,61 +122,71 @@ class Workbench:
     def submit(self, req):
         fp = submission_fingerprint(req)
         event_id = f'{req.paper_id}:{req.question_id}'
-        with self.store.lock:
-            paper = self.store.paper(req.user_id, req.paper_id)
-            if paper is None:
-                raise HTTPException(404, '当前学习者没有这份练习卷')
-            if req.trust_tier.value != paper['trust_tier']:
-                raise HTTPException(409, {'code': 'paper_tier_mismatch',
-                    'message': '练习卷与当前内容档位不一致，请在当前档位重新组卷。'})
-            if req.question_id not in {q['question_id'] for q in paper['questions']}:
-                raise HTTPException(400, '提交的题目不属于这份练习卷')
-            self.exam_sessions.guard_submission(req, paper)
-            try:
-                receipt = self.store.submission_receipt(req.paper_id, req.question_id)
-                if receipt is not None:
-                    # 已经记下的这次作答只按原参数回放。参数改过就不是同一次作答：把旧的"答错了"
-                    # 交还给一份新答案，页面会同时写着答对、记着答错；重跑又把同一题计成两次。
-                    verify_receipt(event_id, receipt[1], fp)
-                    return self.exam_sessions.mask_submission(req.paper_id, receipt[0])
-                record = self.question(req.question_id, paper['trust_tier'])
-                if self.repo.has_unavailable_figure(req.question_id):
-                    raise HTTPException(409, {'code': 'figure_unavailable',
-                        'message': '题干依赖图示，当前缺少原图，暂不接受作答。'})
-                meta = self.repo.get_meta(req.question_id)
-                checked, source, notices = TrustGate(paper['trust_tier']).reconcile_verdict(record, req.answer, None)
-                response = {'paper_id': req.paper_id, 'question_id': req.question_id, 'user_answer': req.answer,
-                            'is_correct': checked, 'verdict_source': source, 'notices': list(notices),
-                            'time_spent_seconds': req.time_spent_seconds, 'review': None, 'grading': None,
-                            'node_ids': list(meta.node_ids), 'exam_type': paper['exam_type']}
-                if checked is not None and meta.node_ids:
-                    bundles = []
-                    for index, node in enumerate(meta.node_ids):
-                        event = ErrorReviewEvent(user_id=req.user_id, question_id=req.question_id, node_id=node,
-                            exam=paper['exam_type'], is_correct=checked, selected_option=req.answer,
-                            time_spent_seconds=req.time_spent_seconds, option_flip_count=req.option_flip_count,
-                            has_negation_in_stem=any(word in (record.get('content') or {}).get('stem', '') for word in ('不正确', '不属于', '错误')))
-                        bundles.append(self.memory.process_event(event, record_attempt=index == 0,
-                            event_id=f'{event_id}:{node}').model_dump(mode='json'))
-                    response['review'] = bundles[0]
-                    response['reviews'] = bundles
-                elif meta.question_type not in ('单选', '多选'):
-                    response['grading'] = SubjectiveGraderAgent(repository=self.repo).grade(SubjectiveGradingRequest(
-                        question_id=req.question_id, exam_type=paper['exam_type'],
-                        task_type=self._task_type(meta.question_type, paper['exam_type']),
-                        stem=(record.get('content') or {}).get('stem', ''), student_answer=req.answer,
-                        trust_tier=TrustTier(paper['trust_tier']))).model_dump(mode='json')
-                response['explanation'] = self.qa.answer_query(QARequest(user_id=req.user_id, question_id=req.question_id,
-                    user_selected_option=req.answer if checked is not None else None,
+        # 锁只罩住"归属校验与准入查找"这几步；判分、FSRS 与讲解（可能触发 LLM 联网，
+        # 单次数十秒）一律在锁外执行——全程持 store 锁会把同一 SQLite 上的所有试卷读取
+        # 与模考 /state 轮询一起冻住，学习者的倒计时显示会凭空静止。
+        paper = self.store.paper(req.user_id, req.paper_id)
+        if paper is None:
+            raise HTTPException(404, '当前学习者没有这份练习卷')
+        if req.trust_tier.value != paper['trust_tier']:
+            raise HTTPException(409, {'code': 'paper_tier_mismatch',
+                'message': '练习卷与当前内容档位不一致，请在当前档位重新组卷。'})
+        if req.question_id not in {q['question_id'] for q in paper['questions']}:
+            raise HTTPException(400, '提交的题目不属于这份练习卷')
+        self.exam_sessions.guard_submission(req, paper)
+        try:
+            receipt = self.store.submission_receipt(req.paper_id, req.question_id)
+            if receipt is not None:
+                # 已经记下的这次作答只按原参数回放。参数改过就不是同一次作答：把旧的"答错了"
+                # 交还给一份新答案，页面会同时写着答对、记着答错；重跑又把同一题计成两次。
+                verify_receipt(event_id, receipt[1], fp)
+                return self.exam_sessions.mask_submission(req.paper_id, receipt[0])
+            record = self.question(req.question_id, paper['trust_tier'])
+            if self.repo.has_unavailable_figure(req.question_id):
+                raise HTTPException(409, {'code': 'figure_unavailable',
+                    'message': '题干依赖图示，当前缺少原图，暂不接受作答。'})
+            meta = self.repo.get_meta(req.question_id)
+            checked, source, notices = TrustGate(paper['trust_tier']).reconcile_verdict(record, req.answer, None)
+            response = {'paper_id': req.paper_id, 'question_id': req.question_id, 'user_answer': req.answer,
+                        'is_correct': checked, 'verdict_source': source, 'notices': list(notices),
+                        'time_spent_seconds': req.time_spent_seconds, 'review': None, 'grading': None,
+                        'node_ids': list(meta.node_ids), 'exam_type': paper['exam_type']}
+            if checked is not None and meta.node_ids:
+                bundles = []
+                for index, node in enumerate(meta.node_ids):
+                    event = ErrorReviewEvent(user_id=req.user_id, question_id=req.question_id, node_id=node,
+                        exam=paper['exam_type'], is_correct=checked, selected_option=req.answer,
+                        time_spent_seconds=req.time_spent_seconds, option_flip_count=req.option_flip_count,
+                        has_negation_in_stem=any(word in (record.get('content') or {}).get('stem', '') for word in ('不正确', '不属于', '错误')))
+                    bundles.append(self.memory.process_event(event, record_attempt=index == 0,
+                        event_id=f'{event_id}:{node}').model_dump(mode='json'))
+                response['review'] = bundles[0]
+                response['reviews'] = bundles
+            elif meta.question_type not in ('单选', '多选'):
+                response['grading'] = SubjectiveGraderAgent(repository=self.repo).grade(SubjectiveGradingRequest(
+                    question_id=req.question_id, exam_type=paper['exam_type'],
+                    task_type=self._task_type(meta.question_type, paper['exam_type']),
+                    stem=(record.get('content') or {}).get('stem', ''), student_answer=req.answer,
                     trust_tier=TrustTier(paper['trust_tier']))).model_dump(mode='json')
-                response['submitted_at'] = datetime.now(timezone.utc).isoformat()
-                self.store.save_submission(req.paper_id, req.question_id, response, fp)
-                return self.exam_sessions.mask_submission(req.paper_id, response)
-            except LegacyReceipt as legacy:
-                # 无指纹的旧收据：沿用原参数重试也永远过不去，前端就不该再挂一个"重试提交"。
-                raise HTTPException(409, {'code': 'legacy_receipt', 'message': str(legacy)}) from legacy
-            except ReceiptConflict as conflict:
-                raise HTTPException(409, {'code': 'receipt_conflict', 'message': str(conflict)}) from conflict
+            response['explanation'] = self.qa.answer_query(QARequest(user_id=req.user_id, question_id=req.question_id,
+                user_selected_option=req.answer if checked is not None else None,
+                trust_tier=TrustTier(paper['trust_tier']))).model_dump(mode='json')
+            response['submitted_at'] = datetime.now(timezone.utc).isoformat()
+            # 受理写入幂等：并发下第二个写者不覆盖第一次已生效的作答，也不撞主键 500——
+            # 写不进去就重读回放；指纹不同则是"同题两次不同答案"的冲突，409 交还调用方。
+            if not self.store.save_submission(req.paper_id, req.question_id, response, fp):
+                existing = self.store.submission_receipt(req.paper_id, req.question_id)
+                if existing is None:
+                    raise HTTPException(409, {'code': 'submission_vanished',
+                        'message': '这次作答的受理记录在写入后不存在了，请重新提交。'})
+                verify_receipt(event_id, existing[1], fp)
+                return self.exam_sessions.mask_submission(req.paper_id, existing[0])
+            return self.exam_sessions.mask_submission(req.paper_id, response)
+        except LegacyReceipt as legacy:
+            # 无指纹的旧收据：沿用原参数重试也永远过不去，前端就不该再挂一个"重试提交"。
+            raise HTTPException(409, {'code': 'legacy_receipt', 'message': str(legacy)}) from legacy
+        except ReceiptConflict as conflict:
+            raise HTTPException(409, {'code': 'receipt_conflict', 'message': str(conflict)}) from conflict
 
     @staticmethod
     def _task_type(qtype, exam):

@@ -236,6 +236,31 @@ class NtceHierarchyContractTests(unittest.TestCase):
                 if line.strip():
                     json.loads(line)
 
+    def test_knowledge_nodes_fully_conform_to_schema(self):
+        kn_schema = self.schemas["knowledge_node"]
+        validator = jsonschema.Draft202012Validator(kn_schema)
+        knowledge_nodes = [n for n in self.nodes.values() if n.get("type") == "knowledge_node"]
+        self.assertGreaterEqual(len(knowledge_nodes), 790)
+        for kn in knowledge_nodes:
+            errors = list(validator.iter_errors(kn))
+            self.assertEqual([], errors, f"知识点节点 {kn.get('id')} 不符合Schema: {[e.message for e in errors]}")
+        outline_files = list((KB / "outline").glob("*.json"))
+        self.assertGreaterEqual(len(outline_files), 10)
+        for p in outline_files:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            for n in data.get("nodes", []):
+                errors = list(validator.iter_errors(n))
+                self.assertEqual([], errors, f"大纲知识点 {p.name}#{n.get('node_id')} 不符合Schema: {[e.message for e in errors]}")
+
+    def test_ability_nodes_fully_conform_to_schema(self):
+        ab_schema = self.schemas["ability_node"]
+        validator = jsonschema.Draft202012Validator(ab_schema)
+        ability_nodes = [n for n in self.nodes.values() if n.get("type") == "ability"]
+        self.assertGreaterEqual(len(ability_nodes), 44)
+        for ab in ability_nodes:
+            errors = list(validator.iter_errors(ab))
+            self.assertEqual([], errors, f"能力节点 {ab.get('id')} 不符合Schema: {[e.message for e in errors]}")
+
 
 if __name__ == "__main__":
     unittest.main()

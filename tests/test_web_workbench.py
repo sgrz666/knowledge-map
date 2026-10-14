@@ -560,3 +560,24 @@ def test_quarantined_question_is_a_coded_conflict_not_a_bare_string():
     assert response.status_code == 409, response.text
     detail = response.json()['detail']
     assert detail['code'] == 'question_not_servable' and detail['message']
+
+
+def test_a_second_writer_never_overwrites_an_accepted_submission():
+    """并发（多 worker）下同一 (paper,question) 的第二次受理：不撞主键 500、不改写第一次。"""
+    import os
+    import tempfile
+    from services.web.store import WorkbenchStore
+    with tempfile.TemporaryDirectory() as directory:
+        os.environ['KNOWLEDGE_MAP_STATE_DIR'] = directory
+        try:
+            store = WorkbenchStore()
+            assert store.save_submission('p', 'q', {'user_answer': 'A'}, 'fp-first') is True
+            # 第二个写者（另一进程对同题的不同作答）：幂等拒绝，不是 IntegrityError。
+            assert store.save_submission('p', 'q', {'user_answer': 'B'}, 'fp-second') is False
+            # 第一次生效的作答原样保留。
+            assert store.submission('p', 'q')['user_answer'] == 'A'
+            # 同输入重试可以重复受理（仍以第一次为准）。
+            assert store.save_submission('p', 'q', {'user_answer': 'A'}, 'fp-first') is False
+        finally:
+            store.db.close()
+            os.environ.pop('KNOWLEDGE_MAP_STATE_DIR', None)

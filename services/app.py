@@ -254,7 +254,13 @@ def _readiness() -> tuple[list[str], list[str]]:
             else:
                 ready.append(checked)
     finally:
-        agents.get("TutorMasterAgent").sessions.close()  # type: ignore[union-attr]
+        # 即使某个探针把流程带崩也要收场：探针建的临时队列/会话库必须关掉并删掉，
+        # 而 _probe_resources 自身失败时 agents 尚未就绪——不能用一个 NameError
+        # 把真正的失败原因盖掉。
+        master = agents.get("TutorMasterAgent") if isinstance(agents, dict) else None
+        sessions = getattr(master, "sessions", None)
+        if sessions is not None:
+            sessions.close()
         shutil.rmtree(root, ignore_errors=True)
     return ready, broken
 

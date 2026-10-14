@@ -4,8 +4,16 @@
   "title": "KnowledgeNode",
   "description": "细粒度知识点图谱节点Schema（对应规范附录A.3）",
   "type": "object",
-  "required": ["node_id", "name", "module", "assessable"],
+  "required": ["name"],
+  "anyOf": [
+    { "required": ["id"] },
+    { "required": ["node_id"] }
+  ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "如 ntce.chuzhong.zonghe.m1.k2 或 cet4.read.detail_locate"
+    },
     "node_id": {
       "type": "string",
       "description": "如 ntce.chuzhong.zonghe.m1.k2 或 cet4.read.detail_locate"

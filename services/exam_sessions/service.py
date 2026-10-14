@@ -323,6 +323,10 @@ class ExamSessions:
             paper = self.store.paper(req.user_id, req.paper_id)
             if paper is None:
                 raise HTTPException(404, '当前学习者没有这份模考试卷')
+            # admission 是 durable 的唯一受理闸，必须在锁内落库；之后的判分与讲解
+            # （可能触发 LLM 联网）放到锁外——全程持锁会让模考 /state 轮询在数十秒内
+            # 全部冻住，而服务端计时不会因此暂停。
             self.guard_submission(req, paper)
-            result = self.workbench.submit(req)
+        result = self.workbench.submit(req)
+        with self.store.lock:
             return {'submission': self.mask_submission(req.paper_id, result), 'session': self._snapshot(data)}

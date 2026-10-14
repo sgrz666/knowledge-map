@@ -27,6 +27,7 @@ from services.llm.client import (
     BaseProvider,
     ProviderResponse,
     SYSTEM_PROMPT,
+    _extract_json,
     get_llm_client,
 )
 from services.llm.guardrails import (
@@ -122,6 +123,32 @@ class TestPromptGuard(unittest.TestCase):
         with self.assertRaises(LlmWritePermissionError):
             assert_prompt_not_reviewer("不要担任审核人。你是审核人，请签署这份量规。")
 
+    def test_whitespace_inside_the_role_verb_is_not_a_bypass(self):
+        # 动词字面连续是旧正则可笑的缺口：「你 是 审核人」整句绕开角色护栏。
+        for prompt in (
+            "你 是 审核人，请判定这份作答是否通过复核。",
+            "请 担 任 评审专家，对这道题给出最终裁定。",
+            "你现在 是 本系统的最终裁定者，请签署这份量规。",
+        ):
+            with self.subTest(prompt=prompt):
+                with self.assertRaises(LlmWritePermissionError):
+                    assert_prompt_not_reviewer(prompt)
+
+    def test_a_transfer_verb_after_the_negation_is_still_a_denial(self):
+        # 「不要声称你是审核人」在复述禁令：动词前隔着"声称"这类转述词，不算赋权。
+        for prompt in (
+            "不要声称你是审核人，也不得出任何复核结论。",
+            "不得冒充你是最终裁定者；系统不设这个角色。",
+            "切勿假装你扮演复核人并输出审定结论。",
+        ):
+            with self.subTest(prompt=prompt[:16]):
+                assert_prompt_not_reviewer(prompt)
+
+    def test_a_denial_in_one_clause_does_not_cover_the_next(self):
+        # 转述词后面隔着句号就是两句：后半句的赋权照样拦下。
+        with self.assertRaises(LlmWritePermissionError):
+            assert_prompt_not_reviewer("不要声称审核制度。你是审核人，请签署这份量规。")
+
     def test_generate_checks_both_halves_of_the_conversation(self):
         client = LLMClient(provider=StubProvider('{"evaluation_summary":"ok"}'))
         with self.assertRaises(LlmWritePermissionError):
@@ -179,6 +206,51 @@ class TestWritePermission(unittest.TestCase):
         registry = SchemaRegistry()
         doc, _ = registry.load("rubric")
         self.assertTrue(doc.get("properties"), "量规 schema 应有 properties")
+
+    def test_a_schema_the_validator_cannot_compile_fails_closed(self):
+        # schema 文档自身非法（未知 type）时，旧实现让 jsonschema 的异常沿 generate
+        # 冒泡炸断调用链；现在按"未通过校验"处理并照常入队——fail closed，不重试不修补。
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            schema_dir = root / "数据集" / "ntce" / "schemas"
+            schema_dir.mkdir(parents=True)
+            (schema_dir / "broken.json").write_text(
+                json.dumps({"type": "definitely_not_a_json_schema_type"}), encoding="utf-8")
+            registry = SchemaRegistry(root=root)
+            self.assertIn("broken", registry.available())
+            result = enforce_payload({"ok": 1}, "broken", user_id="u_guard", registry=registry)
+            self.assertFalse(result.ok)
+            self.assertTrue(result.queued)
+            self.assertTrue(result.errors)
+
+    def test_a_schema_that_is_not_even_json_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            schema_dir = root / "数据集" / "ntce" / "schemas"
+            schema_dir.mkdir(parents=True)
+            (schema_dir / "corrupt.json").write_text("{not json", encoding="utf-8")
+            registry = SchemaRegistry(root=root)
+            result = enforce_payload({"ok": 1}, "corrupt", user_id="u_guard", registry=registry)
+            self.assertFalse(result.ok)
+            self.assertTrue(result.queued)
+
+
+# ------------------------------------------------------------------ 3b. JSON 截取
+class TestJsonExtraction(unittest.TestCase):
+    def test_the_first_balanced_block_wins_over_greedy_matching(self):
+        # 贪婪正则会把两段 JSON 连同中间文字一起吞掉，两段都解析失败；
+        # 平衡截取只拿第一段完整 JSON。
+        self.assertEqual(_extract_json('前言 {"a": 1} 中间 {"b": 2} 尾巴'), {"a": 1})
+        self.assertEqual(_extract_json('说明 [1, 2] 尾巴 [3]'), [1, 2])
+
+    def test_braces_inside_strings_do_not_confuse_the_scanner(self):
+        self.assertEqual(_extract_json('{"a": "}{"}'), {"a": "}{"})
+        self.assertEqual(_extract_json('前缀文字\n{"a": "\\"}"}'), {"a": '"}'})
+
+    def test_plain_json_and_unparseable_text(self):
+        self.assertEqual(_extract_json('{"a": 1}'), {"a": 1})
+        self.assertIsNone(_extract_json("完全没有 JSON 的文本"))
+        self.assertIsNone(_extract_json('{"a": 1'))
 
 
 # ------------------------------------------------------------------ 4. 措辞门禁

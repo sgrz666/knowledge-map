@@ -989,9 +989,9 @@
     "L4": 791,
     "L5": 586,
     "L6": 18303,
-    "L7": 11
+    "L7": 15
   },
-  "graph_edges": 96785,
+  "graph_edges": 97441,
   "materials": 586,
   "paper_specs": 32,
   "unsigned_rubrics": 6,

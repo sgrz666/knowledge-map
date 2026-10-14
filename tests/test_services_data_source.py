@@ -353,6 +353,26 @@ class TestA11FacadeFreshness(unittest.TestCase):
         self.assertEqual(record["content"]["answer"], "B", "偏移失效后必须重扫，而不是把 q3 交出去")
         self.assertEqual(repo.get_meta("q2").offset, 0)
 
+    def test_a_rescanned_file_does_not_bump_the_whole_index_generation(self):
+        """一题偏移失效只该重扫它所在的那一个文件。
+
+        旧实现调全局 invalidate：条款/量规缓存一起扔掉，generation+1 还会触发
+        GraphIndex 全量重建——一次读失败就核爆整库缓存。
+        """
+        first, second, third = (
+            _qline(f"q{i}", answer=letter) for i, letter in ((1, "A"), (2, "B"), (3, "C"))
+        )
+        self._write(first, second, third)
+        repo = KnowledgeRepository(root=self.root, ttl_seconds=3600)
+        repo.get_meta("q2")
+        before = repo.generation
+
+        self._write(second, third)
+        self.assertEqual(repo.load_question("q2")["content"]["answer"], "B")
+        self.assertEqual(repo.generation, before, "局部重扫不应让整库索引换代")
+        # 同文件的其它题也跟着换到新偏移。
+        self.assertEqual(repo.load_question("q3")["content"]["answer"], "C")
+
     def test_a_malformed_line_does_not_take_the_rest_of_the_file_down(self):
         self._write(
             _qline("q1", answer="A"),

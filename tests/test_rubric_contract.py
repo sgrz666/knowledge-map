@@ -131,6 +131,28 @@ class RubricContractTests(unittest.TestCase):
         self.assertEqual("teacher-1", reviewed["rubric"]["checked_by"])
         self.assertEqual("rubric.ntce.demo.q02", reviewed["rubric_id"])
 
+    def test_cet_holistic_rubrics_conform_to_schema(self):
+        validator = jsonschema.Draft202012Validator(SCHEMAS["rubric"])
+        holistic_validator = jsonschema.Draft202012Validator(SCHEMAS["holistic_rubric"])
+        cet_rubrics = rows(LIBS["CET"] / "ontology" / "scoring_rubrics.jsonl")
+        self.assertEqual(2, len(cet_rubrics))
+        for r in cet_rubrics:
+            errors = list(validator.iter_errors(r))
+            self.assertEqual([], errors, f"CET量规 {r.get('rubric_id')} 不符合 rubric.json: {[e.message for e in errors]}")
+            h_errors = list(holistic_validator.iter_errors(r))
+            self.assertEqual([], h_errors, f"CET量规 {r.get('rubric_id')} 不符合 holistic_rubric.json: {[e.message for e in h_errors]}")
+
+    def test_rubric_and_material_topological_islands_repaired(self):
+        ntce_edges = rows(NTCE / "graph" / "edges.jsonl")
+        generic_rubrics = [entry["rubric_id"] for _, entry in canonical_rubrics()]
+        self.assertEqual(6, len(generic_rubrics))
+        for rid in generic_rubrics:
+            incident = [e for e in ntce_edges if e["src"] == rid or e["dst"] == rid]
+            self.assertGreater(len(incident), 0, f"NTCE通用量规 {rid} 仍为图谱拓扑孤岛（度数为0）")
+        cet_edges = rows(LIBS["CET"] / "graph" / "edges.jsonl")
+        c2_incident = [e for e in cet_edges if e["src"] == "cet4-2015-12-p2-reading-c2" or e["dst"] == "cet4-2015-12-p2-reading-c2"]
+        self.assertGreater(len(c2_incident), 0, "cet4-2015-12-p2-reading-c2 仍为0度孤岛")
+
 
 if __name__ == "__main__":
     unittest.main()

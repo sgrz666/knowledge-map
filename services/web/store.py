@@ -71,9 +71,18 @@ class WorkbenchStore:
             return (json.loads(row[0]), row[1]) if row else None
 
     def save_submission(self, paper, question, data, fp=None):
+        """受理一次作答；``False`` 表示这条 (paper, question) 已有受理记录且未被覆盖。
+
+        并发（多 worker/多进程）下第二个写者不再撞主键抛 IntegrityError→500：写入是
+        ``ON CONFLICT DO NOTHING``，第一次生效的作答永远不被改写，后到者由调用方按返回
+        值走"重读回放 / 指纹冲突 409"路径。
+        """
         with self.lock:
-            self.db.execute('INSERT INTO submissions VALUES(?,?,?,?)', (paper, question, json.dumps(data, ensure_ascii=False), fp))
+            cursor = self.db.execute(
+                'INSERT INTO submissions VALUES(?,?,?,?) ON CONFLICT(paper,question) DO NOTHING',
+                (paper, question, json.dumps(data, ensure_ascii=False), fp))
             self.db.commit()
+            return cursor.rowcount == 1
 
     def submissions(self, user):
         with self.lock:

@@ -19,7 +19,6 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import re
 import threading
 import time
 import urllib.error
@@ -147,6 +146,14 @@ class OpenAICompatibleProvider(BaseProvider):
                 )
             except urllib.error.HTTPError as exc:
                 last_error = exc
+                # HTTPError 带着响应体句柄（fp）：不显式关闭，失败路径每次重试都漏一个 socket，
+                # 高频重试/长时间运行的服务会把它攒成 fd 泄漏。先读掉错误正文再关。
+                try:
+                    exc.read()
+                except Exception:
+                    pass
+                finally:
+                    exc.close()
                 if exc.code not in _RETRYABLE_STATUS or attempt >= MAX_RETRIES:
                     raise LLMUnavailableError(f"LLM HTTP {exc.code}（已用尽重试预算）") from exc
             except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as exc:
@@ -182,19 +189,46 @@ class LLMResult:
         }
 
 
-_JSON_BLOCK = re.compile(r"\{.*\}|\[.*\]", re.DOTALL)
-
-
 def _extract_json(text: str) -> Optional[Any]:
+    """从模型回复里截出第一段完整 JSON。
+
+    贪婪正则 ``\\{.*\\}`` 会在"正文 + 两段 JSON"时把中间的文字一起吞掉，两段都解析失败，
+    于是可用的结构化输出被当成 unparseable 送进复核队列。改为从首个括号起按配对截取：
+    拿到的既是**第一段**完整 JSON，也绝不跨越段界。
+    """
     try:
         return json.loads(text)
     except json.JSONDecodeError:
-        match = _JSON_BLOCK.search(text)
-        if match:
-            try:
-                return json.loads(match.group(0))
-            except json.JSONDecodeError:
-                return None
+        pass
+    for opener, closer in (("{", "}"), ("[", "]")):
+        start = text.find(opener)
+        if start < 0:
+            continue
+        depth = 0
+        in_string = False
+        escaped = False
+        for index in range(start, len(text)):
+            char = text[index]
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif char == "\\":
+                    escaped = True
+                elif char == '"':
+                    in_string = False
+                continue
+            if char == '"':
+                in_string = True
+            elif char == opener:
+                depth += 1
+            elif char == closer:
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start:index + 1])
+                    except json.JSONDecodeError:
+                        break
+        # 第一个开括号没有配对闭合：试下一个开括号种别，找不到就放弃。
     return None
 
 

@@ -36,6 +36,7 @@ from services.knowledge.repository import KnowledgeRepository, get_repository
 from services.knowledge.trust import TrustGate
 from services.master.intent_router import IntentRouter
 from services.memory.agent import MemoryReviewAgent
+from services.memory.receipt import event_fingerprint
 from services.memory.store import default_store
 from services.orchestrator.session import SessionStore, get_session_store
 from services.orchestrator.state_machine import Orchestrator, State
@@ -298,10 +299,14 @@ class TutorMasterAgent:
             reply = head + review.improvement_suggestions
             quick = ["补写缺失环节后重新提交", "提交试讲转写文本"]
         elif transcript:
+            # 显式传 0 是合法输入（空转写）：`or` 会把它吞成 600.0，让测算建立在错误时长上。
+            raw_duration = payload.get("audio_duration_seconds")
             analysis = self.interview.analyze_speech(
                 SpeechAnalysisRequest(
                     transcript_text=transcript,
-                    audio_duration_seconds=float(payload.get("audio_duration_seconds") or 600.0),
+                    audio_duration_seconds=(
+                        float(raw_duration) if raw_duration is not None else 600.0
+                    ),
                     audio_pauses=payload.get("audio_pauses"),
                     lesson_title=payload.get("lesson_title"),
                     trust_tier=req.trust_tier,
@@ -437,7 +442,8 @@ class TutorMasterAgent:
         due = list(self.memory.due_question_ids(user_id, limit=20))
         mastery = [self.memory.get_user_mastery(user_id, node) for node in weak]
         records = [m.model_dump(mode="json") for m in mastery if m]
-        ctx["weak_nodes"] = weak
+        # weak_nodes 经返回的 "context" 字典回写 merged；对 ctx 就地赋值无效（handler 收到的是
+        # dict(context) 的拷贝），这行删掉——留着会让人以为这里能改状态。
         if diagnosed:
             weak_summary = f"低于薄弱线（{WEAK_MASTERY_BAR:.2f}）的考点 {len(weak)} 个（诊断给出）"
             weak_source = "诊断（按考点作答正确率与薄弱线比对）"
@@ -664,7 +670,13 @@ class TutorMasterAgent:
             question_difficulty=float(ctx.get("question_difficulty", 0.5)),
             has_negation_in_stem=bool(ctx.get("has_negation_in_stem", False)),
         )
-        bundle = self.memory.process_event(event)
+        # 幂等键：同一位学习者、同一题、同一份作答输入 = 同一次作答。闭环 replan 会再次命中
+        # ATTRIBUT（answer_text 留在 merged 里），没有这把键时掌握度与 FSRS 会被同一份输入
+        # 写第二遍；web 路径的键是「卷:题:节点」，主闭环没有卷，用输入指纹兜底——参数不同的
+        # 再次作答自然是新的一次作答，不会被误并。
+        bundle = self.memory.process_event(
+            event, event_id=f"master:{ctx['user_id']}:{question_id}:{event_fingerprint(event)}"
+        )
         notices = [ATTRIBUT_NOTICE, f"对错判据：{verdict_source}。" if verdict_source else "", *verdict_notices]
         notices += list(getattr(bundle, "notices", []) or [])
         return {
@@ -685,9 +697,6 @@ class TutorMasterAgent:
                 }),
             },
         }
-
-    def _verdict(self, ctx: dict, question_id: str) -> Optional[bool]:
-        return self._verdict_with_provenance(ctx, question_id)[0]
 
     def _verdict_with_provenance(self, ctx: dict, question_id: str):
         """判据优先级：库内答案键核对 > 调用方申报 > 学习者自己的错题日志。

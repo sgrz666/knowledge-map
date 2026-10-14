@@ -925,6 +925,43 @@ class TestTutorMaster(LibraryBackedTestCase):
         self.assertIn("0", resp.reply_text)
         self.assertNotIn("30 道", resp.reply_text)
 
+    def test_the_closed_loop_counts_one_attempt_per_actual_answer(self):
+        """闭环 replan 会再次命中 ATTRIBUT（answer_text 留在 merged 里）。
+
+        没有 event_id 收据时，同一份输入会把掌握度与 FSRS 写第二遍：重试一次、
+        或者一次 replan，学习者的练习次数就莫名翻倍。现在同用户+同题+同输入的
+        重复归因只回放第一次的结果；输入不同才是一次新的作答。
+        """
+        node_id = self.sample_node_id
+        store = InMemoryMasteryStore()
+        agent = TutorMasterAgent(
+            queue=self.queue,
+            memory_agent=MemoryReviewAgent(store=store, repository=self.repository))
+        meta = next(
+            self.repository.find_questions(exams="NTCE", require_nodes=True,
+                                           require_answer=True, question_types=("单选",)),
+            None,
+        )
+        self.assertIsNotNone(meta, "测试需要一道带库内答案键的单选真题")
+        ctx = {
+            "user_id": "u_loop_once",
+            "exam_type": "NTCE",
+            "question_id": meta.question_id,
+            "node_id": node_id,
+            "is_correct": True,
+            "selected_option": "A",
+            "time_spent_seconds": 12.0,
+        }
+        first = agent._h_attribut(dict(ctx))
+        self.assertTrue(first["context"]["attributed"])
+        self.assertEqual(store.get("u_loop_once", node_id).practice_count, 1)
+        # 同一份输入再次进入归因（重试/replan）：回放，不重复计数。
+        agent._h_attribut(dict(ctx))
+        self.assertEqual(store.get("u_loop_once", node_id).practice_count, 1)
+        # 输入变了就是一次新的作答，照常计数。
+        agent._h_attribut({**ctx, "time_spent_seconds": 30.0})
+        self.assertEqual(store.get("u_loop_once", node_id).practice_count, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

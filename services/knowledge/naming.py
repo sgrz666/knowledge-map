@@ -41,10 +41,6 @@ COARSE_MODULE_NOTICE = (
     "需要子模块精度请改传 target_node（知识点级已建索引）。"
 )
 
-# ``section`` / ``question_type`` values that can be machine-checked by option letter.
-MC_SECTIONS = ("单项选择题", "多项选择题", "单选题", "多选题")
-MC_TYPES = ("单选", "多选")
-
 # Request-side task names -> ``task_type`` values used by 数据集/教资/rubrics/*.json and
 # 数据集/四六级/ontology/scoring_rubrics.jsonl. Aliases the library cannot honour stay as-is,
 # so the grader reports "no rubric for this task" instead of grading against a made-up one.
@@ -94,7 +90,3 @@ def module_values(exam: Optional[str], alias: Optional[str]) -> Tuple[Optional[T
         return (key,), ""
     notice = COARSE_MODULE_NOTICE if values is NTCE_QUALITY_MODULES and key.startswith("m") else ""
     return values, notice
-
-
-def is_multiple_choice(section: Optional[str], question_type: Optional[str]) -> bool:
-    return section in MC_SECTIONS or question_type in MC_TYPES

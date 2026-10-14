@@ -63,9 +63,17 @@ class LearningStore:
         return json.loads(row[0]) if row else None
 
     def save(self, ctx, kind, identity, data):
-        self.db.execute('INSERT INTO learning_documents(id,kind,scope,data) VALUES(?,?,?,?) '
-                        'ON CONFLICT(id) DO UPDATE SET data=excluded.data',
-                        (identity, kind, scope_key(ctx), json.dumps(data, ensure_ascii=False)))
+        """写入即提交：脱离事务单独调用也不能静默丢失半提交。
+
+        事务内的写入由上下文管理器统一 commit；这里自带的 commit 在事务内不生效，
+        在事务外则保证调用方忘记包事务时数据仍然落盘。
+        """
+        with self.lock:
+            self.db.execute('INSERT INTO learning_documents(id,kind,scope,data) VALUES(?,?,?,?) '
+                            'ON CONFLICT(id) DO UPDATE SET data=excluded.data',
+                            (identity, kind, scope_key(ctx), json.dumps(data, ensure_ascii=False)))
+            if not self.db.in_transaction:
+                self.db.commit()
 
     def replay(self, req, action):
         row = self.db.execute('SELECT fingerprint,resource FROM learning_receipts '

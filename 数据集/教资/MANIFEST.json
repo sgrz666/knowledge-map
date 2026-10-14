@@ -69,8 +69,8 @@
   "requirement_mapped": 10572
  },
  "graph": {
-  "nodes": 22107,
-  "edges": 96785,
+  "nodes": 22111,
+  "edges": 97441,
   "by_layer": {
    "L0": 2320,
    "L1": 7,
@@ -79,7 +79,7 @@
    "L4": 791,
    "L5": 586,
    "L6": 18303,
-   "L7": 11
+   "L7": 15
   },
   "by_type": {
    "standard": 60,
@@ -92,7 +92,7 @@
    "material": 586,
    "rubric": 3803,
    "question": 14500,
-   "resource": 11
+   "resource": 15
   },
   "eight_layer_hierarchy": {
    "L0_standard_requirement": 2320,
@@ -102,22 +102,22 @@
    "L4_knowledge_node": 791,
    "L5_shared_material": 586,
    "L6_question_rubric": 18303,
-   "L7_learning_resource": 11
+   "L7_learning_resource": 15
   },
   "by_edge_type": {
    "specifies": 2260,
-   "contains": 14709,
+   "contains": 15349,
    "basis": 36,
    "targets": 7,
    "comprises": 44,
    "has_child": 620,
-   "aligned_to_requirement": 32806,
+   "aligned_to_requirement": 32818,
    "supports_ability": 18696,
    "prerequisite_of": 31,
    "assesses": 23220,
    "has_rubric": 3736,
    "refers_to_material": 586,
-   "supplements_resource": 11,
+   "supplements_resource": 15,
    "supports_resource": 13,
    "confused_with": 7,
    "misconception_lead_to": 3
@@ -142,6 +142,6 @@
   "L4_knowledge_node": 791,
   "L5_shared_material": 586,
   "L6_question_rubric": 18303,
-  "L7_learning_resource": 11
+  "L7_learning_resource": 15
  }
 }

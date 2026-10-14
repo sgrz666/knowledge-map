@@ -106,7 +106,9 @@ def scan_banned_claims(text: str) -> List[str]:
 
 
 REVIEWER_ROLE_PATTERNS = re.compile(
-    r"(现在是|你是|担任|充当|作为|扮演|成为)\s*[^。\n]{0,12}"
+    # 动词内部允许空白：「你 是 审核人」「担 任」这类插空写法过去整个绕开本模式——
+    # 角色名词侧的 \s*[^。\n]{0,12} 本来容得下间隔，唯独动词要求字面连续，是这套正则的缺口。
+    r"(现\s*在\s*是|你\s*是|担\s*任|充\s*当|作\s*为|扮\s*演|成\s*为)\s*[^。\n]{0,12}"
     r"(审核人|审稿人|评审专家|复核人|审定|最终裁定|reviewer|final adjudicator)"
     r"|(act|serve|role)\s+as\s+(the\s+)?(final\s+)?reviewer",
     re.IGNORECASE,
@@ -115,14 +117,23 @@ REVIEWER_ROLE_PATTERNS = re.compile(
 #: A prompt that *forbids* the reviewer role ("不要担任审核人") is quoting the iron law, not
 #: assigning the role. The negation has to sit directly on the verb — a bare 不 anywhere else in
 #: the sentence does not disarm the match.
-_NEGATION_ONE = frozenset("不非未没勿别")
-_NEGATION_TWO = frozenset({"不要", "不得", "不能", "不可", "不应", "不当", "不准", "不是", "并非",
-                           "无需", "不必", "切勿", "请勿", "禁止"})
+_NEGATION_TAIL = re.compile(
+    r"(?:不要|不得|不能|不可|不应|不当|不准|并非|无需|不必|切勿|请勿|禁止|不|非|未|没|无|勿|别)"
+    r"(?:请|需要|应该|应当|可以|能|要|得|将|会|被|把|给|让|再|去|自行|刻意|故意|随便|轻易)*$"
+)
+
+#: 转述动词：「不要声称你是审核人」这类句子在复述禁令，不是在赋权。转述动词必须贴着
+#: 句尾（只容忍空白与最多两个非句读字符，容纳"假装你"这类主语残留）——隔着句号就是
+#: 两句，「不要声称。你是审核人」的后半句照样拦下。
+_TRANSFER_VERB_TAIL = re.compile(
+    r"(?:不要|不得|不能|不可|不应|不当|不准|并非|无需|不必|切勿|请勿|禁止|不|非|未|没|无|勿|别)"
+    r"[\s]{0,4}(?:声称|冒充|假装|伪装|假扮|装作|当成|视为)[^。\n]{0,2}$"
+)
 
 
 def _role_verb_is_negated(prompt: str, start: int) -> bool:
-    tail = prompt[:start]
-    return tail[-2:] in _NEGATION_TWO or tail[-1:] in _NEGATION_ONE
+    tail = prompt[:start].rstrip()
+    return bool(_NEGATION_TAIL.search(tail) or _TRANSFER_VERB_TAIL.search(tail))
 
 
 def assert_prompt_not_reviewer(prompt: str) -> None:
@@ -283,19 +294,48 @@ def _fallback_validate(instance: Any, schema: Any, root: dict, path: str) -> Ite
 
 
 def validate_payload(payload: Any, schema_name: str, registry: Optional[SchemaRegistry] = None) -> GuardResult:
-    """Validate one LLM payload against the dataset schema; returns errors, never fixes them."""
+    """Validate one LLM payload against the dataset schema; returns errors, never fixes them.
+
+    Any failure to *validate* — a schema document that is not valid JSON, a schema jsonschema
+    itself cannot compile (unresolvable ``$ref``, unknown type), a payload the validator chokes
+    on — is a failed validation, not a crash: §4 的口径是 fail closed 进复核队列，
+    绝不让校验器的异常把调用链炸断、更不许它变成静默放行。
+    """
     reg = registry or _DEFAULT_REGISTRY
+    errors: List[Dict[str, str]] = []
+    doc_path: Optional[str] = None
     try:
         doc, doc_path = reg.load(schema_name)
     except SchemaNotFound as exc:
         return GuardResult(ok=False, schema_name=schema_name, errors=[{"path": "$", "message": str(exc)}])
-    errors: List[Dict[str, str]] = []
-    if _jsonschema is not None:
-        validator = _jsonschema.Draft202012Validator(doc)
-        for err in validator.iter_errors(payload):
-            errors.append({"path": "$." + ".".join(str(p) for p in err.absolute_path), "message": err.message})
-    else:
-        errors = [{"path": p, "message": m} for p, m in _fallback_validate(payload, doc, doc, "$")]
+    except Exception as exc:  # schema 文件损坏/不可读：fail closed，与 SchemaNotFound 同口径
+        return GuardResult(
+            ok=False,
+            schema_name=schema_name,
+            errors=[{"path": "$", "message": f"Schema {schema_name!r} 加载失败：{type(exc).__name__}: {exc}"}],
+        )
+    try:
+        if _jsonschema is not None:
+            try:
+                validator = _jsonschema.Draft202012Validator(doc)
+            except Exception as exc:  # SchemaError / RefResolutionError：无法编译的 schema 不放行
+                return GuardResult(
+                    ok=False,
+                    schema_name=schema_name,
+                    schema_path=doc_path,
+                    errors=[{"path": "$", "message": f"Schema {schema_name!r} 无法编译：{type(exc).__name__}: {exc}"}],
+                )
+            for err in validator.iter_errors(payload):
+                errors.append({"path": "$." + ".".join(str(p) for p in err.absolute_path), "message": err.message})
+        else:
+            errors = [{"path": p, "message": m} for p, m in _fallback_validate(payload, doc, doc, "$")]
+    except Exception as exc:  # 校验器自身炸了也按未通过处理，不进复核队列就叫无声放行
+        return GuardResult(
+            ok=False,
+            schema_name=schema_name,
+            schema_path=doc_path,
+            errors=[{"path": "$", "message": f"Schema 校验失败：{type(exc).__name__}: {exc}"}],
+        )
     return GuardResult(ok=not errors, schema_name=schema_name, schema_path=doc_path, errors=errors)
 
 

@@ -288,7 +288,11 @@ class Orchestrator:
         state: State,
         auth: AuthContext,
     ) -> Optional[dict]:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+        # 每跳一个一次性线程池，只为给这一跳加超时。超时/异常路径 shutdown(wait=False)：
+        # with 语句退出时的 shutdown(wait=True) 会把请求线程陪到一个卡死的 handler 跑完
+        # （LLM 超时传导给用户），而 future 已无法取消，只能不等待、让它自己在后台结束。
+        pool = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        try:
             future = pool.submit(handler, dict(context))
             try:
                 return future.result(timeout=spec.timeout_seconds)
@@ -303,6 +307,8 @@ class Orchestrator:
                     auth=auth, spec=spec, merged=context, kind="handler_error",
                 )
             return None
+        finally:
+            pool.shutdown(wait=False)
 
     def _envelope(
         self,
@@ -399,6 +405,5 @@ class Orchestrator:
             self.on_degrade(row)
 
 
-def replay(session_id: str, store) -> List[dict]:
-    """Read the stored envelope trace back out — A8 requires the loop to be replayable."""
-    return store.trace(session_id)
+# 回放入口是 ``SessionStore.trace(session_id)``（A8 的可重放性由它承担）；这里曾有一个
+# 同名的转发函数，全代码库零调用，留着只会让人以为有两个入口。

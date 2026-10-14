@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:knowledge-map:holistic-rubric:1.0",
+  "title": "HolisticRubric",
+  "description": "CET五档整体评分量规（CET-4/6写译量规）",
+  "type": "object",
+  "required": ["rubric_id", "task_type", "bands"],
+  "properties": {
+    "rubric_id": {
+      "type": "string",
+      "description": "如 cet.writing.holistic.2016"
+    },
+    "task_type": {
+      "type": "string",
+      "enum": ["short_essay", "paragraph_translation", "writing", "translation"]
+    },
+    "exams": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "method": {
+      "type": "string"
+    },
+    "max_raw_score": {
+      "type": "number"
+    },
+    "bands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["band", "raw_score_range", "descriptor"],
+        "properties": {
+          "band": { "type": "number" },
+          "raw_score_range": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "number" },
+              { "type": "number" }
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "descriptor": { "type": "string" },
+          "content_type": { "type": "string" },
+          "raw_score_min": { "type": "number" },
+          "raw_score_max": { "type": "number" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "feedback_dimensions": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "scoring_output_schema": {
+      "type": "object"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "official_descriptor_source": {
+      "type": "string"
+    },
+    "official_descriptor_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "score_use": {
+      "type": "string"
+    },
+    "exam_requirement_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "requirement_mappings": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "additionalProperties": true
+}

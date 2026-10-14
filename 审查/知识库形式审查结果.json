@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-09T20:47:36.463639+08:00",
+  "captured_at": "2026-10-14T15:45:49.640273+08:00",
   "scope": "四六级和教资主 JSONL、静态本体和图谱全量；不核定每题答案正确性，不运行产品功能",
   "cet": {
     "questions": {
@@ -609,12 +609,12 @@
     "questions": {
       "counts": {
         "total": 14500,
-        "with_knowledge": 13048,
-        "with_ability_field": 13048,
-        "with_answer": 9991,
+        "with_knowledge": 13169,
+        "with_ability_field": 13169,
+        "with_answer": 10186,
         "with_difficulty": 12720,
         "with_analysis_content": 14494,
-        "with_structured_analysis": 9665,
+        "with_structured_analysis": 9668,
         "source_verified_true": 0,
         "source_file_exists": 14500,
         "with_tags": 14500,
@@ -622,23 +622,23 @@
         "with_material": 586,
         "blank_stem": 50,
         "with_audio_field": 0,
-        "with_exam_requirement_id": 10487,
+        "with_exam_requirement_id": 10572,
         "coarse_read_listen_fallback": 0,
-        "review:needs_fix": 13460,
-        "tagger:content-rule-v2": 10519,
+        "review:needs_fix": 13655,
+        "tagger:content-rule-v2": 10640,
         "type:单选": 10655,
-        "answer_status:letter_only": 9972,
+        "answer_status:letter_only": 10167,
         "exam:NTCE": 14041,
-        "tagger:None": 1452,
+        "tagger:None": 1331,
         "answer_status:reference_only": 3339,
-        "untagged": 1452,
+        "untagged": 1331,
         "tagger:llm-v2": 2339,
         "type:简答": 1075,
         "type:材料分析": 992,
         "type:教学设计": 515,
         "type:未标注": 523,
-        "review:quarantined": 1040,
-        "answer_status:source_conflict": 1040,
+        "review:quarantined": 845,
+        "answer_status:source_conflict": 845,
         "answer_status:missing": 149,
         "type:诊断": 10,
         "type:解答": 33,
@@ -652,22 +652,22 @@
         "duplicate_id_rows": 0
       },
       "rates": {
-        "with_knowledge": 89.99,
-        "with_ability_field": 89.99,
-        "with_answer": 68.9,
+        "with_knowledge": 90.82,
+        "with_ability_field": 90.82,
+        "with_answer": 70.25,
         "with_difficulty": 87.72,
         "with_analysis_content": 99.96,
-        "with_structured_analysis": 66.66,
+        "with_structured_analysis": 66.68,
         "with_tags": 100.0,
         "with_material": 4.04,
         "with_audio_field": 0.0,
-        "with_exam_requirement_id": 72.32
+        "with_exam_requirement_id": 72.91
       },
       "segments": {
         "chuzhong/dili": {
           "total": 422,
-          "with_knowledge": 331,
-          "with_answer": 262,
+          "with_knowledge": 333,
+          "with_answer": 263,
           "with_analysis_content": 420,
           "marked_duplicate": 97
         },
@@ -680,14 +680,14 @@
         },
         "chuzhong/lishi": {
           "total": 428,
-          "with_knowledge": 379,
+          "with_knowledge": 384,
           "with_answer": 313,
           "with_analysis_content": 428,
           "marked_duplicate": 42
         },
         "chuzhong/meishu": {
           "total": 648,
-          "with_knowledge": 594,
+          "with_knowledge": 600,
           "with_answer": 513,
           "with_analysis_content": 648,
           "marked_duplicate": 61
@@ -702,7 +702,7 @@
         "chuzhong/shuxue": {
           "total": 269,
           "with_knowledge": 231,
-          "with_answer": 73,
+          "with_answer": 84,
           "with_analysis_content": 269,
           "marked_duplicate": 25
         },
@@ -722,7 +722,7 @@
         },
         "chuzhong/xinxi": {
           "total": 292,
-          "with_knowledge": 260,
+          "with_knowledge": 261,
           "with_answer": 151,
           "with_analysis_content": 291,
           "marked_duplicate": 26
@@ -765,20 +765,20 @@
         "gaozhong/huaxue": {
           "total": 312,
           "with_knowledge": 263,
-          "with_answer": 211,
+          "with_answer": 216,
           "with_analysis_content": 312,
           "marked_duplicate": 65
         },
         "gaozhong/lishi": {
           "total": 428,
-          "with_knowledge": 381,
-          "with_answer": 162,
+          "with_knowledge": 382,
+          "with_answer": 287,
           "with_analysis_content": 428,
           "marked_duplicate": 162
         },
         "gaozhong/meishu": {
           "total": 553,
-          "with_knowledge": 498,
+          "with_knowledge": 503,
           "with_answer": 418,
           "with_analysis_content": 553,
           "marked_duplicate": 19
@@ -799,7 +799,7 @@
         },
         "gaozhong/tiyu": {
           "total": 267,
-          "with_knowledge": 249,
+          "with_knowledge": 250,
           "with_answer": 204,
           "with_analysis_content": 267,
           "marked_duplicate": 6
@@ -813,7 +813,7 @@
         },
         "gaozhong/xinxi": {
           "total": 255,
-          "with_knowledge": 215,
+          "with_knowledge": 218,
           "with_answer": 117,
           "with_analysis_content": 253,
           "marked_duplicate": 34
@@ -848,35 +848,35 @@
         },
         "xiaoxue/jiaoxue": {
           "total": 596,
-          "with_knowledge": 514,
+          "with_knowledge": 539,
           "with_answer": 387,
           "with_analysis_content": 596,
           "marked_duplicate": 31
         },
         "xiaoxue/jiaoyuxinlixue": {
           "total": 36,
-          "with_knowledge": 25,
-          "with_answer": 2,
+          "with_knowledge": 27,
+          "with_answer": 24,
           "with_analysis_content": 36,
           "marked_duplicate": 0
         },
         "xiaoxue/jiaoyuxue": {
           "total": 170,
-          "with_knowledge": 122,
-          "with_answer": 91,
+          "with_knowledge": 128,
+          "with_answer": 95,
           "with_analysis_content": 170,
           "marked_duplicate": 1
         },
         "xiaoxue/zonghe": {
           "total": 620,
-          "with_knowledge": 584,
-          "with_answer": 494,
+          "with_knowledge": 594,
+          "with_answer": 518,
           "with_analysis_content": 620,
           "marked_duplicate": 71
         },
         "youer/baojiao": {
           "total": 429,
-          "with_knowledge": 384,
+          "with_knowledge": 386,
           "with_answer": 280,
           "with_analysis_content": 429,
           "marked_duplicate": 37
@@ -890,7 +890,7 @@
         },
         "youer/zonghe": {
           "total": 733,
-          "with_knowledge": 693,
+          "with_knowledge": 701,
           "with_answer": 627,
           "with_analysis_content": 733,
           "marked_duplicate": 3
@@ -904,28 +904,28 @@
         },
         "zhongxue/jiaoyuxinlixue": {
           "total": 181,
-          "with_knowledge": 117,
+          "with_knowledge": 152,
           "with_answer": 135,
           "with_analysis_content": 181,
           "marked_duplicate": 1
         },
         "zhongxue/jiaoyuxue": {
           "total": 72,
-          "with_knowledge": 57,
-          "with_answer": 30,
+          "with_knowledge": 58,
+          "with_answer": 33,
           "with_analysis_content": 72,
           "marked_duplicate": 2
         },
         "zhongxue/jiaoyuzhishi": {
           "total": 664,
-          "with_knowledge": 628,
+          "with_knowledge": 630,
           "with_answer": 439,
           "with_analysis_content": 664,
           "marked_duplicate": 4
         },
         "zhongxue/zonghe": {
           "total": 700,
-          "with_knowledge": 662,
+          "with_knowledge": 668,
           "with_answer": 581,
           "with_analysis_content": 700,
           "marked_duplicate": 93
@@ -977,28 +977,30 @@
       }
     },
     "ability_path_coverage": {
-      "questions_with_direct_ability_path": 13048,
-      "questions_with_inherited_ability_path": 13048,
+      "questions_with_direct_ability_path": 13169,
+      "questions_with_inherited_ability_path": 13169,
       "unique_questions": 12881,
-      "unique_with_knowledge": 12126,
+      "unique_with_knowledge": 12241,
       "national_exam_questions": 14041,
-      "national_exam_with_knowledge": 12727
+      "national_exam_with_knowledge": 12804
     },
     "no_ability_path_samples": [],
     "graph": {
-      "nodes": 21079,
-      "edges": 93855,
+      "nodes": 22111,
+      "edges": 96801,
       "layers": {
+        "L0": 2320,
         "L1": 7,
         "L3": 51,
         "L2": 38,
         "L6": 18303,
         "L5": 586,
         "L4": 791,
-        "L0": 1295,
-        "L7": 8
+        "L7": 15
       },
       "types": {
+        "standard": 60,
+        "exam_requirement": 2260,
         "exam": 7,
         "ability": 44,
         "module": 38,
@@ -1006,28 +1008,26 @@
         "material": 586,
         "knowledge_node": 791,
         "literacy": 7,
-        "standard": 39,
-        "exam_requirement": 1256,
-        "resource": 8,
+        "resource": 15,
         "rubric": 3803
       },
       "edge_types": {
+        "specifies": 2260,
         "contains": 14709,
         "targets": 7,
-        "supports_ability": 18493,
+        "supports_ability": 18696,
         "has_rubric": 3736,
         "refers_to_material": 586,
         "has_child": 620,
-        "assesses": 22797,
+        "assesses": 23220,
         "prerequisite_of": 31,
+        "supplements_resource": 15,
         "comprises": 44,
-        "specifies": 1256,
         "basis": 36,
-        "aligned_to_requirement": 31509,
+        "aligned_to_requirement": 32818,
         "confused_with": 7,
         "misconception_lead_to": 3,
-        "supports_resource": 13,
-        "supplements_resource": 8
+        "supports_resource": 13
       },
       "dangling_edges_count": 0,
       "dangling_edges": [],
@@ -1038,8 +1038,8 @@
         "nodes": 0,
         "acyclic": true
       },
-      "standard_nodes_verified": 39,
-      "standard_nodes_with_source_file_or_url": 39
+      "standard_nodes_verified": 60,
+      "standard_nodes_with_source_file_or_url": 60
     },
     "outline": {
       "files": 44,
@@ -1113,26 +1113,26 @@
       "tagging": {
         "tagger": "content-rule-v2/llm-v2",
         "status": "待专家复核",
-        "knowledge_mapped": 13048,
-        "ability_mapped": 13048,
-        "requirement_mapped": 10487
+        "knowledge_mapped": 13169,
+        "ability_mapped": 13169,
+        "requirement_mapped": 10572
       },
       "graph": {
-        "nodes": 21079,
-        "edges": 93855,
+        "nodes": 22111,
+        "edges": 96801,
         "by_layer": {
-          "L0": 1295,
+          "L0": 2320,
           "L1": 7,
           "L2": 38,
           "L3": 51,
           "L4": 791,
           "L5": 586,
           "L6": 18303,
-          "L7": 8
+          "L7": 15
         },
         "by_type": {
-          "standard": 39,
-          "exam_requirement": 1256,
+          "standard": 60,
+          "exam_requirement": 2260,
           "exam": 7,
           "module": 38,
           "literacy": 7,
@@ -1141,32 +1141,32 @@
           "material": 586,
           "rubric": 3803,
           "question": 14500,
-          "resource": 8
+          "resource": 15
         },
         "eight_layer_hierarchy": {
-          "L0_standard_requirement": 1295,
+          "L0_standard_requirement": 2320,
           "L1_exam": 7,
           "L2_module": 38,
           "L3_competency_ability": 51,
           "L4_knowledge_node": 791,
           "L5_shared_material": 586,
           "L6_question_rubric": 18303,
-          "L7_learning_resource": 8
+          "L7_learning_resource": 15
         },
         "by_edge_type": {
-          "specifies": 1256,
+          "specifies": 2260,
           "contains": 14709,
           "basis": 36,
           "targets": 7,
           "comprises": 44,
           "has_child": 620,
-          "aligned_to_requirement": 31509,
-          "supports_ability": 18493,
+          "aligned_to_requirement": 32818,
+          "supports_ability": 18696,
           "prerequisite_of": 31,
-          "assesses": 22797,
+          "assesses": 23220,
           "has_rubric": 3736,
           "refers_to_material": 586,
-          "supplements_resource": 8,
+          "supplements_resource": 15,
           "supports_resource": 13,
           "confused_with": 7,
           "misconception_lead_to": 3
@@ -1184,14 +1184,14 @@
       "source_materials_original": 96,
       "cards": 12881,
       "eight_layer_hierarchy": {
-        "L0_standard_requirement": 1295,
+        "L0_standard_requirement": 2320,
         "L1_exam": 7,
         "L2_module": 38,
         "L3_competency_ability": 51,
         "L4_knowledge_node": 791,
         "L5_shared_material": 586,
         "L6_question_rubric": 18303,
-        "L7_learning_resource": 8
+        "L7_learning_resource": 15
       }
     }
   },

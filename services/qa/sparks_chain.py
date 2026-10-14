@@ -200,9 +200,8 @@ class SparksChainEngine:
         self, record: dict, structured: dict, node_id: Optional[str]
     ) -> Tuple[dict, List[str]]:
         notices: List[str] = []
-        requirement_ids = list(record.get("exam_requirement_ids") or [])
-        if node_id:
-            requirement_ids.append(node_id)
+        # 条款清单只认 record 的 exam_requirement_ids：node_id 是考点不是条款，曾经把
+        # node_id 追加进一个再也没用过的局部 requirement_ids，属于死代码，删掉。
 
         clauses = []
         for rid in record.get("exam_requirement_ids") or []:

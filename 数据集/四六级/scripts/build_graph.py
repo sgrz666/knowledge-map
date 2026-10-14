@@ -147,6 +147,12 @@ def main():
         node(pid, "L5", "material", passage.get("extra", {}).get("title") or pid,
              word_count=passage.get("extra", {}).get("word_count") or len(passage.get("text") or ""),
              exam="cet." + pid.split("-", 1)[0], material_kind=passage.get("kind"))
+        slug = pid.split("-", 1)[0]
+        eid = "cet." + slug
+        module_slug = MODULE_SLUG.get(passage.get("module"), "reading")
+        mid = f"{eid}.{module_slug}"
+        if mid in nodes:
+            edge(mid, pid, "contains")
 
     for record in rubrics:
         rid = record["rubric_id"]

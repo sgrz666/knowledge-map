@@ -26,6 +26,7 @@ ALLOWED = {
     "specifies": {("standard", "exam_requirement")},
     "contains": {("exam", "module"), ("exam", "question"), ("module", "question"),
                  ("module", "knowledge_node"), ("module", "material"), ("module", "ability"),
+                 ("exam", "rubric"), ("module", "rubric"),
                  ("standard", "exam_requirement"), ("standard", "module")},
     "has_child": {("module", "knowledge_node"), ("knowledge_node", "knowledge_node"),
                   ("module", "ability"), ("ability", "ability"), ("knowledge_node", "material")},

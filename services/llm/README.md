@@ -43,7 +43,9 @@
   ① 权威/核定口吻 `BANNED_ASSERTION_PHRASES=("已审核","已核定","审核通过","已通过复核","官方认定","官方审定","官方标准答案")`；
   ② 未校准测量学 `BANNED_DIFFICULTY_CLAIMS=("标准误","能力值","能力估计","题目反应理论")` + 正则 `_BANNED_ASCII=\b(IRT|CAT|item response theory)\b`；
   ③ 提示词侧 `assert_prompt_not_reviewer`（`REVIEWER_ROLE_PATTERNS` 抓"你是/担任/充当…审核人/reviewer"，
-  但 `_role_verb_is_negated` 允许紧邻否定词"不要担任审核人"这类引用铁律的写法）。
+  动词内部允许空白以堵住"你 是 审核人"这类插空绕过；`_role_verb_is_negated` 允许紧邻否定词
+  "不要担任审核人"这类引用铁律的写法，也认"不要声称/不得冒充你 是审核人"这类转述禁令——
+  但转述词隔着句号就是两句，后一句的赋权照样拦下）。
   `enforce_payload(payload, schema_name, *, user_id, question_id, node_id, requirement_id, source, registry, generated_text)`：
   先扫 `generated_text` 的禁用声称、再 `assert_llm_record`、再 Schema 校验；任一不过就
   `get_review_queue().add(reason="llm_guardrail_violation", detail={errors, banned_claims, payload_preview, no_repair=True, next_action:"人工复核；运行时不重试、不修补该 payload。"})`

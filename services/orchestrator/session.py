@@ -32,8 +32,10 @@ CREATE TABLE IF NOT EXISTS agent_trace (
     envelope_json TEXT NOT NULL,
     created_at TEXT NOT NULL
 );
+-- ux_trace_seq 已覆盖 (session_id, seq) 的前缀列：ix_trace_session 是同一对列的重复索引，
+-- 每次 append_trace 都多付一份写放大，删掉；旧库里已建的也一并清掉。
+DROP INDEX IF EXISTS ix_trace_session;
 CREATE UNIQUE INDEX IF NOT EXISTS ux_trace_seq ON agent_trace (session_id, seq);
-CREATE INDEX IF NOT EXISTS ix_trace_session ON agent_trace (session_id, seq);
 """
 
 
@@ -84,6 +86,8 @@ class SessionStore:
         }
 
     def append_trace(self, session_id: str, envelope: dict) -> int:
+        # 列名是历史遗留：这里记的是信封的 action（如 "diagnostic.evaluate"），
+        # 不是状态机的 State；trace() 回放按 seq 读，不按这一列过滤。
         state = str(envelope.get("action", ""))
         with self._lock:
             seq = int(

@@ -368,20 +368,56 @@ class KnowledgeRepository:
         record = self._read_range(meta, question_id)
         if record is not None:
             return record
-        # 偏移失效：换代重扫一遍再按新位置读一次，仍然对不上就返回 None 并登记缺口。
-        logger.warning("question %s: index offset %s@%d no longer decodes to it, rebuilding index",
+        # 偏移失效：先只重扫该题所在的那一个文件——一次错位常常只是同文件里少了一行，
+        # 全局 invalidate 会连带扔掉条款/量规缓存并触发 GraphIndex 全量重建，一次读失败
+        # 就核爆整库缓存；确属这个文件里已经没有这道题，才登记缺口。
+        logger.warning("question %s: index offset %s@%d no longer decodes to it, rescanning its file",
                        question_id, meta.file, meta.offset)
-        self.invalidate()
-        meta = self.get_meta(question_id)
-        if meta is None:
-            self._note_scan_error(f"{question_id}: 索引换代后该题已不在库内")
-            return None
-        record = self._read_range(meta, question_id)
-        if record is None:
-            self._note_scan_error(
-                f"{meta.file}: 偏移 {meta.offset} 长度 {meta.length} 读不回 {question_id}")
-            logger.error("question %s: byte range still does not decode to it after a rebuild", question_id)
-        return record
+        if self._rescan_file(meta.file):
+            meta = self.get_meta(question_id)
+            if meta is not None:
+                record = self._read_range(meta, question_id)
+                if record is not None:
+                    return record
+        self._note_scan_error(f"{meta.file}: 偏移 {meta.offset} 长度 {meta.length} 读不回 {question_id}")
+        logger.error("question %s: byte range still does not decode to it after a file rescan", question_id)
+        return None
+
+    def _rescan_file(self, rel: str) -> bool:
+        """Re-index one question file in place; ``True`` when the file was re-read.
+
+        只换这一个文件的条目：同文件其它题的偏移一并刷新，别的文件与条款/量规缓存原样
+        保留，``generation`` 不动——图谱不因为一次读失败而全量重建。
+        """
+        with self._lock:
+            if self._questions is None:
+                # 索引尚未建立：questions() 首次构建自然会读到最新状态，无需重扫。
+                return False
+            index = self._questions
+            for qid, meta in list(index.items()):
+                if meta.file == rel:
+                    del index[qid]
+            try:
+                with open(self.path(rel), "rb") as fh:
+                    offset = 0
+                    for line in fh:
+                        length = len(line)
+                        record, decode_error = _loads_safe(line)
+                        if decode_error is not None:
+                            # 一行坏了不能把这个文件剩下的题全部丢掉：登记缺口，继续索引后续行。
+                            self._note_scan_error(f"{rel}: 偏移 {offset} 行不是合法 JSON（{decode_error}）")
+                        elif record is not None:
+                            meta = self._to_meta(record, rel, offset, length)
+                            if meta is not None:
+                                if meta.question_id in index:
+                                    self._note_scan_error(f"duplicate question_id {meta.question_id}")
+                                else:
+                                    index[meta.question_id] = meta
+                        offset += length
+            except OSError as exc:
+                self._note_scan_error(f"{rel}: {exc}")
+                return False
+            return True
 
     def _read_range(self, meta: QuestionMeta, question_id: str) -> Optional[dict]:
         try:

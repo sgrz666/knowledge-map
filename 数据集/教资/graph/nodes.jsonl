@@ -12513,6 +12513,10 @@
 {"id": "ntce.res.guide.chuzhong_lishi_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
 {"id": "ntce.res.guide.chuzhong_shengwu_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
 {"id": "ntce.res.guide.chuzhong_tiyu_s3_k04", "layer": "L7", "type": "resource", "name": "教学资源与板书设计", "res_type": "study_guide", "exam": "NTCE"}
+{"id": "ntce.res.guide.chuzhong_wuli_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
+{"id": "ntce.res.guide.chuzhong_xinxi_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
+{"id": "ntce.res.guide.gaozhong_wuli_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
+{"id": "ntce.res.guide.gaozhong_yinyue_s3_k01", "layer": "L7", "type": "resource", "name": "学情分析与教材分析", "res_type": "study_guide", "exam": "NTCE"}
 {"id": "ntce.res.interview.conflict_resolution", "layer": "L7", "type": "resource", "name": "结构化面试典型人际沟通与矛盾化解模型", "res_type": "interview_scenario", "exam": "NTCE"}
 {"id": "ntce.res.interview.ethics_teacher_value", "layer": "L7", "type": "resource", "name": "结构化面试教师职业认知与职业观回答框架", "res_type": "interview_scenario", "exam": "NTCE"}
 {"id": "ntce.res.law.minors_protection_act", "layer": "L7", "type": "resource", "name": "《中华人民共和国未成年人保护法》（2024修正版）六大保护防线与学校保护", "res_type": "legal_framework", "exam": "NTCE"}

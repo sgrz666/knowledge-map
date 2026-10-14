@@ -27,8 +27,8 @@ tests/test_learning_resources.py tests/test_status_vocabulary.py -q`。
   （默认 `_default_ttl()` 5.0s，读环境变量 `KNOWLEDGE_MAP_INDEX_TTL`，设 0 表示每次读都复核），指纹变了就
   `_invalidate_locked()` 清空三类缓存并把 `generation += 1`。
   **偏移的身份校验**：`load_question()` 用 `fh.seek(meta.offset); fh.read(meta.length)` 读回，`_read_range` 要求解出的
-  `record["question_id"]` 仍等于请求的 id；不等则 `logger.warning` + `invalidate()` 换代重扫、按新位置再读一次，
-  仍对不上就登记缺口返回 `None`（绝不把别人的题面/答案键当成这道题送出去）。
+  `record["question_id"]` 仍等于请求的 id；不等则 `logger.warning` + 只重扫该题所在文件（`_rescan_file`，不动条款/量规
+  缓存、不 `generation += 1`）、按新位置再读一次，仍对不上就登记缺口返回 `None`（绝不把别人的题面/答案键当成这道题送出去）。
   读 API：`questions/get_meta/find_questions`（谓词 `exams/modules/sections/question_types/node_ids/review_statuses/
   answer_statuses/require_nodes/require_answer/require_answerable_text/exclude/school_level/subject`，其中 `require_answer`
   复用 `trust.SERVABLE_ANSWER_STATUSES`，不另写一套词表）、`requirements/get_requirement`（第一个存在的 REQUIREMENT_FILES
@@ -96,8 +96,9 @@ tests/test_learning_resources.py tests/test_status_vocabulary.py -q`。
   `TASK_TYPE_ALIASES` 把请求任务名映射到 `数据集/教资/rubrics/*.json` 与 `数据集/四六级/ontology/scoring_rubrics.jsonl`
   的 `task_type` 取值（`case_analysis/lesson_plan/short_answer/writing/short_essay/paragraph_translation/interview_qa/interview_teaching`），
   兑现不了的别名**留在原值**，让 grader 报"该题型无量规"而不是拿编造的量规判分。
-  函数：`task_type_value/exam_values/module_values`（返回 `(values, notice)`，`values is None` 表示不按模块过滤）、
-  `is_multiple_choice`（`MC_SECTIONS`/`MC_TYPES`）。被 `repository.py`、`practice/agent.py`、`planner/scheduler.py` 读。
+  函数：`task_type_value/exam_values/module_values`（返回 `(values, notice)`，`values is None` 表示不按模块过滤）。
+  旧有的 `is_multiple_choice`（`MC_SECTIONS`/`MC_TYPES`）全仓零调用，已删——需要机器判字母的地方由
+  `trust.answer_letter`/`SERVABLE_ANSWER_STATUSES` 承担，不在本文件另留一份词表。
 - `completeness.py`（52 行）—— 教资完整性事实**只经 KnowledgeRepository 现算**（A1 口径：不许把计数抄进代码）。
   `audit_ntce(repository=None)`：遍历 `find_questions(exams='NTCE')`，按 `(school_level, subject)` 分 `groups` 并累计 `counts`，
   指标为 `total/usable/missing_knowledge/missing_requirement/missing_answer/answer_conflict/missing_stem/signed_questions`；

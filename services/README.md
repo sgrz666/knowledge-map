@@ -11,7 +11,7 @@
 ## 文件清单
 
 - `__init__.py`（2 行）—— 包标记：只声明 `__version__ = "1.0.0"`，无逻辑；被 `import services` 与所有 `services.x.y` 子模块导入时执行。
-- `app.py`（556 行）—— FastAPI 入口（`app = FastAPI(title="H-MAATS Adaptive Exam Agent Services", version=VERSION)`，`VERSION="1.2.0"`）。
+- `app.py`（581 行）—— FastAPI 入口（`app = FastAPI(title="H-MAATS Adaptive Exam Agent Services", version=VERSION)`，`VERSION="1.2.0"`）。
   顶层建模块级单例：`repository=get_repository()`，再用同一 `repository` 构造 8 个能力 agent
   （`grader_agent/memory_agent/diagnostic_agent/planner_agent/practice_agent/qa_agent/interview_agent/master_agent`）、
   `retrieval_service=get_retrieval_service()`、`review_queue=get_review_queue()`。

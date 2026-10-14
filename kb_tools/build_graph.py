@@ -116,6 +116,9 @@ def build():
         for m in rows(mpath):
             mid_mat = m['material_id']
             node(mid_mat, 'L5', 'material', m.get('title') or mid_mat, word_count=len(m.get('text', '')), used_by_questions=m.get('question_ids', []), level=m.get('level'), subject=m.get('subject'))
+            mod = modules.get((m.get('level'), m.get('subject')))
+            if mod:
+                edge(mod['module_id'], mid_mat, 'contains')
     # L6: 量规节点（评分量规是可被多题复用的图谱实体，供 §3.4 has_rubric 遍历）
     for rpath in sorted((OUT / 'rubrics').glob('*.json')):
         if rpath.name == 'README.md':
@@ -135,6 +138,30 @@ def build():
             # 量规实体的审核态在 review.status 里，不在顶层 status；权重未经签署时必须让消费端看见。
             review = data.get('review') or {}
             node(rid, 'L6', 'rubric', data.get('title') or rid, task_type=data.get('task_type'), total_score=data.get('total_score'), dimension_count=len(data.get('dimensions', [])), official=bool(data.get('official_scoring')), expert_verified=bool(data.get('expert_verified')), review_status=review.get('status') or data.get('status'), pending_reasons=review.get('pending_reasons') or [], reviewed_by=review.get('checked_by'), source=rpath.name)
+            # 建立通用评分量规到对应模块与考试的包含关系，消除图谱孤岛
+            if rpath.name == 'essay_writing.json':
+                for (lvl, subj), mod in modules.items():
+                    if subj == 'zonghe':
+                        edge(mod['module_id'], rid, 'contains')
+            elif rpath.name == 'case_analysis.json':
+                for (lvl, subj), mod in modules.items():
+                    if subj in ('zonghe', 'baojiao', 'jiaoxue', 'jiaoyuzhishi'):
+                        edge(mod['module_id'], rid, 'contains')
+            elif rpath.name == 'lesson_plan.json':
+                for (lvl, subj), mod in modules.items():
+                    if subj in ('jiaoxue', 'baojiao') or lvl in ('chuzhong', 'gaozhong'):
+                        edge(mod['module_id'], rid, 'contains')
+            elif rpath.name == 'short_answer.json':
+                for (lvl, subj), mod in modules.items():
+                    if subj in ('baojiao', 'jiaoxue', 'jiaoyuzhishi'):
+                        edge(mod['module_id'], rid, 'contains')
+            elif rpath.name in ('interview_qa.json', 'interview_teaching.json'):
+                for (lvl, subj), mod in modules.items():
+                    if subj == 'mianshi':
+                        edge(mod['module_id'], rid, 'contains')
+                for eid in ('ntce.youer', 'ntce.xiaoxue', 'ntce.chuzhong', 'ntce.gaozhong', 'ntce.zhongxiaoxue'):
+                    if eid in nodes:
+                        edge(eid, rid, 'contains')
     # L6: 题目节点
     for path in sorted((OUT / 'questions').glob('*/*/*.jsonl')):
         for q in rows(path):

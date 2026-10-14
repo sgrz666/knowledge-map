@@ -283,15 +283,23 @@ class AdaptiveScheduler:
 
     # ---------------------------------------------------------------- helpers
     def _mastery_map(self, user_id: str, records: Optional[List[UserMasteryRecord]]) -> Dict[str, float]:
-        """Only scores that exist — persisted first, then whatever the caller supplied."""
+        """Persisted scores first; the caller's records only fill what the store does not hold.
+
+        持久化掌握度是权威来源：弱名单（前 20）内的节点一律以 store 的当前值为准，调用方
+        传入的同节点旧值不参与覆盖——否则排课会按一份过期的掌握度把已掌握的考点排进复习格。
+        调用方记录只在 store 没有该节点时兜底（例如一次性脚本注入了尚未落盘的画像）。
+        """
         merged: Dict[str, float] = {}
-        for record in records or []:
-            merged[record.node_id] = record.mastery_score
+        persisted: set[str] = set()
         if self.store is not None:
             for node in self.store.weak_node_ids(user_id, limit=20):
                 record = self.store.get(user_id, node)
                 if record is not None:
                     merged[node] = record.mastery_score
+                    persisted.add(node)
+        for record in records or []:
+            if record.node_id not in persisted:
+                merged[record.node_id] = record.mastery_score
         return merged
 
     def _rank(

@@ -4,16 +4,24 @@
   "title": "ScoringRubric",
   "description": "附录A.6 可计算多维评分量规实体（数据集/教资/rubrics/*.json）。一个维度只允许一套名称、一套档位、一个分值权重；题内练习框架请用 practice_framework.json，二者不得混用。",
   "type": "object",
-  "required": ["rubric_id", "task_type", "total_score", "rubric_type", "official_scoring", "dimensions", "expert_verified", "review"],
+  "required": ["rubric_id", "task_type"],
+  "anyOf": [
+    {
+      "required": ["total_score", "rubric_type", "official_scoring", "dimensions", "expert_verified", "review"]
+    },
+    {
+      "required": ["bands"]
+    }
+  ],
   "properties": {
     "rubric_id": {
       "type": "string",
-      "description": "如 rubric.ntce.lesson_plan.standard_v1"
+      "description": "如 rubric.ntce.lesson_plan.standard_v1 或 cet.writing.holistic.2016"
     },
     "title": { "type": "string" },
     "task_type": {
       "type": "string",
-      "enum": ["writing", "translation", "case_analysis", "lesson_plan", "interview_qa", "interview_teaching", "short_answer", "essay", "activity_plan"]
+      "enum": ["writing", "translation", "short_essay", "paragraph_translation", "case_analysis", "lesson_plan", "interview_qa", "interview_teaching", "short_answer", "essay", "activity_plan"]
     },
     "total_score": {
       "type": ["number", "null"],
@@ -71,6 +79,32 @@
         "additionalProperties": false
       }
     },
+    "bands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["band", "raw_score_range", "descriptor"],
+        "properties": {
+          "band": { "type": "number" },
+          "raw_score_range": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "number" },
+              { "type": "number" }
+            ],
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "本档位分值区间 [下界, 上界]"
+          },
+          "descriptor": { "type": "string" },
+          "content_type": { "type": "string" },
+          "raw_score_min": { "type": "number" },
+          "raw_score_max": { "type": "number" }
+        },
+        "additionalProperties": true
+      }
+    },
     "question_specific_points": {
       "type": "array",
       "items": { "type": ["object", "string"] }
@@ -102,12 +136,12 @@
   },
   "allOf": [
     {
-      "if": { "properties": { "expert_verified": { "const": true } } },
+      "if": { "required": ["expert_verified"], "properties": { "expert_verified": { "const": true } } },
       "then": { "properties": { "review": { "properties": { "checked_by": { "type": "string" } } } } },
       "description": "expert_verified=true 必须有具名审核人，自动化不得声称专家已核"
     },
     {
-      "if": { "properties": { "official_scoring": { "const": true } } },
+      "if": { "required": ["official_scoring"], "properties": { "official_scoring": { "const": true } } },
       "then": { "required": ["source_locator"] },
       "description": "自称官方评分细则必须给出权威资料定位"
     }

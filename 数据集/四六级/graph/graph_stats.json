@@ -1,6 +1,6 @@
 {
  "nodes": 25659,
- "edges": 86688,
+ "edges": 87137,
  "by_layer": {
   "L0": 4001,
   "L1": 2,
@@ -27,7 +27,7 @@
  "by_edge_type": {
   "specifies": 3995,
   "targets": 2,
-  "contains": 5650,
+  "contains": 6099,
   "comprises": 28,
   "aligned_to_requirement": 14706,
   "has_child": 38,

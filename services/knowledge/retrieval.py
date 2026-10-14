@@ -132,12 +132,18 @@ class RetrievalService:
         blocked: List[dict] = []
         evidence: List[Evidence] = []
         queue = self.queue
+        # 同一 question_id 只保留最高分的那次命中：卡片索引出现重复 doc（脏数据/重命名竞态）
+        # 时，去重缺口会让同一道题在候选里出现两遍，前端看到两条"不同"结果其实是同一题。
+        seen_questions: set[str] = set()
 
         for hit in hits:
             meta = self.repository.get_meta(hit.question_id)
             review_status, answer_status = self._reconcile(hit, meta, blocked, queue, user_id, tier)
             if review_status is None:
                 continue
+            if hit.question_id in seen_questions:
+                continue
+            seen_questions.add(hit.question_id)
             verdict = gate.classify(
                 question_id=hit.question_id,
                 review_status=review_status,

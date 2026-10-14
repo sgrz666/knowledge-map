@@ -4,8 +4,16 @@
   "title": "AbilityDimension",
   "description": "能力素养维度Schema（对应规范附录A.4）",
   "type": "object",
-  "required": ["ability_id", "name", "exam"],
+  "required": ["name"],
+  "anyOf": [
+    { "required": ["id"] },
+    { "required": ["ability_id"] }
+  ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "如 ab.cet.read.infer 或 ntce.chuzhong.ability.subject"
+    },
     "ability_id": {
       "type": "string",
       "description": "如 ab.cet.read.infer 或 ntce.chuzhong.ability.subject"

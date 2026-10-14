@@ -54,7 +54,7 @@ PowerShell 中运行 `python -m pip install -r requirements.txt`，再运行 ` .
 
 ### 本机运行时（都不入库）
 
-[`chroma/`](chroma/README.md) 向量索引 ｜ [`.local_state/`](.local_state/README.md) 学习者状态与验收留痕 ｜ [`_contract_snapshot/`](_contract_snapshot/README.md) 契约迁移回滚快照 ｜ [`归档/`](归档/README.md) 8 份操作前快照 ｜ [`review/`](review/README.md) 空目录遗留 ｜ `.scratch/` 会话级草稿（**不在 `.gitignore` 里**，`git status` 现为 `?? .scratch/`，要留就 `git add`、不要留就删或先加忽略规则）：现算两件——`find_candidates.py`（只读探针，用 `KnowledgeRepository` 打 4 个无题考点标准 `ntce.outline.306/315/406/412` 的候选条款与其 `locator` 行区间，供人工挑选学习指南引用）与 `goal_state_dir/`（一次把 `KNOWLEDGE_MAP_STATE_DIR` 指到这里跑出来的运行时库：`learning.sqlite3`/`memory.sqlite3`/`orchestrator.sqlite3`/`workbench.sqlite3` + `review_queue/`，形状同 `.local_state/`）。
+[`chroma/`](chroma/README.md) 向量索引 ｜ [`.local_state/`](.local_state/README.md) 学习者状态与验收留痕 ｜ [`_contract_snapshot/`](_contract_snapshot/README.md) 契约迁移回滚快照 ｜ [`归档/`](归档/README.md) 8 份操作前快照 ｜ [`review/`](review/README.md) 空目录遗留 ｜ `.scratch/` 会话级草稿（已列入 `.gitignore` 第 70–72 行，按机器隔离；条目清单见其自述）：现算两件——`find_candidates.py`（只读探针，用 `KnowledgeRepository` 打 4 个无题考点标准 `ntce.outline.306/315/406/412` 的候选条款与其 `locator` 行区间，供人工挑选学习指南引用；这 4 个考点的指南已于 2026-10-12 全部补入 `study_guides.jsonl`，探针保留复跑）与 `goal_state_dir/`（一次把 `KNOWLEDGE_MAP_STATE_DIR` 指到这里跑出来的运行时库：`learning.sqlite3`/`memory.sqlite3`/`orchestrator.sqlite3`/`workbench.sqlite3` + `review_queue/`，形状同 `.local_state/`）。
 
 ### 清单覆盖到哪一层（口径）
 

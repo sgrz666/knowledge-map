@@ -85,6 +85,43 @@ class CetEightLayerContractTests(unittest.TestCase):
             if rights["authorization_status"] in ("authorized", "public_domain"):
                 self.assertTrue(rights.get("evidence") or rights.get("holder"), question["question_id"])
 
+    def test_cet_knowledge_nodes_conform_to_schema(self):
+        validator = jsonschema.Draft202012Validator(self.schemas["knowledge_node"])
+        knowledge = rows(CET / "ontology" / "knowledge_nodes.jsonl")
+        self.assertEqual(48, len(knowledge))
+        for kn in knowledge:
+            errors = list(validator.iter_errors(kn))
+            self.assertEqual([], errors, f"CET知识点 {kn.get('id')} 不符合Schema: {[e.message for e in errors]}")
+        cet_graph_kn = [n for n in self.nodes.values() if n.get("type") == "knowledge_node"]
+        self.assertEqual(48, len(cet_graph_kn))
+        for kn in cet_graph_kn:
+            errors = list(validator.iter_errors(kn))
+            self.assertEqual([], errors, f"CET图谱知识点 {kn.get('id')} 不符合Schema: {[e.message for e in errors]}")
+
+    def test_cet_ability_nodes_conform_to_schema(self):
+        validator = jsonschema.Draft202012Validator(self.schemas["ability_node"])
+        abilities = rows(CET / "ontology" / "ability_nodes.jsonl")
+        self.assertEqual(28, len(abilities))
+        for ab in abilities:
+            errors = list(validator.iter_errors(ab))
+            self.assertEqual([], errors, f"CET能力 {ab.get('id')} 不符合Schema: {[e.message for e in errors]}")
+        cet_graph_ab = [n for n in self.nodes.values() if n.get("type") == "ability"]
+        self.assertEqual(28, len(cet_graph_ab))
+        for ab in cet_graph_ab:
+            errors = list(validator.iter_errors(ab))
+            self.assertEqual([], errors, f"CET图谱能力 {ab.get('id')} 不符合Schema: {[e.message for e in errors]}")
+
+    def test_cet_rubrics_conform_to_schema(self):
+        validator = jsonschema.Draft202012Validator(self.schemas["rubric"])
+        holistic_validator = jsonschema.Draft202012Validator(self.schemas["holistic_rubric"])
+        rubrics = rows(CET / "ontology" / "scoring_rubrics.jsonl")
+        self.assertEqual(2, len(rubrics))
+        for r in rubrics:
+            errors = list(validator.iter_errors(r))
+            self.assertEqual([], errors, f"CET量规 {r.get('rubric_id')} 不符合 rubric.json: {[e.message for e in errors]}")
+            h_errors = list(holistic_validator.iter_errors(r))
+            self.assertEqual([], h_errors, f"CET量规 {r.get('rubric_id')} 不符合 holistic_rubric.json: {[e.message for e in h_errors]}")
+
 
 if __name__ == "__main__":
     unittest.main()
